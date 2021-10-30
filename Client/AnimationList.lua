@@ -2079,6 +2079,21 @@ DP.Emotes = {
       PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
       PtfxWait = 3000,
    }},
+   ["valet"] = {"anim@amb@casino@valet_scenario@pose_a@", "base_a_m_y_vinewood_01", "Valet", AnimationOptions =
+   {
+      EmoteLoop = true,
+      EmoteMoving = false,
+   }},
+   ["valet2"] = {"anim@amb@casino@valet_scenario@pose_b@", "base_a_m_y_vinewood_01", "Valet 2", AnimationOptions =
+   {
+      EmoteLoop = true,
+      EmoteMoving = false,
+   }},
+   ["valet3"] = {"anim@amb@casino@valet_scenario@pose_d@", "base_a_m_y_vinewood_01", "Valet 3", AnimationOptions =
+   {
+      EmoteLoop = true,
+      EmoteMoving = true,
+   }},
 
    -----------------------------------------------------------------------------------------------------------
    ------ These are Scenarios, some of these dont work on women and some other issues, but still good to have.
@@ -3087,6 +3102,23 @@ DP.PropEmotes = {
       EmoteLoop = true,
       EmoteMoving = true,
    }},
+   ["pump"] = {"missfbi4prepp1", "idle", "Pumpkin", AnimationOptions =
+   {
+      Prop = "prop_veg_crop_03_pump",
+      PropBone = 28422,
+      PropPlacement = {0.0200, 0.0600, -0.1200, 0.0, 0.0, 0.0},
+      EmoteLoop = true,
+      EmoteMoving = true,
+   }},
+   ["pump2"] = {"anim@heists@box_carry@", "idle", "Pumpkin 2", AnimationOptions =
+   {
+      Prop = "prop_veg_crop_03_pump",
+      PropBone = 28422,
+      PropPlacement = {0.0100, -0.16000, -0.2100, 0.0, 0.0, 0.0},
+      EmoteLoop = true,
+      EmoteMoving = true,
+   }},
+
 
 
 
