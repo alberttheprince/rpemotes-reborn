@@ -2367,8 +2367,7 @@ DP.PropEmotes = {
       EmoteLoop = true,
       EmoteMoving = true,
    }},
-
-   ['umbrella2'] = {'rcmnigel1d', 'base_club_shoulder', 'Umbrella', AnimationOptions =
+   ['umbrella2'] = {'rcmnigel1d', 'base_club_shoulder', 'Umbrella 2', AnimationOptions =
    {
       Prop = 'p_amb_brolly_01',
       PropBone = 28422,
