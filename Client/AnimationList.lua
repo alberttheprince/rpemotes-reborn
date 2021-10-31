@@ -2687,7 +2687,7 @@ DP.PropEmotes = {
    {
        Prop = 'ba_prop_club_water_bottle',
        PropBone = 28422,
-       PropPlacement = {0.0, 0.0, 0.0, 0.0, 0.0, 130.0},
+       PropPlacement = {0.0, 0.0, -0.090, 0.0, 0.0, 130.0},
        EmoteLoop = true,
        EmoteMoving = true,
    }},
