@@ -3388,6 +3388,62 @@ DP.PropEmotes = {
       EmoteLoop = true,
       EmoteMoving = true,
    }},
+   ["rake"] = {"anim@amb@drug_field_workers@rake@male_a@base", "base", "Rake", AnimationOptions =
+   {
+      Prop = "prop_tool_rake",
+      PropBone = 28422,
+      PropPlacement = {0.0, 0.0, -0.0300, 0.0, 0.0, 0.0},
+      EmoteLoop = true,
+   }},
+   ["rake2"] = {"anim@amb@drug_field_workers@rake@male_a@idles", "idle_b", "Rake 2", AnimationOptions =
+   {
+      Prop = "prop_tool_rake",
+      PropBone = 28422,
+      PropPlacement = {0.0, 0.0, -0.0300, 0.0, 0.0, 0.0},
+      EmoteLoop = true,
+   }},
+   ["rake3"] = {"anim@amb@drug_field_workers@rake@male_b@base", "base", "Rake 3", AnimationOptions =
+   {
+      Prop = "prop_tool_rake",
+      PropBone = 28422,
+      PropPlacement = {0.0, 0.0, -0.0300, 0.0, 0.0, 0.0},
+      EmoteLoop = true,
+   }},
+   ["rake4"] = {"anim@amb@drug_field_workers@rake@male_b@idles", "idle_d", "Rake 4", AnimationOptions =
+   {
+      Prop = "prop_tool_rake",
+      PropBone = 28422,
+      PropPlacement = {0.0, 0.0, -0.0300, 0.0, 0.0, 0.0},
+      EmoteLoop = true,
+   }},
+   ["broom"] = {"anim@amb@drug_field_workers@rake@male_a@base", "base", "Broom", AnimationOptions =
+   {
+      Prop = "prop_tool_broom",
+      PropBone = 28422,
+      PropPlacement = {-0.0100, 0.0400, -0.0300, 0.0, 0.0, 0.0},
+      EmoteLoop = true,
+   }},
+   ["broom2"] = {"anim@amb@drug_field_workers@rake@male_a@idles", "idle_b", "Broom 2", AnimationOptions =
+   {
+      Prop = "prop_tool_broom",
+      PropBone = 28422,
+      PropPlacement = {-0.0100, 0.0400, -0.0300, 0.0, 0.0, 0.0},
+      EmoteLoop = true,
+   }},
+   ["broom3"] = {"anim@amb@drug_field_workers@rake@male_b@base", "base", "Broom 3", AnimationOptions =
+   {
+      Prop = "prop_tool_broom",
+      PropBone = 28422,
+      PropPlacement = {-0.0100, 0.0400, -0.0300, 0.0, 0.0, 0.0},
+      EmoteLoop = true,
+   }},
+   ["broom4"] = {"anim@amb@drug_field_workers@rake@male_b@idles", "idle_d", "Broom 4", AnimationOptions =
+   {
+      Prop = "prop_tool_broom",
+      PropBone = 28422,
+      PropPlacement = {-0.0100, 0.0400, -0.0300, 0.0, 0.0, 0.0},
+      EmoteLoop = true,
+   }},
 
 
 
