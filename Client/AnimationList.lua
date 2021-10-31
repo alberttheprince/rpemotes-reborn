@@ -565,51 +565,51 @@ DP.Dances = {
    {
       EmoteLoop = true,
    }},
-["lapdance"] = {"mp_safehouse", "lap_dance_girl", "Lapdance"},
-["lapdance2"] = {"mini@strip_club@private_dance@idle", "priv_dance_idle", "Lapdance 2", AnimationOptions =
-{
-    EmoteLoop = true,
-}},
-["lapdance3"] = {"mini@strip_club@private_dance@part1", "priv_dance_p1", "Lapdance 3", AnimationOptions =
-{
-    EmoteLoop = true,
-}},
-["lapdance4"] = {"mini@strip_club@private_dance@part2", "priv_dance_p2", "Lapdance 4", AnimationOptions =
-{
-    EmoteLoop = true,
-}},
-["lapdance5"] = {"mini@strip_club@private_dance@part3", "priv_dance_p3", "Lapdance 5", AnimationOptions =
-{
-    EmoteLoop = true,
-}},
-["lapdance6"] = {"oddjobs@assassinate@multi@yachttarget@lapdance", "yacht_ld_f", "Lapdance 6", AnimationOptions =
-{
-    EmoteLoop = true,
-}},
-["lapdancewith"] = {"mini@strip_club@lap_dance_2g@ld_2g_p3", "ld_2g_p3_s2", "Lapdance With", AnimationOptions =
-{
-    EmoteLoop = true,
-}},
-["lapdancewith2"] = {"mini@strip_club@lap_dance_2g@ld_2g_p2", "ld_2g_p2_s2", "Lapdance With2", AnimationOptions =
-{
-    EmoteLoop = true,
-}},
-["lapdancewith3"] = {"mini@strip_club@lap_dance_2g@ld_2g_p1", "ld_2g_p1_s2", "Lapdance With3", AnimationOptions =
-{
-    EmoteLoop = true,
-}},
-["lapchair"] = {"mini@strip_club@lap_dance@ld_girl_a_song_a_p1", "ld_girl_a_song_a_p1_f", "Lap Chair", AnimationOptions =
-{
-    EmoteLoop = true,
-}},
-["lapchair2"] = {"mini@strip_club@lap_dance@ld_girl_a_song_a_p2", "ld_girl_a_song_a_p2_f", "Lap Chair2", AnimationOptions =
-{
-    EmoteLoop = true,
-}},
-["lapchair3"] = {"mini@strip_club@lap_dance@ld_girl_a_song_a_p3", "ld_girl_a_song_a_p3_f", "Lap Chair3", AnimationOptions =
-{
-    EmoteLoop = true,
-}},
+   ["lapdance"] = {"mp_safehouse", "lap_dance_girl", "Lapdance"},
+   ["lapdance2"] = {"mini@strip_club@private_dance@idle", "priv_dance_idle", "Lapdance 2", AnimationOptions =
+   {
+      EmoteLoop = true,
+   }},
+   ["lapdance3"] = {"mini@strip_club@private_dance@part1", "priv_dance_p1", "Lapdance 3", AnimationOptions =
+   {
+      EmoteLoop = true,
+   }},
+   ["lapdance4"] = {"mini@strip_club@private_dance@part2", "priv_dance_p2", "Lapdance 4", AnimationOptions =
+   {
+      EmoteLoop = true,
+   }},
+   ["lapdance5"] = {"mini@strip_club@private_dance@part3", "priv_dance_p3", "Lapdance 5", AnimationOptions =
+   {
+      EmoteLoop = true,
+   }},
+   ["lapdance6"] = {"oddjobs@assassinate@multi@yachttarget@lapdance", "yacht_ld_f", "Lapdance 6", AnimationOptions =
+   {
+      EmoteLoop = true,
+   }},
+   ["lapdancewith"] = {"mini@strip_club@lap_dance_2g@ld_2g_p3", "ld_2g_p3_s2", "Lapdance With", AnimationOptions =
+   {
+      EmoteLoop = true,
+   }},
+   ["lapdancewith2"] = {"mini@strip_club@lap_dance_2g@ld_2g_p2", "ld_2g_p2_s2", "Lapdance With2", AnimationOptions =
+   {
+      EmoteLoop = true,
+   }},
+   ["lapdancewith3"] = {"mini@strip_club@lap_dance_2g@ld_2g_p1", "ld_2g_p1_s2", "Lapdance With3", AnimationOptions =
+   {
+      EmoteLoop = true,
+   }},
+   ["lapchair"] = {"mini@strip_club@lap_dance@ld_girl_a_song_a_p1", "ld_girl_a_song_a_p1_f", "Lap Chair", AnimationOptions =
+   {
+      EmoteLoop = true,
+   }},
+   ["lapchair2"] = {"mini@strip_club@lap_dance@ld_girl_a_song_a_p2", "ld_girl_a_song_a_p2_f", "Lap Chair2", AnimationOptions =
+   {
+      EmoteLoop = true,
+   }},
+   ["lapchair3"] = {"mini@strip_club@lap_dance@ld_girl_a_song_a_p3", "ld_girl_a_song_a_p3_f", "Lap Chair3", AnimationOptions =
+   {
+      EmoteLoop = true,
+   }},
 
 
 }
@@ -1418,7 +1418,7 @@ DP.Emotes = {
    ["mechanic"] = {"mini@repair", "fixing_a_ped", "Mechanic", AnimationOptions =
    {
       EmoteLoop = true,
-    }},
+   }},
    ["mechanic2"] = {"mini@repair", "fixing_a_player", "Mechanic 2", AnimationOptions =
    {
       EmoteLoop = true,
@@ -1426,16 +1426,16 @@ DP.Emotes = {
    ["mechanic3"] = {"amb@world_human_vehicle_mechanic@male@base", "base", "Mechanic 3", AnimationOptions =
    {
       EmoteLoop = true,
-	  EmoteMoving = false,
+      EmoteMoving = false,
    }},
    ["mechanic4"] = {"anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", "Mechanic 4", AnimationOptions =
    {
       EmoteLoop = true,
    }},
-    ["mechanic5"] = {"amb@prop_human_movie_bulb@idle_a", "idle_b", "Mechanic 6", AnimationOptions =
-    {
-        EmoteLoop = true,
-    }},
+   ["mechanic5"] = {"amb@prop_human_movie_bulb@idle_a", "idle_b", "Mechanic 6", AnimationOptions =
+   {
+      EmoteLoop = true,
+   }},
    ["medic2"] = {"amb@medic@standing@tendtodead@base", "base", "Medic 2", AnimationOptions =
    {
       EmoteLoop = true,
@@ -2155,115 +2155,115 @@ DP.Emotes = {
    {
       EmoteLoop = true,
       EmoteMoving = true,
-    }},
-    ["hump"] = {"timetable@trevor@skull_loving_bear", "skull_loving_bear", "Hump", AnimationOptions =
-    {
-        EmoteMoving = false,
-        EmoteLoop = true,
+   }},
+   ["hump"] = {"timetable@trevor@skull_loving_bear", "skull_loving_bear", "Hump", AnimationOptions =
+   {
+      EmoteMoving = false,
+      EmoteLoop = true,
 
-    }},
-    ["hump2"] = {"timetable@trevor@skull_loving_bear", "skull_loving_bear", "Hump 2 (Bear)", AnimationOptions =
-    {
-        Prop = 'prop_mr_raspberry_01',
-        PropBone = 28422,
-        PropPlacement = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0},
-        EmoteMoving = false,
-        EmoteLoop = true,
+   }},
+   ["hump2"] = {"timetable@trevor@skull_loving_bear", "skull_loving_bear", "Hump 2 (Bear)", AnimationOptions =
+   {
+      Prop = 'prop_mr_raspberry_01',
+      PropBone = 28422,
+      PropPlacement = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0},
+      EmoteMoving = false,
+      EmoteLoop = true,
 
-    }},
-    ["tighten"] = {"timetable@denice@ig_1", "idle_b", "Tigten (Yoga)", AnimationOptions =
-    {
-        EmoteMoving = false,
-        EmoteLoop = true,
+   }},
+   ["tighten"] = {"timetable@denice@ig_1", "idle_b", "Tigten (Yoga)", AnimationOptions =
+   {
+      EmoteMoving = false,
+      EmoteLoop = true,
 
-    }},
-    ["fspose"] = {"missfam5_yoga", "c2_pose", "F Sex Pose", AnimationOptions =
-    {
-        EmoteMoving = false,
-        EmoteLoop = true,
-        
+   }},
+   ["fspose"] = {"missfam5_yoga", "c2_pose", "F Sex Pose", AnimationOptions =
+   {
+      EmoteMoving = false,
+      EmoteLoop = true,
 
-    }},
-    ["fspose2"] = {"missfam5_yoga", "c6_pose", "F Sex Pose 2", AnimationOptions =
-    {
-        EmoteMoving = false,
-        EmoteLoop = true,
-        
 
-    }},
-    ["fspose4"] = {"anim@amb@carmeet@checkout_car@", "female_c_idle_d", "F Sex Pose 4", AnimationOptions =
-    {
-        EmoteMoving = false,
-        EmoteLoop = true,
-        
+   }},
+   ["fspose2"] = {"missfam5_yoga", "c6_pose", "F Sex Pose 2", AnimationOptions =
+   {
+      EmoteMoving = false,
+      EmoteLoop = true,
 
-    }},
-    ["showerf"] = {"mp_safehouseshower@female@", "shower_enter_into_idle", "Shower Enter Female", AnimationOptions =
-    {
-        EmoteMoving = false,
-        EmoteLoop = true,
 
-    }},
-    ["showerf2"] = {"mp_safehouseshower@female@", "shower_idle_a", "Shower Female", AnimationOptions =
-    {
-        EmoteMoving = false,
-        EmoteLoop = true,
+   }},
+   ["fspose4"] = {"anim@amb@carmeet@checkout_car@", "female_c_idle_d", "F Sex Pose 4", AnimationOptions =
+   {
+      EmoteMoving = false,
+      EmoteLoop = true,
 
-    }},
-    ["showerf3"] = {"mp_safehouseshower@female@", "shower_idle_b", "Shower Female 2", AnimationOptions =
-    {
-        EmoteMoving = false,
-        EmoteLoop = true,
 
-    }},
-    ["showerm"] = {"mp_safehouseshower@male@", "male_shower_idle_a", "Shower Enter Male", AnimationOptions =
-    {
-        EmoteMoving = false,
-        EmoteLoop = true,
+   }},
+   ["showerf"] = {"mp_safehouseshower@female@", "shower_enter_into_idle", "Shower Enter Female", AnimationOptions =
+   {
+      EmoteMoving = false,
+      EmoteLoop = true,
 
-    }},
-    ["showerm2"] = {"mp_safehouseshower@male@", "male_shower_idle_b", "Shower Male 2", AnimationOptions =
-    {
-        EmoteMoving = false,
-        EmoteLoop = true,
+   }},
+   ["showerf2"] = {"mp_safehouseshower@female@", "shower_idle_a", "Shower Female", AnimationOptions =
+   {
+      EmoteMoving = false,
+      EmoteLoop = true,
 
-    }},
-    ["showerm3"] = {"mp_safehouseshower@male@", "male_shower_idle_c", "Shower Male 3", AnimationOptions =
-    {
-        EmoteMoving = false,
-        EmoteLoop = true,
+   }},
+   ["showerf3"] = {"mp_safehouseshower@female@", "shower_idle_b", "Shower Female 2", AnimationOptions =
+   {
+      EmoteMoving = false,
+      EmoteLoop = true,
 
-    }},
-    ["showerm4"] = {"mp_safehouseshower@male@", "male_shower_idle_d", "Shower Male 4", AnimationOptions =
-    {
-        EmoteMoving = false,
-        EmoteLoop = true,
+   }},
+   ["showerm"] = {"mp_safehouseshower@male@", "male_shower_idle_a", "Shower Enter Male", AnimationOptions =
+   {
+      EmoteMoving = false,
+      EmoteLoop = true,
 
-    }},
-    ["picklock"] = {"missheistfbisetup1", "hassle_intro_loop_f", "Picklock", AnimationOptions =
-    {
-        EmoteMoving = true,
-        EmoteLoop = true,
+   }},
+   ["showerm2"] = {"mp_safehouseshower@male@", "male_shower_idle_b", "Shower Male 2", AnimationOptions =
+   {
+      EmoteMoving = false,
+      EmoteLoop = true,
 
-    }},
-    ["cleanhands"] = {"missheist_agency3aig_23", "urinal_sink_loop", "Clean Them Filthy Hands", AnimationOptions =
-    {
-        EmoteMoving = true,
-        EmoteLoop = true,
+   }},
+   ["showerm3"] = {"mp_safehouseshower@male@", "male_shower_idle_c", "Shower Male 3", AnimationOptions =
+   {
+      EmoteMoving = false,
+      EmoteLoop = true,
 
-    }},
-    ["cleanface"] = {"switch@michael@wash_face", "loop_michael", "Clean Your Face", AnimationOptions =
-    {
-         EmoteMoving = true,
-        EmoteLoop = true,
+   }},
+   ["showerm4"] = {"mp_safehouseshower@male@", "male_shower_idle_d", "Shower Male 4", AnimationOptions =
+   {
+      EmoteMoving = false,
+      EmoteLoop = true,
 
-    }},
-    ["buzz"] = {"anim@apt_trans@buzzer", "buzz_reg", "Buzz Door", AnimationOptions =
-    {
-        EmoteLoop = false,
-		EmoteMoving = false,
+   }},
+   ["picklock"] = {"missheistfbisetup1", "hassle_intro_loop_f", "Picklock", AnimationOptions =
+   {
+      EmoteMoving = true,
+      EmoteLoop = true,
 
-    }},
+   }},
+   ["cleanhands"] = {"missheist_agency3aig_23", "urinal_sink_loop", "Clean Them Filthy Hands", AnimationOptions =
+   {
+      EmoteMoving = true,
+      EmoteLoop = true,
+
+   }},
+   ["cleanface"] = {"switch@michael@wash_face", "loop_michael", "Clean Your Face", AnimationOptions =
+   {
+      EmoteMoving = true,
+      EmoteLoop = true,
+
+   }},
+   ["buzz"] = {"anim@apt_trans@buzzer", "buzz_reg", "Buzz Door", AnimationOptions =
+   {
+      EmoteLoop = false,
+      EmoteMoving = false,
+
+   }},
 
    -----------------------------------------------------------------------------------------------------------
    ------ These are Scenarios, some of these dont work on women and some other issues, but still good to have.
@@ -2361,21 +2361,21 @@ DP.Emotes = {
 DP.PropEmotes = {
    ["umbrella"] = {"amb@world_human_drinking@coffee@male@base", "base", "Umbrella", AnimationOptions =
    {
-       Prop = "p_amb_brolly_01",
-       PropBone = 57005,
-       PropPlacement = {0.15, 0.005, 0.0, 87.0, -20.0, 180.0},
-       EmoteLoop = true,
-       EmoteMoving = true,
+      Prop = "p_amb_brolly_01",
+      PropBone = 57005,
+      PropPlacement = {0.15, 0.005, 0.0, 87.0, -20.0, 180.0},
+      EmoteLoop = true,
+      EmoteMoving = true,
    }},
-   
+
    ['umbrella2'] = {'rcmnigel1d', 'base_club_shoulder', 'Umbrella', AnimationOptions =
-    {
-    Prop = 'p_amb_brolly_01',
-    PropBone = 28422,
-    PropPlacement = {0.0700, 0.0100, 0.1100, 2.3402393, -150.9605721, 57.3374916},
-    EmoteLoop = true,
-    EmoteMoving = true,
-    }},
+   {
+      Prop = 'p_amb_brolly_01',
+      PropBone = 28422,
+      PropPlacement = {0.0700, 0.0100, 0.1100, 2.3402393, -150.9605721, 57.3374916},
+      EmoteLoop = true,
+      EmoteMoving = true,
+   }},
 
    -----------------------------------------------------------------------------------------------------
    ------ This is an example of an emote with 2 props, pretty simple! ----------------------------------
@@ -2588,63 +2588,63 @@ DP.PropEmotes = {
    }},
    ["beer2"] = {"amb@world_human_drinking@beer@male@idle_a", "idle_a", "Beer 2", AnimationOptions =
    {
-       Prop = 'ba_prop_battle_whiskey_bottle_2_s',
-       PropBone = 28422,
-       PropPlacement = {0.0, 0.0, 0.05, 0.0, 0.0, 0.0},
-       EmoteLoop = true,
-       EmoteMoving = true,
+      Prop = 'ba_prop_battle_whiskey_bottle_2_s',
+      PropBone = 28422,
+      PropPlacement = {0.0, 0.0, 0.05, 0.0, 0.0, 0.0},
+      EmoteLoop = true,
+      EmoteMoving = true,
    }},
    ["beer3"] = {"amb@world_human_drinking@beer@male@idle_a", "idle_c", "Beer 3", AnimationOptions =
    {
-       Prop = 'prop_amb_beer_bottle',
-       PropBone = 28422,
-       PropPlacement = {0.0, 0.0, 0.06, 0.0, 15.0, 0.0},
-       EmoteLoop = true,
-       EmoteMoving = false,
+      Prop = 'prop_amb_beer_bottle',
+      PropBone = 28422,
+      PropPlacement = {0.0, 0.0, 0.06, 0.0, 15.0, 0.0},
+      EmoteLoop = true,
+      EmoteMoving = false,
    }},
    ["beer4"] = {"amb@world_human_drinking@beer@male@idle_a", "idle_a", "Beer 4", AnimationOptions =
    {
-       Prop = 'ba_prop_battle_whiskey_bottle_2_s',
-       PropBone = 28422,
-       PropPlacement = {0.0, 0.0, 0.05, 0.0, 0.0, 0.0},
-       EmoteLoop = true,
-       EmoteMoving = false,
+      Prop = 'ba_prop_battle_whiskey_bottle_2_s',
+      PropBone = 28422,
+      PropPlacement = {0.0, 0.0, 0.05, 0.0, 0.0, 0.0},
+      EmoteLoop = true,
+      EmoteMoving = false,
    }},
    ["beerf"] = {"amb@world_human_drinking@beer@female@idle_a", "idle_a", "Beer Female", AnimationOptions =
    {
-       Prop = 'prop_amb_beer_bottle',
-       PropBone = 28422,
-       PropPlacement = {0.0, -0.0, 0.05, 15.0, 15.0, 0.0},
-       EmoteLoop = true,
-       EmoteMoving = true,
+      Prop = 'prop_amb_beer_bottle',
+      PropBone = 28422,
+      PropPlacement = {0.0, -0.0, 0.05, 15.0, 15.0, 0.0},
+      EmoteLoop = true,
+      EmoteMoving = true,
    }},
    ["beerf2"] = {"amb@world_human_drinking@beer@female@idle_a", "idle_e", "Beer Female 2", AnimationOptions =
    {
-       Prop = 'prop_wine_rose',
-       PropBone = 28422,
-       PropPlacement = {-0.0, 0.04, -0.19, 10.0, 0.0, 0.0},
-       EmoteLoop = true,
-       EmoteMoving = true,
-       ---       PropPlacement = {-0.0, 0.03, -0.20, 5.0, 0.0, 0.0},
-       ---                         F&B   L&R   U&D  R.F&B
+      Prop = 'prop_wine_rose',
+      PropBone = 28422,
+      PropPlacement = {-0.0, 0.04, -0.19, 10.0, 0.0, 0.0},
+      EmoteLoop = true,
+      EmoteMoving = true,
+      ---       PropPlacement = {-0.0, 0.03, -0.20, 5.0, 0.0, 0.0},
+      ---                         F&B   L&R   U&D  R.F&B
    }},
    ["beerf3"] = {"amb@world_human_drinking@beer@female@idle_a", "idle_a", "Beer Female 3", AnimationOptions =
    {
-       Prop = 'prop_amb_beer_bottle',
-       PropBone = 28422,
-       PropPlacement = {0.0, -0.0, 0.05, 15.0, 15.0, 0.0},
-       EmoteLoop = true,
-       EmoteMoving = false,
+      Prop = 'prop_amb_beer_bottle',
+      PropBone = 28422,
+      PropPlacement = {0.0, -0.0, 0.05, 15.0, 15.0, 0.0},
+      EmoteLoop = true,
+      EmoteMoving = false,
    }},
    ["beerf4"] = {"amb@world_human_drinking@beer@female@idle_a", "idle_e", "Beer Female 4", AnimationOptions =
    {
-       Prop = 'prop_wine_rose',
-       PropBone = 28422,
-       PropPlacement = {-0.0, 0.04, -0.19, 10.0, 0.0, 0.0},
-       EmoteLoop = true,
-       EmoteMoving = false,
-       ---       PropPlacement = {-0.0, 0.03, -0.20, 5.0, 0.0, 0.0},
-       ---                         F&B   L&R   U&D  R.F&B
+      Prop = 'prop_wine_rose',
+      PropBone = 28422,
+      PropPlacement = {-0.0, 0.04, -0.19, 10.0, 0.0, 0.0},
+      EmoteLoop = true,
+      EmoteMoving = false,
+      ---       PropPlacement = {-0.0, 0.03, -0.20, 5.0, 0.0, 0.0},
+      ---                         F&B   L&R   U&D  R.F&B
    }},
    ["cup"] = {"amb@world_human_drinking@coffee@male@idle_a", "idle_c", "Cup", AnimationOptions =
    {
@@ -2685,11 +2685,11 @@ DP.PropEmotes = {
    }},
    ["water"] = {"amb@world_human_drinking@coffee@male@idle_a", "idle_c", "Water", AnimationOptions =
    {
-       Prop = 'ba_prop_club_water_bottle',
-       PropBone = 28422,
-       PropPlacement = {0.0, 0.0, -0.090, 0.0, 0.0, 130.0},
-       EmoteLoop = true,
-       EmoteMoving = true,
+      Prop = 'ba_prop_club_water_bottle',
+      PropBone = 28422,
+      PropPlacement = {0.0, 0.0, -0.090, 0.0, 0.0, 130.0},
+      EmoteLoop = true,
+      EmoteMoving = true,
    }},
    ["egobar"] = {"mp_player_inteat@burger", "mp_player_int_eat_burger", "Ego Bar", AnimationOptions =
    {
@@ -3363,7 +3363,7 @@ DP.PropEmotes = {
       PropPlacement = {0.0100, -0.16000, -0.2100, 0.0, 0.0, 0.0},
       EmoteLoop = true,
       EmoteMoving = true,
-  }},
+   }},
    ["mop"] = {"missfbi4prepp1", "idle", "Mop", AnimationOptions =
    {
       Prop = "prop_cs_mop_s",
@@ -3379,14 +3379,14 @@ DP.PropEmotes = {
       PropPlacement = {0.0, 0.0, 0.1200, 0.0, 0.0, 0.0},
       EmoteLoop = true,
       EmoteMoving = true,
-  }},
+   }},
    ["jerkf"] = {"switch@trevor@jerking_off", "trev_jerking_off_loop", "JerkOff! Female", AnimationOptions =
    {
-       Prop = 'prop_cs_dildo_01',
-       PropBone = 28422,
-       PropPlacement = {0.09, 0.05, -0.03, 90.0, 80.0, 30.0},
-       EmoteLoop = true,
-       EmoteMoving = true,
+      Prop = 'prop_cs_dildo_01',
+      PropBone = 28422,
+      PropPlacement = {0.09, 0.05, -0.03, 90.0, 80.0, 30.0},
+      EmoteLoop = true,
+      EmoteMoving = true,
    }},
 
 
