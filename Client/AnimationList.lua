@@ -2264,6 +2264,12 @@ DP.Emotes = {
       EmoteMoving = false,
 
    }},
+   ["piss"] = {"missbigscore1switch_trevor_piss", "piss_loop", "Piss (Male)", AnimationOptions =
+   {
+      EmoteMoving = false,
+      EmoteLoop = true,
+
+   }},
 
    -----------------------------------------------------------------------------------------------------------
    ------ These are Scenarios, some of these dont work on women and some other issues, but still good to have.
@@ -3501,6 +3507,17 @@ DP.PropEmotes = {
       SecondPropPlacement = {0.0,0.0,0.010,0.0,0.0,0.0},
       EmoteLoop = true,
       EmoteMoving = true,
+   }},
+   ["shit"] = {"missfbi3ig_0", "shit_loop_trev", "Shit", AnimationOptions =
+   {
+      Prop = "prop_toilet_roll_01",
+      PropBone = 28422,
+      PropPlacement = {0.0700, -0.02000, -0.2100, 0,0, 0.0, 0.0},
+      SecondProp = 'prop_big_shit_01',
+      SecondPropBone = 0,
+      SecondPropPlacement = {-0.0100, 0.0600, -0.1550, 101.3015175, 7.3512213,-29.2665794},
+      EmoteLoop = true,
+      EmoteMoving = false,
    }},
 
 
