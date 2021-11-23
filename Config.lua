@@ -1,7 +1,9 @@
 Config = {
 	-- Change the language of the menu here!.
-	-- Note fr and de are google translated, if you would like to help out with translation / just fix it for your server check below and change translations yourself
-	-- try en, fr, de or sv.
+	-- Note fr and de are google translated, if you would like to help out with translations, feel free to send me an 'issue' on Github.
+	-- Thank you to those who provided the NL and PT languages.
+	--
+
 	MenuLanguage = 'en',
 	-- Set this to true to enable some extra prints
 	DebugDisplay = false,
@@ -11,21 +13,23 @@ Config = {
 	DisarmPlayer= false,
 	-- Set this if you really wanna disable emotes in cars, as of 1.7.2 they only play the upper body part if in vehicle
 	AllowedInCars = true,
-	-- You can disable the (F3) menu here / change the keybind.
+	-- You can disable the menu here / change the keybind. It is currently set to F3
 	MenuKeybindEnabled = true,
-	MenuKeybind = 170, -- (170 is the F3 key, if you Would prefer to use F5, use '166' instead) - Get the button number here https://docs.fivem.net/game-references/controls/
+	MenuKeybind = 170, -- Get the button number here https://docs.fivem.net/game-references/controls/
 	-- You can disable the Favorite emote keybinding here.
 	FavKeybindEnabled = true,
 	FavKeybind = 171, -- Get the button number here https://docs.fivem.net/game-references/controls/
-	-- You can change the header image for the f3 menu here
+	-- You can change the header image for the menu here
 	-- Use a 512 x 128 image!
-	-- NOte this might cause an issue of the image getting stuck on peoples screens
-	CustomMenuEnabled = false,
+	-- Note this might cause an issue of the image getting stuck on peoples screens
+	CustomMenuEnabled = true,
 	MenuImage = "https://imgur.com/PvMINNO.png",
+	-- You can change the menu image by pasting a link above. It must be the same width and length
+	--
 	-- You can change the menu position here
 	MenuPosition = "right", -- (left, right)
-	-- You can disable the Ragdoll keybinding here.
-	RagdollEnabled = true,
+	-- You can enable or disable the Ragdoll keybinding here.
+	RagdollEnabled = false,
 	RagdollKeybind = 303, -- Get the button number here https://docs.fivem.net/game-references/controls/
 	-- You can disable the Facial Expressions menu here.
 	ExpressionsEnabled = true,
@@ -35,7 +39,7 @@ Config = {
 	SharedEmotesEnabled = true,
 	CheckForUpdates = true,
 	-- If you have the SQL imported enable this to turn on keybinding.
-	SqlKeybinding = true,
+	SqlKeybinding = false,
 }
 
 Config.KeybindKeys = {
@@ -334,4 +338,53 @@ Config.Languages = {
 		['keybinds'] = "🔢 Keybinds",
 		['keybindsinfo'] = "Gebruik"
 	},
-}
+	['pt'] = {
+		['emotes'] = 'Emotes',
+		['danceemotes'] = "🕺 Emotes de Danças",
+		['animalemotes'] = "🐩 Emotes de Animais",
+		['propemotes'] = "📦 Emotes com Props",
+		['favoriteemotes'] = "🌟 Favoritos",
+		['favoriteinfo'] = "Selecione um emote para colocá-lo nos seus favoritos",
+		['rfavorite'] = "Limpar favoritos",
+		['prop2info'] = "❓ Emotes de props podem ser localizados no fim",
+		['set'] = "Set (",
+		['setboundemote'] = ") para ser seu emote vinculado?",
+		['newsetemote'] = "~w~ é o seu emote vinculado, pressione ~g~CapsLock~w~ para usá-lo",
+		['cancelemote'] = "Cancelar emote",
+		['cancelemoteinfo'] = "~r~X~w~ Cancela os emotes rodando atualmente",
+		['walkingstyles'] = "Estilos de Caminhada",
+		['resetdef'] = "Resetar para o padrão",
+		['normalreset'] = "Normal (Resetar)",
+		['moods'] = "Humores",
+		['infoupdate'] = "Informação",
+		['infoupdateav'] = "Informação (Atualização disponível)",
+		['infoupdateavtext'] = "Uma atualização disponível, veja ~y~https://github.com/andristum/dpemotes~w~ para pegar",
+		['suggestions'] = "Sugestões?",
+		['suggestionsinfo'] = "'dullpear_dev' no fórum do FiveM para qualquer sugestão de recurso/emotes! ✉️",
+		['notvaliddance'] = "não é uma dança válida.",
+		['notvalidemote'] = "não é um emote válido.",
+		['nocancel'] = "Nenhum emote para cancelar",
+		['maleonly'] = "Este emote é para homens, desculpe!",
+		['emotemenucmd'] = "Faça /emotemenu para abrir o menu.",
+		['shareemotes'] = "👫 Emotes compartilhados",
+		['shareemotesinfo'] = "Convide uma pessoa próxima para para realizar a animação",
+		['sharedanceemotes'] = "🕺 Danças compartilhadas",
+		['notvalidsharedemote'] = "não é um emote compartilhado válido.",
+		['sentrequestto'] = "Enviar solicitação para ~y~",
+		['nobodyclose'] = "Ninguém próximo o ~r~rsuficiente~w~.",
+		['doyouwanna'] = "~y~Y~w~ para aceitar, ~r~L~w~ para recursar (~g~",
+		['refuseemote'] = "Emote recursado",
+		['makenearby'] = "Faz o jogador próximo participar",
+		['camera'] = "Pressione ~y~G~w~ para usar o flash da câmera",
+		['makeitrain'] = "Pressione ~y~G~w~ para fazer chover.",
+		['pee'] = "Mantenha pressionado ~y~G~w~ para fazer xixi.",
+		['spraychamp'] = "Mantenha  pressionado ~y~G~w~ jogar champagne",
+		['stun'] = "Press ~y~G~w~ to 'use' stun gun.",
+		['bound'] = "Vinculado ",
+		['to'] = "para",
+		['currentlyboundemotes'] = "Emotes atualmente vinculados: ",
+		['notvalidkey'] = "isto não é uma chave válida",
+		['keybinds'] = "🔢 Keybinds",
+		['keybindsinfo'] = "Usar"
+		}
+	}
