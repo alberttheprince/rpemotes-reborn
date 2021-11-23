@@ -16,9 +16,11 @@ Emotes / Animations for FiveM with human, animal and prop support 🐩
 
 * Dutch 🇳🇱
 
-All languages were translated using Google Translate.
+* Brazilian Portuguese 🇧🇷
 
-If you happen to find any incorrect translations, please feel free to provide an "issue" with the correct translations.
+All languages were translated using Google Translate, except Dutch and Brazilian Portuguese.
+
+If you happen to find any incorrect translations or would like to add more languages, please feel free to provide an "issue" with the correct / additional translations.
 
 Languages can be selected and/or added in config.lua.
 
