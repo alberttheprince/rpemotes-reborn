@@ -3132,7 +3132,7 @@ DP.PropEmotes = {
       EmoteLoop = true,
       EmoteMoving = true,
    }},
-   ["carryfoodtray"] = {"anim@heists@box_carry@", "idle", "Carry Food Tray", AnimationOptions =
+   ["foodtraya"] = {"anim@heists@box_carry@", "idle", "Food Tray", AnimationOptions =
    {
       Prop = "prop_food_bs_tray_03",
       PropBone = 28422,
@@ -3140,7 +3140,7 @@ DP.PropEmotes = {
       EmoteLoop = true,
       EmoteMoving = true,
    }},
-   ["carryfoodtray2"] = {"anim@heists@box_carry@", "idle", "Carry Food Tray 2", AnimationOptions =
+   ["foodtrayb"] = {"anim@heists@box_carry@", "idle", "Food Tray B", AnimationOptions =
    {
       Prop = "prop_food_bs_tray_02",
       PropBone = 28422,
@@ -3148,7 +3148,7 @@ DP.PropEmotes = {
       EmoteLoop = true,
       EmoteMoving = true,
    }},
-   ["carryfoodtray3"] = {"anim@heists@box_carry@", "idle", "Carry Food Tray 3", AnimationOptions =
+   ["foodtrayc"] = {"anim@heists@box_carry@", "idle", "Food Tray C", AnimationOptions =
    {
       Prop = "prop_food_cb_tray_02",
       PropBone = 28422,
@@ -3156,7 +3156,7 @@ DP.PropEmotes = {
       EmoteLoop = true,
       EmoteMoving = true,
    }},
-   ["carryfoodtray4"] = {"anim@heists@box_carry@", "idle", "Carry Food Tray 4", AnimationOptions =
+   ["foodtrayd"] = {"anim@heists@box_carry@", "idle", "Food Tray D", AnimationOptions =
    {
       Prop = "prop_food_tray_02",
       PropBone = 28422,
@@ -3164,7 +3164,7 @@ DP.PropEmotes = {
       EmoteLoop = true,
       EmoteMoving = true,
    }},
-   ["carryfoodtray5"] = {"anim@heists@box_carry@", "idle", "Carry Food Tray 5", AnimationOptions =
+   ["foodtraye"] = {"anim@heists@box_carry@", "idle", "Food Tray E", AnimationOptions =
    {
       Prop = "prop_food_tray_03",
       PropBone = 28422,
@@ -3172,7 +3172,7 @@ DP.PropEmotes = {
       EmoteLoop = true,
       EmoteMoving = true,
    }},
-   ["carryfoodtray6"] = {"anim@heists@box_carry@", "idle", "Carry Food Tray 6", AnimationOptions =
+   ["foodtrayf"] = {"anim@heists@box_carry@", "idle", "Food Tray F", AnimationOptions =
    {
       Prop = "prop_food_bs_tray_02",
       PropBone = 57005,
@@ -3183,7 +3183,7 @@ DP.PropEmotes = {
       EmoteLoop = true,
       EmoteMoving = true,
    }},
-   ["carryfoodtray7"] = {"anim@heists@box_carry@", "idle", "Carry Food Tray 7", AnimationOptions =
+   ["foodtrayg"] = {"anim@heists@box_carry@", "idle", "Food Tray G", AnimationOptions =
    {
       Prop = "prop_food_cb_tray_02",
       PropBone = 57005,
@@ -3194,7 +3194,7 @@ DP.PropEmotes = {
       EmoteLoop = true,
       EmoteMoving = true,
    }},
-   ["carryfoodtray8"] = {"anim@heists@box_carry@", "idle", "Carry Food Tray 8", AnimationOptions =
+   ["foodtrayh"] = {"anim@heists@box_carry@", "idle", "Food Tray H", AnimationOptions =
    {
       Prop = "prop_food_tray_02",
       PropBone = 57005,
@@ -3205,7 +3205,7 @@ DP.PropEmotes = {
       EmoteLoop = true,
       EmoteMoving = true,
    }},
-   ["carryfoodtraytray9"] = {"anim@heists@box_carry@", "idle", "Carry Food Tray 9", AnimationOptions =
+   ["foodtrayi"] = {"anim@heists@box_carry@", "idle", "Food Tray I", AnimationOptions =
    {
       Prop = "prop_food_tray_02",
       PropBone = 57005,
@@ -3213,6 +3213,54 @@ DP.PropEmotes = {
       SecondProp = 'prop_food_tray_02',
       SecondPropBone =18905,
       SecondPropPlacement = {0.2200, 0.1300, -0.1000, -127.7725487, 110.2074758, -3.5886263},
+      EmoteLoop = true,
+      EmoteMoving = true,
+   }},
+   ["foodtrayj"] = {"anim@move_f@waitress", "idle", "Food Tray J", AnimationOptions =
+   {
+      Prop = "prop_food_bs_tray_02",
+      PropBone = 28422,
+      PropPlacement = {0.0, 0.0, 0.0200,0.0,0.0,0.0},
+      EmoteLoop = true,
+      EmoteMoving = true,
+   }},
+   ["foodtrayk"] = {"anim@move_f@waitress", "idle", "Food Tray K", AnimationOptions =
+   {
+      Prop = "prop_food_bs_tray_02",
+      PropBone = 28422,
+      PropPlacement = {0.0, 0.0, 0.0200,0.0,0.0,0.0},
+      EmoteLoop = true,
+      EmoteMoving = true,
+   }},
+   ["foodtrayl"] = {"anim@move_f@waitress", "idle", "Food Tray L", AnimationOptions =
+   {
+      Prop = "prop_food_bs_tray_03",
+      PropBone = 28422,
+      PropPlacement = {0.0, 0.0, 0.0200,0.0,0.0,0.0},
+      EmoteLoop = true,
+      EmoteMoving = true,
+   }},
+   ["foodtraym"] = {"anim@move_f@waitress", "idle", "Food Tray M", AnimationOptions =
+   {
+      Prop = "prop_food_cb_tray_02",
+      PropBone = 28422,
+      PropPlacement = {0.0, 0.0, 0.0200,0.0,0.0,0.0},
+      EmoteLoop = true,
+      EmoteMoving = true,
+   }},
+   ["foodtrayn"] = {"anim@move_f@waitress", "idle", "Food Tray N", AnimationOptions =
+   {
+      Prop = "prop_food_tray_02",
+      PropBone = 28422,
+      PropPlacement = {0.0, 0.0, 0.0200,0.0,0.0,0.0},
+      EmoteLoop = true,
+      EmoteMoving = true,
+   }},
+   ["foodtrayo"] = {"anim@move_f@waitress", "idle", "Food Tray O", AnimationOptions =
+   {
+      Prop = "prop_food_tray_02",
+      PropBone = 28422,
+      PropPlacement = {0.0, 0.0, 0.0200,0.0,0.0,0.0},
       EmoteLoop = true,
       EmoteMoving = true,
    }},
@@ -3442,6 +3490,17 @@ DP.PropEmotes = {
       PropBone = 28422,
       PropPlacement = {-0.0100, 0.0400, -0.0300, 0.0, 0.0, 0.0},
       EmoteLoop = true,
+   }},
+   ["champw"] = {"anim@move_f@waitress", "idle", "Champagne Waiter", AnimationOptions =
+   {
+      Prop = "vw_prop_vw_tray_01a",
+      PropBone = 28422,
+      PropPlacement = {0.0, 0.0, 0.0200,0.0,0.0,0.0},
+      SecondProp = 'prop_champ_cool',
+      SecondPropBone = 28422,
+      SecondPropPlacement = {0.0,0.0,0.0,0.0,0.0,0.0},
+      EmoteLoop = true,
+      EmoteMoving = true,
    }},
 
 
