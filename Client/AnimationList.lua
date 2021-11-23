@@ -3495,10 +3495,10 @@ DP.PropEmotes = {
    {
       Prop = "vw_prop_vw_tray_01a",
       PropBone = 28422,
-      PropPlacement = {0.0, 0.0, 0.0200,0.0,0.0,0.0},
+      PropPlacement = {0.0, 0.0, 0.0100,0.0,0.0,0.0},
       SecondProp = 'prop_champ_cool',
       SecondPropBone = 28422,
-      SecondPropPlacement = {0.0,0.0,0.0,0.0,0.0,0.0},
+      SecondPropPlacement = {0.0,0.0,0.010,0.0,0.0,0.0},
       EmoteLoop = true,
       EmoteMoving = true,
    }},
