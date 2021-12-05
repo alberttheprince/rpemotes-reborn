@@ -1,4 +1,4 @@
-# dpEmotes
+# DpEmotes
 
 Emotes / Animations for FiveM with human, animal and prop support 🐩
 
@@ -24,18 +24,28 @@ If you happen to find any incorrect translations or would like to add more langu
 
 Languages can be selected and/or added in config.lua.
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Ragdoll 🥴
 
 * To disable ragdoll, change `RagdollEnabled = true,` to false in config.lua.
 
 * To change which key is responsible for ragdoll, `RagdollKeybind = 303` is currently set to `U` by default., -- Get the button number here https://docs.fivem.net/game-references/controls/
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 # Installation Instructions:
 
-add dpemotes to your server.cfg
+* add DpEmotes to your `server.cfg`
 
-start dpemotes
+* [Enforce gamebuild to latest build](https://forum.cfx.re/t/tutorial-forcing-gamebuild-to-casino-cayo-perico-or-tuners-update/4784977) for all emotes and props to work correctly
+
+* start dpemotes
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Optional Add-Ons 🛠️
 
@@ -49,11 +59,9 @@ start dpemotes
 
 **Grab it here:** 
 
-https://github.com/TayMcKenzieNZ/addonsfordpemotes
+[Add-Ons For DpEmotes](https://github.com/TayMcKenzieNZ/addonsfordpemotes)
 
 
 # Additional Instructions 
 
-Please check the fivem forum thread
-
-https://forum.fivem.net/t/dpemotes-356ish-emotes-usable-while-walking-props-and-more/843105
+[Please check the fivem forum thread](https://forum.fivem.net/t/dpemotes-356ish-emotes-usable-while-walking-props-and-more/843105)
