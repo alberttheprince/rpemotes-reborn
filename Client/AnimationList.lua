@@ -1,3 +1,9 @@
+-- DPEmotes forked by TayMcKenzieNZ requires you to be on the latest FiveM Gamebuild for all emotes to function.
+-- If an emote does not work, you may be on an older gamebuild.
+-- To get a higher gamebuild, see ReadMe on github repositorty
+
+
+
 DP = {}
 
 DP.Expressions = {
@@ -1432,7 +1438,7 @@ DP.Emotes = {
    {
       EmoteLoop = true,
    }},
-   ["mechanic5"] = {"amb@prop_human_movie_bulb@idle_a", "idle_b", "Mechanic 6", AnimationOptions =
+   ["mechanic5"] = {"amb@prop_human_movie_bulb@idle_a", "idle_b", "Mechanic 5", AnimationOptions =
    {
       EmoteLoop = true,
    }},
@@ -1606,6 +1612,10 @@ DP.Emotes = {
       EmoteLoop = true,
    }},
    ["sit9"] = {"amb@world_human_stupor@male@idle_a", "idle_a", "Sit 9", AnimationOptions =
+   {
+      EmoteLoop = true,
+   }},
+   ["sitlow"] = {"anim@veh@lowrider@std@ds@arm@base", "sit_low_lowdoor", "Sit Lowrider", AnimationOptions =
    {
       EmoteLoop = true,
    }},
@@ -3518,6 +3528,14 @@ DP.PropEmotes = {
       SecondPropPlacement = {-0.0100, 0.0600, -0.1550, 101.3015175, 7.3512213,-29.2665794},
       EmoteLoop = true,
       EmoteMoving = false,
+   }},
+   ["selfie"] = {"anim@mp_player_intuppertake_selfie", "idle_a", "Selfie", AnimationOptions =
+   {
+      Prop = "prop_phone_ing",
+      PropBone = 60309,
+      PropPlacement = {0.0, 0.0,0.0, 0.0, 0.0, 0.0},
+      EmoteLoop = true,
+      EmoteMoving = true,
    }},
 
 
