@@ -22,7 +22,7 @@ local function addKeybindEventHandlers()
 	RegisterServerEvent("dp:ServerKeybindExist")
 	AddEventHandler('dp:ServerKeybindExist', function()
 		local src = source local srcid = GetPlayerIdentifier(source)
-		exports.ghmattimysql:execute('SELECT * FROM dpkeybinds WHERE `id`=@id;', {id = srcid}, function(dpkeybinds)
+		exports.oxmysql:execute('SELECT * FROM dpkeybinds WHERE `id`=@id;', {id = srcid}, function(dpkeybinds)
 			if dpkeybinds[1] then
 				TriggerClientEvent("dp:ClientKeybindExist", src, true)
 			else
@@ -37,14 +37,14 @@ local function addKeybindEventHandlers()
 	RegisterServerEvent("dp:ServerKeybindCreate")
 	AddEventHandler("dp:ServerKeybindCreate", function()
 		local src = source local srcid = GetPlayerIdentifier(source)
-		exports.ghmattimysql:execute('INSERT INTO dpkeybinds (`id`, `keybind1`, `emote1`, `keybind2`, `emote2`, `keybind3`, `emote3`, `keybind4`, `emote4`, `keybind5`, `emote5`, `keybind6`, `emote6`) VALUES (@id, @keybind1, @emote1, @keybind2, @emote2, @keybind3, @emote3, @keybind4, @emote4, @keybind5, @emote5, @keybind6, @emote6);',
+		exports.oxmysql:execute('INSERT INTO dpkeybinds (`id`, `keybind1`, `emote1`, `keybind2`, `emote2`, `keybind3`, `emote3`, `keybind4`, `emote4`, `keybind5`, `emote5`, `keybind6`, `emote6`) VALUES (@id, @keybind1, @emote1, @keybind2, @emote2, @keybind3, @emote3, @keybind4, @emote4, @keybind5, @emote5, @keybind6, @emote6);',
 		{id = srcid, keybind1 = "num4", emote1 = "", keybind2 = "num5", emote2 = "", keybind3 = "num6", emote3 = "", keybind4 = "num7", emote4 = "", keybind5 = "num8", emote5 = "", keybind6 = "num9", emote6 = ""}, function(created) print("[dp] ^2"..GetPlayerName(src).."^7 got created!") TriggerClientEvent("dp:ClientKeybindGet", src, "num4", "", "num5", "", "num6", "", "num7", "", "num8", "", "num8", "") end)
 	end)
 
 	RegisterServerEvent("dp:ServerKeybindGrab")
 	AddEventHandler("dp:ServerKeybindGrab", function()
 		local src = source local srcid = GetPlayerIdentifier(source)
-		exports.ghmattimysql:execute('SELECT keybind1, emote1, keybind2, emote2, keybind3, emote3, keybind4, emote4, keybind5, emote5, keybind6, emote6 FROM `dpkeybinds` WHERE `id` = @id',
+		exports.oxmysql:execute('SELECT keybind1, emote1, keybind2, emote2, keybind3, emote3, keybind4, emote4, keybind5, emote5, keybind6, emote6 FROM `dpkeybinds` WHERE `id` = @id',
 		{['@id'] = srcid}, function(kb)
 			if kb[1].keybind1 ~= nil then
 				TriggerClientEvent("dp:ClientKeybindGet", src, kb[1].keybind1, kb[1].emote1, kb[1].keybind2, kb[1].emote2, kb[1].keybind3, kb[1].emote3, kb[1].keybind4, kb[1].emote4, kb[1].keybind5, kb[1].emote5, kb[1].keybind6, kb[1].emote6)
@@ -59,23 +59,23 @@ local function addKeybindEventHandlers()
 		local src = source local myid = GetPlayerIdentifier(source)
 		if key == "num4" then chosenk = "keybind1" elseif key == "num5" then chosenk = "keybind2" elseif key == "num6" then chosenk = "keybind3" elseif key == "num7" then chosenk = "keybind4" elseif key == "num8" then chosenk = "keybind5" elseif key == "num9" then chosenk = "keybind6" end
 		if chosenk == "keybind1" then
-			exports.ghmattimysql:execute("UPDATE dpkeybinds SET emote1=@emote WHERE id=@id", {id = myid, emote = emote}, function() TriggerClientEvent("dp:ClientKeybindGetOne", src, key, emote) end)
+			exports.oxmysql:execute("UPDATE dpkeybinds SET emote1=@emote WHERE id=@id", {id = myid, emote = emote}, function() TriggerClientEvent("dp:ClientKeybindGetOne", src, key, emote) end)
 		elseif chosenk == "keybind2" then
-			exports.ghmattimysql:execute("UPDATE dpkeybinds SET emote2=@emote WHERE id=@id", {id = myid, emote = emote}, function() TriggerClientEvent("dp:ClientKeybindGetOne", src, key, emote) end)
+			exports.oxmysql:execute("UPDATE dpkeybinds SET emote2=@emote WHERE id=@id", {id = myid, emote = emote}, function() TriggerClientEvent("dp:ClientKeybindGetOne", src, key, emote) end)
 		elseif chosenk == "keybind3" then
-			exports.ghmattimysql:execute("UPDATE dpkeybinds SET emote3=@emote WHERE id=@id", {id = myid, emote = emote}, function() TriggerClientEvent("dp:ClientKeybindGetOne", src, key, emote) end)
+			exports.oxmysql:execute("UPDATE dpkeybinds SET emote3=@emote WHERE id=@id", {id = myid, emote = emote}, function() TriggerClientEvent("dp:ClientKeybindGetOne", src, key, emote) end)
 		elseif chosenk == "keybind4" then
-			exports.ghmattimysql:execute("UPDATE dpkeybinds SET emote4=@emote WHERE id=@id", {id = myid, emote = emote}, function() TriggerClientEvent("dp:ClientKeybindGetOne", src, key, emote) end)
+			exports.oxmysql:execute("UPDATE dpkeybinds SET emote4=@emote WHERE id=@id", {id = myid, emote = emote}, function() TriggerClientEvent("dp:ClientKeybindGetOne", src, key, emote) end)
 		elseif chosenk == "keybind5" then
-			exports.ghmattimysql:execute("UPDATE dpkeybinds SET emote5=@emote WHERE id=@id", {id = myid, emote = emote}, function() TriggerClientEvent("dp:ClientKeybindGetOne", src, key, emote) end)
+			exports.oxmysql:execute("UPDATE dpkeybinds SET emote5=@emote WHERE id=@id", {id = myid, emote = emote}, function() TriggerClientEvent("dp:ClientKeybindGetOne", src, key, emote) end)
 		elseif chosenk == "keybind6" then
-			exports.ghmattimysql:execute("UPDATE dpkeybinds SET emote6=@emote WHERE id=@id", {id = myid, emote = emote}, function() TriggerClientEvent("dp:ClientKeybindGetOne", src, key, emote) end)
+			exports.oxmysql:execute("UPDATE dpkeybinds SET emote6=@emote WHERE id=@id", {id = myid, emote = emote}, function() TriggerClientEvent("dp:ClientKeybindGetOne", src, key, emote) end)
 		end
 	end)
 end
 
 if Config.SqlKeybinding then
-	exports.ghmattimysql:execute(
+	exports.oxmysql:execute(
 		[[
 		CREATE TABLE IF NOT EXISTS `dpkeybinds` (
 		  `id` varchar(50) NULL DEFAULT NULL,
