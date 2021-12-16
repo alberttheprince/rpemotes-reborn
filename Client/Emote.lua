@@ -225,10 +225,16 @@ function EmoteCommandStart(source, args, raw)
 end
 
 function LoadAnim(dict)
+  if not DoesAnimDictExist(dict) then
+    return false
+  end
+
   while not HasAnimDictLoaded(dict) do
     RequestAnimDict(dict)
     Wait(10)
   end
+
+  return true
 end
 
 function LoadPropDict(model)
@@ -347,7 +353,9 @@ function OnEmotePlay(EmoteName)
     return end 
   end
 
-  LoadAnim(ChosenDict)
+  if not LoadAnim(ChosenDict) then
+    EmoteChatMessage("'".. ename .."' "..Config.Languages[lang]['notvalidemote'].."")
+  end
 
   if EmoteName.AnimationOptions then
     if EmoteName.AnimationOptions.EmoteLoop then
