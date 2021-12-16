@@ -355,6 +355,7 @@ function OnEmotePlay(EmoteName)
 
   if not LoadAnim(ChosenDict) then
     EmoteChatMessage("'".. ename .."' "..Config.Languages[lang]['notvalidemote'].."")
+    return
   end
 
   if EmoteName.AnimationOptions then
