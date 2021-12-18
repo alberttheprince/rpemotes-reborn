@@ -19,7 +19,6 @@ local Initialized = false
 
 Citizen.CreateThread(function()
   while true do
-
     if NetworkIsPlayerActive(PlayerId()) and not Initialized then
         if not Initialized then
             TriggerServerEvent("dp:ServerKeybindExist")

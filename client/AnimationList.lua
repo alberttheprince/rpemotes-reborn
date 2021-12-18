@@ -1,9 +1,6 @@
 -- DPEmotes forked by TayMcKenzieNZ requires you to be on the latest FiveM Gamebuild for all emotes to function.
 -- If an emote does not work, you may be on an older gamebuild.
 -- To get a higher gamebuild, see ReadMe on github repositorty
-
-
-
 DP = {}
 
 DP.Expressions = {
@@ -241,7 +238,6 @@ DP.Shared = {
 }
 
 DP.Dances = {
-
    ["dance"] = {"anim@amb@nightclub@dancers@podium_dancers@", "hi_dance_facedj_17_v2_male^5", "Dance", AnimationOptions =
    {
       EmoteLoop = true,
@@ -616,8 +612,6 @@ DP.Dances = {
    {
       EmoteLoop = true,
    }},
-
-
 }
 
 DP.AnimalEmotes = {
@@ -944,9 +938,6 @@ DP.AnimalEmotes = {
       EmoteLoop = true,
       EmoteMoving = false,
    }},
-
-
-
 }
 
 DP.Emotes = {
@@ -1079,7 +1070,6 @@ DP.Emotes = {
       Prop = "prop_parking_wand_01",
       PropBone = 57005,
       PropPlacement = {0.12, 0.05, 0.0, 80.0, -20.0, 180.0},
-      --
       EmoteLoop = true,
       EmoteMoving = true,
    }},
@@ -2179,106 +2169,86 @@ DP.Emotes = {
       PropPlacement = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0},
       EmoteMoving = false,
       EmoteLoop = true,
-
    }},
    ["tighten"] = {"timetable@denice@ig_1", "idle_b", "Tigten (Yoga)", AnimationOptions =
    {
       EmoteMoving = false,
       EmoteLoop = true,
-
    }},
    ["fspose"] = {"missfam5_yoga", "c2_pose", "F Sex Pose", AnimationOptions =
    {
       EmoteMoving = false,
       EmoteLoop = true,
-
-
    }},
    ["fspose2"] = {"missfam5_yoga", "c6_pose", "F Sex Pose 2", AnimationOptions =
    {
       EmoteMoving = false,
       EmoteLoop = true,
-
-
    }},
    ["fspose4"] = {"anim@amb@carmeet@checkout_car@", "female_c_idle_d", "F Sex Pose 4", AnimationOptions =
    {
       EmoteMoving = false,
       EmoteLoop = true,
-
-
    }},
    ["showerf"] = {"mp_safehouseshower@female@", "shower_enter_into_idle", "Shower Enter Female", AnimationOptions =
    {
       EmoteMoving = false,
       EmoteLoop = true,
-
    }},
    ["showerf2"] = {"mp_safehouseshower@female@", "shower_idle_a", "Shower Female", AnimationOptions =
    {
       EmoteMoving = false,
       EmoteLoop = true,
-
    }},
    ["showerf3"] = {"mp_safehouseshower@female@", "shower_idle_b", "Shower Female 2", AnimationOptions =
    {
       EmoteMoving = false,
       EmoteLoop = true,
-
    }},
    ["showerm"] = {"mp_safehouseshower@male@", "male_shower_idle_a", "Shower Enter Male", AnimationOptions =
    {
       EmoteMoving = false,
       EmoteLoop = true,
-
    }},
    ["showerm2"] = {"mp_safehouseshower@male@", "male_shower_idle_b", "Shower Male 2", AnimationOptions =
    {
       EmoteMoving = false,
       EmoteLoop = true,
-
    }},
    ["showerm3"] = {"mp_safehouseshower@male@", "male_shower_idle_c", "Shower Male 3", AnimationOptions =
    {
       EmoteMoving = false,
       EmoteLoop = true,
-
    }},
    ["showerm4"] = {"mp_safehouseshower@male@", "male_shower_idle_d", "Shower Male 4", AnimationOptions =
    {
       EmoteMoving = false,
       EmoteLoop = true,
-
    }},
    ["picklock"] = {"missheistfbisetup1", "hassle_intro_loop_f", "Picklock", AnimationOptions =
    {
       EmoteMoving = true,
       EmoteLoop = true,
-
    }},
    ["cleanhands"] = {"missheist_agency3aig_23", "urinal_sink_loop", "Clean Them Filthy Hands", AnimationOptions =
    {
       EmoteMoving = true,
       EmoteLoop = true,
-
    }},
    ["cleanface"] = {"switch@michael@wash_face", "loop_michael", "Clean Your Face", AnimationOptions =
    {
       EmoteMoving = true,
       EmoteLoop = true,
-
    }},
    ["buzz"] = {"anim@apt_trans@buzzer", "buzz_reg", "Buzz Door", AnimationOptions =
    {
       EmoteLoop = false,
       EmoteMoving = false,
-
    }},
    ["piss"] = {"missbigscore1switch_trevor_piss", "piss_loop", "Piss (Male)", AnimationOptions =
    {
       EmoteMoving = false,
       EmoteLoop = true,
-
    }},
 
    -----------------------------------------------------------------------------------------------------------
@@ -3537,8 +3507,4 @@ DP.PropEmotes = {
       EmoteLoop = true,
       EmoteMoving = true,
    }},
-
-
-
-
 }

@@ -2,24 +2,23 @@
 --- Forked by TayMcKenzieNZ ---
 --- Check for updates at https://github.com/TayMcKenzieNZ/dpemotes ---
 
-
 fx_version 'adamant'
 
 game 'gta5'
 
 -- Comment this out if you don't want to use the SQL keybinds
-dependency 'oxmysql'
+-- dependency 'oxmysql'
 
-client_scripts {
-	'NativeUI.lua',
-	'Config.lua',
-	'Client/*.lua'
+shared_scripts {
+	'config.lua',
 }
 
 server_scripts {
-	'Config.lua',
-	'Server/*.lua'
+	'printer.lua',
+	'server/*.lua'
 }
 
-
-server_script 'printer.lua'
+client_scripts {
+	'NativeUI.lua',
+	'client/*.lua'
+}

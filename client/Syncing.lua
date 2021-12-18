@@ -145,7 +145,7 @@ function GetClosestPlayer()
     local players = GetPlayers()
     local closestDistance = -1
     local closestPlayer = -1
-    local ply = GetPlayerPed(-1)
+    local ply = PlayerPedId()
     local plyCoords = GetEntityCoords(ply, 0)
 
     for index,value in ipairs(players) do
