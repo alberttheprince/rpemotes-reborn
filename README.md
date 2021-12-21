@@ -4,21 +4,23 @@ Emotes / Animations for FiveM with human, animal and prop support 🐩
 
 # Available in:
 
+* Brazilian Portuguese 🇧🇷
+
+* Dutch 🇳🇱
+
 * English 🇺🇲
 
 * French 🇫🇷
 
 * German 🇩🇪
 
-* Swedish 🇸🇪
+* Italian 🇮🇹
 
 * Spanish 🇪🇸
 
-* Dutch 🇳🇱
+* Swedish 🇸🇪
 
-* Brazilian Portuguese 🇧🇷
-
-All languages were translated using Google Translate, except Dutch and Brazilian Portuguese.
+All languages were either translated using Google Translate or contributed by you, the community. 
 
 If you happen to find any incorrect translations or would like to add more languages, please feel free to provide an "issue" with the correct / additional translations.
 
