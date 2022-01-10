@@ -3507,4 +3507,13 @@ DP.PropEmotes = {
       EmoteLoop = true,
       EmoteMoving = true,
    }},
+   ["sittv"] = {"anim@heists@heist_safehouse_intro@variations@male@tv", "tv_part_one_loop", "Sit TV", AnimationOptions =
+   {
+      Prop = "v_res_tre_remote",
+      PropBone = 57005,
+      PropPlacement = {0.0990, 0.0170,-0.0300, -64.760, -109.544, 18.717},
+      EmoteLoop = true,
+      EmoteMoving = false,
+   }},
+
 }
