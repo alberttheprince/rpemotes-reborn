@@ -3514,6 +3514,17 @@ DP.PropEmotes = {
       PropPlacement = {0.0990, 0.0170,-0.0300, -64.760, -109.544, 18.717},
       EmoteLoop = true,
       EmoteMoving = false,
+  }},
+   ["dig"] = {"random@burial", "a_burial", "Dig", AnimationOptions =
+   {
+      Prop = "prop_tool_shovel",
+      PropBone = 28422,
+      PropPlacement = {0.0, 0.0, 0.24, 0,0, 0.0, 0.0},
+      SecondProp = 'prop_ld_shovel_dirt',
+      SecondPropBone = 28422,
+      SecondPropPlacement = {0.0,0.0,0.24,0.0,0.0,0.0},
+      EmoteLoop = true,
+      EmoteMoving = false,
    }},
 
 }
