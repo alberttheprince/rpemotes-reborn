@@ -3525,6 +3525,54 @@ DP.PropEmotes = {
       SecondPropPlacement = {0.0,0.0,0.24,0.0,0.0,0.0},
       EmoteLoop = true,
       EmoteMoving = false,
-   }},
+  }},
+   ["bongos"] = {"amb@world_human_musician@bongos@male@base", "base", "Bongo Drums", AnimationOptions =
+   {
+      Prop = "prop_bongos_01",
+      PropBone = 60309,
+      PropPlacement = {0.0,0.0,0.0, 0.0, 0.0, 0.0},
+      EmoteLoop = true,
+      EmoteMoving = true,
+  }},
+   ["medbag"] = {"move_weapon@jerrycan@generic", "idle", "Medic Bag", AnimationOptions =
+   {
+      Prop = "xm_prop_x17_bag_med_01a",
+      PropBone = 57005,
+      PropPlacement = {0.3900,-0.0600, -0.0600, -100.00, -180.00, -78.00},
+      EmoteLoop = true,
+      EmoteMoving = true,
+  }},
+   ["dufbag"] = {"move_weapon@jerrycan@generic", "idle", "Duffel Bag", AnimationOptions =
+   {
+      Prop = "bkr_prop_duffel_bag_01a",
+      PropBone = 28422,
+      PropPlacement = {0.2600,0.0400, 0.00, 90.00, 0.00, -78.99},
+      EmoteLoop = true,
+      EmoteMoving = true,
+  }},
+   ["shopbag"] = {"move_weapon@jerrycan@generic", "idle", "Shopping Bag", AnimationOptions =
+   {
+      Prop = "vw_prop_casino_shopping_bag_01a",
+      PropBone = 28422,
+      PropPlacement = {0.24, 0.03, -0.04, 0.00, -90.00, 10.00},
+      EmoteLoop = true,
+      EmoteMoving = true,
+  }},
+   ["shopbag2"] = {"move_weapon@jerrycan@generic", "idle", "Shopping Bag 2", AnimationOptions =
+   {
+      Prop = "prop_shopping_bags02",
+      PropBone = 28422,
+      PropPlacement = {0.05, 0.02, 0.00, 178.80, 91.19, 9.97},
+      EmoteLoop = true,
+      EmoteMoving = true,
+  }},
+   ["shopbag3"] = {"move_weapon@jerrycan@generic", "idle", "Shopping Bag 3", AnimationOptions =
+   {
+      Prop = "prop_cs_shopping_bag",
+      PropBone = 28422,
+      PropPlacement = {0.24, 0.03, -0.04, 0.00, -90.00, 10.00},
+      EmoteLoop = true,
+      EmoteMoving = true,
+  }},
 
 }
