@@ -36,6 +36,18 @@ Languages can be selected and/or added in config.lua.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+# Menu Keybind
+
+* Menu key has been changed to F5 as for some reason, F3 and F4 clash with [Menyoo](https://github.com/MAFINS/MenyooSP) and controllers 🎮
+
+You can change this in the `config.lua`;
+
+```lua
+MenuKeybind = 166, -- Get the button number here https://docs.fivem.net/game-references/controls/
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Keybinds and SQL 🎛️
 
 The original dpemotes uses mysql-async which was then changed to ghmattimysql. Unfortunately, they are no longer maintained. 
