@@ -1,4 +1,4 @@
-# DpEmotes
+# DpEmotes 🏋️
 
 Emotes / Animations for FiveM with human, animal and prop support 🐩
 
@@ -105,15 +105,15 @@ To use the SQL features, install the [oxmysql](https://github.com/overextended/o
 
 ----------------------
 
-**Q: Why do I see particle effects by other players don't?**
+**Q: Why do I see particle effects but other players don't?**
 
 **A:** Dullpear and I can't figure out how to sync particles. If you know how, feel free to inform me.
 
 ----------------------
 
-**Q:** I bought this script off someone and notice it had a lot of the same animations. Can you help me?**
+**Q: I bought this script off someone and notice it had a lot of the same animations. Can you help me?**
 
-**A:** You got scammed and that's your fault. Dpemotes is and always will be ***FREE***.
+**A:** You got scammed and that's your fault. Dpemotes is and always will be **FREE**.
 
 ----------------------
 
@@ -121,9 +121,11 @@ To use the SQL features, install the [oxmysql](https://github.com/overextended/o
 
 **A:** Of course, see my in depth [tutorial](https://forum.cfx.re/t/how-to-menyoo-to-dpemotes-conversion/4775018) for using Menyoo and converting them to work with dpemotes.
 
+You may sell ***custom made*** animations, however the menu must remain free.
+
 ----------------------
 
-**Q:** I bought a pack of custom animations, how can I add them to your fork of dpemotes?**
+**Q: I bought a pack of custom animations, how can I add them to your fork of dpemotes?**
 
 **A:** Usually the person who created them will provide code snippets for adding animations to dpemotes. If for whatever reason they haven't, you should contact them.
 
