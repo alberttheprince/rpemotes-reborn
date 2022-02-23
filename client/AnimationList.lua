@@ -102,19 +102,15 @@ DP.Walks = {
    ["Wide"] = {"move_m@bag"},
    ["Chubby Male"] = {"move_chubby"}, --male
    ["Chubby Female"] = {"move_f@chubby@a"}, --female
-   
-   
    -- I cant get these to work for some reason, if anyone knows a fix lmk
-   
    --["Caution"] = {"move_m@caution"},
-   
    --["Crazy"] = {"move_m@crazy"},
    --["Joy"] = {"move_m@joy@a"},
    --["Power"] = {"move_m@power"},
    --["Sad2"] = {"anim@move_m@depression@a"},
    --["Sad3"] = {"move_m@depression@b"},
    --["Sad4"] = {"move_m@depression@d"},
-   --["Wading"] = {"move_m@wading"},
+   --["Wading"] = {"move_m@wading"}
 }
 
 DP.Shared = {
@@ -3577,6 +3573,54 @@ DP.PropEmotes = {
       PropBone = 28422,
       PropPlacement = {0.24, 0.03, -0.04, 0.00, -90.00, 10.00},
       EmoteLoop = true,
+      EmoteMoving = true,
+   }},
+   ["idcard"] = {"paper_1_rcm_alt1-8", "player_one_dual-8", "ID Card 1", AnimationOptions =
+   {
+      Prop = "prop_franklin_dl",
+      PropBone = 57005,
+      PropPlacement = {0.1000, 0.0200, -0.0300, -90.000, 170.000, 78.999},
+      EmoteLoop = false,
+      EmoteMoving = true,
+  }},
+   ["idcardb"] = {"paper_1_rcm_alt1-8", "player_one_dual-8", "ID Card 2 - FIB", AnimationOptions =
+   {
+      Prop = "prop_fib_badge",
+      PropBone = 28422,
+      PropPlacement = {0.0600, 0.0210, -0.0400, -90.00, -180.00, 78.999},
+      EmoteLoop = false,
+      EmoteMoving = true,
+  }},
+   ["idcardc"] = {"paper_1_rcm_alt1-8", "player_one_dual-8", "ID Card 3", AnimationOptions =
+   {
+      Prop = "prop_michael_sec_id",
+      PropBone = 28422,
+      PropPlacement = {0.1000, 0.0200, -0.0300, -90.00, -180.00, 78.999},
+      EmoteLoop = false,
+      EmoteMoving = true,
+  }},
+   ["idcardd"] = {"paper_1_rcm_alt1-8", "player_one_dual-8", "ID Card 4", AnimationOptions =
+   {
+      Prop = "prop_trev_sec_id",
+      PropBone = 28422,
+      PropPlacement = {0.1000, 0.0200, -0.0300, -90.00, -180.00, 78.999},
+      EmoteLoop = false,
+      EmoteMoving = true,
+  }},
+   ["idcarde"] = {"paper_1_rcm_alt1-8", "player_one_dual-8", "ID Card 5", AnimationOptions =
+   {
+      Prop = "p_ld_id_card_002",
+      PropBone = 28422,
+      PropPlacement = {0.1000, 0.0200, -0.0300, -90.00, -180.00, 78.999},
+      EmoteLoop = false,
+      EmoteMoving = true,
+  }},
+   ["idcardf"] = {"paper_1_rcm_alt1-8", "player_one_dual-8", "ID Card 6", AnimationOptions =
+   {
+      Prop = "prop_cs_r_business_card",
+      PropBone = 28422,
+      PropPlacement = {0.1000, 0.0200, -0.0300, -90.00, -180.00, 78.999},
+      EmoteLoop = false,
       EmoteMoving = true,
   }},
 
