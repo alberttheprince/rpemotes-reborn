@@ -22,3 +22,8 @@ client_scripts {
 	'NativeUI.lua',
 	'client/*.lua'
 }
+
+
+data_file "DLC_ITYP_REQUEST" "badge1.ytyp"
+
+data_file "DLC_ITYP_REQUEST" "copbadge.ytyp"
