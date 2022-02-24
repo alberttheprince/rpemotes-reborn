@@ -89,6 +89,17 @@ To use the SQL features, install the [oxmysql](https://github.com/overextended/o
 
 [Please check the fivem forum thread](https://forum.fivem.net/t/dpemotes-356ish-emotes-usable-while-walking-props-and-more/843105)
 
+
+
+----------------------
+
+# Police Badge 👮
+
+- Custom LSPD police badge by [LSPDFR member Sam](https://www.lcpdfr.com/downloads/gta5mods/misc/23386-lspd-police-badge/)
+
+- LSPD reskinned badge by [GTA5Mods user Sladus_Slawonkus](https://www.gta5-mods.com/misc/lspd-police-badge-replace-sladus_slawonkus)
+
+
 ----------------------
 
 # FAQs
