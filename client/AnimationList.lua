@@ -3623,5 +3623,21 @@ DP.PropEmotes = {
       EmoteLoop = false,
       EmoteMoving = true,
   }},
+   ["idcardg"] = {"paper_1_rcm_alt1-8", "player_one_dual-8", "ID Card 7", AnimationOptions =
+   {
+      Prop = "prop_michael_sec_id",
+      PropBone = 28422,
+      PropPlacement = {0.1000, 0.0200, -0.0300, -90.00, -180.00, 78.999},
+      EmoteLoop = false,
+      EmoteMoving = true,
+  }},
+   ["idcardh"] = {"paper_1_rcm_alt1-8", "player_one_dual-8", "ID Card 8", AnimationOptions =
+   {
+      Prop = "prop_cop_badge",
+      PropBone = 28422,
+      PropPlacement = {0.0800, -0.0120, -0.0600, -90.00, 180.00, 69.99},
+      EmoteLoop = false,
+      EmoteMoving = true,
+  }},
 
 }
