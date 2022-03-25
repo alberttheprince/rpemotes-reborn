@@ -4,7 +4,7 @@ Config = {
     -- Thank you to those who provided the NL and PT languages.
     --
 
-    MenuLanguage = 'fr',
+    MenuLanguage = 'en',
     -- Set this to true to enable some extra prints
     DebugDisplay = false,
     -- Set this to false if you have something else on X, and then just use /e c to cancel emotes.
@@ -39,7 +39,7 @@ Config = {
     SharedEmotesEnabled = true,
     CheckForUpdates = true,
     -- If you have the SQL imported enable this to turn on keybinding.
-    SqlKeybinding = true,
+    SqlKeybinding = false,
 }
 
 Config.KeybindKeys = {
