@@ -10,17 +10,17 @@ game 'gta5'
 -- dependency 'oxmysql'
 
 shared_scripts {
-	'config.lua',
+    'config.lua',
 }
 
 server_scripts {
-	'printer.lua',
-	'server/*.lua'
+    'printer.lua',
+    'server/*.lua'
 }
 
 client_scripts {
-	'NativeUI.lua',
-	'client/*.lua'
+    'NativeUI.lua',
+    'client/*.lua'
 }
 
 

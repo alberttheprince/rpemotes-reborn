@@ -12,19 +12,19 @@ if Config.SharedEmotesEnabled then
         if #args > 0 then
             local emotename = string.lower(args[1])
             target, distance = GetClosestPlayer()
-            if(distance ~= -1 and distance < 3) then
+            if (distance ~= -1 and distance < 3) then
                 if DP.Shared[emotename] ~= nil then
                     dict, anim, ename = table.unpack(DP.Shared[emotename])
                     TriggerServerEvent("ServerEmoteRequest", GetPlayerServerId(target), emotename)
-                    SimpleNotify(Config.Languages[lang]['sentrequestto']..GetPlayerName(target).." ~w~(~g~"..ename.."~w~)")
+                    SimpleNotify(Config.Languages[lang]['sentrequestto'] .. GetPlayerName(target) .. " ~w~(~g~" .. ename .. "~w~)")
                 else
-                    EmoteChatMessage("'"..emotename.."' "..Config.Languages[lang]['notvalidsharedemote'].."")
+                    EmoteChatMessage("'" .. emotename .. "' " .. Config.Languages[lang]['notvalidsharedemote'] .. "")
                 end
             else
                 SimpleNotify(Config.Languages[lang]['nobodyclose'])
             end
         else
-          MearbysOnCommand()
+            MearbysOnCommand()
         end
     end, false)
 end
@@ -35,9 +35,11 @@ AddEventHandler("SyncPlayEmote", function(emote, player)
     Wait(300)
     -- wait a little to make sure animation shows up right on both clients after canceling any previous emote
     if DP.Shared[emote] ~= nil then
-      if OnEmotePlay(DP.Shared[emote]) then end return
+        if OnEmotePlay(DP.Shared[emote]) then end
+        return
     elseif DP.Dances[emote] ~= nil then
-      if OnEmotePlay(DP.Dances[emote]) then end return
+        if OnEmotePlay(DP.Dances[emote]) then end
+        return
     end
 end)
 
@@ -48,19 +50,21 @@ AddEventHandler("SyncPlayEmoteSource", function(emote, player)
     local heading = GetEntityHeading(pedInFront)
     local coords = GetOffsetFromEntityInWorldCoords(pedInFront, 0.0, 1.0, 0.0)
     if (DP.Shared[emote]) and (DP.Shared[emote].AnimationOptions) then
-      local SyncOffsetFront = DP.Shared[emote].AnimationOptions.SyncOffsetFront
-      if SyncOffsetFront then
-          coords = GetOffsetFromEntityInWorldCoords(pedInFront, 0.0, SyncOffsetFront, 0.0)
-      end
+        local SyncOffsetFront = DP.Shared[emote].AnimationOptions.SyncOffsetFront
+        if SyncOffsetFront then
+            coords = GetOffsetFromEntityInWorldCoords(pedInFront, 0.0, SyncOffsetFront, 0.0)
+        end
     end
     SetEntityHeading(PlayerPedId(), heading - 180.1)
     SetEntityCoordsNoOffset(PlayerPedId(), coords.x, coords.y, coords.z, 0)
     EmoteCancel()
     Wait(300)
     if DP.Shared[emote] ~= nil then
-      if OnEmotePlay(DP.Shared[emote]) then end return
+        if OnEmotePlay(DP.Shared[emote]) then end
+        return
     elseif DP.Dances[emote] ~= nil then
-      if OnEmotePlay(DP.Dances[emote]) then end return
+        if OnEmotePlay(DP.Dances[emote]) then end
+        return
     end
 end)
 
@@ -70,25 +74,25 @@ AddEventHandler("ClientEmoteRequestReceive", function(emotename, etype)
     requestedemote = emotename
 
     if etype == 'Dances' then
-        _,_,remote = table.unpack(DP.Dances[requestedemote])
+        _, _, remote = table.unpack(DP.Dances[requestedemote])
     else
-        _,_,remote = table.unpack(DP.Shared[requestedemote])
+        _, _, remote = table.unpack(DP.Shared[requestedemote])
     end
 
     PlaySound(-1, "NAV", "HUD_AMMO_SHOP_SOUNDSET", 0, 0, 1)
-    SimpleNotify(Config.Languages[lang]['doyouwanna']..remote.."~w~)")
+    SimpleNotify(Config.Languages[lang]['doyouwanna'] .. remote .. "~w~)")
 end)
 
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(5)
         if IsControlJustPressed(1, 246) and isRequestAnim then
-        target, distance = GetClosestPlayer()
-            if(distance ~= -1 and distance < 3) then
+            target, distance = GetClosestPlayer()
+            if (distance ~= -1 and distance < 3) then
                 if DP.Shared[requestedemote] ~= nil then
-                    _,_,_,otheremote = table.unpack(DP.Shared[requestedemote])
+                    _, _, _, otheremote = table.unpack(DP.Shared[requestedemote])
                 elseif DP.Dances[requestedemote] ~= nil then
-                    _,_,_,otheremote = table.unpack(DP.Dances[requestedemote])
+                    _, _, _, otheremote = table.unpack(DP.Dances[requestedemote])
                 end
                 if otheremote == nil then otheremote = requestedemote end
                 TriggerServerEvent("ServerValidEmote", GetPlayerServerId(target), requestedemote, otheremote)
@@ -108,7 +112,7 @@ end)
 -----------------------------------------------------------------------------------------------------
 
 function GetPlayerFromPed(ped)
-    for _,player in ipairs(GetActivePlayers()) do
+    for _, player in ipairs(GetActivePlayers()) do
         if GetPlayerPed(player) == ped then
             return player
         end
@@ -127,18 +131,18 @@ function GetPedInFront()
 end
 
 function MearbysOnCommand(source, args, raw)
-  local NearbysCommand = ""
-  for a in pairsByKeys(DP.Shared) do
-    NearbysCommand = NearbysCommand .. ""..a..", "
-  end
-  EmoteChatMessage(NearbysCommand)
-  EmoteChatMessage(Config.Languages[lang]['emotemenucmd'])
+    local NearbysCommand = ""
+    for a in pairsByKeys(DP.Shared) do
+        NearbysCommand = NearbysCommand .. "" .. a .. ", "
+    end
+    EmoteChatMessage(NearbysCommand)
+    EmoteChatMessage(Config.Languages[lang]['emotemenucmd'])
 end
 
 function SimpleNotify(message)
     SetNotificationTextEntry("STRING")
     AddTextComponentString(message)
-    DrawNotification(0,1)
+    DrawNotification(0, 1)
 end
 
 function GetClosestPlayer()
@@ -148,12 +152,12 @@ function GetClosestPlayer()
     local ply = PlayerPedId()
     local plyCoords = GetEntityCoords(ply, 0)
 
-    for index,value in ipairs(players) do
+    for index, value in ipairs(players) do
         local target = GetPlayerPed(value)
-        if(target ~= ply) then
+        if (target ~= ply) then
             local targetCoords = GetEntityCoords(GetPlayerPed(value), 0)
             local distance = GetDistanceBetweenCoords(targetCoords["x"], targetCoords["y"], targetCoords["z"], plyCoords["x"], plyCoords["y"], plyCoords["z"], true)
-            if(closestDistance == -1 or closestDistance > distance) then
+            if (closestDistance == -1 or closestDistance > distance) then
                 closestPlayer = value
                 closestDistance = distance
             end
