@@ -44,9 +44,9 @@ local FaceTable = {}
 local ShareTable = {}
 local FavoriteEmote = ""
 
-Citizen.CreateThread(function()
-    while true do
-        if Config.FavKeybindEnabled then
+if Config.FavKeybindEnabled then
+    Citizen.CreateThread(function()
+        while true do
             if IsControlPressed(0, Config.FavKeybind) then
                 if not IsPedSittingInAnyVehicle(PlayerPedId()) then
                     if FavoriteEmote ~= "" then
@@ -55,10 +55,10 @@ Citizen.CreateThread(function()
                     end
                 end
             end
+            Citizen.Wait(1)
         end
-        Citizen.Wait(1)
-    end
-end)
+    end)
+end
 
 lang = Config.MenuLanguage
 
