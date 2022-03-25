@@ -4,7 +4,7 @@ Config = {
     -- Thank you to those who provided the NL and PT languages.
     --
 
-    MenuLanguage = 'en',
+    MenuLanguage = 'fr',
     -- Set this to true to enable some extra prints
     DebugDisplay = false,
     -- Set this to false if you have something else on X, and then just use /e c to cancel emotes.
@@ -39,7 +39,7 @@ Config = {
     SharedEmotesEnabled = true,
     CheckForUpdates = true,
     -- If you have the SQL imported enable this to turn on keybinding.
-    SqlKeybinding = false,
+    SqlKeybinding = true,
 }
 
 Config.KeybindKeys = {
@@ -146,8 +146,8 @@ Config.Languages = {
         ['to'] = "à",
         ['currentlyboundemotes'] = " Emotes actuellement liées:",
         ['notvalidkey'] = "n'est pas une clé valide.",
-        ['keybinds'] = "🔢 Liens Clés",
-        ['keybindsinfo'] = "Utiliser"
+        ['keybinds'] = "🔢 Raccourcis clavier",
+        ['keybindsinfo'] = "Utilise"
     },
     ['de'] = {
         ['emotes'] = 'Emotes',
