@@ -43,7 +43,7 @@ Languages can be selected and/or added in config.lua.
 You can change this in the `config.lua`;
 
 ```lua
-MenuKeybind = 166, -- Get the button number here https://docs.fivem.net/game-references/controls/
+MenuKeybind = 'F5', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
 ```
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

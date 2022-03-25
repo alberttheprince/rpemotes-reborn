@@ -35,11 +35,14 @@ Citizen.CreateThread(function()
             end
         end
 
-        if Config.MenuKeybindEnabled then if IsControlPressed(0, Config.MenuKeybind) then OpenEmoteMenu() end end
         if Config.EnableXtoCancel then if IsControlPressed(0, 73) then EmoteCancel() end end
         Citizen.Wait(1)
     end
 end)
+
+if Config.MenuKeybindEnabled then
+    RegisterKeyMapping("emotemenu", "Open dpemotes menu", "keyboard", Config.MenuKeybind)
+end
 
 -----------------------------------------------------------------------------------------------------
 -- Commands / Events --------------------------------------------------------------------------------
@@ -52,7 +55,7 @@ Citizen.CreateThread(function()
         TriggerEvent('chat:addSuggestion', '/emotebind', 'Bind an emote', { { name = "key", help = "num4, num5, num6, num7. num8, num9. Numpad 4-9!" }, { name = "emotename", help = "dance, camera, sit or any valid emote." } })
         TriggerEvent('chat:addSuggestion', '/emotebinds', 'Check your currently bound emotes.')
     end
-    TriggerEvent('chat:addSuggestion', '/emotemenu', 'Open dpemotes menu (F3) by default.')
+    TriggerEvent('chat:addSuggestion', '/emotemenu', 'Open dpemotes menu (F5) by default.')
     TriggerEvent('chat:addSuggestion', '/emotes', 'List available emotes.')
     TriggerEvent('chat:addSuggestion', '/walk', 'Set your walkingstyle.', { { name = "style", help = "/walks for a list of valid styles" } })
     TriggerEvent('chat:addSuggestion', '/walks', 'List available walking styles.')
