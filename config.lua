@@ -4,7 +4,7 @@ Config = {
     -- Thank you to those who provided the NL and PT languages.
     --
 
-    MenuLanguage = 'fr',
+    MenuLanguage = 'en',
     -- Set this to true to enable some extra prints
     DebugDisplay = false,
     -- Set this to false if you have something else on X, and then just use /e c to cancel emotes.
@@ -15,7 +15,7 @@ Config = {
     AllowedInCars = true,
     -- You can disable the menu here / change the keybind. It is currently set to F3
     MenuKeybindEnabled = true,
-    MenuKeybind = 170, -- Get the button number here https://docs.fivem.net/game-references/controls/
+    MenuKeybind = 166, -- Get the button number here https://docs.fivem.net/game-references/controls/
     -- You can disable the Favorite emote keybinding here.
     FavKeybindEnabled = true,
     FavKeybind = 171, -- Get the button number here https://docs.fivem.net/game-references/controls/
