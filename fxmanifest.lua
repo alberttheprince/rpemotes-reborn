@@ -6,8 +6,11 @@ fx_version 'adamant'
 
 game 'gta5'
 
--- Comment this out if you don't want to use the SQL keybinds
+-- Comment the following linnes if you don't want to use the SQL keybinds
+--#region oxmysql
 -- dependency 'oxmysql'
+-- server_script "@oxmysql/lib/MySQL.lua"
+--#endregion oxmysql
 
 shared_scripts {
     'config.lua',
