@@ -38,15 +38,27 @@ Languages can be selected and/or added in config.lua.
 
 # Menu Keybind 🎛️
 
-* Menu key has been changed to F5 as for some reason, F3 and F4 clash with [Menyoo](https://github.com/MAFINS/MenyooSP) and controllers 🎮
+**Important Note:**
 
-You can change this in the `config.lua`;
+The keybind uses RegisterKeyMapping. By default, the server owner configured keybind in the *initial* config.lua will be the default key, however once the keybind is set for a user, it'll stay with this new value. Editing the config keybind will change it for new players only.
+
+* Menu key:* F5
+
+F3 and F4 clash with [Menyoo](https://github.com/MAFINS/MenyooSP) and controllers 🎮
+
+Server owners can change this in the `config.lua`;
 
 ```lua
 MenuKeybind = 'F5', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
 ```
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Alternatively, the player base can set their own menu keybind to open DpEmotes
+
+```lua
+Esc > settings > keybinds > fivem > dpemotes
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Keybinds and SQL 🎛️
 
