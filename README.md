@@ -70,19 +70,24 @@ To use the SQL features, install the [oxmysql](https://github.com/overextended/o
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-# Optional Add-Ons 🛠️
+# Add-Ons 🛠️
 
-* Fixes an issue with the clipboard and adds textures to paper (/e clipboard)
-
-* Adds textures to the mugshot prop (/e mugshot)
+* Fixed an issue with the clipboard and adds textures to paper (/e clipboard)
 
 * Changes umbrella texture to black (/e umbrella)
+
+# Optional Add-Ons 🛠️
+
+* Adds textures to the mugshot prop (/e mugshot)
 
 * Retextured protest sign (can be changed using Texture Toolkit: https://www.gta5-mods.com/tools/texture-toolkit)
 
 **Grab it here:** 
 
 [Add-Ons For DpEmotes](https://github.com/TayMcKenzieNZ/addonsfordpemotes)
+
+
+--------------------------------------------------------
 
 
 # Additional Instructions 
