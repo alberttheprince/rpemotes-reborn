@@ -3201,5 +3201,33 @@ DP.PropEmotes = {
         PropPlacement = { 0.0800, -0.0120, -0.0600, -90.00, 180.00, 69.99 },
         EmoteLoop = false,
         EmoteMoving = true,
+     } },
+    ["sms"] = { "cellphone@female", "cellphone_text_read_base", "SMS", AnimationOptions = {
+        Prop = "prop_phone_ing",
+        PropBone = 28422,
+        PropPlacement = { 0.00, 0.00, 0.0301, 0.000, 00.00, 00.00 },
+        EmoteLoop = true,
+        EmoteMoving = true,
+   } },
+    ["sms2"] = { "cellphone@female", "cellphone_email_read_base", "SMS 2", AnimationOptions = {
+        Prop = "prop_phone_ing",
+        PropBone = 28422,
+        PropPlacement = { -0.0190, -0.0240, 0.0300, 18.99, -72.07, 6.39},
+        EmoteLoop = false,
+        EmoteMoving = true,
+     } },
+    ["sms3"] = { "cellphone@female", "cellphone_text_read_base_cover_low", "SMS 3", AnimationOptions = {
+        Prop = "prop_phone_ing",
+        PropBone = 28422,
+        PropPlacement = { -0.0190, -0.0250, 0.0400, 19.17, -78.50, 14.97 },
+        EmoteLoop = false,
+        EmoteMoving = true,
+    } },
+    ["sms4"] = { "amb@code_human_wander_texting_fat@male@base", "static", "SMS 4", AnimationOptions = {
+        Prop = "prop_phone_ing",
+        PropBone = 28422,
+        PropPlacement = { -0.0200, -0.0100, 0.00, 2.309, 88.845, 29.979 },
+        EmoteLoop = false,
+        EmoteMoving = true,
     } },
 }
