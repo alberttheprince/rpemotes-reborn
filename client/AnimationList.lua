@@ -143,7 +143,7 @@ DP.Shared = {
     --[emotename] = {dictionary, animation, displayname, targetemotename, additionalanimationoptions}
     -- you dont have to specify targetemoteanem, if you do dont it will just play the same animation on both.
     -- targetemote is used for animations that have a corresponding animation to the other player.
-    ["handshake"] = { "mp_ped_interaction", "handshake_guy_a", "Handshake", "handshake2", AnimationOptions = {
+    ["handshake"] = { "mp_ped_interaction", "handshake_guy_a", "Handshake", "Handshake2", AnimationOptions = {
         EmoteMoving = true,
         EmoteDuration = 3000,
         SyncOffsetFront = 0.9
@@ -2534,13 +2534,6 @@ DP.PropEmotes = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["phone"] = { "cellphone@", "cellphone_text_read_base", "Phone", AnimationOptions = {
-        Prop = "prop_phone_cs_frank",
-        PropBone = 28422,
-        PropPlacement = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
-        EmoteLoop = true,
-        EmoteMoving = true,
-    } },
     ["wt"] = { "cellphone@", "cellphone_text_read_base", "Walkie Talkie", AnimationOptions = {
         Prop = "prop_cs_hand_radio",
         PropBone = 28422,
@@ -2562,7 +2555,7 @@ DP.PropEmotes = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["protest"] = { "rcmnigel1d", "base_club_shoulder", "protest", AnimationOptions = {
+    ["protest"] = { "rcmnigel1d", "base_club_shoulder", "Protest", AnimationOptions = {
         Prop = "prop_cs_protest_sign_01",
         PropBone = 57005,
         PropPlacement = { 0.1820, 0.2400, 0.0600, -69.3774235, 5.9142048, -13.9572354 },
@@ -2609,7 +2602,7 @@ DP.PropEmotes = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["fuel"] = { "weapons@misc@jerrycan@", "fire", "fuel", AnimationOptions = {
+    ["fuel"] = { "weapons@misc@jerrycan@", "fire", "Fuel", AnimationOptions = {
         Prop = "w_am_jerrycan",
         PropBone = 57005,
         PropPlacement = { 0.1800, 0.1300, -0.2400, -165.8693883, -11.2122753, -32.9453021 },
@@ -3201,33 +3194,124 @@ DP.PropEmotes = {
         PropPlacement = { 0.0800, -0.0120, -0.0600, -90.00, 180.00, 69.99 },
         EmoteLoop = false,
         EmoteMoving = true,
-     } },
-    ["sms"] = { "cellphone@female", "cellphone_text_read_base", "SMS", AnimationOptions = {
+    } },
+	["sms"] = { "cellphone@", "cellphone_text_read_base", "SMS", AnimationOptions = {
+        Prop = "prop_phone_ing",
+        PropBone = 28422,
+        PropPlacement = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
+        EmoteLoop = true,
+        EmoteMoving = true,
+    } },
+    ["sms2"] = { "cellphone@female", "cellphone_text_read_base", "SMS 2", AnimationOptions = {
         Prop = "prop_phone_ing",
         PropBone = 28422,
         PropPlacement = { 0.00, 0.00, 0.0301, 0.000, 00.00, 00.00 },
         EmoteLoop = true,
         EmoteMoving = true,
    } },
-    ["sms2"] = { "cellphone@female", "cellphone_email_read_base", "SMS 2", AnimationOptions = {
+    ["sms3"] = { "cellphone@female", "cellphone_email_read_base", "SMS 3", AnimationOptions = {
         Prop = "prop_phone_ing",
         PropBone = 28422,
         PropPlacement = { -0.0190, -0.0240, 0.0300, 18.99, -72.07, 6.39},
         EmoteLoop = false,
         EmoteMoving = true,
      } },
-    ["sms3"] = { "cellphone@female", "cellphone_text_read_base_cover_low", "SMS 3", AnimationOptions = {
+    ["sms4"] = { "cellphone@female", "cellphone_text_read_base_cover_low", "SMS 4", AnimationOptions = {
         Prop = "prop_phone_ing",
         PropBone = 28422,
         PropPlacement = { -0.0190, -0.0250, 0.0400, 19.17, -78.50, 14.97 },
         EmoteLoop = false,
         EmoteMoving = true,
     } },
-    ["sms4"] = { "amb@code_human_wander_texting_fat@male@base", "static", "SMS 4", AnimationOptions = {
+    ["sms5"] = { "amb@code_human_wander_texting_fat@male@base", "static", "SMS 6", AnimationOptions = {
         Prop = "prop_phone_ing",
         PropBone = 28422,
         PropPlacement = { -0.0200, -0.0100, 0.00, 2.309, 88.845, 29.979 },
         EmoteLoop = false,
         EmoteMoving = true,
+    } },
+    ["tire"]             = { "anim@heists@box_carry@", "idle", "Tire", AnimationOptions = {
+        Prop          = "prop_wheel_tyre",
+        PropBone      = 60309,
+        PropPlacement = { -0.05, 0.16, 0.32, -130.0, -55.0, 150.0 },
+        EmoteLoop     = true,
+        EmoteMoving   = true,
+    } },
+    ["register"]      = { "anim@heists@box_carry@", "idle", "Register", AnimationOptions = {
+        Prop          = "v_ret_gc_cashreg",
+        PropBone      = 60309,
+        PropPlacement = { 0.138, 0.2, 0.2, -50.0, 290.0, 0.0 },
+        EmoteLoop     = true,
+        EmoteMoving   = true,
+    } },
+    ["weedbrick"]      = { "impexp_int-0", "mp_m_waremech_01_dual-0", "Weed Brick", AnimationOptions = {
+        Prop          = "prop_weed_block_01",
+        PropBone      = 60309,
+        PropPlacement = { 0.1, 0.1, 0.05, 0.0, -90.0, 90.0 },
+        EmoteLoop     = true,
+        EmoteMoving   = true,
+    } },
+    ["weedbrick2"]      = { "anim@heists@box_carry@", "idle", "Weed Brick BIG", AnimationOptions = {
+        Prop          = "bkr_prop_weed_bigbag_01a",
+        PropBone      = 60309,
+        PropPlacement = { 0.158, -0.05, 0.23, -50.0, 290.0, 0.0 },
+        EmoteLoop     = true,
+        EmoteMoving   = true,
+    } },
+    ["potplant"]      = { "anim@heists@box_carry@", "idle", "Pot Plant (Small)", AnimationOptions = {
+        Prop          = "bkr_prop_weed_01_small_01c",
+        PropBone      = 60309,
+        PropPlacement = { 0.138, -0.05, 0.23, -50.0, 290.0, 0.0 },
+        EmoteLoop     = true,
+        EmoteMoving   = true,
+    } },
+    ["potplant2"]      = { "anim@heists@box_carry@", "idle", "Pot Plant (Medium)", AnimationOptions = {
+        Prop          = "bkr_prop_weed_01_small_01b",
+        PropBone      = 60309,
+        PropPlacement = { 0.138, -0.05, 0.23, -50.0, 290.0, 0.0 },
+        EmoteLoop     = true,
+        EmoteMoving   = true,
+    } },
+    ["potplant3"]      = { "anim@heists@box_carry@", "idle", "Pot Plant (Large)", AnimationOptions = {
+        Prop          = "bkr_prop_weed_lrg_01b",
+        PropBone      = 60309,
+        PropPlacement = { 0.138, -0.05, 0.23, -50.0, 290.0, 0.0 },
+        EmoteLoop     = true,
+        EmoteMoving   = true,
+    } },
+    ["lawnchair"]    = { "timetable@ron@ig_5_p3", "ig_5_p3_base", "Lawnchair", AnimationOptions = {
+        Prop          = "prop_skid_chair_02",
+        PropBone      = 0,
+        PropPlacement = { 0.025, -0.2, -0.1, 45.0, -5.0, 180.0 },
+        EmoteLoop     = true,
+        EmoteMoving   = false,
+    } },
+    ["lawnchair2"]    = { "timetable@reunited@ig_10", "base_amanda", "Lawnchair 2", AnimationOptions = {
+        Prop          = "prop_skid_chair_02",
+        PropBone      = 0,
+        PropPlacement = { 0.025, -0.15, -0.1, 45.0, 5.0, 180.0 },
+        EmoteLoop     = true,
+        EmoteMoving   = false,
+    } },
+    ["lawnchair3"]    = { "timetable@ron@ig_3_couch", "base", "Lawnchair 3", AnimationOptions = {
+        Prop          = "prop_skid_chair_02",
+        PropBone      = 0,
+        PropPlacement = { -0.05, 0.0, -0.2, 5.0, 0.0, 180.0 },
+        EmoteLoop     = true,
+        EmoteMoving   = false,
+    } },
+    ["rose2"]        = { "missheistdocksprep1hold_cellphone", "static", "Rose 2 (Male)", AnimationOptions = {
+        Prop          = "prop_single_rose",
+        PropBone      = 31086,
+        PropPlacement = { -0.0140, 0.1030, 0.0620, -2.932, 4.564, 39.910 },
+        EmoteLoop     = false,
+        EmoteMoving   = true,
+    } },
+    ["rose3"]        = { "missheistdocksprep1hold_cellphone", "static", "Rose 3 (Female)", AnimationOptions = {
+        Prop          = "prop_single_rose",
+        PropBone      = 31086,
+        PropPlacement = { -0.0140, 0.1070, 0.0720, 0.00, 0.00, 2.99 },
+        EmoteLoop     = false,
+        EmoteMoving   = true,
     } },
 }
