@@ -602,13 +602,10 @@ DP.Dances = {
     ["dancehiphop"] = { "anim@amb@nightclub@mini@dance@dance_paired@dance_d@", "ped_a_dance_idle", "Hip Hop Dance ", AnimationOptions = {
         EmoteLoop = true,
     } },
-    ["dancehiphop"] = { "anim@amb@nightclub@mini@dance@dance_paired@dance_d@", "ped_a_dance_idle", "Hip Hop Dance ", AnimationOptions = {
+    ["dancehiphop2"] = { "anim@amb@nightclub@mini@dance@dance_paired@dance_b@", "ped_a_dance_idle", "Hip Hop Dance 2 ", AnimationOptions = {
         EmoteLoop = true,
     } },
-    ["dancehiphop2"] = { "anim@amb@nightclub@mini@dance@dance_paired@dance_b@", "ped_a_dance_idle", "Hip Hop Dance ", AnimationOptions = {
-        EmoteLoop = true,
-    } },
-    ["dancehiphop3"] = { "anim@amb@nightclub@mini@dance@dance_paired@dance_a@", "ped_a_dance_idle", "Hip Hop Dance ", AnimationOptions = {
+    ["dancehiphop3"] = { "anim@amb@nightclub@mini@dance@dance_paired@dance_a@", "ped_a_dance_idle", "Hip Hop Dance 3 ", AnimationOptions = {
         EmoteLoop = true,
     } },
 }
@@ -3428,13 +3425,6 @@ DP.PropEmotes = {
         EmoteLoop     = true,
         EmoteMoving   = true,
     } },
-    ["cbbox4"]          = { "anim@heists@box_carry@", "idle", "Carry Beer Box 4", AnimationOptions = {
-        Prop          = "v_ret_ml_beerpat1",
-        PropBone      = 28422,
-        PropPlacement = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
-        EmoteLoop     = true,
-        EmoteMoving   = true,
-    } },
     ["cbbox5"]          = { "anim@heists@box_carry@", "idle", "Carry Beer Box 5", AnimationOptions = {
         Prop          = "v_ret_ml_beerpis1",
         PropBone      = 28422,
@@ -3483,5 +3473,19 @@ DP.PropEmotes = {
         PropPlacement = { -0.0100, -0.2200, -0.8600, 0.0, 0.0, 0.0 },
         EmoteLoop     = true,
         EmoteMoving   = true,
+     } },
+    ['pflag'] = { 'rcmnigel1d', 'base_club_shoulder', 'Pride Flag', AnimationOptions = {
+        Prop = 'prideflag1',
+        PropBone = 18905,
+        PropPlacement = { 0.0800, -0.2090, 0.0900, -82.6677, -141.2988, 12.3308 },
+        EmoteLoop = true,
+        EmoteMoving = true,
+    } },
+    ['pflag2'] = { 'rcmnigel1d', 'base_club_shoulder', 'Pride Flag 2', AnimationOptions = {
+        Prop = 'prideflag2',
+        PropBone = 18905,
+        PropPlacement = { 0.0800, -0.2090, 0.0900, -82.6677, -141.2988, 12.3308 },
+        EmoteLoop = true,
+        EmoteMoving = true,
     } },
 }
