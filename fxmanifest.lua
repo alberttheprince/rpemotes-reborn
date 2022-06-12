@@ -30,3 +30,5 @@ client_scripts {
 data_file "DLC_ITYP_REQUEST" "badge1.ytyp"
 
 data_file "DLC_ITYP_REQUEST" "copbadge.ytyp"
+
+data_file "DLC_ITYP_REQUEST" "prideflags_ytyp"
