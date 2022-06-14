@@ -270,16 +270,16 @@ end
 
 function AddInfoMenu(menu)
     if not UpdateAvailable then
-        infomenu = _menuPool:AddSubMenu(menu, Config.Languages[lang]['infoupdate'], "(1.7.4)", "", Menuthing, Menuthing)
+        infomenu = _menuPool:AddSubMenu(menu, Config.Languages[lang]['infoupdate'], "Huge Thank You ❤️", "", Menuthing, Menuthing)
     else
         infomenu = _menuPool:AddSubMenu(menu, Config.Languages[lang]['infoupdateav'], Config.Languages[lang]['infoupdateavtext'], "", Menuthing, Menuthing)
     end
     contact = NativeUI.CreateItem(Config.Languages[lang]['suggestions'], Config.Languages[lang]['suggestionsinfo'])
-    u170 = NativeUI.CreateItem("1.7.0", "Added /emotebind [key] [emote]!")
-    u165 = NativeUI.CreateItem("1.6.5", "Updated camera/phone/pee/beg, added makeitrain/dance(glowstick/horse).")
-    u160 = NativeUI.CreateItem("1.6.0", "Added shared emotes /nearby, or in menu, also fixed some emotes!")
-    u151 = NativeUI.CreateItem("1.5.1", "Added /walk and /walks, for walking styles without menu")
-    u150 = NativeUI.CreateItem("1.5.0", "Added Facial Expressions menu (if enabled by server owner)")
+    u170 = NativeUI.CreateItem("Thanks", "DullPear for the original dpemotes ❤️")
+    u165 = NativeUI.CreateItem("Thanks", "AvaN0x for assisting with the formatting of the code.")
+    u160 = NativeUI.CreateItem("Thanks", "SMGMissy for the custom pride flags 🏳️‍🌈.")
+    u151 = NativeUI.CreateItem("Thanks", "Kibook for the addition of Animal Emotes 🐩.")
+    u150 = NativeUI.CreateItem("Thanks", "To you, the community for helping me keep this menu alive ❤️.")
     infomenu:AddItem(contact)
     infomenu:AddItem(u170)
     infomenu:AddItem(u165)
