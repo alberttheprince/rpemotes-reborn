@@ -2646,6 +2646,14 @@ DP.PropEmotes = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
+    ["protest2"]         = { "rcmnigel1d", "base_club_shoulder", "Protest 2 - Pride ", AnimationOptions = {
+        Prop = "pride_sign_01",
+        PropBone = 57005,
+        PropPlacement = { 0.1820, 0.2400, 0.0600, -69.3774235, 5.9142048, -13.9572354 },
+        --
+        EmoteLoop = true,
+        EmoteMoving = true,
+    } },
     ["binoculars"]      = { "amb@world_human_binoculars@male@idle_b", "idle_f", "Binoculars", AnimationOptions = {
         Prop = "prop_binoc_01",
         PropBone = 28422,
