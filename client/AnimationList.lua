@@ -958,7 +958,7 @@ DP.AnimalEmotes = {
         EmoteMoving = false,
     } },
     ["sdogdancepridei"] = { "creatures@pug@move", "idle_turn_0", "Dance Pride I - Straight Ally (small dog)", AnimationOptions = {
-        Prop = 'lilprideflag8', --Straight Ally
+        Prop = 'lilprideflag9', --Straight Ally
         PropBone = 31086,
         PropPlacement = { 0.1240, -0.0080, 0.000, 0.0, 0.0, -74.6999 },
         SecondProp = 'prop_cs_sol_glasses',
