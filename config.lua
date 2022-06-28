@@ -23,7 +23,7 @@ Config = {
     -- Use a 512 x 128 image!
     -- Note this might cause an issue of the image getting stuck on peoples screens
     CustomMenuEnabled = true,
-    MenuImage = "https://i.imgur.com/vqwCuZg.png", ----[Pride Banner: https://i.imgur.com/vqwCuZg.png. Original banner URL: https://imgur.com/PvMINNO.png ]---
+    MenuImage = "https://i.imgur.com/IRzHWb3.png", ----[Custom banner imgur URLs go here ]--- 
     -- You can change the menu image by pasting a link above. It must be the same width and length
     --
     -- You can change the menu position here
