@@ -10,7 +10,7 @@ Emotes / Animations for FiveM with human, animal and prop support 🐩
 
 * Dutch 🇳🇱
 
-* English 🇺🇲
+* English 🇬🇧
 
 * French 🇫🇷
 
