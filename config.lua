@@ -23,7 +23,7 @@ Config = {
     -- Use a 512 x 128 image!
     -- Note this might cause an issue of the image getting stuck on peoples screens
     CustomMenuEnabled = true,
-    MenuImage = "https://i.imgur.com/IRzHWb3.png", ----[Custom banner imgur URLs go here ]--- 
+    MenuImage = "https://i.imgur.com/IRzHWb3.png", ----[Custom banner imgur URLs go here ]---
     -- You can change the menu image by pasting a link above. It must be the same width and length
     --
     -- You can change the menu position here
@@ -107,7 +107,7 @@ Config.Languages = {
         ['animalemotes'] = "🐩 zvířecí Animace",
         ['propemotes'] = "📦 Animace s předměty",
         ['favoriteemotes'] = "🌟 Oblíbené",
-        ['favoriteinfo'] = "Vyberte si animaci a nastavte ji jako svou oblíbenou.", 
+        ['favoriteinfo'] = "Vyberte si animaci a nastavte ji jako svou oblíbenou.",
         ['rfavorite'] = "Obnovit oblíbené",
         ['prop2info'] = "❓ Pomůcky se mohou nacházet na konci",
         ['set'] = "Nastavit",
@@ -130,7 +130,7 @@ Config.Languages = {
         ['maleonly'] = "Tato emoce je pouze pro muže, omlouvám se!",
         ['emotemenucmd'] = "Použíj /emotemenu pro otevření menu.",
         ['shareemotes'] = "👫 Sdílené animace",
-        ['shareemotesinfo'] = "Pozvěte osobu v okolí, k tanci", 
+        ['shareemotesinfo'] = "Pozvěte osobu v okolí, k tanci",
         ['sharedanceemotes'] = "🕺 Sdílený tanece",
         ['notvalidsharedemote'] = "Není platný Sdílený tanec.",
         ['sentrequestto'] = "Odeslal jsi ~y~ žádost o tanec ",
@@ -488,5 +488,54 @@ Config.Languages = {
         ['notvalidkey'] = "non è una chiave valida.",
         ['keybinds'] = "🔢 Tasti",
         ['keybindsinfo'] = "Utilizza"
+    },
+    ['da'] = { -- Danish
+        ['emotes'] = 'Emotes',
+        ['danceemotes'] = "🕺 Danse Emotes",
+        ['animalemotes'] = "🐩 Animal Emotes", -- English
+        ['propemotes'] = "📦 Rekvisit Emotes",
+        ['favoriteemotes'] = "🌟 Favorit",
+        ['favoriteinfo'] = "Vælge en emote her for at sætte den som din favorit.",
+        ['rfavorite'] = "Nulstil Favorit",
+        ['prop2info'] = "❓ Rekvisit emotes findes i slutningen",
+        ['set'] = "Sæt (",
+        ['setboundemote'] = ") til din favorit emote?",
+        ['newsetemote'] = "~w~ Er nu din favorit emote, tryk ~g~CapsLock~w~ for at anvende den.",
+        ['cancelemote'] = "Afbryd emote",
+        ['cancelemoteinfo'] = "~r~X~w~ Anullere din igangværende emote.",
+        ['walkingstyles'] = "Gågange",
+        ['resetdef'] = "Nulstil til standard",
+        ['normalreset'] = "Normal (Nulstil)",
+        ['moods'] = "Humør",
+        ['infoupdate'] = "Info / opdateringer",
+        ['infoupdateav'] = "Information (Opdatering available)",
+        ['infoupdateavtext'] = "En opdatering er tilgænglig, hent den nyeste version fra ~y~https://github.com/TayMcKenzieNZ/dpemotes~w~",
+        ['suggestions'] = "Forslag?",
+        ['suggestionsinfo'] = "'TayMcKenzieNZ' på FiveM-forum for alle funktioner/emote-forslag! ✉️",
+        ['notvaliddance'] = "er ikke en gyldig dans",
+        ['notvalidemote'] = "er ikke en gyldig emote",
+        ['nocancel'] = "Ingen emote afspilles lige nu",
+        ['maleonly'] = "Denne emote virker desværre kun til mænd!",
+        ['emotemenucmd'] = "Skriv /emotemenu for emote menuen",
+        ['shareemotes'] = "👫 Delte Emotes",
+        ['shareemotesinfo'] = "Invitere en spillere i nærheden for afspille emoten",
+        ['sharedanceemotes'] = "🕺 Delete Danse",
+        ['notvalidsharedemote'] = "er ikke en gyldig delt emote.",
+        ['sentrequestto'] = "Anmodning sendt til ~y~",
+        ['nobodyclose'] = "Ingen ~r~tæt~w~ nok.",
+        ['doyouwanna'] = "~y~Y~w~ for at acceptere, ~r~L~w~ for at nægte (~g~",
+        ['refuseemote'] = "Emote nægtede.",
+        ['makenearby'] = "makes the nearby player play",
+        ['camera'] = "Tryk ~y~G~w~ for at bruge kamera kameraets blitz.",
+        ['makeitrain'] = "Tryk ~y~G~w~ for at regne med penge.",
+        ['pee'] = "Hold ~y~G~w~ for at tisse.",
+        ['spraychamp'] = "Hold ~y~G~w~ for at sprøjte med champagnen",
+        ['stun'] = "Press ~y~G~w~ to 'use' stun gun.", -- English
+        ['bound'] = "Bundet ",
+        ['to'] = "til",
+        ['currentlyboundemotes'] = " Keybind emotes:",
+        ['notvalidkey'] = "er ikke en gyldigt nøgle.",
+        ['keybinds'] = "🔢 Keybinds",
+        ['keybindsinfo'] = "Brug"
     }
 }
