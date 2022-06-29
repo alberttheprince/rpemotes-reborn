@@ -1,7 +1,7 @@
 Config = {
     -- Change the language of the menu here!.
     -- Note fr and de are google translated, if you would like to help out with translations, feel free to send me an 'issue' on Github.
-    -- Thank you to those who provided the NL and PT languages.
+    -- Thank you to those who provided translations.
     --
 
     MenuLanguage = 'en',
@@ -52,7 +52,7 @@ Config.KeybindKeys = {
 }
 
 Config.Languages = {
-    ['en'] = { -- ENGLISH
+    ['en'] = { -- ENGLISH 🇬🇧
         ['emotes'] = 'Emotes 🎬',
         ['danceemotes'] = "🕺 Dance Emotes",
         ['animalemotes'] = "🐩 Animal Emotes",
@@ -101,7 +101,7 @@ Config.Languages = {
         ['keybinds'] = "🔢 Keybinds",
         ['keybindsinfo'] = "Use"
     },
-    ['cs'] = { -- CZECH
+    ['cs'] = { -- CZECH 🇨🇿
         ['emotes'] = 'Animace 🎬',
         ['danceemotes'] = "🕺 Taneční Animace",
         ['animalemotes'] = "🐩 zvířecí Animace",
@@ -150,7 +150,7 @@ Config.Languages = {
         ['keybinds'] = "🔢 Klávesové Zkratky",
         ['keybindsinfo'] = "Use"
     },
-    ['fr'] = { -- FRENCH
+    ['fr'] = { -- French 🇫🇷
         ['emotes'] = 'Emotes 🎬',
         ['danceemotes'] = "🕺 Danses",
         ['animalemotes'] = "🐩 Emotes d'animaux",
@@ -198,7 +198,7 @@ Config.Languages = {
         ['keybinds'] = "🔢 Raccourcis clavier",
         ['keybindsinfo'] = "Utilise"
     },
-    ['de'] = { -- GERMAN
+    ['de'] = { -- German 🇩🇪
         ['emotes'] = 'Emotes 🎬',
         ['danceemotes'] = "🕺 Tanz-Emotes",
         ['animalemotes'] = "🐩 Animal Emotes",
@@ -246,7 +246,7 @@ Config.Languages = {
         ['keybinds'] = "🔢 Tastenkombinationen",
         ['keybindsinfo'] = "verwenden"
     },
-    ['sv'] = { -- Swedish
+    ['sv'] = { -- Swedish 🇸🇪
         ['emotes'] = 'Emotes 🎬',
         ['danceemotes'] = "🕺 Dans Emotes",
         ['animalemotes'] = "🐩 Animal Emotes",
@@ -294,7 +294,7 @@ Config.Languages = {
         ['keybinds'] = "🔢 Keybinds",
         ['keybindsinfo'] = "Använd"
     },
-    ['es'] = { -- Spanish
+    ['es'] = { -- Spanish 🇪🇸
         ['emotes'] = "Animaciones 🎬",
         ['danceemotes'] = "🕺 Bailes",
         ['animalemotes'] = "🐩 Emotes de animales",
@@ -342,7 +342,7 @@ Config.Languages = {
         ['keybinds'] = "🔢 Keybinds",
         ['keybindsinfo'] = "Utilizar"
     },
-    ['nl'] = { -- Dutch
+    ['nl'] = { -- Dutch 🇳🇱
         ['emotes'] = 'Animaties 🎬',
         ['danceemotes'] = "🕺 Dans Animaties",
         ['animalemotes'] = "🐩 Dier Animaties",
@@ -489,24 +489,24 @@ Config.Languages = {
         ['keybinds'] = "🔢 Tasti",
         ['keybindsinfo'] = "Utilizza"
     },
-    ['da'] = { -- Danish
-        ['emotes'] = 'Emotes',
-        ['danceemotes'] = "🕺 Danse Emotes",
-        ['animalemotes'] = "🐩 Animal Emotes", -- English
-        ['propemotes'] = "📦 Rekvisit Emotes",
+    ['da'] = { -- Danish 🇩🇰
+        ['emotes'] = 'Animationer',
+        ['danceemotes'] = "🕺 Danse Animationer",
+        ['animalemotes'] = "🐩 Dyr Animationer",
+        ['propemotes'] = "📦 Rekvisit Animationer",
         ['favoriteemotes'] = "🌟 Favorit",
-        ['favoriteinfo'] = "Vælge en emote her for at sætte den som din favorit.",
+        ['favoriteinfo'] = "Vælge en animationer her for at sætte den som din favorit.",
         ['rfavorite'] = "Nulstil Favorit",
         ['prop2info'] = "❓ Rekvisit emotes findes i slutningen",
         ['set'] = "Sæt (",
-        ['setboundemote'] = ") til din favorit emote?",
-        ['newsetemote'] = "~w~ Er nu din favorit emote, tryk ~g~CapsLock~w~ for at anvende den.",
-        ['cancelemote'] = "Afbryd emote",
-        ['cancelemoteinfo'] = "~r~X~w~ Anullere din igangværende emote.",
+        ['setboundemote'] = ") til din favorit animationer?",
+        ['newsetemote'] = "~w~ Er nu din favorit animationer, tryk ~g~CapsLock~w~ for at anvende den.",
+        ['cancelemote'] = "Afbryd animationer",
+        ['cancelemoteinfo'] = "~r~X~w~ Anullere din igangværende animationer.",
         ['walkingstyles'] = "Gågange",
         ['resetdef'] = "Nulstil til standard",
         ['normalreset'] = "Normal (Nulstil)",
-        ['moods'] = "Humør",
+        ['moods'] = "Humør 😒",
         ['infoupdate'] = "Info / opdateringer",
         ['infoupdateav'] = "Information (Opdatering available)",
         ['infoupdateavtext'] = "En opdatering er tilgænglig, hent den nyeste version fra ~y~https://github.com/TayMcKenzieNZ/dpemotes~w~",
@@ -514,26 +514,26 @@ Config.Languages = {
         ['suggestionsinfo'] = "'TayMcKenzieNZ' på FiveM-forum for alle funktioner/emote-forslag! ✉️",
         ['notvaliddance'] = "er ikke en gyldig dans",
         ['notvalidemote'] = "er ikke en gyldig emote",
-        ['nocancel'] = "Ingen emote afspilles lige nu",
-        ['maleonly'] = "Denne emote virker desværre kun til mænd!",
-        ['emotemenucmd'] = "Skriv /emotemenu for emote menuen",
-        ['shareemotes'] = "👫 Delte Emotes",
-        ['shareemotesinfo'] = "Invitere en spillere i nærheden for afspille emoten",
+        ['nocancel'] = "Ingen animationer afspilles lige nu",
+        ['maleonly'] = "Denne animationer virker desværre kun til mænd!",
+        ['emotemenucmd'] = "Skriv /emotemenu for animationer menuen",
+        ['shareemotes'] = "👫 Delte animationer",
+        ['shareemotesinfo'] = "Invitere en spillere i nærheden for afspille animationer",
         ['sharedanceemotes'] = "🕺 Delete Danse",
-        ['notvalidsharedemote'] = "er ikke en gyldig delt emote.",
+        ['notvalidsharedemote'] = "er ikke en gyldig delt animationer.",
         ['sentrequestto'] = "Anmodning sendt til ~y~",
         ['nobodyclose'] = "Ingen ~r~tæt~w~ nok.",
         ['doyouwanna'] = "~y~Y~w~ for at acceptere, ~r~L~w~ for at nægte (~g~",
-        ['refuseemote'] = "Emote nægtede.",
-        ['makenearby'] = "makes the nearby player play",
+        ['refuseemote'] = "Animationer nægtede.",
+        ['makenearby'] = "får den nærliggende spiller til at spille",
         ['camera'] = "Tryk ~y~G~w~ for at bruge kamera kameraets blitz.",
         ['makeitrain'] = "Tryk ~y~G~w~ for at regne med penge.",
         ['pee'] = "Hold ~y~G~w~ for at tisse.",
         ['spraychamp'] = "Hold ~y~G~w~ for at sprøjte med champagnen",
-        ['stun'] = "Press ~y~G~w~ to 'use' stun gun.", -- English
+        ['stun'] = "tryk på ~y~G~w~ for at bruge elektrisk pistol.",
         ['bound'] = "Bundet ",
         ['to'] = "til",
-        ['currentlyboundemotes'] = " Keybind emotes:",
+        ['currentlyboundemotes'] = " Keybind animationer:",
         ['notvalidkey'] = "er ikke en gyldigt nøgle.",
         ['keybinds'] = "🔢 Keybinds",
         ['keybindsinfo'] = "Brug"
