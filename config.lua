@@ -52,7 +52,7 @@ Config.KeybindKeys = {
 }
 
 Config.Languages = {
-    ['en'] = { -- ENGLISH 🇬🇧
+    ['en'] = { -- English 🇬🇧
         ['emotes'] = 'Emotes 🎬',
         ['danceemotes'] = "🕺 Dance Emotes",
         ['animalemotes'] = "🐩 Animal Emotes",
@@ -101,7 +101,7 @@ Config.Languages = {
         ['keybinds'] = "🔢 Keybinds",
         ['keybindsinfo'] = "Use"
     },
-    ['cs'] = { -- CZECH 🇨🇿
+    ['cs'] = { -- Czech 🇨🇿
         ['emotes'] = 'Animace 🎬',
         ['danceemotes'] = "🕺 Taneční Animace",
         ['animalemotes'] = "🐩 zvířecí Animace",
@@ -391,7 +391,7 @@ Config.Languages = {
         ['keybinds'] = "🔢 Keybinds",
         ['keybindsinfo'] = "Gebruik"
     },
-    ['pt'] = { -- Brazilian Portuguese
+    ['pt'] = { -- Brazilian Portuguese 🇧🇷
         ['emotes'] = 'Emotes 🎬',
         ['danceemotes'] = "🕺 Emotes de Danças",
         ['animalemotes'] = "🐩 Emotes de Animais",
@@ -440,7 +440,7 @@ Config.Languages = {
         ['keybinds'] = "🔢 Keybinds",
         ['keybindsinfo'] = "Usar"
     },
-    ['it'] = { -- Italian
+    ['it'] = { -- Italian 🇮🇹
         ['emotes'] = 'Animazioni 🎬',
         ['danceemotes'] = "🕺 Animazioni Di Danza",
         ['animalemotes'] = "🐩 Animazioni Di Animali",
