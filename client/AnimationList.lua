@@ -856,7 +856,7 @@ DP.AnimalEmotes = {
     ["sdogsit"] = { "creatures@pug@amb@world_dog_sitting@idle_a", "idle_b", "Sit (small dog)", AnimationOptions = {
         EmoteLoop = true
     }},
-    ["sdogld"] = { "creatures@pug@amb@world_dog_sitting@idle_a", "idle_c", "Lay Down (small dog)", AnimationOptions = {
+    ["sdogld"] = { "misssnowie@little_doggy_lying_down", "base", "Lay Down (small dog)", AnimationOptions = {
         EmoteLoop = true,
         EmoteMoving = false,
     }},
@@ -2389,7 +2389,7 @@ DP.Emotes = {
         EmoteMoving = false,
         EmoteDuration = 6000,
     }},
-	["hhands"] = { "heart@hands1", "base", "Heart Hands", AnimationOptions = {
+	["hhands"] = { "misssnowie@hearthands", "base", "Heart Hands", AnimationOptions = {
         EmoteLoop = true,
 		EmoteMoving = true,
     }},
