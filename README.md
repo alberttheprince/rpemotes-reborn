@@ -81,7 +81,12 @@ To use the SQL features, install the [oxmysql](https://github.com/overextended/o
 
 | | | |
 |-|-|-|
-| <img src="screenshots/cb_before.jpg" width="250"> | <img src="screenshots/cp_after.jpg" width="250"> | <img src="screenshots/umbrella.jpg" width="250"> |
+| <img src="screenshots/menu.jpg" width="250"> | <img src="screenshots/umbrella.jpg" width="250"> | <img src="screenshots/flag1.jpg" width="250"> |
+| <img src="screenshots/flag2.jpg" width="250"> | <img src="screenshots/flag3.jpg" width="250"> | <img src="screenshots/flag4.jpg" width="250"> |
+| <img src="screenshots/flag5.jpg" width="250"> | <img src="screenshots/flag6.jpg" width="250"> | <img src="screenshots/flag7.jpg" width="250"> |
+| <img src="screenshots/flag8.jpg" width="250"> | <img src="screenshots/flag9.jpg" width="250"> | <img src="screenshots/boop.jpg" width="250"> 
+| <img src="screenshots/cb_before.jpg" width="250"> | <img src="screenshots/cp_after.jpg" width="250"> 
+
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
