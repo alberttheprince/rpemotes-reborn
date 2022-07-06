@@ -212,4 +212,9 @@ You may sell ***custom made*** animations, however the menu must remain free.
 
 ----------------------
 
+**Q: How do Shared Emotes work?**
+
+**A:** Please see the Shared Emotes section of this ReadMe for more information.
+
+
 
