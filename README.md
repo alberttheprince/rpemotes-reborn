@@ -111,6 +111,7 @@ For example, if I start the emote `carry`, then the other player will be attache
 <br/>
 But if I start the emote `carry2`, then I'll be attached and not the other player.
 *Special case, if both emote have the `Attachto` then only the player who started the emote will be attached.*
+You can specify bones to attach the other player. You can find a list here: https://wiki.rage.mp/index.php?title=Bones
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
