@@ -222,22 +222,22 @@ DP.Shared = {
     }},
     ["slapped"] = { "melee@unarmed@streamed_variations", "victim_takedown_front_slap", "Slapped", "slap" },
     ["slapped2"] = { "melee@unarmed@streamed_variations", "victim_takedown_front_backslap", "Slapped 2", "slap2" },
-    ["receiveblowjob"] = { "misscarsteal2pimpsex", "pimpsex_punter", "Receive Blowjob", "Give Blowjob", AnimationOptions = {
+    ["receiveblowjob"] = { "misscarsteal2pimpsex", "pimpsex_punter", "Receive Blowjob", "giveblowjob", AnimationOptions = {
         EmoteMoving = false,
         EmoteDuration = 30000,
         SyncOffsetFront = 0.63
     }},
-    ["giveblowjob"] = { "misscarsteal2pimpsex", "pimpsex_hooker", "Give Blowjob", "Receive Blowjob", AnimationOptions = {
+    ["giveblowjob"] = { "misscarsteal2pimpsex", "pimpsex_hooker", "Give Blowjob", "receiveblowjob", AnimationOptions = {
         EmoteMoving = false,
         EmoteDuration = 30000,
         SyncOffsetFront = 0.63
     }},
-    ["streetsexmale"] = { "misscarsteal2pimpsex", "shagloop_pimp", "Street Sex Male", "Street Sex Female", AnimationOptions = {
+    ["streetsexmale"] = { "misscarsteal2pimpsex", "shagloop_pimp", "Street Sex Male", "streetsexfemale", AnimationOptions = {
         EmoteMoving = false,
         EmoteLoop = true,
         SyncOffsetFront = 0.50
     }},
-    ["streetsexfemale"] = { "misscarsteal2pimpsex", "shagloop_hooker", "Street Sex Female", "Street Sex Male", AnimationOptions = {
+    ["streetsexfemale"] = { "misscarsteal2pimpsex", "shagloop_hooker", "Street Sex Female", "streetsexmale", AnimationOptions = {
         EmoteMoving = false,
         EmoteLoop = true,
         SyncOffsetFront = -0.50
