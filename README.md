@@ -216,5 +216,25 @@ You may sell ***custom made*** animations, however the menu must remain free.
 
 **A:** Please see the Shared Emotes section of this ReadMe for more information.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Credits 🤝
+
+This script is where it is today because of the amazing contributions made by the following people: 
+
+- Thank you to [tigerle_studios](https://forum.cfx.re/u/tigerle_studios) for providing the additional code required to make Shared Emotes work
+
+- Thank you to [SMGMissy](https://forum.cfx.re/u/smgmissy/) for assisting with custom pride flags and how to stream them
+
+- Thank you to [MissSnowie](https://www.gta5-mods.com/users/MissySnowie) for the custom poses and emotes
+
+- A huge thank you to [Kibook](https://github.com/kibook) for the addition of the Animal Emotes sub menu
+
+- Thank you to [AvaN0x](https://github.com/AvaN0x) for reformatting and assisting with code and additional features
+
+- Thank you to you, the community for being patient, showing love and appreciation, and for providing translations. 
+
+You pay a big role in keeping this script alive and we could not do it without you 🙏
+
 
 
