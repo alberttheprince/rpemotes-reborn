@@ -1,5 +1,6 @@
 local isRequestAnim = false
 local requestedemote = ''
+local targetPlayerId = ''
 
 -- Some of the work here was done by Super.Cool.Ninja / rubbertoe98
 -- https://forum.fivem.net/t/release-nanimstarget/876709
@@ -16,7 +17,8 @@ if Config.SharedEmotesEnabled then
                 if DP.Shared[emotename] ~= nil then
                     dict, anim, ename = table.unpack(DP.Shared[emotename])
                     TriggerServerEvent("ServerEmoteRequest", GetPlayerServerId(target), emotename)
-                    SimpleNotify(Config.Languages[lang]['sentrequestto'] .. GetPlayerName(target) .. " ~w~(~g~" .. ename .. "~w~)")
+                    SimpleNotify(Config.Languages[lang]['sentrequestto'] ..
+                        GetPlayerName(target) .. " ~w~(~g~" .. ename .. "~w~)")
                 else
                     EmoteChatMessage("'" .. emotename .. "' " .. Config.Languages[lang]['notvalidsharedemote'] .. "")
                 end
@@ -33,8 +35,29 @@ RegisterNetEvent("SyncPlayEmote")
 AddEventHandler("SyncPlayEmote", function(emote, player)
     EmoteCancel()
     Wait(300)
+    targetPlayerId = player
     -- wait a little to make sure animation shows up right on both clients after canceling any previous emote
     if DP.Shared[emote] ~= nil then
+        if DP.Shared[emote].AnimationOptions and DP.Shared[emote].AnimationOptions.Attachto then
+            -- We do not want to attach the player if the target emote already is attached to player
+            -- this would cause issue where both player would be attached to each other and fall under the map
+            local targetEmote = DP.Shared[emote][4]
+            if not targetEmote or not DP.Shared[targetEmote] or not DP.Shared[targetEmote].AnimationOptions or
+                not DP.Shared[targetEmote].AnimationOptions.Attachto then
+                local plyServerId = GetPlayerFromServerId(player)
+                local pedInFront = GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer())
+                local bone = DP.Shared[emote].AnimationOptions.bone or 11816 -- SKEL_Pelvis
+                local xPos = DP.Shared[emote].AnimationOptions.xPos or 0.0
+                local yPos = DP.Shared[emote].AnimationOptions.yPos or 0.0
+                local zPos = DP.Shared[emote].AnimationOptions.zPos or 0.0
+                local xRot = DP.Shared[emote].AnimationOptions.xRot or 0.0
+                local yRot = DP.Shared[emote].AnimationOptions.yRot or 0.0
+                local zRot = DP.Shared[emote].AnimationOptions.zRot or 0.0
+                AttachEntityToEntity(PlayerPedId(), pedInFront, bone, xPos, yPos, zPos, xRot, yRot, zRot, false, false,
+                    false, false, 2, false)
+            end
+        end
+
         if OnEmotePlay(DP.Shared[emote]) then end
         return
     elseif DP.Dances[emote] ~= nil then
@@ -46,19 +69,36 @@ end)
 RegisterNetEvent("SyncPlayEmoteSource")
 AddEventHandler("SyncPlayEmoteSource", function(emote, player)
     -- Thx to Poggu for this part!
-    local pedInFront = GetPlayerPed(GetClosestPlayer())
+    local ply = PlayerPedId()
+    local plyServerId = GetPlayerFromServerId(player)
+    local pedInFront = GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer())
+
     local heading = GetEntityHeading(pedInFront)
     local coords = GetOffsetFromEntityInWorldCoords(pedInFront, 0.0, 1.0, 0.0)
-    if (DP.Shared[emote]) and (DP.Shared[emote].AnimationOptions) then
+    if (DP.Shared[emote] and DP.Shared[emote].AnimationOptions) then
         local SyncOffsetFront = DP.Shared[emote].AnimationOptions.SyncOffsetFront
         if SyncOffsetFront then
             coords = GetOffsetFromEntityInWorldCoords(pedInFront, 0.0, SyncOffsetFront, 0.0)
         end
+
+        -- There is a priority to the source attached, if it is not set, it will use the target
+        if (DP.Shared[emote].AnimationOptions.Attachto) then
+            local bone = DP.Shared[emote].AnimationOptions.bone or 11816 -- SKEL_Pelvis
+            local xPos = DP.Shared[emote].AnimationOptions.xPos or 0.0
+            local yPos = DP.Shared[emote].AnimationOptions.yPos or 0.0
+            local zPos = DP.Shared[emote].AnimationOptions.zPos or 0.0
+            local xRot = DP.Shared[emote].AnimationOptions.xRot or 0.0
+            local yRot = DP.Shared[emote].AnimationOptions.yRot or 0.0
+            local zRot = DP.Shared[emote].AnimationOptions.zRot or 0.0
+            AttachEntityToEntity(ply, pedInFront, bone, xPos, yPos, zPos, xRot, yRot, zRot, false, false, false, false,
+                2, false)
+        end
     end
-    SetEntityHeading(PlayerPedId(), heading - 180.1)
-    SetEntityCoordsNoOffset(PlayerPedId(), coords.x, coords.y, coords.z, 0)
+    SetEntityHeading(ply, heading - 180.1)
+    SetEntityCoordsNoOffset(ply, coords.x, coords.y, coords.z, 0)
     EmoteCancel()
     Wait(300)
+    targetPlayerId = player
     if DP.Shared[emote] ~= nil then
         if OnEmotePlay(DP.Shared[emote]) then end
         return
@@ -67,6 +107,21 @@ AddEventHandler("SyncPlayEmoteSource", function(emote, player)
         return
     end
 end)
+
+RegisterNetEvent("SyncCancelEmote")
+AddEventHandler("SyncCancelEmote", function(player)
+    if targetPlayerId and targetPlayerId == player then
+        targetPlayerId = nil
+        EmoteCancel()
+    end
+end)
+
+function CancelSharedEmote(ply)
+    if targetPlayerId then
+        TriggerServerEvent("ServerEmoteCancel", targetPlayerId)
+        targetPlayerId = nil
+    end
+end
 
 RegisterNetEvent("ClientEmoteRequestReceive")
 AddEventHandler("ClientEmoteRequestReceive", function(emotename, etype)
@@ -125,7 +180,8 @@ function GetPedInFront()
     local plyPed = GetPlayerPed(player)
     local plyPos = GetEntityCoords(plyPed, false)
     local plyOffset = GetOffsetFromEntityInWorldCoords(plyPed, 0.0, 1.3, 0.0)
-    local rayHandle = StartShapeTestCapsule(plyPos.x, plyPos.y, plyPos.z, plyOffset.x, plyOffset.y, plyOffset.z, 10.0, 12, plyPed, 7)
+    local rayHandle = StartShapeTestCapsule(plyPos.x, plyPos.y, plyPos.z, plyOffset.x, plyOffset.y, plyOffset.z, 10.0, 12
+        , plyPed, 7)
     local _, _, _, _, ped2 = GetShapeTestResult(rayHandle)
     return ped2
 end
@@ -156,7 +212,8 @@ function GetClosestPlayer()
         local target = GetPlayerPed(value)
         if (target ~= ply) then
             local targetCoords = GetEntityCoords(GetPlayerPed(value), 0)
-            local distance = GetDistanceBetweenCoords(targetCoords["x"], targetCoords["y"], targetCoords["z"], plyCoords["x"], plyCoords["y"], plyCoords["z"], true)
+            local distance = GetDistanceBetweenCoords(targetCoords["x"], targetCoords["y"], targetCoords["z"],
+                plyCoords["x"], plyCoords["y"], plyCoords["z"], true)
             if (closestDistance == -1 or closestDistance > distance) then
                 closestPlayer = value
                 closestDistance = distance

@@ -74,9 +74,11 @@ RegisterCommand('walks', function(source, args, raw) WalksOnCommand() end)
 
 AddEventHandler('onResourceStop', function(resource)
     if resource == GetCurrentResourceName() then
+        local ply = PlayerPedId()
         DestroyAllProps()
-        ClearPedTasksImmediately(PlayerPedId())
-        ResetPedMovementClipset(PlayerPedId())
+        ClearPedTasksImmediately(ply)
+        DetachEntity(ply, true, false)
+        ResetPedMovementClipset(ply)
     end
 end)
 
@@ -85,12 +87,13 @@ end)
 -----------------------------------------------------------------------------------------------------
 
 function EmoteCancel()
+    local ply = PlayerPedId()
     if ChosenDict == "MaleScenario" and IsInAnimation then
-        ClearPedTasksImmediately(PlayerPedId())
+        ClearPedTasksImmediately(ply)
         IsInAnimation = false
         DebugPrint("Forced scenario exit")
     elseif ChosenDict == "Scenario" and IsInAnimation then
-        ClearPedTasksImmediately(PlayerPedId())
+        ClearPedTasksImmediately(ply)
         IsInAnimation = false
         DebugPrint("Forced scenario exit")
     end
@@ -100,7 +103,9 @@ function EmoteCancel()
 
     if IsInAnimation then
         PtfxStop()
-        ClearPedTasks(PlayerPedId())
+        ClearPedTasks(ply)
+        DetachEntity(ply, true, false)
+        CancelSharedEmote(ply)
         DestroyAllProps()
         IsInAnimation = false
     end

@@ -240,9 +240,24 @@ DP.Shared = {
     ["streetsexfemale"] = { "misscarsteal2pimpsex", "shagloop_hooker", "Street Sex Female", "streetsexmale", AnimationOptions = {
         EmoteMoving = false,
         EmoteLoop = true,
-        SyncOffsetFront = -0.50
+        SyncOffsetFront = 0.50
     }},
-
+    ["carry"] = { "missfinale_c2mcs_1", "fin_c2_mcs_1_camman", "Carry", "carry2", AnimationOptions = {
+        EmoteMoving = true,
+        EmoteLoop = true,
+    } },
+    ["carry2"] = { "nm", "firemans_carry", "Be carried", "carry", AnimationOptions = {
+        EmoteMoving = false,
+        EmoteLoop = true,
+        Attachto = true,
+        bone = 0,
+        xPos = 0.27,
+        yPos = 0.10,
+        zPos = 0.60,
+        xRot = 0.0,
+        yRot = 0.0,
+        zRot = 10.0,
+    } },
 }
 
 
