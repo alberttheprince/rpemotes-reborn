@@ -98,17 +98,28 @@ To use the SQL features, install the [oxmysql](https://github.com/overextended/o
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Shared emotes
+# Shared emotes 👩🏻‍❤️‍💋‍👨🏼
 
 Emotes will work with either `SyncOffsetFront` or `Attachto`.
-- If it is with `SyncOffsetFront`, then the one used is the one of the emote the player started.<br/>
-For example if I start the emote `handshake`, then I'll have the `SyncOffsetFront` but not the other player.
 
-- If it is with `Attachto`, then it'll either be, my data used for attaching, or the other player's data used for attaching.<br/>
-For example, if I start the emote `carry`, then the other player will be attached but I don't because `Attachto` is set in `carry2` and not `carry`.<br/>
-But if I start the emote `carry2`, then I'll be attached and not the other player.
+- If it is with `SyncOffsetFront`, then the offset used is the one of the emote the player started.<br/>
+For example, if player one starts the emote `handshake`, then player one will have the SyncOffsetFront but not the other player.
+
+
+- If it is with `Attachto`, then it'll either be player one's data used for attaching, or the player two's data.<br/>
+For example, if player one start the emote carry, then the other player will be attached but not the player one because Attachto is set in `carry2` and not `carry`.<br/>
+- If player one starts the emote `carry2`, then player one will be attached and not the other player.
+it's the player who start the animation who will in most cases be moved
+
+
 *Special case, if both emote have the `Attachto` then only the player who started the emote will be attached.*
-You can specify bones to attach the other player. You can find a list here: https://wiki.rage.mp/index.php?title=Bones
+
+You can find a list of ped bones to attach the other player here: [Ped Bones](https://wiki.rage.mp/index.php?title=Bones)
+
+Using the website provided above, enter the bone ID, ie `1356` and not 111, which is the Bone Index.
+
+
+
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -133,7 +144,7 @@ You can specify bones to attach the other player. You can find a list here: http
 --------------------------------------------------------
 
 
-# Additional Instructions 
+# Additional Instructions ⚙️
 
 [Please check the fivem forum thread](https://forum.fivem.net/t/dpemotes-356ish-emotes-usable-while-walking-props-and-more/843105)
 
@@ -150,7 +161,7 @@ You can specify bones to attach the other player. You can find a list here: http
 
 ----------------------
 
-# FAQs
+# FAQs 🗨️
 
 **Q: Why do some emotes not work with females?**
 
