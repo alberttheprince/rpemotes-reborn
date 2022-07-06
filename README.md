@@ -101,14 +101,11 @@ To use the SQL features, install the [oxmysql](https://github.com/overextended/o
 # Shared emotes
 
 Emotes will work with either `SyncOffsetFront` or `Attachto`.
-- If it is with `SyncOffsetFront`, then the one used is the one of the emote the player started.
-<br/>
+- If it is with `SyncOffsetFront`, then the one used is the one of the emote the player started.<br/>
 For example if I start the emote `handshake`, then I'll have the `SyncOffsetFront` but not the other player.
 
-- If it is with `Attachto`, then it'll either be, my data used for attaching, or the other player's data used for attaching.
-<br/>
-For example, if I start the emote `carry`, then the other player will be attached but I don't because `Attachto` is set in `carry2` and not `carry`.
-<br/>
+- If it is with `Attachto`, then it'll either be, my data used for attaching, or the other player's data used for attaching.<br/>
+For example, if I start the emote `carry`, then the other player will be attached but I don't because `Attachto` is set in `carry2` and not `carry`.<br/>
 But if I start the emote `carry2`, then I'll be attached and not the other player.
 *Special case, if both emote have the `Attachto` then only the player who started the emote will be attached.*
 You can specify bones to attach the other player. You can find a list here: https://wiki.rage.mp/index.php?title=Bones
