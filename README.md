@@ -22,6 +22,8 @@ Emotes / Animations for FiveM with human, animal and prop support 🐩
 
 * Italian 🇮🇹
 
+* Polish 🇵🇱
+
 * Spanish 🇪🇸
 
 * Swedish 🇸🇪
