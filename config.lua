@@ -40,6 +40,8 @@ Config = {
     CheckForUpdates = true,
     -- If you have the SQL imported enable this to turn on keybinding.
     SqlKeybinding = false,
+    -- Used for few framework dependent things. Accepted values: qb-core, false
+    Framework = false,
 }
 
 Config.KeybindKeys = {

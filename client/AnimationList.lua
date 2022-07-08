@@ -3982,14 +3982,14 @@ DP.PropEmotes = {
         PropPlacement = { 0.0480, 0.0780, 0.0040, -81.6893, 2.5616, -15.7909 },
         EmoteLoop = true,
         EmoteMoving = true,
-   }},
-   ["cop4"] = { "amb@world_human_car_park_attendant@male@base", "base", "Cop 4", AnimationOptions = {
+    }},
+    ["cop4"] = { "amb@world_human_car_park_attendant@male@base", "base", "Cop 4", AnimationOptions = {
         Prop = "prop_parking_wand_01",
         PropBone = 57005,
         PropPlacement = { 0.12, 0.05, 0.0, 80.0, -20.0, 180.0 },
         EmoteLoop = true,
         EmoteMoving = true,
-    } },
+    }},
 	["leanphone"] = { "amb@world_human_leaning@male@wall@back@mobile@base", "base", "Leaning With Phone", AnimationOptions = {
         EmoteMoving = false,
         EmoteLoop = true,
@@ -4005,12 +4005,28 @@ DP.PropEmotes = {
         PtfxPlacement = { -0.05, 0.3, 0.0, 0.0, 90.0, 90.0, 1.0 },
         PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
         PtfxWait = 3000,
-    } },
+    }},
 	["hump"] = { "timetable@trevor@skull_loving_bear", "skull_loving_bear", "Hump (Bear)", AnimationOptions = {
         Prop = 'prop_mr_raspberry_01',
         PropBone = 28422,
         PropPlacement = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
         EmoteMoving = false,
         EmoteLoop = true,
-    } },
+    }},
+    ["eat"] = {"mp_player_inteat@burger", "mp_player_int_eat_burger_fp", "Eat", AnimationOptions =
+    {
+         Prop = "prop_cs_burger_01",
+         PropBone = 18905,
+         PropPlacement = {0.12, 0.028, 0.001, 10.0, 175.0},
+         EmoteMoving = true,
+         EmoteLoop = true,
+    }},
+    ["drink"] = {"mp_player_intdrink", "loop_bottle", "Drink", AnimationOptions =
+    {
+         Prop = "prop_ld_flow_bottle",
+         PropBone = 18905,
+         PropPlacement = {0.12, 0.008, 0.03, 240.0, -60.0},
+         EmoteMoving = true,
+         EmoteLoop = true,
+    }},
 }
