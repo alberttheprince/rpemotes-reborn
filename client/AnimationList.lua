@@ -143,7 +143,7 @@ DP.Shared = {
     --[emotename] = {dictionary, animation, displayname, targetemotename, additionalanimationoptions}
     -- you dont have to specify targetemoteanem, if you do dont it will just play the same animation on both.
     -- targetemote is used for animations that have a corresponding animation to the other player.
-    ["handshake"] = { "mp_ped_interaction", "handshake_guy_a", "Handshake", "handshake2", AnimationOptions = {
+    ["handshake"] = { "mp_ped_interaction", "handshake_guy_a", "Handshake", "Handshake2", AnimationOptions = {
         EmoteMoving = true,
         EmoteDuration = 3000,
         SyncOffsetFront = 0.9
@@ -160,19 +160,17 @@ DP.Shared = {
     ["hug2"] = { "mp_ped_interaction", "kisses_guy_b", "Hug 2", "hug", AnimationOptions = {
         EmoteMoving = false,
         EmoteDuration = 5000,
-        SyncOffsetFront = 1.18
+        SyncOffsetFront = 1.13
     }},
     ["hug3"] = { "misscarsteal2chad_goodbye", "chad_armsaround_chad", "Hug 3", "hug4", AnimationOptions = {
         EmoteMoving = false,
         EmoteLoop = true,
-        SyncOffsetSide = -0.05,
-        SyncOffsetFront = 0.52,
+        SyncOffsetFront = 0.05,
     }},
     ["hug4"] = { "misscarsteal2chad_goodbye", "chad_armsaround_girl", "Hug 4", "hug3", AnimationOptions = {
         EmoteMoving = false,
         EmoteLoop = true,
-        SyncOffsetSide = -0.05,
-        SyncOffsetFront = 0.52,
+        SyncOffsetFront = 0.13
     }},
     ["kiss"] = { "mp_ped_interaction", "kisses_guy_a", "Kiss", "kiss2", AnimationOptions = {
         EmoteMoving = false,
@@ -260,97 +258,6 @@ DP.Shared = {
         yRot = 0.0,
         zRot = 10.0,
     } },
-    ["carry3"] = { "anim@heists@box_carry@", "idle", "Carry 2", "carry4", AnimationOptions = {
-        EmoteMoving = true,
-        EmoteLoop = true,
-    } },
-    ["carry4"] = { "amb@code_human_in_car_idles@generic@ps@base", "base", "Be carried 2", "carry3", AnimationOptions = {
-        EmoteMoving = false,
-        EmoteLoop = true,
-        Attachto = true,
-        bone = 9816,
-        xPos = 0.015,
-        yPos = 0.38,
-        zPos = 0.11,
-        xRot = 0.9,
-        yRot = 0.30,
-        zRot = 90.0,
-    } },
-    ["pback"] = { "anim@arena@celeb@flat@paired@no_props@", "piggyback_c_player_a", "Offer Piggy Back", "pback2", AnimationOptions = {
-        EmoteMoving = true,
-        EmoteLoop = true,
-    } },
-    ["pback2"] = { "anim@arena@celeb@flat@paired@no_props@", "piggyback_c_player_b", "Be Piggy Backed", "pback", AnimationOptions = {
-        EmoteMoving = false,
-        EmoteLoop = true,
-        Attachto = true,
-        bone = 0,
-        xPos = 0.0,
-        yPos = -0.07,
-        zPos = 0.4,
-        xRot = 0.0,
-        yRot = 0.0,
-        zRot = 0.0,
-    }},
-    ["cprs"] = { "mini@cpr@char_a@cpr_str", "cpr_pumpchest", "Give CPR", "cprs2", AnimationOptions = {
-        EmoteLoop = true,
-        StartDelay = 250,
-    }},
-    ["cprs2"] = { "mini@cpr@char_b@cpr_str", "cpr_pumpchest", "Get CPR", "cprs", AnimationOptions = {
-        EmoteLoop = true,
-        Attachto = true,
-        xPos = 0.35,
-        yPos = 0.8,
-        zPos = 0.0,
-        xRot = 0.0,
-        yRot = 0.0,
-        zRot = 270.0,
-    }},
-    ["cprs3"] = { "missheistfbi3b_ig8_2", "cpr_loop_paramedic", "Give CPR 2", "cprs4", AnimationOptions = {
-        EmoteLoop = true,
-        StartDelay = 250,
-    }},
-    ["cprs4"] = { "missheistfbi3b_ig8_2", "cpr_loop_victim", "Get CPR 2", "cprs3", AnimationOptions = {
-        EmoteLoop = true,
-        Attachto = true,
-        xPos = 0.35,
-        yPos = 0.65,
-        zPos = 0.0,
-        xRot = 0.0,
-        yRot = 0.0,
-        zRot = 270.0,
-    }},
-    ["hostage"] = { "anim@gangops@hostage@", "perp_idle", "Take hostage", "hostage2", AnimationOptions = {
-        EmoteMoving = true,
-        EmoteLoop = true,
-    }},
-    ["hostage2"] = { "anim@gangops@hostage@", "victim_idle", "Be hostage", "hostage", AnimationOptions = {
-        EmoteLoop = true,
-        Attachto = true,
-        xPos = -0.3,
-        yPos = 0.1,
-        zPos = 0.0,
-        xRot = 0.0,
-        yRot = 0.0,
-        zRot = 0.0,
-    }},
-    ["search"] = { "custom@police", "police", "Search", "search2", AnimationOptions = { -- Emote by ultrahacx
-        EmoteMoving = true,
-        EmoteLoop = false,
-        -- EmoteDuration = 9700,
-    }},
-    ["search2"] = { "missfam5_yoga", "a2_pose", "Be searched", "search", AnimationOptions = {
-        EmoteMoving = true,
-        EmoteLoop = false,
-        -- EmoteDuration = 9700,
-        Attachto = true,
-        xPos = 0.0,
-        yPos = 0.5,
-        zPos = 0.0,
-        xRot = 0.0,
-        yRot = 0.0,
-        zRot = 0.0,
-    }},
 }
 
 
@@ -1432,10 +1339,7 @@ DP.AnimalEmotes = {
 --- EMOTES NO PROPS ---
 
 DP.Emotes = {
-    ["dispenser"] = {"mini@sprunk", "plyr_buy_drink_pt1", "Dispenser", AnimationOptions =
-    {
-         EmoteLoop = false,
-    }},
+
     ["beast"] = { "anim@mp_fm_event@intro", "beast_transform", "Beast", AnimationOptions = {
         EmoteMoving = true,
         EmoteDuration = 5000,

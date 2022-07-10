@@ -73,33 +73,27 @@ AddEventHandler("SyncPlayEmoteSource", function(emote, player)
     local plyServerId = GetPlayerFromServerId(player)
     local pedInFront = GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer())
 
-    local SyncOffsetFront = 1.0
-    local SyncOffsetSide = 0.0
-
-    local AnimationOptions = DP.Shared[emote] and DP.Shared[emote].AnimationOptions
-    if AnimationOptions then
-        if AnimationOptions.SyncOffsetFront then
-            SyncOffsetFront = AnimationOptions.SyncOffsetFront + 0.0
-        end
-        if AnimationOptions.SyncOffsetSide then
-            SyncOffsetSide = AnimationOptions.SyncOffsetSide + 0.0
+    local heading = GetEntityHeading(pedInFront)
+    local coords = GetOffsetFromEntityInWorldCoords(pedInFront, 0.0, 1.0, 0.0)
+    if (DP.Shared[emote] and DP.Shared[emote].AnimationOptions) then
+        local SyncOffsetFront = DP.Shared[emote].AnimationOptions.SyncOffsetFront
+        if SyncOffsetFront then
+            coords = GetOffsetFromEntityInWorldCoords(pedInFront, 0.0, SyncOffsetFront, 0.0)
         end
 
         -- There is a priority to the source attached, if it is not set, it will use the target
-        if (AnimationOptions.Attachto) then
-            local bone = AnimationOptions.bone or 11816 -- SKEL_Pelvis
-            local xPos = AnimationOptions.xPos or 0.0
-            local yPos = AnimationOptions.yPos or 0.0
-            local zPos = AnimationOptions.zPos or 0.0
-            local xRot = AnimationOptions.xRot or 0.0
-            local yRot = AnimationOptions.yRot or 0.0
-            local zRot = AnimationOptions.zRot or 0.0
+        if (DP.Shared[emote].AnimationOptions.Attachto) then
+            local bone = DP.Shared[emote].AnimationOptions.bone or 11816 -- SKEL_Pelvis
+            local xPos = DP.Shared[emote].AnimationOptions.xPos or 0.0
+            local yPos = DP.Shared[emote].AnimationOptions.yPos or 0.0
+            local zPos = DP.Shared[emote].AnimationOptions.zPos or 0.0
+            local xRot = DP.Shared[emote].AnimationOptions.xRot or 0.0
+            local yRot = DP.Shared[emote].AnimationOptions.yRot or 0.0
+            local zRot = DP.Shared[emote].AnimationOptions.zRot or 0.0
             AttachEntityToEntity(ply, pedInFront, bone, xPos, yPos, zPos, xRot, yRot, zRot, false, false, false, false,
                 2, false)
         end
     end
-    local coords = GetOffsetFromEntityInWorldCoords(pedInFront, SyncOffsetSide, SyncOffsetFront, 0.0)
-    local heading = GetEntityHeading(pedInFront)
     SetEntityHeading(ply, heading - 180.1)
     SetEntityCoordsNoOffset(ply, coords.x, coords.y, coords.z, 0)
     EmoteCancel()
