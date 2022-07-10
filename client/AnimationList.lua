@@ -334,6 +334,23 @@ DP.Shared = {
         yRot = 0.0,
         zRot = 0.0,
     }},
+    ["search"] = { "custom@police", "police", "Search", "search2", AnimationOptions = { -- Emote by ultrahacx
+        EmoteMoving = true,
+        EmoteLoop = false,
+        -- EmoteDuration = 9700,
+    }},
+    ["search2"] = { "missfam5_yoga", "a2_pose", "Be searched", "search", AnimationOptions = {
+        EmoteMoving = true,
+        EmoteLoop = false,
+        -- EmoteDuration = 9700,
+        Attachto = true,
+        xPos = 0.0,
+        yPos = 0.5,
+        zPos = 0.0,
+        xRot = 0.0,
+        yRot = 0.0,
+        zRot = 0.0,
+    }},
 }
 
 
