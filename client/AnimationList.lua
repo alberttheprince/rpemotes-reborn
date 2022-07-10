@@ -247,7 +247,7 @@ DP.Shared = {
     ["carry"] = { "missfinale_c2mcs_1", "fin_c2_mcs_1_camman", "Carry", "carry2", AnimationOptions = {
         EmoteMoving = true,
         EmoteLoop = true,
-    } },
+    }},
     ["carry2"] = { "nm", "firemans_carry", "Be carried", "carry", AnimationOptions = {
         EmoteMoving = false,
         EmoteLoop = true,
@@ -259,11 +259,11 @@ DP.Shared = {
         xRot = 0.0,
         yRot = 0.0,
         zRot = 10.0,
-    } },
+    }},
     ["carry3"] = { "anim@heists@box_carry@", "idle", "Carry 2", "carry4", AnimationOptions = {
         EmoteMoving = true,
         EmoteLoop = true,
-    } },
+    }},
     ["carry4"] = { "amb@code_human_in_car_idles@generic@ps@base", "base", "Be carried 2", "carry3", AnimationOptions = {
         EmoteMoving = false,
         EmoteLoop = true,
@@ -275,11 +275,41 @@ DP.Shared = {
         xRot = 0.9,
         yRot = 0.30,
         zRot = 90.0,
-    } },
+    }},
+    ["csdog"] = { "anim@heists@box_carry@", "idle", "Carry Small Dog", "csdog2", AnimationOptions = {
+        EmoteMoving = true,
+        EmoteLoop = true,
+    }},
+    ["csdog2"] = { "misssnowie@little_doggy_lying_down", "base", "Small Dog Carried", "csdog1", AnimationOptions = {
+        EmoteMoving = false,
+        EmoteLoop = true,
+        Attachto = true,
+        xPos = -0.040,
+        yPos = 0.330,
+        zPos = 0.280,
+        xRot = 0.0,
+        yRot = 0.0,
+        zRot = 80.0,
+    }},
+    ["cbdog"] = { "anim@heists@box_carry@", "idle", "Carry Big Dog", "cbdog2", AnimationOptions = {
+        EmoteMoving = true,
+        EmoteLoop = true,
+    }},
+    ["cbdog2"] = { "creatures@rottweiler@amb@sleep_in_kennel@", "sleep_in_kennel", "Big Dog Carried", "cbdog", AnimationOptions = {
+        EmoteMoving = false,
+        EmoteLoop = true,
+        Attachto = true,
+        xPos = -0.100,
+        yPos = 0.650,
+        zPos = 0.430,
+        xRot = 0.0,
+        yRot = 0.0,
+        zRot = -100.00,
+    }},
     ["pback"] = { "anim@arena@celeb@flat@paired@no_props@", "piggyback_c_player_a", "Offer Piggy Back", "pback2", AnimationOptions = {
         EmoteMoving = true,
         EmoteLoop = true,
-    } },
+    }},
     ["pback2"] = { "anim@arena@celeb@flat@paired@no_props@", "piggyback_c_player_b", "Be Piggy Backed", "pback", AnimationOptions = {
         EmoteMoving = false,
         EmoteLoop = true,
@@ -4092,7 +4122,7 @@ DP.PropEmotes = {
         Prop = "prop_phone_ing",
         PropBone = 28422,
         PropPlacement = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
-    } },
+    }},
 	["piss"] = { "misscarsteal2peeing", "peeing_loop", "Piss", AnimationOptions = {
         EmoteStuck = true,
         PtfxAsset = "scr_amb_chop",
