@@ -304,6 +304,20 @@ DP.Shared = {
         yRot = 0.0,
         zRot = 270.0,
     }},
+    ["hostage"] = { "anim@gangops@hostage@", "perp_idle", "Take hostage", "hostage2", AnimationOptions = {
+        EmoteMoving = true,
+        EmoteLoop = true,
+    }},
+    ["hostage2"] = { "anim@gangops@hostage@", "victim_idle", "Be hostage", "hostage", AnimationOptions = {
+        EmoteLoop = true,
+        Attachto = true,
+        xPos = -0.3,
+        yPos = 0.1,
+        zPos = 0.0,
+        xRot = 0.0,
+        yRot = 0.0,
+        zRot = 0.0,
+    }},
 }
 
 
