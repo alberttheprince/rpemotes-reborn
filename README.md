@@ -107,10 +107,10 @@ To use the SQL features, install the [oxmysql](https://github.com/overextended/o
 
 # Shared emotes 👩🏻‍❤️‍💋‍👨🏼
 
-Emotes will work with either `SyncOffsetFront` or `Attachto`.
+Emotes will work with either `SyncOffset` or `Attachto`.
 
-- If it is with `SyncOffsetFront`, then the offset used is the one of the emote the player started.<br/>
-For example, if player one starts the emote `handshake`, then player one will have the SyncOffsetFront but not the other player.
+- If it is with `SyncOffsetFront` or `SyncOffsetSide`, then the offset used is the one of the emote the player started.<br/>
+For example, if player one starts the emote `handshake` which has `SyncOffsetFront`, then player one will have the `SyncOffsetFront` but not the other player.
 
 
 - If it is with `Attachto`, then it'll either be player one's data used for attaching, or the player two's data.<br/>
