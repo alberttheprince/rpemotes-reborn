@@ -143,7 +143,7 @@ DP.Shared = {
     --[emotename] = {dictionary, animation, displayname, targetemotename, additionalanimationoptions}
     -- you dont have to specify targetemoteanem, if you do dont it will just play the same animation on both.
     -- targetemote is used for animations that have a corresponding animation to the other player.
-    ["handshake"] = { "mp_ped_interaction", "handshake_guy_a", "Handshake", "Handshake2", AnimationOptions = {
+    ["handshake"] = { "mp_ped_interaction", "handshake_guy_a", "Handshake", "handshake2", AnimationOptions = {
         EmoteMoving = true,
         EmoteDuration = 3000,
         SyncOffsetFront = 0.9
