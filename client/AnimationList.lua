@@ -260,6 +260,22 @@ DP.Shared = {
         yRot = 0.0,
         zRot = 10.0,
     } },
+    ["carry3"] = { "anim@heists@box_carry@", "idle", "Carry 2", "carry4", AnimationOptions = {
+        EmoteMoving = true,
+        EmoteLoop = true,
+    } },
+    ["carry4"] = { "amb@code_human_in_car_idles@generic@ps@base", "base", "Be carried 2", "carry3", AnimationOptions = {
+        EmoteMoving = false,
+        EmoteLoop = true,
+        Attachto = true,
+        bone = 9816,
+        xPos = 0.015,
+        yPos = 0.38,
+        zPos = 0.11,
+        xRot = 0.9,
+        yRot = 0.30,
+        zRot = 90.0,
+    } },
     ["pback"] = { "anim@arena@celeb@flat@paired@no_props@", "piggyback_c_player_a", "Offer Piggy Back", "pback2", AnimationOptions = {
         EmoteMoving = true,
         EmoteLoop = true,
