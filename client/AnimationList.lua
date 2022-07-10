@@ -278,8 +278,23 @@ DP.Shared = {
     }},
     ["cprs"] = { "mini@cpr@char_a@cpr_str", "cpr_pumpchest", "Give CPR", "cprs2", AnimationOptions = {
         EmoteLoop = true,
+        StartDelay = 250,
     }},
-    ["cprs2"] = { "mini@cpr@char_b@cpr_def", "cpr_pumpchest_idle", "Get CPR", "cprs", AnimationOptions = {
+    ["cprs2"] = { "mini@cpr@char_b@cpr_str", "cpr_pumpchest", "Get CPR", "cprs", AnimationOptions = {
+        EmoteLoop = true,
+        Attachto = true,
+        xPos = 0.35,
+        yPos = 0.8,
+        zPos = 0.0,
+        xRot = 0.0,
+        yRot = 0.0,
+        zRot = 270.0,
+    }},
+    ["cprs3"] = { "missheistfbi3b_ig8_2", "cpr_loop_paramedic", "Give CPR 2", "cprs4", AnimationOptions = {
+        EmoteLoop = true,
+        StartDelay = 250,
+    }},
+    ["cprs4"] = { "missheistfbi3b_ig8_2", "cpr_loop_victim", "Get CPR 2", "cprs3", AnimationOptions = {
         EmoteLoop = true,
         Attachto = true,
         xPos = 0.35,
