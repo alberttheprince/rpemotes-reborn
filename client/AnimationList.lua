@@ -260,6 +260,22 @@ DP.Shared = {
         yRot = 0.0,
         zRot = 10.0,
     } },
+    ["pback"] = { "anim@arena@celeb@flat@paired@no_props@", "piggyback_c_player_a", "Offer Piggy Back", "pback2", AnimationOptions = {
+        EmoteMoving = true,
+        EmoteLoop = true,
+    } },
+    ["pback2"] = { "anim@arena@celeb@flat@paired@no_props@", "piggyback_c_player_b", "Be Piggy Backed", "pback", AnimationOptions = {
+        EmoteMoving = false,
+        EmoteLoop = true,
+        Attachto = true,
+        bone = 0,
+        xPos = 0.0,
+        yPos = -0.07,
+        zPos = 0.4,
+        xRot = 0.0,
+        yRot = 0.0,
+        zRot = 0.0,
+    }},
 }
 
 
