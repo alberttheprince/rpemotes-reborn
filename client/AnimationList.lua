@@ -276,6 +276,19 @@ DP.Shared = {
         yRot = 0.0,
         zRot = 0.0,
     }},
+    ["cprs"] = { "mini@cpr@char_a@cpr_str", "cpr_pumpchest", "Give CPR", "cprs2", AnimationOptions = {
+        EmoteLoop = true,
+    }},
+    ["cprs2"] = { "mini@cpr@char_b@cpr_def", "cpr_pumpchest_idle", "Get CPR", "cprs", AnimationOptions = {
+        EmoteLoop = true,
+        Attachto = true,
+        xPos = 0.35,
+        yPos = 0.65,
+        zPos = 0.0,
+        xRot = 0.0,
+        yRot = 0.0,
+        zRot = 270.0,
+    }},
 }
 
 
