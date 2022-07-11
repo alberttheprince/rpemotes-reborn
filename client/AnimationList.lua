@@ -137,12 +137,18 @@ DP.Walks = {
 }
 
 
---- SHARED EMOTES --- I can not figue these out and would love to get custom emotes shared. DullPear doesn't answer his DMs. RIP.
+--- SHARED EMOTES ---
 
 DP.Shared = {
-    --[emotename] = {dictionary, animation, displayname, targetemotename, additionalanimationoptions}
-    -- you dont have to specify targetemoteanem, if you do dont it will just play the same animation on both.
-    -- targetemote is used for animations that have a corresponding animation to the other player.
+
+
+    --[emotename] = {dictionary, animation, displayname, targetemotename, additionalanimationoptions} --
+    -- You don't have to specify targetemotename; If you don't, it will just play the same animation on both.--
+    -- targetemote is used for animations that have a corresponding animation to the other player, ie Carry and Be Carried --
+	-- Emotes will work with either SyncOffset or Attachto. We can attach players either in front of us,to a specific bone, or either side of us. --
+	
+	
+	
     ["handshake"] = { "mp_ped_interaction", "handshake_guy_a", "Handshake", "handshake2", AnimationOptions = {
         EmoteMoving = true,
         EmoteDuration = 3000,
@@ -380,6 +386,20 @@ DP.Shared = {
         xRot = 0.0,
         yRot = 0.0,
         zRot = 0.0,
+    }},
+	["followa"] = {"dollie_mods@follow_me_001", "follow_me_001", "Follow A (Front)", "followb", AnimationOptions = { --- Ped In Front emote by Dollie Mods
+       EmoteLoop = true,
+       EmoteMoving = false, -- We can set this to true for lols, however it messes up if you walk through doors. Either player can press X to cancel the shared emotes
+    }},
+   ["followb"] = {"dollie_mods@follow_me_002", "follow_me_002", "Follow B (Back)", "followa", AnimationOptions = { --- Ped At Back emote by Dollie Mods
+       EmoteLoop = true,
+        Attachto = true,
+        xPos = 0.078,
+        yPos = 0.018,
+        zPos = 0.00,
+        xRot = 0.00,
+        yRot = 0.00,
+        zRot = 0.00,
     }},
 }
 
