@@ -291,7 +291,7 @@ function AddInfoMenu(menu)
     infomenu:AddItem(NativeUI.CreateItem("Thanks <b>Kibook</b>",
         "<b>Kibook</b> for the addition of Animal Emotes 🐩 submenu."))
     infomenu:AddItem(NativeUI.CreateItem("Thanks ~y~AvaN0x~s~",
-        "~y~AvaN0x~s~ or reformatting and assisting with code and additional features 🙏"))
+        "~y~AvaN0x~s~ for reformatting and assisting with code and additional features 🙏"))
     infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#3b8eea\">SMGMissy</font>",
         "<font color=\"#3b8eea\">SMGMissy</font> for the custom pride flags 🏳️‍🌈."))
     infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#a356fa\">Dollie</font>",
