@@ -72,8 +72,10 @@ function AddEmoteMenu(menu)
     table.insert(EmoteTable, Config.Languages[lang]['animalemotes'])
 
     if Config.SharedEmotesEnabled then
-        sharemenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['shareemotes'], Config.Languages[lang]['shareemotesinfo'], "", Menuthing, Menuthing)
-        shareddancemenu = _menuPool:AddSubMenu(sharemenu, Config.Languages[lang]['sharedanceemotes'], "", "", Menuthing, Menuthing)
+        sharemenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['shareemotes'],
+            Config.Languages[lang]['shareemotesinfo'], "", Menuthing, Menuthing)
+        shareddancemenu = _menuPool:AddSubMenu(sharemenu, Config.Languages[lang]['sharedanceemotes'], "", "", Menuthing,
+            Menuthing)
         table.insert(ShareTable, 'none')
         table.insert(EmoteTable, Config.Languages[lang]['shareemotes'])
     end
@@ -81,7 +83,8 @@ function AddEmoteMenu(menu)
     if not Config.SqlKeybinding then
         unbind2item = NativeUI.CreateItem(Config.Languages[lang]['rfavorite'], Config.Languages[lang]['rfavorite'])
         unbinditem = NativeUI.CreateItem(Config.Languages[lang]['prop2info'], "")
-        favmenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['favoriteemotes'], Config.Languages[lang]['favoriteinfo'], "", Menuthing, Menuthing)
+        favmenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['favoriteemotes'],
+            Config.Languages[lang]['favoriteinfo'], "", Menuthing, Menuthing)
         favmenu:AddItem(unbinditem)
         favmenu:AddItem(unbind2item)
         table.insert(FavEmoteTable, Config.Languages[lang]['rfavorite'])
@@ -89,7 +92,8 @@ function AddEmoteMenu(menu)
         table.insert(EmoteTable, Config.Languages[lang]['favoriteemotes'])
     else
         table.insert(EmoteTable, "keybinds")
-        keyinfo = NativeUI.CreateItem(Config.Languages[lang]['keybinds'], Config.Languages[lang]['keybindsinfo'] .. " /emotebind [~y~num4-9~w~] [~g~emotename~w~]")
+        keyinfo = NativeUI.CreateItem(Config.Languages[lang]['keybinds'],
+            Config.Languages[lang]['keybindsinfo'] .. " /emotebind [~y~num4-9~w~] [~g~emotename~w~]")
         submenu:AddItem(keyinfo)
     end
 
@@ -99,7 +103,8 @@ function AddEmoteMenu(menu)
         submenu:AddItem(emoteitem)
         table.insert(EmoteTable, a)
         if not Config.SqlKeybinding then
-            favemoteitem = NativeUI.CreateItem(z, Config.Languages[lang]['set'] .. z .. Config.Languages[lang]['setboundemote'])
+            favemoteitem = NativeUI.CreateItem(z,
+                Config.Languages[lang]['set'] .. z .. Config.Languages[lang]['setboundemote'])
             favmenu:AddItem(favemoteitem)
             table.insert(FavEmoteTable, a)
         end
@@ -129,7 +134,9 @@ function AddEmoteMenu(menu)
             if otheremotename == nil then
                 shareitem = NativeUI.CreateItem(z, "/nearby (~g~" .. a .. "~w~)")
             else
-                shareitem = NativeUI.CreateItem(z, "/nearby (~g~" .. a .. "~w~) " .. Config.Languages[lang]['makenearby'] .. " (~y~" .. otheremotename .. "~w~)")
+                shareitem = NativeUI.CreateItem(z,
+                    "/nearby (~g~" ..
+                    a .. "~w~) " .. Config.Languages[lang]['makenearby'] .. " (~y~" .. otheremotename .. "~w~)")
             end
             sharemenu:AddItem(shareitem)
             table.insert(ShareTable, a)
@@ -142,7 +149,8 @@ function AddEmoteMenu(menu)
         propmenu:AddItem(propitem)
         table.insert(PropETable, a)
         if not Config.SqlKeybinding then
-            propfavitem = NativeUI.CreateItem(z, Config.Languages[lang]['set'] .. z .. Config.Languages[lang]['setboundemote'])
+            propfavitem = NativeUI.CreateItem(z,
+                Config.Languages[lang]['set'] .. z .. Config.Languages[lang]['setboundemote'])
             favmenu:AddItem(propfavitem)
             table.insert(FavEmoteTable, a)
         end
@@ -270,18 +278,28 @@ end
 
 function AddInfoMenu(menu)
     if not UpdateAvailable then
-        infomenu = _menuPool:AddSubMenu(menu, Config.Languages[lang]['infoupdate'], "Huge Thank You ❤️", "", Menuthing, Menuthing)
+        infomenu = _menuPool:AddSubMenu(menu, Config.Languages[lang]['infoupdate'], "Huge Thank You ❤️", "",
+            Menuthing, Menuthing)
     else
-        infomenu = _menuPool:AddSubMenu(menu, Config.Languages[lang]['infoupdateav'], Config.Languages[lang]['infoupdateavtext'], "", Menuthing, Menuthing)
+        infomenu = _menuPool:AddSubMenu(menu, Config.Languages[lang]['infoupdateav'],
+            Config.Languages[lang]['infoupdateavtext'], "", Menuthing, Menuthing)
     end
-    infomenu:AddItem(NativeUI.CreateItem(Config.Languages[lang]['suggestions'], Config.Languages[lang]['suggestionsinfo']))
+    infomenu:AddItem(NativeUI.CreateItem(Config.Languages[lang]['suggestions'],
+        Config.Languages[lang]['suggestionsinfo'
+        ]))
     infomenu:AddItem(NativeUI.CreateItem("Thanks ~o~DullPear~s~", "~o~DullPear~s~ for the original dpemotes ❤️"))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks <b>Kibook</b>", "<b>Kibook</b> for the addition of Animal Emotes 🐩 submenu."))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks ~y~AvaN0x~s~", "~y~AvaN0x~s~ or reformatting and assisting with code and additional features 🙏"))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#3b8eea\">SMGMissy</font>", "<font color=\"#3b8eea\">SMGMissy</font> for the custom pride flags 🏳️‍🌈."))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#a356fa\">Dollie</font>", "<font color=\"#a356fa\">DollieMods</font> for the custom emotes 💜."))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#ff00c3\">Tigerle</font>", "<font color=\"#ff00c3\">Tigerle</font> for providing the additional code required to make Shared Emotes work ⚙️."))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#7dbf7b\">MissSnowie</font>", "<font color=\"#7dbf7b\">MissSnowie</font> for the custom emotes 🐇."))
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <b>Kibook</b>",
+        "<b>Kibook</b> for the addition of Animal Emotes 🐩 submenu."))
+    infomenu:AddItem(NativeUI.CreateItem("Thanks ~y~AvaN0x~s~",
+        "~y~AvaN0x~s~ or reformatting and assisting with code and additional features 🙏"))
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#3b8eea\">SMGMissy</font>",
+        "<font color=\"#3b8eea\">SMGMissy</font> for the custom pride flags 🏳️‍🌈."))
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#a356fa\">Dollie</font>",
+        "<font color=\"#a356fa\">DollieMods</font> for the custom emotes 💜."))
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#ff00c3\">Tigerle</font>",
+        "<font color=\"#ff00c3\">Tigerle</font> for assisting with attached Shared Emotes ⚙️."))
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#7dbf7b\">MissSnowie</font>",
+        "<font color=\"#7dbf7b\">MissSnowie</font> for the custom emotes 🐇."))
     infomenu:AddItem(NativeUI.CreateItem("Thanks ~b~Ultrahacx~s~", "~b~Ultrahacx~s~ for the custom emotes ☺️."))
 
     infomenu:AddItem(NativeUI.CreateItem("Thanks to the community", "Translations, bug reports and moral support 🌐"))

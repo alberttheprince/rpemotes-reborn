@@ -71,7 +71,8 @@ if Config.SqlKeybinding then
 
     RegisterNetEvent("dp:ClientKeybindGetOne")
     AddEventHandler("dp:ClientKeybindGetOne", function(key, e)
-        SimpleNotify(Config.Languages[lang]['bound'] .. "~y~" .. e .. "~w~ " .. Config.Languages[lang]['to'] .. " ~g~" .. firstToUpper(key) .. "~w~")
+        SimpleNotify(Config.Languages[lang]['bound'] ..
+            "~y~" .. e .. "~w~ " .. Config.Languages[lang]['to'] .. " ~g~" .. firstToUpper(key) .. "~w~")
         if key == "num4" then emob1 = e
             keyb1 = "num4"
         elseif key == "num5" then emob2 = e
@@ -93,12 +94,12 @@ if Config.SqlKeybinding then
 
     function EmoteBindsStart()
         EmoteChatMessage(Config.Languages[lang]['currentlyboundemotes'] .. "\n"
-        .. firstToUpper(keyb1) .. " = '^2" .. emob1 .. "^7'\n"
-        .. firstToUpper(keyb2) .. " = '^2" .. emob2 .. "^7'\n"
-        .. firstToUpper(keyb3) .. " = '^2" .. emob3 .. "^7'\n"
-        .. firstToUpper(keyb4) .. " = '^2" .. emob4 .. "^7'\n"
-        .. firstToUpper(keyb5) .. " = '^2" .. emob5 .. "^7'\n"
-        .. firstToUpper(keyb6) .. " = '^2" .. emob6 .. "^7'\n")
+            .. firstToUpper(keyb1) .. " = '^2" .. emob1 .. "^7'\n"
+            .. firstToUpper(keyb2) .. " = '^2" .. emob2 .. "^7'\n"
+            .. firstToUpper(keyb3) .. " = '^2" .. emob3 .. "^7'\n"
+            .. firstToUpper(keyb4) .. " = '^2" .. emob4 .. "^7'\n"
+            .. firstToUpper(keyb5) .. " = '^2" .. emob5 .. "^7'\n"
+            .. firstToUpper(keyb6) .. " = '^2" .. emob6 .. "^7'\n")
     end
 
     function EmoteBindStart(source, args, raw)
