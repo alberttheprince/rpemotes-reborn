@@ -24,7 +24,7 @@ else
 end
 
 _menuPool = NativeUI.CreatePool()
-mainMenu = NativeUI.CreateMenu("Tay's Emote Menu", "", menuPosition["x"], menuPosition["y"], Menuthing, Menuthing)
+mainMenu = NativeUI.CreateMenu(Config.MenuTitle or "", "", menuPosition["x"], menuPosition["y"], Menuthing, Menuthing)
 _menuPool:Add(mainMenu)
 
 function ShowNotification(text)
