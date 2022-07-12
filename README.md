@@ -230,7 +230,7 @@ We have however added code to hopefully make it a lot easier to add shared emote
 
 This script is where it is today because of the amazing contributions made by the following people: 
 
-- Thank you to [tigerle_studios](https://forum.cfx.re/u/tigerle_studios) for providing the additional code required to make Shared Emotes work
+- Thank you to [Tigerle](https://forum.cfx.re/u/tigerle_studios) for providing the additional code required to make Shared Emotes work
 
 - Thank you to [SMGMissy](https://forum.cfx.re/u/smgmissy/) for assisting with custom pride flags and how to stream them
 
@@ -240,7 +240,7 @@ This script is where it is today because of the amazing contributions made by th
 
 - Thank you to [AvaN0x](https://github.com/AvaN0x) for reformatting and assisting with code and additional features
 
-- Thank you to you, the community for being patient, showing love and appreciation, and for providing translations. 
+- Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
 You pay a big role in keeping this script alive and we could not do it without you 🙏
 
