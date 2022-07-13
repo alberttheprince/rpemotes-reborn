@@ -155,27 +155,17 @@ DP.Shared = {
         EmoteDuration = 5000,
         SyncOffsetFront = 1.18
     } },
-    ["hug3"] = { "misscarsteal2chad_goodbye", "chad_armsaround_chad", "Hug 3", "hug4", AnimationOptions = {
+    ["hug3"] = { "misscarsteal2chad_goodbye", "chad_armsaround_chad", "Hug Romantic 1", "hug4", AnimationOptions = {
         EmoteMoving = false,
         EmoteLoop = true,
         SyncOffsetSide = -0.05,
         SyncOffsetFront = 0.52,
     } },
-    ["hug4"] = { "misscarsteal2chad_goodbye", "chad_armsaround_girl", "Hug 4", "hug3", AnimationOptions = {
+    ["hug4"] = { "misscarsteal2chad_goodbye", "chad_armsaround_girl", "Hug Romantic 2", "hug3", AnimationOptions = {
         EmoteMoving = false,
         EmoteLoop = true,
         SyncOffsetSide = -0.05,
         SyncOffsetFront = 0.52,
-    } },
-    ["kiss"] = { "mp_ped_interaction", "kisses_guy_a", "Kiss", "kiss2", AnimationOptions = {
-        EmoteMoving = false,
-        EmoteDuration = 5000,
-        SyncOffsetFront = 1.05,
-    } },
-    ["kiss2"] = { "mp_ped_interaction", "kisses_guy_b", "Kiss 2", "kiss", AnimationOptions = {
-        EmoteMoving = false,
-        EmoteDuration = 5000,
-        SyncOffsetFront = 1.13
     } },
     ["bro"] = { "mp_ped_interaction", "hugs_guy_a", "Bro", "bro2", AnimationOptions = {
         SyncOffsetFront = 1.14
@@ -401,6 +391,7 @@ DP.Shared = {
             yRot = 0.00,
             zRot = 0.00,
         } },
+		
 }
 
 
