@@ -254,8 +254,8 @@ function LoadAnim(dict)
 end
 
 function LoadPropDict(model)
-    while not HasModelLoaded(GetHashKey(model)) do
-        RequestModel(GetHashKey(model))
+    while not HasModelLoaded(joaat(model)) do
+        RequestModel(joaat(model))
         Wait(10)
     end
 end
@@ -284,7 +284,7 @@ function AddPropToPlayer(prop1, bone, off1, off2, off3, rot1, rot2, rot3)
         LoadPropDict(prop1)
     end
 
-    prop = CreateObject(GetHashKey(prop1), x, y, z + 0.2, true, true, true)
+    prop = CreateObject(joaat(prop1), x, y, z + 0.2, true, true, true)
     AttachEntityToEntity(prop, Player, GetPedBoneIndex(Player, bone), off1, off2, off3, rot1, rot2, rot3, true, true,
         false, true, 1, true)
     table.insert(PlayerProps, prop)
@@ -300,8 +300,8 @@ end
 -----------------------------------------------------------------------------------------------------
 
 function CheckGender()
-    local hashSkinMale = GetHashKey("mp_m_freemode_01")
-    local hashSkinFemale = GetHashKey("mp_f_freemode_01")
+    local hashSkinMale = joaat("mp_m_freemode_01")
+    local hashSkinFemale = joaat("mp_f_freemode_01")
 
     if GetEntityModel(PlayerPedId()) == hashSkinMale then
         PlayerGender = "male"
@@ -327,7 +327,7 @@ function OnEmotePlay(EmoteName)
 
     if Config.DisarmPlayer then
         if IsPedArmed(PlayerPedId(), 7) then
-            SetCurrentPedWeapon(PlayerPedId(), GetHashKey('WEAPON_UNARMED'), true)
+            SetCurrentPedWeapon(PlayerPedId(), joaat('WEAPON_UNARMED'), true)
         end
     end
 
