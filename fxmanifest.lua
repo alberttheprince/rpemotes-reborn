@@ -5,6 +5,7 @@
 fx_version 'adamant'
 
 game 'gta5'
+lua54 'yes'
 
 -- Comment the following lines if you don't want to use the SQL keybinds
 --#region oxmysql
