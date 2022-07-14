@@ -45,16 +45,17 @@ AddEventHandler("SyncPlayEmote", function(emote, player)
             if not targetEmote or not DP.Shared[targetEmote] or not DP.Shared[targetEmote].AnimationOptions or
                 not DP.Shared[targetEmote].AnimationOptions.Attachto then
                 local plyServerId = GetPlayerFromServerId(player)
+                local ply = PlayerPedId()
                 local pedInFront = GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer())
-                local bone = DP.Shared[emote].AnimationOptions.bone or 11816 -- SKEL_Pelvis
+                local bone = DP.Shared[emote].AnimationOptions.bone or -1 -- No bone
                 local xPos = DP.Shared[emote].AnimationOptions.xPos or 0.0
                 local yPos = DP.Shared[emote].AnimationOptions.yPos or 0.0
                 local zPos = DP.Shared[emote].AnimationOptions.zPos or 0.0
                 local xRot = DP.Shared[emote].AnimationOptions.xRot or 0.0
                 local yRot = DP.Shared[emote].AnimationOptions.yRot or 0.0
                 local zRot = DP.Shared[emote].AnimationOptions.zRot or 0.0
-                AttachEntityToEntity(PlayerPedId(), pedInFront, bone, xPos, yPos, zPos, xRot, yRot, zRot, false, false,
-                    false, false, 2, false)
+                AttachEntityToEntity(ply, pedInFront, GetPedBoneIndex(ply, bone), xPos, yPos, zPos, xRot, yRot, zRot,
+                    false, false, false, true, 1, true)
             end
         end
 
@@ -87,15 +88,15 @@ AddEventHandler("SyncPlayEmoteSource", function(emote, player)
 
         -- There is a priority to the source attached, if it is not set, it will use the target
         if (AnimationOptions.Attachto) then
-            local bone = AnimationOptions.bone or 11816 -- SKEL_Pelvis
+            local bone = AnimationOptions.bone or -1 -- No bone
             local xPos = AnimationOptions.xPos or 0.0
             local yPos = AnimationOptions.yPos or 0.0
             local zPos = AnimationOptions.zPos or 0.0
             local xRot = AnimationOptions.xRot or 0.0
             local yRot = AnimationOptions.yRot or 0.0
             local zRot = AnimationOptions.zRot or 0.0
-            AttachEntityToEntity(ply, pedInFront, bone, xPos, yPos, zPos, xRot, yRot, zRot, false, false, false, false,
-                2, false)
+            AttachEntityToEntity(ply, pedInFront, GetPedBoneIndex(ply, bone), xPos, yPos, zPos, xRot, yRot, zRot, false,
+                false, false, true, 1, true)
         end
     end
     local coords = GetOffsetFromEntityInWorldCoords(pedInFront, SyncOffsetSide, SyncOffsetFront, 0.0)

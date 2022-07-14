@@ -125,7 +125,7 @@ it's the player who start the animation who will in most cases be moved
 
 You can find a list of ped bones to attach the other player here: [Ped Bones](https://wiki.rage.mp/index.php?title=Bones)
 
-Using the website provided above, enter the bone ID, ie `1356` and not 111, which is the Bone Index.
+Using the website provided above, enter the bone ID, ie `1356` and not `111`, which is the Bone Index.
 
 
 
