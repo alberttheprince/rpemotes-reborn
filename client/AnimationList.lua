@@ -35,6 +35,7 @@ DP.Expressions = {
 --- WALKSTYLES ---
 DP.Walks = {
     -- The key shouldn't have any other uppercase letter than the first one!
+    -- The first letter HAS to be uppercase!
     -- First element of array is the walk animation
     -- Second element is the label, this is optional
     ["Alien"] = { "move_m@alien" },

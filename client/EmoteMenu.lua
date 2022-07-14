@@ -233,7 +233,8 @@ function AddWalkMenu(menu)
     submenu:AddItem(walkreset)
     table.insert(WalkTable, Config.Languages[lang]['resetdef'])
 
-    WalkInjured = NativeUI.CreateItem("Injured", "")
+    -- This one is added here to be at the top of the list.
+    WalkInjured = NativeUI.CreateItem("Injured", "/walk (injured)")
     submenu:AddItem(WalkInjured)
     table.insert(WalkTable, "move_m@injured")
 

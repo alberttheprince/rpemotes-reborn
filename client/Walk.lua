@@ -31,6 +31,8 @@ function WalkCommandStart(source, args, raw)
     if tableHasKey(DP.Walks, name) then
         local name2 = table.unpack(DP.Walks[name])
         WalkMenuStart(name2)
+    elseif name == "Injured" then
+        WalkMenuStart("move_m@injured")
     else
         EmoteChatMessage("'" .. name .. "' is not a valid walk")
     end
