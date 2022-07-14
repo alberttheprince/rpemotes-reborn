@@ -1806,51 +1806,51 @@ DP.Emotes = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["waitb"] = { "missbigscore2aig_3", "wait_for_van_c", "Wait B", AnimationOptions = {
+    ["wait2"] = { "missbigscore2aig_3", "wait_for_van_c", "Wait 2", AnimationOptions = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["waitc"] = { "amb@world_human_hang_out_street@female_hold_arm@idle_a", "idle_a", "Wait C", AnimationOptions = {
+    ["wait3"] = { "amb@world_human_hang_out_street@female_hold_arm@idle_a", "idle_a", "Wait 3", AnimationOptions = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["waitd"] = { "amb@world_human_hang_out_street@Female_arm_side@idle_a", "idle_a", "Wait D", AnimationOptions = {
+    ["wait4"] = { "amb@world_human_hang_out_street@Female_arm_side@idle_a", "idle_a", "Wait 4", AnimationOptions = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["waite"] = { "missclothing", "idle_storeclerk", "Wait E", AnimationOptions = {
+    ["wait5"] = { "missclothing", "idle_storeclerk", "Wait 5", AnimationOptions = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["waitf"] = { "timetable@amanda@ig_2", "ig_2_base_amanda", "Wait F", AnimationOptions = {
+    ["wait6"] = { "timetable@amanda@ig_2", "ig_2_base_amanda", "Wait 6", AnimationOptions = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["waitg"] = { "rcmnigel1cnmt_1c", "base", "Wait G", AnimationOptions = {
+    ["wait7"] = { "rcmnigel1cnmt_1c", "base", "Wait 7", AnimationOptions = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["waith"] = { "rcmjosh1", "idle", "Wait H", AnimationOptions = {
+    ["wait8"] = { "rcmjosh1", "idle", "Wait 8", AnimationOptions = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["waiti"] = { "rcmjosh2", "josh_2_intp1_base", "Wait I", AnimationOptions = {
+    ["wait9"] = { "rcmjosh2", "josh_2_intp1_base", "Wait 9", AnimationOptions = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["waitj"] = { "timetable@amanda@ig_3", "ig_3_base_tracy", "Wait J", AnimationOptions = {
+    ["wait10"] = { "timetable@amanda@ig_3", "ig_3_base_tracy", "Wait 10", AnimationOptions = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["waitk"] = { "misshair_shop@hair_dressers", "keeper_base", "Wait K", AnimationOptions = {
+    ["wait11"] = { "misshair_shop@hair_dressers", "keeper_base", "Wait 11", AnimationOptions = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["waitl"] = { "rcmjosh1", "keeper_base", "Wait L", AnimationOptions = {
+    ["wait12"] = { "rcmjosh1", "keeper_base", "Wait 12", AnimationOptions = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["waitm"] = { "rcmnigel1a", "base", "Wait M", AnimationOptions = {
+    ["wait13"] = { "rcmnigel1a", "base", "Wait 13", AnimationOptions = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
@@ -2627,10 +2627,6 @@ DP.Emotes = {
         EmoteLoop = false,
         EmoteMoving = false,
     } },
-    ["piss"] = { "missbigscore1switch_trevor_piss", "piss_loop", "Piss (Male)", AnimationOptions = {
-        EmoteMoving = false,
-        EmoteLoop = true,
-    } },
     ["grieve"] = { "anim@miss@low@fin@vagos@", "idle_ped05", "Grieve The Dead", AnimationOptions = {
         EmoteMoving = true,
         EmoteLoop = true,
@@ -2672,6 +2668,23 @@ DP.Emotes = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
+    ["pee"] = { "misscarsteal2peeing", "peeing_loop", "Pee", AnimationOptions = {
+        EmoteStuck = true,
+        PtfxAsset = "scr_amb_chop",
+        PtfxName = "ent_anim_dog_peeing",
+        PtfxNoProp = true,
+        PtfxPlacement = { -0.05, 0.3, 0.0, 0.0, 90.0, 90.0, 1.0 },
+        PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
+        PtfxWait = 3000,
+    } },
+    ["piss"] = { "missbigscore1switch_trevor_piss", "piss_loop", "Piss (Male)", AnimationOptions = {
+        EmoteMoving = false,
+        EmoteLoop = true,
+    } },
+    ["hump"] = { "timetable@trevor@skull_loving_bear", "skull_loving_bear", "Hump", AnimationOptions = {
+        EmoteMoving = false,
+        EmoteLoop = true,
+    } },
 
 
 
@@ -2696,6 +2709,7 @@ DP.Emotes = {
     ["bumsleep"] = { "Scenario", "WORLD_HUMAN_BUM_SLUMPED", "Bum Sleep" },
     ["cheer"] = { "Scenario", "WORLD_HUMAN_CHEERING", "Cheer" },
     ["chinup"] = { "Scenario", "PROP_HUMAN_MUSCLE_CHIN_UPS", "Chinup" },
+    ["clipboard2"] = { "MaleScenario", "WORLD_HUMAN_CLIPBOARD", "Clipboard 2" },
     ["cop"] = { "Scenario", "WORLD_HUMAN_COP_IDLES", "Cop" },
     ["drill"] = { "Scenario", "WORLD_HUMAN_CONST_DRILL", "Construction Drilling" },
     ["filmshocking"] = { "Scenario", "WORLD_HUMAN_MOBILE_FILM_SHOCKING", "Film Shocking" },
@@ -3268,6 +3282,15 @@ DP.PropEmotes = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
+    ["brief3"] = { "missheistdocksprep1hold_cellphone", "static", "Briefcase 3",
+        AnimationOptions = -- Added for compatibility
+        {
+            Prop = "prop_ld_case_01",
+            PropBone = 57005,
+            PropPlacement = { 0.10, 0.0, 0.0, 0.0, 280.0, 53.0 },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        } },
     ["guncase"] = { "move_weapon@jerrycan@generic", "idle", "Guncase",
         AnimationOptions =
         {
@@ -3987,6 +4010,13 @@ DP.PropEmotes = {
         EmoteLoop = false,
         EmoteMoving = true,
     } },
+    ["phone"] = { "cellphone@", "cellphone_text_read_base", "SMS", AnimationOptions = {
+        Prop = "prop_phone_ing",
+        PropBone = 28422,
+        PropPlacement = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
+        EmoteLoop = true,
+        EmoteMoving = true,
+    } },
     ["sms"] = { "cellphone@", "cellphone_text_read_base", "SMS", AnimationOptions = {
         Prop = "prop_phone_ing",
         PropBone = 28422,
@@ -4028,6 +4058,12 @@ DP.PropEmotes = {
         PropPlacement = { -0.05, 0.16, 0.32, -130.0, -55.0, 150.0 },
         EmoteLoop = true,
         EmoteMoving = true,
+    } },
+    ["golfswing"] = { "rcmnigel1d", "swing_a_mark", "Golf Swing", AnimationOptions = {
+        -- TODO fix prop position
+        -- Prop = "prop_golf_iron_01",
+        -- PropBone = 57005,
+        -- PropPlacement = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
     } },
     ["register"] = { "anim@heists@box_carry@", "idle", "Register", AnimationOptions = {
         Prop = "v_ret_gc_cashreg",
@@ -4285,6 +4321,14 @@ DP.PropEmotes = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
+    ["copbeacon"] = { "amb@world_human_car_park_attendant@male@base", "base", "Cop 4",
+        AnimationOptions = { -- Added for compatibility
+            Prop = "prop_parking_wand_01",
+            PropBone = 57005,
+            PropPlacement = { 0.12, 0.05, 0.0, 80.0, -20.0, 180.0 },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        } },
     ["leanphone"] = { "amb@world_human_leaning@male@wall@back@mobile@base", "base", "Leaning With Phone",
         AnimationOptions = {
             EmoteMoving = false,
@@ -4293,16 +4337,7 @@ DP.PropEmotes = {
             PropBone = 28422,
             PropPlacement = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
         } },
-    ["piss"] = { "misscarsteal2peeing", "peeing_loop", "Piss", AnimationOptions = {
-        EmoteStuck = true,
-        PtfxAsset = "scr_amb_chop",
-        PtfxName = "ent_anim_dog_peeing",
-        PtfxNoProp = true,
-        PtfxPlacement = { -0.05, 0.3, 0.0, 0.0, 90.0, 90.0, 1.0 },
-        PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
-        PtfxWait = 3000,
-    } },
-    ["hump"] = { "timetable@trevor@skull_loving_bear", "skull_loving_bear", "Hump (Bear)",
+    ["hump2"] = { "timetable@trevor@skull_loving_bear", "skull_loving_bear", "Hump (Bear)",
         AnimationOptions = {
             Prop = 'prop_mr_raspberry_01',
             PropBone = 28422,
