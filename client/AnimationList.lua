@@ -3268,6 +3268,15 @@ DP.PropEmotes = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
+    ["guncase"] = { "move_weapon@jerrycan@generic", "idle", "Guncase",
+        AnimationOptions =
+        {
+            Prop = "prop_gun_case_01",
+            PropBone = 57005,
+            PropPlacement = { 0.10, 0.02, -0.02, 40.0, 145.0, 115.0 },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        } },
     ["tablet"] = { "amb@world_human_tourist_map@male@base", "base", "Tablet", AnimationOptions = {
         Prop = "prop_cs_tablet",
         PropBone = 28422,
