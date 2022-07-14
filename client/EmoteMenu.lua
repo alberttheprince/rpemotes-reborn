@@ -238,8 +238,8 @@ function AddWalkMenu(menu)
     table.insert(WalkTable, "move_m@injured")
 
     for a, b in pairsByKeys(DP.Walks) do
-        x = table.unpack(b)
-        walkitem = NativeUI.CreateItem(a, "")
+        x, label = table.unpack(b)
+        walkitem = NativeUI.CreateItem(label or a, "/walk (" .. string.lower(a) .. ")")
         submenu:AddItem(walkitem)
         table.insert(WalkTable, x)
     end

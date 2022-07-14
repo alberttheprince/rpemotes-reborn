@@ -21,7 +21,7 @@ function WalksOnCommand(source, args, raw)
 end
 
 function WalkCommandStart(source, args, raw)
-    local name = firstToUpper(args[1])
+    local name = firstToUpper(string.lower(args[1]))
 
     if name == "Reset" then
         ResetPedMovementClipset(PlayerPedId())

@@ -386,15 +386,15 @@ function OnEmotePlay(EmoteName)
         if EmoteName.AnimationOptions.EmoteLoop then
             MovementType = 1
             if EmoteName.AnimationOptions.EmoteMoving then
-                MovementType = 51
+                MovementType = 51 -- 110011
             end
 
         elseif EmoteName.AnimationOptions.EmoteMoving then
-            MovementType = 51
+            MovementType = 51 -- 110011
         elseif EmoteName.AnimationOptions.EmoteMoving == false then
             MovementType = 0
         elseif EmoteName.AnimationOptions.EmoteStuck then
-            MovementType = 50
+            MovementType = 50 -- 110010
         end
 
     else
