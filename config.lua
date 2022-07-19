@@ -35,6 +35,8 @@ Config = {
     ExpressionsEnabled = true,
     -- You can disable the Walking Styles menu here.
     WalkingStylesEnabled = true,
+    -- You can disable the Adult emotes menu here.
+    AdultEmotesDisabled = false,
     -- You can disable the Shared Emotes here.
     SharedEmotesEnabled = true,
     CheckForUpdates = true,

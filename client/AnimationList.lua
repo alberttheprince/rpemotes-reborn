@@ -219,25 +219,25 @@ DP.Shared = {
             EmoteMoving = false,
             EmoteDuration = 30000,
             SyncOffsetFront = 0.63
-        } },
+        }, AdultAnimation = true },
     ["giveblowjob"] = { "misscarsteal2pimpsex", "pimpsex_hooker", "Give Blowjob", "receiveblowjob",
         AnimationOptions = {
             EmoteMoving = false,
             EmoteDuration = 30000,
             SyncOffsetFront = 0.63
-        } },
+        }, AdultAnimation = true },
     ["streetsexmale"] = { "misscarsteal2pimpsex", "shagloop_pimp", "Street Sex Male", "streetsexfemale",
         AnimationOptions = {
             EmoteMoving = false,
             EmoteLoop = true,
             SyncOffsetFront = 0.50
-        } },
+        }, AdultAnimation = true },
     ["streetsexfemale"] = { "misscarsteal2pimpsex", "shagloop_hooker", "Street Sex Female", "streetsexmale",
         AnimationOptions = {
             EmoteMoving = false,
             EmoteLoop = true,
             SyncOffsetFront = 0.50
-        } },
+        }, AdultAnimation = true },
     ["carry"] = { "missfinale_c2mcs_1", "fin_c2_mcs_1_camman", "Carry", "carry2", AnimationOptions = {
         EmoteMoving = true,
         EmoteLoop = true,
@@ -2592,15 +2592,15 @@ DP.Emotes = {
     ["fspose"] = { "missfam5_yoga", "c2_pose", "F Sex Pose", AnimationOptions = {
         EmoteMoving = false,
         EmoteLoop = true,
-    } },
+    }, AdultAnimation = true },
     ["fspose2"] = { "missfam5_yoga", "c6_pose", "F Sex Pose 2", AnimationOptions = {
         EmoteMoving = false,
         EmoteLoop = true,
-    } },
+    }, AdultAnimation = true },
     ["fspose4"] = { "anim@amb@carmeet@checkout_car@", "female_c_idle_d", "F Sex Pose 4", AnimationOptions = {
         EmoteMoving = false,
         EmoteLoop = true,
-    } },
+    }, AdultAnimation = true },
     ["showerf"] = { "mp_safehouseshower@female@", "shower_enter_into_idle", "Shower Enter Female", AnimationOptions = {
         EmoteMoving = false,
         EmoteLoop = true,
@@ -4380,3 +4380,20 @@ DP.PropEmotes = {
         EmoteLoop = true,
     } },
 }
+
+-- Remove emotes if needed
+if Config.AdultEmotesDisabled then
+    for _, array in ipairs({
+        "Shared",
+        "Dances",
+        "AnimalEmotes",
+        "Emotes",
+        "PropEmotes",
+    }) do
+        for emoteName, emoteData in pairs(DP[array]) do
+            if emoteData.AdultAnimation then
+                DP[array][emoteName] = nil
+            end
+        end
+    end
+end
