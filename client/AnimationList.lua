@@ -2672,19 +2672,16 @@ DP.Emotes = {
     ["showboobs"] = { "mini@strip_club@backroom@", "stripper_b_backroom_idle_b", "Show Boobs ", AnimationOptions = {
         EmoteMoving = false,
         EmoteDuration = 6000,
-	}, AdultAnimation = true },
-    } },
+    }, AdultAnimation = true },
     ["showboobs2"] = { "mini@strip_club@idles@stripper", "stripper_idle_05", "Show Boobs 2", AnimationOptions = {
         EmoteMoving = false,
         EmoteDuration = 6000,
-	}, AdultAnimation = true },
-    } },
+    }, AdultAnimation = true },
     ["watchstripper"] = { "amb@world_human_strip_watch_stand@male_c@idle_a", "idle_b", "Watch Stripper ",
         AnimationOptions = {
             EmoteMoving = false,
             EmoteDuration = 6000,
-	}, AdultAnimation = true },
-        } },
+        }, AdultAnimation = true },
     ["hhands"] = { "misssnowie@hearthands", "base", "Heart Hands", AnimationOptions = {
         EmoteLoop = true,
         EmoteMoving = true,
@@ -2697,18 +2694,15 @@ DP.Emotes = {
         PtfxPlacement = { -0.05, 0.3, 0.0, 0.0, 90.0, 90.0, 1.0 },
         PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
         PtfxWait = 3000,
-	}, AdultAnimation = true },
-    } },
+    }, AdultAnimation = true },
     ["piss"] = { "missbigscore1switch_trevor_piss", "piss_loop", "Piss (Male)", AnimationOptions = {
         EmoteMoving = false,
         EmoteLoop = true,
-	}, AdultAnimation = true },
-    } },
+    }, AdultAnimation = true },
     ["hump"] = { "timetable@trevor@skull_loving_bear", "skull_loving_bear", "Hump", AnimationOptions = {
         EmoteMoving = false,
         EmoteLoop = true,
-	}, AdultAnimation = true },
-    } },
+    }, AdultAnimation = true },
 
 
 
@@ -3800,8 +3794,7 @@ DP.PropEmotes = {
             PropPlacement = { 0.09, 0.05, -0.03, 90.0, 80.0, 30.0 },
             EmoteLoop = true,
             EmoteMoving = true,
-	}, AdultAnimation = true },
-        } },
+        }, AdultAnimation = true },
     ["rake"] = { "anim@amb@drug_field_workers@rake@male_a@base", "base", "Rake", AnimationOptions = {
         Prop = "prop_tool_rake",
         PropBone = 28422,
@@ -3869,8 +3862,7 @@ DP.PropEmotes = {
         SecondPropPlacement = { -0.0100, 0.0600, -0.1550, 101.3015175, 7.3512213, -29.2665794 },
         EmoteLoop = true,
         EmoteMoving = false,
-	}, AdultAnimation = true },
-    } },
+    }, AdultAnimation = true },
     ["selfie"] = { "anim@mp_player_intuppertake_selfie", "idle_a", "Selfie", AnimationOptions = {
         Prop = "prop_phone_ing",
         PropBone = 60309,
@@ -4370,8 +4362,7 @@ DP.PropEmotes = {
             PropPlacement = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
             EmoteMoving = false,
             EmoteLoop = true,
-	}, AdultAnimation = true },
-        } },
+        }, AdultAnimation = true },
     ["eat"] = { "mp_player_inteat@burger", "mp_player_int_eat_burger_fp", "Eat", AnimationOptions =
     {
         Prop = "prop_cs_burger_01",
