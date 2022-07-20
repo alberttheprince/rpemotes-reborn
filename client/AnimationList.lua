@@ -4078,10 +4078,10 @@ DP.PropEmotes = {
         EmoteMoving = true,
     } },
     ["golfswing"] = { "rcmnigel1d", "swing_a_mark", "Golf Swing", AnimationOptions = {
-        -- TODO fix prop position
-        -- Prop = "prop_golf_iron_01",
-        -- PropBone = 57005,
-        -- PropPlacement = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
+        EmoteLoop = true,
+        Prop = "prop_golf_wood_01",
+        PropBone = 28422,
+        PropPlacement = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
     } },
     ["register"] = { "anim@heists@box_carry@", "idle", "Register", AnimationOptions = {
         Prop = "v_ret_gc_cashreg",
