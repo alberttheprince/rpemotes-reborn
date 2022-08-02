@@ -28,9 +28,13 @@ mainMenu = NativeUI.CreateMenu(Config.MenuTitle or "", "", menuPosition["x"], me
 _menuPool:Add(mainMenu)
 
 function ShowNotification(text)
-    SetNotificationTextEntry("STRING")
-    AddTextComponentString(text)
-    DrawNotification(false, false)
+    if Config.NotificationsAsChatMessage then
+        TriggerEvent("chat:addMessage", { color = { 255, 255, 255 }, args = { tostring(text) } })
+    else
+        BeginTextCommandThefeedPost("STRING")
+        AddTextComponentSubstringPlayerName(text)
+        EndTextCommandThefeedPostTicker(false, false)
+    end
 end
 
 local EmoteTable = {}

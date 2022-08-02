@@ -26,7 +26,7 @@ if Config.SharedEmotesEnabled then
                 SimpleNotify(Config.Languages[lang]['nobodyclose'])
             end
         else
-            MearbysOnCommand()
+            NearbysOnCommand()
         end
     end, false)
 end
@@ -193,7 +193,7 @@ function GetPedInFront()
     return ped2
 end
 
-function MearbysOnCommand(source, args, raw)
+function NearbysOnCommand(source, args, raw)
     local NearbysCommand = ""
     for a in pairsByKeys(DP.Shared) do
         NearbysCommand = NearbysCommand .. "" .. a .. ", "
@@ -203,9 +203,13 @@ function MearbysOnCommand(source, args, raw)
 end
 
 function SimpleNotify(message)
-    SetNotificationTextEntry("STRING")
-    AddTextComponentString(message)
-    DrawNotification(0, 1)
+    if Config.NotificationsAsChatMessage then
+        TriggerEvent("chat:addMessage", { color = { 255, 255, 255 }, args = { tostring(message) } })
+    else
+        BeginTextCommandThefeedPost("STRING")
+        AddTextComponentSubstringPlayerName(message)
+        EndTextCommandThefeedPostTicker(0, 1)
+    end
 end
 
 function GetClosestPlayer()
