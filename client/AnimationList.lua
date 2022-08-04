@@ -2855,6 +2855,13 @@ DP.PropEmotes = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
+    ["beachring"] = { "beachanims@free", "beachanim_clip", "Beach Floatie Thingy", AnimationOptions = {
+        Prop = "prop_beach_ring_01",
+        PropBone = 0,
+        PropPlacement = { 0.0, 0.0, 0.0100, -12.0, 0.0, -2.0 },
+        EmoteLoop = true,
+        EmoteMoving = true,
+    } },
     ["smoke2"] = { "amb@world_human_aa_smoke@male@idle_a", "idle_c", "Smoke 2", AnimationOptions = {
         Prop = 'prop_cs_ciggy_01',
         PropBone = 28422,
