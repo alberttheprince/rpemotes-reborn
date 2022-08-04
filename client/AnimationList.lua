@@ -2855,13 +2855,6 @@ DP.PropEmotes = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["beachring"] = { "beachanims@free", "beachanim_clip", "Beach Floatie Thingy", AnimationOptions = {
-        Prop = "prop_beach_ring_01",
-        PropBone = 0,
-        PropPlacement = { 0.0, 0.0, 0.0100, -12.0, 0.0, -2.0 },
-        EmoteLoop = true,
-        EmoteMoving = true,
-    } },
     ["smoke2"] = { "amb@world_human_aa_smoke@male@idle_a", "idle_c", "Smoke 2", AnimationOptions = {
         Prop = 'prop_cs_ciggy_01',
         PropBone = 28422,
@@ -3919,6 +3912,13 @@ DP.PropEmotes = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
+    ["selfiecrouch"] = { "crouching@taking_selfie", "base", "Selfie Crouching", AnimationOptions = { --- MissSnowie Custom Emote 
+        Prop = "prop_phone_ing",
+        PropBone = 18905,
+        PropPlacement = { 0.1580, 0.0180, 0.0300, -150.4798, -67.8240, -46.0417 },
+        EmoteLoop = true,
+        EmoteMoving = false,
+    } },
     ["sittv"] = { "anim@heists@heist_safehouse_intro@variations@male@tv", "tv_part_one_loop", "Sit TV",
         AnimationOptions = {
             Prop = "v_res_tre_remote",
@@ -4385,6 +4385,29 @@ DP.PropEmotes = {
         PropPlacement = { 0.12, 0.008, 0.03, 240.0, -60.0 },
         EmoteMoving = true,
         EmoteLoop = true,
+    } },
+	["surfboard"] = { "beachanims@molly", "beachanim_surf_clip", "Surf Board", AnimationOptions = -- Emote by Molly 
+	{
+        Prop = "prop_surf_board_01",
+        PropBone = 28252,
+        PropPlacement = { 0.1020, -0.1460, -0.1160, -85.5416, 176.1446, -2.1500 },
+        EmoteLoop = true,
+        EmoteMoving = true,
+    } },
+	["stealtv"] = { "beachanims@molly", "beachanim_surf_clip", "Surf Board", AnimationOptions = -- Emote by Molly 
+	{
+        Prop = "xs_prop_arena_screen_tv_01",
+        PropBone = 28252,
+        PropPlacement = { 0.2600, 0.1100, -0.1400, 96.1620, 168.9069, 84.2402 },
+        EmoteLoop = true,
+        EmoteMoving = true,
+    } },
+    ["beachring"] = { "beachanims@free", "beachanim_clip", "Beach Floatie Thingy", AnimationOptions = { -- Emote by Molly 
+        Prop = "prop_beach_ring_01",
+        PropBone = 0,
+        PropPlacement = { 0.0, 0.0, 0.0100, -12.0, 0.0, -2.0 },
+        EmoteLoop = true,
+        EmoteMoving = true,
     } },
 }
 
