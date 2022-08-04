@@ -4394,7 +4394,7 @@ DP.PropEmotes = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-	["stealtv"] = { "beachanims@molly", "beachanim_surf_clip", "Surf Board", AnimationOptions = -- Emote by Molly 
+	["stealtv"] = { "beachanims@molly", "beachanim_surf_clip", "Steal TV", AnimationOptions = -- Emote by Molly 
 	{
         Prop = "xs_prop_arena_screen_tv_01",
         PropBone = 28252,
