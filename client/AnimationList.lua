@@ -3300,7 +3300,7 @@ DP.PropEmotes = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["brief3"] = { "missheistdocksprep1hold_cellphone", "static", "Briefcase 3",
+    ["brief2"] = { "missheistdocksprep1hold_cellphone", "static", "Briefcase 3",
         AnimationOptions = -- Added for compatibility
         {
             Prop = "prop_ld_case_01",
@@ -4408,7 +4408,85 @@ DP.PropEmotes = {
         PropPlacement = { 0.0, 0.0, 0.0100, -12.0, 0.0, -2.0 },
         EmoteLoop = true,
         EmoteMoving = true,
+	} },
+    ["cashcase"] = { "move_weapon@jerrycan@generic", "idle", "Cash Briefcase", AnimationOptions = {
+        Prop = "bkr_prop_biker_case_shut",
+        PropBone = 28422,
+        PropPlacement = { 0.1000, 0.0100, 0.0040, 0.0, 0.0, -90.00 },
+        EmoteLoop = true,
+        EmoteMoving = true,
     } },
+    ["cashcase2"] = { "anim@heists@box_carry@", "idle", "Cash Briefcase 2", AnimationOptions = { -- Emote by Molly 
+        Prop = "prop_cash_case_01",
+        PropBone = 28422,
+        PropPlacement = { -0.0050, -0.1870, -0.1400, 0.0, 0.0, 0.0 },
+        EmoteLoop = true,
+        EmoteMoving = true,
+    } },
+    ["cashcase3"] = { "anim@heists@box_carry@", "idle", "Cash Briefcase 3", AnimationOptions = { -- Emote by Molly 
+        Prop = "prop_cash_case_02",
+        PropBone = 28422,
+        PropPlacement = { 0.0050, -0.1170, -0.1400, 14.000, 0.0, 0.0 },
+        EmoteLoop = true,
+        EmoteMoving = true,
+    } },
+    ["cashcase4"] = { "anim@heists@box_carry@", "idle", "Cash Briefcase 4 - Diamonds", AnimationOptions = { -- Emote by Molly 
+        Prop = "ch_prop_ch_security_case_01a",
+        PropBone = 28422,
+        PropPlacement = { 0.0, -0.0900, -0.1800, 14.4000, 0.0, 0.0 },
+        EmoteLoop = true,
+        EmoteMoving = true,
+    } },
+    ["guitarcarry"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Case Carry", AnimationOptions = { -- Emote by Molly 
+        Prop = "sf_prop_sf_guitar_case_01a",
+        PropBone = 28422,
+        PropPlacement = { 0.2800, -0.2000, -0.0600, 0.0, 0.0, 15.0000 },
+        EmoteLoop = true,
+        EmoteMoving = true,
+    } },
+    ["guitarcarry2"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Carry Accoustic", AnimationOptions = { -- Emote by Molly 
+        Prop = "prop_acc_guitar_01",
+        PropBone = 28422,
+        PropPlacement = { 0.1500, -0.1400, -0.0200, -101.5083, 5.7251, 29.4987 },
+        EmoteLoop = true,
+        EmoteMoving = true,
+   } },
+    ["guitarcarry3"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Carry Electric ", AnimationOptions = { -- Emote by Molly 
+        Prop = "prop_el_guitar_01",
+        PropBone = 28422,
+        PropPlacement = { 0.1100, -0.1200, -0.0500, -80.0000, 0.0, 21.9999 },
+        EmoteLoop = true,
+        EmoteMoving = true,
+    } },
+    ["guitarcarry4"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Carry Electric 2 ", AnimationOptions = { -- Emote by Molly 
+        Prop = "prop_el_guitar_02",
+        PropBone = 28422,
+        PropPlacement = { 0.1100, -0.1200, -0.0500, -80.0000, 0.0, 21.9999 },
+        EmoteLoop = true,
+        EmoteMoving = true,
+    } },
+    ["guitarcarry5"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Carry Electric 3 ", AnimationOptions = { -- Emote by Molly 
+        Prop = "prop_el_guitar_03",
+        PropBone = 28422,
+        PropPlacement = { 0.1100, -0.1200, -0.0500, -80.0000, 0.0, 21.9999 },
+        EmoteLoop = true,
+        EmoteMoving = true,
+    } },
+    ["guitarcarry6"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Carry Electric 4 ", AnimationOptions = { -- Emote by Molly 
+        Prop = "vw_prop_casino_art_guitar_01a",
+        PropBone = 28422,
+        PropPlacement = { 0.1100, -0.1200, -0.0500, -80.0000, 0.0, 21.9999 },
+        EmoteLoop = true,
+        EmoteMoving = true,
+    } },
+    ["guitarcarry7"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Carry Electric 5 ", AnimationOptions = { -- Emote by Molly 
+        Prop = "sf_prop_sf_el_guitar_02a",
+        PropBone = 28422,
+        PropPlacement = { 0.1100, -0.1200, -0.0500, -80.0000, 0.0, 21.9999 },
+        EmoteLoop = true,
+        EmoteMoving = true,
+    } },
+    
 }
 
 -- Remove emotes if needed
