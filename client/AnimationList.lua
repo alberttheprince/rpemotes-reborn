@@ -4444,7 +4444,7 @@ DP.PropEmotes = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["guitarcarry2"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Carry Accoustic", AnimationOptions = { -- Emote by Molly 
+    ["guitarcarry2"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Carry Acoustic", AnimationOptions = { -- Emote by Molly 
         Prop = "prop_acc_guitar_01",
         PropBone = 28422,
         PropPlacement = { 0.1500, -0.1400, -0.0200, -101.5083, 5.7251, 29.4987 },
