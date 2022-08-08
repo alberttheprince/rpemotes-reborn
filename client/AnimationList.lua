@@ -4486,6 +4486,13 @@ DP.PropEmotes = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
+    ["airportbag"] = { "anim@heists@narcotics@trash", "idle", "Airport Bag", AnimationOptions = { 
+        Prop = "prop_suitcase_01c",
+        PropBone = 28422,
+        PropPlacement = { 0.1100, -0.2100, -0.4300, -11.8999, 0.0, 30.0000 },
+        EmoteLoop = true,
+        EmoteMoving = true,
+    } },
     
 }
 
