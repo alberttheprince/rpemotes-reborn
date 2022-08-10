@@ -3267,6 +3267,18 @@ DP.PropEmotes = {
         PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
         PtfxWait = 200,
     } },
+    ["camera2"] = { "cellphone@female", "cellphone_text_read_base_cover_low", "Camera 2", AnimationOptions = {
+        Prop = "prop_ing_camera_01",
+        PropBone = 28422,
+        PropPlacement = { 0.0100, -0.0300, 0.0520, -172.0487,  -163.9389, -29.0221 },
+        EmoteLoop = false,
+        EmoteMoving = true,
+		PtfxAsset = "scr_bike_business",
+        PtfxName = "scr_bike_cfid_camera_flash",
+        PtfxPlacement = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0 },
+        PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+        PtfxWait = 200,
+    } },
     ["champagnespray"] = { "anim@mp_player_intupperspray_champagne", "idle_a", "Champagne Spray", AnimationOptions = {
         Prop = 'ba_prop_battle_champ_open',
         PropBone = 28422,
@@ -4493,6 +4505,13 @@ DP.PropEmotes = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
+	["watchstripper2"] = { "amb@world_human_strip_watch_stand@male_c@base", "base", "Watch Stripper 2", AnimationOptions = {
+        Prop = "prop_beer_am",
+        PropBone = 60309,
+        PropPlacement = { 0.0880, -0.1360, 0.1450, -102.9624, 81.7098, -39.2734 },
+        EmoteLoop = true,
+        EmoteMoving = true,
+        }, AdultAnimation = true },
     
 }
 
