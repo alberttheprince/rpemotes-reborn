@@ -2166,7 +2166,7 @@ DP.Emotes = {
     ["sitchair5"] = { "timetable@jimmy@mics3_ig_15@", "mics3_15_base_tracy", "Sit Chair Legs Crossed",
         AnimationOptions = {
             EmoteLoop = true,
-        } },
+    } },
     ["sitchair6"] = { "timetable@maid@couch@", "base", "Sit Chair Lean Back", AnimationOptions = {
         EmoteLoop = true,
     } },
@@ -3931,6 +3931,24 @@ DP.PropEmotes = {
         EmoteLoop = true,
         EmoteMoving = false,
     } },
+    ["selfiecrouch2"] = { "eagle@girlphonepose13", "girl", "Selfie Crouching 2", AnimationOptions = { --- Wolf's Square Custom Emote 
+        Prop = "prop_phone_ing",
+        PropBone = 60309,
+        PropPlacement = { 0.0670, 0.0300, 0.0300, -90.0000, 0.0000, -25.9000 },
+        EmoteLoop = true,
+        EmoteMoving = false,
+    } },
+    ["selfiesit"] = { "mouse@female_sitting_selfie", "female_sitting_selfie_clip", "Selfie Sitting", AnimationOptions = { -- Emote by WhiskerValeMods
+            Prop = 'prop_phone_ing',
+            PropBone = 57005,
+            PropPlacement = { 0.1380, 0.0300, -0.0430, -111.0946, -117.8069,  11.7386},
+            SecondProp = 'apa_mp_h_stn_chairarm_23',
+            SecondPropBone = 0,
+            SecondPropPlacement = { -0.0100, -0.0800, -0.6800, -180.0000, -180.0000, 10.0000 },
+            EmoteLoop = true,
+            EmoteMoving = false,
+		
+   } },
     ["sittv"] = { "anim@heists@heist_safehouse_intro@variations@male@tv", "tv_part_one_loop", "Sit TV",
         AnimationOptions = {
             Prop = "v_res_tre_remote",
@@ -3938,7 +3956,87 @@ DP.PropEmotes = {
             PropPlacement = { 0.0990, 0.0170, -0.0300, -64.760, -109.544, 18.717 },
             EmoteLoop = true,
             EmoteMoving = false,
-        } },
+    } },
+    ["sitchairf"] = { "mouse@femalearmchair", "female_armchair_clip_01", "Sit Chair - Armchair", -- Emote by WhiskerValeMods
+        AnimationOptions = {
+            Prop = "p_armchair_01_s",
+            PropBone = 11816,
+            PropPlacement = { 0.5320, -0.3310, 0.2000, -90.0000, -180.0000, -40.9999 },
+            EmoteLoop = true,
+            EmoteMoving = false,
+   } },
+    ["sitchairf2"] = { "mouse@female_sitting_folded", "female_sitting_folded_clip", "Sit Chair - Arms Folded", -- Emote by WhiskerValeMods
+        AnimationOptions = {
+            Prop = "ba_prop_battle_club_chair_03",
+            PropBone = 0,
+            PropPlacement = {0.0, 0.0, 0.0, 0.0, 0.0, -170.0000 },
+            EmoteLoop = true,
+            EmoteMoving = false,
+			
+   } },
+    ["sitchairf3"] = { "mouse@female_sitting_forward", "female_sitting_forward_clip", "Sit Chair - Leaning Forward", -- Emote by WhiskerValeMods
+        AnimationOptions = {
+            Prop = "ba_prop_battle_club_chair_03",
+            PropBone = 0,
+            PropPlacement = {0.0, 0.0, 0.0, 0.0, 0.0, -170.0000 },
+            EmoteLoop = true,
+            EmoteMoving = false,
+			
+   } },
+    ["sitchairf4"] = { "mouse@female_smart_sitting", "female_smart_sitting_clip", "Sit Chair - Smart", -- Emote by WhiskerValeMods
+        AnimationOptions = {
+            Prop = "ba_prop_battle_club_chair_03",
+            PropBone = 0,
+            PropPlacement = {0.0, 0.0, 0.0, 0.0, 0.0, -170.0000 },
+            EmoteLoop = true,
+            EmoteMoving = false,
+			
+   } },
+    ["sitchairf5"] = { "mouse@female_smart_sitting_crossed", "female_smart_sitting_crossed_clip", "Sit Chair - Legs Crossed", -- Emote by WhiskerValeMods
+        AnimationOptions = {
+            Prop = "ba_prop_battle_club_chair_03",
+            PropBone = 0,
+            PropPlacement = {0.0, 0.0, 0.0, 0.0, 0.0, -170.0000 },
+            EmoteLoop = true,
+            EmoteMoving = false,
+			
+   } },
+    ["sitchairf6"] = { "mouse@female_sitting_laptop", "female_sitting_laptop_clip", "Sit Chair - Laptop", -- Emote by WhiskerValeMods
+        AnimationOptions = {
+            Prop = 'ba_prop_club_laptop_dj_02',
+            PropBone = 57005,
+            PropPlacement = { 0.0860, -0.1370, -0.1750, -79.9999, -90.0000, 0.0000 },
+            SecondProp = 'ba_prop_battle_club_chair_02',
+            SecondPropBone = 0,
+            SecondPropPlacement = { -0.0400, -0.1900, 0.0000, -180.0000, -180.0000, 9.0999 },
+            EmoteLoop = true,
+            EmoteMoving = false,
+		
+   } },
+    ["sitchairf7"] = { "mouse@female_sitting_tablet", "female_sitting_tablet_clip", "Sit Chair - Tablet", -- Emote by WhiskerValeMods
+        AnimationOptions = {
+            Prop = 'hei_prop_dlc_tablet',
+            PropBone = 28422,
+            PropPlacement = { 0.0870, 0.1030, -0.1240, 144.3540, 157.8527, -4.6318 },
+            SecondProp = 'ba_prop_battle_club_chair_02',
+            SecondPropBone = 0,
+            SecondPropPlacement = { 0.0100, -0.0800, 0.0200, 150.0000, -180.0000, 10.0000 },
+            EmoteLoop = true,
+            EmoteMoving = false,
+		
+   } },
+    ["sitchairf8"] = { "mouse@female_sitting_tablet", "female_sitting_tablet_clip", "Sit Chair - Book", -- Emote by WhiskerValeMods
+        AnimationOptions = {
+            Prop = 'v_ilev_mp_bedsidebook',
+            PropBone = 28422,
+            PropPlacement = { 0.1300, 0.1100, -0.1200, 120.3356, -15.9891, 26.1497 },
+            SecondProp = 'ba_prop_battle_club_chair_02',
+            SecondPropBone = 0,
+            SecondPropPlacement = { 0.0100, -0.0800, 0.0200, 150.0000, -180.0000, 10.0000 },
+            EmoteLoop = true,
+            EmoteMoving = false,
+		
+    } },
     ["dig"] = { "random@burial", "a_burial", "Dig", AnimationOptions = {
         Prop = "prop_tool_shovel",
         PropBone = 28422,
@@ -4428,70 +4526,70 @@ DP.PropEmotes = {
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["cashcase2"] = { "anim@heists@box_carry@", "idle", "Cash Briefcase 2", AnimationOptions = { -- Emote by Molly 
+    ["cashcase2"] = { "anim@heists@box_carry@", "idle", "Cash Briefcase 2", AnimationOptions = {
         Prop = "prop_cash_case_01",
         PropBone = 28422,
         PropPlacement = { -0.0050, -0.1870, -0.1400, 0.0, 0.0, 0.0 },
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["cashcase3"] = { "anim@heists@box_carry@", "idle", "Cash Briefcase 3", AnimationOptions = { -- Emote by Molly 
+    ["cashcase3"] = { "anim@heists@box_carry@", "idle", "Cash Briefcase 3", AnimationOptions = {
         Prop = "prop_cash_case_02",
         PropBone = 28422,
         PropPlacement = { 0.0050, -0.1170, -0.1400, 14.000, 0.0, 0.0 },
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["cashcase4"] = { "anim@heists@box_carry@", "idle", "Cash Briefcase 4 - Diamonds", AnimationOptions = { -- Emote by Molly 
+    ["cashcase4"] = { "anim@heists@box_carry@", "idle", "Cash Briefcase 4 - Diamonds", AnimationOptions = {
         Prop = "ch_prop_ch_security_case_01a",
         PropBone = 28422,
         PropPlacement = { 0.0, -0.0900, -0.1800, 14.4000, 0.0, 0.0 },
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["guitarcarry"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Case Carry", AnimationOptions = { -- Emote by Molly 
+    ["guitarcarry"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Case Carry", AnimationOptions = {
         Prop = "sf_prop_sf_guitar_case_01a",
         PropBone = 28422,
         PropPlacement = { 0.2800, -0.2000, -0.0600, 0.0, 0.0, 15.0000 },
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["guitarcarry2"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Carry Acoustic", AnimationOptions = { -- Emote by Molly 
+    ["guitarcarry2"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Carry Accoustic", AnimationOptions = { 
         Prop = "prop_acc_guitar_01",
         PropBone = 28422,
         PropPlacement = { 0.1500, -0.1400, -0.0200, -101.5083, 5.7251, 29.4987 },
         EmoteLoop = true,
         EmoteMoving = true,
    } },
-    ["guitarcarry3"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Carry Electric ", AnimationOptions = { -- Emote by Molly 
+    ["guitarcarry3"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Carry Electric ", AnimationOptions = {
         Prop = "prop_el_guitar_01",
         PropBone = 28422,
         PropPlacement = { 0.1100, -0.1200, -0.0500, -80.0000, 0.0, 21.9999 },
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["guitarcarry4"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Carry Electric 2 ", AnimationOptions = { -- Emote by Molly 
+    ["guitarcarry4"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Carry Electric 2 ", AnimationOptions = { 
         Prop = "prop_el_guitar_02",
         PropBone = 28422,
         PropPlacement = { 0.1100, -0.1200, -0.0500, -80.0000, 0.0, 21.9999 },
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["guitarcarry5"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Carry Electric 3 ", AnimationOptions = { -- Emote by Molly 
+    ["guitarcarry5"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Carry Electric 3 ", AnimationOptions = { 
         Prop = "prop_el_guitar_03",
         PropBone = 28422,
         PropPlacement = { 0.1100, -0.1200, -0.0500, -80.0000, 0.0, 21.9999 },
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["guitarcarry6"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Carry Electric 4 ", AnimationOptions = { -- Emote by Molly 
+    ["guitarcarry6"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Carry Electric 4 ", AnimationOptions = { 
         Prop = "vw_prop_casino_art_guitar_01a",
         PropBone = 28422,
         PropPlacement = { 0.1100, -0.1200, -0.0500, -80.0000, 0.0, 21.9999 },
         EmoteLoop = true,
         EmoteMoving = true,
     } },
-    ["guitarcarry7"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Carry Electric 5 ", AnimationOptions = { -- Emote by Molly 
+    ["guitarcarry7"] = { "move_weapon@jerrycan@generic", "idle", "Guitar Carry Electric 5 ", AnimationOptions = { 
         Prop = "sf_prop_sf_el_guitar_02a",
         PropBone = 28422,
         PropPlacement = { 0.1100, -0.1200, -0.0500, -80.0000, 0.0, 21.9999 },
@@ -4512,7 +4610,7 @@ DP.PropEmotes = {
         EmoteLoop = true,
         EmoteMoving = true,
         }, AdultAnimation = true },
-    
+
 }
 
 -- Remove emotes if needed
