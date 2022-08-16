@@ -54,8 +54,8 @@ AddEventHandler("SyncPlayEmote", function(emote, player)
                 local xRot = DP.Shared[emote].AnimationOptions.xRot or 0.0
                 local yRot = DP.Shared[emote].AnimationOptions.yRot or 0.0
                 local zRot = DP.Shared[emote].AnimationOptions.zRot or 0.0
-                AttachEntityToEntity(ply, pedInFront, GetPedBoneIndex(ply, bone), xPos, yPos, zPos, xRot, yRot, zRot,
-                    false, false, false, true, 1, true)
+                AttachEntityToEntity(ply, pedInFront, GetPedBoneIndex(pedInFront, bone), xPos, yPos, zPos, xRot, yRot,
+                    zRot, false, false, false, true, 1, true)
             end
         end
 
@@ -95,8 +95,8 @@ AddEventHandler("SyncPlayEmoteSource", function(emote, player)
             local xRot = AnimationOptions.xRot or 0.0
             local yRot = AnimationOptions.yRot or 0.0
             local zRot = AnimationOptions.zRot or 0.0
-            AttachEntityToEntity(ply, pedInFront, GetPedBoneIndex(ply, bone), xPos, yPos, zPos, xRot, yRot, zRot, false,
-                false, false, true, 1, true)
+            AttachEntityToEntity(ply, pedInFront, GetPedBoneIndex(pedInFront, bone), xPos, yPos, zPos, xRot, yRot, zRot,
+                false, false, false, true, 1, true)
         end
     end
     local coords = GetOffsetFromEntityInWorldCoords(pedInFront, SyncOffsetSide, SyncOffsetFront, 0.0)
