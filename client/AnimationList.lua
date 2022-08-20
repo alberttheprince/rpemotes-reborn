@@ -8183,7 +8183,7 @@ DP.PropEmotes = {
     ["brief2"] = { -- Added for compatibility
         "missheistdocksprep1hold_cellphone",
         "static",
-        "Briefcase 3",
+        "Briefcase 2",
         AnimationOptions =
         {
             Prop = "prop_ld_case_01",
