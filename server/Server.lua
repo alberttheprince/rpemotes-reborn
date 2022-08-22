@@ -20,8 +20,7 @@ end)
 
 --#region ptfx
 RegisterNetEvent("dpemotes:ptfx:sync", function(asset, name, offset, rot, scale)
-    if type(asset) ~= "string" or type(name) ~= "string" or type(offset) ~= "vector3" or type(rot) ~= "vector3" or
-        type(scale) ~= "number" then
+    if type(asset) ~= "string" or type(name) ~= "string" or type(offset) ~= "vector3" or type(rot) ~= "vector3" then
         print("[dpemotes] ptfx:sync: invalid arguments for source:", source)
         return
     end
