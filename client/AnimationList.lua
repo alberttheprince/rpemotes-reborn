@@ -9372,6 +9372,19 @@ DP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = true,
+            PtfxAsset = "scr_armenian3",
+            PtfxName = "ent_anim_leaf_blower",
+            PtfxPlacement = {
+                1.0,
+                0.0,
+                -0.25,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['useleafblower'],
+            PtfxWait = 2000,
         }
     },
     ["bbqf"] = {
