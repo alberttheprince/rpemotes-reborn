@@ -731,7 +731,7 @@ DP.Shared = {
         AnimationOptions = {
             EmoteMoving = false,
             EmoteLoop = true,
-			Attachto = true,
+            Attachto = true,
             bone = 24818,
             xPos = -0.95,
             yPos = 0.16,
@@ -9844,6 +9844,19 @@ DP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = false,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
         }
     },
     ["selfiecrouch2"] = {
@@ -9864,6 +9877,19 @@ DP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = false,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
         }
     },
     ["selfiesit"] = { -- Emote by WhiskerValeMods
