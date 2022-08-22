@@ -19,7 +19,7 @@ local PtfxNoProp = false
 
 Citizen.CreateThread(function()
     while true do
-        if IsPedShooting(PlayerPedId()) and IsInAnimation then
+        if IsInAnimation and IsPedShooting(PlayerPedId()) then
             EmoteCancel()
         end
 
