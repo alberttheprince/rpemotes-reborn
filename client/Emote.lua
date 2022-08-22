@@ -15,6 +15,7 @@ local lang = Config.MenuLanguage
 local PtfxNotif = false
 local PtfxPrompt = false
 local PtfxWait = 500
+local PtfxCanHold = false
 local PtfxNoProp = false
 
 Citizen.CreateThread(function()
@@ -31,6 +32,11 @@ Citizen.CreateThread(function()
             if IsControlPressed(0, 47) then
                 PtfxStart()
                 Wait(PtfxWait)
+                if PtfxCanHold then
+                    while IsControlPressed(0, 47) and IsInAnimation do
+                        Wait(5)
+                    end
+                end
                 PtfxStop()
             end
         end
@@ -461,6 +467,7 @@ function OnEmotePlay(EmoteName)
             Ptfx1, Ptfx2, Ptfx3, Ptfx4, Ptfx5, Ptfx6, PtfxScale = table.unpack(EmoteName.AnimationOptions.PtfxPlacement)
             PtfxInfo = EmoteName.AnimationOptions.PtfxInfo
             PtfxWait = EmoteName.AnimationOptions.PtfxWait
+            PtfxCanHold = EmoteName.AnimationOptions.PtfxCanHold
             PtfxNotif = false
             PtfxPrompt = true
 

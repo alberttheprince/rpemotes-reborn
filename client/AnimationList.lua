@@ -6510,6 +6510,7 @@ DP.Emotes = {
             },
             PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
             PtfxWait = 3000,
+            PtfxCanHold = true,
         },
         AdultAnimation = true
     },
@@ -8026,6 +8027,7 @@ DP.PropEmotes = {
             },
             PtfxInfo = Config.Languages[Config.MenuLanguage]['makeitrain'],
             PtfxWait = 500,
+            PtfxCanHold = true,
         }
     },
     ["camera"] = {
@@ -8121,6 +8123,7 @@ DP.PropEmotes = {
             },
             PtfxInfo = Config.Languages[Config.MenuLanguage]['spraychamp'],
             PtfxWait = 500,
+            PtfxCanHold = true,
         }
     },
     ["joint"] = {
@@ -9385,6 +9388,7 @@ DP.PropEmotes = {
             },
             PtfxInfo = Config.Languages[Config.MenuLanguage]['useleafblower'],
             PtfxWait = 2000,
+            PtfxCanHold = true,
         }
     },
     ["bbqf"] = {
