@@ -928,8 +928,9 @@ DP.Shared = {
             xRot = 0.00,
             yRot = 0.00,
             zRot = 0.00,
-        },
-        ["kiss"] = {
+        }
+    },
+    ["kiss"] = {
         "hs3_ext-20",
         "cs_lestercrest_3_dual-20",
         "Kiss",
