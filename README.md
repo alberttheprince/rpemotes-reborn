@@ -135,6 +135,16 @@ Using the website provided above, enter the bone ID, ie `1356` and not `111`, wh
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+# Particle Effects 💨
+
+Particle effects can be found using the [DurtyFree GTA V Dump](https://github.com/DurtyFree/gta-v-data-dumps/blob/master/particleEffectsCompact.json). You will need to add the particle assest, name, and placement. Placement is done via XYZ, Pitch, Roll, Yaw, and scale.
+
+Big thanks to DurtyFree for his amazing work.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Add-Ons 🛠️
 
 * Fixed an issue with the clipboard and adds textures to paper (/e clipboard)
