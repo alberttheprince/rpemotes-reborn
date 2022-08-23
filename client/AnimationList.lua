@@ -928,6 +928,49 @@ DP.Shared = {
             xRot = 0.00,
             yRot = 0.00,
             zRot = 0.00,
+        },
+        ["kiss"] = {
+        "hs3_ext-20",
+        "cs_lestercrest_3_dual-20",
+        "Kiss",
+        "Kiss2",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteDuration = 10000,
+            SyncOffsetFront = 0.08
+        }
+    },
+    ["kiss2"] = {
+        "hs3_ext-20",
+        "csb_georginacheng_dual-20",
+        "Kiss 2",
+        "Kiss",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteDuration = 10000,
+            SyncOffsetFront = 0.08
+        }
+    },
+    ["kiss3"] = {
+        "hs3_ext-19",
+        "cs_lestercrest_3_dual-19",
+        "Kiss 3",
+        "Kiss4",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteDuration = 10000,
+            SyncOffsetFront = 0.08
+        }
+    },
+    ["kiss4"] = {
+        "hs3_ext-19",
+        "csb_georginacheng_dual-19",
+        "Kiss 4",
+        "Kiss3",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteDuration = 10000,
+            SyncOffsetFront = 0.08
         }
     },
 }
@@ -7156,6 +7199,35 @@ DP.PropEmotes = {
                 0.0,
                 263.0,
                 58.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["boombox2"] = {
+        "molly@boombox1",
+        "boombox1_clip",
+        "Boombox 2",
+        AnimationOptions = {
+            Prop = "prop_cs_sol_glasses",
+            PropBone = 31086,
+            PropPlacement = {
+                0.0440,
+                0.0740,
+                0.0000,
+                -160.9843,
+                -88.7288,
+                -0.6197
+            },
+            SecondProp = 'prop_ghettoblast_02',
+            SecondPropBone = 10706,
+            SecondPropPlacement = {
+                -0.2310,
+                -0.0770,
+                0.2410,
+                -179.7256,
+                176.7406,
+                23.0190
             },
             EmoteLoop = true,
             EmoteMoving = true,
