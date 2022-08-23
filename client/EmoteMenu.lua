@@ -49,19 +49,22 @@ local ShareTable = {}
 local FavoriteEmote = ""
 
 if Config.FavKeybindEnabled then
-    Citizen.CreateThread(function()
-        while true do
-            if IsControlPressed(0, Config.FavKeybind) then
-                if not IsPedSittingInAnyVehicle(PlayerPedId()) then
-                    if FavoriteEmote ~= "" and (not CanUseFavKeyBind or CanUseFavKeyBind()) then
-                        EmoteCommandStart(nil, { FavoriteEmote, 0 })
-                        Wait(3000)
-                    end
-                end
-            end
-            Citizen.Wait(0)
-        end
-    end)
+    RegisterCommand('emotefav', function(source, args, raw) FavKeybind() end)
+	
+	RegisterKeyMapping("emotefav", "Execute your favorite emote", "keyboard", Config.FavKeybind)
+	
+	local doingFavoriteEmote = false
+	function FavKeybind()
+		if doingFavoriteEmote then return end
+		doingFavoriteEmote = true
+		if not IsPedSittingInAnyVehicle(PlayerPedId()) then
+			if FavoriteEmote ~= "" and (not CanUseFavKeyBind or CanUseFavKeyBind()) then
+				EmoteCommandStart(nil, { FavoriteEmote, 0 })
+				Wait(3000)
+			end
+		end
+		doingFavoriteEmote = false
+	end
 end
 
 lang = Config.MenuLanguage
@@ -315,6 +318,7 @@ function OpenEmoteMenu()
         _menuPool:CloseAllMenus()
     else
         mainMenu:Visible(true)
+        ProcessMenu()
     end
 end
 
@@ -333,12 +337,16 @@ end
 
 _menuPool:RefreshIndex()
 
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(0)
-        _menuPool:ProcessMenus()
-    end
-end)
+local isMenuProcessing = false
+function ProcessMenu()
+	if isMenuProcessing then return end
+	isMenuProcessing = true
+	while _menuPool:IsAnyMenuOpen() do
+		_menuPool:ProcessMenus()
+		Wait(0)
+	end
+	isMenuProcessing = false
+end
 
 RegisterNetEvent("dp:Update")
 AddEventHandler("dp:Update", function(state)

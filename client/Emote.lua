@@ -18,13 +18,10 @@ local PtfxWait = 500
 local PtfxCanHold = false
 local PtfxNoProp = false
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
-        if IsInAnimation and IsPedShooting(PlayerPedId()) then
-            EmoteCancel()
-        end
 
-        if PtfxPrompt then
+        if PtfxPrompt or IsInAnimation then
             if not PtfxNotif then
                 SimpleNotify(PtfxInfo)
                 PtfxNotif = true
@@ -39,12 +36,20 @@ Citizen.CreateThread(function()
                 end
                 PtfxStop()
             end
+            if IsPedShooting(PlayerPedId()) then
+                EmoteCancel()
+            end
+        else
+            Wait(1000)
         end
 
-        if Config.EnableXtoCancel then if IsControlPressed(0, 73) then EmoteCancel() end end
-        Citizen.Wait(1)
+        Wait(0)
     end
 end)
+
+if Config.EnableXtoCancel then
+	RegisterKeyMapping("emotecancel", "Cancel current emote", "keyboard", "X")
+end
 
 if Config.MenuKeybindEnabled then
     RegisterKeyMapping("emotemenu", "Open dpemotes menu", "keyboard", Config.MenuKeybind)
@@ -70,6 +75,7 @@ Citizen.CreateThread(function()
     TriggerEvent('chat:addSuggestion', '/walk', 'Set your walkingstyle.',
         { { name = "style", help = "/walks for a list of valid styles" } })
     TriggerEvent('chat:addSuggestion', '/walks', 'List available walking styles.')
+    TriggerEvent('chat:addSuggestion', '/emotecancel', 'Cancel currently playing emote.')
 end)
 
 RegisterCommand('e', function(source, args, raw) EmoteCommandStart(source, args, raw) end)
@@ -82,6 +88,7 @@ RegisterCommand('emotemenu', function(source, args, raw) OpenEmoteMenu() end)
 RegisterCommand('emotes', function(source, args, raw) EmotesOnCommand() end)
 RegisterCommand('walk', function(source, args, raw) WalkCommandStart(source, args, raw) end)
 RegisterCommand('walks', function(source, args, raw) WalksOnCommand() end)
+RegisterCommand('emotecancel', function(source, args, raw) EmoteCancel() end)
 
 AddEventHandler('onResourceStop', function(resource)
     if resource == GetCurrentResourceName() then

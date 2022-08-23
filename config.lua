@@ -18,7 +18,7 @@ Config = {
     MenuKeybind = 'F5', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- You can disable the Favorite emote keybinding here.
     FavKeybindEnabled = true,
-    FavKeybind = 171, -- Get the button number here https://docs.fivem.net/game-references/controls/
+    FavKeybind = 'CAPITAL', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- You can change the header image for the menu here
     -- Use a 512 x 128 image!
     -- Note this might cause an issue of the image getting stuck on peoples screens
@@ -29,8 +29,8 @@ Config = {
     -- You can change the menu position here
     MenuPosition = "right", -- (left, right)
     -- You can enable or disable the Ragdoll keybinding here.
-    RagdollEnabled = false,
-    RagdollKeybind = 303, -- Get the button number here https://docs.fivem.net/game-references/controls/
+    RagdollEnabled = true,
+    RagdollKeybind = 'U', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- You can disable the Facial Expressions menu here.
     ExpressionsEnabled = true,
     -- You can disable the Walking Styles menu here.
