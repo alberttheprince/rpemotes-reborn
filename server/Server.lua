@@ -18,6 +18,43 @@ AddEventHandler("ServerEmoteCancel", function(target)
     TriggerClientEvent("SyncCancelEmote", target, source)
 end)
 
+--#region ptfx
+RegisterNetEvent("dpemotes:ptfx:sync", function(asset, name, offset, rot, scale)
+    if type(asset) ~= "string" or type(name) ~= "string" or type(offset) ~= "vector3" or type(rot) ~= "vector3" then
+        print("[dpemotes] ptfx:sync: invalid arguments for source:", source)
+        return
+    end
+    local srcPlayerState = Player(source).state
+    srcPlayerState:set('ptfxAsset', asset, true)
+    srcPlayerState:set('ptfxName', name, true)
+    srcPlayerState:set('ptfxOffset', offset, true)
+    srcPlayerState:set('ptfxRot', rot, true)
+    srcPlayerState:set('ptfxScale', scale, true)
+    srcPlayerState:set('ptfxPropNet', false, true)
+    srcPlayerState:set('ptfx', false, true)
+end)
+
+RegisterNetEvent("dpemotes:ptfx:syncProp", function(propNet)
+    local srcPlayerState = Player(source).state
+    if propNet then
+        -- Prevent infinite loop to get entity
+        local waitForEntityToExistCount = 0
+        while waitForEntityToExistCount <= 100 and not DoesEntityExist(NetworkGetEntityFromNetworkId(propNet)) do
+            Wait(10)
+            waitForEntityToExistCount = waitForEntityToExistCount + 1
+        end
+
+        -- If below 100 then we could find the loaded entity
+        if waitForEntityToExistCount < 100 then
+            srcPlayerState:set('ptfxPropNet', propNet, true)
+            return
+        end
+    end
+    -- If we reach this point then we couldn't find the entity
+    srcPlayerState:set('ptfxPropNet', false, true)
+end)
+--#endregion ptfx
+
 -----------------------------------------------------------------------------------------------------
 -- Keybinding  --------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
@@ -43,8 +80,14 @@ local function addKeybindEventHandlers()
     AddEventHandler("dp:ServerKeybindCreate", function()
         local src = source
         local srcid = GetPlayerIdentifier(source)
-        MySQL.insert('INSERT INTO dpkeybinds (`id`, `keybind1`, `emote1`, `keybind2`, `emote2`, `keybind3`, `emote3`, `keybind4`, `emote4`, `keybind5`, `emote5`, `keybind6`, `emote6`) VALUES (@id, @keybind1, @emote1, @keybind2, @emote2, @keybind3, @emote3, @keybind4, @emote4, @keybind5, @emote5, @keybind6, @emote6);',
-            { id = srcid, keybind1 = "num4", emote1 = "", keybind2 = "num5", emote2 = "", keybind3 = "num6", emote3 = "", keybind4 = "num7", emote4 = "", keybind5 = "num8", emote5 = "", keybind6 = "num9", emote6 = "" }, function(created) print("[dp] ^2" .. GetPlayerName(src) .. "^7 got created!") TriggerClientEvent("dp:ClientKeybindGet", src, "num4", "", "num5", "", "num6", "", "num7", "", "num8", "", "num8", "") end)
+        MySQL.insert('INSERT INTO dpkeybinds (`id`, `keybind1`, `emote1`, `keybind2`, `emote2`, `keybind3`, `emote3`, `keybind4`, `emote4`, `keybind5`, `emote5`, `keybind6`, `emote6`) VALUES (@id, @keybind1, @emote1, @keybind2, @emote2, @keybind3, @emote3, @keybind4, @emote4, @keybind5, @emote5, @keybind6, @emote6);'
+            ,
+            { id = srcid, keybind1 = "num4", emote1 = "", keybind2 = "num5", emote2 = "", keybind3 = "num6", emote3 = "",
+                keybind4 = "num7", emote4 = "", keybind5 = "num8", emote5 = "", keybind6 = "num9", emote6 = "" },
+            function(created) print("[dp] ^2" .. GetPlayerName(src) .. "^7 got created!")
+                TriggerClientEvent("dp:ClientKeybindGet"
+                    , src, "num4", "", "num5", "", "num6", "", "num7", "", "num8", "", "num8", "")
+            end)
     end)
 
     RegisterServerEvent("dp:ServerKeybindGrab")
@@ -55,9 +98,12 @@ local function addKeybindEventHandlers()
             ,
             { ['@id'] = srcid }, function(kb)
             if kb[1].keybind1 ~= nil then
-                TriggerClientEvent("dp:ClientKeybindGet", src, kb[1].keybind1, kb[1].emote1, kb[1].keybind2, kb[1].emote2 , kb[1].keybind3, kb[1].emote3, kb[1].keybind4, kb[1].emote4, kb[1].keybind5, kb[1].emote5, kb[1].keybind6, kb[1].emote6)
+                TriggerClientEvent("dp:ClientKeybindGet", src, kb[1].keybind1, kb[1].emote1, kb[1].keybind2, kb[1].emote2
+                    , kb[1].keybind3, kb[1].emote3, kb[1].keybind4, kb[1].emote4, kb[1].keybind5, kb[1].emote5,
+                    kb[1].keybind6, kb[1].emote6)
             else
-                TriggerClientEvent("dp:ClientKeybindGet", src, "num4", "", "num5", "", "num6", "", "num7", "", "num8", "", "num8", "")
+                TriggerClientEvent("dp:ClientKeybindGet", src, "num4", "", "num5", "", "num6", "", "num7", "", "num8", ""
+                    , "num8", "")
             end
         end)
     end)
@@ -113,7 +159,7 @@ if Config.SqlKeybinding and MySQL then
 		  `keybind6` varchar(50) NULL DEFAULT "num9",
 		  `emote6` varchar(255) NULL DEFAULT ""
 		) ENGINE=InnoDB COLLATE=latin1_swedish_ci;
-		]], {}, function(success)
+		]]     , {}, function(success)
         if success then
             addKeybindEventHandlers()
         else

@@ -731,7 +731,7 @@ DP.Shared = {
         AnimationOptions = {
             EmoteMoving = false,
             EmoteLoop = true,
-			Attachto = true,
+            Attachto = true,
             bone = 24818,
             xPos = -0.95,
             yPos = 0.16,
@@ -6510,6 +6510,7 @@ DP.Emotes = {
             },
             PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
             PtfxWait = 3000,
+            PtfxCanHold = true,
         },
         AdultAnimation = true
     },
@@ -8026,6 +8027,7 @@ DP.PropEmotes = {
             },
             PtfxInfo = Config.Languages[Config.MenuLanguage]['makeitrain'],
             PtfxWait = 500,
+            PtfxCanHold = true,
         }
     },
     ["camera"] = {
@@ -8121,6 +8123,7 @@ DP.PropEmotes = {
             },
             PtfxInfo = Config.Languages[Config.MenuLanguage]['spraychamp'],
             PtfxWait = 500,
+            PtfxCanHold = true,
         }
     },
     ["joint"] = {
@@ -9372,6 +9375,20 @@ DP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = true,
+            PtfxAsset = "scr_armenian3",
+            PtfxName = "ent_anim_leaf_blower",
+            PtfxPlacement = {
+                1.0,
+                0.0,
+                -0.25,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['useleafblower'],
+            PtfxWait = 2000,
+            PtfxCanHold = true,
         }
     },
     ["bbqf"] = {
@@ -9844,6 +9861,19 @@ DP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = false,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
         }
     },
     ["selfiecrouch2"] = {
@@ -9864,6 +9894,19 @@ DP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = false,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
         }
     },
     ["selfiesit"] = { -- Emote by WhiskerValeMods

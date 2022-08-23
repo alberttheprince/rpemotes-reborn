@@ -15,11 +15,12 @@ local lang = Config.MenuLanguage
 local PtfxNotif = false
 local PtfxPrompt = false
 local PtfxWait = 500
+local PtfxCanHold = false
 local PtfxNoProp = false
 
 Citizen.CreateThread(function()
     while true do
-        if IsPedShooting(PlayerPedId()) and IsInAnimation then
+        if IsInAnimation and IsPedShooting(PlayerPedId()) then
             EmoteCancel()
         end
 
@@ -31,6 +32,11 @@ Citizen.CreateThread(function()
             if IsControlPressed(0, 47) then
                 PtfxStart()
                 Wait(PtfxWait)
+                if PtfxCanHold then
+                    while IsControlPressed(0, 47) and IsInAnimation do
+                        Wait(5)
+                    end
+                end
                 PtfxStop()
             end
         end
@@ -107,7 +113,9 @@ function EmoteCancel()
     PtfxPrompt = false
 
     if IsInAnimation then
-        PtfxStop()
+        if LocalPlayer.state.ptfx then
+            PtfxStop()
+        end
         ClearPedTasks(ply)
         DetachEntity(ply, true, false)
         CancelSharedEmote(ply)
@@ -128,26 +136,70 @@ function DebugPrint(args)
     end
 end
 
-function PtfxStart()
-    if PtfxNoProp then
-        PtfxAt = PlayerPedId()
-    else
-        PtfxAt = prop
+--#region ptfx
+function PtfxThis(asset)
+    while not HasNamedPtfxAssetLoaded(asset) do
+        RequestNamedPtfxAsset(asset)
+        Wait(10)
     end
-    UseParticleFxAssetNextCall(PtfxAsset)
-    Ptfx = StartNetworkedParticleFxLoopedOnEntityBone(PtfxName, PtfxAt, Ptfx1, Ptfx2, Ptfx3, Ptfx4, Ptfx5, Ptfx6,
-        GetEntityBoneIndexByName(PtfxName, "VFX"), 1065353216, 0, 0, 0, 1065353216, 1065353216, 1065353216, 0)
-    SetParticleFxLoopedColour(Ptfx, 1.0, 1.0, 1.0)
-    table.insert(PlayerParticles, Ptfx)
+    UseParticleFxAssetNextCall(asset)
+end
+
+function PtfxStart()
+    LocalPlayer.state:set('ptfx', true, true)
 end
 
 function PtfxStop()
-    for a, b in pairs(PlayerParticles) do
-        DebugPrint("Stopped PTFX: " .. b)
-        StopParticleFxLooped(b, false)
-        table.remove(PlayerParticles, a)
-    end
+    LocalPlayer.state:set('ptfx', false, true)
 end
+
+AddStateBagChangeHandler('ptfx', nil, function(bagName, key, value, _unused, replicated)
+    local plyId = tonumber(bagName:gsub('player:', ''), 10)
+
+    -- We stop here if we don't need to go further
+    -- We don't need to start or stop the ptfx twice
+    if (PlayerParticles[plyId] and value) or (not PlayerParticles[plyId] and not value) then return end
+
+    -- Only allow ptfx change on players
+    local ply = GetPlayerFromServerId(plyId)
+    if ply == 0 then return end
+
+    local plyPed = GetPlayerPed(ply)
+    if not DoesEntityExist(plyPed) then return end
+
+    local stateBag = Player(plyId).state
+    if value then
+        -- Start ptfx
+
+        local asset = stateBag.ptfxAsset
+        local name = stateBag.ptfxName
+        local offset = stateBag.ptfxOffset
+        local rot = stateBag.ptfxRot
+        local scale = stateBag.ptfxScale or 1
+        local propNet = stateBag.ptfxPropNet
+        local entityTarget = plyPed
+        -- Only do for valid obj
+        if propNet then
+            local propObj = NetToObj(propNet)
+            if DoesEntityExist(propObj) then
+                entityTarget = propObj
+            end
+        end
+        PtfxThis(asset)
+        PlayerParticles[plyId] = StartNetworkedParticleFxLoopedOnEntityBone(name, entityTarget, offset.x, offset.y,
+            offset.z, rot.x, rot.y, rot.z, GetEntityBoneIndexByName(name, "VFX"), scale + 0.0, 0, 0, 0, 1065353216,
+            1065353216, 1065353216, 0)
+        SetParticleFxLoopedColour(PlayerParticles[plyId], 1.0, 1.0, 1.0)
+        DebugPrint("Started PTFX: " .. PlayerParticles[plyId])
+    else
+        -- Stop ptfx
+        DebugPrint("Stopped PTFX: " .. PlayerParticles[plyId])
+        StopParticleFxLooped(PlayerParticles[plyId], false)
+        RemoveNamedPtfxAsset(stateBag.ptfxAsset)
+        PlayerParticles[plyId] = nil
+    end
+end)
+--#endregion ptfx
 
 function EmotesOnCommand(source, args, raw)
     local EmotesCommand = ""
@@ -256,14 +308,6 @@ function LoadPropDict(model)
         RequestModel(joaat(model))
         Wait(10)
     end
-end
-
-function PtfxThis(asset)
-    while not HasNamedPtfxAssetLoaded(asset) do
-        RequestNamedPtfxAsset(asset)
-        Wait(10)
-    end
-    UseParticleFxAssetNextCall(asset)
 end
 
 function DestroyAllProps()
@@ -423,9 +467,12 @@ function OnEmotePlay(EmoteName)
             Ptfx1, Ptfx2, Ptfx3, Ptfx4, Ptfx5, Ptfx6, PtfxScale = table.unpack(EmoteName.AnimationOptions.PtfxPlacement)
             PtfxInfo = EmoteName.AnimationOptions.PtfxInfo
             PtfxWait = EmoteName.AnimationOptions.PtfxWait
+            PtfxCanHold = EmoteName.AnimationOptions.PtfxCanHold
             PtfxNotif = false
             PtfxPrompt = true
-            PtfxThis(PtfxAsset)
+
+            TriggerServerEvent("dpemotes:ptfx:sync", PtfxAsset, PtfxName, vector3(Ptfx1, Ptfx2, Ptfx3),
+                vector3(Ptfx4, Ptfx5, Ptfx6), PtfxScale)
         else
             DebugPrint("Ptfx = none")
             PtfxPrompt = false
@@ -459,7 +506,13 @@ function OnEmotePlay(EmoteName)
                 AddPropToPlayer(SecondPropName, SecondPropBone, SecondPropPl1, SecondPropPl2, SecondPropPl3,
                     SecondPropPl4, SecondPropPl5, SecondPropPl6)
             end
+
+            -- Ptfx is on the prop, then we need to sync it
+            if EmoteName.AnimationOptions.PtfxAsset and not PtfxNoProp then
+                TriggerServerEvent("dpemotes:ptfx:syncProp", ObjToNet(prop))
+            end
         end
     end
+
     return true
 end
