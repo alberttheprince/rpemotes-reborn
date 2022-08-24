@@ -19,12 +19,20 @@ shared_scripts {
 
 server_scripts {
     'printer.lua',
-    'server/*.lua'
+    'server/Server.lua',
+    'server/Updates.lua'
 }
 
 client_scripts {
     'NativeUI.lua',
-    'client/*.lua',
+    'client/AnimationList.lua',
+    'client/AnimationListCustom.lua',
+    'client/Emote.lua',
+    'client/EmoteMenu.lua',
+    'client/Keybinds.lua',
+    'client/Ragdoll.lua',
+    'client/Syncing.lua',
+    'client/Walk.lua',
     'client/frameworks/*.lua'
 }
 
