@@ -104,6 +104,8 @@ To use the SQL features, install the [oxmysql](https://github.com/overextended/o
 
 * [Enforce gamebuild to latest build](https://forum.cfx.re/t/tutorial-forcing-gamebuild-to-casino-cayo-perico-or-tuners-update/4784977) for all emotes and props to work correctly
 
+* Set the desired language in the config using the available language codes, ie `es` for Spanish, or leave as it is for English 🇬🇧
+
 * start dpemotes
 
 
@@ -147,9 +149,9 @@ Big thanks to DurtyFree for his amazing work.
 
 # Add-Ons 🛠️
 
-* Fixed an issue with the clipboard and adds textures to paper (/e clipboard)
+* Fixed an issue with the clipboard and added textures to paper (/e clipboard)
 
-* Changes umbrella texture to black (/e umbrella)
+* Changed umbrella texture to black (/e umbrella)
 
 # Optional Add-Ons 🛠️
 
@@ -169,7 +171,7 @@ Big thanks to DurtyFree for his amazing work.
 
 - [Please check the fivem forum thread](https://forum.fivem.net/t/dpemotes-356ish-emotes-usable-while-walking-props-and-more/843105)
 
-- [Read my Menyoo To DpEmotes Tutorial](https://forum.cfx.re/t/how-to-menyoo-to-dpemotes-conversion-streaming-custom-add-on-props/4775018)
+- [Read my Menyoo To DpEmotes Tutorial](https://forum.cfx.re/t/how-to-menyoo-to-dpemotes-conversion-streaming-custom-add-on-props/4775018) for tips on how to attach props to the players, how to convert Menyoo to dpemotes and other tips you may need to know.
 
 
 
@@ -188,7 +190,9 @@ Big thanks to DurtyFree for his amazing work.
 
 **Q: Why do some emotes not work with females?**
 
-**A:** Blame Rockstar Games. I've done my best to replicate animations to work with females, however some male scenarios have sound effects and particles, of which I am unfamiliar with and syncing particles is out of my expertise.
+**A:** Unfortunately, a lot of these 'emotes' are Male Only scenarios; Blame Rockstar Games. I've done my best to replicate animations to work with females, however some male scenarios have sound effects and particles. 
+
+We were able to sync particle effects via using state bags, however I have no idea how to request audio and won't be looking into this any time soon.
 
 ----------------------
 
@@ -200,35 +204,39 @@ Big thanks to DurtyFree for his amazing work.
 
 **Q: Why do I see particle effects but other players don't?**
 
-**A:** Dullpear and I can't figure out how to sync particles. If you know how, feel free to inform me.
+**A:** Originally, DullPear was unable to figure out how to sync these, however as of August 2022, AvaN0x was able to pull this off using state bags. Some bugs may still occur, if you come across any, please let us know 🙂.
 
 ----------------------
 
-**Q: I bought this script off someone and notice it had a lot of the same animations. Can you help me?**
+**Q: I bought this script off someone and noticed it had a lot of the same animations. Can you help me?**
 
-**A:** You got scammed and that's your fault. Dpemotes is and always will be **FREE**.
+**A:** Unfortunately you got scammed and that's your fault. Dpemotes is and always will be **FREE**.
 
 ----------------------
 
 **Q: Can I add my own emotes to this?**
 
-**A:** Of course, see my in depth [tutorial](https://forum.cfx.re/t/how-to-menyoo-to-dpemotes-conversion/4775018) for using Menyoo and converting them to work with dpemotes.
+**A:** Of course! We've added a AnimationListCustom.lua for you to add any Rockstar Games or your own emotes into.
 
-You may sell ***custom made*** animations, however the menu must remain free.
+Please see my in depth [tutorial](https://forum.cfx.re/t/how-to-menyoo-to-dpemotes-conversion/4775018) for using Menyoo, adding props to bones, getting Shared Emotes coordinates and converting them to work with DpEmotes.
+
+You may sell ***custom made*** animations, however the menu must remain free. You are not allowed to include it as an 'addon bonus'.
 
 ----------------------
 
-**Q: I bought a pack of custom animations, how can I add them to your fork of dpemotes?**
+**Q: I bought a pack of custom animations, how can I add them to your fork of DpEmotes?**
 
-**A:** Usually the person who created them will provide code snippets for adding animations to dpemotes. If for whatever reason they haven't, you should contact them.
+**A:** Usually the person who created them will provide code snippets for adding animations to DpEmotes, however unfortunately not everyone is this generous. If for whatever reason they haven't, you should contact them.
 
-We have however added code to hopefully make it a lot easier to add shared emotes.
+We have however added code to hopefully make it a lot easier to add shared emotes. Please take a look at the ReadMe section dedicated to Shared Emotes.
 
 ----------------------
 
 **Q: How do I reset the SQL keybinds?**
 
-**A:** No idea, but apparently only the server owner can 🤷🏻‍♂️ Google exist; Maybe contact the creator.
+**A:** Not often you'll hear a dev say "No idea" but I'm not here to BS you,; this feature was originally added by DullPear and personally I don't use it.
+
+Apparently only the server owner can 🤷🏻‍♂️ Google exist.
 
 ----------------------
 
@@ -242,7 +250,7 @@ We have however added code to hopefully make it a lot easier to add shared emote
 
 This script is where it is today because of the amazing contributions made by the following people: 
 
-- Thank you to [Tigerle](https://forum.cfx.re/u/tigerle_studios) for providing the additional code required to make Shared Emotes work
+- Thank you to [Tigerle](https://forum.cfx.re/u/tigerle_studios) for providing the additional code required to make Shared Emotes work to it's full extent
 
 - Thank you to [SMGMissy](https://forum.cfx.re/u/smgmissy/) for assisting with custom pride flags and how to stream them
 
