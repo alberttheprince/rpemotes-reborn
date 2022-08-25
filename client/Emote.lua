@@ -17,35 +17,44 @@ local PtfxPrompt = false
 local PtfxWait = 500
 local PtfxCanHold = false
 local PtfxNoProp = false
+local AnimationThreadStatus = false
 
-CreateThread(function()
-    while true do
-
-        if PtfxPrompt or IsInAnimation then
-            if not PtfxNotif then
-                SimpleNotify(PtfxInfo)
-                PtfxNotif = true
-            end
-            if IsControlPressed(0, 47) then
-                PtfxStart()
-                Wait(PtfxWait)
-                if PtfxCanHold then
-                    while IsControlPressed(0, 47) and IsInAnimation do
-                        Wait(5)
-                    end
-                end
-                PtfxStop()
-            end
-            if IsPedShooting(PlayerPedId()) then
+local function RunAnimationThread()
+    if AnimationThreadStatus then return end
+    AnimationThreadStatus = true
+    --CreateThread(function()
+        local sleep
+        while AnimationThreadStatus do
+            sleep = 500
+    
+            if IsInAnimation and IsPedShooting(PlayerPedId()) then
+                sleep = 0
                 EmoteCancel()
             end
-        else
-            Wait(1000)
+    
+            if PtfxPrompt then
+                sleep = 0
+                if not PtfxNotif then
+                    SimpleNotify(PtfxInfo)
+                    PtfxNotif = true
+                end
+                if IsControlPressed(0, 47) then
+                    PtfxStart()
+                    Wait(PtfxWait)
+                    if PtfxCanHold then
+                        while IsControlPressed(0, 47) and IsInAnimation do
+                            Wait(5)
+                        end
+                    end
+                    PtfxStop()
+                end
+            end
+    
+            Wait(sleep)
         end
+    --end)
+end
 
-        Wait(0)
-    end
-end)
 
 if Config.EnableXtoCancel then
 	RegisterKeyMapping("emotecancel", "Cancel current emote", "keyboard", "X")
@@ -97,6 +106,7 @@ AddEventHandler('onResourceStop', function(resource)
         ClearPedTasksImmediately(ply)
         DetachEntity(ply, true, false)
         ResetPedMovementClipset(ply)
+        AnimationThreadStatus = false
     end
 end)
 
@@ -129,6 +139,7 @@ function EmoteCancel()
         DestroyAllProps()
         IsInAnimation = false
     end
+    AnimationThreadStatus = false
 end
 
 function EmoteChatMessage(msg)
@@ -374,22 +385,22 @@ function OnEmotePlay(EmoteName)
         return false
     end
 
+    ChosenDict, ChosenAnimation, ename = table.unpack(EmoteName)
+    AnimationDuration = -1
+
+    if ChosenDict == "Expression" then
+        SetFacialIdleAnimOverride(PlayerPedId(), ChosenAnimation, 0)
+        return
+    end
+
     if Config.DisarmPlayer then
         if IsPedArmed(PlayerPedId(), 7) then
             SetCurrentPedWeapon(PlayerPedId(), joaat('WEAPON_UNARMED'), true)
         end
     end
 
-    ChosenDict, ChosenAnimation, ename = table.unpack(EmoteName)
-    AnimationDuration = -1
-
     if PlayerHasProp then
         DestroyAllProps()
-    end
-
-    if ChosenDict == "Expression" then
-        SetFacialIdleAnimOverride(PlayerPedId(), ChosenAnimation, 0)
-        return
     end
 
     if ChosenDict == "MaleScenario" or "Scenario" then
@@ -400,6 +411,7 @@ function OnEmotePlay(EmoteName)
                 TaskStartScenarioInPlace(PlayerPedId(), ChosenAnimation, 0, true)
                 DebugPrint("Playing scenario = (" .. ChosenAnimation .. ")")
                 IsInAnimation = true
+                RunAnimationThread()
             else
                 EmoteChatMessage(Config.Languages[lang]['maleonly'])
             end
@@ -411,12 +423,14 @@ function OnEmotePlay(EmoteName)
                 BehindPlayer['z'], GetEntityHeading(PlayerPedId()), 0, 1, false)
             DebugPrint("Playing scenario = (" .. ChosenAnimation .. ")")
             IsInAnimation = true
+            RunAnimationThread()
             return
         elseif ChosenDict == "Scenario" then if InVehicle then return end
             ClearPedTasks(PlayerPedId())
             TaskStartScenarioInPlace(PlayerPedId(), ChosenAnimation, 0, true)
             DebugPrint("Playing scenario = (" .. ChosenAnimation .. ")")
             IsInAnimation = true
+            RunAnimationThread()
             return
         end
     end
@@ -477,6 +491,7 @@ function OnEmotePlay(EmoteName)
             PtfxCanHold = EmoteName.AnimationOptions.PtfxCanHold
             PtfxNotif = false
             PtfxPrompt = true
+            RunAnimationThread()
 
             TriggerServerEvent("dpemotes:ptfx:sync", PtfxAsset, PtfxName, vector3(Ptfx1, Ptfx2, Ptfx3),
                 vector3(Ptfx4, Ptfx5, Ptfx6), PtfxScale)
@@ -490,6 +505,7 @@ function OnEmotePlay(EmoteName)
         false)
     RemoveAnimDict(ChosenDict)
     IsInAnimation = true
+    RunAnimationThread()
     MostRecentDict = ChosenDict
     MostRecentAnimation = ChosenAnimation
 
