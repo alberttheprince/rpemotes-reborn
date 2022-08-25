@@ -24,12 +24,14 @@ local function RunAnimationThread()
     AnimationThreadStatus = true
     --CreateThread(function()
         local sleep
-        while AnimationThreadStatus do
+        while AnimationThreadStatus and (IsInAnimation or PtfxPrompt) do
             sleep = 500
     
-            if IsInAnimation and IsPedShooting(PlayerPedId()) then
+            if IsInAnimation then
                 sleep = 0
-                EmoteCancel()
+                if IsPedShooting(PlayerPedId()) then
+                    EmoteCancel()
+                end
             end
     
             if PtfxPrompt then
