@@ -22,7 +22,7 @@ local AnimationThreadStatus = false
 local function RunAnimationThread()
     if AnimationThreadStatus then return end
     AnimationThreadStatus = true
-    --CreateThread(function()
+    CreateThread(function()
         local sleep
         while AnimationThreadStatus and (IsInAnimation or PtfxPrompt) do
             sleep = 500
@@ -54,7 +54,7 @@ local function RunAnimationThread()
     
             Wait(sleep)
         end
-    --end)
+    end)
 end
 
 
