@@ -11331,7 +11331,7 @@ DP.PropEmotes = {
     ["copbeacon"] = { -- Added for compatibility
         "amb@world_human_car_park_attendant@male@base",
         "base",
-        "Cop 4",
+        "Cop Beacon",
         AnimationOptions = {
             Prop = "prop_parking_wand_01",
             PropBone = 57005,
@@ -11716,6 +11716,25 @@ DP.PropEmotes = {
         "molly@megaphone",
         "megaphone_clip",
         "Megaphone",
+        AnimationOptions = {
+            Prop = "prop_megaphone_01",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0500,
+                0.0540,
+                -0.0060,
+                -71.8855,
+                -13.0889,
+                -16.0242
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["megaphone2"] = { -- Custom Emote By MollyEmotes
+        "molly@megaphone2",
+        "megaphone_clip",
+        "Megaphone 2",
         AnimationOptions = {
             Prop = "prop_megaphone_01",
             PropBone = 28422,
