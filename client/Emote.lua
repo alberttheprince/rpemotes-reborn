@@ -44,7 +44,7 @@ local function RunAnimationThread()
                     PtfxStart()
                     Wait(PtfxWait)
                     if PtfxCanHold then
-                        while IsControlPressed(0, 47) and IsInAnimation do
+                        while IsControlPressed(0, 47) and IsInAnimation and AnimationThreadStatus do
                             Wait(5)
                         end
                     end
@@ -492,7 +492,7 @@ function OnEmotePlay(EmoteName)
             PtfxCanHold = EmoteName.AnimationOptions.PtfxCanHold
             PtfxNotif = false
             PtfxPrompt = true
-            RunAnimationThread()
+            -- RunAnimationThread() -- ? This call should not be required, see if needed with tests
 
             TriggerServerEvent("dpemotes:ptfx:sync", PtfxAsset, PtfxName, vector3(Ptfx1, Ptfx2, Ptfx3),
                 vector3(Ptfx4, Ptfx5, Ptfx6), PtfxScale)
