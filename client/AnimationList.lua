@@ -974,6 +974,24 @@ DP.Shared = {
             SyncOffsetFront = 0.08
         }
     },
+    ["coupleanim"] = { "anim@scripted@robbery@tun_prep_uni_ig1_couple@", "action_var_01_bank_manager",
+        "Couple Drinking (Wine Glasses)", "coupleanim2", AnimationOptions = {
+            Prop = 'p_wine_glass_s',
+            PropBone = 60309,
+            PropPlacement = { -0.0500, -0.0100, -0.1700, 0.0, 0.0, 0.0 },
+            EmoteMoving = false,
+            EmoteLoop = true,
+        } },
+    ["coupleanim2"] = { "anim@scripted@robbery@tun_prep_uni_ig1_couple@", "action_var_01_female",
+        "Couple Drinking F (Wine Glasses)", "coupleanim", AnimationOptions = {
+            Prop = 'p_wine_glass_s',
+            PropBone = 28422,
+            PropPlacement = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
+            SyncOffsetSide = -0.04125,
+            SyncOffsetFront = 0.11,
+            EmoteMoving = false,
+            EmoteLoop = true,
+        } },
 }
 
 --- DANCING EMOTES, SOME WITH PROPS ---
