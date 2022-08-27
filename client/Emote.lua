@@ -26,14 +26,14 @@ local function RunAnimationThread()
         local sleep
         while AnimationThreadStatus and (IsInAnimation or PtfxPrompt) do
             sleep = 500
-    
+
             if IsInAnimation then
                 sleep = 0
                 if IsPedShooting(PlayerPedId()) then
                     EmoteCancel()
                 end
             end
-    
+
             if PtfxPrompt then
                 sleep = 0
                 if not PtfxNotif then
@@ -51,15 +51,14 @@ local function RunAnimationThread()
                     PtfxStop()
                 end
             end
-    
+
             Wait(sleep)
         end
     end)
 end
 
-
 if Config.EnableXtoCancel then
-	RegisterKeyMapping("emotecancel", "Cancel current emote", "keyboard", "X")
+    RegisterKeyMapping("emotecancel", "Cancel current emote", "keyboard", "X")
 end
 
 if Config.MenuKeybindEnabled then

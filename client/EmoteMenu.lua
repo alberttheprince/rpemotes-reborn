@@ -50,21 +50,21 @@ local FavoriteEmote = ""
 
 if Config.FavKeybindEnabled then
     RegisterCommand('emotefav', function(source, args, raw) FavKeybind() end)
-	
-	RegisterKeyMapping("emotefav", "Execute your favorite emote", "keyboard", Config.FavKeybind)
-	
-	local doingFavoriteEmote = false
-	function FavKeybind()
-		if doingFavoriteEmote then return end
-		doingFavoriteEmote = true
-		if not IsPedSittingInAnyVehicle(PlayerPedId()) then
-			if FavoriteEmote ~= "" and (not CanUseFavKeyBind or CanUseFavKeyBind()) then
-				EmoteCommandStart(nil, { FavoriteEmote, 0 })
-				Wait(3000)
-			end
-		end
-		doingFavoriteEmote = false
-	end
+
+    RegisterKeyMapping("emotefav", "Execute your favorite emote", "keyboard", Config.FavKeybind)
+
+    local doingFavoriteEmote = false
+    function FavKeybind()
+        if doingFavoriteEmote then return end
+        doingFavoriteEmote = true
+        if not IsPedSittingInAnyVehicle(PlayerPedId()) then
+            if FavoriteEmote ~= "" and (not CanUseFavKeyBind or CanUseFavKeyBind()) then
+                EmoteCommandStart(nil, { FavoriteEmote, 0 })
+                Wait(3000)
+            end
+        end
+        doingFavoriteEmote = false
+    end
 end
 
 lang = Config.MenuLanguage
@@ -339,13 +339,13 @@ _menuPool:RefreshIndex()
 
 local isMenuProcessing = false
 function ProcessMenu()
-	if isMenuProcessing then return end
-	isMenuProcessing = true
-	while _menuPool:IsAnyMenuOpen() do
-		_menuPool:ProcessMenus()
-		Wait(0)
-	end
-	isMenuProcessing = false
+    if isMenuProcessing then return end
+    isMenuProcessing = true
+    while _menuPool:IsAnyMenuOpen() do
+        _menuPool:ProcessMenus()
+        Wait(0)
+    end
+    isMenuProcessing = false
 end
 
 RegisterNetEvent("dp:Update")
