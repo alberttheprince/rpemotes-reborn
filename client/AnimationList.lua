@@ -934,7 +934,7 @@ DP.Shared = {
         "hs3_ext-20",
         "cs_lestercrest_3_dual-20",
         "Kiss",
-        "Kiss2",
+        "kiss2",
         AnimationOptions = {
             EmoteMoving = false,
             EmoteDuration = 10000,
@@ -945,7 +945,7 @@ DP.Shared = {
         "hs3_ext-20",
         "csb_georginacheng_dual-20",
         "Kiss 2",
-        "Kiss",
+        "kiss",
         AnimationOptions = {
             EmoteMoving = false,
             EmoteDuration = 10000,
@@ -956,7 +956,7 @@ DP.Shared = {
         "hs3_ext-19",
         "cs_lestercrest_3_dual-19",
         "Kiss 3",
-        "Kiss4",
+        "kiss4",
         AnimationOptions = {
             EmoteMoving = false,
             EmoteDuration = 10000,
@@ -967,7 +967,7 @@ DP.Shared = {
         "hs3_ext-19",
         "csb_georginacheng_dual-19",
         "Kiss 4",
-        "Kiss3",
+        "kiss3",
         AnimationOptions = {
             EmoteMoving = false,
             EmoteDuration = 10000,
