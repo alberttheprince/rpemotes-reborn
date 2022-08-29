@@ -974,24 +974,48 @@ DP.Shared = {
             SyncOffsetFront = 0.08
         }
     },
-    ["coupleanim"] = { "anim@scripted@robbery@tun_prep_uni_ig1_couple@", "action_var_01_bank_manager",
-        "Couple Drinking (Wine Glasses)", "coupleanim2", AnimationOptions = {
+    ["coupleanim"] = {
+        "anim@scripted@robbery@tun_prep_uni_ig1_couple@",
+        "action_var_01_bank_manager",
+        "Couple Drinking (Wine Glasses)",
+        "coupleanim2",
+        AnimationOptions = {
             Prop = 'p_wine_glass_s',
             PropBone = 60309,
-            PropPlacement = { -0.0500, -0.0100, -0.1700, 0.0, 0.0, 0.0 },
+            PropPlacement = {
+                -0.0500,
+                -0.0100,
+                -0.1700,
+                0.0,
+                0.0,
+                0.0,
+            },
             EmoteMoving = false,
             EmoteLoop = true,
-        } },
-    ["coupleanim2"] = { "anim@scripted@robbery@tun_prep_uni_ig1_couple@", "action_var_01_female",
-        "Couple Drinking F (Wine Glasses)", "coupleanim", AnimationOptions = {
+        }
+    },
+    ["coupleanim2"] = {
+        "anim@scripted@robbery@tun_prep_uni_ig1_couple@",
+        "action_var_01_female",
+        "Couple Drinking F (Wine Glasses)",
+        "coupleanim",
+        AnimationOptions = {
             Prop = 'p_wine_glass_s',
             PropBone = 28422,
-            PropPlacement = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+            },
             SyncOffsetSide = -0.04125,
             SyncOffsetFront = 0.11,
             EmoteMoving = false,
             EmoteLoop = true,
-        } },
+        }
+    },
 }
 
 --- DANCING EMOTES, SOME WITH PROPS ---
@@ -2387,7 +2411,7 @@ DP.AnimalEmotes = {
         "base",
         "Sit Pride B - LGBTQIA (big dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag2',  -- LGBTQIA
+            Prop = 'lilprideflag2', -- LGBTQIA
             PropBone = 31086,
             PropPlacement = {
                 0.1900,
@@ -2416,7 +2440,7 @@ DP.AnimalEmotes = {
         "base",
         "Sit Pride C - Bisexual (big dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag3',  -- Bisexual
+            Prop = 'lilprideflag3', -- Bisexual
             PropBone = 31086,
             PropPlacement = {
                 0.1900,
@@ -2445,7 +2469,7 @@ DP.AnimalEmotes = {
         "base",
         "Sit Pride D - Lesbian (big dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag4',  -- Lesbian
+            Prop = 'lilprideflag4', -- Lesbian
             PropBone = 31086,
             PropPlacement = {
                 0.1900,
@@ -2474,7 +2498,7 @@ DP.AnimalEmotes = {
         "base",
         "Sit Pride E - Pansexual (big dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag5',   -- Pansexual
+            Prop = 'lilprideflag5', -- Pansexual
             PropBone = 31086,
             PropPlacement = {
                 0.1900,
@@ -2503,7 +2527,7 @@ DP.AnimalEmotes = {
         "base",
         "Sit Pride F - Transexual (big dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag6',  -- Transexual
+            Prop = 'lilprideflag6', -- Transexual
             PropBone = 31086,
             PropPlacement = {
                 0.1900,
@@ -2532,7 +2556,7 @@ DP.AnimalEmotes = {
         "base",
         "Sit Pride G - Non Binary (big dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag7',  -- Non Binary
+            Prop = 'lilprideflag7', -- Non Binary
             PropBone = 31086,
             PropPlacement = {
                 0.1900,
@@ -2561,7 +2585,7 @@ DP.AnimalEmotes = {
         "base",
         "Sit Pride H - Asexual (big dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag8',  -- Non Binary
+            Prop = 'lilprideflag8', -- Non Binary
             PropBone = 31086,
             PropPlacement = {
                 0.1900,
@@ -2590,7 +2614,7 @@ DP.AnimalEmotes = {
         "base",
         "Sit Pride I - Straight Ally (big dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag9',  -- Straight Ally
+            Prop = 'lilprideflag9', -- Straight Ally
             PropBone = 31086,
             PropPlacement = {
                 0.1900,
@@ -2617,7 +2641,7 @@ DP.AnimalEmotes = {
 
     ---- ANIMAL EMOTES ----
     ----   SMALL DOG   ----
-	
+
     ["sdogitch"] = {
         "creatures@pug@amb@world_dog_sitting@idle_a",
         "idle_a",
@@ -2731,7 +2755,7 @@ DP.AnimalEmotes = {
         "idle_turn_0",
         "Dance Pride B - LGBTQIA (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag2',  -- LGBTQIA
+            Prop = 'lilprideflag2', -- LGBTQIA
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -2760,7 +2784,7 @@ DP.AnimalEmotes = {
         "idle_turn_0",
         "Dance Pride C - Bisexual (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag3',  -- Bisexual
+            Prop = 'lilprideflag3', -- Bisexual
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -2789,7 +2813,7 @@ DP.AnimalEmotes = {
         "idle_turn_0",
         "Dance Pride D - Lesbian (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag4',  -- Lesbian
+            Prop = 'lilprideflag4', -- Lesbian
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -2818,7 +2842,7 @@ DP.AnimalEmotes = {
         "idle_turn_0",
         "Dance Pride E - Pansexual (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag5',  -- Pansexual
+            Prop = 'lilprideflag5', -- Pansexual
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -2847,7 +2871,7 @@ DP.AnimalEmotes = {
         "idle_turn_0",
         "Dance Pride F - Transexual (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag6',  -- Transexual
+            Prop = 'lilprideflag6', -- Transexual
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -2876,7 +2900,7 @@ DP.AnimalEmotes = {
         "idle_turn_0",
         "Dance Pride G - Non Binary (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag7',  -- Non Binary
+            Prop = 'lilprideflag7', -- Non Binary
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -2905,7 +2929,7 @@ DP.AnimalEmotes = {
         "idle_turn_0",
         "Dance Pride H - Asexual (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag8',  -- Asexual
+            Prop = 'lilprideflag8', -- Asexual
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -2934,7 +2958,7 @@ DP.AnimalEmotes = {
         "idle_turn_0",
         "Dance Pride I - Straight Ally (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag9',   -- Straight Ally
+            Prop = 'lilprideflag9', -- Straight Ally
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -3564,7 +3588,7 @@ DP.AnimalEmotes = {
         "nill",
         "Pride B - LGBTQIA (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag2',  -- LGBTQIA
+            Prop = 'lilprideflag2', -- LGBTQIA
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -3583,7 +3607,7 @@ DP.AnimalEmotes = {
         "nill",
         "Pride C - Bisexual (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag3',  -- Bisexual
+            Prop = 'lilprideflag3', -- Bisexual
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -3602,7 +3626,7 @@ DP.AnimalEmotes = {
         "nill",
         "Pride D - Lesbian (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag4',  -- Lesbian
+            Prop = 'lilprideflag4', -- Lesbian
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -3621,7 +3645,7 @@ DP.AnimalEmotes = {
         "nill",
         "Pride E - Pansexual (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag5',   -- Pansexual
+            Prop = 'lilprideflag5', -- Pansexual
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -3640,7 +3664,7 @@ DP.AnimalEmotes = {
         "nill",
         "Pride F - Transexual (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag6',  -- Transexual
+            Prop = 'lilprideflag6', -- Transexual
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -3659,7 +3683,7 @@ DP.AnimalEmotes = {
         "nill",
         "Pride G - Non Binary (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag6',  -- Non Binary
+            Prop = 'lilprideflag6', -- Non Binary
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -3678,7 +3702,7 @@ DP.AnimalEmotes = {
         "nill",
         "Pride H - Non Binary (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag7',  -- Non Binary
+            Prop = 'lilprideflag7', -- Non Binary
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -3697,7 +3721,7 @@ DP.AnimalEmotes = {
         "nill",
         "Pride I - Asexual (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag8',  -- Asexual
+            Prop = 'lilprideflag8', -- Asexual
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -3735,7 +3759,7 @@ DP.AnimalEmotes = {
         "idle_b",
         "Pride B Sit LGBTQIA  (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag2',  -- LGBTQIA
+            Prop = 'lilprideflag2', -- LGBTQIA
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -3754,7 +3778,7 @@ DP.AnimalEmotes = {
         "idle_b",
         "Pride C Sit Bisexual  (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag3',  -- Bisexual
+            Prop = 'lilprideflag3', -- Bisexual
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -3773,7 +3797,7 @@ DP.AnimalEmotes = {
         "idle_b",
         "Pride D Sit Lesbian (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag4',   -- Lesbian
+            Prop = 'lilprideflag4', -- Lesbian
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -3792,7 +3816,7 @@ DP.AnimalEmotes = {
         "idle_b",
         "Pride E Sit Pansexual  (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag5',  -- Pansexual
+            Prop = 'lilprideflag5', -- Pansexual
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -3811,7 +3835,7 @@ DP.AnimalEmotes = {
         "idle_b",
         "Pride F Sit Transexual  (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag6',  -- Transexual
+            Prop = 'lilprideflag6', -- Transexual
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -3830,7 +3854,7 @@ DP.AnimalEmotes = {
         "idle_b",
         "Pride G Sit Non Binary (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag7',  -- Non Binary
+            Prop = 'lilprideflag7', -- Non Binary
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -3869,7 +3893,7 @@ DP.AnimalEmotes = {
         "idle_b",
         "Pride I Sit Straight Ally  (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag9',  -- Straight Ally
+            Prop = 'lilprideflag9', -- Straight Ally
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -9884,7 +9908,7 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
-    ["selfiecrouch"] = {  -- MissSnowie Custom Emote
+    ["selfiecrouch"] = { -- MissSnowie Custom Emote
         "crouching@taking_selfie",
         "base",
         "Selfie Crouching",
@@ -9916,7 +9940,7 @@ DP.PropEmotes = {
             PtfxWait = 200,
         }
     },
-    ["selfiecrouch2"] = {  -- Wolf's Square Custom Emote
+    ["selfiecrouch2"] = { -- Wolf's Square Custom Emote
         "eagle@girlphonepose13",
         "girl",
         "Selfie Crouching 2",
@@ -9948,7 +9972,7 @@ DP.PropEmotes = {
             PtfxWait = 200,
         }
     },
-    ["selfiesit"] = {  -- Emote by WhiskerValeMods
+    ["selfiesit"] = { -- Emote by WhiskerValeMods
         "mouse@female_sitting_selfie",
         "female_sitting_selfie_clip",
         "Selfie Sitting",
@@ -9996,7 +10020,7 @@ DP.PropEmotes = {
             EmoteMoving = false,
         }
     },
-    ["sitchairf"] = {  -- Emote by WhiskerValeMods
+    ["sitchairf"] = { -- Emote by WhiskerValeMods
         "mouse@femalearmchair",
         "female_armchair_clip_01",
         "Sit Chair - Armchair",
@@ -10015,7 +10039,7 @@ DP.PropEmotes = {
             EmoteMoving = false,
         }
     },
-    ["sitchairf2"] = {  -- Emote by WhiskerValeMods
+    ["sitchairf2"] = { -- Emote by WhiskerValeMods
         "mouse@female_sitting_folded",
         "female_sitting_folded_clip",
         "Sit Chair - Arms Folded",
