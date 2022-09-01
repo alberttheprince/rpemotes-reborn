@@ -38,11 +38,29 @@ Languages can be selected and/or added in config.lua.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+# Features
+
+- Custom Animations
+
+- Further support for shared and couple poses / animations
+
+- Animal Emotes - Big dog and small dog. *More to come. Stay tuned!*
+
+* Easily convert Menyoo to dpemotes
+
+- Shared Dances
+
+- Shared Particle Effects
+
+--------------------
+
 # Ragdoll 🥴
 
 * To enable ragdoll, change `RagdollEnabled = false,` to true in config.lua.
 
 * To change which key is responsible for ragdoll, `RagdollKeybind = 303` is currently set to `U` by default., -- Get the button number [here](https://docs.fivem.net/game-references/controls/)
+
+* New setting: `RagdollAsToggle`, this will make either the ragdoll be a toggle or a hold key
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -52,21 +70,22 @@ Languages can be selected and/or added in config.lua.
 
 The keybind uses RegisterKeyMapping. By default, the server owner configured keybind in the *initial* config.lua will be the default key, however once the keybind is set for a user, it'll stay with this new value. Editing the config keybind will change it for new players only.
 
-* Menu key:* F5
+
+**Menu key:** F5
 
 F3 and F4 clash with [Menyoo](https://github.com/MAFINS/MenyooSP) and controllers 🎮
 
 Server owners can change this in the `config.lua`;
 
-```lua
-MenuKeybind = 'F5', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
-```
+
+MenuKeybind = 'F5', -- Get the button string [here]( https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/)
+
 
 Alternatively, the player base can set their own menu keybind to open DpEmotes
 
-```lua
 Esc > settings > keybinds > fivem > dpemotes
-```
+
+* More keybinds are now using key mappings which means that they are now available in your FiveM settings to change (`FavKeybind` and `RagdollKeybind`)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -78,6 +97,28 @@ To use the SQL features, install the [oxmysql](https://github.com/overextended/o
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Adult Emotes 🔞
+
+Adult Emotes can be hidden from the menu by setting `AdultEmotesDisabled` to `true` in the config.lua file.
+
+This will completely conceal the emotes from the lists *(Emotes, Shared Emotes, etc)* at startup making them unusable.
+
+The emotes that are concealed, are the ones flagged in the animation list with `AdultAnimation`. You can see how it is done with `fspose`.
+
+------------------------------------------------------------------------------
+
+# QBCore ⚙️
+
+**QBCore integration to match their fork of the original dpemotes**
+
+- Config option which supports the QB Framework in their fork of dpemotes
+
+If you’re using qb-core, you can now set `Framework = 'qb-core'` in the config file, otherwise leave it as `false`.
+
+This should hopefully add every features their fork had.
+
+------------------------------------------------------------------------------
 
 # Screenshots 📸
 
@@ -106,7 +147,15 @@ To use the SQL features, install the [oxmysql](https://github.com/overextended/o
 
 * Set the desired language in the config using the available language codes, ie `es` for Spanish, or leave as it is for English 🇬🇧
 
+* If you’re using qb-core, you can now set Framework = 'qb-core' in the config file, otherwise leave it as false.
+
 * start dpemotes
+
+# Additional Instructions ⚙️
+
+- [Please check the fivem forum thread](https://forum.fivem.net/t/dpemotes-356ish-emotes-usable-while-walking-props-and-more/843105)
+
+- [Read my Menyoo To DpEmotes Tutorial](https://forum.cfx.re/t/how-to-menyoo-to-dpemotes-conversion-streaming-custom-add-on-props/4775018) for tips on how to attach props to the players, how to convert Menyoo to dpemotes and other tips you may need to know.
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -130,8 +179,6 @@ it's the player who start the animation who will in most cases be moved
 You can find a list of ped bones to attach the other player here: [Ped Bones](https://wiki.rage.mp/index.php?title=Bones)
 
 Using the website provided above, enter the bone ID, ie `1356` and not `111`, which is the Bone Index.
-
-
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -166,23 +213,11 @@ Big thanks to DurtyFree for his amazing work.
 
 --------------------------------------------------------
 
-
-# Additional Instructions ⚙️
-
-- [Please check the fivem forum thread](https://forum.fivem.net/t/dpemotes-356ish-emotes-usable-while-walking-props-and-more/843105)
-
-- [Read my Menyoo To DpEmotes Tutorial](https://forum.cfx.re/t/how-to-menyoo-to-dpemotes-conversion-streaming-custom-add-on-props/4775018) for tips on how to attach props to the players, how to convert Menyoo to dpemotes and other tips you may need to know.
-
-
-
-----------------------
-
 # Police Badge 👮
 
 - Custom LSPD police badge by [LSPDFR member Sam](https://www.lcpdfr.com/downloads/gta5mods/misc/23386-lspd-police-badge/)
 
 - LSPD reskinned badge by [GTA5Mods user Sladus_Slawonkus](https://www.gta5-mods.com/misc/lspd-police-badge-replace-sladus_slawonkus)
-
 
 ----------------------
 
@@ -263,6 +298,3 @@ This script is where it is today because of the amazing contributions made by th
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
 You pay a big role in keeping this script alive and we could not do it without you 🙏
-
-
-
