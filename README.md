@@ -52,17 +52,7 @@ Languages can be selected and/or added in config.lua.
 
 - Shared Particle Effects
 
---------------------
-
-# Ragdoll 🥴
-
-* To enable ragdoll, change `RagdollEnabled = false,` to true in config.lua.
-
-* To change which key is responsible for ragdoll, `RagdollKeybind = 303` is currently set to `U` by default., -- Get the button number [here](https://docs.fivem.net/game-references/controls/)
-
-* New setting: `RagdollAsToggle`, this will make either the ragdoll be a toggle or a hold key
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------
 
 # Menu Keybind 🎛️
 
@@ -95,8 +85,17 @@ The original dpemotes uses mysql-async which was then changed to ghmattimysql. U
 
 To use the SQL features, install the [oxmysql](https://github.com/overextended/oxmysql) resource. If you do not want to use the SQL features, comment out the `oxmysql` region in fxmanifest.lua.
 
+--------------------
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ragdoll 🥴
+
+* To enable ragdoll, change `RagdollEnabled = false,` to true in config.lua.
+
+Much like the menu key, `RagdollKeybind` is also using RegisterKeyMapping. It is currently set to `U` by default *(server side)* however can be set to the player's preferred keybind in the FiveM keybinds setting found in the settings menu within the Esc Menu.
+
+* New setting: `RagdollAsToggle`, this will make either the ragdoll be a toggle or a hold key
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Adult Emotes 🔞
 
