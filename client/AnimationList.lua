@@ -9908,6 +9908,38 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
+    ["selfiepeace"] = { -- MissSnowie Custom Emote
+        "mirror_selfie@peace_sign",
+        "base",
+        "Selfie Peace",
+        AnimationOptions = {
+            Prop = "prop_phone_ing",
+            PropBone = 57005,
+            PropPlacement = {
+                0.1700,
+                0.0299,
+                -0.0159,
+                -126.2687,
+                -139.9058,
+                35.6203
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
+        }
+    },
     ["selfiecrouch"] = { -- MissSnowie Custom Emote
         "crouching@taking_selfie",
         "base",
