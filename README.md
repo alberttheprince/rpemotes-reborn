@@ -125,9 +125,9 @@ This should hopefully add every features their fork had.
 
 | | | |
 |-|-|-|
-| <img src="screenshots/col.jpg" width="250"> | <img src="screenshots/bbox.jpg" width="250"> | <img src="screenshots/carry1.jpg" width="250"> |
-| <img src="screenshots/flag1.jpg" width="250"> | <img src="screenshots/hhands.jpg" width="250"> | <img src="screenshots/pigback.jpg" width="250"> |
-| <img src="screenshots/sdog1.jpg" width="250"> | <img src="screenshots/speace.jpg" width="250"> | <img src="screenshots/surf.jpg" width="250"> |
+| <img src="screenshots/col.jpeg" width="250"> | <img src="screenshots/bbox.png" width="250"> | <img src="screenshots/carry1.jpg" width="250"> |
+| <img src="screenshots/flag1.jpg" width="250"> | <img src="screenshots/hhands.jpeg" width="250"> | <img src="screenshots/pigback.jpg" width="250"> |
+| <img src="screenshots/sdog1.jpeg" width="250"> | <img src="screenshots/speace.png" width="250"> | <img src="screenshots/surf.jpeg" width="250"> |
 | <img src="screenshots/CPR.jpg" width="250"> | <img src="screenshots/cp_after.jpg" width="250"> | <img src="screenshots/carrysmall.jpg" width="250">|
 
 
