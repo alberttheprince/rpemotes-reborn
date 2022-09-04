@@ -1565,6 +1565,15 @@ DP.Dances = {
         AnimationOptions = {
             EmoteLoop = true
         }
+     },
+    ["danceold"] = {
+        "anim@mp_player_intupperuncle_disco",
+        "idle_a",
+        "Dance Old",
+        AnimationOptions = {
+            EmoteLoop = true,
+--			EmoteMoving = true,-- Removing the comment will allow for you to mix and match dance emotes, ie /e danceold and /e dance to control the bottom half of the body.
+        }
     },
     ["danceglowstick"] = {
         "anim@amb@nightclub@lazlow@hi_railing@",
