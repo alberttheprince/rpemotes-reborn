@@ -25,7 +25,7 @@ Config = {
     CustomMenuEnabled = true,
     MenuImage = "https://i.imgur.com/IRzHWb3.png", ----[Custom banner imgur URLs go here ]---
     -- You can change the menu image by pasting a link above. It must be the same width and length
-    MenuTitle = "Tay's Emote Menu",
+    MenuTitle = "DpEmotes V2",
     -- You can change the menu position here
     MenuPosition = "right", -- (left, right)
     -- You can enable or disable the Ragdoll keybinding here.
