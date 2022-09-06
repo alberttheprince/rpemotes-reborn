@@ -4672,6 +4672,14 @@ DP.Emotes = {
             EmoteLoop = true,
         }
     },
+    ["kneelthot"] = {
+        "anim@model_kylie_insta",
+        "kylie_insta_clip",
+        "Kneel Thot Instagram",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
     ["knock"] = {
         "timetable@jimmy@doorknock@",
         "knockdoor_idle",
@@ -10042,6 +10050,70 @@ DP.PropEmotes = {
             EmoteMoving = false,
         }
     },
+    ["selfiefu"] = { -- Struggleville
+        "anim@fuck_you_selfie",
+        "fuck_you_selfie_clip",
+        "Selfie Middle Finger",
+        AnimationOptions = {
+            Prop = "prop_phone_ing",
+            PropBone = 28422,
+            PropPlacement = {
+                0.1200,
+                0.0220,
+                -0.0210,
+                98.6822,
+                -4.9809,
+                109.6216
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
+        }
+    },
+    ["selfiethot"] = { -- Struggleville
+        "anim@sitting_thot",
+        "sitting_thot_clip",
+        "Selfie Thot Instagram",
+        AnimationOptions = {
+            Prop = "prop_phone_ing",
+            PropBone = 28422,
+            PropPlacement = {
+                0.1030,
+                0.0440,
+                -0.0270,
+                -160.2802,
+                -99.4080,
+                -3.4048
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
+        }
+    },
     ["sittv"] = {
         "anim@heists@heist_safehouse_intro@variations@male@tv",
         "tv_part_one_loop",
@@ -11810,6 +11882,44 @@ DP.PropEmotes = {
                 -71.8855,
                 -13.0889,
                 -16.0242
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["bball"] = { -- Custom Emote By Struggleville
+        "anim@male_bskball_hold",
+        "bskball_hold_clip",
+        "Basketball Hold",
+        AnimationOptions = {
+            Prop = "prop_bskball_01",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0600,
+                0.0400,
+                -0.1200,
+                0.0,
+				0.0,
+				40.00
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["bball2"] = { -- Custom Emote By Struggleville
+        "anim@male_bskball_photo_pose",
+        "photo_pose_clip",
+        "Basketball Pose",
+        AnimationOptions = {
+            Prop = "prop_bskball_01",
+            PropBone = 60309,
+            PropPlacement = {
+                -0.0100,
+                0.0200,
+                0.1300,
+                0.0,
+                0.0,
+                0.0
             },
             EmoteLoop = true,
             EmoteMoving = true,
