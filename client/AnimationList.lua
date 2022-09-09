@@ -713,7 +713,7 @@ DP.Shared = {
             zRot = 80.0,
         }
     },
-    ["csdog3"] = { -- Emote by MissSnowie
+    ["csdog3"] = { -- Custom Emote by MissSnowie
         "hooman@hugging_little_doggy",
         "base",
         "Carry Small Dog 2",
@@ -723,7 +723,7 @@ DP.Shared = {
             EmoteLoop = true,
         }
     },
-    ["csdog4"] = { -- Emote by MissSnowie
+    ["csdog4"] = { -- Custom Emote by MissSnowie
         "little_doggy@hugging_hooman",
         "base",
         "Small Dog Carried 2",
@@ -874,7 +874,7 @@ DP.Shared = {
             zRot = 0.0,
         }
     },
-    ["search"] = { -- Emote by ultrahacx
+    ["search"] = { -- Custom Emote By ultrahacx
         "custom@police",
         "police",
         "Search",
@@ -903,7 +903,7 @@ DP.Shared = {
             zRot = 0.0,
         }
     },
-    ["followa"] = { -- Ped In Front emote by Dollie Mods
+    ["followa"] = { -- Custom Ped In Front Emote By Dollie Mods
         "dollie_mods@follow_me_001",
         "follow_me_001",
         "Follow A (Front)",
@@ -914,7 +914,7 @@ DP.Shared = {
             -- We can set this to true for lols, however it messes up if you walk through doors. Either player can press X to cancel the shared emotes
         }
     },
-    ["followb"] = { -- Ped At Back emote by Dollie Mods
+    ["followb"] = { -- Custom Ped At Back Emote by Dollie Mods
         "dollie_mods@follow_me_002",
         "follow_me_002",
         "Follow B (Back)",
@@ -1019,6 +1019,7 @@ DP.Shared = {
 }
 
 --- DANCING EMOTES, SOME WITH PROPS ---
+
 DP.Dances = {
     ["dance"] = {
         "anim@amb@nightclub@dancers@podium_dancers@",
@@ -1985,8 +1986,7 @@ DP.Dances = {
         "ambclub_09_mi_hi_bellydancer_laz",
         "Dance Pride A",
         AnimationOptions = {
-            Prop = 'lilprideflag1',
-            --- Rainbow
+            Prop = 'lilprideflag1', --- Rainbow
             PropBone = 18905,
             PropPlacement = {
                 0.0900,
@@ -2015,8 +2015,7 @@ DP.Dances = {
         "ambclub_09_mi_hi_bellydancer_laz",
         "Dance Pride B - LGBTQIA",
         AnimationOptions = {
-            Prop = 'lilprideflag2',
-            -- LGBTQIA
+            Prop = 'lilprideflag2', -- LGBTQIA
             PropBone = 18905,
             PropPlacement = {
                 0.0900,
@@ -2045,8 +2044,7 @@ DP.Dances = {
         "ambclub_09_mi_hi_bellydancer_laz",
         "Dance Pride C - Bisexual",
         AnimationOptions = {
-            Prop = 'lilprideflag3',
-            -- Bisexual
+            Prop = 'lilprideflag3', -- Bisexual
             PropBone = 18905,
             PropPlacement = {
                 0.0900,
@@ -2075,8 +2073,7 @@ DP.Dances = {
         "ambclub_09_mi_hi_bellydancer_laz",
         "Dance Pride C - Lesbian",
         AnimationOptions = {
-            Prop = 'lilprideflag4',
-            -- Lesbian
+            Prop = 'lilprideflag4',  -- Lesbian
             PropBone = 18905,
             PropPlacement = {
                 0.0900,
@@ -2105,8 +2102,7 @@ DP.Dances = {
         "ambclub_09_mi_hi_bellydancer_laz",
         "Dance Pride D - Pansexual",
         AnimationOptions = {
-            Prop = 'lilprideflag5',
-            -- Pansexual
+            Prop = 'lilprideflag5',  -- Pansexual
             PropBone = 18905,
             PropPlacement = {
                 0.0900,
@@ -2135,8 +2131,7 @@ DP.Dances = {
         "ambclub_09_mi_hi_bellydancer_laz",
         "Dance Pride E - Transexual",
         AnimationOptions = {
-            Prop = 'lilprideflag6',
-            -- Transexual
+            Prop = 'lilprideflag6', -- Transexual
             PropBone = 18905,
             PropPlacement = {
                 0.0900,
@@ -2165,8 +2160,7 @@ DP.Dances = {
         "ambclub_09_mi_hi_bellydancer_laz",
         "Dance Pride F - Non Binary",
         AnimationOptions = {
-            Prop = 'lilprideflag7',
-            -- Lesbian
+            Prop = 'lilprideflag7', -- Lesbian
             PropBone = 18905,
             PropPlacement = {
                 0.0900,
@@ -2195,8 +2189,7 @@ DP.Dances = {
         "ambclub_09_mi_hi_bellydancer_laz",
         "Dance Pride G - Asexual",
         AnimationOptions = {
-            Prop = 'lilprideflag8',
-            -- Asexual
+            Prop = 'lilprideflag8', -- Asexual
             PropBone = 18905,
             PropPlacement = {
                 0.0900,
@@ -2225,8 +2218,7 @@ DP.Dances = {
         "ambclub_09_mi_hi_bellydancer_laz",
         "Dance Pride H - Straight Ally",
         AnimationOptions = {
-            Prop = 'lilprideflag9',
-            -- Straight Ally
+            Prop = 'lilprideflag9', -- Straight Ally
             PropBone = 18905,
             PropPlacement = {
                 0.0900,
@@ -2255,6 +2247,7 @@ DP.Dances = {
 
 ---- ANIMAL EMOTES ----
 ----    BIG DOG    ----
+
 DP.AnimalEmotes = {
     ["bdogbark"] = {
         "creatures@rottweiler@amb@world_dog_barking@idle_a",
@@ -2323,7 +2316,7 @@ DP.AnimalEmotes = {
             EmoteLoop = true
         }
     },
-    ["bdogpee"] = {
+    ["bdogpee"] = { --- NEED TO ADD PTFX LOL 
         "creatures@rottweiler@move",
         "pee_left_idle",
         "Pee (big dog)",
@@ -2390,8 +2383,7 @@ DP.AnimalEmotes = {
         "base",
         "Sit Pride A (big dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag1',
-            -- Rainbow
+            Prop = 'lilprideflag1',  -- Rainbow
             PropBone = 31086,
             PropPlacement = {
                 0.1900,
@@ -2594,7 +2586,7 @@ DP.AnimalEmotes = {
         "base",
         "Sit Pride H - Asexual (big dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag8', -- Non Binary
+            Prop = 'lilprideflag8', -- Asexual
             PropBone = 31086,
             PropPlacement = {
                 0.1900,
@@ -10021,6 +10013,38 @@ DP.PropEmotes = {
             PtfxWait = 200,
         }
     },
+    ["selfiecrouch3"] = { -- Custom Emote By Struggleville 
+        "anim@male_insta_selfie",
+        "insta_selfie_clip",
+        "Selfie Crouching 3",
+        AnimationOptions = {
+            Prop = "prop_phone_ing",
+            PropBone = 60309,
+            PropPlacement = {
+                0.0700,
+                0.0100,
+                0.0690,
+                0.0,
+                0.0,
+                -150.0000
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
+        }
+    },
     ["selfiesit"] = { -- Emote by WhiskerValeMods
         "mouse@female_sitting_selfie",
         "female_sitting_selfie_clip",
@@ -10114,6 +10138,38 @@ DP.PropEmotes = {
             PtfxWait = 200,
         }
     },
+    ["selfiefloor"] = { -- Custom Emote By Struggleville
+        "anim@selfie_floor_cute",
+        "floor_cute_clip",
+        "Selfie Floor Instagram",
+        AnimationOptions = {
+            Prop = "prop_phone_ing",
+            PropBone = 60309,
+            PropPlacement = {
+                0.0930,
+                0.0230,
+                0.0260,
+                -158.8271,
+                -82.9040,
+                -18.7472
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
+        }
+    },
     ["sittv"] = {
         "anim@heists@heist_safehouse_intro@variations@male@tv",
         "tv_part_one_loop",
@@ -10152,7 +10208,7 @@ DP.PropEmotes = {
             EmoteMoving = false,
         }
     },
-    ["sitchairf2"] = { -- Emote by WhiskerValeMods
+    ["sitchairf2"] = { -- Custom Emote by WhiskerValeMods
         "mouse@female_sitting_folded",
         "female_sitting_folded_clip",
         "Sit Chair - Arms Folded",
@@ -10170,7 +10226,7 @@ DP.PropEmotes = {
             EmoteMoving = false,
         }
     },
-    ["sitchairf3"] = { -- Emote by WhiskerValeMods
+    ["sitchairf3"] = { -- Custom Emote by WhiskerValeMods
         "mouse@female_sitting_forward",
         "female_sitting_forward_clip",
         "Sit Chair - Leaning Forward",
@@ -10188,7 +10244,7 @@ DP.PropEmotes = {
             EmoteMoving = false,
         }
     },
-    ["sitchairf4"] = { -- Emote by WhiskerValeMods
+    ["sitchairf4"] = { -- Custom Emote by WhiskerValeMods
         "mouse@female_smart_sitting",
         "female_smart_sitting_clip",
         "Sit Chair - Smart",
@@ -10206,7 +10262,7 @@ DP.PropEmotes = {
             EmoteMoving = false,
         }
     },
-    ["sitchairf5"] = { -- Emote by WhiskerValeMods
+    ["sitchairf5"] = { -- Custom Emote By WhiskerValeMods
         "mouse@female_smart_sitting_crossed",
         "female_smart_sitting_crossed_clip",
         "Sit Chair - Legs Crossed",
@@ -10224,7 +10280,7 @@ DP.PropEmotes = {
             EmoteMoving = false,
         }
     },
-    ["sitchairf6"] = { -- Emote by WhiskerValeMods
+    ["sitchairf6"] = { -- Custom Emote By WhiskerValeMods
         "mouse@female_sitting_laptop",
         "female_sitting_laptop_clip",
         "Sit Chair - Laptop",
@@ -10253,7 +10309,7 @@ DP.PropEmotes = {
             EmoteMoving = false,
         }
     },
-    ["sitchairf7"] = { -- Emote by WhiskerValeMods
+    ["sitchairf7"] = { -- Custom Emote By Emote by WhiskerValeMods
         "mouse@female_sitting_tablet",
         "female_sitting_tablet_clip",
         "Sit Chair - Tablet",
@@ -10282,7 +10338,7 @@ DP.PropEmotes = {
             EmoteMoving = false,
         }
     },
-    ["sitchairf8"] = { -- Emote by WhiskerValeMods
+    ["sitchairf8"] = { -- Custom Emote By Emote by WhiskerValeMods
         "mouse@female_sitting_tablet",
         "female_sitting_tablet_clip",
         "Sit Chair - Book",
