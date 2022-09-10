@@ -6902,6 +6902,24 @@ DP.Emotes = {
             EmoteDuration = 5000
         }
     },
+    ["shaka"] = {
+        "sign@hang_loose",
+        "base",
+        "Shaka 'Hang Loose'",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+     },
+    ["shaka2"] = {
+        "sign@hang_loose_casual",
+        "base",
+        "Shaka 'Hang Loose Casual'",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
 }
 
 
