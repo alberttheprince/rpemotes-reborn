@@ -6945,8 +6945,6 @@ DP.Emotes = {
             EmoteMoving = true,
         }
     },
-}
-}
 
 
 --- EMOTES WITH 1 OR 2 PROPS ---
@@ -12017,8 +12015,8 @@ DP.PropEmotes = {
                 0.0400,
                 -0.1200,
                 0.0,
-				0.0,
-				40.00
+		0.0,
+		40.00
             },
             EmoteLoop = true,
             EmoteMoving = true,
