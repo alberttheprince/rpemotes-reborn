@@ -3,7 +3,7 @@ Config = {
     -- Note fr and de are google translated, if you would like to help out with translations, feel free to send me an 'issue' on Github.
     -- Thank you to those who provided translations.
     --
-
+    -- Check languages code below to change the MenuLanguage
     MenuLanguage = 'en',
     -- Set this to true to enable some extra prints
     DebugDisplay = false,
@@ -25,6 +25,7 @@ Config = {
     CustomMenuEnabled = true,
     MenuImage = "https://i.imgur.com/IRzHWb3.png", ----[Custom banner imgur URLs go here ]---
     -- You can change the menu image by pasting a link above. It must be the same width and length
+    -- You can change the name of the menu here.
     MenuTitle = "DpEmotes V2",
     -- You can change the menu position here
     MenuPosition = "right", -- (left, right)
@@ -147,7 +148,7 @@ Config.Languages = {
         ['doyouwanna'] = "~y~Y~w~ pro příjmutí, ~r~L~w~ pro odmitnutí (~g~",
         ['refuseemote'] = "Emote odmítnut.",
         ['makenearby'] = "nechat hráče poblíž hrát",
-        ['useleafblower'] = "Press ~y~G~w~ to use the leaf blower.", -- TODO translate
+        ['useleafblower'] = "Stiskněte ~yG~w~ pro použití foukače listí", -- GOOGLE TRANSLATED
         ['camera'] = "Stiskni ~y~G~w~ pro použítí blesku u fotoaparátu.",
         ['makeitrain'] = "Stiskni ~y~G~w~ pro spuštení deště.",
         ['pee'] = "Podrž ~y~G~w~ pro čůraní.",
@@ -444,7 +445,7 @@ Config.Languages = {
         ['doyouwanna'] = "~y~Y~w~ para aceitar, ~r~L~w~ para recursar (~g~",
         ['refuseemote'] = "Emote recursado",
         ['makenearby'] = "Faz o jogador próximo participar",
-        ['useleafblower'] = "Press ~y~G~w~ to use the leaf blower.", -- TODO translate
+        ['useleafblower'] = "Pressione ~yG~w~ para usar o soprador de folhas", -- GOOGLE TRANSLATED 
         ['camera'] = "Pressione ~y~G~w~ para usar o flash da câmera",
         ['makeitrain'] = "Pressione ~y~G~w~ para fazer chover.",
         ['pee'] = "Mantenha pressionado ~y~G~w~ para fazer xixi.",
@@ -494,7 +495,7 @@ Config.Languages = {
         ['doyouwanna'] = "~y~Y~w~ per accettare, ~r~L~w~ per rifiutare (~g~",
         ['refuseemote'] = "Animazione rifiutata.",
         ['makenearby'] = "fa eseguire l'animazione al giocatore vicino",
-        ['useleafblower'] = "Press ~y~G~w~ to use the leaf blower.", -- TODO translate
+        ['useleafblower'] = "Premi ~yG~w~ per usare il soffia foglie.", -- GOOGLE TRANSLATED 
         ['camera'] = "Premi ~y~G~w~ per usare il flash della fotocamera.",
         ['makeitrain'] = "Premi ~y~G~w~ per far piovere.",
         ['pee'] = "Tieni premuto ~y~G~w~ per urinare.",
@@ -544,7 +545,7 @@ Config.Languages = {
         ['doyouwanna'] = "~y~Y~w~ for at acceptere, ~r~L~w~ for at nægte (~g~",
         ['refuseemote'] = "Animationer nægtede.",
         ['makenearby'] = "får den nærliggende spiller til at spille",
-        ['useleafblower'] = "Press ~y~G~w~ to use the leaf blower.", -- TODO translate
+        ['useleafblower'] = "Tryk på ~yG~w~ for at bruge løvblæseren", -- GOOGLE TRANSLATED 
         ['camera'] = "Tryk ~y~G~w~ for at bruge kamera kameraets blitz.",
         ['makeitrain'] = "Tryk ~y~G~w~ for at regne med penge.",
         ['pee'] = "Hold ~y~G~w~ for at tisse.",
