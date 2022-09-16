@@ -6945,7 +6945,7 @@ DP.Emotes = {
             EmoteMoving = true,
         }
     },
-
+}
 
 --- EMOTES WITH 1 OR 2 PROPS ---
 DP.PropEmotes = {
