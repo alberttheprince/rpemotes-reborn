@@ -278,6 +278,22 @@ Apparently only the server owner can 🤷🏻‍♂️ Google exist.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+# License and disclaimer 📜
+
+All custom animation were added with permission from the creators and does not contain any paid or leaked work.
+
+- You are free to fork and improve the menu and it's code
+
+- You are free to add your own animations
+
+- You may not reupload the menu and it's content
+
+- You may not sell the menu and it's content
+
+- You may not extract the animations and use them for your own menus. They are exclusive to DpEmotes 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Credits 🤝
 
 This script is where it is today because of the amazing contributions made by the following people: 
