@@ -6919,7 +6919,33 @@ DP.Emotes = {
             EmoteLoop = true,
             EmoteMoving = true,
         }
+     },
+    ["relax"] = {
+        "lying@on_grass",
+        "base",
+        "Relax ",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
     },
+    ["relax2"] = {
+        "lying@on_couch_legs_crossed",
+        "base",
+        "Relax ",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
+    ["uwu"] = {
+        "uwu@egirl",
+        "base",
+        "uWu",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+}
 }
 
 
@@ -7934,6 +7960,157 @@ DP.PropEmotes = {
             },
             EmoteMoving = true,
             EmoteLoop = true
+        }
+    },
+    ["guitarcarry"] = {
+        "move_weapon@jerrycan@generic",
+        "idle",
+        "Guitar Case Carry",
+        AnimationOptions = {
+            Prop = "sf_prop_sf_guitar_case_01a",
+            PropBone = 28422,
+            PropPlacement = {
+                0.2800,
+                -0.2000,
+                -0.0600,
+                0.0,
+                0.0,
+                15.0000
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["guitarcarry2"] = {
+        "move_weapon@jerrycan@generic",
+        "idle",
+        "Guitar Carry Accoustic",
+        AnimationOptions = {
+            Prop = "prop_acc_guitar_01",
+            PropBone = 28422,
+            PropPlacement = {
+                0.1500,
+                -0.1400,
+                -0.0200,
+                -101.5083,
+                5.7251,
+                29.4987
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["guitarcarry3"] = {
+        "move_weapon@jerrycan@generic",
+        "idle",
+        "Guitar Carry Electric ",
+        AnimationOptions = {
+            Prop = "prop_el_guitar_01",
+            PropBone = 28422,
+            PropPlacement = {
+                0.1100,
+                -0.1200,
+                -0.0500,
+                -80.0000,
+                0.0,
+                21.9999
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["guitarcarry4"] = {
+        "move_weapon@jerrycan@generic",
+        "idle",
+        "Guitar Carry Electric 2 ",
+        AnimationOptions = {
+            Prop = "prop_el_guitar_02",
+            PropBone = 28422,
+            PropPlacement = {
+                0.1100,
+                -0.1200,
+                -0.0500,
+                -80.0000,
+                0.0,
+                21.9999
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["guitarcarry5"] = {
+        "move_weapon@jerrycan@generic",
+        "idle",
+        "Guitar Carry Electric 3 ",
+        AnimationOptions = {
+            Prop = "prop_el_guitar_03",
+            PropBone = 28422,
+            PropPlacement = {
+                0.1100,
+                -0.1200,
+                -0.0500,
+                -80.0000,
+                0.0,
+                21.9999
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["guitarcarry6"] = {
+        "move_weapon@jerrycan@generic",
+        "idle",
+        "Guitar Carry Electric 4 ",
+        AnimationOptions = {
+            Prop = "vw_prop_casino_art_guitar_01a",
+            PropBone = 28422,
+            PropPlacement = {
+                0.1100,
+                -0.1200,
+                -0.0500,
+                -80.0000,
+                0.0,
+                21.9999
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["guitarcarry7"] = {
+        "move_weapon@jerrycan@generic",
+        "idle",
+        "Guitar Carry Electric 5 ",
+        AnimationOptions = {
+            Prop = "sf_prop_sf_el_guitar_02a",
+            PropBone = 28422,
+            PropPlacement = {
+                0.1100,
+                -0.1200,
+                -0.0500,
+                -80.0000,
+                0.0,
+                21.9999
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["guitarsit"] = {
+        "misssnowie@gatlax",
+        "base",
+        "Guitar Sit And Play",
+        AnimationOptions = {
+            Prop = "prop_acc_guitar_01",
+            PropBone = 24818,
+            PropPlacement = {
+                -0.0510,
+                0.2770,
+                -0.0299,
+                -140.3349,
+                166.3300,
+                29.7590
+            },
+            EmoteLoop = true,
         }
     },
     ["book"] = {
@@ -11766,139 +11943,6 @@ DP.PropEmotes = {
                 14.4000,
                 0.0,
                 0.0
-            },
-            EmoteLoop = true,
-            EmoteMoving = true,
-        }
-    },
-    ["guitarcarry"] = {
-        "move_weapon@jerrycan@generic",
-        "idle",
-        "Guitar Case Carry",
-        AnimationOptions = {
-            Prop = "sf_prop_sf_guitar_case_01a",
-            PropBone = 28422,
-            PropPlacement = {
-                0.2800,
-                -0.2000,
-                -0.0600,
-                0.0,
-                0.0,
-                15.0000
-            },
-            EmoteLoop = true,
-            EmoteMoving = true,
-        }
-    },
-    ["guitarcarry2"] = {
-        "move_weapon@jerrycan@generic",
-        "idle",
-        "Guitar Carry Accoustic",
-        AnimationOptions = {
-            Prop = "prop_acc_guitar_01",
-            PropBone = 28422,
-            PropPlacement = {
-                0.1500,
-                -0.1400,
-                -0.0200,
-                -101.5083,
-                5.7251,
-                29.4987
-            },
-            EmoteLoop = true,
-            EmoteMoving = true,
-        }
-    },
-    ["guitarcarry3"] = {
-        "move_weapon@jerrycan@generic",
-        "idle",
-        "Guitar Carry Electric ",
-        AnimationOptions = {
-            Prop = "prop_el_guitar_01",
-            PropBone = 28422,
-            PropPlacement = {
-                0.1100,
-                -0.1200,
-                -0.0500,
-                -80.0000,
-                0.0,
-                21.9999
-            },
-            EmoteLoop = true,
-            EmoteMoving = true,
-        }
-    },
-    ["guitarcarry4"] = {
-        "move_weapon@jerrycan@generic",
-        "idle",
-        "Guitar Carry Electric 2 ",
-        AnimationOptions = {
-            Prop = "prop_el_guitar_02",
-            PropBone = 28422,
-            PropPlacement = {
-                0.1100,
-                -0.1200,
-                -0.0500,
-                -80.0000,
-                0.0,
-                21.9999
-            },
-            EmoteLoop = true,
-            EmoteMoving = true,
-        }
-    },
-    ["guitarcarry5"] = {
-        "move_weapon@jerrycan@generic",
-        "idle",
-        "Guitar Carry Electric 3 ",
-        AnimationOptions = {
-            Prop = "prop_el_guitar_03",
-            PropBone = 28422,
-            PropPlacement = {
-                0.1100,
-                -0.1200,
-                -0.0500,
-                -80.0000,
-                0.0,
-                21.9999
-            },
-            EmoteLoop = true,
-            EmoteMoving = true,
-        }
-    },
-    ["guitarcarry6"] = {
-        "move_weapon@jerrycan@generic",
-        "idle",
-        "Guitar Carry Electric 4 ",
-        AnimationOptions = {
-            Prop = "vw_prop_casino_art_guitar_01a",
-            PropBone = 28422,
-            PropPlacement = {
-                0.1100,
-                -0.1200,
-                -0.0500,
-                -80.0000,
-                0.0,
-                21.9999
-            },
-            EmoteLoop = true,
-            EmoteMoving = true,
-        }
-    },
-    ["guitarcarry7"] = {
-        "move_weapon@jerrycan@generic",
-        "idle",
-        "Guitar Carry Electric 5 ",
-        AnimationOptions = {
-            Prop = "sf_prop_sf_el_guitar_02a",
-            PropBone = 28422,
-            PropPlacement = {
-                0.1100,
-                -0.1200,
-                -0.0500,
-                -80.0000,
-                0.0,
-                21.9999
             },
             EmoteLoop = true,
             EmoteMoving = true,
