@@ -345,7 +345,7 @@ Config.Languages = {
         ['doyouwanna'] = "~y~Y~w~ para aceptar, ~r~L~w~ para rechazar (~g~",
         ['refuseemote'] = "Animacion rechazada.",
         ['makenearby'] = "hacer que el jugador cercano juegue",
-        ['useleafblower'] = "Press ~y~G~w~ to use the leaf blower.", -- TODO translate
+        ['useleafblower'] = "Presiona ~y~G~w~ para utilizar el soplador de hojas."
         ['camera'] = "Presione ~y~G~w~ para usar el flash de la camara.",
         ['makeitrain'] = "Presiona ~y~G~w~ para hacer llover.",
         ['pee'] = "Mantiene ~y~G~w~ para mear.",
@@ -657,7 +657,7 @@ Config.Languages = {
         ['keybinds'] = "🔢 Przypisane klawisze",
         ['keybindsinfo'] = "Użyj"
     },
-    ['ro'] = { -- Romana 🇬🇧
+    ['ro'] = { -- Romana 🇷🇴
         ['emotes'] = 'Emote-uri 🎬',
         ['danceemotes'] = "🕺 Dansuri",
         ['animalemotes'] = "🐩 Emote-uri pentru animale",
