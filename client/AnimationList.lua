@@ -7679,6 +7679,60 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
+    ["donut2"] = {
+        "mp_player_inteat@burger",
+        "mp_player_int_eat_burger",
+        "Donut Chocolate",
+        AnimationOptions = {
+            Prop = 'bzzz_foodpack_donut002',
+            PropBone = 60309,
+            PropPlacement = {
+                0.0000,
+                -0.0300,
+                -0.0100,
+                10.0000,
+                0.0000,
+                -1.0000
+            },
+            EmoteMoving = true,
+        }
+    },
+    ["donut3"] = {
+        "mp_player_inteat@burger",
+        "mp_player_int_eat_burger",
+        "Donut Raspberry",
+        AnimationOptions = {
+            Prop = 'bzzz_foodpack_donut001',
+            PropBone = 60309,
+            PropPlacement = {
+                0.0000,
+                -0.0300,
+                -0.0100,
+                10.0000,
+                0.0000,
+                -1.0000
+            },
+            EmoteMoving = true,
+        }
+    },
+    ["croissant"] = {
+        "mp_player_inteat@burger",
+        "mp_player_int_eat_burger",
+        "Croissant",
+        AnimationOptions = {
+            Prop = 'bzzz_foodpack_croissant001',
+            PropBone = 60309,
+            PropPlacement = {
+                0.0000,
+                0.0000,
+                -0.0100,
+                0.0000,
+                0.0000,
+                90.0000
+            },
+            EmoteMoving = true,
+        }
+    },
     ["burger"] = {
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
@@ -7787,6 +7841,228 @@ DP.PropEmotes = {
                 -88.099
             },
             EmoteMoving = true,
+        }
+    },
+    ["lollipop1"] = {
+        "mp_player_inteat@burger",
+        "mp_player_int_eat_burger",
+        "Lollipop Spiral Red",
+        AnimationOptions = {
+            Prop = 'natty_lollipop_spiral01',
+            PropBone = 60309,
+            PropPlacement = {
+                -0.0100,
+                0.0200,
+                -0.0100,
+                -175.1935,
+                97.6975,
+                20.9598
+            },
+            EmoteMoving = true,
+        }
+    },
+    ["lollipop1b"] = {
+        "mp_player_inteat@burger",
+        "mp_player_int_eat_burger",
+        "Lollipop Spiral Pink",
+        AnimationOptions = {
+            Prop = 'natty_lollipop_spiral02',
+            PropBone = 60309,
+            PropPlacement = {
+                -0.0100,
+                0.0200,
+                -0.0100,
+                -175.1935,
+                97.6975,
+                20.9598
+            },
+            EmoteMoving = true,
+        }
+    },
+    ["lollipop1c"] = {
+        "mp_player_inteat@burger",
+        "mp_player_int_eat_burger",
+        "Lollipop Spiral Green",
+        AnimationOptions = {
+            Prop = 'natty_lollipop_spiral03',
+            PropBone = 60309,
+            PropPlacement = {
+                -0.0100,
+                0.0200,
+                -0.0100,
+                -175.1935,
+                97.6975,
+                20.9598
+            },
+            EmoteMoving = true,
+        }
+    },
+    ["lollipop1d"] = {
+        "mp_player_inteat@burger",
+        "mp_player_int_eat_burger",
+        "Lollipop Spiral Blue",
+        AnimationOptions = {
+            Prop = 'natty_lollipop_spiral04',
+            PropBone = 60309,
+            PropPlacement = {
+                -0.0100,
+                0.0200,
+                -0.0100,
+                -175.1935,
+                97.6975,
+                20.9598
+            },
+            EmoteMoving = true,
+        }
+    },
+    ["lollipop1e"] = {
+        "mp_player_inteat@burger",
+        "mp_player_int_eat_burger",
+        "Lollipop Spiral Yellow",
+        AnimationOptions = {
+            Prop = 'natty_lollipop_spiral05',
+            PropBone = 60309,
+            PropPlacement = {
+                -0.0100,
+                0.0200,
+                -0.0100,
+                -175.1935,
+                97.6975,
+                20.9598
+            },
+            EmoteMoving = true,
+        }
+   },
+    ["lollipop1f"] = {
+        "mp_player_inteat@burger",
+        "mp_player_int_eat_burger",
+        "Lollipop Spiral Purple",
+        AnimationOptions = {
+            Prop = 'natty_lollipop_spiral06',
+            PropBone = 60309,
+            PropPlacement = {
+                -0.0100,
+                0.0200,
+                -0.0100,
+                -175.1935,
+                97.6975,
+                20.9598
+            },
+            EmoteMoving = true,
+        }
+   },
+    ["lollipop2a"] = {
+        "anim@heists@humane_labs@finale@keycards",
+        "ped_a_enter_loop",
+        "Lollipop Spin Red",
+        AnimationOptions = {
+            Prop = "natty_lollipop_spin01",
+            PropBone = 60309,
+            PropPlacement = {
+                -0.0300,
+                -0.0500,
+                0.0500,
+                112.4227,
+                -128.8559,
+                15.6107
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["lollipop2b"] = {
+        "anim@heists@humane_labs@finale@keycards",
+        "ped_a_enter_loop",
+        "Lollipop Spin Yellow And Pink",
+        AnimationOptions = {
+            Prop = "natty_lollipop_spin02",
+            PropBone = 60309,
+            PropPlacement = {
+                -0.0300,
+                -0.0500,
+                0.0500,
+                112.4227,
+                -128.8559,
+                15.6107
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["lollipop2c"] = {
+        "anim@heists@humane_labs@finale@keycards",
+        "ped_a_enter_loop",
+        "Lollipop Spin Yellow And Green",
+        AnimationOptions = {
+            Prop = "natty_lollipop_spin03",
+            PropBone = 60309,
+            PropPlacement = {
+                -0.0300,
+                -0.0500,
+                0.0500,
+                112.4227,
+                -128.8559,
+                15.6107
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["lollipop2d"] = {
+        "anim@heists@humane_labs@finale@keycards",
+        "ped_a_enter_loop",
+        "Lollipop Spin Yellow And White",
+        AnimationOptions = {
+            Prop = "natty_lollipop_spin04",
+            PropBone = 60309,
+            PropPlacement = {
+                -0.0300,
+                -0.0500,
+                0.0500,
+                112.4227,
+                -128.8559,
+                15.6107
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+   },
+    ["lollipop2e"] = {
+        "anim@heists@humane_labs@finale@keycards",
+        "ped_a_enter_loop",
+        "Lollipop Spin Pink And White",
+        AnimationOptions = {
+            Prop = "natty_lollipop_spin05",
+            PropBone = 60309,
+            PropPlacement = {
+                -0.0300,
+                -0.0500,
+                0.0500,
+                112.4227,
+                -128.8559,
+                15.6107
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["lollipop3a"] = {
+        "amb@world_human_smoking@male@male_a@enter",
+        "enter",
+        "Lollipop Suck",
+        AnimationOptions = {
+            Prop = 'natty_lollipop01',
+            PropBone = 47419,
+            PropPlacement = {
+                0.0100,
+                0.0300,
+                0.0100,
+                -90.0000,
+                10.0000,
+                -10.0000
+            },
+            EmoteMoving = true,
+            EmoteDuration = 2600
         }
     },
     ["wine"] = {
@@ -11774,21 +12050,20 @@ DP.PropEmotes = {
     },
     ["eat"] = {
         "mp_player_inteat@burger",
-        "mp_player_int_eat_burger_fp",
+        "mp_player_int_eat_burger",
         "Eat",
-        AnimationOptions =
-        {
-            Prop = "prop_cs_burger_01",
+        AnimationOptions = {
+            Prop = 'prop_cs_burger_01',
             PropBone = 18905,
             PropPlacement = {
-                0.12,
-                0.028,
-                0.001,
-                10.0,
-                175.0
+                0.13,
+                0.05,
+                0.02,
+                -50.0,
+                16.0,
+                60.0
             },
             EmoteMoving = true,
-            EmoteLoop = true,
         }
     },
     ["drink"] = {

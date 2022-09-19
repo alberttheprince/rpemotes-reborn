@@ -7,7 +7,7 @@ fx_version 'adamant'
 game 'gta5'
 lua54 'yes'
 
--- Comment the following lines if you don't want to use the SQL keybinds
+-- Remove the following lines if you don't want to use the SQL keybinds, requires oxymysql
 --#region oxmysql
 -- dependency 'oxmysql'
 -- server_script "@oxmysql/lib/MySQL.lua"
@@ -44,3 +44,7 @@ data_file "DLC_ITYP_REQUEST" "copbadge.ytyp"
 data_file "DLC_ITYP_REQUEST" "prideprops_ytyp"
 
 data_file "DLC_ITYP_REQUEST" "lilflags_ytyp"
+
+data_file 'DLC_ITYP_REQUEST' 'bzzz_foodpack'
+
+data_file 'DLC_ITYP_REQUEST' 'natty_props_lollipops.ytyp'
