@@ -295,6 +295,8 @@ function AddInfoMenu(menu)
     infomenu:AddItem(NativeUI.CreateItem(Config.Languages[lang]['suggestions'],
         Config.Languages[lang]['suggestionsinfo'
         ]))
+		infomenu:AddItem(NativeUI.CreateItem("Join the  <font color=\"#3b8eea\">Discord</font>",
+        "<font color=\"#3b8eea\">https://discord.gg/sw3NwDq6C8</font>"))
     infomenu:AddItem(NativeUI.CreateItem("Thanks ~o~DullPear~s~", "~o~DullPear~s~ for the original dpemotes ❤️"))
     infomenu:AddItem(NativeUI.CreateItem("Thanks <b>Kibook</b>",
         "<b>Kibook</b> for the addition of Animal Emotes 🐩 submenu."))
@@ -309,6 +311,10 @@ function AddInfoMenu(menu)
     infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#7dbf7b\">MissSnowie</font>",
         "<font color=\"#7dbf7b\">MissSnowie</font> for the custom emotes 🐇."))
     infomenu:AddItem(NativeUI.CreateItem("Thanks ~b~Ultrahacx~s~", "~b~Ultrahacx~s~ for the custom emotes ☺️."))
+	infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#37DA00\">BzZzi</font>",
+        "<font color=\"#37DA00\">BzZzi</font> for the custom food props 🍩."))
+	infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#C40A7D\">Natty3d</font>",
+        "<font color=\"#C40A7D\">Natty3d</font> for the custom lollipop props 🍭."))
 
     infomenu:AddItem(NativeUI.CreateItem("Thanks to the community", "Translations, bug reports and moral support 🌐"))
 end
