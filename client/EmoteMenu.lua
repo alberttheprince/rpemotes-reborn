@@ -310,6 +310,8 @@ function AddInfoMenu(menu)
         "<font color=\"#ff00c3\">Tigerle</font> for assisting with attached Shared Emotes ⚙️."))
     infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#7dbf7b\">MissSnowie</font>",
         "<font color=\"#7dbf7b\">MissSnowie</font> for the custom emotes 🐇."))
+	infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#FF6100\">Smokey</font>",
+        "<font color=\"#FF6100\">Smokey</font> for the custom emotes 🤙🏼."))
     infomenu:AddItem(NativeUI.CreateItem("Thanks ~b~Ultrahacx~s~", "~b~Ultrahacx~s~ for the custom emotes ☺️."))
 	infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#37DA00\">BzZzi</font>",
         "<font color=\"#37DA00\">BzZzi</font> for the custom food props 🍩."))
