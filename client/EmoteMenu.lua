@@ -295,7 +295,7 @@ function AddInfoMenu(menu)
     infomenu:AddItem(NativeUI.CreateItem(Config.Languages[lang]['suggestions'],
         Config.Languages[lang]['suggestionsinfo'
         ]))
-		infomenu:AddItem(NativeUI.CreateItem("Join the  <font color=\"#3b8eea\">Discord</font>",
+		infomenu:AddItem(NativeUI.CreateItem("Join the <font color=\"#3b8eea\">Discord</font>",
         "<font color=\"#3b8eea\">https://discord.gg/sw3NwDq6C8</font>"))
     infomenu:AddItem(NativeUI.CreateItem("Thanks ~o~DullPear~s~", "~o~DullPear~s~ for the original dpemotes ❤️"))
     infomenu:AddItem(NativeUI.CreateItem("Thanks <b>Kibook</b>",
