@@ -254,6 +254,7 @@ Please see my in depth [tutorial](https://forum.cfx.re/t/how-to-menyoo-to-dpemot
 
 You may sell ***custom made*** animations, however the menu must remain free. You are not allowed to include it as an 'addon bonus'.
 
+This file does NOT need to be overwritten each update.
 ----------------------
 
 **Q: I bought a pack of custom animations, how can I add them to your fork of DpEmotes?**
@@ -270,11 +271,21 @@ We have however added code to hopefully make it a lot easier to add shared emote
 
 Apparently only the server owner can 🤷🏻‍♂️ Google exist.
 
-----------------------
+-------------------------------
 
 **Q: How do Shared Emotes work?**
 
 **A:** Please see the Shared Emotes section of this ReadMe for more information.
+
+------------------------------
+
+**Q: Can you make it so that Shared Emotes are automatic rather than sending the other person a request?**
+
+**A:** Can I? Yes. Will I? No.
+
+ I do not condone running around forcing other players (who are minding their own business) to unwillingly engage in animations, especially adult animations. 
+
+Everything should be done with **consent**. If the other player wants to engage in that storyline of RP, then so be it, otherwise, they have every right to decline.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -290,7 +301,7 @@ All custom animation were added with permission from the creators and does not c
 
 - You may not sell the menu and it's content
 
-- You may not extract the animations and use them for your own menus. They are exclusive to DpEmotes 
+- You may not extract the animations and use them for your own menus. They are exclusive to DpEmotes. 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -302,11 +313,17 @@ This script is where it is today because of the amazing contributions made by th
 
 - Thank you to [SMGMissy](https://forum.cfx.re/u/smgmissy/) for assisting with custom pride flags and how to stream them
 
-- Thank you to [MissSnowie](https://www.gta5-mods.com/users/MissySnowie) for the custom poses and emotes
+- Thank you to [MissSnowie](https://www.gta5-mods.com/users/MissySnowie) for the custom poses, emotes, motivation and moral support 
 
 - A huge thank you to [Kibook](https://github.com/kibook) for the addition of the Animal Emotes sub menu
 
-- Thank you to [AvaN0x](https://github.com/AvaN0x) for reformatting and assisting with code and additional features
+- Thank you to [AvaN0x](https://github.com/AvaN0x) for reformatting and assisting with code, additional features and figuring out shared particle effects 
+
+- Thank you to [Smokey](https://www.gta5-mods.com/users/struggleville) for the permission to add free custom animations 
+
+- Thank you to [BzZzi](https://forum.cfx.re/u/bzzzi/summary) for the permission to add free donut and croissant food props
+
+- Thank you to [Natty3d](https://forum.cfx.re/u/natty3d/summary) for the permission to add free lollipop props 
 
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
