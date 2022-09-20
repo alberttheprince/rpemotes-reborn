@@ -8540,6 +8540,203 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
+    ["newspaper"] = {
+        "amb@world_human_clipboard@male@idle_a",
+        "idle_a",
+        "Newspaper",
+        AnimationOptions = {
+            Prop = 'prop_cliff_paper',
+            PropBone = 60309,
+            PropPlacement = {
+                0.0970,
+               -0.0280,
+               -0.0170,
+                107.4008,
+                3.2712,
+               -10.5080
+            },
+            EmoteMoving = true,
+            EmoteLoop = true
+        }
+    },
+    ["newspaper2"] = {
+        "amb@world_human_clipboard@male@idle_a",
+        "idle_a",
+        "Newspaper 2",
+        AnimationOptions = {
+            Prop = 'ng_proc_paper_news_quik',
+            PropBone = 60309,
+            PropPlacement = {
+                0.1590,
+               0.0290,
+               -0.0100,
+               90.9998,
+               0.0087,
+               0.5000
+            },
+            EmoteMoving = true,
+            EmoteLoop = true
+        }
+    },
+    ["newspaper3"] = {
+        "amb@world_human_clipboard@male@idle_a",
+        "idle_a",
+        "Newspaper 3",
+        AnimationOptions = {
+            Prop = 'ng_proc_paper_news_rag',
+            PropBone = 60309,
+            PropPlacement = {
+               0.1760,
+              -0.00070,
+               0.0200,
+               99.8306,
+               3.2841,
+               -4.7185
+            },
+            EmoteMoving = true,
+            EmoteLoop = true
+        }
+    },
+    ["pornmag"] = {
+        "amb@world_human_clipboard@male@base",
+        "base",
+        "Porn Magazine",
+        AnimationOptions = {
+            Prop = 'prop_porn_mag_02',
+            PropBone = 60309,
+            PropPlacement = {
+               0.1000,
+              -0.0360,
+              -0.0300,
+              -86.9096,
+               179.2527,
+               13.8804
+            },
+            EmoteMoving = true,
+            EmoteLoop = true
+        },
+        AdultAnimation = true
+    },
+    ["pornmag2"] = {
+        "amb@world_human_clipboard@male@base",
+        "base",
+        "Porn Magazine 2",
+        AnimationOptions = {
+            Prop = 'prop_cs_magazine',
+            PropBone = 60309,
+            PropPlacement = {
+               0.0800,
+              -0.0490,
+              -0.0500,
+               87.9369,
+              -0.4292,
+              -14.3925
+            },
+            EmoteMoving = true,
+            EmoteLoop = true
+        },
+        AdultAnimation = true
+    },
+    ["pornmag3"] = {
+        "amb@world_human_clipboard@male@base",
+        "base",
+        "Porn Magazine 3",
+        AnimationOptions = {
+            Prop = 'prop_porn_mag_03',
+            PropBone = 60309,
+            PropPlacement = {
+               0.1000,
+              -0.0700,
+              -0.0200,
+              -90.0000,
+              -180.0000,
+               22.7007
+            },
+            EmoteMoving = true,
+            EmoteLoop = true
+        },
+        AdultAnimation = true
+    },
+    ["pornmag4"] = {
+        "amb@world_human_clipboard@male@base",
+        "base",
+        "Porn Magazine 4",
+        AnimationOptions = {
+            Prop = 'v_res_tt_pornmag01',
+            PropBone = 60309,
+            PropPlacement = {
+              -0.0200,
+              -0.0300,
+              0.0000,
+              88.9862,
+              0.2032,
+             -20.0016
+            },
+            EmoteMoving = true,
+            EmoteLoop = true
+        },
+        AdultAnimation = true
+    },
+    ["pornmag5"] = {
+        "amb@world_human_clipboard@male@base",
+        "base",
+        "Porn Magazine 5",
+        AnimationOptions = {
+            Prop = 'v_res_tt_pornmag02',
+            PropBone = 60309,
+            PropPlacement = {
+              -0.0200,
+              -0.0300,
+              0.0000,
+              88.9862,
+              0.2032,
+             -20.0016
+            },
+            EmoteMoving = true,
+            EmoteLoop = true
+        },
+        AdultAnimation = true
+    },
+    ["pornmag6"] = {
+        "amb@world_human_clipboard@male@base",
+        "base",
+        "Porn Magazine 6",
+        AnimationOptions = {
+            Prop = 'v_res_tt_pornmag03',
+            PropBone = 60309,
+            PropPlacement = {
+              -0.0200,
+              -0.0300,
+              0.0000,
+              88.9862,
+              0.2032,
+             -20.0016
+            },
+            EmoteMoving = true,
+            EmoteLoop = true
+        },
+        AdultAnimation = true
+    },
+    ["pornmag7"] = {
+        "amb@world_human_clipboard@male@base",
+        "base",
+        "Porn Magazine 7",
+        AnimationOptions = {
+            Prop = 'v_res_tt_pornmag04',
+            PropBone = 60309,
+            PropPlacement = {
+              -0.0200,
+              -0.0300,
+              0.0000,
+              88.9862,
+              0.2032,
+             -20.0016
+            },
+            EmoteMoving = true,
+            EmoteLoop = true
+        },
+        AdultAnimation = true
+    },
     ["makeitrain"] = {
         "anim@mp_player_intupperraining_cash",
         "idle_a",
