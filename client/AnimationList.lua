@@ -7661,6 +7661,60 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
+    ["apple"] = {
+        "mp_player_inteat@burger",
+        "mp_player_int_eat_burger",
+        "Apple",
+        AnimationOptions = {
+            Prop = 'sf_prop_sf_apple_01b',
+            PropBone = 60309,
+            PropPlacement = {
+                0.0,
+                0.0150,
+                -0.0200,
+                -124.6964,
+                -166.5760,
+                8.4572
+            },
+            EmoteMoving = true,
+        }
+     },
+    ["taco"] = {
+        "mp_player_inteat@burger",
+        "mp_player_int_eat_burger",
+        "Taco",
+        AnimationOptions = {
+            Prop = 'prop_taco_01',
+            PropBone = 60309,
+            PropPlacement = {
+                -0.0170,
+                0.0070,
+                -0.0210,
+                107.9846,
+                -105.0251,
+                55.7779
+            },
+            EmoteMoving = true,
+        }
+    },
+    ["hotdog"] = {
+        "mp_player_inteat@burger",
+        "mp_player_int_eat_burger",
+        "Taco",
+        AnimationOptions = {
+            Prop = 'prop_cs_hotdog_02',
+            PropBone = 60309,
+            PropPlacement = {
+                -0.0300,
+                0.0100,
+                -0.0100,
+                95.1071,
+                94.7001,
+                -66.9179
+            },
+            EmoteMoving = true,
+        }
+    },
     ["donut"] = {
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
