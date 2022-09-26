@@ -1566,14 +1566,14 @@ DP.Dances = {
         AnimationOptions = {
             EmoteLoop = true
         }
-     },
+    },
     ["danceold"] = {
         "anim@mp_player_intupperuncle_disco",
         "idle_a",
         "Dance Old",
         AnimationOptions = {
             EmoteLoop = true,
---			EmoteMoving = true,-- Removing the comment will allow for you to mix and match dance emotes, ie /e danceold and /e dance to control the bottom half of the body.
+            --			EmoteMoving = true,-- Removing the comment will allow for you to mix and match dance emotes, ie /e danceold and /e dance to control the bottom half of the body.
         }
     },
     ["danceglowstick"] = {
@@ -2073,7 +2073,7 @@ DP.Dances = {
         "ambclub_09_mi_hi_bellydancer_laz",
         "Dance Pride C - Lesbian",
         AnimationOptions = {
-            Prop = 'lilprideflag4',  -- Lesbian
+            Prop = 'lilprideflag4', -- Lesbian
             PropBone = 18905,
             PropPlacement = {
                 0.0900,
@@ -2102,7 +2102,7 @@ DP.Dances = {
         "ambclub_09_mi_hi_bellydancer_laz",
         "Dance Pride D - Pansexual",
         AnimationOptions = {
-            Prop = 'lilprideflag5',  -- Pansexual
+            Prop = 'lilprideflag5', -- Pansexual
             PropBone = 18905,
             PropPlacement = {
                 0.0900,
@@ -2316,12 +2316,27 @@ DP.AnimalEmotes = {
             EmoteLoop = true
         }
     },
-    ["bdogpee"] = { --- NEED TO ADD PTFX LOL 
+    ["bdogpee"] = { --- NEED TO ADD PTFX LOL
         "creatures@rottweiler@move",
         "pee_left_idle",
         "Pee (big dog)",
         AnimationOptions = {
-            EmoteLoop = false
+            EmoteLoop = false,
+            PtfxAsset = "scr_amb_chop",
+            PtfxName = "ent_anim_dog_peeing",
+            PtfxNoProp = true,
+            PtfxPlacement = {
+                -0.15,
+                -0.35,
+                0.0,
+                0.0,
+                90.0,
+                180.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
+            PtfxWait = 3000,
+            PtfxCanHold = true,
         }
     },
     ["bdogpee2"] = {
@@ -2329,7 +2344,22 @@ DP.AnimalEmotes = {
         "pee_right_idle",
         "Pee 2 (big dog)",
         AnimationOptions = {
-            EmoteLoop = false
+            EmoteLoop = false,
+            PtfxAsset = "scr_amb_chop",
+            PtfxName = "ent_anim_dog_peeing",
+            PtfxNoProp = true,
+            PtfxPlacement = {
+                0.15,
+                -0.35,
+                0.0,
+                0.0,
+                90.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
+            PtfxWait = 3000,
+            PtfxCanHold = true,
         }
     },
     ["sdogbark"] = {
@@ -2383,7 +2413,7 @@ DP.AnimalEmotes = {
         "base",
         "Sit Pride A (big dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag1',  -- Rainbow
+            Prop = 'lilprideflag1', -- Rainbow
             PropBone = 31086,
             PropPlacement = {
                 0.1900,
@@ -6593,7 +6623,7 @@ DP.Emotes = {
             EmoteLoop = true,
         },
         AdultAnimation = true
-     },
+    },
     ["wank"] = {
         "anim@mp_player_intselfiewank",
         "idle_a",
@@ -6623,7 +6653,7 @@ DP.Emotes = {
             EmoteLoop = true,
         },
         AdultAnimation = true
-   },
+    },
     ["wank4"] = {
         "mp_player_int_upperwank",
         "mp_player_int_wank_02_fp",
@@ -6633,7 +6663,7 @@ DP.Emotes = {
             EmoteLoop = true,
         },
         AdultAnimation = true
-   },
+    },
     ["wank5"] = {
         "mp_player_intwank",
         "mp_player_int_wank",
@@ -6975,7 +7005,7 @@ DP.Emotes = {
             EmoteLoop = true,
             EmoteMoving = true,
         }
-     },
+    },
     ["shaka2"] = {
         "sign@hang_loose_casual",
         "base",
@@ -6984,7 +7014,7 @@ DP.Emotes = {
             EmoteLoop = true,
             EmoteMoving = true,
         }
-     },
+    },
     ["relax"] = {
         "lying@on_grass",
         "base",
@@ -7743,7 +7773,7 @@ DP.PropEmotes = {
             },
             EmoteMoving = true,
         }
-     },
+    },
     ["taco"] = {
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
@@ -8051,7 +8081,7 @@ DP.PropEmotes = {
             },
             EmoteMoving = true,
         }
-   },
+    },
     ["lollipop1f"] = {
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
@@ -8069,7 +8099,7 @@ DP.PropEmotes = {
             },
             EmoteMoving = true,
         }
-   },
+    },
     ["lollipop2a"] = {
         "anim@heists@humane_labs@finale@keycards",
         "ped_a_enter_loop",
@@ -8145,7 +8175,7 @@ DP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true,
         }
-   },
+    },
     ["lollipop2e"] = {
         "anim@heists@humane_labs@finale@keycards",
         "ped_a_enter_loop",
@@ -8668,11 +8698,11 @@ DP.PropEmotes = {
             PropBone = 60309,
             PropPlacement = {
                 0.0970,
-               -0.0280,
-               -0.0170,
+                -0.0280,
+                -0.0170,
                 107.4008,
                 3.2712,
-               -10.5080
+                -10.5080
             },
             EmoteMoving = true,
             EmoteLoop = true
@@ -8687,11 +8717,11 @@ DP.PropEmotes = {
             PropBone = 60309,
             PropPlacement = {
                 0.1590,
-               0.0290,
-               -0.0100,
-               90.9998,
-               0.0087,
-               0.5000
+                0.0290,
+                -0.0100,
+                90.9998,
+                0.0087,
+                0.5000
             },
             EmoteMoving = true,
             EmoteLoop = true
@@ -8705,12 +8735,12 @@ DP.PropEmotes = {
             Prop = 'ng_proc_paper_news_rag',
             PropBone = 60309,
             PropPlacement = {
-               0.1760,
-              -0.00070,
-               0.0200,
-               99.8306,
-               3.2841,
-               -4.7185
+                0.1760,
+                -0.00070,
+                0.0200,
+                99.8306,
+                3.2841,
+                -4.7185
             },
             EmoteMoving = true,
             EmoteLoop = true
@@ -8724,12 +8754,12 @@ DP.PropEmotes = {
             Prop = 'prop_porn_mag_02',
             PropBone = 60309,
             PropPlacement = {
-               0.1000,
-              -0.0360,
-              -0.0300,
-              -86.9096,
-               179.2527,
-               13.8804
+                0.1000,
+                -0.0360,
+                -0.0300,
+                -86.9096,
+                179.2527,
+                13.8804
             },
             EmoteMoving = true,
             EmoteLoop = true
@@ -8744,12 +8774,12 @@ DP.PropEmotes = {
             Prop = 'prop_cs_magazine',
             PropBone = 60309,
             PropPlacement = {
-               0.0800,
-              -0.0490,
-              -0.0500,
-               87.9369,
-              -0.4292,
-              -14.3925
+                0.0800,
+                -0.0490,
+                -0.0500,
+                87.9369,
+                -0.4292,
+                -14.3925
             },
             EmoteMoving = true,
             EmoteLoop = true
@@ -8764,12 +8794,12 @@ DP.PropEmotes = {
             Prop = 'prop_porn_mag_03',
             PropBone = 60309,
             PropPlacement = {
-               0.1000,
-              -0.0700,
-              -0.0200,
-              -90.0000,
-              -180.0000,
-               22.7007
+                0.1000,
+                -0.0700,
+                -0.0200,
+                -90.0000,
+                -180.0000,
+                22.7007
             },
             EmoteMoving = true,
             EmoteLoop = true
@@ -8784,12 +8814,12 @@ DP.PropEmotes = {
             Prop = 'v_res_tt_pornmag01',
             PropBone = 60309,
             PropPlacement = {
-              -0.0200,
-              -0.0300,
-              0.0000,
-              88.9862,
-              0.2032,
-             -20.0016
+                -0.0200,
+                -0.0300,
+                0.0000,
+                88.9862,
+                0.2032,
+                -20.0016
             },
             EmoteMoving = true,
             EmoteLoop = true
@@ -8804,12 +8834,12 @@ DP.PropEmotes = {
             Prop = 'v_res_tt_pornmag02',
             PropBone = 60309,
             PropPlacement = {
-              -0.0200,
-              -0.0300,
-              0.0000,
-              88.9862,
-              0.2032,
-             -20.0016
+                -0.0200,
+                -0.0300,
+                0.0000,
+                88.9862,
+                0.2032,
+                -20.0016
             },
             EmoteMoving = true,
             EmoteLoop = true
@@ -8824,12 +8854,12 @@ DP.PropEmotes = {
             Prop = 'v_res_tt_pornmag03',
             PropBone = 60309,
             PropPlacement = {
-              -0.0200,
-              -0.0300,
-              0.0000,
-              88.9862,
-              0.2032,
-             -20.0016
+                -0.0200,
+                -0.0300,
+                0.0000,
+                88.9862,
+                0.2032,
+                -20.0016
             },
             EmoteMoving = true,
             EmoteLoop = true
@@ -8844,12 +8874,12 @@ DP.PropEmotes = {
             Prop = 'v_res_tt_pornmag04',
             PropBone = 60309,
             PropPlacement = {
-              -0.0200,
-              -0.0300,
-              0.0000,
-              88.9862,
-              0.2032,
-             -20.0016
+                -0.0200,
+                -0.0300,
+                0.0000,
+                88.9862,
+                0.2032,
+                -20.0016
             },
             EmoteMoving = true,
             EmoteLoop = true
@@ -10798,7 +10828,7 @@ DP.PropEmotes = {
             PtfxWait = 200,
         }
     },
-    ["selfiecrouch3"] = { -- Custom Emote By Struggleville 
+    ["selfiecrouch3"] = { -- Custom Emote By Struggleville
         "anim@male_insta_selfie",
         "insta_selfie_clip",
         "Selfie Crouching 3",
@@ -12606,8 +12636,8 @@ DP.PropEmotes = {
                 0.0400,
                 -0.1200,
                 0.0,
-		0.0,
-		40.00
+                0.0,
+                40.00
             },
             EmoteLoop = true,
             EmoteMoving = true,
