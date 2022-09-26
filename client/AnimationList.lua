@@ -6538,7 +6538,7 @@ DP.Emotes = {
     ["pee"] = {
         "misscarsteal2peeing",
         "peeing_loop",
-        "Pee",
+        "Pee (Male)",
         AnimationOptions = {
             EmoteStuck = true,
             PtfxAsset = "scr_amb_chop",
@@ -6559,13 +6559,28 @@ DP.Emotes = {
         },
         AdultAnimation = true
     },
-    ["piss"] = {
+    ["pee2"] = {
         "missbigscore1switch_trevor_piss",
         "piss_loop",
-        "Piss (Male)",
+        "Pee 2 (Male)",
         AnimationOptions = {
             EmoteMoving = false,
             EmoteLoop = true,
+            PtfxAsset = "scr_amb_chop",
+            PtfxName = "ent_anim_dog_peeing",
+            PtfxNoProp = true,
+            PtfxPlacement = {
+                0.0130,
+                0.1030,
+                0.0,
+                0.0,
+                90.0,
+                90.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
+            PtfxWait = 3000,
+            PtfxCanHold = true,
         },
         AdultAnimation = true
     },
@@ -6576,6 +6591,56 @@ DP.Emotes = {
         AnimationOptions = {
             EmoteMoving = false,
             EmoteLoop = true,
+        },
+        AdultAnimation = true
+     },
+    ["wank"] = {
+        "anim@mp_player_intselfiewank",
+        "idle_a",
+        "Wank",
+        AnimationOptions = {
+            EmoteMoving = true,
+            EmoteLoop = true,
+        },
+        AdultAnimation = true
+    },
+    ["wank2"] = {
+        "anim@mp_player_intupperwank",
+        "idle_a",
+        "Wank 2",
+        AnimationOptions = {
+            EmoteMoving = true,
+            EmoteLoop = true,
+        },
+        AdultAnimation = true
+    },
+    ["wank3"] = {
+        "mp_player_int_upperwank",
+        "mp_player_int_wank_02",
+        "Wank 3",
+        AnimationOptions = {
+            EmoteMoving = true,
+            EmoteLoop = true,
+        },
+        AdultAnimation = true
+   },
+    ["wank4"] = {
+        "mp_player_int_upperwank",
+        "mp_player_int_wank_02_fp",
+        "Wank 4",
+        AnimationOptions = {
+            EmoteMoving = true,
+            EmoteLoop = true,
+        },
+        AdultAnimation = true
+   },
+    ["wank5"] = {
+        "mp_player_intwank",
+        "mp_player_int_wank",
+        "Wank 5",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = false,
         },
         AdultAnimation = true
     },
