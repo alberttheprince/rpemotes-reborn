@@ -240,7 +240,7 @@ end
 
 local ignoredCategories = {
     ["Walks"] = true,
-    ["Expression"] = true,
+    ["Expressions"] = true,
     ["Shared"] = not Config.SharedEmotesEnabled
 }
 
@@ -257,7 +257,7 @@ function EmoteMenuSearch(lastMenu)
         for k, v in pairs(DP) do
             if ignoredCategories[k] then goto continue end
 
-            for a, b in pairsByKeys(v) do
+            for a, b in pairs(v) do
                 if string.find(string.lower(a), string.lower(input)) or (b[3] ~= nil and string.find(string.lower(b[3]), string.lower(input))) then
                     table.insert(results, {table = k, name = a, data = b})
                 end
@@ -267,6 +267,7 @@ function EmoteMenuSearch(lastMenu)
         
         if #results > 0 then
             local searchMenu = _menuPool:AddSubMenu(lastMenu, string.format(Config.Languages[lang]['searchmenudesc'], #results, input), "", true, Menuthing, Menuthing)
+            table.sort(results, function(a, b) return a.name < b.name end)
             for k, v in pairs(results) do
                 local item = NativeUI.CreateItem(v.data[3], v.name)
                 searchMenu:AddItem(item)
