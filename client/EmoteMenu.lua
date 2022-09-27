@@ -267,6 +267,11 @@ function EmoteMenuSearch(lastMenu)
         
         if #results > 0 then
             local searchMenu = _menuPool:AddSubMenu(lastMenu, string.format(Config.Languages[lang]['searchmenudesc'], #results, input), "", true, Menuthing, Menuthing)
+            local sharedDanceMenu
+            if Config.SharedEmotesEnabled then
+                sharedDanceMenu = _menuPool:AddSubMenu(searchMenu, Config.Languages[lang]['sharedanceemotes'], "", true, Menuthing, Menuthing)
+            end
+
             table.sort(results, function(a, b) return a.name < b.name end)
             for k, v in pairs(results) do
                 local desc = ""
@@ -283,9 +288,15 @@ function EmoteMenuSearch(lastMenu)
 
                 local item = NativeUI.CreateItem(v.data[3], desc)
                 searchMenu:AddItem(item)
+                if v.table == "Dances" and Config.SharedEmotesEnabled then
+                    local item2 = NativeUI.CreateItem(v.data[3], "")
+                    sharedDanceMenu:AddItem(item2)
+                end
             end
             
             searchMenu.OnItemSelect = function(sender, item, index)
+                if index == 1 then return end
+
                 local data = results[index]
                 if data.table == "Emotes" or data.table == "Dances" then
                     EmoteMenuStart(data.name, string.lower(data.table))
@@ -304,6 +315,20 @@ function EmoteMenuSearch(lastMenu)
                     end   
                 else
                     SimpleNotify("Emote type not implemented yet.")
+                end
+            end
+
+            if Config.SharedEmotesEnabled then
+                sharedDanceMenu.OnItemSelect = function(sender, item, index)
+                    local data = results[index]
+                    target, distance = GetClosestPlayer()
+                    if (distance ~= -1 and distance < 3) then
+                        _, _, rename = table.unpack(DP.Dances[data.name])
+                        TriggerServerEvent("ServerEmoteRequest", GetPlayerServerId(target), data.name, 'Dances')
+                        SimpleNotify(Config.Languages[lang]['sentrequestto'] .. GetPlayerName(target))
+                    else
+                        SimpleNotify(Config.Languages[lang]['nobodyclose'])
+                    end
                 end
             end
             
