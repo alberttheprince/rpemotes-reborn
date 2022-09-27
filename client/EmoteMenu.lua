@@ -280,6 +280,15 @@ function EmoteMenuSearch(lastMenu)
                     EmoteMenuStart(data.name, "props")
                 elseif data.table == "AnimalEmotes" then
                     EmoteMenuStart(data.name, "animals")
+                elseif data.table == "Shared" then
+                    target, distance = GetClosestPlayer()
+                    if (distance ~= -1 and distance < 3) then
+                        _, _, rename = table.unpack(DP.Shared[data.name])
+                        TriggerServerEvent("ServerEmoteRequest", GetPlayerServerId(target), data.name)
+                        SimpleNotify(Config.Languages[lang]['sentrequestto'] .. GetPlayerName(target))
+                    else
+                        SimpleNotify(Config.Languages[lang]['nobodyclose'])
+                    end   
                 else
                     SimpleNotify("Emote type not implemented yet.")
                 end
