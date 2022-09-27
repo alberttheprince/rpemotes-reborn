@@ -1,10 +1,20 @@
 # DpEmotes 🏋️
 
-💬 Join our official Discord!
-
-<a href="https://discord.gg/sw3NwDq6C8" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="sw3NwDq6C8" height="120" width="120" /></a>
-
 Emotes / Animations for FiveM with human, animal and prop support 🐩
+
+<img src="https://forum.cfx.re/uploads/default/original/4X/7/1/b/71b1b02319fd6b8d20f64d6a8a90f4f1ccaf5dfa.png" width="700">
+
+
+
+
+
+
+
+💬 **Join our official Discord!**
+
+<a href="https://discord.gg/sw3NwDq6C8" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="sw3NwDq6C8" height="120" width="180" /></a>
+
+
 
 # Available in:
 
