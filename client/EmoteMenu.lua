@@ -295,7 +295,7 @@ function EmoteMenuSearch(lastMenu)
             end
             
             searchMenu.OnItemSelect = function(sender, item, index)
-                if index == 1 then return end
+                if #sharedDanceMenu.Items > 0 and index == 1 then return end
 
                 local data = results[index]
                 if data.table == "Emotes" or data.table == "Dances" then
@@ -319,16 +319,21 @@ function EmoteMenuSearch(lastMenu)
             end
 
             if Config.SharedEmotesEnabled then
-                sharedDanceMenu.OnItemSelect = function(sender, item, index)
-                    local data = results[index]
-                    target, distance = GetClosestPlayer()
-                    if (distance ~= -1 and distance < 3) then
-                        _, _, rename = table.unpack(DP.Dances[data.name])
-                        TriggerServerEvent("ServerEmoteRequest", GetPlayerServerId(target), data.name, 'Dances')
-                        SimpleNotify(Config.Languages[lang]['sentrequestto'] .. GetPlayerName(target))
-                    else
-                        SimpleNotify(Config.Languages[lang]['nobodyclose'])
+                if #sharedDanceMenu.Items > 0 then
+                    sharedDanceMenu.OnItemSelect = function(sender, item, index)
+                        local data = results[index]
+                        target, distance = GetClosestPlayer()
+                        if (distance ~= -1 and distance < 3) then
+                            _, _, rename = table.unpack(DP.Dances[data.name])
+                            TriggerServerEvent("ServerEmoteRequest", GetPlayerServerId(target), data.name, 'Dances')
+                            SimpleNotify(Config.Languages[lang]['sentrequestto'] .. GetPlayerName(target))
+                        else
+                            SimpleNotify(Config.Languages[lang]['nobodyclose'])
+                        end
                     end
+                else
+                    sharedDanceMenu:Clear()
+                    searchMenu:RemoveItemAt(1)
                 end
             end
             
