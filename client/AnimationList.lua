@@ -2316,12 +2316,12 @@ DP.AnimalEmotes = {
             EmoteLoop = true
         }
     },
-    ["bdogpee"] = { --- NEED TO ADD PTFX LOL
+    ["bdogpee"] = {
         "creatures@rottweiler@move",
         "pee_left_idle",
         "Pee (big dog)",
         AnimationOptions = {
-            EmoteLoop = false,
+            EmoteLoop = true,
             PtfxAsset = "scr_amb_chop",
             PtfxName = "ent_anim_dog_peeing",
             PtfxNoProp = true,
@@ -2344,7 +2344,7 @@ DP.AnimalEmotes = {
         "pee_right_idle",
         "Pee 2 (big dog)",
         AnimationOptions = {
-            EmoteLoop = false,
+            EmoteLoop = true,
             PtfxAsset = "scr_amb_chop",
             PtfxName = "ent_anim_dog_peeing",
             PtfxNoProp = true,
@@ -3936,6 +3936,29 @@ DP.AnimalEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = false,
+        }
+    },
+    ["sdogpee"] = {
+        "creatures@pug@move",
+        "nill",
+        "Pee (Small Dog)",
+        AnimationOptions = {
+            EmoteLoop = true,
+            PtfxAsset = "scr_amb_chop",
+            PtfxName = "ent_anim_dog_peeing",
+            PtfxNoProp = true,
+            PtfxPlacement = {
+                -0.01,
+                -0.17,
+                0.09,
+                0.0,
+                90.0,
+                140.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
+            PtfxWait = 3000,
+            PtfxCanHold = true,
         }
     },
 }
