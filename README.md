@@ -1,5 +1,9 @@
 # DpEmotes 🏋️
 
+💬 Join our official Discord!
+
+<a href="https://discord.gg/sw3NwDq6C8" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="sw3NwDq6C8" height="120" width="120" /></a>
+
 Emotes / Animations for FiveM with human, animal and prop support 🐩
 
 # Available in:
@@ -186,6 +190,21 @@ Using the website provided above, enter the bone ID, ie `1356` and not `111`, wh
 Particle effects can be found using the [DurtyFree GTA V Dump](https://github.com/DurtyFree/gta-v-data-dumps/blob/master/particleEffectsCompact.json). You will need to add the particle assest, name, and placement. Placement is done via XYZ, Pitch, Roll, Yaw, and scale.
 
 Big thanks to DurtyFree for his amazing work.
+
+
+```lua
+PtfxPlacement = {
+    -0.15, -- X
+    -0.35, -- Y
+    0.0, -- Z
+    0.0, -- ROTATION X
+    90.0, -- ROTATION Y
+    180.0, -- ROTATION Z
+    1.0 -- SCALE
+},
+```
+
+
 
 
 
