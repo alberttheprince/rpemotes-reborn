@@ -295,7 +295,7 @@ function EmoteMenuSearch(lastMenu)
             end
             
             searchMenu.OnItemSelect = function(sender, item, index)
-                if #sharedDanceMenu.Items > 0 and index == 1 then return end
+                if Config.SharedEmotesEnabled == true and index == 1 and #sharedDanceMenu.Items > 0 then return end
 
                 local data = results[index]
                 if data.table == "Emotes" or data.table == "Dances" then
