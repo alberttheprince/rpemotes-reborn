@@ -269,7 +269,19 @@ function EmoteMenuSearch(lastMenu)
             local searchMenu = _menuPool:AddSubMenu(lastMenu, string.format(Config.Languages[lang]['searchmenudesc'], #results, input), "", true, Menuthing, Menuthing)
             table.sort(results, function(a, b) return a.name < b.name end)
             for k, v in pairs(results) do
-                local item = NativeUI.CreateItem(v.data[3], v.name)
+                local desc = ""
+                if v.table == "Shared" then
+                    local otheremotename = v.data[4]
+                    if otheremotename == nil then
+                       desc = "/nearby (~g~" .. v.name .. "~w~)"
+                    else
+                       desc = "/nearby (~g~" .. v.name .. "~w~) " .. Config.Languages[lang]['makenearby'] .. " (~y~" .. otheremotename .. "~w~)"
+                    end
+                else
+                    desc = "/e (" .. v.name .. ")"
+                end
+
+                local item = NativeUI.CreateItem(v.data[3], desc)
                 searchMenu:AddItem(item)
             end
             
