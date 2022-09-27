@@ -110,9 +110,9 @@ Config.Languages = {
         ['notvalidkey'] = "is not a valid key.",
         ['keybinds'] = "🔢 Keybinds",
         ['keybindsinfo'] = "Use",
-        ['searchemotes'] = "🔍 Search for emotes",
+        ['searchemotes'] = "🔍 Search for Emotes",
         ['searchinputtitle'] = "Search:",
-        ['searchmenudesc'] = "%s results for '~r~%s~w~':",
+        ['searchmenudesc'] = "%s result(s) for '~r~%s~w~':",
         ['searchnoresult'] = "No results for search '~r~%s~w~'."
     },
     ['cs'] = { -- Czech 🇨🇿
