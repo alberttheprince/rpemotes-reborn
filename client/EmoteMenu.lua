@@ -71,9 +71,11 @@ lang = Config.MenuLanguage
 
 function AddEmoteMenu(menu)
     local submenu = _menuPool:AddSubMenu(menu, Config.Languages[lang]['emotes'], "", "", Menuthing, Menuthing)
+    submenu:AddItem(NativeUI.CreateItem(Config.Languages[lang]['searchemotes'], ""))
     local dancemenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['danceemotes'], "", "", Menuthing, Menuthing)
     local animalmenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['animalemotes'], "", "", Menuthing, Menuthing)
     local propmenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['propemotes'], "", "", Menuthing, Menuthing)
+    table.insert(EmoteTable, Config.Languages[lang]['searchemotes'])
     table.insert(EmoteTable, Config.Languages[lang]['danceemotes'])
     table.insert(EmoteTable, Config.Languages[lang]['danceemotes'])
     table.insert(EmoteTable, Config.Languages[lang]['animalemotes'])
@@ -228,8 +230,73 @@ function AddEmoteMenu(menu)
     end
 
     submenu.OnItemSelect = function(sender, item, index)
-        if EmoteTable[index] ~= Config.Languages[lang]['favoriteemotes'] then
+        if EmoteTable[index] == Config.Languages[lang]['searchemotes'] then
+            EmoteMenuSearch(submenu)
+        elseif EmoteTable[index] ~= Config.Languages[lang]['favoriteemotes'] then
             EmoteMenuStart(EmoteTable[index], "emotes")
+        end
+    end
+end
+
+local ignoredCategories = {
+    ["Walks"] = true,
+    ["Expression"] = true,
+    ["Shared"] = not Config.SharedEmotesEnabled
+}
+
+function EmoteMenuSearch(lastMenu)
+    AddTextEntry("PM_NAME_CHALL", Config.Languages[lang]['searchinputtitle'])
+    DisplayOnscreenKeyboard(1, "PM_NAME_CHALL", "", "", "", "", "", 30)
+    while UpdateOnscreenKeyboard() == 0 do
+        DisableAllControlActions(0)
+        Wait(100)
+    end
+    local input = GetOnscreenKeyboardResult()
+    if input ~= nil then
+        local results = {}
+        for k, v in pairs(DP) do
+            if ignoredCategories[k] then goto continue end
+
+            for a, b in pairsByKeys(v) do
+                if string.find(string.lower(a), string.lower(input)) or (b[3] ~= nil and string.find(string.lower(b[3]), string.lower(input))) then
+                    table.insert(results, {table = k, name = a, data = b})
+                end
+            end
+            ::continue::
+        end
+        
+        if #results > 0 then
+            local searchMenu = _menuPool:AddSubMenu(lastMenu, string.format(Config.Languages[lang]['searchmenudesc'], #results, input), "", true, Menuthing, Menuthing)
+            for k, v in pairs(results) do
+                local item = NativeUI.CreateItem(v.data[3], v.name)
+                searchMenu:AddItem(item)
+            end
+            
+            searchMenu.OnItemSelect = function(sender, item, index)
+                local data = results[index]
+                if data.table == "Emotes" or data.table == "Dances" then
+                    EmoteMenuStart(data.name, string.lower(data.table))
+                elseif data.table == "PropEmotes" then
+                    EmoteMenuStart(data.name, "props")
+                elseif data.table == "AnimalEmotes" then
+                    EmoteMenuStart(data.name, "animals")
+                else
+                    SimpleNotify("Emote type not implemented yet.")
+                end
+            end
+            
+            searchMenu.OnMenuClosed = function()
+                searchMenu:Clear()
+                lastMenu:RemoveItemAt(#lastMenu.Items)
+                _menuPool:RefreshIndex()
+                results = {}
+            end
+            
+            _menuPool:RefreshIndex()
+            _menuPool:CloseAllMenus()
+            searchMenu:Visible(true)
+        else
+            SimpleNotify(string.format(Config.Languages[lang]['searchnoresult'], input))
         end
     end
 end

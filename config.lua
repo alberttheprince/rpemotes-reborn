@@ -109,7 +109,11 @@ Config.Languages = {
         ['currentlyboundemotes'] = " Currently bound emotes:",
         ['notvalidkey'] = "is not a valid key.",
         ['keybinds'] = "🔢 Keybinds",
-        ['keybindsinfo'] = "Use"
+        ['keybindsinfo'] = "Use",
+        ['searchemotes'] = "🔍 Search for emotes",
+        ['searchinputtitle'] = "Search:",
+        ['searchmenudesc'] = "%s results for '~r~%s~w~':",
+        ['searchnoresult'] = "No results for search '~r~%s~w~'."
     },
     ['cs'] = { -- Czech 🇨🇿
         ['emotes'] = 'Animace 🎬',
