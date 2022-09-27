@@ -313,8 +313,6 @@ function EmoteMenuSearch(lastMenu)
                     else
                         SimpleNotify(Config.Languages[lang]['nobodyclose'])
                     end   
-                else
-                    SimpleNotify("Emote type not implemented yet.")
                 end
             end
 
