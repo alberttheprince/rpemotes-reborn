@@ -99,7 +99,7 @@ Much like the menu key, `RagdollKeybind` is also using RegisterKeyMapping. It is
 
 * New setting: `RagdollAsToggle`, this will make either the ragdoll be a toggle or a hold key
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Adult Emotes 🔞
 
@@ -204,6 +204,23 @@ PtfxPlacement = {
 },
 ```
 
+<img src="screenshots/pfxcoords.png" width="350">
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Adding Your Own Animations ⚙️
+
+Because the menu gets updated frequently, the files get overwritten. To avoid this, you can add your own / downloaded animation files `(.ycd)` inside of a newly created folder, give it a name, and place it in the `dpemotes\stream\[Custom Emotes]` folder.
+
+Add your animation code to the `AnimationListCustom.lua` and make a backup of this file, call it `BackUpAnimationListCustom.lua`.
+
+Whenever an update is released, rename `BackUpAnimationListCustom.lua` to `AnimationListCustom.lua`, click yes to overwrite, and you're good to go. 
+
+Below is an example:
+
+<img src="screenshots/customanims.png" width="550">
+
 
 
 
@@ -215,17 +232,6 @@ PtfxPlacement = {
 * Fixed an issue with the clipboard and added textures to paper (/e clipboard)
 
 * Changed umbrella texture to black (/e umbrella)
-
-# Optional Add-Ons 🛠️
-
-* Adds textures to the mugshot prop (/e mugshot)
-
-* Retextured protest sign (can be changed using Texture Toolkit: https://www.gta5-mods.com/tools/texture-toolkit)
-
-**Grab it here:** 
-
-[Add-Ons For DpEmotes](https://github.com/TayMcKenzieNZ/addonsfordpemotes)
-
 
 --------------------------------------------------------
 
@@ -241,11 +247,13 @@ PtfxPlacement = {
 
 **Q: Why do some emotes not work with females?**
 
-**A:** Unfortunately, a lot of these 'emotes' are Male Only scenarios; Blame Rockstar Games. I've done my best to replicate animations to work with females, however some male scenarios have sound effects and particles. 
+**A:** Unfortunately, a lot of these 'emotes' are Male Only scenarios; Blame Rockstar Games. I've done my best to replicate animations to work with females, however some male scenarios have sound effects and particles.
 
 We were able to sync particle effects via using state bags, however I have no idea how to request audio and won't be looking into this any time soon.
 
+
 ----------------------
+
 
 **Q: Why do some emotes not work at all?**
 
@@ -253,30 +261,34 @@ We were able to sync particle effects via using state bags, however I have no id
 
 ----------------------
 
+
 **Q: Why do I see particle effects but other players don't?**
 
-**A:** Originally, DullPear was unable to figure out how to sync these, however as of August 2022, AvaN0x was able to pull this off using state bags. Some bugs may still occur, if you come across any, please let us know 🙂.
+**A:** Originally, DullPear was unable to figure out how to sync these, however as of August 2022, AvaN0x was able to pull this off using state bags. Some bugs may still occur, if you come across any, 
+please let us know 🙂.
 
 ----------------------
+
 
 **Q: I bought this script off someone and noticed it had a lot of the same animations. Can you help me?**
 
-**A:** Unfortunately you got scammed and that's your fault. Dpemotes is and always will be **FREE**.
+**A:** Unfortunately you got scammed and that's your fault. I am well aware of other websites uploading “600+ custom animation packs” however they are not custom, and a lot of it is stolen content from my menu. Dpemotes is and always will be FREE.
 
 ----------------------
+
 
 **Q: Can I add my own emotes to this?**
 
 **A:** Of course! We've added a AnimationListCustom.lua for you to add any Rockstar Games or your own emotes into.
 
-Please see my in depth [tutorial](https://forum.cfx.re/t/how-to-menyoo-to-dpemotes-conversion/4775018) for using Menyoo, adding props to bones, getting Shared Emotes coordinates and converting them to work with DpEmotes.
+Please see my in depth tutorial for using Menyoo, adding props to bones, getting Shared Emotes coordinates and converting them to work with DpEmotes.
 
-You may sell ***custom made*** animations, however the menu must remain free. You are not allowed to include it as an 'addon bonus'.
+You may sell custom made animations, however the menu must remain free. You are not allowed to include it as an 'addon bonus'.
 
-This file does NOT need to be overwritten each update.
 ----------------------
 
-**Q: I bought a pack of custom animations, how can I add them to your fork of DpEmotes?**
+
+*Q: I bought a pack of custom animations, how can I add them to your fork of DpEmotes?*
 
 **A:** Usually the person who created them will provide code snippets for adding animations to DpEmotes, however unfortunately not everyone is this generous. If for whatever reason they haven't, you should contact them.
 
@@ -284,27 +296,101 @@ We have however added code to hopefully make it a lot easier to add shared emote
 
 ----------------------
 
+
 **Q: How do I reset the SQL keybinds?**
 
 **A:** Not often you'll hear a dev say "No idea" but I'm not here to BS you,; this feature was originally added by DullPear and personally I don't use it.
 
 Apparently only the server owner can 🤷🏻‍♂️ Google exist.
 
--------------------------------
+----------------------
 
 **Q: How do Shared Emotes work?**
 
-**A:** Please see the Shared Emotes section of this ReadMe for more information.
+**A:** Please see the Shared Emotes section of the GitHub ReadMe for more information.
 
-------------------------------
+----------------------
 
-**Q: Can you make it so that Shared Emotes are automatic rather than sending the other person a request?**
+**Q: When I enter and exit a vehicle, my walkstyle isn't saved?**
 
-**A:** Can I? Yes. Will I? No.
+**A:** It should be, but of course, you'll have to set it every time you join the server as nothing currently saves it. Scripts that manipulate the character's body such as aim styles or crouching scripts, conflict with DpEmotes.
 
- I do not condone running around forcing other players (who are minding their own business) to unwillingly engage in animations, especially adult animations. 
+----------------------
 
-Everything should be done with **consent**. If the other player wants to engage in that storyline of RP, then so be it, otherwise, they have every right to decline.
+**Q: How can I change the text that appears on the menu when you open it? I want to put my server name there.**
+
+**A: In the config.lua file, you will fine `MenuTitle = "DpEmotes V2"`. Change this to your desired text.**
+
+----------------------
+
+**Q: Hey my eating / drinking animations dissapeared when I installed your dpemotes. What can I do? Help!**
+
+**A:** In `config.lua` there's an option that currently says Framework = 'none'. Change it to Framework = "qb-core" or leave it alone.
+
+----------------------
+
+**Q: Do you plan to add more Adult Emotes? Are you taking any suggestions?**
+
+**A:** I'm not an animator nor do I know anything about 3DS Max or Blender; although to answer your question, no. I don't plan to add any more adult emotes to the menu. 
+
+You can reach out to the many creators and try and get some commissioned but not everyone is into ERP - once you have your custom animations, you can add them to the stream folder and add their code to the AnimationListCustom.lua:
+
+----------------------
+
+**Q:** Can you make it so that Shared Emotes are automatic rather than sending the other person a request?
+
+A: Can I? Yes. Will I? No.
+
+I do not condone running around forcing other players (who are minding their own business) to unwillingly engage in animations, especially adult animations. 
+ 
+Everything should be done with consent, even kidnapping. If the other player wants to engage in that storyline, then so be it, otherwise, they have every right to decline.
+ 
+ ----------------------
+ 
+**Q: How do I add my own custom props to the menu? They don't work?**
+
+**A:** You have to use codewalker and create a new ytyp and add the files to that, then in DpEmotes fxmanifest.lua, you need to add a line of code, as well as adding the animation and prop information into AnimationListCustom.luA: This video will help.
+
+
+[![Video Preview](https://img.youtube.com/vi/qY6BriSsAq8/0.jpg)](https://youtu.be/qY6BriSsAq8)
+
+ ----------------------
+ 
+**Q: When I do Lollipop Suck, Cigar, or Smoke emotes, the player reaches their back pocket for the prop and then the menu closes?**
+
+**A:** Yes, but only for a short period. If for any reason it does not open back up, there is something going on with your copy of dpemotes, as I have tested it in a standalone server with no QB-Core framework or SQL, and it is working as intended.
+
+ ----------------------
+
+**Q: If I sent you some code or animations, can you add them to your menu?**
+
+**A:** If you can confirm that they are indeed your animations then sure, otherwise no. I am not just going to add random code and animation files into the menu. There are far too many leaks and I'm not going to jepodise my reputation.
+
+ ----------------------
+ 
+**Q: Can you please please add _____ language?**
+
+**A:** All translations we're provided by the community. If you speak the language, you can translate it yourself and provide let me know. I will then give you Translator role so the community knows who provided that language, and will add it to the public release.
+
+
+ ----------------------
+ 
+**Q: Can you please make this work on AltV / RageMP etc?**
+
+**A:** No. And you may not extract the animations or code for your desired menus and / or platforms either.
+
+ ----------------------
+ 
+**Q: I can only attach two props? Can you please make it more than that?**
+
+**A:** As of right now, I don't have any plans to allow attaching more than two. You can add the code yourself and submit a pull request.
+
+ ----------------------
+
+**Q: you have options to hide the walkstyles and moods menu, but could you please remove or hide the Animal Emotes?**
+
+
+**A:** Unfortunately this would require more coding and I can't really be bothered to be honest lol. You're free to figure it out yourself and make a pull request. Unfortunately, as rude as it may sound, being a FiveM dev is about learning and not expecting others to do everything for you; however with that being said, good luck. Perhaps one day I'll do it, but I don't have any plans to as of right now.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
