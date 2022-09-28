@@ -255,14 +255,13 @@ function EmoteMenuSearch(lastMenu)
     if input ~= nil then
         local results = {}
         for k, v in pairs(DP) do
-            if ignoredCategories[k] then goto continue end
-
-            for a, b in pairs(v) do
-                if string.find(string.lower(a), string.lower(input)) or (b[3] ~= nil and string.find(string.lower(b[3]), string.lower(input))) then
-                    table.insert(results, {table = k, name = a, data = b})
+            if not ignoredCategories[k] then
+                for a, b in pairs(v) do
+                    if string.find(string.lower(a), string.lower(input)) or (b[3] ~= nil and string.find(string.lower(b[3]), string.lower(input))) then
+                        table.insert(results, {table = k, name = a, data = b})
+                    end
                 end
             end
-            ::continue::
         end
         
         if #results > 0 then
