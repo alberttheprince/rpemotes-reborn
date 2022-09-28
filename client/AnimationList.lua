@@ -7818,7 +7818,7 @@ DP.PropEmotes = {
     ["hotdog"] = {
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
-        "Taco",
+        "Hotdog",
         AnimationOptions = {
             Prop = 'prop_cs_hotdog_02',
             PropBone = 60309,
