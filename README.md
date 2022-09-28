@@ -6,14 +6,21 @@ Emotes / Animations for FiveM with human, animal and prop support 🐩
 
 
 
-
-
-
-
-💬 **Join our official Discord!**
+# **Join Our Official Discord 💬:**
 
 <a href="https://discord.gg/sw3NwDq6C8" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="sw3NwDq6C8" height="120" width="180" /></a>
 
+- Report Issues ⚠️
+
+- Report Bugs 🪲
+
+- Contribute Code 🛠️
+
+- Contribute Translations 🌏
+
+- Chat With Me 🗨️
+
+-----------------------------------
 
 
 # Available in:
