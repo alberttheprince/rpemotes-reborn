@@ -295,7 +295,7 @@ function EmoteMenuSearch(lastMenu)
             end
             
             searchMenu.OnItemSelect = function(sender, item, index)
-                if Config.SharedEmotesEnabled == true and index == 1 and #sharedDanceMenu.Items > 0 then return end
+                if EmoteTable[index] == Config.Languages[lang]['sharedanceemotes'] then return end
 
                 local data = results[index]
                 if data.table == "Emotes" or data.table == "Dances" then
@@ -318,6 +318,7 @@ function EmoteMenuSearch(lastMenu)
 
             if Config.SharedEmotesEnabled then
                 if #sharedDanceMenu.Items > 0 then
+                    table.insert(results, 1, Config.Languages[lang]['sharedanceemotes'])
                     sharedDanceMenu.OnItemSelect = function(sender, item, index)
                         local data = results[index]
                         target, distance = GetClosestPlayer()
