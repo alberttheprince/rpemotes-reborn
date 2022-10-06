@@ -1487,10 +1487,10 @@ DP.Dances = {
             EmoteLoop = true,
         }
     },
-    ["dancesilly9"] = {
+    ["dancesilly1"] = {
         "rcmnigel1bnmt_1b",
         "dance_loop_tyler",
-        "Dance Silly 9",
+        "Dance Silly 1",
         AnimationOptions = {
             EmoteLoop = true,
         }
@@ -1746,10 +1746,10 @@ DP.Dances = {
             EmoteMoving = false,
         }
     },
-    ["dj5"] = {
+    ["dj1"] = {
         "anim@amb@nightclub@djs@dixon@",
         "dixn_end_dix",
-        "DJ 5",
+        "DJ 1",
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = false,
@@ -2039,10 +2039,10 @@ DP.Dances = {
             EmoteMoving = false,
         }
     },
-    ["dancepridec"] = {
+    ["dancepridea"] = {
         "anim@amb@nightclub@lazlow@hi_railing@",
         "ambclub_09_mi_hi_bellydancer_laz",
-        "Dance Pride C - Bisexual",
+        "Dance Pride A - Bisexual",
         AnimationOptions = {
             Prop = 'lilprideflag3', -- Bisexual
             PropBone = 18905,
