@@ -113,7 +113,9 @@ Config.Languages = {
         ['searchemotes'] = "🔍 Search for Emotes",
         ['searchinputtitle'] = "Search:",
         ['searchmenudesc'] = "%s result(s) for '~r~%s~w~':",
-        ['searchnoresult'] = "No results for search '~r~%s~w~'."
+        ['searchnoresult'] = "No results for search '~r~%s~w~'.",
+        ['searchshifttofav'] = "Hold L-Shift and press enter to set as favorite.",
+        ['searchcantsetfav'] = "Shared emotes cannot be set as favorites."
     },
     ['cs'] = { -- Czech 🇨🇿
         ['emotes'] = 'Animace 🎬',

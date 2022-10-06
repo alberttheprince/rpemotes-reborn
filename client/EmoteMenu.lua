@@ -282,7 +282,7 @@ function EmoteMenuSearch(lastMenu)
                        desc = "/nearby (~g~" .. v.name .. "~w~) " .. Config.Languages[lang]['makenearby'] .. " (~y~" .. otheremotename .. "~w~)"
                     end
                 else
-                    desc = "/e (" .. v.name .. ")"
+                    desc = "/e (" .. v.name .. ")" .. "\n" .. Config.Languages[lang]['searchshifttofav']
                 end
 
                 local item = NativeUI.CreateItem(v.data[3], desc)
@@ -297,7 +297,14 @@ function EmoteMenuSearch(lastMenu)
                 if EmoteTable[index] == Config.Languages[lang]['sharedanceemotes'] then return end
 
                 local data = results[index]
-                if data.table == "Emotes" or data.table == "Dances" then
+                if IsControlPressed(0, 21) then
+                    if data.table ~= "Shared" then
+                        FavoriteEmote = data.name
+                        ShowNotification("~o~" .. firstToUpper(data.name) .. Config.Languages[lang]['newsetemote'])
+                    else
+                        SimpleNotify(Config.Languages[lang]['searchcantsetfav'])
+                    end
+                elseif data.table == "Emotes" or data.table == "Dances" then
                     EmoteMenuStart(data.name, string.lower(data.table))
                 elseif data.table == "PropEmotes" then
                     EmoteMenuStart(data.name, "props")
