@@ -49,6 +49,8 @@ Config = {
     NotificationsAsChatMessage = false,
     -- Used for few framework dependent things. Accepted values: "qb-core", false
     Framework = false,
+    -- Used to enable or disable the search feature in the menu.
+    Search = true,
 }
 
 Config.KeybindKeys = {
