@@ -37,6 +37,18 @@ function ShowNotification(text)
     end
 end
 
+-- Clear all the animal emotes if disabled.
+if not Config.AnimalEmotesEnabled then
+    DP.AnimalEmotes = {}
+    for k, v in pairs(DP) do
+        for i, j in pairs(v) do
+            if j.AnimalEmote then
+                DP[k][i] = nil
+            end
+        end
+    end
+end
+
 local EmoteTable = {}
 local FavEmoteTable = {}
 local KeyEmoteTable = {}
@@ -73,16 +85,17 @@ function AddEmoteMenu(menu)
     local submenu = _menuPool:AddSubMenu(menu, Config.Languages[lang]['emotes'], "", "", Menuthing, Menuthing)
     if Config.Search then
         submenu:AddItem(NativeUI.CreateItem(Config.Languages[lang]['searchemotes'], ""))
-    end
-    local dancemenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['danceemotes'], "", "", Menuthing, Menuthing)
-    local animalmenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['animalemotes'], "", "", Menuthing, Menuthing)
-    local propmenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['propemotes'], "", "", Menuthing, Menuthing)
-    if Config.Search then
         table.insert(EmoteTable, Config.Languages[lang]['searchemotes'])
     end
+    local dancemenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['danceemotes'], "", "", Menuthing, Menuthing)
+    local animalmenu
+    if Config.AnimalEmotesEnabled then
+        animalmenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['animalemotes'], "", "", Menuthing, Menuthing)
+        table.insert(EmoteTable, Config.Languages[lang]['animalemotes'])
+    end
+    local propmenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['propemotes'], "", "", Menuthing, Menuthing)
     table.insert(EmoteTable, Config.Languages[lang]['danceemotes'])
     table.insert(EmoteTable, Config.Languages[lang]['danceemotes'])
-    table.insert(EmoteTable, Config.Languages[lang]['animalemotes'])
 
     if Config.SharedEmotesEnabled then
         sharemenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['shareemotes'],
@@ -137,13 +150,15 @@ function AddEmoteMenu(menu)
         end
     end
 
-    for a, b in pairsByKeys(DP.AnimalEmotes) do
-        x, y, z = table.unpack(b)
-        animalitem = NativeUI.CreateItem(z, "/e (" .. a .. ")")
-        animalmenu:AddItem(animalitem)
-        table.insert(AnimalTable, a)
-        if not Config.SqlKeybinding then
-            favEmotes[a] = z
+    if Config.AnimalEmotesEnabled then
+        for a, b in pairsByKeys(DP.AnimalEmotes) do
+            x, y, z = table.unpack(b)
+            animalitem = NativeUI.CreateItem(z, "/e (" .. a .. ")")
+            animalmenu:AddItem(animalitem)
+            table.insert(AnimalTable, a)
+            if not Config.SqlKeybinding then
+                favEmotes[a] = z
+            end
         end
     end
 
@@ -199,8 +214,10 @@ function AddEmoteMenu(menu)
         EmoteMenuStart(DanceTable[index], "dances")
     end
 
-    animalmenu.OnItemSelect = function(sender, item, index)
-        EmoteMenuStart(AnimalTable[index], "animals")
+    if Config.AnimalEmotesEnabled then
+        animalmenu.OnItemSelect = function(sender, item, index)
+            EmoteMenuStart(AnimalTable[index], "animals")
+        end
     end
 
     if Config.SharedEmotesEnabled then

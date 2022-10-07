@@ -51,6 +51,8 @@ Config = {
     Framework = false,
     -- Used to enable or disable the search feature in the menu.
     Search = true,
+    -- You can disable the Animal Emotes here.
+    AnimalEmotesEnabled = true,
 }
 
 Config.KeybindKeys = {
