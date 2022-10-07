@@ -694,7 +694,8 @@ DP.Shared = {
         AnimationOptions = {
             EmoteMoving = true,
             EmoteLoop = true,
-        }
+        },
+        AnimalEmote = true,
     },
     ["csdog2"] = { -- Emote by MissSnowie
         "misssnowie@little_doggy_lying_down",
@@ -711,7 +712,8 @@ DP.Shared = {
             xRot = 0.0,
             yRot = 0.0,
             zRot = 80.0,
-        }
+        },
+        AnimalEmote = true,
     },
     ["csdog3"] = { -- Custom Emote by MissSnowie
         "hooman@hugging_little_doggy",
@@ -721,7 +723,8 @@ DP.Shared = {
         AnimationOptions = {
             EmoteMoving = true,
             EmoteLoop = true,
-        }
+        },
+        AnimalEmote = true,
     },
     ["csdog4"] = { -- Custom Emote by MissSnowie
         "little_doggy@hugging_hooman",
@@ -739,7 +742,8 @@ DP.Shared = {
             xRot = 3.70,
             yRot = 75.00,
             zRot = -161.90,
-        }
+        },
+        AnimalEmote = true,
     },
     ["cbdog"] = {
         "anim@heists@box_carry@",
@@ -749,7 +753,8 @@ DP.Shared = {
         AnimationOptions = {
             EmoteMoving = true,
             EmoteLoop = true,
-        }
+        },
+        AnimalEmote = true,
     },
     ["cbdog2"] = {
         "creatures@rottweiler@amb@sleep_in_kennel@",
@@ -766,7 +771,8 @@ DP.Shared = {
             xRot = 0.0,
             yRot = 0.0,
             zRot = -100.00,
-        }
+        },
+        AnimalEmote = true,
     },
     ["pback"] = {
         "anim@arena@celeb@flat@paired@no_props@",
