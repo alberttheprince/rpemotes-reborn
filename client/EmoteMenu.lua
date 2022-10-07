@@ -245,6 +245,7 @@ local ignoredCategories = {
 }
 
 function EmoteMenuSearch(lastMenu)
+    local favEnabled = not Config.SqlKeybinding and Config.FavKeybindEnabled
     AddTextEntry("PM_NAME_CHALL", Config.Languages[lang]['searchinputtitle'])
     DisplayOnscreenKeyboard(1, "PM_NAME_CHALL", "", "", "", "", "", 30)
     while UpdateOnscreenKeyboard() == 0 do
@@ -267,6 +268,11 @@ function EmoteMenuSearch(lastMenu)
         if #results > 0 then
             local searchMenu = _menuPool:AddSubMenu(lastMenu, string.format(Config.Languages[lang]['searchmenudesc'], #results, input), "", true, Menuthing, Menuthing)
             local sharedDanceMenu
+            if favEnabled then
+                local rFavorite = NativeUI.CreateItem(Config.Languages[lang]['rfavorite'], Config.Languages[lang]['rfavorite'])
+                searchMenu:AddItem(rFavorite)
+            end
+
             if Config.SharedEmotesEnabled then
                 sharedDanceMenu = _menuPool:AddSubMenu(searchMenu, Config.Languages[lang]['sharedanceemotes'], "", true, Menuthing, Menuthing)
             end
@@ -282,7 +288,7 @@ function EmoteMenuSearch(lastMenu)
                        desc = "/nearby (~g~" .. v.name .. "~w~) " .. Config.Languages[lang]['makenearby'] .. " (~y~" .. otheremotename .. "~w~)"
                     end
                 else
-                    desc = "/e (" .. v.name .. ")" .. ((not Config.SqlKeybinding and Config.FavKeybindEnabled) and "\n" .. Config.Languages[lang]['searchshifttofav'] or "")
+                    desc = "/e (" .. v.name .. ")" .. (favEnabled and "\n" .. Config.Languages[lang]['searchshifttofav'] or "")
                 end
 
                 local item = NativeUI.CreateItem(v.data[3], desc)
@@ -292,12 +298,22 @@ function EmoteMenuSearch(lastMenu)
                     sharedDanceMenu:AddItem(item2)
                 end
             end
-            
-            searchMenu.OnItemSelect = function(sender, item, index)
-                if EmoteTable[index] == Config.Languages[lang]['sharedanceemotes'] then return end
 
+            if favEnabled then
+                table.insert(results, 1, Config.Languages[lang]['rfavorite'])
+            end
+
+            searchMenu.OnItemSelect = function(sender, item, index)
                 local data = results[index]
-                if (not Config.SqlKeybinding and Config.FavKeybindEnabled) and IsControlPressed(0, 21) then
+
+                if data == Config.Languages[lang]['sharedanceemotes'] then return end
+                if data == Config.Languages[lang]['rfavorite'] then 
+                    FavoriteEmote = ""
+                    ShowNotification(Config.Languages[lang]['rfavorite'], 2000)
+                    return 
+                end
+
+                if favEnabled and IsControlPressed(0, 21) then
                     if data.table ~= "Shared" then
                         FavoriteEmote = data.name
                         ShowNotification("~o~" .. firstToUpper(data.name) .. Config.Languages[lang]['newsetemote'])
@@ -324,7 +340,7 @@ function EmoteMenuSearch(lastMenu)
 
             if Config.SharedEmotesEnabled then
                 if #sharedDanceMenu.Items > 0 then
-                    table.insert(results, 1, Config.Languages[lang]['sharedanceemotes'])
+                    table.insert(results, (favEnabled and 2 or 1), Config.Languages[lang]['sharedanceemotes'])
                     sharedDanceMenu.OnItemSelect = function(sender, item, index)
                         local data = results[index]
                         target, distance = GetClosestPlayer()
@@ -338,7 +354,7 @@ function EmoteMenuSearch(lastMenu)
                     end
                 else
                     sharedDanceMenu:Clear()
-                    searchMenu:RemoveItemAt(1)
+                    searchMenu:RemoveItemAt((favEnabled and 2 or 1))
                 end
             end
             
