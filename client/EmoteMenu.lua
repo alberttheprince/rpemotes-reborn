@@ -475,6 +475,8 @@ function AddInfoMenu(menu)
         "<font color=\"#37DA00\">BzZzi</font> for the custom food props 🍩."))
     infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#C40A7D\">Natty3d</font>",
         "<font color=\"#C40A7D\">Natty3d</font> for the custom lollipop props 🍭."))
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#189FD0\">northsqrd</font>",
+        "<font color=\"#189FD0\">northsqrd</font> for the search feature 🔎."))
 
     infomenu:AddItem(NativeUI.CreateItem("Thanks to the community", "Translations, bug reports and moral support 🌐"))
 end
