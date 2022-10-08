@@ -620,10 +620,7 @@ Config.Languages = {
         ['searchmenudesc'] = "%s resultat(er) for '~r~%s~w~':",
         ['searchnoresult'] = "Ingen resultater fundet med '~r~%s~w~'.",
         ['searchshifttofav'] = "Hold L-Shift og tryk enter for at sætte som favorit.",
-        ['searchcantsetfav'] = "Delte animationer kan ikke være favoritter." 
-
-    },
-
+        ['searchcantsetfav'] = "Delte animationer kan ikke være favoritter."
     },
     ['fi'] = { -- Finnish 🇫🇮
         ['emotes'] = 'Animaatiot 🎬',
