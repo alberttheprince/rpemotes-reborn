@@ -20,7 +20,8 @@ shared_scripts {
 server_scripts {
     'printer.lua',
     'server/Server.lua',
-    'server/Updates.lua'
+    'server/Updates.lua',
+    'server/frameworks/*.lua'
 }
 
 client_scripts {
