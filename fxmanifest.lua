@@ -7,10 +7,13 @@ fx_version 'adamant'
 game 'gta5'
 lua54 'yes'
 
--- Remove the following lines if you don't want to use the SQL keybinds, requires oxymysql
+-- Remove the following lines if you would like to use the SQL keybinds. Requires oxmysql.
+
 --#region oxmysql
+
 -- dependency 'oxmysql'
 -- server_script "@oxmysql/lib/MySQL.lua"
+
 --#endregion oxmysql
 
 shared_scripts {
