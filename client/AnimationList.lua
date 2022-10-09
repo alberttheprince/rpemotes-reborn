@@ -10366,6 +10366,63 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
+    ["pump3"] = {
+        "missfbi4prepp1",
+        "idle",
+        "Pumpkin 3",
+        AnimationOptions = {
+            Prop = "reh_prop_reh_lantern_pk_01a",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0010,
+				0.0660,
+				-0.0120,
+				171.9169,
+				179.8707,
+				-39.9860
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["pump4"] = {
+        "missfbi4prepp1",
+        "idle",
+        "Pumpkin 4",
+        AnimationOptions = {
+            Prop = "reh_prop_reh_lantern_pk_01b",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0010,
+				0.0660,
+				-0.0120,
+				171.9169,
+				179.8707,
+				-39.9860
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["pump5"] = {
+        "missfbi4prepp1",
+        "idle",
+        "Pumpkin 5",
+        AnimationOptions = {
+            Prop = "reh_prop_reh_lantern_pk_01c",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0010,
+				0.0660,
+				-0.0120,
+				171.9169,
+				179.8707,
+				-39.9860
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
     ["mop"] = {
         "missfbi4prepp1",
         "idle",
