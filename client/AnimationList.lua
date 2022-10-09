@@ -11842,6 +11842,25 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
+    ["weedbucket"] = {
+        "anim@heists@box_carry@",
+        "idle",
+        "Weed Bucket",
+        AnimationOptions = {
+            Prop = "bkr_prop_weed_bucket_open_01a",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                -0.1000,
+                -0.1800,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
     ["lawnchair"] = {
         "timetable@ron@ig_5_p3",
         "ig_5_p3_base",
