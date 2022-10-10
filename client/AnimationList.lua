@@ -7241,6 +7241,40 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
+	["vape"] = {
+        "amb@world_human_smoking@male@male_b@base",
+        "base",
+         "Vape",
+        AnimationOptions = {
+            Prop = 'ba_prop_battle_vape_01',
+            PropBone = 28422,
+            PropPlacement = {
+                -0.0290,
+                0.0070,
+                -0.0050,
+                41.9596,
+                40.0102,
+                 -62.7294
+            },
+            EmoteMoving = true,
+            EmoteLoop = true,
+            PtfxAsset = "core",
+            PtfxName = "exp_grd_bzgas_smoke",
+			PtfxNoProp = true,
+            PtfxPlacement = {
+                -0.0100,
+				0.0600,
+				0.6600,
+                0.0,
+                0.0,
+                0.0,
+                2.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxWait = 0,
+            PtfxCanHold = true,
+        }
+    },
     ["bong"] = {
         "anim@safehouse@bong",
         "bong_stage3",
