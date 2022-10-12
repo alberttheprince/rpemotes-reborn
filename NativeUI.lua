@@ -2888,8 +2888,8 @@ function UIMenu:ProcessControl()
 
     if not self.UpPressed then
         if self.Controls.Up.Enabled and (IsDisabledControlJustPressed(0, 172) or IsDisabledControlJustPressed(1, 172) or IsDisabledControlJustPressed(2, 172) or IsDisabledControlJustPressed(0, 241) or IsDisabledControlJustPressed(1, 241) or IsDisabledControlJustPressed(2, 241) or IsDisabledControlJustPressed(2, 241)) then
+            self.UpPressed = true
             Citizen.CreateThread(function()
-                self.UpPressed = true
                 if #self.Items > self.Pagination.Total + 1 then
                     self:GoUpOverflow()
                 else
@@ -2913,8 +2913,8 @@ function UIMenu:ProcessControl()
 
     if not self.DownPressed then
         if self.Controls.Down.Enabled and (IsDisabledControlJustPressed(0, 173) or IsDisabledControlJustPressed(1, 173) or IsDisabledControlJustPressed(2, 173) or IsDisabledControlJustPressed(0, 242) or IsDisabledControlJustPressed(1, 242) or IsDisabledControlJustPressed(2, 242)) then
+            self.DownPressed = true
             Citizen.CreateThread(function()
-                self.DownPressed = true
                 if #self.Items > self.Pagination.Total + 1 then
                     self:GoDownOverflow()
                 else
@@ -2938,8 +2938,8 @@ function UIMenu:ProcessControl()
 
     if not self.LeftPressed then
         if self.Controls.Left.Enabled and (IsDisabledControlPressed(0, 174) or IsDisabledControlPressed(1, 174) or IsDisabledControlPressed(2, 174)) then
+            self.LeftPressed = true
             Citizen.CreateThread(function()
-                self.LeftPressed = true
                 self:GoLeft()
                 Citizen.Wait(175)
                 while self.Controls.Left.Enabled and (IsDisabledControlPressed(0, 174) or IsDisabledControlPressed(1, 174) or IsDisabledControlPressed(2, 174)) do
@@ -2953,8 +2953,8 @@ function UIMenu:ProcessControl()
 
     if not self.RightPressed then
         if self.Controls.Right.Enabled and (IsDisabledControlPressed(0, 175) or IsDisabledControlPressed(1, 175) or IsDisabledControlPressed(2, 175)) then
+            self.RightPressed = true
             Citizen.CreateThread(function()
-                self.RightPressed = true
                 self:GoRight()
                 Citizen.Wait(175)
                 while self.Controls.Right.Enabled and (IsDisabledControlPressed(0, 175) or IsDisabledControlPressed(1, 175) or IsDisabledControlPressed(2, 175)) do
