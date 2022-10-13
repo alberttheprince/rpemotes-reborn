@@ -12899,6 +12899,25 @@ DP.PropEmotes = {
         },
         AdultAnimation = true
     },
+    ["candyapple"] = { -- Custom Prop by hollywoodiownu
+        "anim@heists@humane_labs@finale@keycards", 
+        "ped_a_enter_loop", 
+        "Candy Apple", 
+        AnimationOptions = {
+    Prop = "apple_1",
+    PropBone = 18905,
+    PropPlacement = {
+        0.12, 
+        0.15,
+         0.0, 
+         -100.0, 
+         0.0, 
+         -12.0},
+    EmoteLoop = true,
+    EmoteMoving = true,
+    }
+},
+
 }
 
 -- Remove emotes if needed
