@@ -12,7 +12,7 @@ lua54 'yes'
 --#region oxmysql
 
 -- dependency 'oxmysql'
--- server_script "@oxmysql/lib/MySQL.lua"
+-- server_script '@oxmysql/lib/MySQL.lua'
 
 --#endregion oxmysql
 
@@ -41,14 +41,17 @@ client_scripts {
 }
 
 
-data_file "DLC_ITYP_REQUEST" "badge1.ytyp"
+data_file 'DLC_ITYP_REQUEST' 'badge1.ytyp'
 
-data_file "DLC_ITYP_REQUEST" "copbadge.ytyp"
+data_file 'DLC_ITYP_REQUEST' 'copbadge.ytyp'
 
-data_file "DLC_ITYP_REQUEST" "prideprops_ytyp"
+data_file 'DLC_ITYP_REQUEST' 'prideprops_ytyp'
 
-data_file "DLC_ITYP_REQUEST" "lilflags_ytyp"
+data_file 'DLC_ITYP_REQUEST' 'lilflags_ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'bzzz_foodpack'
 
 data_file 'DLC_ITYP_REQUEST' 'natty_props_lollipops.ytyp'
+
+data_file 'DLC_ITYP_REQUEST' 'apple_1.ytyp'
+
