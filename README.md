@@ -1,6 +1,6 @@
 # DpEmotes 🏋️
 
-Emotes / Animations for FiveM with human, animal and prop support 🐩
+Community driven FiveM emote menu with human, animal and prop support 🐩
 
 <img src="https://forum.cfx.re/uploads/default/original/4X/7/1/b/71b1b02319fd6b8d20f64d6a8a90f4f1ccaf5dfa.png" width="700">
 
@@ -79,6 +79,8 @@ Languages can be selected and/or added in config.lua.
 
 - Hide Adult Emotes 🔞
 
+- Hide Animal Emotes ⛔
+
 - Easy To Understand Configuration File ⚙️
 
 ------------------------------------------------------------
@@ -132,6 +134,7 @@ This will completely conceal the emotes from the lists *(Emotes, Shared Emotes, 
 
 The emotes that are concealed, are the ones flagged in the animation list with `AdultAnimation`. You can see how it is done with `fspose`.
 
+Alternatively, you can also hide animal emotes.
 ------------------------------------------------------------------------------
 
 # QBCore ⚙️
@@ -145,8 +148,6 @@ If you’re using qb-core, you can now set `Framework = "qb-core"` in the config
 ------------------------------------------------------------------------------
 
 # Screenshots 📸
-
-
 
 | | | |
 |-|-|-|
@@ -270,7 +271,7 @@ Below is an example:
 
 # License and disclaimer 📜
 
-All custom animation were added with permission from the creators and does not contain any paid or leaked work.
+All custom animation were added with permission from the creators and does **not** contain any paid or leaked work.
 
 - You are free to fork and improve the menu and it's code
 
@@ -300,13 +301,15 @@ This script is where it is today because of the amazing contributions made by th
 
 - Thank you to [AvaN0x](https://github.com/AvaN0x) for reformatting and assisting with code, additional features and figuring out shared particle effects 
 
-- Thank you to [Smokey](https://www.gta5-mods.com/users/struggleville) for the permission to add free custom animations 
+- Thank you to [Smokey](https://www.gta5-mods.com/users/struggleville) for the permission to add free custom animations
 
 - Thank you to [BzZzi](https://forum.cfx.re/u/bzzzi/summary) for the permission to add free donut and croissant food props
 
 - Thank you to [Natty3d](https://forum.cfx.re/u/natty3d/summary) for the permission to add free lollipop props
 
-- Thank you to [northsqrd](https://github.com/0sqrd) for adding the search function and config for Animal Emotes 
+- Thank you to [northsqrd](https://github.com/0sqrd) for adding the search function, Animal Emotes config and general contributions
+
+- Thank you to [frabi](https://www.gta5-mods.com/users/frabi) for the permission to add free custom animations
 
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
