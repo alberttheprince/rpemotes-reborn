@@ -1,6 +1,6 @@
 # DpEmotes 🏋️
 
-Community driven FiveM emote menu with human, animal and prop support 🐩
+DpEmotes is a Community driven FiveM emote menu with human, animal and prop support, originally created by [DullPear](https://github.com/andristum/dpemotes)
 
 <img src="https://forum.cfx.re/uploads/default/original/4X/7/1/b/71b1b02319fd6b8d20f64d6a8a90f4f1ccaf5dfa.png" width="700">
 
@@ -268,26 +268,19 @@ Below is an example:
 - LSPD reskinned badge by [GTA5Mods user Sladus_Slawonkus](https://www.gta5-mods.com/misc/lspd-police-badge-replace-sladus_slawonkus)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# 📜 LICENSE 
 
-# License and disclaimer 📜
 
-All custom animation were added with permission from the creators and does **not** contain any paid or leaked work.
+This project does not contain a license, therefore you are not allowed to add one and claim it as yours. You are not allowed to sell this nor re-distribute it. You are not allowed to change / add a license unless given permission by TayMcKenzieNZ. If you want to modify ***(does not apply if you want to use it for personal purposes)*** or make an agreement, you can contact TayMcKenzieNZ via Discord. Pull requests are actively reviewed and discussed with TayMcKenzieNZ and contributors and will be accepted as long as they do not contain breaking changes. You can read more about unlicensed repositories [here](https://opensource.stackexchange.com/questions/1720/what-can-i-assume-if-a-publicly-published-project-has-no-license) if questions remain.
 
-- You are free to fork and improve the menu and it's code
-
-- You are free to add your own animations
-
-- You may not reupload the menu and it's content
-
-- You may not sell the menu and it's content
-
-- You may not extract the animations and use them for your own menus. They are exclusive to DpEmotes. 
-
-- You may not remove the credits
-
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------
 
 # Credits 🤝
+
+**All** custom animations were added with permissions from the creators and does **not** contain any paid or leaked work.
+
+All animation creators have ***specifically*** asked that their content remains free and that I do not try to profit from them, claim them as my own or reupload them anywhere else but my GitHub, therefore you may not extract the animations and / or use them for your own menus. 
+
 
 This script is where it is today because of the amazing contributions made by the following people: 
 
