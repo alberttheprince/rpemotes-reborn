@@ -51,6 +51,8 @@ data_file 'DLC_ITYP_REQUEST' 'lilflags_ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'bzzz_foodpack'
 
+data_file 'DLC_ITYP_REQUEST' 'bzzz_prop_torch_fire001.ytyp'
+
 data_file 'DLC_ITYP_REQUEST' 'natty_props_lollipops.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'apple_1.ytyp'

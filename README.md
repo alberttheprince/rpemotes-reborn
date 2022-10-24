@@ -296,7 +296,7 @@ This script is where it is today because of the amazing contributions made by th
 
 - Thank you to [Smokey](https://www.gta5-mods.com/users/struggleville) for the permission to add free custom animations
 
-- Thank you to [BzZzi](https://forum.cfx.re/u/bzzzi/summary) for the permission to add free donut and croissant food props
+- Thank you to [BzZzi](https://forum.cfx.re/u/bzzzi/summary) for the permission to add free donut, croissant and fire torch props
 
 - Thank you to [Natty3d](https://forum.cfx.re/u/natty3d/summary) for the permission to add free lollipop props
 
