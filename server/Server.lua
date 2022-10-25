@@ -169,3 +169,27 @@ if Config.SqlKeybinding and MySQL then
 else
     print("[dp] ^3Sql Keybinding^7 is turned ^1off^7, if you want to enable /emotebind, set ^3SqlKeybinding = ^2true^7 in config.lua and uncomment oxmysql lines in fxmanifest.lua.")
 end
+
+-----------------------------------------------------------------------------------------------------
+-- Persistent Walkstyles  ---------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
+
+if Config.WalkingStylesEnabled and Config.PersistentWalk then
+    RegisterServerEvent("dpemotes:server:SaveWalkstyle")
+    AddEventHandler("dpemotes:server:SaveWalkstyle", function(walkstyle)
+        local playerName = GetPlayerName(source)
+
+        SetResourceKvp(playerName..'_walkstyle', walkstyle)
+    end)
+
+    RegisterNetEvent("dpemotes:server:ApplyWalkstyle")
+    AddEventHandler("dpemotes:server:ApplyWalkstyle", function()
+        local src = source
+        local playerName = GetPlayerName(src)
+        local walkstyle = GetResourceKvpString(playerName..'_walkstyle')
+
+        if walkstyle then
+            TriggerClientEvent('dpemotes:client:ApplyWalkstyle', src, walkstyle)
+        end
+    end)
+end
