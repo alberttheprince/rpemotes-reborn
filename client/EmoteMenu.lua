@@ -180,7 +180,6 @@ function AddEmoteMenu(menu)
     for a, b in pairsByKeys(DP.PropEmotes) do
         x, y, z = table.unpack(b)
     
-
         if b.AnimationOptions.PropTextureVariations then 
             propitem = NativeUI.CreateListItem(z, b.AnimationOptions.PropTextureVariations, 1, "/e (" .. a .. ")")
             propmenu:AddItem(propitem)
