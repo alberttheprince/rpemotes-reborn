@@ -71,9 +71,11 @@ end
 
 Citizen.CreateThread(function()
     TriggerEvent('chat:addSuggestion', '/e', 'Play an emote',
-        { { name = "emotename", help = "dance, camera, sit or any valid emote." } })
+        { { name = "emotename", help = "dance, camera, sit or any valid emote." }, 
+            { name = "texturevariation", help = "(Optional) 1, 2, 3 or any number. Will change the texture of some props used in emotes, for example the color of a phone. Enter -1 to see a list of variations." } })
     TriggerEvent('chat:addSuggestion', '/emote', 'Play an emote',
-        { { name = "emotename", help = "dance, camera, sit or any valid emote." } })
+        { { name = "emotename", help = "dance, camera, sit or any valid emote." },  
+            { name = "texturevariation", help = "(Optional) 1, 2, 3 or any number. Will change the texture of some props used in emotes, for example the color of a phone. Enter -1 to see a list of variations." } })
     if Config.SqlKeybinding then
         TriggerEvent('chat:addSuggestion', '/emotebind', 'Bind an emote',
             { { name = "key", help = "num4, num5, num6, num7. num8, num9. Numpad 4-9!" },
@@ -143,9 +145,9 @@ function EmoteCancel()
     AnimationThreadStatus = false
 end
 
-function EmoteChatMessage(msg)
+function EmoteChatMessage(msg, multiline)
     if msg then
-        TriggerEvent("chat:addMessage", { color = { 255, 255, 255 }, args = { "^5Help^0", tostring(msg) } })
+        TriggerEvent("chat:addMessage", { multiline = multiline == true or false, color = { 255, 255, 255 }, args = { "^5Help^0", tostring(msg) } })
     end
 end
 
@@ -247,7 +249,7 @@ function pairsByKeys(t, f)
     return iter
 end
 
-function EmoteMenuStart(args, hard)
+function EmoteMenuStart(args, hard, textureVariation)
     local name = args
     local etype = hard
 
@@ -261,7 +263,7 @@ function EmoteMenuStart(args, hard)
         end
     elseif etype == "props" then
         if DP.PropEmotes[name] ~= nil then
-            if OnEmotePlay(DP.PropEmotes[name]) then end
+            if OnEmotePlay(DP.PropEmotes[name], textureVariation) then end
         end
     elseif etype == "emotes" then
         if DP.Emotes[name] ~= nil then
@@ -301,6 +303,24 @@ function EmoteCommandStart(source, args, raw)
             if OnEmotePlay(DP.AnimalEmotes[name]) then end
             return
         elseif DP.PropEmotes[name] ~= nil then
+            if DP.PropEmotes[name].AnimationOptions.PropTextureVariations then
+                if #args > 1 then
+                    local textureVariation = tonumber(args[2])
+                    if (DP.PropEmotes[name].AnimationOptions.PropTextureVariations[textureVariation] ~= nil) then
+                        if OnEmotePlay(DP.PropEmotes[name], textureVariation - 1) then end
+                        return
+                    else
+                        local str = ""
+                        for k, v in ipairs(DP.PropEmotes[name].AnimationOptions.PropTextureVariations) do
+                            str = str .. string.format("\n(%s) - %s", k, v.Name)
+                        end
+                        
+                        EmoteChatMessage(string.format(Config.Languages[lang]['invalidvariation'], str), true)
+                        if OnEmotePlay(DP.PropEmotes[name], 0) then end
+                        return
+                    end
+                end
+            end
             if OnEmotePlay(DP.PropEmotes[name]) then end
             return
         else
@@ -337,7 +357,7 @@ function DestroyAllProps()
     DebugPrint("Destroyed Props")
 end
 
-function AddPropToPlayer(prop1, bone, off1, off2, off3, rot1, rot2, rot3)
+function AddPropToPlayer(prop1, bone, off1, off2, off3, rot1, rot2, rot3, textureVariation)
     local Player = PlayerPedId()
     local x, y, z = table.unpack(GetEntityCoords(Player))
 
@@ -346,11 +366,15 @@ function AddPropToPlayer(prop1, bone, off1, off2, off3, rot1, rot2, rot3)
     end
 
     prop = CreateObject(joaat(prop1), x, y, z + 0.2, true, true, true)
+    if textureVariation ~= nil then
+        SetObjectTextureVariation(prop, textureVariation)
+    end
     AttachEntityToEntity(prop, Player, GetPedBoneIndex(Player, bone), off1, off2, off3, rot1, rot2, rot3, true, true,
         false, true, 1, true)
     table.insert(PlayerProps, prop)
     PlayerHasProp = true
     SetModelAsNoLongerNeeded(prop1)
+    return true
 end
 
 -----------------------------------------------------------------------------------------------------
@@ -376,7 +400,7 @@ end
 ------ This is the major function for playing emotes! -----------------------------------------------
 -----------------------------------------------------------------------------------------------------
 
-function OnEmotePlay(EmoteName)
+function OnEmotePlay(EmoteName, textureVariation)
     InVehicle = IsPedInAnyVehicle(PlayerPedId(), true)
     if not Config.AllowedInCars and InVehicle == 1 then
         return
@@ -502,14 +526,6 @@ function OnEmotePlay(EmoteName)
         end
     end
 
-    TaskPlayAnim(PlayerPedId(), ChosenDict, ChosenAnimation, 2.0, 2.0, AnimationDuration, MovementType, 0, false, false,
-        false)
-    RemoveAnimDict(ChosenDict)
-    IsInAnimation = true
-    RunAnimationThread()
-    MostRecentDict = ChosenDict
-    MostRecentAnimation = ChosenAnimation
-
     if EmoteName.AnimationOptions then
         if EmoteName.AnimationOptions.Prop then
             PropName = EmoteName.AnimationOptions.Prop
@@ -525,10 +541,13 @@ function OnEmotePlay(EmoteName)
                 SecondPropEmote = false
             end
             Wait(AttachWait)
-            AddPropToPlayer(PropName, PropBone, PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6)
+            if not AddPropToPlayer(PropName, PropBone, PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6, textureVariation) then return end
             if SecondPropEmote then
-                AddPropToPlayer(SecondPropName, SecondPropBone, SecondPropPl1, SecondPropPl2, SecondPropPl3,
-                    SecondPropPl4, SecondPropPl5, SecondPropPl6)
+                if not AddPropToPlayer(SecondPropName, SecondPropBone, SecondPropPl1, SecondPropPl2, SecondPropPl3,
+                    SecondPropPl4, SecondPropPl5, SecondPropPl6, textureVariation) then 
+                    DestroyAllProps()
+                    return 
+                end
             end
 
             -- Ptfx is on the prop, then we need to sync it
@@ -537,6 +556,14 @@ function OnEmotePlay(EmoteName)
             end
         end
     end
+
+    TaskPlayAnim(PlayerPedId(), ChosenDict, ChosenAnimation, 2.0, 2.0, AnimationDuration, MovementType, 0, false, false,
+        false)
+    RemoveAnimDict(ChosenDict)
+    IsInAnimation = true
+    RunAnimationThread()
+    MostRecentDict = ChosenDict
+    MostRecentAnimation = ChosenAnimation
 
     return true
 end

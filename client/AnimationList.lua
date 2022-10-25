@@ -9269,6 +9269,16 @@ DP.PropEmotes = {
         "Phone Call",
         AnimationOptions = {
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 28422,
             PropPlacement = {
                 0.0,
@@ -9288,6 +9298,16 @@ DP.PropEmotes = {
         "Phone Call 2",
         AnimationOptions = {
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 28422,
             PropPlacement = {
                 0.0,
@@ -10897,6 +10917,16 @@ DP.PropEmotes = {
         "Selfie",
         AnimationOptions = {
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 60309,
             PropPlacement = {
                 0.0,
@@ -10916,6 +10946,16 @@ DP.PropEmotes = {
         "Selfie 2",
         AnimationOptions = {
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 28422,
             PropPlacement = {
                 0.0,
@@ -10935,6 +10975,16 @@ DP.PropEmotes = {
         "Selfie 3 - West Side",
         AnimationOptions = {
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 28422,
             PropPlacement = {
                 0.0,
@@ -10954,6 +11004,16 @@ DP.PropEmotes = {
         "Selfie 4 - Finger",
         AnimationOptions = {
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 28422,
             PropPlacement = {
                 0.0,
@@ -10973,6 +11033,16 @@ DP.PropEmotes = {
         "Selfie 5 - Finger 2",
         AnimationOptions = {
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 28422,
             PropPlacement = {
                 0.0,
@@ -10992,6 +11062,16 @@ DP.PropEmotes = {
         "Selfie 6 - Throat Slit",
         AnimationOptions = {
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 28422,
             PropPlacement = {
                 0.0,
@@ -11011,6 +11091,16 @@ DP.PropEmotes = {
         "Selfie 7 - Chest Bump",
         AnimationOptions = {
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 28422,
             PropPlacement = {
                 0.0,
@@ -11030,6 +11120,16 @@ DP.PropEmotes = {
         "Selfie Peace",
         AnimationOptions = {
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 57005,
             PropPlacement = {
                 0.1700,
@@ -11062,6 +11162,16 @@ DP.PropEmotes = {
         "Selfie Crouching",
         AnimationOptions = {
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 18905,
             PropPlacement = {
                 0.1580,
@@ -11094,6 +11204,16 @@ DP.PropEmotes = {
         "Selfie Crouching 2",
         AnimationOptions = {
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 60309,
             PropPlacement = {
                 0.0670,
@@ -11126,6 +11246,16 @@ DP.PropEmotes = {
         "Selfie Crouching 3",
         AnimationOptions = {
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 60309,
             PropPlacement = {
                 0.0700,
@@ -11158,6 +11288,16 @@ DP.PropEmotes = {
         "Selfie Sitting",
         AnimationOptions = {
             Prop = 'prop_phone_ing',
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 57005,
             PropPlacement = {
                 0.1380,
@@ -11187,6 +11327,16 @@ DP.PropEmotes = {
         "Selfie Middle Finger",
         AnimationOptions = {
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 28422,
             PropPlacement = {
                 0.1200,
@@ -11219,6 +11369,16 @@ DP.PropEmotes = {
         "Selfie Thot Instagram",
         AnimationOptions = {
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 28422,
             PropPlacement = {
                 0.1030,
@@ -11251,6 +11411,16 @@ DP.PropEmotes = {
         "Selfie Floor Instagram",
         AnimationOptions = {
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 60309,
             PropPlacement = {
                 0.0930,
@@ -11776,6 +11946,16 @@ DP.PropEmotes = {
         "SMS",
         AnimationOptions = {
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 28422,
             PropPlacement = {
                 0.0,
@@ -11794,7 +11974,17 @@ DP.PropEmotes = {
         "cellphone_text_read_base",
         "SMS",
         AnimationOptions = {
-            Prop = "prop_phone_ing",
+          Prop = "prop_phone_ing",
+          PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 28422,
             PropPlacement = {
                 0.0,
@@ -11814,6 +12004,16 @@ DP.PropEmotes = {
         "SMS 2",
         AnimationOptions = {
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 28422,
             PropPlacement = {
                 0.00,
@@ -11833,6 +12033,16 @@ DP.PropEmotes = {
         "SMS 3",
         AnimationOptions = {
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 28422,
             PropPlacement = {
                 -0.0190,
@@ -11852,6 +12062,16 @@ DP.PropEmotes = {
         "SMS 4",
         AnimationOptions = {
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 28422,
             PropPlacement = {
                 -0.0190,
@@ -11884,6 +12104,16 @@ DP.PropEmotes = {
         "SMS 6",
         AnimationOptions = {
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 28422,
             PropPlacement = {
                 -0.0200,
@@ -12557,7 +12787,17 @@ DP.PropEmotes = {
                 0.0,
                 0.0
             },
-            SecondProp = 'prop_phone_ing',
+            SecondProp = 'prop_phone_ingeeee',
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             SecondPropBone = 60309,
             SecondPropPlacement = {
                 0.0800,
@@ -12674,6 +12914,16 @@ DP.PropEmotes = {
             EmoteMoving = false,
             EmoteLoop = true,
             Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "Blue", Value = 0},
+                {Name = "Green", Value = 1},
+                {Name = "Dark Red", Value = 2},
+                {Name = "Orange", Value = 3},
+                {Name = "Grey", Value = 4}, 
+                {Name = "Purple", Value = 5}, 
+                {Name = "Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
             PropBone = 28422,
             PropPlacement = {
                 0.0,
@@ -12973,44 +13223,6 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
      },
-    ["ftorch"] = {
-        "anim@heists@humane_labs@finale@keycards",
-        "ped_a_enter_loop",
-        "Fire Torch",
-        AnimationOptions = {
-            Prop = "bzzz_prop_torch_fire001", -- Custom Prop By Bzzzz Used With Permission
-            PropBone = 18905,
-            PropPlacement = {
-                0.14,
-                0.21,
-                -0.08,
-                -110.0,
-               -1.0,
-                -10.0
-            },
-            EmoteLoop = true,
-            EmoteMoving = true,
-        }
-     },
-    ['ftorch2'] = {
-        'rcmnigel1d',
-        'base_club_shoulder',
-        'Fire Torch 2',
-        AnimationOptions = {
-            Prop = "bzzz_prop_torch_fire001", -- Custom Prop By Bzzzz Used With Permission
-            PropBone = 28422,
-            PropPlacement = {
-               -0.0800,
-			   -0.0300,
-			   -0.1700,
-                11.4181,
-				-159.1026,
-				15.0338
-            },
-            EmoteLoop = true,
-            EmoteMoving = true,
-        }
-    },
     ["watchstripper2"] = {
         "amb@world_human_strip_watch_stand@male_c@base",
         "base",
