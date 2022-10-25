@@ -6809,6 +6809,24 @@ DP.Emotes = {
             EmoteLoop = true,
         }
     },
+	 ["gympose3"] = { -- Custom Female Emote By Frabi
+        "frabi@femalepose@solo@firstsport",
+        "fem_pose_sport_004",
+        "Gym Pose 3 - Planking Pose",
+        AnimationOptions = {
+		
+            EmoteLoop = true,
+        }
+    },
+	 ["gympose4"] = { -- Custom Female Emote By Frabi
+        "frabi@femalepose@solo@firstsport",
+        "fem_pose_sport_005",
+        "Gym Pose 4 - Sit Ups Pose",
+        AnimationOptions = {
+		
+            EmoteLoop = true,
+        }
+    },
     ["guard"] = {
         "Scenario",
         "WORLD_HUMAN_GUARD_STAND",
@@ -9528,6 +9546,82 @@ DP.PropEmotes = {
 				-79.9999
             },
             EmoteLoop = true,
+         }
+    },
+	["weights5"] = { -- Custom Female Emote By Frabi
+        "frabi@femalepose@solo@firstsport",
+        "fem_pose_sport_001",
+        "Weights 5 - Female Pose",
+        AnimationOptions = {
+		Prop = 'v_res_tre_weight',
+            PropBone = 28422, -- Right Wrist
+            PropPlacement = {
+                0.0580,
+                -0.0060,
+                0.0300,
+                -11.8498,
+                170.2644,
+				7.8352
+            },
+            SecondProp = 'v_res_tre_weight', 
+            SecondPropBone = 60309, -- Left Wrist 
+            SecondPropPlacement = {
+                0.0880,
+				0.0000,
+				0.0590,
+				-29.1132,
+				-128.5627,
+				13.7517
+            },
+            EmoteLoop = true,
+         }
+    },
+	["weights6"] = { -- Custom Female Emote By Frabi
+        "frabi@femalepose@solo@firstsport",
+        "fem_pose_sport_002",
+        "Weights 6 - Female Pose 2",
+        AnimationOptions = {
+		Prop = 'v_res_tre_weight',
+            PropBone = 28422, -- Right Wrist
+            PropPlacement = {
+                0.0700,
+                0.0400,
+                -0.0600,
+                24.5966,
+                6.4814,
+				-13.9845
+            },
+            SecondProp = 'v_res_tre_weight', 
+            SecondPropBone = 60309, -- Left Wrist 
+            SecondPropPlacement = {
+                0.0550,
+				-0.0070,
+				-0.0309,
+				-20.5854,
+				-15.0123,
+				0.5710
+            },
+            EmoteLoop = true,
+			EmoteMoving = true,
+         }
+   },
+	["weights7"] = { -- Custom Female Emote By Frabi
+        "frabi@femalepose@solo@firstsport",
+        "fem_pose_sport_003",
+        "Weights 7 - Female Pose 3",
+        AnimationOptions = {
+		Prop = 'prop_freeweight_01',
+            PropBone = 28422, -- Right Wrist
+            PropPlacement = {
+                0.0500,
+                0.0100,
+                -0.0200,
+                88.6283,
+                -51.8805,
+				54.3903
+            },
+            EmoteLoop = true,
+			EmoteMoving = true,
          }
     },
     ["fuel"] = {
