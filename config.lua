@@ -122,7 +122,6 @@ Config.Languages = {
         ['searchshifttofav'] = "Hold L-Shift and press enter to set as favorite.",
         ['searchcantsetfav'] = "Shared emotes cannot be set as favorites.",
         ['invalidvariation'] = "Invalid texture variation. Valid selections are: %s",
-        ['notvalidprop'] = "Invalid prop model (^1%s^7). It does not exist or gamebuild is too low."
     },
     ['cs'] = { -- Czech 🇨🇿
         ['emotes'] = 'Animace 🎬',
