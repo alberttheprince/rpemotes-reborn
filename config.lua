@@ -53,7 +53,7 @@ Config = {
     Search = true,
     -- You can disable the Animal Emotes here.
     AnimalEmotesEnabled = true,
-    -- Saves walk styles to SQL and applies them on player load
+    -- Saves walk styles to client and applies them periodically
     PersistentWalk = false,
     -- Polling period to apply persistent walkstyles
     PersistencePollPeriod = 60000,
