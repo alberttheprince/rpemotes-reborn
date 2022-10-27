@@ -1,4 +1,5 @@
 function WalkMenuStart(name)
+    TriggerEvent('dpemotes:client:SaveWalkstyle', name)
     RequestWalking(name)
     SetPedMovementClipset(PlayerPedId(), name, 0.2)
     RemoveAnimSet(name)
@@ -40,4 +41,27 @@ end
 
 function tableHasKey(table, key)
     return table[key] ~= nil
+end
+
+if Config.WalkingStylesEnabled and Config.PersistentWalk then
+    RegisterNetEvent('dpemotes:client:SaveWalkstyle')
+    AddEventHandler('dpemotes:client:SaveWalkstyle', function(walkstyle)
+        SetResourceKvp('walkstyle', walkstyle)
+    end)
+
+    RegisterNetEvent('dpemotes:client:ApplySavedWalkstyle')
+    AddEventHandler('dpemotes:client:ApplySavedWalkstyle', function()
+        local walkstyle = GetResourceKvpString('walkstyle')
+
+        if walkstyle then
+            WalkMenuStart(walkstyle)
+        end
+    end)
+
+    CreateThread(function()
+        while true do
+            TriggerEvent('dpemotes:client:ApplySavedWalkstyle')
+            Wait(Config.PersistencePollPeriod)
+        end
+    end)
 end
