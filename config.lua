@@ -120,7 +120,8 @@ Config.Languages = {
         ['searchmenudesc'] = "%s result(s) for '~r~%s~w~':",
         ['searchnoresult'] = "No results for search '~r~%s~w~'.",
         ['searchshifttofav'] = "Hold L-Shift and press enter to set as favorite.",
-        ['searchcantsetfav'] = "Shared emotes cannot be set as favorites."
+        ['searchcantsetfav'] = "Shared emotes cannot be set as favorites.",
+        ['invalidvariation'] = "Invalid texture variation. Valid selections are: %s",
     },
     ['cs'] = { -- Czech 🇨🇿
         ['emotes'] = 'Animace 🎬',
@@ -177,7 +178,8 @@ Config.Languages = {
         ['searchmenudesc'] = "%s výsledek pro '~r~%s~w~':",
         ['searchnoresult'] = "Žádna animace nebyla nalezena '~r~%s~w~'.",
         ['searchshifttofav'] = "Podrž L-Shift a stiskni enter pro nastavení animace do oblíbeních.",
-           ['searchcantsetfav'] = "Sdílené animace nelze nastavit jako oblíbené."
+        ['searchcantsetfav'] = "Sdílené animace nelze nastavit jako oblíbené.",
+        ['invalidvariation'] = "Invalid texture variation. Valid selections are: %s"
     },
     ['fr'] = { -- French 🇫🇷
         ['emotes'] = 'Emotes 🎬',
@@ -233,7 +235,8 @@ Config.Languages = {
         ['searchmenudesc'] = "%s resultat(s) pour '~r~%s~w~':",
         ['searchnoresult'] = "Aucun résultat pour la recherche : '~r~%s~w~'.",
         ['searchshifttofav'] = "Maintenir  L-Shift et appuyer sur entrer pour marquer comme favorie.",
-        ['searchcantsetfav'] = "Les emotes partagées ne peuvent pas être mise en favorie."
+        ['searchcantsetfav'] = "Les emotes partagées ne peuvent pas être mise en favorie.",
+        ['invalidvariation'] = "Invalid texture variation. Valid selections are: %s"
     },
     ['de'] = { -- German 🇩🇪
         ['emotes'] = 'Emotes 🎬',
@@ -289,7 +292,8 @@ Config.Languages = {
         ['searchmenudesc'] = "%s Ergebnis(se) für '~r~%s~w~':",
         ['searchnoresult'] = "Es wurden keine Ergebnisse gefunden für '~r~%s~w~'.",
         ['searchshifttofav'] = "Halte L-Shift und drücke Enter um den Emote als Favorit zu setzen.",
-        ['searchcantsetfav'] = "Geteilte Emotes können nicht als Favorit gesetzt werden."
+        ['searchcantsetfav'] = "Geteilte Emotes können nicht als Favorit gesetzt werden.",
+        ['invalidvariation'] = "Invalid texture variation. Valid selections are: %s"
     },
     ['sv'] = { -- Swedish 🇸🇪
         ['emotes'] = 'Emotes 🎬',
@@ -346,7 +350,8 @@ Config.Languages = {
         ['searchmenudesc'] = "%s resultat på '~r~%s~w~':",
         ['searchnoresult'] = "Inga resultat hittades på '~r~%s~w~'.",
         ['searchshifttofav'] = "Håll ned L-Shift och tryck på enter för att ställa in som favorit.",
-        ['searchcantsetfav'] = "Delade Emotes kan inte ställas in som favoriter."
+        ['searchcantsetfav'] = "Delade Emotes kan inte ställas in som favoriter.",
+        ['invalidvariation'] = "Invalid texture variation. Valid selections are: %s"
     },
     ['es'] = { -- Spanish 🇪🇸
         ['emotes'] = "Animaciones 🎬",
@@ -402,7 +407,8 @@ Config.Languages = {
         ['searchmenudesc'] = "%s resultado(s) para '~r~%s~w~':",
         ['searchnoresult'] = "No se encontró nada con '~r~%s~w~'.",
         ['searchshifttofav'] = "Mantén L-Shift y presiona Enter para guardar como favorito.",
-        ['searchcantsetfav'] = "Animaciones compartidas no pueden ser guardadas como favoritas."
+        ['searchcantsetfav'] = "Animaciones compartidas no pueden ser guardadas como favoritas.",
+        ['invalidvariation'] = "Invalid texture variation. Valid selections are: %s"
     },
     ['nl'] = { -- Dutch 🇳🇱
         ['emotes'] = 'Animaties 🎬',
@@ -459,7 +465,8 @@ Config.Languages = {
         ['searchmenudesc'] = "%s Resultaat(s) voor'~r~%s~w~':",
         ['searchnoresult'] = "Geen resultaat voor zoekopdracht '~r~%s~w~'.",
         ['searchshifttofav'] = "Houd L-Shift ingedrukt en druk enter om als favoriet op te slaan.",
-        ['searchcantsetfav'] = "Gedeelde emotes kunnen niet als favoriet worden ingesteld."
+        ['searchcantsetfav'] = "Gedeelde emotes kunnen niet als favoriet worden ingesteld.",
+        ['invalidvariation'] = "Invalid texture variation. Valid selections are: %s"
     },
     ['pt'] = { -- Brazilian Portuguese 🇧🇷
         ['emotes'] = 'Emotes 🎬',
@@ -516,7 +523,8 @@ Config.Languages = {
         ['searchmenudesc'] = "%s result(s) for '~r~%s~w~':",
         ['searchnoresult'] = "No results for search '~r~%s~w~'.",
         ['searchshifttofav'] = "Hold L-Shift and press enter to set as favorite.",
-        ['searchcantsetfav'] = "Shared emotes cannot be set as favorites."
+        ['searchcantsetfav'] = "Shared emotes cannot be set as favorites.",
+        ['invalidvariation'] = "Invalid texture variation. Valid selections are: %s"
     },
     ['it'] = { -- Italian 🇮🇹
         ['emotes'] = 'Animazioni 🎬',
@@ -573,7 +581,8 @@ Config.Languages = {
         ['searchmenudesc'] = "%s result(s) for '~r~%s~w~':",
         ['searchnoresult'] = "No results for search '~r~%s~w~'.",
         ['searchshifttofav'] = "Hold L-Shift and press enter to set as favorite.",
-        ['searchcantsetfav'] = "Shared emotes cannot be set as favorites."
+        ['searchcantsetfav'] = "Shared emotes cannot be set as favorites.",
+        ['invalidvariation'] = "Invalid texture variation. Valid selections are: %s"
     },
     ['da'] = { -- Danish 🇩🇰
         ['emotes'] = 'Animationer',
@@ -630,7 +639,8 @@ Config.Languages = {
         ['searchmenudesc'] = "%s resultat(er) for '~r~%s~w~':",
         ['searchnoresult'] = "Ingen resultater fundet med '~r~%s~w~'.",
         ['searchshifttofav'] = "Hold L-Shift og tryk enter for at sætte som favorit.",
-        ['searchcantsetfav'] = "Delte animationer kan ikke være favoritter."
+        ['searchcantsetfav'] = "Delte animationer kan ikke være favoritter.",
+        ['invalidvariation'] = "Invalid texture variation. Valid selections are: %s"
     },
     ['fi'] = { -- Finnish 🇫🇮
         ['emotes'] = 'Animaatiot 🎬',
@@ -687,7 +697,8 @@ Config.Languages = {
         ['searchmenudesc'] = "%s tulokset '~r~%s~w~':",
         ['searchnoresult'] = "Ei tuloksia haulle '~r~%s~w~'.",
         ['searchshifttofav'] = "Pidä L-Shift painettuna ja aseta suosikiksi painamalla Enter.",
-        ['searchcantsetfav'] = "Jaettuja emoteita ei voi asettaa suosikiksi."
+        ['searchcantsetfav'] = "Jaettuja emoteita ei voi asettaa suosikiksi.",
+        ['invalidvariation'] = "Invalid texture variation. Valid selections are: %s"
     },
     ['pl'] = { -- Polish 🇵🇱
         ['emotes'] = 'Animacje 🎬',
@@ -741,10 +752,11 @@ Config.Languages = {
         ['keybindsinfo'] = "Użyj",
         ['searchemotes'] = "🔍 Szukaj animacji",
         ['searchinputtitle'] = "Szukaj:",
-		  ['searchmenudesc'] = "%s wyników dla frazy '~r~%s~w~':",
-		  ['searchnoresult'] = "Brak wyników dla frazy '~r~%s~w~'.",
-		  ['searchshifttofav'] = "Przytrzymaj L-Shift i naciśnij Enter by dodać do ulubionych.",
-		  ['searchcantsetfav'] = "Współdzielona animacja nie może być dodana do ulubionych."
+		['searchmenudesc'] = "%s wyników dla frazy '~r~%s~w~':",
+		['searchnoresult'] = "Brak wyników dla frazy '~r~%s~w~'.",
+		['searchshifttofav'] = "Przytrzymaj L-Shift i naciśnij Enter by dodać do ulubionych.",
+		['searchcantsetfav'] = "Współdzielona animacja nie może być dodana do ulubionych.",
+        ['invalidvariation'] = "Invalid texture variation. Valid selections are: %s"
     },
     ['ro'] = { -- Romana 🇷🇴
         ['emotes'] = 'Emote-uri 🎬',
@@ -801,6 +813,7 @@ Config.Languages = {
         ['searchmenudesc'] = "%s rezultat(e) pentru '~r~%s~w~':",
         ['searchnoresult'] = "Fara rezultate pentru cautarea '~r~%s~w~'.",
         ['searchshifttofav'] = "Tine apasat L-Shift si apasa enter pentru a seta ca favorit.",
-        ['searchcantsetfav'] = "Emote-urile Shared nu pot fi setate ca favorite."
+        ['searchcantsetfav'] = "Emote-urile Shared nu pot fi setate ca favorite.",
+        ['invalidvariation'] = "Invalid texture variation. Valid selections are: %s"
     },
 }

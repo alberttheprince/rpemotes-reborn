@@ -179,8 +179,15 @@ function AddEmoteMenu(menu)
 
     for a, b in pairsByKeys(DP.PropEmotes) do
         x, y, z = table.unpack(b)
-        propitem = NativeUI.CreateItem(z, "/e (" .. a .. ")")
-        propmenu:AddItem(propitem)
+    
+        if b.AnimationOptions.PropTextureVariations then 
+            propitem = NativeUI.CreateListItem(z, b.AnimationOptions.PropTextureVariations, 1, "/e (" .. a .. ")")
+            propmenu:AddItem(propitem)
+        else
+            propitem = NativeUI.CreateItem(z, "/e (" .. a .. ")")
+            propmenu:AddItem(propitem)
+        end 
+
         table.insert(PropETable, a)
         if not Config.SqlKeybinding then
             favEmotes[a] = z
@@ -249,6 +256,10 @@ function AddEmoteMenu(menu)
     propmenu.OnItemSelect = function(sender, item, index)
         EmoteMenuStart(PropETable[index], "props")
     end
+    
+   propmenu.OnListSelect = function(menu, item, itemIndex, listIndex)
+        EmoteMenuStart(PropETable[itemIndex], "props", item:IndexToItem(listIndex).Value)
+    end
 
     submenu.OnItemSelect = function(sender, item, index)
         if Config.Search and EmoteTable[index] == Config.Languages[lang]['searchemotes'] then
@@ -313,8 +324,14 @@ if Config.Search then
                         desc = "/e (" .. v.name .. ")" .. (favEnabled and "\n" .. Config.Languages[lang]['searchshifttofav'] or "")
                     end
 
-                    local item = NativeUI.CreateItem(v.data[3], desc)
-                    searchMenu:AddItem(item)
+                    if v.data.AnimationOptions.PropTextureVariations then
+                        local item = NativeUI.CreateListItem(v.data[3], v.data.AnimationOptions.PropTextureVariations, 1, desc)
+                        searchMenu:AddItem(item)
+                    else
+                        local item = NativeUI.CreateItem(v.data[3], desc)
+                        searchMenu:AddItem(item)
+                    end
+                    
                     if v.table == "Dances" and Config.SharedEmotesEnabled then
                         local item2 = NativeUI.CreateItem(v.data[3], "")
                         sharedDanceMenu:AddItem(item2)
@@ -358,6 +375,10 @@ if Config.Search then
                             SimpleNotify(Config.Languages[lang]['nobodyclose'])
                         end   
                     end
+                end
+
+                searchMenu.OnListSelect = function(menu, item, itemIndex, listIndex)
+                    EmoteMenuStart(results[itemIndex].name, "props", item:IndexToItem(listIndex).Value)
                 end
 
                 if Config.SharedEmotesEnabled then

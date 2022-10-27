@@ -3133,8 +3133,8 @@ function UIMenu:SelectItem()
         Item.CheckboxEvent(self, Item, Item.Checked)
     elseif subtype == "UIMenuListItem" then
         PlaySoundFrontend(-1, self.Settings.Audio.Select, self.Settings.Audio.Library, true)
-        self.OnListSelect(self, Item, Item._Index)
-        Item.OnListSelected(self, Item, Item._Index)
+        self.OnListSelect(self, Item, self:CurrentSelection(), Item._Index)
+        Item.OnListSelected(self, Item, self:CurrentSelection(), Item._Index)
     elseif subtype == "UIMenuSliderItem" then
         PlaySoundFrontend(-1, self.Settings.Audio.Select, self.Settings.Audio.Library, true)
         self.OnSliderSelect(self, Item, Item._Index)
