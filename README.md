@@ -270,10 +270,26 @@ Below is an example:
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # 📜 LICENSE 
 
+This project is licensed under the `[GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)
 
-This project does not contain a license, therefore you are not allowed to add one and claim it as yours. You are not allowed to sell this nor re-distribute it. You are not allowed to change / add a license unless given permission by TayMcKenzieNZ. If you want to modify ***(does not apply if you want to use it for personal purposes)*** or make an agreement, you can contact TayMcKenzieNZ via Discord. Pull requests are actively reviewed and discussed with TayMcKenzieNZ and contributors and will be accepted as long as they do not contain breaking changes. You can read more about unlicensed repositories [here](https://opensource.stackexchange.com/questions/1720/what-can-i-assume-if-a-publicly-published-project-has-no-license) if questions remain.
+Although not directly stated in the license and not a legal requirement, having human decency, common courtesy and permissions are all things that exist and therefore the custom animations found in TayMcKenzieNZ's fork of DpEmotes were added with the express authorization of the following authors. 
 
-----------------------------------
+These permissions do not carry over to any other forks and/or projects without express permission and must not be extracted from [TayMcKenzieNZ's fork of DpEmotes](https://github.com/TayMcKenzieNZ/dpemotes).
+
+If you wish to fork this repository, the animations and their respective code must be removed unless stated otherwise by their respective authors.
+
+- You are allowed to use the custom animations explicitly provided with this fork only 
+
+- You are allowed to add your own custom animations to this fork and use it on your server. They entire content must remain on your server and not be reuploaded.
+
+- You are not allowed to re-distribute the custom animations provided with this fork
+
+- You are not allowed to claim the custom animations provided with this fork as your own work
+
+- You must respect an authors wishes if your permission request is denied
+
+--------------------------------------------------------
+
 
 # Credits 🤝
 
@@ -300,9 +316,11 @@ This script is where it is today because of the amazing contributions made by th
 
 - Thank you to [Natty3d](https://forum.cfx.re/u/natty3d/summary) for the permission to add free lollipop props
 
-- Thank you to [northsqrd](https://github.com/0sqrd) for adding the search function, Animal Emotes config and general contributions
+- Thank you to [northsqrd](https://github.com/0sqrd) for adding the search function, Animal Emotes config, mobile phone prop texture variants and general contributions
 
-- Thank you to [frabi](https://www.gta5-mods.com/users/frabi) for the permission to add free custom animations
+- Thank you to crusopaul and Eki for discussing KVP and initializing it to the menu for persistent walkstyles 
+
+- Thank you to [Amnilka](https://www.gta5-mods.com/users/frabi) for the permission to add free custom animations
 
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
