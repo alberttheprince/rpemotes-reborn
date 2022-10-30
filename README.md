@@ -268,25 +268,29 @@ Below is an example:
 - LSPD reskinned badge by [GTA5Mods user Sladus_Slawonkus](https://www.gta5-mods.com/misc/lspd-police-badge-replace-sladus_slawonkus)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# 📜 LICENSE 
+# 📜 LICENSE & DISCLAIMER
 
-This project is licensed under the `[GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)
+This project does not contain a license however is in compliance with express custom animation and prop usage rights granted by each individual author.
 
-Although not directly stated in the license and not a legal requirement, having human decency, common courtesy and permissions are all things that exist and therefore the custom animations found in TayMcKenzieNZ's fork of DpEmotes were added with the express authorization of the following authors. 
+You are not allowed to change / add a license.
 
-These permissions do not carry over to any other forks and/or projects without express permission and must not be extracted from [TayMcKenzieNZ's fork of DpEmotes](https://github.com/TayMcKenzieNZ/dpemotes).
+These usage rights do not carry over to any third party including any other forks and/or projects without express permission and must not be extracted from [TayMcKenzieNZ's fork of DpEmotes](https://github.com/TayMcKenzieNZ/dpemotes).
+
+If you want to modify this particular fork of DpEmotes ***(does not apply if you want to use it for personal purposes)*** or make an agreement, you can contact TayMcKenzieNZ via Discord. Pull requests are actively reviewed and discussed with TayMcKenzieNZ and contributors and will be accepted as long as they do not contain breaking changes. 
+
+You can read more about unlicensed repositories [here](https://opensource.stackexchange.com/questions/1720/what-can-i-assume-if-a-publicly-published-project-has-no-license) if questions remain.
 
 If you wish to fork this repository, the animations and their respective code must be removed unless stated otherwise by their respective authors.
 
-- You are allowed to use the custom animations explicitly provided with this fork only 
+✅ You are allowed to use the custom animations explicitly provided within this fork only 
 
-- You are allowed to add your own custom animations to this fork and use it on your server. They entire content must remain on your server and not be reuploaded.
+✅ You are allowed to add your own custom animations to this fork and use it on your server. The entire content must remain on your server and not be reuploaded.
 
-- You are not allowed to re-distribute the custom animations provided with this fork
+❌ You are not allowed to re-distribute the custom animations provided with this fork
 
-- You are not allowed to claim the custom animations provided with this fork as your own work
+❌ You are not allowed to claim the custom animations provided within this fork as your own work
 
-- You must respect an authors wishes if your permission request is denied
+✅ You must respect an authors wishes and remove code, animations and props if your permission request is denied
 
 --------------------------------------------------------
 
@@ -325,3 +329,4 @@ This script is where it is today because of the amazing contributions made by th
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
 You pay a big role in keeping this script alive and we could not do it without you 🙏
+
