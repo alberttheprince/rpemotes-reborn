@@ -1,6 +1,6 @@
 # DpEmotes 🏋️
 
-DpEmotes is a Community driven FiveM emote menu with human, animal and prop support, originally created by [DullPear](https://github.com/andristum/dpemotes)
+DpEmotes is a Community driven FiveM menu allowing players to express themselves in roleplay with animations, facial expressions, walkstyles and props, originally created by [DullPear](https://github.com/andristum/dpemotes).
 
 <img src="https://forum.cfx.re/uploads/default/original/4X/7/1/b/71b1b02319fd6b8d20f64d6a8a90f4f1ccaf5dfa.png" width="700">
 
@@ -21,7 +21,6 @@ DpEmotes is a Community driven FiveM emote menu with human, animal and prop supp
 - Chat With Me 🗨️
 
 -----------------------------------
-
 
 # Available in:
 
@@ -65,17 +64,21 @@ Languages can be selected and/or added in config.lua.
 
 - Custom Animations 🏃
 
-- Further support for shared and couple poses / animations 👫
+- Facial Expressions 🤪
 
-- Animal Emotes - Big dog and small dog. *More to come. Stay tuned!* 🐩
-
-* Easily convert Menyoo to dpemotes 🔄
+- Animal Emotes 🐩
 
 - Shared Dances 🕺💃
+
+- Persistent Walkstyles via client KVP 🚶‍♂️
 
 - Shared Particle Effects 💨
 
 - QBCore Framework & Keybinding Support ⚙️
+
+- Further support for shared and couple poses / animations 👫
+
+- Easily convert Menyoo to dpemotes 🔄
 
 - Hide Adult Emotes 🔞
 
@@ -87,9 +90,7 @@ Languages can be selected and/or added in config.lua.
 
 # Menu Keybind 🎛️
 
-**Important Note:**
-
-The keybind uses RegisterKeyMapping. By default, the server owner configured keybind in the *initial* config.lua will be the default key, however once the keybind is set for a user, it'll stay with this new value. Editing the config keybind will change it for new players only.
+The keybind uses RegisterKeyMapping. By default, the server configured keybind in the *initial* config.lua will be the default key, however once the keybind is set for a user, it'll stay with this new value. Editing the config keybind will change it for new players only.
 
 
 **Menu key:** F5
@@ -106,7 +107,7 @@ Esc > settings > keybinds > fivem > dpemotes
 
 # Keybinds and SQL 🎛️
 
-The original dpemotes uses mysql-async which was then changed to ghmattimysql. Unfortunately, they are no longer maintained. 
+The original DpEmotes uses mysql-async which was then changed to ghmattimysql. Unfortunately, they are no longer maintained. 
 
 To use the SQL features, install the [oxmysql](https://github.com/overextended/oxmysql) resource. If you do not want to use the SQL features, comment out the `oxmysql` region in fxmanifest.lua.
 
@@ -268,6 +269,7 @@ Below is an example:
 - LSPD reskinned badge by [GTA5Mods user Sladus_Slawonkus](https://www.gta5-mods.com/misc/lspd-police-badge-replace-sladus_slawonkus)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # 📜 LICENSE & DISCLAIMER
 
 This project does not contain a license however is in compliance with express custom animation and prop usage rights granted by each individual author.
@@ -292,8 +294,7 @@ If you wish to fork this repository, the animations and their respective code mu
 
 ✅ You must respect an authors wishes and remove code, animations and props if your permission request is denied
 
---------------------------------------------------------
-
+--------------------------------------------------------.
 
 # Credits 🤝
 
@@ -329,4 +330,3 @@ This script is where it is today because of the amazing contributions made by th
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
 You pay a big role in keeping this script alive and we could not do it without you 🙏
-
