@@ -327,6 +327,8 @@ This script is where it is today because of the amazing contributions made by th
 
 - Thank you to [Amnilka](https://www.gta5-mods.com/users/frabi) for the permission to add free custom animations
 
+- Thank you to [LittleSpoon](https://discord.gg/safeword) for the permission to add free custom animations
+
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
 You pay a big role in keeping this script alive and we could not do it without you 🙏
