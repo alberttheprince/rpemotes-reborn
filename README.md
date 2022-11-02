@@ -46,6 +46,8 @@ DpEmotes is a Community driven FiveM menu allowing players to express themselves
 
 * Romanian 🇷🇴
 
+* Russian 🇷🇺
+
 * Spanish 🇪🇸
 
 * Swedish 🇸🇪
@@ -62,7 +64,7 @@ Languages can be selected and/or added in config.lua.
 
 - Search Function 🔎
 
-- Custom Animations 🏃
+- Custom Animations with **explitic Usage Rights granted** 🏃
 
 - Facial Expressions 🤪
 
@@ -309,25 +311,27 @@ This script is where it is today because of the amazing contributions made by th
 
 - Thank you to [SMGMissy](https://forum.cfx.re/u/smgmissy/) for assisting with custom pride flags and how to stream them
 
-- Thank you to [MissSnowie](https://www.gta5-mods.com/users/MissySnowie) for the custom poses, emotes, motivation and moral support 
+- Thank you to [MissSnowie](https://www.gta5-mods.com/users/MissySnowie) for the  explitic Usage Right Agreement regarding custom poses, emotes, and motivation, overall moral support 
 
 - A huge thank you to [Kibook](https://github.com/kibook) for the addition of the Animal Emotes sub menu
 
 - Thank you to [AvaN0x](https://github.com/AvaN0x) for reformatting and assisting with code, additional features and figuring out shared particle effects 
 
-- Thank you to [Smokey](https://www.gta5-mods.com/users/struggleville) for the permission to add free custom animations
+- Thank you to [Smokey](https://www.gta5-mods.com/users/struggleville) for the explitic Usage Right Agreement to add free custom animations
 
-- Thank you to [BzZzi](https://forum.cfx.re/u/bzzzi/summary) for the permission to add free donut, croissant and fire torch props
+- Thank you to [BzZzi](https://forum.cfx.re/u/bzzzi/summary) for the explitic Usage Right Agreement to add free donut, croissant and fire torch props
 
-- Thank you to [Natty3d](https://forum.cfx.re/u/natty3d/summary) for the permission to add free lollipop props
+- Thank you to [Natty3d](https://forum.cfx.re/u/natty3d/summary) for the explitic Usage Right Agreement to add free lollipop props
 
 - Thank you to [northsqrd](https://github.com/0sqrd) for adding the search function, Animal Emotes config, mobile phone prop texture variants and general contributions
 
 - Thank you to crusopaul and Eki for discussing KVP and initializing it to the menu for persistent walkstyles 
 
-- Thank you to [Amnilka](https://www.gta5-mods.com/users/frabi) for the permission to add free custom animations
+- Thank you to [Amnilka](https://www.gta5-mods.com/users/frabi) for the explitic Usage Right Agreement to add free custom animations
 
-- Thank you to [LittleSpoon](https://discord.gg/safeword) for the permission to add free custom animations
+- Thank you to [LittleSpoon](https://discord.gg/safeword) for the explitic Usage Right Agreement to add free custom animations
+
+- Thank you to [Puppy](https://discord.gg/rsN35X4s4N) for the explitic Usage Right Agreement to add free custom animations
 
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
