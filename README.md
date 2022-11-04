@@ -331,7 +331,11 @@ This script is where it is today because of the amazing contributions made by th
 
 - Thank you to [LittleSpoon](https://discord.gg/safeword) for the explitic Usage Right Agreement to add free custom animations
 
-- Thank you to [Puppy](https://discord.gg/rsN35X4s4N) for the explitic Usage Right Agreement to add free custom animations
+- Thank you to [Pupppy](https://discord.gg/rsN35X4s4N) for the explitic Usage Right Agreement to add free custom animations
+
+- Thank you to [SapphireMods](https://discord.gg/Hf8F4nTyzt) for the explitic Usage Right Agreement to add free custom animations
+
+- Thank you to [QueenSisters Animations](https://discord.gg/qbPtGwQuep) for the explitic Usage Right Agreement to add free custom animations
 
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
