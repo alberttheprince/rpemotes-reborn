@@ -1,6 +1,6 @@
---- Dpemotes by DullPear is a free FiveM script
---- This release was forked and updated by TayMcKenzieNZ
---- Leakers and resellers are the absolute scum of the earth
+--- Dpemotes by DullPear is a free FiveM script ---
+--- This release was forked and updated by TayMcKenzieNZ and the community ---
+--- Leakers and resellers are the absolute scum of the earth ---
 
 Config = {
     -- Change the language of the menu here!.
@@ -287,7 +287,7 @@ Config.Languages = {
         ['camera'] = "Druk op ~y~G~w~ om de flitser te gebruiken..",
         ['makeitrain'] = "Druk op ~y~G~w~ om geld te gooien.",
         ['pee'] = "Druk op ~y~G~w~ om te plassen.",
-        ['spraychamp'] = "Druk op ~y~G~w~ om batra's te spuiten.",
+        ['spraychamp'] = "Druk op ~y~G~w~ om Champagne te spuiten.",
         ['stun'] = "Druk op ~y~G~w~ om de taser te 'gebruiken'.",
         ['vape'] = "Press ~y~G~w~ to vape.",
         ['bound'] = "Gebonden ",
