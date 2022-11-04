@@ -4,9 +4,8 @@
 
 Config = {
     -- Change the language of the menu here!.
-    -- Note fr and de are google translated, if you would like to help out with translations, feel free to send me an 'issue' on Github.
     -- Thank you to those who provided translations.
-    --
+    -- If you would like to provide translations or help fix them, join our Discord!
     -- Check languages code below to change the MenuLanguage
     MenuLanguage = 'en',
     -- Set this to true to enable some extra prints

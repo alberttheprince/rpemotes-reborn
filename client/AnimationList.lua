@@ -5378,6 +5378,15 @@ DP.Emotes = {
             EmoteLoop = true,
         }
     },
+    ["sitcute"] = { -- Custom Emote By QueenSistersAnimations
+        "sitkylie@queensisters",
+        "kylie_clip",
+        "Sit Cute",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+       }
+    },
     ["situp"] = {
         "amb@world_human_sit_ups@male@idle_a",
         "idle_a",
@@ -6601,7 +6610,7 @@ DP.Emotes = {
             EmoteMoving = true,
         }
     },
-    ["posecutef"] = { -- Custom Emote By Puppy 
+    ["posecutef"] = { -- Custom Emote By Pupppy 
         "pupppy@freepose01",
         "freepose01",
         "Cute Pose Female",
@@ -6610,7 +6619,7 @@ DP.Emotes = {
             EmoteMoving = false,
         }
    },
-    ["posecutef2"] = { -- Custom Emote By Puppy 
+    ["posecutef2"] = { -- Custom Emote By Pupppy 
         "pupppy@freepose03",
         "freepose03",
         "Cute Pose Female 2",
@@ -6619,7 +6628,7 @@ DP.Emotes = {
             EmoteMoving = false,
         }
     },
-	["posecutef3"] = { -- Custom Emote By Puppy 
+	["posecutef3"] = { -- Custom Emote By Pupppy 
         "pupppy@freepose04",
         "freepose04",
         "Cute Pose Female 3",
@@ -6628,7 +6637,7 @@ DP.Emotes = {
             EmoteMoving = false,
         }
     },
-    ["posecutem"] = { -- Custom Emote By Puppy 
+    ["posecutem"] = { -- Custom Emote By Pupppy 
         "pupppy@freepose02",
         "freepose02",
         "Cute Pose Male",
@@ -7210,6 +7219,33 @@ DP.Emotes = {
             EmoteLoop = true,
             EmoteMoving = false,
         }
+    },
+	["laysexy"] = { -- Custom emote by Struggleville
+        "anim@female_laying_sexy",
+        "laying_sexy_clip",
+        "Laying Down Sexy",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+	["model"] = { -- Custom emote by Struggleville
+        "anim@female_model_showoff",
+        "model_showoff_clip",
+        "Model Pose Sexy",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+	["model2"] = { -- Custom Emote By QueenSistersAnimations
+        "sitdownonknees@queensisters",
+        "sitdown_clip",
+        "Model 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+       }
     },
 }
 
@@ -11372,6 +11408,48 @@ DP.PropEmotes = {
             PtfxWait = 200,
         }
     },
+	 ["selfiecrouch4"] = { -- Custom emote by Struggleville
+        "anim@female_selfie_risque",
+        "selfie_risque_clip",
+        "Selfie Crouching 4",
+        AnimationOptions = {
+            Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
+                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
+                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
+                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
+                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4}, 
+                {Name = "<font color=\"#a356fa\">Purple", Value = 5}, 
+                {Name = "<font color=\"#FF0099\">Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
+            PropBone = 18905,
+            PropPlacement = {
+                0.1580,
+                0.0180,
+                0.0300,
+                -150.4798,
+                -67.8240,
+                -46.0417
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
+        }
+    },
     ["selfiesit"] = { -- Emote by WhiskerValeMods
         "mouse@female_sitting_selfie",
         "female_sitting_selfie_clip",
@@ -11855,6 +11933,226 @@ DP.PropEmotes = {
                 0.0000,
                3.9999,
                0.0000
+             },
+            EmoteLoop = true,
+            EmoteMoving = false,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
+        }
+    },
+    ["selfiecute4"] = { -- Custom Emote By Struggleville, designed for a custom iFruit phone model, however I am sticking with default game props for now
+        "anim@egirl_1foot_selfie",
+        "1foot_selfie_clip",
+        "Selfie Cute 4",
+        AnimationOptions = {
+            Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
+                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
+                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
+                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
+                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4}, 
+                {Name = "<font color=\"#a356fa\">Purple", Value = 5}, 
+                {Name = "<font color=\"#FF0099\">Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
+            PropBone = 4185, -- Left Finger 21
+            PropPlacement = {
+                0.0290,
+			   -0.0230,
+			    0.0190,
+			   -14.7860,
+			    67.8030,
+				6.1827
+             },
+            EmoteLoop = true,
+            EmoteMoving = false,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
+        }
+   },
+    ["selfiebbum"] = { -- Custom Emote By Struggleville, designed for a custom iFruit phone model, however I am sticking with default game props for now
+        "anim@female_beach_booty_selfie",
+        "booty_selfie_clip",
+        "Selfie Beach Bum",
+        AnimationOptions = {
+            Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
+                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
+                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
+                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
+                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4}, 
+                {Name = "<font color=\"#a356fa\">Purple", Value = 5}, 
+                {Name = "<font color=\"#FF0099\">Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
+            PropBone = 26613, -- Left Finger 30
+            PropPlacement = {
+                0.0680,
+			   -0.0250,
+			    0.0340,
+			   -13.4299,
+			    47.2288,
+			   -14.9588
+             },
+            EmoteLoop = true,
+            EmoteMoving = false,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
+        }
+    },
+	['selfiehb'] = {
+        'anim@female_selfie_cute',
+        'selfie_cute_clip',
+        'Selfie Hand Bag',
+        AnimationOptions = {
+            Prop = 'prop_ld_handbag',
+            PropBone = 28422, -- Right Wrist 
+            PropPlacement = {
+                0.0900,
+                -0.0190,
+                -0.0300,
+                -112.8023,
+                -171.7831,
+                -56.8195
+            },
+            SecondProp = 'prop_phone_ing',-- Cell Phone Left Finger 21
+            PropTextureVariations = {
+                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
+                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
+                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
+                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
+                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4}, 
+                {Name = "<font color=\"#a356fa\">Purple", Value = 5}, 
+                {Name = "<font color=\"#FF0099\">Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
+            SecondPropBone = 4185,
+            SecondPropPlacement = {
+                0.0200,
+               -0.0250,
+                0.0000,
+               -8.5947,
+                30.6141,
+               -5.1311
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+			PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
+        }
+    },
+    ["selfiehhands"] = { -- Custom Emote By QueenSistersAnimations, designed for a custom iFruit phone model, however I am sticking with default game props for now
+        "heartselfiemirror@queensisters",
+        "heartselfie_clip",
+        "Selfie Heart Hands",
+        AnimationOptions = {
+            Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
+                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
+                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
+                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
+                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4}, 
+                {Name = "<font color=\"#a356fa\">Purple", Value = 5}, 
+                {Name = "<font color=\"#FF0099\">Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
+            PropBone = 64096, -- Right Finger 11
+            PropPlacement = {
+                0.0390,
+				0.0200,
+				0.0330,
+			    90.0000,
+			   180.0000,
+			   13.0000
+             },
+            EmoteLoop = true,
+            EmoteMoving = false,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
+        }
+   },
+    ["selfiefu2"] = { -- Custom Emote By QueenSistersAnimations, designed for a custom iFruit phone model, however I am sticking with default game props for now
+        "fuckyouselfie@queensisters",
+        "mirrorselfie_clip",
+        "Selfie Middle Finger 2",
+        AnimationOptions = {
+            Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
+                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
+                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
+                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
+                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4}, 
+                {Name = "<font color=\"#a356fa\">Purple", Value = 5}, 
+                {Name = "<font color=\"#FF0099\">Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
+            PropBone = 64097, -- Right Finger 12
+            PropPlacement = {
+               -0.0210,
+			    0.0300,
+			   -0.0030,
+			   -180.0000,
+			   -180.0000,
+			    0.0000
              },
             EmoteLoop = true,
             EmoteMoving = false,
@@ -13649,6 +13947,43 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
      },
+    ["bball3"] = { -- Custom Emote By Struggleville
+        "anim@male_basketball_03",
+        "m_basketball_03_clip",
+        "Basketball Hold 2",
+        AnimationOptions = {
+            Prop = "prop_bskball_01",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0400,
+                0.0200,
+               -0.1400,
+                90.0000,
+               -99.9999,
+                79.9999
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+   },
+    ["bball4"] = { -- Custom Emote By SapphireMods 
+        "mx@pose2",
+        "mx_clippose2",
+        "Basketball Hold 3",
+        AnimationOptions = {
+            Prop = "prop_bskball_01",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0400,
+                0.0200,
+               -0.1400,
+                90.0000,
+               -99.9999,
+                79.9999
+            },
+            EmoteLoop = true,
+        }
+    },
     ["watchstripper2"] = {
         "amb@world_human_strip_watch_stand@male_c@base",
         "base",
