@@ -324,7 +324,7 @@ if Config.Search then
                         desc = "/e (" .. v.name .. ")" .. (favEnabled and "\n" .. Config.Languages[lang]['searchshifttofav'] or "")
                     end
 
-                    if v.data.AnimationOptions.PropTextureVariations then
+                    if v.data.AnimationOptions and v.data.AnimationOptions.PropTextureVariations then
                         local item = NativeUI.CreateListItem(v.data[3], v.data.AnimationOptions.PropTextureVariations, 1, desc)
                         searchMenu:AddItem(item)
                     else
