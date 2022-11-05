@@ -6646,6 +6646,15 @@ DP.Emotes = {
             EmoteMoving = false,
         }
     },
+    ["checkwatch"] = { -- Custom Emote By MissSnowie 
+        "watch@looking_at",
+        "base",
+        "Check Watch",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
     ["pee"] = {
         "misscarsteal2peeing",
         "peeing_loop",
