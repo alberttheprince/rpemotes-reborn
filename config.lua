@@ -41,9 +41,6 @@ Config = {
     ExpressionsEnabled = true,
     -- You can disable the Walking Styles menu here.
     WalkingStylesEnabled = true,
-    -- You can disable the Adult Emotes here.
-    AdultEmotesDisabled = false,
-    -- You can disable the Shared Emotes here.
     SharedEmotesEnabled = true,
     CheckForUpdates = true,
     -- If you have the SQL imported enable this to turn on keybinding.
@@ -52,10 +49,13 @@ Config = {
     NotificationsAsChatMessage = false,
     -- Used for few framework dependent things. Accepted values: "qb-core", false
     Framework = false,
-    -- Used to enable or disable the search feature in the menu.
-    Search = true,
+    -- You can disable the Adult Emotes here.
+    AdultEmotesDisabled = false,
     -- You can disable the Animal Emotes here.
     AnimalEmotesEnabled = true,
+    -- You can disable the Shared Emotes here.
+    -- Used to enable or disable the search feature in the menu.
+    Search = true,
     -- Saves walk styles to client and applies them periodically
     PersistentWalk = true,
     -- Polling period to apply persistent walkstyles

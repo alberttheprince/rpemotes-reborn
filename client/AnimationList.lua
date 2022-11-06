@@ -6410,10 +6410,10 @@ DP.Emotes = {
         },
         AdultAnimation = true
     },
-    ["fspose4"] = {
+    ["fspose3"] = {
         "anim@amb@carmeet@checkout_car@",
         "female_c_idle_d",
-        "F Sex Pose 4",
+        "F Sex Pose 3",
         AnimationOptions = {
             EmoteMoving = false,
             EmoteLoop = true,
@@ -6632,6 +6632,15 @@ DP.Emotes = {
         "pupppy@freepose04",
         "freepose04",
         "Cute Pose Female 3",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+	["posecutef4"] = { -- Custom Emote By QueenSistersAnimations 
+        "handkylie@queensisters",
+        "kylie_clip",
+        "Cute Pose Female 4",
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = false,
@@ -12180,6 +12189,62 @@ DP.PropEmotes = {
             PtfxWait = 200,
         }
     },
+    ["selfiefu3"] = { -- Custom Emote By QueenSistersAnimations, designed for a custom iFruit phone model, however I am sticking with default game props for now
+        "selfiekilye@queensisters",
+        "kilye_clip",
+        "Selfie Middle Finger Thot Pose",
+        AnimationOptions = {
+            Prop = 'prop_cs_dildo_01',
+            PropBone = 28422, -- Right Wrist
+            PropPlacement = {
+                0.0450,
+                0.0050,
+               -0.0150,
+                92.0810,
+				1.3049,
+			   -2.8863
+
+            },
+
+            SecondProp = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
+                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
+                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
+                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
+                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4}, 
+                {Name = "<font color=\"#a356fa\">Purple", Value = 5}, 
+                {Name = "<font color=\"#FF0099\">Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
+            SecondPropBone = 26613, -- Left Finger 30
+            SecondPropPlacement = {
+                0.0650,
+                -0.0280,
+                0.0440,
+                10.6808,
+                13.7526,
+                2.6457
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
+
+        },
+        AdultAnimation = true
+    },
     ["sittv"] = {
         "anim@heists@heist_safehouse_intro@variations@male@tv",
         "tv_part_one_loop",
@@ -13522,24 +13587,37 @@ DP.PropEmotes = {
             },
             SecondProp = 'prop_phone_ing',
             PropTextureVariations = {
-                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
-                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
-                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
-                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
-                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4}, 
-                {Name = "<font color=\"#a356fa\">Purple", Value = 5}, 
-                {Name = "<font color=\"#FF0099\">Pink", Value = 6}, 
-                {Name = "Black", Value = 7}, 
+                { Name = "<font color=\"#00A0F4\">Blue", Value = 0 },
+                { Name = "<font color=\"#1AA20E\">Green", Value = 1 },
+                { Name = "<font color=\"#800B0B\">Dark Red", Value = 2 },
+                { Name = "<font color=\"#FF7B00\">Orange", Value = 3 },
+                { Name = "<font color=\"#5F5F5F\">Grey", Value = 4 },
+                { Name = "<font color=\"#a356fa\">Purple", Value = 5 },
+                { Name = "<font color=\"#FF0099\">Pink", Value = 6 },
+                { Name = "Black", Value = 7 },
             },
-            SecondPropBone = 60309,
+            SecondPropBone = 60309, -- Left Wrist
             SecondPropPlacement = {
-                0.0800,
-                0.0300,
-                0.0100,
-                -107.9999,
-                0.0,
-                -4.6003
+                0.0740,
+                0.0410,
+                0.0090,
+               -127.9136,
+               -10.6186,
+                 4.7536
             },
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
             EmoteLoop = true,
             EmoteMoving = true,
         }
