@@ -18,6 +18,7 @@ local PtfxWait = 500
 local PtfxCanHold = false
 local PtfxNoProp = false
 local AnimationThreadStatus = false
+local CanCancel = true
 
 local function RunAnimationThread()
     if AnimationThreadStatus then return end
@@ -117,8 +118,9 @@ end)
 ------ Functions and stuff --------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
 
-function EmoteCancel()
+function EmoteCancel(force)
     local ply = PlayerPedId()
+	if not CanCancel and force ~= true then return end
     if ChosenDict == "MaleScenario" and IsInAnimation then
         ClearPedTasksImmediately(ply)
         IsInAnimation = false
@@ -567,3 +569,15 @@ function OnEmotePlay(EmoteName, textureVariation)
 
     return true
 end
+
+-----------------------------------------------------------------------------------------------------
+------ Some exports to make the script more standalone! (by Clem76) ---------------------------------
+-----------------------------------------------------------------------------------------------------
+
+exports("EmoteCommandStart", function(emoteName, textureVariation)
+        EmoteCommandStart(nil, {emoteName, textureVariation}, nil)
+end)
+exports("EmoteCancel", EmoteCancel)
+exports("CanCancelEmote", function(State)
+		CanCancel = State == true
+end)
