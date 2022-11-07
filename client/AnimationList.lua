@@ -14107,8 +14107,26 @@ DP.PropEmotes = {
          -12.0},
     EmoteLoop = true,
     EmoteMoving = true,
-    }
-},
+            },
+    },
+    ["gamer"] = { --- Custom Emote By MissSnowie
+        "playing@with_controller",
+        "base",
+        "Gamer",
+        AnimationOptions = {
+            Prop = 'prop_controller_01',
+            PropBone = 24818, --- Chest bone, works fine for sitting down, not soo much with emote moving.
+            PropPlacement = {
+                0.2890,
+                0.4110,
+                0.0020,
+               -44.0174,
+                88.6103,
+                -1.4385
+            },
+            EmoteLoop = true,
+        }
+    },
 
 }
 
