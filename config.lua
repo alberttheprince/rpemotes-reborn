@@ -59,12 +59,12 @@ Config = {
     -- Saves walk styles to client and applies them periodically
     PersistentWalk = true,
     -- Polling period to apply persistent walkstyles
-    PersistencePollPeriod = 170000,
+    PersistencePollPeriod = 60000,
     -- You can disable the handsup here / change the keybind. It is currently set to H
-    HandsupKeybindEnabled = true,
+    HandsupKeybindEnabled = false,
     HandsupKeybind = 'H', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- You can disable the fingrer pointing here / change the keybind. It is currently set to B
-    PointingKeybindEnabled = true,
+    PointingKeybindEnabled = false,
     PointingKeybind = 'B', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
 }
 
