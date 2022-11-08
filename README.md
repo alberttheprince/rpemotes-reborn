@@ -1,12 +1,12 @@
 # DpEmotes 🏋️
 
-DpEmotes is a Community driven FiveM menu allowing players to express themselves in roleplay with animations, facial expressions, walkstyles and props, originally created by [DullPear](https://github.com/andristum/dpemotes).
+DpEmotes is a Community driven FiveM menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walkstyles and props, originally created by [DullPear](https://github.com/andristum/dpemotes).
 
 <img src="https://forum.cfx.re/uploads/default/original/4X/7/1/b/71b1b02319fd6b8d20f64d6a8a90f4f1ccaf5dfa.png" width="700">
 
 
 
-# **Join Our Official Discord 💬:**
+# **Join Our Official Discord 💬**
 
 <a href="https://discord.gg/sw3NwDq6C8" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="sw3NwDq6C8" height="120" width="180" /></a>
 
@@ -16,13 +16,13 @@ DpEmotes is a Community driven FiveM menu allowing players to express themselves
 
 - Contribute Code 🛠️
 
-- Contribute Translations 🌏
+- Contribute Translations 🌎
 
 - Chat With Me 🗨️
 
------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Available in:
+# Available in 🌏
 
 * Brazilian Portuguese 🇧🇷
 
@@ -52,15 +52,15 @@ DpEmotes is a Community driven FiveM menu allowing players to express themselves
 
 * Swedish 🇸🇪
 
-All languages were either translated using Google Translate or contributed by you, the community. 
+All languages were translate or contributed by you, the community with the odd exception of using Google Translate 
 
-If you happen to find any incorrect translations or would like to add more languages, please feel free to provide an "issue" with the correct / additional translations.
+If you happen to find any incorrect translations or would like to add more languages, please feel free to make a Pull Request with the correct / additional translations, or join our discord.
 
-Languages can be selected and/or added in config.lua.
+Languages can be selected and/or added in the config.lua.
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Features
+# Features 🛠️
 
 - Search Function 🔎
 
@@ -88,7 +88,15 @@ Languages can be selected and/or added in config.lua.
 
 - Easy To Understand Configuration File ⚙️
 
-------------------------------------------------------------
+- Standalone exports to play anim, cancel anim and block (or not) the cancel key
+
+```lua
+exports["dpemotes"]:EmoteCommandStart(emoteName, textureVariation)
+exports["dpemotes"]:EmoteCancel(forceCancel) – forceCancel is optional
+exports["dpemotes"]:CanCancelEmote(state)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Menu Keybind 🎛️
 
@@ -105,19 +113,19 @@ Esc > settings > keybinds > fivem > dpemotes
 
 * More keybinds are now using key mappings which means that they are now available in your FiveM settings to change (`FavKeybind` and `RagdollKeybind`)
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Keybinds and SQL 🎛️
 
 The original DpEmotes uses mysql-async which was then changed to ghmattimysql. Unfortunately, they are no longer maintained. 
 
-To use the SQL features, install the [oxmysql](https://github.com/overextended/oxmysql) resource. If you do not want to use the SQL features, comment out the `oxmysql` region in fxmanifest.lua.
+To use the SQL features, install the latest version of the [oxmysql](https://github.com/overextended/oxmysql) resource. If you do not want to use the SQL features, comment out the `oxmysql` region in fxmanifest.lua.
 
 Alternatively, you can use the keybind command that comes with FiveM without having the SQL, by entering the following into F8: 
 
 `bind keyboard "Yourbutton" "e youremote"`. To remove the keybind, type `"unbind keyboard "Yourbutton"`.
 
--------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Ragdoll 🥴
 
@@ -138,7 +146,8 @@ This will completely conceal the emotes from the lists *(Emotes, Shared Emotes, 
 The emotes that are concealed, are the ones flagged in the animation list with `AdultAnimation`. You can see how it is done with `fspose`.
 
 Alternatively, you can also hide animal emotes.
-------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # QBCore ⚙️
 
@@ -148,7 +157,7 @@ Alternatively, you can also hide animal emotes.
 
 If you’re using qb-core, you can now set `Framework = "qb-core"` in the config file, otherwise leave it as `false`.
 
-------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Screenshots 📸
 
@@ -159,15 +168,12 @@ If you’re using qb-core, you can now set `Framework = "qb-core"` in the config
 | <img src="screenshots/sdog1.jpeg" width="250"> | <img src="screenshots/speace.png" width="250"> | <img src="screenshots/surf.jpeg" width="250"> |
 | <img src="screenshots/CPR.jpg" width="250"> | <img src="screenshots/cp_after.jpg" width="250"> | <img src="screenshots/carrysmall.jpg" width="250">|
 
-
-
-
------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 # Installation Instructions ⚙️:
 
-* add DpEmotes to your `server.cfg`
+* Add DpEmotes to your `server.cfg`
 
 * Download the latest recommended artifacts [for Windows](https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/) or [for Linux](https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/)
 
@@ -177,7 +183,13 @@ If you’re using qb-core, you can now set `Framework = "qb-core"` in the config
 
 * Qb-Core server owners, set `Framework = 'qb-core'` in the config file, otherwise leave it as false.
 
-* start dpemotes
+* To use the SQL features, install the [oxmysql](https://github.com/overextended/oxmysql) resource. If you do not want to use the SQL features, comment out the `oxmysql` region in fxmanifest.lua.
+
+Alternatively, you can use the keybind command that comes with FiveM without having the SQL, by entering the following into F8: 
+
+`bind keyboard "Yourbutton" "e youremote"`. To remove the keybind, type `"unbind keyboard "Yourbutton"`.
+
+* Start dpemotes
 
 # Additional Instructions ⚙️
 
@@ -185,8 +197,7 @@ If you’re using qb-core, you can now set `Framework = "qb-core"` in the config
 
 - [Read my Menyoo To DpEmotes Tutorial](https://forum.cfx.re/t/how-to-menyoo-to-dpemotes-conversion-streaming-custom-add-on-props/4775018) for tips on how to attach props to the players, how to convert Menyoo to dpemotes and other tips you may need to know.
 
-
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Shared emotes 👩🏻‍❤️‍💋‍👨🏼
 
@@ -204,12 +215,11 @@ it's the player who start the animation who will in most cases be moved
 
 *Special case, if both emote have the `Attachto` then only the player who started the emote will be attached.*
 
-You can find a list of ped bones to attach the other player here: [Ped Bones](https://wiki.rage.mp/index.php?title=Bones)
+You can find a list of ped bones to attach the other player here: [Ped Bones](https://wiki.rage.mp/index.php?title=Bones) or alternatively if the link is down for some reason, you can check [here](https://wiki.rage.mp/index.php?title=Bones)
 
-Using the website provided above, enter the bone ID, ie `1356` and not `111`, which is the Bone Index.
+Using the websites provided above, enter the bone ID, ie `1356` and not `111`, which is the Bone Index.
 
-
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 # Particle Effects 💨
@@ -223,11 +233,11 @@ Big thanks to DurtyFree for his amazing work.
 PtfxPlacement = {
     -0.15, -- X
     -0.35, -- Y
-    0.0, -- Z
-    0.0, -- ROTATION X
-    90.0, -- ROTATION Y
-    180.0, -- ROTATION Z
-    1.0 -- SCALE
+     0.0, -- Z
+     0.0, -- ROTATION X
+     90.0, -- ROTATION Y
+     180.0, -- ROTATION Z
+       1.0 -- SCALE
 },
 ```
 
@@ -239,8 +249,7 @@ If no prop is uses in the animation or you require the particle effect to be in 
 
 Using Menyoo, spawn down a tennis ball and attach it to human, by default menyoo will attach it to the SKEL_ROOT bone (stomach), so from that, what we can do is offset the coordinates, say, up to the human ped's mouth, and then once we've got it correct, we can transfer those coordinates over to dpemotes, and tah dah, we have our Ptfx Placement.
 
-
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Adding Your Own Animations ⚙️
 
@@ -254,7 +263,7 @@ Below is an example:
 
 <img src="screenshots/customanims.png" width="550">
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Add-Ons 🛠️
 
@@ -262,15 +271,14 @@ Below is an example:
 
 * Changed umbrella texture to black (/e umbrella)
 
---------------------------------------------------------
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Police Badge 👮
 
 - Custom LSPD police badge by [LSPDFR member Sam](https://www.lcpdfr.com/downloads/gta5mods/misc/23386-lspd-police-badge/)
 
 - LSPD reskinned badge by [GTA5Mods user Sladus_Slawonkus](https://www.gta5-mods.com/misc/lspd-police-badge-replace-sladus_slawonkus)
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # 📜 LICENSE & DISCLAIMER
 
@@ -296,7 +304,7 @@ If you wish to fork this repository, the animations and their respective code mu
 
 ✅ You must respect an authors wishes and remove code, animations and props if your permission request is denied
 
---------------------------------------------------------.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Credits 🤝
 
@@ -317,25 +325,25 @@ This script is where it is today because of the amazing contributions made by th
 
 - Thank you to [AvaN0x](https://github.com/AvaN0x) for reformatting and assisting with code, additional features and figuring out shared particle effects 
 
-- Thank you to [Smokey](https://www.gta5-mods.com/users/struggleville) for the explitic Usage Right Agreement to add free custom animations
+- Thank you to [Smokey](https://www.gta5-mods.com/users/struggleville) for the explicit Usage Rights Agreement to add free custom animations
 
-- Thank you to [BzZzi](https://forum.cfx.re/u/bzzzi/summary) for the explitic Usage Right Agreement to add free donut, croissant and fire torch props
+- Thank you to [BzZzi](https://forum.cfx.re/u/bzzzi/summary) for the explicit Usage Rights Agreement to add free donut, croissant and fire torch props
 
-- Thank you to [Natty3d](https://forum.cfx.re/u/natty3d/summary) for the explitic Usage Right Agreement to add free lollipop props
+- Thank you to [Natty3d](https://forum.cfx.re/u/natty3d/summary) for the explicit Usage Rights Agreement to add free lollipop props
 
 - Thank you to [northsqrd](https://github.com/0sqrd) for adding the search function, Animal Emotes config, mobile phone prop texture variants and general contributions
 
 - Thank you to crusopaul and Eki for discussing KVP and initializing it to the menu for persistent walkstyles 
 
-- Thank you to [Amnilka](https://www.gta5-mods.com/users/frabi) for the explitic Usage Right Agreement to add free custom animations
+- Thank you to [Amnilka](https://www.gta5-mods.com/users/frabi) for the explicit Usage Rights Agreement to add free custom animations
 
-- Thank you to [LittleSpoon](https://discord.gg/safeword) for the explitic Usage Right Agreement to add free custom animations
+- Thank you to [LittleSpoon](https://discord.gg/safeword) for the explicit Usage Rights Agreement to add free custom animations
 
-- Thank you to [Pupppy](https://discord.gg/rsN35X4s4N) for the explitic Usage Right Agreement to add free custom animations
+- Thank you to [Pupppy](https://discord.gg/rsN35X4s4N) for the explicit Usage Rights Agreement to add free custom animations
 
-- Thank you to [SapphireMods](https://discord.gg/Hf8F4nTyzt) for the explitic Usage Right Agreement to add free custom animations
+- Thank you to [SapphireMods](https://discord.gg/Hf8F4nTyzt) for the explicit Usage Rights Agreement to add free custom animations
 
-- Thank you to [QueenSisters Animations](https://discord.gg/qbPtGwQuep) for the explitic Usage Right Agreement to add free custom animations
+- Thank you to [QueenSisters Animations](https://discord.gg/qbPtGwQuep) for the explicit Usage Rights Agreement to add free custom animations
 
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
