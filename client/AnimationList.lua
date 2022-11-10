@@ -11468,22 +11468,12 @@ DP.PropEmotes = {
             PtfxWait = 200,
         }
     },
-    ["selfiesit"] = { -- Emote by WhiskerValeMods
+    ["selfiesit"] = { -- Emote by WhiskerValeMod. Need to configure camera flash and texture variants 
         "mouse@female_sitting_selfie",
         "female_sitting_selfie_clip",
         "Selfie Sitting",
         AnimationOptions = {
             Prop = 'prop_phone_ing',
-            PropTextureVariations = {
-                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
-                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
-                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
-                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
-                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4}, 
-                {Name = "<font color=\"#a356fa\">Purple", Value = 5}, 
-                {Name = "<font color=\"#FF0099\">Pink", Value = 6}, 
-                {Name = "Black", Value = 7}, 
-            },
             PropBone = 57005,
             PropPlacement = {
                 0.1380,
@@ -11505,6 +11495,48 @@ DP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = false,
+        }
+    },
+    ["selfiesit2"] = { -- Emote by WolfSquareEmotes
+        "eagle@boypose05",
+        "boy",
+        "Selfie Sitting 2",
+        AnimationOptions = {
+            Prop = 'prop_phone_ing',
+            PropTextureVariations = {
+                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
+                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
+                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
+                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
+                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4}, 
+                {Name = "<font color=\"#a356fa\">Purple", Value = 5}, 
+                {Name = "<font color=\"#FF0099\">Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
+            PropBone = 4090, -- Left Finger 2
+            PropPlacement = {
+                0.0130,
+                0.0120,
+               -0.0070,
+               -103.6673,
+               -11.0026,
+                18.2605
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
         }
     },
     ["selfiefu"] = { -- Struggleville
