@@ -779,9 +779,9 @@ DP.Shared = {
         },
         AnimalEmote = true,
     },
-    ["pback"] = {
-        "anim@arena@celeb@flat@paired@no_props@",
-        "piggyback_c_player_a",
+    ["pback"] = { -- Custom Animation By SapphireMods
+        "mx@piggypack_a",
+        "mxclip_a",
         "Offer Piggy Back",
         "pback2",
         AnimationOptions = {
@@ -789,9 +789,9 @@ DP.Shared = {
             EmoteLoop = true,
         }
     },
-    ["pback2"] = {
-        "anim@arena@celeb@flat@paired@no_props@",
-        "piggyback_c_player_b",
+    ["pback2"] = { -- Custom Animation By SapphireMods
+        "mx@piggypack_b",
+        "mxanim_b",
         "Be Piggy Backed",
         "pback",
         AnimationOptions = {
@@ -799,9 +799,9 @@ DP.Shared = {
             EmoteLoop = true,
             Attachto = true,
             bone = 0,
-            xPos = 0.0,
-            yPos = -0.07,
-            zPos = 0.4,
+            xPos = 0.0200,
+            yPos = -0.4399,
+            zPos = 0.4200,
             xRot = 0.0,
             yRot = 0.0,
             zRot = 0.0,
