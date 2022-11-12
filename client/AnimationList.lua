@@ -691,6 +691,146 @@ DP.Shared = {
             zRot = 22.50,
         }
     },
+	["carrymecute"] = { -- Male Custom emote by Amnilka
+        "amnilka@photopose@couple@couplefirst",
+        "amnilka_couple_mal_002",
+        "Carry Me Cute",
+        "carrymecute2",
+        AnimationOptions = {
+            EmoteMoving = true,
+            EmoteLoop = true,
+        }
+    },
+    ["carrymecute2"] = { -- Female Custom emote by Amnilka
+        "amnilka@photopose@couple@couplefirst",
+        "amnilka_couple_fem_002",
+        "Carry Me Cute 2",
+        "carrymecute",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            bone = 0,
+            xPos = 0.0000,
+            yPos = 0.0000,
+            zPos = 0.0000,
+            xRot = 0.0000,
+            yRot = 0.0000,
+            zRot = 0.0000,
+        }
+    },
+    ["sitwithmepose"] = { -- Male Custom emote by Amnilka
+        "amnilka@photopose@couple@couplefirst",
+        "amnilka_couple_mal_003",
+        "Sit With Me",
+        "sitwithmepose2",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+        }
+    },
+    ["sitwithmepose2"] = { -- Female Custom emote by Amnilka
+        "amnilka@photopose@couple@couplefirst",
+        "amnilka_couple_fem_003",
+        "Sit With Me Please?",
+        "carrymecute",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            bone = 0,
+            xPos = 0.3540,
+            yPos = 0.5110,
+            zPos = 0.8310,
+            xRot = 0.0000,
+            yRot = 0.0000,
+            zRot = -2.8000,
+        }
+    },
+    ["hugpose"] = { -- Male Custom emote by Amnilka
+        "amnilka@photopose@couple@couplefirst",
+        "amnilka_couple_mal_001",
+        "Hug Pose",
+        "hugpose2",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+        }
+    },
+    ["hugpose2"] = { -- Female Custom emote by Amnilka
+        "amnilka@photopose@couple@couplefirst",
+        "amnilka_couple_fem_001",
+        "Hug Pose With Me?",
+        "hugpose",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            bone = 0,
+            xPos = 0.1400,
+            yPos = 0.2500,
+            zPos = 0.0000,
+            xRot = 0.0000,
+            yRot = 0.0000,
+            zRot = 0.0000,
+        }
+    },
+    ["cutepicpose"] = { -- Male Custom emote by Amnilka
+        "amnilka@photopose@couple@couplefirst",
+        "amnilka_couple_mal_004",
+        "Cute Pic Pose",
+        "cutepicpose2",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+        }
+    },
+    ["cutepicpose2"] = { -- Female Custom emote by Amnilka
+        "amnilka@photopose@couple@couplefirst",
+        "amnilka_couple_fem_004",
+        "Cute Pic Pose 2",
+        "cutepicpose",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            bone = 0,
+            xPos = 0.2700,
+            yPos = 0.1200,
+            zPos = 0.0000,
+            xRot = 0.0000,
+            yRot = 0.0000,
+            zRot = 0.0000,
+        }
+    },
+    ["couplehhands"] = { -- Male Custom emote by Amnilka
+        "amnilka@photopose@couple@couplefirst",
+        "amnilka_couple_mal_005",
+        "Couple Heart Hands",
+        "couplehhands2",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+        }
+    },
+    ["couplehhands2"] = { -- Female Custom emote by Amnilka
+        "amnilka@photopose@couple@couplefirst",
+        "amnilka_couple_fem_005",
+        "Couple Heart Hands 2",
+        "couplehhands",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            bone = 0,
+            xPos = -0.1230,
+            yPos = 0.4740,
+            zPos = 0.0000,
+            xRot = 0.0000,
+            yRot = 0.0000,
+            zRot = 94.0000,
+        }
+    },
     ["csdog"] = {
         "anim@heists@box_carry@",
         "idle",
