@@ -8610,6 +8610,150 @@ DP.PropEmotes = {
             EmoteMoving = true,
             EmoteDuration = 2600
         }
+        },
+    ["icecreama"] = {
+        "mp_player_inteat@burger",
+        "mp_player_int_eat_burger",
+        "Ice cream Cherry",
+        AnimationOptions = {
+            Prop = 'bzzz_icecream_cherry',
+            PropBone = 18905,
+            PropPlacement = {
+                0.14,
+                0.03,
+                0.01,
+                85.0,
+                70.0,
+                -203.0
+            },
+            EmoteMoving = true,
+        }
+    },
+    ["icecreamb"] = {
+        "mp_player_inteat@burger",
+        "mp_player_int_eat_burger",
+        "Ice cream Chocolate",
+        AnimationOptions = {
+            Prop = 'bzzz_icecream_chocolate',
+            PropBone = 18905,
+            PropPlacement = {
+                0.14,
+                0.03,
+                0.01,
+                85.0,
+                70.0,
+                -203.0
+            },
+            EmoteMoving = true,
+        }
+    },
+    ["icecreamc"] = {
+        "mp_player_inteat@burger",
+        "mp_player_int_eat_burger",
+        "Ice cream Lemon",
+        AnimationOptions = {
+            Prop = 'bzzz_icecream_lemon',
+            PropBone = 18905,
+            PropPlacement = {
+                0.14,
+                0.03,
+                0.01,
+                85.0,
+                70.0,
+                -203.0
+            },
+            EmoteMoving = true,
+        }
+    },
+    ["icecreamd"] = {
+        "mp_player_inteat@burger",
+        "mp_player_int_eat_burger",
+        "Ice cream Pistachio",
+        AnimationOptions = {
+            Prop = 'bzzz_icecream_pistachio',
+            PropBone = 18905,
+            PropPlacement = {
+                0.14,
+                0.03,
+                0.01,
+                85.0,
+                70.0,
+                -203.0
+            },
+            EmoteMoving = true,
+        }
+    },
+    ["icecreame"] = {
+        "mp_player_inteat@burger",
+        "mp_player_int_eat_burger",
+        "Ice cream Raspberry",
+        AnimationOptions = {
+            Prop = 'bzzz_icecream_raspberry',
+            PropBone = 18905,
+            PropPlacement = {
+                0.14,
+                0.03,
+                0.01,
+                85.0,
+                70.0,
+                -203.0
+            },
+            EmoteMoving = true,
+        }
+    },
+    ["icecreamf"] = {
+        "mp_player_inteat@burger",
+        "mp_player_int_eat_burger",
+        "Ice cream Stracciatella",
+        AnimationOptions = {
+            Prop = 'bzzz_icecream_stracciatella',
+            PropBone = 18905,
+            PropPlacement = {
+                0.14,
+                0.03,
+                0.01,
+                85.0,
+                70.0,
+                -203.0
+            },
+            EmoteMoving = true,
+        }
+    },
+    ["icecreamg"] = {
+        "mp_player_inteat@burger",
+        "mp_player_int_eat_burger",
+        "Ice cream Strawberry",
+        AnimationOptions = {
+            Prop = 'bzzz_icecream_strawberry',
+            PropBone = 18905,
+            PropPlacement = {
+                0.14,
+                0.03,
+                0.01,
+                85.0,
+                70.0,
+                -203.0
+            },
+            EmoteMoving = true,
+        }
+    },
+    ["icecreamh"] = {
+        "mp_player_inteat@burger",
+        "mp_player_int_eat_burger",
+        "Ice cream Walnut",
+        AnimationOptions = {
+            Prop = 'bzzz_icecream_walnut',
+            PropBone = 18905,
+            PropPlacement = {
+                0.14,
+                0.03,
+                0.01,
+                85.0,
+                70.0,
+                -203.0
+            },
+            EmoteMoving = true,
+        }
     },
     ["wine"] = {
         "anim@heists@humane_labs@finale@keycards",
