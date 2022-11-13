@@ -26,10 +26,10 @@ Config = {
     -- Use a 512 x 128 image!
     -- Note this might cause an issue of the image getting stuck on peoples screens
     CustomMenuEnabled = true,
-    MenuImage = "https://i.imgur.com/ghf970b.jpg", ----[Custom banner imgur URLs go here ]---
+    MenuImage = "https://i.giphy.com/media/jH7PrzykzUaJnmscOr/giphy.gif", ----[Custom banner IMGUR or GIPHY URLs go here ]---
     -- You can change the menu image by pasting a link above. It must be the same width and length
-    -- You can change the name of the menu here.
-    MenuTitle = "DpEmotes V2.3.0",
+    -- You can change the name of the menu here or leave it blank to remove the text in front of the custom banners
+    MenuTitle = "",
     -- You can change the menu position here
     MenuPosition = "right", -- (left, right)
     -- You can enable or disable the Ragdoll keybinding here.
@@ -41,8 +41,12 @@ Config = {
     ExpressionsEnabled = true,
     -- You can disable the Walking Styles menu here.
     WalkingStylesEnabled = true,
+    -- Saves walk styles to client and applies them periodically
+    PersistentWalk = true,
+    -- Polling period to apply persistent walkstyles
+    PersistencePollPeriod = 60000,
+    -- You can disable the Shared Emotes here.
     SharedEmotesEnabled = true,
-    CheckForUpdates = true,
     -- If you have the SQL imported enable this to turn on keybinding.
     SqlKeybinding = false,
     -- If you don't like gta notifications, you can disable them here to have messages in the chat.
@@ -53,19 +57,15 @@ Config = {
     AdultEmotesDisabled = false,
     -- You can disable the Animal Emotes here.
     AnimalEmotesEnabled = true,
-    -- You can disable the Shared Emotes here.
     -- Used to enable or disable the search feature in the menu.
     Search = true,
-    -- Saves walk styles to client and applies them periodically
-    PersistentWalk = true,
-    -- Polling period to apply persistent walkstyles
-    PersistencePollPeriod = 60000,
     -- You can disable the handsup here / change the keybind. It is currently set to H
     HandsupKeybindEnabled = false,
     HandsupKeybind = 'H', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- You can disable the fingrer pointing here / change the keybind. It is currently set to B
     PointingKeybindEnabled = false,
     PointingKeybind = 'B', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
+	CheckForUpdates = true,
 }
 
 Config.KeybindKeys = {
