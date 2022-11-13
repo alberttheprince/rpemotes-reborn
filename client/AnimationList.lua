@@ -2280,9 +2280,9 @@ DP.Dances = {
     ["dancepridee"] = {
         "anim@amb@nightclub@lazlow@hi_railing@",
         "ambclub_09_mi_hi_bellydancer_laz",
-        "Dance Pride E - Transexual",
+        "Dance Pride E - Transgender ",
         AnimationOptions = {
-            Prop = 'lilprideflag6', -- Transexual
+            Prop = 'lilprideflag6', -- Transgender 
             PropBone = 18905,
             PropPlacement = {
                 0.0900,
@@ -2707,9 +2707,9 @@ DP.AnimalEmotes = {
     ["bdogpridef"] = {
         "creatures@rottweiler@amb@world_dog_sitting@base",
         "base",
-        "Sit Pride F - Transexual (big dog)",
+        "Sit Pride F - Transgender  (big dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag6', -- Transexual
+            Prop = 'lilprideflag6', -- Transgender 
             PropBone = 31086,
             PropPlacement = {
                 0.1900,
@@ -3051,9 +3051,9 @@ DP.AnimalEmotes = {
     ["sdogdancepridef"] = {
         "creatures@pug@move",
         "idle_turn_0",
-        "Dance Pride F - Transexual (small dog)",
+        "Dance Pride F - Transgender  (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag6', -- Transexual
+            Prop = 'lilprideflag6', -- Transgender 
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -3844,9 +3844,9 @@ DP.AnimalEmotes = {
     ["sdogpridef"] = {
         "creatures@pug@move",
         "nill",
-        "Pride F - Transexual (small dog)",
+        "Pride F - Transgender  (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag6', -- Transexual
+            Prop = 'lilprideflag6', -- Transgender 
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -4015,9 +4015,9 @@ DP.AnimalEmotes = {
     ["sdogpridesitf"] = {
         "creatures@pug@amb@world_dog_sitting@idle_a",
         "idle_b",
-        "Pride F Sit Transexual  (small dog)",
+        "Pride F Sit Transgender   (small dog)",
         AnimationOptions = {
-            Prop = 'lilprideflag6', -- Transexual
+            Prop = 'lilprideflag6', -- Transgender 
             PropBone = 31086,
             PropPlacement = {
                 0.1240,
@@ -13669,7 +13669,7 @@ DP.PropEmotes = {
     ['pflag6'] = {
         'rcmnigel1d',
         'base_club_shoulder',
-        'Pride Flag 6 - Transexual ',
+        'Pride Flag 6 - Transgender  ',
         AnimationOptions = {
             Prop = 'prideflag6',
             PropBone = 18905,
