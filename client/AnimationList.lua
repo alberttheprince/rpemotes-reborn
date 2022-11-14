@@ -14349,7 +14349,7 @@ DP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true,
         }
-     },
+    },
     ["bball3"] = { -- Custom Emote By Struggleville
         "anim@male_basketball_03",
         "m_basketball_03_clip",
@@ -14385,6 +14385,44 @@ DP.PropEmotes = {
                 79.9999
             },
             EmoteLoop = true,
+        }
+    },
+    ["ftorch"] = {
+        "anim@heists@humane_labs@finale@keycards",
+        "ped_a_enter_loop",
+        "Fire Torch",
+        AnimationOptions = {
+            Prop = "bzzz_prop_torch_fire001", -- Custom Prop By Bzzzz Used With Permission
+            PropBone = 18905,
+            PropPlacement = {
+                0.14,
+                0.21,
+                -0.08,
+                -110.0,
+               -1.0,
+                -10.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ['ftorch2'] = {
+        'rcmnigel1d',
+        'base_club_shoulder',
+        'Fire Torch 2',
+        AnimationOptions = {
+            Prop = "bzzz_prop_torch_fire001", -- Custom Prop By Bzzzz Used With Permission
+            PropBone = 28422,
+            PropPlacement = {
+               -0.0800,
+			   -0.0300,
+			   -0.1700,
+                11.4181,
+				-159.1026,
+				15.0338
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
         }
     },
     ["watchstripper2"] = {
