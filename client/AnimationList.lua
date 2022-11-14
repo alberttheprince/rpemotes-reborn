@@ -10050,7 +10050,7 @@ DP.PropEmotes = {
 				0.5710
             },
             EmoteLoop = true,
-			EmoteMoving = true,
+			EmoteMoving = false,
          }
    },
 	["weights7"] = { -- Custom Female Emote By Frabi
@@ -10069,7 +10069,7 @@ DP.PropEmotes = {
 				54.3903
             },
             EmoteLoop = true,
-			EmoteMoving = true,
+			EmoteMoving = false,
          }
     },
     ["fuel"] = {
