@@ -348,6 +348,8 @@ This script is where it is today because of the amazing contributions made by th
 
 - Thank you to [QueenSisters Animations](https://discord.gg/qbPtGwQuep) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
 
+- Thank you to [Kri's Graphic House](https://discord.gg/JueRG3fCy6) for the custom banners
+
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
 You pay a big role in keeping this script alive and we could not do it without you 🙏
