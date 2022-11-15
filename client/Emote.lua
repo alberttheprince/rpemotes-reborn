@@ -611,6 +611,14 @@ function OnEmotePlay(EmoteName, textureVariation)
         end
     end
 
+    TaskPlayAnim(PlayerPedId(), ChosenDict, ChosenAnimation, 2.0, 2.0, AnimationDuration, MovementType, 0, false, false,
+        false)
+    RemoveAnimDict(ChosenDict)
+    IsInAnimation = true
+    RunAnimationThread()
+    MostRecentDict = ChosenDict
+    MostRecentAnimation = ChosenAnimation
+	
     if EmoteName.AnimationOptions then
         if EmoteName.AnimationOptions.Prop then
             PropName = EmoteName.AnimationOptions.Prop
@@ -641,14 +649,6 @@ function OnEmotePlay(EmoteName, textureVariation)
             end
         end
     end
-
-    TaskPlayAnim(PlayerPedId(), ChosenDict, ChosenAnimation, 2.0, 2.0, AnimationDuration, MovementType, 0, false, false,
-        false)
-    RemoveAnimDict(ChosenDict)
-    IsInAnimation = true
-    RunAnimationThread()
-    MostRecentDict = ChosenDict
-    MostRecentAnimation = ChosenAnimation
 
     return true
 end
