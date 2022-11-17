@@ -13,6 +13,14 @@ DP.Expressions = {
         "Expression",
         "mood_angry_1"
     },
+    ["Burning"] = {
+        "Expression",
+        "burning_1"
+    },
+    ["Crying"] = {
+        "Expression",
+        "console_wasnt_fun_end_loop_floyd_facial"
+    },
     ["Drunk"] = {
         "Expression",
         "mood_drunk_1"
@@ -1892,7 +1900,7 @@ DP.Dances = {
             EmoteLoop = true,
         }
         },
-    ["dancewave"] = {
+    ["dancewave"] = { -- Custom Emote By BoringNeptune
         "dancing_wave_part_one@anim",
         "wave_dance_1",
         "Wave Dance",
@@ -1900,7 +1908,7 @@ DP.Dances = {
             EmoteLoop = true,
         }
     },
-    ["dancewave02"] = {
+    ["dancewave02"] = { -- Custom Emote By BoringNeptune
         "dancing_wave_part_one@anim",
         "wave_dance_2",
         "Wave Dance 2",
@@ -1908,7 +1916,7 @@ DP.Dances = {
             EmoteLoop = true,
         }
     },
-    ["dancewave03"] = {
+    ["dancewave03"] = { -- Custom Emote By BoringNeptune
         "dancing_wave_part_one@anim",
         "wave_dance_3",
         "Wave Dance 3",
@@ -1916,7 +1924,7 @@ DP.Dances = {
             EmoteLoop = true,
         }
     },
-    ["dancewave04"] = {
+    ["dancewave04"] = { -- Custom Emote By BoringNeptune
         "dancing_wave_part_one@anim",
         "wave_dance_4",
         "Wave Dance 4",
@@ -1924,7 +1932,7 @@ DP.Dances = {
             EmoteLoop = true,
         }
     },
-    ["dancewave05"] = {
+    ["dancewave05"] = { -- Custom Emote By BoringNeptune
         "dancing_wave_part_one@anim",
         "tutankhamun_dance_1",
         "Wave Dance 5 - Tutankhamen",
@@ -1932,7 +1940,7 @@ DP.Dances = {
             EmoteLoop = true,
         }
     },
-    ["dancewave06"] = {
+    ["dancewave06"] = { -- Custom Emote By BoringNeptune
         "dancing_wave_part_one@anim",
         "tutankhamun_dance_2",
         "Wave Dance 6 - Tutankhamen 2",
@@ -1940,7 +1948,7 @@ DP.Dances = {
             EmoteLoop = true,
         }
     },
-    ["dancewave07"] = {
+    ["dancewave07"] = { -- Custom Emote By BoringNeptune
         "dancing_wave_part_one@anim",
         "snake_dance_1",
         "Wave Dance 7 - Snake Dance",
@@ -1948,7 +1956,7 @@ DP.Dances = {
             EmoteLoop = true,
         }
     },
-    ["dancewave08"] = {
+    ["dancewave08"] = { -- Custom Emote By BoringNeptune
         "dancing_wave_part_one@anim",
         "slide_dance",
         "Wave Dance 8 - Slide Dance",
@@ -1956,7 +1964,7 @@ DP.Dances = {
             EmoteLoop = true,
         }
     },
-    ["dancewave09"] = {
+    ["dancewave09"] = { -- Custom Emote By BoringNeptune
         "dancing_wave_part_one@anim",
         "slide_dance_2",
         "Wave Dance 9 - Slide Dance 2",
@@ -1964,7 +1972,7 @@ DP.Dances = {
             EmoteLoop = true,
         }
     },
-    ["dancewave10"] = {
+    ["dancewave10"] = { -- Custom Emote By BoringNeptune
         "dancing_wave_part_one@anim",
         "robot_dance",
         "Wave Dance 10 - Robot Dance",
@@ -1972,7 +1980,7 @@ DP.Dances = {
             EmoteLoop = true,
         }
     },
-    ["dancewave11"] = {
+    ["dancewave11"] = { -- Custom Emote By BoringNeptune
         "dancing_wave_part_one@anim",
         "locking_dance",
         "Wave Dance 11 - Locking Dance",
@@ -1980,7 +1988,7 @@ DP.Dances = {
             EmoteLoop = true,
         }
     },
-    ["dancewave12"] = {
+    ["dancewave12"] = { -- Custom Emote By BoringNeptune
         "dancing_wave_part_one@anim",
         "headspin",
         "Wave Dance 12 - Headspin",
@@ -1988,7 +1996,7 @@ DP.Dances = {
             EmoteLoop = false,
         }
     },
-    ["dancewave13"] = {
+    ["dancewave13"] = { -- Custom Emote By BoringNeptune
         "dancing_wave_part_one@anim",
         "flaire_dance",
         "Wave Dance 13 - Flaire Dance",
@@ -1996,7 +2004,7 @@ DP.Dances = {
             EmoteLoop = false,
         }
     },
-    ["dancewave14"] = {
+    ["dancewave14"] = { -- Custom Emote By BoringNeptune
         "dancing_wave_part_one@anim",
         "crowd_girl_dance",
         "Wave Dance 14 - Female Crowd Dance",
@@ -2004,7 +2012,7 @@ DP.Dances = {
             EmoteLoop = false,
         }
     },
-    ["dancewave15"] = {
+    ["dancewave15"] = { -- Custom Emote By BoringNeptune
         "dancing_wave_part_one@anim",
         "uprock_dance_1",
         "Wave Dance 15 - Uprock Dance",
