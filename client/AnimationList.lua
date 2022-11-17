@@ -132,6 +132,20 @@ DP.Walks = {
     ["Arrogant"] = {
         "move_f@arrogant@a"
     },
+    ["Butch"] = {
+        "move_m@hurry_butch@a"
+    },
+    ["Butch2"] = {
+        "move_m@hurry_butch@b",
+        "Butch 2"
+    },
+    ["Butch3"] = {
+        "move_m@hurry_butch@c",
+        "Butch 3"
+    },
+    ["Buzzed"] = {
+        "move_m@buzzed"
+    },
     ["Brave"] = {
         "move_m@brave"
     },
@@ -175,6 +189,14 @@ DP.Walks = {
         "move_m@business@c",
         "Cop 3"
     },
+    ["Chubbymale"] = {
+        "move_chubby",
+        "Chubby Male"
+    },
+    ["Chubbyfemale"] = {
+        "move_f@chubby@a",
+        "Chubby Female"
+    },
     ["Defaultfemale"] = {
         "move_f@multiplayer",
         "Default Female"
@@ -183,20 +205,47 @@ DP.Walks = {
         "move_m@multiplayer",
         "Default Male"
     },
+    ["Depressed"] = {
+        "move_m@depressed@a"
+    },
+    ["Depressed2"] = {
+        "move_m@depressed@b",
+        "Depressed 2"
+    },
+    ["Depressed3"] = {
+        "move_f@depressed@a",
+        "Depressed 3"
+    },
     ["Drunk"] = {
         "move_m@drunk@a"
     },
     ["Drunk2"] = {
-        "move_m@buzzed",
-        "Drunk 2"
+        "move_m@drunk@slightlydrunk",
+        "Drunk 2 Slightly"
     },
     ["Drunk3"] = {
-        "move_m@drunk@verydrunk",
-        "Drunk 3"
+        "move_m@buzzed",
+        "Drunk 3 Buzzed"
     },
     ["Drunk4"] = {
-        "move_m@drunk@slightlydrunk",
-        "Drunk 4"
+        "move_m@drunk@moderatedrunk",
+        "Drunk 4 Moderate"
+    },
+    ["Drunk5"] = {
+        "move_m@drunk@verydrunk",
+        "Drunk 5 Very Drunk"
+    },
+    ["Fat"] = {
+        "move_m@fat@a",
+        "Fat Male"
+    },
+    ["Fat2"] = {
+        "move_f@fat@a",
+        "Fat Female"
+    },
+    ["Fat3"] = {
+        "move_m@fat@bulky",
+        "Fat & Bulky"
     },
     ["Femme"] = {
         "move_f@femme@"
@@ -214,6 +263,18 @@ DP.Walks = {
     },
     ["Flee"] = {
         "move_f@flee@a"
+    },
+    ["Flee2"] = {
+        "move_f@flee@c",
+        "Flee 2"
+    },
+    ["Flee3"] = {
+        "move_m@flee@a",
+        "Flee 3"
+    },
+    ["Flee4"] = {
+        "move_m@flee@b",
+        "Flee 4"
     },
     ["Franklin"] = {
         "move_p_m_one"
@@ -237,8 +298,21 @@ DP.Walks = {
         "move_m@gangster@var_i",
         "Gangster 5"
     },
+    ["Genenric"] = {
+        "move_m@generic",
+        "Generic Male"
+    },
+    ["Genenric2"] = {
+        "move_f@generic",
+        "Generic Female"
+    },
     ["Grooving"] = {
-        "anim@move_m@grooving@"
+        "anim@move_m@grooving@",
+        "Grooving Male"
+    },
+    ["Grooving2"] = {
+        "anim@move_f@grooving@",
+        "Grooving Female"
     },
     ["Guard"] = {
         "move_m@prison_gaurd"
@@ -254,16 +328,27 @@ DP.Walks = {
         "Heels 2"
     },
     ["Hiking"] = {
-        "move_m@hiking"
+        "move_m@hiking",
+
     },
     ["Hipster"] = {
         "move_m@hipster@a"
     },
     ["Hobo"] = {
-        "move_m@hobo@a"
+        "move_m@hobo@a",
+        "Hobo"
+    },
+    ["Hobo2"] = {
+        "move_m@hobo@b",
+        "Hobo 2"
     },
     ["Hurry"] = {
-        "move_f@hurry@a"
+        "move_m@hurry@a",
+        "Hurry Male"
+     },
+    ["Hurry2"] = {
+        "move_f@hurry@a",
+        "Hurry Female"
     },
     ["Janitor"] = {
         "move_p_m_zero_janitor"
@@ -275,7 +360,7 @@ DP.Walks = {
     ["Jog"] = {
         "move_m@jog@"
     },
-    ["Lemar"] = {
+    ["Lamar"] = {
         "anim_group_move_lemar_alley"
     },
     ["Lester"] = {
@@ -311,7 +396,12 @@ DP.Walks = {
         "female_fast_runner"
     },
     ["Sad"] = {
-        "move_m@sad@a"
+        "move_m@sad@a",
+        "Sad Male"
+    },
+    ["Sad2"] = {
+        "move_f@sad@a",
+        "Sad Female"
     },
     ["Sassy"] = {
         "move_m@sassy"
@@ -342,6 +432,15 @@ DP.Walks = {
         "move_f@tough_guy@",
         "Tough 2"
     },
+    ["Toolbelt"] = {
+        "move_m@tool_belt@a",
+        "Toolbelt Male"
+
+    },
+    ["Toolbelt2"] = {
+        "move_f@tool_belt@a",
+        "Toolbelt Female"
+    },
     ["Trash"] = {
         "clipset@move@trash_fast_turn"
     },
@@ -354,23 +453,6 @@ DP.Walks = {
     },
     ["Wide"] = {
         "move_m@bag"
-    },
-    ["Chubbymale"] = {
-        "move_chubby",
-        "Chubby Male"
-    },
-    -- male
-    ["Chubbyfemale"] = {
-        "move_f@chubby@a",
-        "Chubby Female"
-    },
-    -- female
-    ["Depressed"] = {
-        "move_m@depressed@a"
-    },
-    ["Depressed2"] = {
-        "move_m@depressed@b",
-        "Depressed 2"
     },
 
     -- I cant get these to work for some reason, if anyone knows a fix, let me know
