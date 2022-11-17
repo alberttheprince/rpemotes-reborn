@@ -525,6 +525,8 @@ function AddInfoMenu(menu)
         "<font color=\"#53ba04\">SapphireMods</font> for the custom emotes ✨."))
     infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#8526f0\">QueenSisters Animations</font>",
         "<font color=\"#8526f0\">QueenSistersAnimations</font> for the custom emotes 🍧"))
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#0acf52\">BoringNeptune</font>",
+        "<font color=\"#0acf52\">BoringNeptune</font> for the custom emotes 🕺"))
 
     infomenu:AddItem(NativeUI.CreateItem("Thanks to the community", "Translations, bug reports and moral support 🌐"))
 end

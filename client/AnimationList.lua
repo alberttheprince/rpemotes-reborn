@@ -1,6 +1,9 @@
--- DPEmotes forked by TayMcKenzieNZ requires you to be on the latest FiveM Gamebuild for all emotes to function.
--- If an emote does not work, you may be on an older gamebuild.
--- To get a higher gamebuild, see ReadMe on github repositorty
+-- DPEmotes forked by TayMcKenzieNZ requires you to be on the latest FiveM Gamebuild for all emotes to function. --
+-- ALL custon animations added to this fork were added with express permission from the creators and does not contain any paid content --
+-- If an emote does not work, you may be on an older gamebuild. --
+-- To get a higher gamebuild, see ReadMe on github repositorty --
+
+
 DP = {}
 
 -- EXPRESSIONS --
@@ -435,11 +438,11 @@ DP.Shared = {
             SyncOffsetFront = 1.18
         }
     },
-    ["hug3"] = {
+    ["hugr"] = {
         "misscarsteal2chad_goodbye",
         "chad_armsaround_chad",
         "Hug Romantic 1",
-        "hug4",
+        "hugr2",
         AnimationOptions = {
             EmoteMoving = false,
             EmoteLoop = true,
@@ -447,11 +450,11 @@ DP.Shared = {
             SyncOffsetFront = 0.52,
         }
     },
-    ["hug4"] = {
+    ["hugr2"] = {
         "misscarsteal2chad_goodbye",
         "chad_armsaround_girl",
         "Hug Romantic 2",
-        "hug3",
+        "hugr",
         AnimationOptions = {
             EmoteMoving = false,
             EmoteLoop = true,
@@ -1886,6 +1889,126 @@ DP.Dances = {
                 0.0,
                 0.0
             },
+            EmoteLoop = true,
+        }
+        },
+    ["dancewave"] = {
+        "dancing_wave_part_one@anim",
+        "wave_dance_1",
+        "Wave Dance",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
+    ["dancewave02"] = {
+        "dancing_wave_part_one@anim",
+        "wave_dance_2",
+        "Wave Dance 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
+    ["dancewave03"] = {
+        "dancing_wave_part_one@anim",
+        "wave_dance_3",
+        "Wave Dance 3",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
+    ["dancewave04"] = {
+        "dancing_wave_part_one@anim",
+        "wave_dance_4",
+        "Wave Dance 4",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
+    ["dancewave05"] = {
+        "dancing_wave_part_one@anim",
+        "tutankhamun_dance_1",
+        "Wave Dance 5 - Tutankhamen",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
+    ["dancewave06"] = {
+        "dancing_wave_part_one@anim",
+        "tutankhamun_dance_2",
+        "Wave Dance 6 - Tutankhamen 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
+    ["dancewave07"] = {
+        "dancing_wave_part_one@anim",
+        "snake_dance_1",
+        "Wave Dance 7 - Snake Dance",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
+    ["dancewave08"] = {
+        "dancing_wave_part_one@anim",
+        "slide_dance",
+        "Wave Dance 8 - Slide Dance",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
+    ["dancewave09"] = {
+        "dancing_wave_part_one@anim",
+        "slide_dance_2",
+        "Wave Dance 9 - Slide Dance 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
+    ["dancewave10"] = {
+        "dancing_wave_part_one@anim",
+        "robot_dance",
+        "Wave Dance 10 - Robot Dance",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
+    ["dancewave11"] = {
+        "dancing_wave_part_one@anim",
+        "locking_dance",
+        "Wave Dance 11 - Locking Dance",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
+    ["dancewave12"] = {
+        "dancing_wave_part_one@anim",
+        "headspin",
+        "Wave Dance 12 - Headspin",
+        AnimationOptions = {
+            EmoteLoop = false,
+        }
+    },
+    ["dancewave13"] = {
+        "dancing_wave_part_one@anim",
+        "flaire_dance",
+        "Wave Dance 13 - Flaire Dance",
+        AnimationOptions = {
+            EmoteLoop = false,
+        }
+    },
+    ["dancewave14"] = {
+        "dancing_wave_part_one@anim",
+        "crowd_girl_dance",
+        "Wave Dance 14 - Female Crowd Dance",
+        AnimationOptions = {
+            EmoteLoop = false,
+        }
+    },
+    ["dancewave15"] = {
+        "dancing_wave_part_one@anim",
+        "uprock_dance_1",
+        "Wave Dance 15 - Uprock Dance",
+        AnimationOptions = {
             EmoteLoop = true,
         }
     },
@@ -4809,20 +4932,15 @@ DP.Emotes = {
             EmoteMoving = true,
         }
     },
-    ["hug"] = {
+    ["hugme"] = {
         "mp_ped_interaction",
         "kisses_guy_a",
-        "Hug"
+        "Hug Me"
     },
-    ["hug2"] = {
+    ["hugme2"] = {
         "mp_ped_interaction",
         "kisses_guy_b",
-        "Hug 2"
-    },
-    ["hug3"] = {
-        "mp_ped_interaction",
-        "hugs_guy_a",
-        "Hug 3"
+        "Hug Me 2"
     },
     ["inspect"] = {
         "random@train_tracks",
