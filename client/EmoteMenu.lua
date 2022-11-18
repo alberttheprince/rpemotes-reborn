@@ -453,6 +453,7 @@ function AddWalkMenu(menu)
             WalkMenuStart(WalkTable[index])
         else
             ResetPedMovementClipset(PlayerPedId())
+            DeleteResourceKvp("walkstyle")
         end
     end
 end

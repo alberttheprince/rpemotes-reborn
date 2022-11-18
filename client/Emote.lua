@@ -176,6 +176,12 @@ RegisterCommand('pointing', function(source, args, raw)
 				if not IsPedInjured(ped) then ClearPedSecondaryTask(ped) end
 
 				SetPedConfigFlag(ped, 36, 0)
+
+				if Config.WalkingStylesEnabled and Config.PersistentWalk then
+					local kvp = GetResourceKvpString("walkstyle")
+
+					if kvp ~= nil then WalkMenuStart(kvp) end
+				end
 			end)
 		else
 			Pointing = false
