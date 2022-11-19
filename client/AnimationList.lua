@@ -9,7 +9,11 @@ DP = {}
 -- EXPRESSIONS --
 
 DP.Expressions = {
-    ["Angry"] = {
+    ["Aiming"] = {
+        "Expression",
+        "mood_aiming_1"
+    },
+	["Angry"] = {
         "Expression",
         "mood_angry_1"
     },
@@ -20,6 +24,10 @@ DP.Expressions = {
     ["Crying"] = {
         "Expression",
         "console_wasnt_fun_end_loop_floyd_facial"
+    },
+    ["Dead"] = {
+        "Expression",
+        "dead_1"
     },
     ["Drunk"] = {
         "Expression",
@@ -196,6 +204,9 @@ DP.Walks = {
     ["Chubbyfemale"] = {
         "move_f@chubby@a",
         "Chubby Female"
+     },
+    ["Crouched"] = {
+        "move_ped_crouched",
     },
     ["Defaultfemale"] = {
         "move_f@multiplayer",
@@ -219,21 +230,25 @@ DP.Walks = {
     ["Drunk"] = {
         "move_m@drunk@a"
     },
-    ["Drunk2"] = {
-        "move_m@drunk@slightlydrunk",
-        "Drunk 2 Slightly"
+	 ["Drunk2"] = {
+        "move_m@buzzed",
+		"Drunk 2 - Buzzed"
     },
     ["Drunk3"] = {
-        "move_m@buzzed",
-        "Drunk 3 Buzzed"
+        "move_m@drunk@moderatedrunk",
+        "Drunk 3 - Moderate"
     },
     ["Drunk4"] = {
-        "move_m@drunk@moderatedrunk",
-        "Drunk 4 Moderate"
+        "move_m@drunk@moderatedrunk_head_up",
+        "Drunk 4 - Moderate 2"
     },
     ["Drunk5"] = {
+        "move_m@drunk@slightlydrunk",
+        "Drunk 5 - Slightly Drunk"
+    },
+    ["Drunk6"] = {
         "move_m@drunk@verydrunk",
-        "Drunk 5 Very Drunk"
+        "Drunk 6 - Very Drunk"
     },
     ["Fat"] = {
         "move_m@fat@a",
@@ -331,6 +346,11 @@ DP.Walks = {
         "move_m@hiking",
 
     },
+    ["Hiking2"] = {
+        "move_f@hiking",
+		"Hiking 2"
+
+    },
     ["Hipster"] = {
         "move_m@hipster@a"
     },
@@ -345,10 +365,26 @@ DP.Walks = {
     ["Hurry"] = {
         "move_m@hurry@a",
         "Hurry Male"
-     },
+    },
     ["Hurry2"] = {
         "move_f@hurry@a",
         "Hurry Female"
+    },
+    ["Injured2"] = {
+        "move_f@injured",
+        "Injured 2 - Female"
+    },
+    ["Intimidation"] = {
+        "move_m@intimidation@1h",
+        "Intimidation"
+    },
+    ["Intimidation2"] = {
+        "move_m@intimidation@cop@unarmed",
+        "Intimidation 2"
+    },
+    ["Intimidation3"] = {
+        "move_m@intimidation@unarmed",
+        "Intimidation 3"
     },
     ["Janitor"] = {
         "move_p_m_zero_janitor"
@@ -359,6 +395,9 @@ DP.Walks = {
     },
     ["Jog"] = {
         "move_m@jog@"
+    },
+    ["Nervous"] = {
+        "move_characters@jimmy@nervous@"
     },
     ["Lamar"] = {
         "anim_group_move_lemar_alley"
@@ -400,8 +439,20 @@ DP.Walks = {
         "Sad Male"
     },
     ["Sad2"] = {
+        "move_m@sad@b",
+        "Sad Male 2"
+    },
+    ["Sad3"] = {
+        "move_m@sad@c",
+        "Sad Male 3"
+    },
+    ["Sad4"] = {
         "move_f@sad@a",
         "Sad Female"
+    },
+    ["Sad5"] = {
+        "move_f@sad@b",
+        "Sad Female 2"
     },
     ["Sassy"] = {
         "move_m@sassy"
