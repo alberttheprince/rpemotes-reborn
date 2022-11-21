@@ -1003,6 +1003,88 @@ DP.Shared = {
             zRot = 94.0000,
         }
     },
+	["liftme"] = { -- Male Custom emote by -Moses-
+        "couplepose1pack1anim2@animation",
+        "couplepose1pack1anim2_clip",
+        "Lift Me",
+        "liftme2",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
+    ["liftme2"] = { -- Female Custom emote by -Moses-
+        "couplepose1pack1anim1@animation",
+        "couplepose1pack1anim1_clip",
+        "Lift Me 2",
+        "liftme",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            bone = 0,
+            xPos = 0.0020,
+            yPos = 0.2870,
+            zPos = 0.2500,
+            xRot = 0.0000,
+            yRot = 0.0000,
+            zRot = 180.0000,
+        }
+    },
+	["liftme3"] = { -- Male Custom emote by -Moses-
+        "couplepose2pack1anim2@animation",
+        "couplepose2pack1anim2_clip",
+        "Lift Me 3",
+        "liftme4",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+        }
+    },
+    ["liftme4"] = { -- Female Custom emote by -Moses-
+        "couplepose2pack1anim1@animation",
+        "couplepose2pack1anim1_clip",
+        "Lift Me 4",
+        "liftme3",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            bone = 0,
+            xPos = 0.0100,
+            yPos = 0.4800,
+            zPos = 0.5300,
+            xRot = 0.0000,
+            yRot = 0.0000,
+            zRot = 180.0000,
+        }
+    },
+	["liftme5"] = { -- Male Custom emote by -Moses-
+        "couplepose3pack1anim2@animation",
+        "couplepose3pack1anim2_clip",
+        "Lift Me 5",
+        "liftme6",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
+    ["liftme6"] = { -- Female Custom emote by -Moses-
+        "couplepose3pack1anim1@animation",
+        "couplepose3pack1anim1_clip",
+        "Lift Me 6",
+        "liftme5",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            bone = 0,
+            xPos = -0.2120,
+            yPos = -0.5400,
+            zPos = -0.1000,
+            xRot = 0.0000,
+            yRot = 0.0000,
+            zRot = 0.0000,
+        }
+    },
     ["csdog"] = {
         "anim@heists@box_carry@",
         "idle",

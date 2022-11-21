@@ -528,6 +528,9 @@ function AddInfoMenu(menu)
         "<font color=\"#8526f0\">QueenSistersAnimations</font> for the custom emotes 🍧"))
     infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#0acf52\">BoringNeptune</font>",
         "<font color=\"#0acf52\">BoringNeptune</font> for the custom emotes 🕺"))
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#edae00\">-Moses-</font>",
+        "<font color=\"#edae00\">-Moses-</font> for the custom emotes 🧡"))
+		
 
     infomenu:AddItem(NativeUI.CreateItem("Thanks to the community", "Translations, bug reports and moral support 🌐"))
 end
