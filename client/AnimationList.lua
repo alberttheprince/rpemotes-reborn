@@ -7774,6 +7774,60 @@ DP.Emotes = {
             EmoteMoving = false,
        }
     },
+	["layncry"] = {
+        "anim@amb@nightclub@lazlow@lo_sofa@",
+        "lowsofa_dlg_fuckedup_laz",
+        "Lay & Cry",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+       }
+    },
+	["layncry2"] = {
+        "anim@amb@nightclub@lazlow@lo_sofa@",
+        "lowsofa_base_laz",
+        "Lay & Cry 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+       }
+    },
+	["layncry3"] = {
+        "anim@amb@nightclub@lazlow@lo_sofa@",
+        "lowsofa_dlg_notagain_laz",
+        "Lay & Cry 3",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+       }
+    },
+	["layncry4"] = {
+        "anim@amb@nightclub@lazlow@lo_sofa@",
+        "lowsofa_dlg_notagain_laz",
+        "Lay & Cry 4",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+       }
+    },
+	["layncry5"] = {
+        "anim@amb@nightclub@lazlow@lo_sofa@",
+        "lowsofa_dlg_shit2strong_laz",
+        "Lay & Cry 5",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+       }
+    },
+	["layncry6"] = {
+        "misschinese2_crystalmaze",
+        "2int_loop_a_taocheng",
+        "Lay & Cry 6",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+       }
+    },
 }
 
 --- EMOTES WITH 1 OR 2 PROPS ---
@@ -14932,6 +14986,35 @@ DP.PropEmotes = {
                 -1.4385
             },
             EmoteLoop = true,
+        }
+    },
+	["crackhead"] = {
+        "special_ped@zombie@base",
+        "base",
+        "Crack Head",
+        AnimationOptions = {
+            Prop = 'prop_cs_bowie_knife', -- Knife 
+            PropBone = 28422, -- Right Wrist 
+            PropPlacement = {
+                -0.1280,
+                -0.0220,
+                 0.0210,
+                -150.0005,
+                179.9989,
+				-30.0105
+            },
+            SecondProp = 'ng_proc_cigpak01a',
+            SecondPropBone = 26614,
+            SecondPropPlacement = {
+                0.010,
+                -0.0190,
+                0.0920,
+                -82.4073,
+                178.6009,
+				29.9195
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
         }
     },
 
