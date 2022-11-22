@@ -2,7 +2,7 @@
 --- Forked by TayMcKenzieNZ ---
 --- Check for updates at https://github.com/TayMcKenzieNZ/dpemotes ---
 
-fx_version 'adamant'
+fx_version 'cerulean'
 
 game 'gta5'
 lua54 'yes'
@@ -58,4 +58,8 @@ data_file 'DLC_ITYP_REQUEST' 'natty_props_lollipops.ytyp'
 data_file 'DLC_ITYP_REQUEST' 'apple_1.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_food_icecream_pack.ytyp'
+
+data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_food_dessert_a.ytyp'
+
+data_file 'DLC_ITYP_REQUEST' 'stream/ultra_ringcase.ytyp'
 

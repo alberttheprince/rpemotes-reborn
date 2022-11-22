@@ -8648,7 +8648,7 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
-    ["donut2"] = {
+    ["donut2"] = { --- Custom Prop by Bzzzi
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Donut Chocolate",
@@ -8666,7 +8666,7 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
-    ["donut3"] = {
+    ["donut3"] = { --- Custom Prop by Bzzzi
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Donut Raspberry",
@@ -8680,6 +8680,24 @@ DP.PropEmotes = {
                 10.0000,
                 0.0000,
                 -1.0000
+            },
+            EmoteMoving = true,
+        }
+    },
+    ["desert"] = { --- Custom Prop by Bzzzi
+        "mp_player_inteat@burger",
+        "mp_player_int_eat_burger",
+        "Eat dessert",
+        AnimationOptions = {
+            Prop = 'bzzz_food_dessert_a',
+            PropBone = 18905,
+            PropPlacement = {
+                0.15,
+                0.03,
+                0.03,
+                -42.0,
+                -36.0,
+                0.0
             },
             EmoteMoving = true,
         }
@@ -15015,6 +15033,24 @@ DP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = true,
+        }
+    },
+    ["propose"] = { --- Custom Emote By ultrahacx
+        "ultra@propose",
+        "propose",
+        "Propose",
+        AnimationOptions = {
+            Prop = 'ultra_ringcase', --- Custom prop by ultrahacx
+            PropBone = 28422,
+            PropPlacement = {
+               0.0980,
+               0.0200,
+              -0.0540,
+              -138.6571,
+               4.4141,
+              -79.3552
+            },
+            EmoteLoop = true,
         }
     },
 
