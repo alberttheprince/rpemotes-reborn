@@ -359,3 +359,7 @@ This script is where it is today because of the amazing contributions made by th
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
 You pay a big role in keeping this script alive and we could not do it without you 🙏
+
+-------------------------------------------------------------------------------
+
+<img src="stream/[Custom Emotes]/CMGMods/Permission_CMG_Mods.png" width="480"> <img src="stream/[Custom Emotes]/Prue颜/Permission_Lunyxmods.png" width="480">
