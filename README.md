@@ -352,7 +352,9 @@ This script is where it is today because of the amazing contributions made by th
 
 - Thank you to [BoringNeptune](https://www.gta5-mods.com/users/BoringNeptune) for the custom dance emotes
 
-- Thank you to [-Moses-](https://www.gta5-mods.com/users/-moses-) for the custom emotes
+- Thank you to [-CMG Mods-](https://www.gta5-mods.com/users/-moses-) for the custom emotes
+
+- Thank you to [prue颜](discord.gg/lunyxmods) for being a great friend, partnering with me and for the custom emotes
 
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
