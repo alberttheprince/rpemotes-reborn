@@ -863,6 +863,33 @@ DP.Shared = {
             zRot = 0.0000,
         }
     },
+	["carrycmg"] = { -- Male Custom emote by CMG Mods
+        "couplepose1cmg@animation",
+        "couplepose1cmg_clip",
+        "Carry Me Cute 3 CMG",
+        "carrycmg2",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+        }
+    },
+    ["carrycmg2"] = { -- Female Custom emote by CMG Mods
+        "couplepose2cmg@animation",
+        "couplepose2cmg_clip",
+        "Carry Me Cute 4 CMG",
+        "carrycmg",
+        AnimationOptions = {
+            EmoteLoop = true,
+            Attachto = true,
+            bone = 0,
+            xPos = 0.0100,
+            yPos = 0.3440,
+            zPos = -0.0100,
+            xRot = 180.0000,
+            yRot = 180.0000,
+            zRot = -1.9999,
+        }
+    },
     ["sitwithmepose"] = { -- Male Custom emote by Amnilka
         "amnilka@photopose@couple@couplefirst",
         "amnilka_couple_mal_003",
@@ -7828,6 +7855,42 @@ DP.Emotes = {
             EmoteMoving = false,
        }
     },
+	["airforce01"] = { -- MissSnowie
+        "airforce@at_ease",
+        "base",
+        "Airforce - At Ease", -- MissSnowie
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+       }
+    },
+	["airforce02"] = { -- MissSnowie
+        "airforce@attention",
+        "base",
+        "Airforce - Attention",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+       }
+    },
+	["airforce03"] = { -- MissSnowie
+        "airforce@parade_rest",
+        "base",
+        "Airforce - Parade Rest",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+       }
+    },
+	["airforce04"] = {
+        "airforce@salute",
+        "base",
+        "Airforce - Salute",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+       }
+    },
 }
 
 --- EMOTES WITH 1 OR 2 PROPS ---
@@ -11371,6 +11434,196 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
+    ["microck"] = { --- Custom Emote Provided To TayMcKenzieNZ's DpEmotes Fork By Prue颜
+        "lunyx@mic@p1",
+        "mic@p1",
+        "Microphone Rock",
+        AnimationOptions = {
+            Prop = "sf_prop_sf_mic_01a",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0300,
+                0.0200,
+                -0.0300,
+                162.9608,
+                -91.1712,
+                -3.8249
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["microckb"] = { --- Custom Emote Provided To TayMcKenzieNZ's DpEmotes Fork By Prue颜
+        "lunyx@mic@p2",
+        "mic@p2",
+        "Microphone Rock 2",
+        AnimationOptions = {
+            Prop = "sf_prop_sf_mic_01a",
+            PropBone = 60309, -- Left Wrist
+            PropPlacement = {
+                0.0350,
+                0.0180,
+				0.0290,
+               -180.0000,
+                -13.0000,
+                0.0000
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["microckc"] = { --- Custom Emote Provided To TayMcKenzieNZ's DpEmotes Fork By Prue颜
+        "lunyx@mic@p3",
+        "mic@p3",
+        "Microphone Rock 3",
+        AnimationOptions = {
+            Prop = "sf_prop_sf_mic_01a",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0300,
+                0.0200,
+                -0.0300,
+                162.9608,
+                -91.1712,
+                -3.8249
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["microckd"] = { --- Custom Emote Provided To TayMcKenzieNZ's DpEmotes Fork By Prue颜
+        "lunyx@mic@p4",
+        "mic@p4",
+        "Microphone Rock 4",
+        AnimationOptions = {
+            Prop = "sf_prop_sf_mic_01a",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0300,
+                0.0200,
+                -0.0300,
+                162.9608,
+                -91.1712,
+                -3.8249
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["microcke"] = { --- Custom Emote Provided To TayMcKenzieNZ's DpEmotes Fork By Prue颜
+        "lunyx@mic@p5",
+        "mic@p5",
+        "Microphone Rock 5",
+        AnimationOptions = {
+            Prop = "sf_prop_sf_mic_01a",
+            PropBone = 60309,
+            PropPlacement = {
+                0.0370,
+                0.0130,
+                0.0150,
+               -173.6259,
+               -93.5253,
+                4.6450
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["microckf"] = { --- Custom Emote Provided To TayMcKenzieNZ's DpEmotes Fork By Prue颜
+        "lunyx@mic@p6",
+        "mic@p6",
+        "Microphone Rock 6",
+        AnimationOptions = {
+            Prop = "v_ilev_fos_mic",
+            PropBone = 28422,
+            PropPlacement = {
+                -0.4410,
+                -1.0600,
+                -0.4800,
+                -57.7266,
+                51.8164,
+                3.0976
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["microckg"] = { --- Custom Emote Provided To TayMcKenzieNZ's DpEmotes Fork By Prue颜
+        "lunyx@mic@p7",
+        "mic@p7",
+        "Microphone Rock 7",
+        AnimationOptions = {
+            Prop = "v_ilev_fos_mic",
+            PropBone = 28422,
+            PropPlacement = {
+                -0.8210,
+                -0.0900,
+                -1.1900,
+                -2.5478,
+                36.3684,
+                -11.7503
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["microckh"] = { --- Custom Emote Provided To TayMcKenzieNZ's DpEmotes Fork By Prue颜
+        "lunyx@mic@p8",
+        "mic@p8",
+        "Microphone Rock 8",
+        AnimationOptions = {
+             Prop = "sf_prop_sf_mic_01a",
+            PropBone = 60309,
+            PropPlacement = {
+                0.0370,
+                0.0130,
+                0.0150,
+               -173.6259,
+               -93.5253,
+                4.6450
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["microcki"] = { --- Custom Emote Provided To TayMcKenzieNZ's DpEmotes Fork By Prue颜
+        "lunyx@mic@p9",
+        "mic@p9",
+        "Microphone Rock 9",
+        AnimationOptions = {
+            Prop = "sf_prop_sf_mic_01a",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0300,
+                0.0200,
+                -0.0300,
+                162.9608,
+                -91.1712,
+                -3.8249
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["microckj"] = { --- Custom Emote Provided To TayMcKenzieNZ's DpEmotes Fork By Prue颜
+        "lunyx@mic@p10",
+        "mic@p10",
+        "Microphone Rock 10",
+        AnimationOptions = {
+            Prop = "sf_prop_sf_mic_01a",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0300,
+                0.0200,
+                -0.0300,
+                162.9608,
+                -91.1712,
+                -3.8249
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
     ["leafblower"] = {
         "amb@world_human_gardener_leaf_blower@base",
         "base",
@@ -13068,6 +13321,58 @@ DP.PropEmotes = {
                -142.1374,
                 -92.4142,
                 33.1691
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
+        }
+    },
+    ["selfiewine"] = { -- Custom Emote By Wolf's Square
+        "holding_wine@taking_selfie",
+        "base",
+        "Selfie Wine",
+        AnimationOptions = {
+            Prop = 'p_wine_glass_s',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0420,
+                -0.0700,
+                -0.0440,
+                -82.6657,
+                 1.2898,
+                -19.9222
+            },
+            SecondProp = 'prop_phone_ing',
+            PropTextureVariations = {
+                { Name = "<font color=\"#00A0F4\">Blue", Value = 0 },
+                { Name = "<font color=\"#1AA20E\">Green", Value = 1 },
+                { Name = "<font color=\"#800B0B\">Dark Red", Value = 2 },
+                { Name = "<font color=\"#FF7B00\">Orange", Value = 3 },
+                { Name = "<font color=\"#5F5F5F\">Grey", Value = 4 },
+                { Name = "<font color=\"#a356fa\">Purple", Value = 5 },
+                { Name = "<font color=\"#FF0099\">Pink", Value = 6 },
+                { Name = "Black", Value = 7 },
+            },
+            SecondPropBone = 4090,
+            SecondPropPlacement = {
+                0.0250,
+                -0.0080,
+                -0.0050,
+               -140.5541,
+               -24.7476,
+                 13.7795
             },
             EmoteLoop = true,
             EmoteMoving = true,
