@@ -60,11 +60,11 @@ local function RunAnimationThread()
 end
 
 if Config.EnableXtoCancel then
-    RegisterKeyMapping("emotecancel", "Cancel current emote", "keyboard", "X")
+    RegisterKeyMapping("emotecancel", "Cancel current emote", "keyboard", Config.CancelEmoteKey)
 end
 
 if Config.MenuKeybindEnabled then
-    RegisterKeyMapping("emotemenu", "Open dpemotes menu", "keyboard", Config.MenuKeybind)
+    RegisterKeyMapping("emotemenu", "Open rpemotes menu", "keyboard", Config.MenuKeybind)
 end
 
 if Config.HandsupKeybindEnabled then
@@ -92,7 +92,7 @@ Citizen.CreateThread(function()
                 { name = "emotename", help = "dance, camera, sit or any valid emote." } })
         TriggerEvent('chat:addSuggestion', '/emotebinds', 'Check your currently bound emotes.')
     end
-    TriggerEvent('chat:addSuggestion', '/emotemenu', 'Open dpemotes menu (F5) by default.')
+    TriggerEvent('chat:addSuggestion', '/emotemenu', 'Open rpemotes menu (F5) by default.')
     TriggerEvent('chat:addSuggestion', '/emotes', 'List available emotes.')
     TriggerEvent('chat:addSuggestion', '/walk', 'Set your walkingstyle.',
         { { name = "style", help = "/walks for a list of valid styles" } })
@@ -102,17 +102,17 @@ Citizen.CreateThread(function()
     TriggerEvent('chat:addSuggestion', '/pointing', 'Finger pointing.')
 end)
 
-RegisterCommand('e', function(source, args, raw) EmoteCommandStart(source, args, raw) end)
-RegisterCommand('emote', function(source, args, raw) EmoteCommandStart(source, args, raw) end)
+RegisterCommand('e', function(source, args, raw) EmoteCommandStart(source, args, raw) end, false)
+RegisterCommand('emote', function(source, args, raw) EmoteCommandStart(source, args, raw) end, false)
 if Config.SqlKeybinding then
-    RegisterCommand('emotebind', function(source, args, raw) EmoteBindStart(source, args, raw) end)
-    RegisterCommand('emotebinds', function(source, args, raw) EmoteBindsStart(source, args, raw) end)
+    RegisterCommand('emotebind', function(source, args, raw) EmoteBindStart(source, args, raw) end, false)
+    RegisterCommand('emotebinds', function(source, args, raw) EmoteBindsStart(source, args, raw) end, false)
 end
-RegisterCommand('emotemenu', function(source, args, raw) OpenEmoteMenu() end)
-RegisterCommand('emotes', function(source, args, raw) EmotesOnCommand() end)
-RegisterCommand('walk', function(source, args, raw) WalkCommandStart(source, args, raw) end)
-RegisterCommand('walks', function(source, args, raw) WalksOnCommand() end)
-RegisterCommand('emotecancel', function(source, args, raw) EmoteCancel() end)
+RegisterCommand('emotemenu', function(source, args, raw) OpenEmoteMenu() end, false)
+RegisterCommand('emotes', function(source, args, raw) EmotesOnCommand() end, false)
+RegisterCommand('walk', function(source, args, raw) WalkCommandStart(source, args, raw) end, false)
+RegisterCommand('walks', function(source, args, raw) WalksOnCommand() end, false)
+RegisterCommand('emotecancel', function(source, args, raw) EmoteCancel() end, false)
 
 RegisterCommand('handsup', function(source, args, raw)
 	if Config.HandsupKeybindEnabled then
@@ -122,7 +122,8 @@ RegisterCommand('handsup', function(source, args, raw)
 			EmoteCommandStart(nil, {"handsup"}, nil)
 		end
 	end
-end)
+end, false)
+
 RegisterCommand('pointing', function(source, args, raw)
 	if Config.PointingKeybindEnabled then
 		local ped = PlayerPedId()
@@ -187,7 +188,7 @@ RegisterCommand('pointing', function(source, args, raw)
 			Pointing = false
 		end
 	end
-end)
+end, false)
 
 AddEventHandler('onResourceStop', function(resource)
     if resource == GetCurrentResourceName() then
@@ -286,6 +287,7 @@ AddStateBagChangeHandler('ptfx', nil, function(bagName, key, value, _unused, rep
         local offset = stateBag.ptfxOffset
         local rot = stateBag.ptfxRot
         local scale = stateBag.ptfxScale or 1
+        local color = stateBag.ptfxColor
         local propNet = stateBag.ptfxPropNet
         local entityTarget = plyPed
         -- Only do for valid obj
@@ -296,10 +298,15 @@ AddStateBagChangeHandler('ptfx', nil, function(bagName, key, value, _unused, rep
             end
         end
         PtfxThis(asset)
-        PlayerParticles[plyId] = StartNetworkedParticleFxLoopedOnEntityBone(name, entityTarget, offset.x, offset.y,
-            offset.z, rot.x, rot.y, rot.z, GetEntityBoneIndexByName(name, "VFX"), scale + 0.0, 0, 0, 0, 1065353216,
-            1065353216, 1065353216, 0)
-        SetParticleFxLoopedColour(PlayerParticles[plyId], 1.0, 1.0, 1.0)
+        PlayerParticles[plyId] = StartNetworkedParticleFxLoopedOnEntityBone(name, entityTarget, offset.x, offset.y, offset.z, rot.x, rot.y, rot.z, GetEntityBoneIndexByName(name, "VFX"), scale + 0.0, 0, 0, 0, 1065353216, 1065353216, 1065353216, 0)
+        if color then
+            if color[1] and type(color[1]) == 'table' then
+                local randomIndex = math.random(1, #color)
+                color = color[randomIndex]
+            end
+            SetParticleFxLoopedAlpha(PlayerParticles[plyId], color.A)
+            SetParticleFxLoopedColour(PlayerParticles[plyId], color.R / 255, color.G / 255, color.B / 255, false)
+        end
         DebugPrint("Started PTFX: " .. PlayerParticles[plyId])
     else
         -- Stop ptfx
@@ -313,7 +320,7 @@ end)
 
 function EmotesOnCommand(source, args, raw)
     local EmotesCommand = ""
-    for a in pairsByKeys(DP.Emotes) do
+    for a in pairsByKeys(RP.Emotes) do
         EmotesCommand = EmotesCommand .. "" .. a .. ", "
     end
     EmoteChatMessage(EmotesCommand)
@@ -343,26 +350,26 @@ function EmoteMenuStart(args, hard, textureVariation)
     local etype = hard
 
     if etype == "dances" then
-        if DP.Dances[name] ~= nil then
-            if OnEmotePlay(DP.Dances[name]) then end
+        if RP.Dances[name] ~= nil then
+            OnEmotePlay(RP.Dances[name])
         end
     elseif etype == "animals" then
-        if DP.AnimalEmotes[name] ~= nil then
-            if OnEmotePlay(DP.AnimalEmotes[name]) then end
+        if RP.AnimalEmotes[name] ~= nil then
+            OnEmotePlay(RP.AnimalEmotes[name])
         end
     elseif etype == "props" then
-        if DP.PropEmotes[name] ~= nil then
-            if OnEmotePlay(DP.PropEmotes[name], textureVariation) then end
+        if RP.PropEmotes[name] ~= nil then
+            OnEmotePlay(RP.PropEmotes[name], textureVariation)
         end
     elseif etype == "emotes" then
-        if DP.Emotes[name] ~= nil then
-            if OnEmotePlay(DP.Emotes[name]) then end
+        if RP.Emotes[name] ~= nil then
+            OnEmotePlay(RP.Emotes[name])
         else
             if name ~= "🕺 Dance Emotes" then end
         end
     elseif etype == "expression" then
-        if DP.Expressions[name] ~= nil then
-            if OnEmotePlay(DP.Expressions[name]) then end
+        if RP.Expressions[name] ~= nil then
+            OnEmotePlay(RP.Expressions[name])
         end
     end
 end
@@ -382,35 +389,35 @@ function EmoteCommandStart(source, args, raw)
             return
         end
 
-        if DP.Emotes[name] ~= nil then
-            if OnEmotePlay(DP.Emotes[name]) then end
+        if RP.Emotes[name] ~= nil then
+            OnEmotePlay(RP.Emotes[name])
             return
-        elseif DP.Dances[name] ~= nil then
-            if OnEmotePlay(DP.Dances[name]) then end
+        elseif RP.Dances[name] ~= nil then
+            OnEmotePlay(RP.Dances[name])
             return
-        elseif DP.AnimalEmotes[name] ~= nil then
-            if OnEmotePlay(DP.AnimalEmotes[name]) then end
+        elseif RP.AnimalEmotes[name] ~= nil then
+            OnEmotePlay(RP.AnimalEmotes[name])
             return
-        elseif DP.PropEmotes[name] ~= nil then
-            if DP.PropEmotes[name].AnimationOptions.PropTextureVariations then
+        elseif RP.PropEmotes[name] ~= nil then
+            if RP.PropEmotes[name].AnimationOptions.PropTextureVariations then
                 if #args > 1 then
                     local textureVariation = tonumber(args[2])
-                    if (DP.PropEmotes[name].AnimationOptions.PropTextureVariations[textureVariation] ~= nil) then
-                        if OnEmotePlay(DP.PropEmotes[name], textureVariation - 1) then end
+                    if (RP.PropEmotes[name].AnimationOptions.PropTextureVariations[textureVariation] ~= nil) then
+                        OnEmotePlay(RP.PropEmotes[name], textureVariation - 1)
                         return
                     else
                         local str = ""
-                        for k, v in ipairs(DP.PropEmotes[name].AnimationOptions.PropTextureVariations) do
+                        for k, v in ipairs(RP.PropEmotes[name].AnimationOptions.PropTextureVariations) do
                             str = str .. string.format("\n(%s) - %s", k, v.Name)
                         end
                         
                         EmoteChatMessage(string.format(Config.Languages[lang]['invalidvariation'], str), true)
-                        if OnEmotePlay(DP.PropEmotes[name], 0) then end
+                        OnEmotePlay(RP.PropEmotes[name], 0)
                         return
                     end
                 end
             end
-            if OnEmotePlay(DP.PropEmotes[name]) then end
+            OnEmotePlay(RP.PropEmotes[name])
             return
         else
             EmoteChatMessage("'" .. name .. "' " .. Config.Languages[lang]['notvalidemote'] .. "")
@@ -602,6 +609,7 @@ function OnEmotePlay(EmoteName, textureVariation)
                 PtfxNoProp = false
             end
             Ptfx1, Ptfx2, Ptfx3, Ptfx4, Ptfx5, Ptfx6, PtfxScale = table.unpack(EmoteName.AnimationOptions.PtfxPlacement)
+            PtfxColor = EmoteName.AnimationOptions.PtfxColor
             PtfxInfo = EmoteName.AnimationOptions.PtfxInfo
             PtfxWait = EmoteName.AnimationOptions.PtfxWait
             PtfxCanHold = EmoteName.AnimationOptions.PtfxCanHold
@@ -609,8 +617,8 @@ function OnEmotePlay(EmoteName, textureVariation)
             PtfxPrompt = true
             -- RunAnimationThread() -- ? This call should not be required, see if needed with tests
 
-            TriggerServerEvent("dpemotes:ptfx:sync", PtfxAsset, PtfxName, vector3(Ptfx1, Ptfx2, Ptfx3),
-                vector3(Ptfx4, Ptfx5, Ptfx6), PtfxScale)
+            TriggerServerEvent("rpemotes:ptfx:sync", PtfxAsset, PtfxName, vector3(Ptfx1, Ptfx2, Ptfx3),
+                vector3(Ptfx4, Ptfx5, Ptfx6), PtfxScale, PtfxColor)
         else
             DebugPrint("Ptfx = none")
             PtfxPrompt = false
@@ -651,12 +659,10 @@ function OnEmotePlay(EmoteName, textureVariation)
 
             -- Ptfx is on the prop, then we need to sync it
             if EmoteName.AnimationOptions.PtfxAsset and not PtfxNoProp then
-                TriggerServerEvent("dpemotes:ptfx:syncProp", ObjToNet(prop))
+                TriggerServerEvent("rpemotes:ptfx:syncProp", ObjToNet(prop))
             end
         end
     end
-
-    return true
 end
 
 -----------------------------------------------------------------------------------------------------

@@ -1,5 +1,4 @@
---- Dpemotes by DullPear is a free FiveM script ---
---- This release was forked and updated by TayMcKenzieNZ and the community ---
+--- Maintained by TayMcKenzieNZ for the community ---
 --- Leakers and resellers are the absolute scum of the earth ---
 
 Config = {
@@ -12,16 +11,17 @@ Config = {
     DebugDisplay = false,
     -- Set this to false if you have something else on X, and then just use /e c to cancel emotes.
     EnableXtoCancel = true,
+    CancelEmoteKey = 'x', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- Set this to true if you want to disarm the player when they play an emote.
     DisarmPlayer = false,
     -- Set this if you really wanna disable emotes in cars, as of 1.7.2 they only play the upper body part if in vehicle
     AllowedInCars = true,
     -- You can disable the menu here / change the keybind. It is currently set to F5
     MenuKeybindEnabled = true,
-    MenuKeybind = 'F5', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
+    MenuKeybind = 'f4', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- You can disable the Favorite emote keybinding here.
     FavKeybindEnabled = true,
-    FavKeybind = 'CAPITAL', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
+    FavKeybind = 'capital', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- You can change the header image for the menu here
     -- Use a 512 x 128 image!
     -- Note this might cause an issue of the image getting stuck on peoples screens
@@ -34,7 +34,7 @@ Config = {
     MenuPosition = "right", -- (left, right)
     -- You can enable or disable the Ragdoll keybinding here.
     RagdollEnabled = false,
-    RagdollKeybind = 'U', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
+    RagdollKeybind = 'u', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- You can enable or disable Ragdoll as Toggle here. Only works if RagdollEnabled is set to true.
     RagdollAsToggle = true,
     -- You can disable the Facial Expressions menu here.
@@ -61,10 +61,10 @@ Config = {
     Search = true,
     -- You can disable the handsup here / change the keybind. It is currently set to H
     HandsupKeybindEnabled = false,
-    HandsupKeybind = 'H', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
+    HandsupKeybind = 'h', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- You can disable the fingrer pointing here / change the keybind. It is currently set to B
     PointingKeybindEnabled = false,
-    PointingKeybind = 'B', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
+    PointingKeybind = 'b', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
 	CheckForUpdates = true,
 }
 
@@ -98,7 +98,7 @@ Config.Languages = {
         ['moods'] = "Humores 😒",
         ['infoupdate'] = "Crédito e agradecimento 🙏🏻",
         ['infoupdateav'] = "Informação (Atualização disponível)",
-        ['infoupdateavtext'] = "Uma atualização disponível, veja ~y~https://github.com/TayMcKenzieNZ/dpemotes~w~ para pegar",
+        ['infoupdateavtext'] = "Uma atualização disponível, veja ~y~https://github.com/TayMcKenzieNZ/rpemotes~w~ para pegar",
         ['suggestions'] = "Sugestões?",
         ['suggestionsinfo'] = "~r~TayMcKenzieNZ~s~ no fórum do FiveM para qualquer sugestão de recurso/emotes! ✉️",
         ['notvaliddance'] = "não é uma dança válida.",
@@ -156,7 +156,7 @@ Config.Languages = {
         ['moods'] = "Výrazy 😒",
         ['infoupdate'] = "Kredity a nápady 🙏🏻",
         ['infoupdateav'] = "Informace (aktualizace dostupná)",
-        ['infoupdateavtext'] = "Je k dispozici aktualizace, stáhněte si nejnovější verzi z ~y~https://github.com/TayMcKenzieNZ/dpemotes~w~",
+        ['infoupdateavtext'] = "Je k dispozici aktualizace, stáhněte si nejnovější verzi z ~y~https://github.com/TayMcKenzieNZ/rpemotes~w~",
         ['suggestions'] = "Nápady?",
         ['suggestionsinfo'] = "~r~TayMcKenzieNZ~s~ na FiveM forums je pro jakýkoliv návrh! ✉️",
         ['notvaliddance'] = "Není platný tanec.",
@@ -214,7 +214,7 @@ Config.Languages = {
         ['moods'] = "Humør 😒",
         ['infoupdate'] = "Info / Opdateringer",
         ['infoupdateav'] = "Information (Opdatering tilgængelig)",
-        ['infoupdateavtext'] = "En opdatering er tilgænglig, hent den nyeste version fra ~y~https://github.com/TayMcKenzieNZ/dpemotes~w~",
+        ['infoupdateavtext'] = "En opdatering er tilgænglig, hent den nyeste version fra ~y~https://github.com/TayMcKenzieNZ/rpemotes~w~",
         ['suggestions'] = "Forslag?",
         ['suggestionsinfo'] = "~r~TayMcKenzieNZ~s~ på FiveM-forum for alle funktioner/emote-forslag! ✉️",
         ['notvaliddance'] = "er ikke en gyldig dans",
@@ -272,7 +272,7 @@ Config.Languages = {
         ['moods'] = "Stemmingen 😒",
         ['infoupdate'] = "Credits en bedankt 🙏🏻",
         ['infoupdateav'] = "Informatie (Update beschikbaar)",
-        ['infoupdateavtext'] = "Een update is beschikbaar, download de laatste versie via ~y~https://github.com/TayMcKenzieNZ/dpemotes~w~",
+        ['infoupdateavtext'] = "Een update is beschikbaar, download de laatste versie via ~y~https://github.com/TayMcKenzieNZ/rpemotes~w~",
         ['suggestions'] = "Suggesties?",
         ['suggestionsinfo'] = "~r~TayMcKenzieNZ~s~ op de FiveM forums om suggesties in te dienen! ✉️",
         ['notvaliddance'] = "Is geen geldige dans.",
@@ -330,7 +330,7 @@ Config.Languages = {
         ['moods'] = "Moods 😒",
         ['infoupdate'] = "Credits & Suggestions 🙏🏻",
         ['infoupdateav'] = "Information (Update available)",
-        ['infoupdateavtext'] = "An update is available, get the latest version from ~y~https://github.com/TayMcKenzieNZ/dpemotes~w~",
+        ['infoupdateavtext'] = "An update is available, get the latest version from ~y~https://github.com/TayMcKenzieNZ/rpemotes~w~",
         ['suggestions'] = "Suggestions?",
         ['suggestionsinfo'] = "~r~TayMcKenzieNZ~s~ on FiveM forums for any feature/emote suggestions! ✉️",
         ['notvaliddance'] = "is not a valid dance.",
@@ -388,7 +388,7 @@ Config.Languages = {
         ['moods'] = "Mielialat 😒",
         ['infoupdate'] = "Krediitit & Ehdotukset 🙏🏻",
         ['infoupdateav'] = "Informaatio (Päivitys saatavilla)",
-        ['infoupdateavtext'] = "Uusin versio saatavilla täältä ~y~https://github.com/TayMcKenzieNZ/dpemotes~w~",
+        ['infoupdateavtext'] = "Uusin versio saatavilla täältä ~y~https://github.com/TayMcKenzieNZ/rpemotes~w~",
         ['suggestions'] = "Ehdotukset?",
         ['suggestionsinfo'] = "~r~TayMcKenzieNZ~s~ FiveM foorumeilla liittyen mihin tahansa ominaisuus/animaatio ehdotukseen! ✉️",
         ['notvaliddance'] = "Ei ole tanssi.",
@@ -446,7 +446,7 @@ Config.Languages = {
         ['moods'] = "Humeurs 😒",
         ['infoupdate'] = "Crédits et suggestions 🙏🏻",
         ['infoupdateav'] = "Information (Mise à jour disponible)",
-        ['infoupdateavtext'] = "Une mise à jour est disponible ~y~https://github.com/TayMcKenzieNZ/dpemotes~w~",
+        ['infoupdateavtext'] = "Une mise à jour est disponible ~y~https://github.com/TayMcKenzieNZ/rpemotes~w~",
         ['suggestions'] = "Suggestions?",
         ['suggestionsinfo'] = "~r~TayMcKenzieNZ~s~ sur les forums FiveM pour toutes les suggestions! ✉️",
         ['notvaliddance'] = "n'est pas une danse valide",
@@ -503,7 +503,7 @@ Config.Languages = {
         ['moods'] = "Stimmungen 😒",
         ['infoupdate'] = "Credits und Dank 🙏🏻",
         ['infoupdateav'] = "Information (Update verfügbar)",
-        ['infoupdateavtext'] = "Eine Aktualisierung ist verfügbar ~y~https://github.com/TayMcKenzieNZ/dpemotes~w~",
+        ['infoupdateavtext'] = "Eine Aktualisierung ist verfügbar ~y~https://github.com/TayMcKenzieNZ/rpemotes~w~",
         ['suggestions'] = "Vorschläge?",
         ['suggestionsinfo'] = "~r~TayMcKenzieNZ~s~ in FiveM-Foren für alle Feature- / Emote-Vorschläge! ✉️",
         ['notvaliddance'] = "ist kein gültiger Tanz",
@@ -560,7 +560,7 @@ Config.Languages = {
         ['moods'] = "Umori 😒",
         ['infoupdate'] = "Crediti e grazie 🙏🏻",
         ['infoupdateav'] = "Informazioni (Aggiornamento disponibile)",
-        ['infoupdateavtext'] = "Un aggiornamento è disponibile, ottieni l'ulima versione qui ~y~https://github.com/TayMcKenzieNZ/dpemotes~w~",
+        ['infoupdateavtext'] = "Un aggiornamento è disponibile, ottieni l'ulima versione qui ~y~https://github.com/TayMcKenzieNZ/rpemotes~w~",
         ['suggestions'] = "Suggerimenti?",
         ['suggestionsinfo'] = "~r~TayMcKenzieNZ~s~ nei forum di FiveM per suggerimenti su funzionalitá/animazioni! ✉️",
         ['notvaliddance'] = "non è un ballo valido.",
@@ -618,7 +618,7 @@ Config.Languages = {
         ['moods'] = "Nastroje 😒",
         ['infoupdate'] = "Creditsy & sugestie 🙏🏻",
         ['infoupdateav'] = "Informacje (aktualizacja dostępna)",
-        ['infoupdateavtext'] = "Dostępna jest nowa aktualizacja, pobierz ją z: ~y~https://github.com/TayMcKenzieNZ/dpemotes~w~",
+        ['infoupdateavtext'] = "Dostępna jest nowa aktualizacja, pobierz ją z: ~y~https://github.com/TayMcKenzieNZ/rpemotes~w~",
         ['suggestions'] = "Masz sugestie?",
         ['suggestionsinfo'] = "Napisz do ~r~TayMcKenzieNZ~s~ na forum FiveMa odnośnie przyszłych ficzerów czy propozycji! ✉️",
         ['notvaliddance'] = "nie jest poprawnym tańcem.",
@@ -734,7 +734,7 @@ Config.Languages = {
         ['moods'] = "Настроение 😒",
         ['infoupdate'] = "Признательность и предложения 🙏🏻",
         ['infoupdateav'] = "Информация (Доступно обновление)",
-        ['infoupdateavtext'] = "Доступно обновление, загрузите последнюю версию с ~y~https://github.com/TayMcKenzieNZ/dpemotes~w~",
+        ['infoupdateavtext'] = "Доступно обновление, загрузите последнюю версию с ~y~https://github.com/TayMcKenzieNZ/rpemotes~w~",
         ['suggestions'] = "Предложения?",
         ['suggestionsinfo'] = "~r~TayMcKenzieNZ~s~ на форумах FiveM для любых предложений по функциям/эмоциям! ✉️",
         ['notvaliddance'] = "не существующий танец.",
@@ -792,7 +792,7 @@ Config.Languages = {
         ['moods'] = "Estados de animo 😒",
         ['infoupdate'] = "Créditos Y Sugerencias 🙏🏻",
         ['infoupdateav'] = "Informacion (Actualizacion disponible)",
-        ['infoupdateavtext'] = "Una actualizacion esta disponible, para conseguir la ultima version ingresa a ~y~https://github.com/TayMcKenzieNZ/dpemotes~w~",
+        ['infoupdateavtext'] = "Una actualizacion esta disponible, para conseguir la ultima version ingresa a ~y~https://github.com/TayMcKenzieNZ/rpemotes~w~",
         ['suggestions'] = "Sugerencias?",
         ['suggestionsinfo'] = "~r~TayMcKenzieNZ~s~ en el foro de FiveM para cualquier sugerencia! ✉️",
         ['notvaliddance'] = "no es un baile valido.",
@@ -849,7 +849,7 @@ Config.Languages = {
         ['moods'] = "Humör 😒",
         ['infoupdate'] = "Krediter Och Förslag 🙏🏻",
         ['infoupdateav'] = "Information (Uppdatering tillgänglig)",
-        ['infoupdateavtext'] = "En uppdatering är tillgänglig ~y~https://github.com/TayMcKenzieNZ/dpemotes~w~",
+        ['infoupdateavtext'] = "En uppdatering är tillgänglig ~y~https://github.com/TayMcKenzieNZ/rpemotes~w~",
         ['suggestions'] = "Förslag?",
         ['suggestionsinfo'] = "~r~TayMcKenzieNZ~s~ på FiveM-forum för förslag på funktioner/emotes! ✉️",
         ['notvaliddance'] = "är inte en giltig dans",

@@ -21,7 +21,7 @@ if Config.SqlKeybinding then
         while true do
             if NetworkIsPlayerActive(PlayerId()) and not Initialized then
                 if not Initialized then
-                    TriggerServerEvent("dp:ServerKeybindExist")
+                    TriggerServerEvent("rp:ServerKeybindExist")
                     Wait(5000)
                 end
             end
@@ -43,17 +43,17 @@ if Config.SqlKeybinding then
         end
     end)
 
-    RegisterNetEvent("dp:ClientKeybindExist")
-    AddEventHandler("dp:ClientKeybindExist", function(does)
+    RegisterNetEvent("rp:ClientKeybindExist")
+    AddEventHandler("rp:ClientKeybindExist", function(does)
         if does then
-            TriggerServerEvent("dp:ServerKeybindGrab")
+            TriggerServerEvent("rp:ServerKeybindGrab")
         else
-            TriggerServerEvent("dp:ServerKeybindCreate")
+            TriggerServerEvent("rp:ServerKeybindCreate")
         end
     end)
 
-    RegisterNetEvent("dp:ClientKeybindGet")
-    AddEventHandler("dp:ClientKeybindGet", function(k1, e1, k2, e2, k3, e3, k4, e4, k5, e5, k6, e6)
+    RegisterNetEvent("rp:ClientKeybindGet")
+    AddEventHandler("rp:ClientKeybindGet", function(k1, e1, k2, e2, k3, e3, k4, e4, k5, e5, k6, e6)
         keyb1 = k1
         emob1 = e1
         keyb2 = k2
@@ -69,8 +69,8 @@ if Config.SqlKeybinding then
         Initialized = true
     end)
 
-    RegisterNetEvent("dp:ClientKeybindGetOne")
-    AddEventHandler("dp:ClientKeybindGetOne", function(key, e)
+    RegisterNetEvent("rp:ClientKeybindGetOne")
+    AddEventHandler("rp:ClientKeybindGetOne", function(key, e)
         SimpleNotify(Config.Languages[lang]['bound'] ..
             "~y~" .. e .. "~w~ " .. Config.Languages[lang]['to'] .. " ~g~" .. firstToUpper(key) .. "~w~")
         if key == "num4" then emob1 = e
@@ -107,12 +107,12 @@ if Config.SqlKeybinding then
             local key = string.lower(args[1])
             local emote = string.lower(args[2])
             if (Config.KeybindKeys[key]) ~= nil then
-                if DP.Emotes[emote] ~= nil then
-                    TriggerServerEvent("dp:ServerKeybindUpdate", key, emote)
-                elseif DP.Dances[emote] ~= nil then
-                    TriggerServerEvent("dp:ServerKeybindUpdate", key, emote)
-                elseif DP.PropEmotes[emote] ~= nil then
-                    TriggerServerEvent("dp:ServerKeybindUpdate", key, emote)
+                if RP.Emotes[emote] ~= nil then
+                    TriggerServerEvent("rp:ServerKeybindUpdate", key, emote)
+                elseif RP.Dances[emote] ~= nil then
+                    TriggerServerEvent("rp:ServerKeybindUpdate", key, emote)
+                elseif RP.PropEmotes[emote] ~= nil then
+                    TriggerServerEvent("rp:ServerKeybindUpdate", key, emote)
                 else
                     EmoteChatMessage("'" .. emote .. "' " .. Config.Languages[lang]['notvalidemote'] .. "")
                 end

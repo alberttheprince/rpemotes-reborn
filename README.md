@@ -1,6 +1,6 @@
-# DpEmotes 🏋️
+# RpEmotes 🏋️
 
-DpEmotes is a Community driven FiveM menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walkstyles and props, originally created by [DullPear](https://github.com/andristum/dpemotes).
+RpEmotes is a community driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walkstyles and props, originally created by [DullPear](https://github.com/andristum/dpemotes).
 
 <img src="https://forum.cfx.re/uploads/default/original/4X/7/1/b/71b1b02319fd6b8d20f64d6a8a90f4f1ccaf5dfa.png" width="700">
 
@@ -52,11 +52,11 @@ DpEmotes is a Community driven FiveM menu allowing players to express themselves
 
 * Swedish 🇸🇪
 
-All languages were translate or contributed by you, the community with the odd exception of using Google Translate 
+All languages were translated or contributed by you, the community with the odd exception of using Google Translate.
 
-If you happen to find any incorrect translations or would like to add more languages, please feel free to make a Pull Request with the correct / additional translations, or join our discord.
+If you happen to find any incorrect translations or would like to add more languages, please feel free to make a pull request with the correct / additional translations or join our discord.
 
-Languages can be selected and/or added in the config.lua.
+Languages can be selected and / or added in the config.lua.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -80,7 +80,7 @@ Languages can be selected and/or added in the config.lua.
 
 - Further support for shared and couple poses / animations 👫
 
-- Easily convert Menyoo to dpemotes 🔄
+- Easily convert Menyoo to rpemotes 🔄
 
 - Hide Adult Emotes 🔞
 
@@ -91,25 +91,25 @@ Languages can be selected and/or added in the config.lua.
 - Standalone exports to play anim, cancel anim and block (or not) the cancel key
 
 ```lua
-exports["dpemotes"]:EmoteCommandStart(emoteName, textureVariation)
-exports["dpemotes"]:EmoteCancel(forceCancel) – forceCancel is optional
-exports["dpemotes"]:CanCancelEmote(state)
+exports["rpemotes"]:EmoteCommandStart(emoteName, textureVariation)
+exports["rpemotes"]:EmoteCancel(forceCancel) – forceCancel is optional
+exports["rpemotes"]:CanCancelEmote(state)
 ```
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Menu Keybind 🎛️
 
-The keybind uses RegisterKeyMapping. By default, the server configured keybind in the *initial* config.lua will be the default key, however once the keybind is set for a user, it'll stay with this new value. Editing the config keybind will change it for new players only.
+The keybind uses RegisterKeyMapping. By default the configured keybind in the *initial* config.lua will be the default key, however once the keybind is set for a user it'll remain and can be changed in the users settings under `Esc > settings > keybinds > fivem`.
 
 
-**Menu key:** F5
+**Menu key:** F4
 
 Server owners can change this in the `config.lua`.
 
-Alternatively, the player base can set their own menu keybind to open DpEmotes
+Alternatively, the player base can set their own menu keybind to open RpEmotes
 
-Esc > settings > keybinds > fivem > dpemotes
+`Esc > settings > keybinds > fivem`
 
 * More keybinds are now using key mappings which means that they are now available in your FiveM settings to change (`FavKeybind` and `RagdollKeybind`)
 
@@ -117,9 +117,7 @@ Esc > settings > keybinds > fivem > dpemotes
 
 # Keybinds and SQL 🎛️
 
-The original DpEmotes uses mysql-async which was then changed to ghmattimysql. Unfortunately, they are no longer maintained. 
-
-To use the SQL features, install the latest version of the [oxmysql](https://github.com/overextended/oxmysql) resource. If you do not want to use the SQL features, comment out the `oxmysql` region in fxmanifest.lua.
+To use the SQL features, install the latest version of the [oxmysql](https://github.com/overextended/oxmysql) resource. If you do not want to use the SQL features keep the `oxmysql` region in fxmanifest.lua commented out.
 
 Alternatively, you can use the keybind command that comes with FiveM without having the SQL, by entering the following into F8: 
 
@@ -151,7 +149,7 @@ Alternatively, you can also hide animal emotes.
 
 # QBCore ⚙️
 
-**QBCore integration to match their fork of the original dpemotes**
+**QBCore integration to match their fork of dpemotes**
 
 - Config option which supports the QB Framework in their fork of dpemotes
 
@@ -174,7 +172,7 @@ If you’re using qb-core, you can now set `Framework = "qb-core"` in the config
 
 # Installation Instructions ⚙️:
 
-* Add DpEmotes to your `server.cfg`
+* Add RpEmotes to your `server.cfg`
 
 * Download the latest recommended artifacts [for Windows](https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/) or [for Linux](https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/)
 
@@ -190,11 +188,11 @@ Alternatively, you can use the keybind command that comes with FiveM without hav
 
 `bind keyboard "Yourbutton" "e youremote"`. To remove the keybind, type `"unbind keyboard "Yourbutton"`.
 
-* Start dpemotes
+* Start rpemotes
 
 # Additional Instructions ⚙️
 
-- **[Please check the fivem forum thread](https://forum.fivem.net/t/dpemotes-356ish-emotes-usable-while-walking-props-and-more/843105)**
+- **[Please check the fivem forum thread](https://forum.fivem.net/t/rpemotes-356ish-emotes-usable-while-walking-props-and-more/843105)**
 
 - **Check out my youtube playlist below:**
 
@@ -250,13 +248,13 @@ By default, the main prop will share it's coordinates with the particle effect, 
 
 If no prop is uses in the animation or you require the particle effect to be in a different location, use `PtfxNoProp = true`, and 0.0 will 9/10 times be the human peds' stomach; you can then offset your coordinates based on that with the first 3 entries being XYZ, and the last 3 being rotation XYZ. 
 
-Using Menyoo, spawn down a tennis ball and attach it to human, by default menyoo will attach it to the SKEL_ROOT bone (stomach), so from that, what we can do is offset the coordinates, say, up to the human ped's mouth, and then once we've got it correct, we can transfer those coordinates over to dpemotes, and tah dah, we have our Ptfx Placement.
+Using Menyoo, spawn down a tennis ball and attach it to human, by default menyoo will attach it to the SKEL_ROOT bone (stomach), so from that, what we can do is offset the coordinates, say, up to the human ped's mouth, and then once we've got it correct, we can transfer those coordinates over to rpemotes, and tah dah, we have our Ptfx Placement.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Adding Your Own Animations ⚙️
 
-Because the menu gets updated frequently, the files get overwritten. To avoid this, you can add your own / downloaded animation files `(.ycd)` inside of a newly created folder, give it a name, and place it in the `dpemotes\stream\[Custom Emotes]` folder.
+Because the menu gets updated frequently, the files get overwritten. To avoid this, you can add your own / downloaded animation files `(.ycd)` inside of a newly created folder, give it a name, and place it in the `rpemotes\stream\[Custom Emotes]` folder.
 
 Add your animation code to the `AnimationListCustom.lua` and make a backup of this file, call it `BackUpAnimationListCustom.lua`.
 
@@ -289,9 +287,9 @@ This project does not contain a license however is in compliance with express cu
 
 You are not allowed to change / add a license.
 
-These usage rights do not carry over to any third party including any other forks and/or projects without express permission and must not be extracted from [TayMcKenzieNZ's fork of DpEmotes](https://github.com/TayMcKenzieNZ/dpemotes).
+These usage rights do not carry over to any third party including any other forks and/or projects without express permission and must not be extracted from [RpEmotes](https://github.com/TayMcKenzieNZ/rpemotes).
 
-If you want to modify this particular fork of DpEmotes ***(does not apply if you want to use it for personal purposes)*** or make an agreement, you can contact TayMcKenzieNZ via Discord. Pull requests are actively reviewed and discussed with TayMcKenzieNZ and contributors and will be accepted as long as they do not contain breaking changes. 
+If you want to modify RpEmotes  ***(does not apply if you want to use it for personal purposes)*** or make an agreement, you can contact TayMcKenzieNZ via Discord. Pull requests are actively reviewed and discussed with TayMcKenzieNZ and contributors and will be accepted as long as they do not contain breaking changes. 
 
 You can read more about unlicensed repositories [here](https://opensource.stackexchange.com/questions/1720/what-can-i-assume-if-a-publicly-published-project-has-no-license) if questions remain.
 

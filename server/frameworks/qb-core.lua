@@ -29,11 +29,11 @@ if Config.SqlKeybinding then
     end)
 end
 
-QBCore.Commands.Add('emotemenu', 'Open dpemotes menu (F3) by default.', {}, false, function(source)
+QBCore.Commands.Add('emotemenu', 'Open rpemotes menu (F3) by default.', {}, false, function(source)
 	TriggerClientEvent('animations:client:EmoteMenu', source)
 end)
 
-QBCore.Commands.Add('em', 'Open dpemotes menu (F3) by default.', {}, false, function(source)
+QBCore.Commands.Add('em', 'Open rpemotes menu (F3) by default.', {}, false, function(source)
     TriggerClientEvent('animations:client:EmoteMenu', source)
 end)
 

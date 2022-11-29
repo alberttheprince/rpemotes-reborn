@@ -1,14 +1,13 @@
--- DPEmotes forked by TayMcKenzieNZ requires you to be on the latest FiveM Gamebuild for all emotes to function. --
--- ALL custon animations added to this fork were added with express permission from the creators and does not contain any paid content --
+-- ALL custon animations added to this repository were added with express permission from the creators and does not contain any paid content --
 -- If an emote does not work, you may be on an older gamebuild. --
 -- To get a higher gamebuild, see ReadMe on github repositorty --
 
 
-DP = {}
+RP = {}
 
 -- EXPRESSIONS --
 
-DP.Expressions = {
+RP.Expressions = {
     ["Aiming"] = {
         "Expression",
         "mood_aiming_1"
@@ -126,7 +125,7 @@ DP.Expressions = {
 
 --- WALKSTYLES ---
 
-DP.Walks = {
+RP.Walks = {
     -- The key shouldn't have any other uppercase letter than the first one!
     -- The first letter HAS to be uppercase!
     -- First element of array is the walk animation
@@ -528,7 +527,7 @@ DP.Walks = {
 
 --- SHARED EMOTES ---
 
-DP.Shared = {
+RP.Shared = {
 
     --[emotename] = {dictionary, animation, displayname, targetemotename, additionalanimationoptions} --
     -- You don't have to specify targetemotename; If you don't, it will just play the same animation on both.--
@@ -1452,7 +1451,7 @@ DP.Shared = {
 
 --- DANCING EMOTES, SOME WITH PROPS ---
 
-DP.Dances = {
+RP.Dances = {
     ["dance"] = {
         "anim@amb@nightclub@dancers@podium_dancers@",
         "hi_dance_facedj_17_v2_male^5",
@@ -2800,7 +2799,7 @@ DP.Dances = {
 ---- ANIMAL EMOTES ----
 ----    BIG DOG    ----
 
-DP.AnimalEmotes = {
+RP.AnimalEmotes = {
     ["bdogbark"] = {
         "creatures@rottweiler@amb@world_dog_barking@idle_a",
         "idle_a",
@@ -4551,7 +4550,7 @@ DP.AnimalEmotes = {
 
 --- EMOTES NO PROPS ---
 
-DP.Emotes = {
+RP.Emotes = {
 
     ["dispenser"] = {
         "mini@sprunk",
@@ -7927,7 +7926,7 @@ DP.Emotes = {
 }
 
 --- EMOTES WITH 1 OR 2 PROPS ---
-DP.PropEmotes = {
+RP.PropEmotes = {
     ["umbrella"] = {
         "amb@world_human_drinking@coffee@male@base",
         "base",
@@ -11467,7 +11466,7 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
-    ["microck"] = { --- Custom Emote Provided To TayMcKenzieNZ's DpEmotes Fork By Prue颜
+    ["microck"] = { --- Custom Emote Provided To RpEmotes By Prue颜
         "lunyx@mic@p1",
         "mic@p1",
         "Microphone Rock",
@@ -11486,7 +11485,7 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
-    ["microckb"] = { --- Custom Emote Provided To TayMcKenzieNZ's DpEmotes Fork By Prue颜
+    ["microckb"] = { --- Custom Emote Provided To RpEmotes By Prue颜
         "lunyx@mic@p2",
         "mic@p2",
         "Microphone Rock 2",
@@ -11505,7 +11504,7 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
-    ["microckc"] = { --- Custom Emote Provided To TayMcKenzieNZ's DpEmotes Fork By Prue颜
+    ["microckc"] = { --- Custom Emote Provided To RpEmotes By Prue颜
         "lunyx@mic@p3",
         "mic@p3",
         "Microphone Rock 3",
@@ -11524,7 +11523,7 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
-    ["microckd"] = { --- Custom Emote Provided To TayMcKenzieNZ's DpEmotes Fork By Prue颜
+    ["microckd"] = { --- Custom Emote Provided To RpEmotes By Prue颜
         "lunyx@mic@p4",
         "mic@p4",
         "Microphone Rock 4",
@@ -11543,7 +11542,7 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
-    ["microcke"] = { --- Custom Emote Provided To TayMcKenzieNZ's DpEmotes Fork By Prue颜
+    ["microcke"] = { --- Custom Emote Provided To RpEmotes By Prue颜
         "lunyx@mic@p5",
         "mic@p5",
         "Microphone Rock 5",
@@ -11562,7 +11561,7 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
-    ["microckf"] = { --- Custom Emote Provided To TayMcKenzieNZ's DpEmotes Fork By Prue颜
+    ["microckf"] = { --- Custom Emote Provided To RpEmotes By Prue颜
         "lunyx@mic@p6",
         "mic@p6",
         "Microphone Rock 6",
@@ -11581,7 +11580,7 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
-    ["microckg"] = { --- Custom Emote Provided To TayMcKenzieNZ's DpEmotes Fork By Prue颜
+    ["microckg"] = { --- Custom Emote Provided To RpEmotes By Prue颜
         "lunyx@mic@p7",
         "mic@p7",
         "Microphone Rock 7",
@@ -11600,7 +11599,7 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
-    ["microckh"] = { --- Custom Emote Provided To TayMcKenzieNZ's DpEmotes Fork By Prue颜
+    ["microckh"] = { --- Custom Emote Provided To RpEmotes By Prue颜
         "lunyx@mic@p8",
         "mic@p8",
         "Microphone Rock 8",
@@ -11619,7 +11618,7 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
-    ["microcki"] = { --- Custom Emote Provided To TayMcKenzieNZ's DpEmotes Fork By Prue颜
+    ["microcki"] = { --- Custom Emote Provided To RpEmotes By Prue颜
         "lunyx@mic@p9",
         "mic@p9",
         "Microphone Rock 9",
@@ -11638,7 +11637,7 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
-    ["microckj"] = { --- Custom Emote Provided To TayMcKenzieNZ's DpEmotes Fork By Prue颜
+    ["microckj"] = { --- Custom Emote Provided To RpEmotes By Prue颜
         "lunyx@mic@p10",
         "mic@p10",
         "Microphone Rock 10",
@@ -15395,18 +15394,23 @@ DP.PropEmotes = {
 }
 
 -- Remove emotes if needed
-if Config.AdultEmotesDisabled then
-    for _, array in ipairs({
-        "Shared",
-        "Dances",
-        "AnimalEmotes",
-        "Emotes",
-        "PropEmotes",
-    }) do
-        for emoteName, emoteData in pairs(DP[array]) do
-            if emoteData.AdultAnimation then
-                DP[array][emoteName] = nil
-            end
-        end
+
+local emoteTypes = {
+    "Shared",
+    "Dances",
+    "AnimalEmotes",
+    "Emotes",
+    "PropEmotes",
+}
+
+for i = 1, #emoteTypes do
+    local emoteType = emoteTypes[i]
+    for emoteName, emoteData in pairs(RP[emoteType]) do
+        local shouldRemove = false
+        if Config.AdultEmotesDisabled and emoteData.AdultAnimation then shouldRemove = true end
+        if emoteData[1] and not DoesAnimDictExist(emoteData[1]) then shouldRemove = true end
+        if emoteData.AnimationOptions and emoteData.AnimationOptions.Prop and not IsModelValid(joaat(emoteData.AnimationOptions.Prop)) then shouldRemove = true end
+        if emoteData.AnimationOptions and emoteData.AnimationOptions.SecondProp and not IsModelValid(joaat(emoteData.AnimationOptions.SecondProp)) then shouldRemove = true end
+        if shouldRemove then RP[emoteType][emoteName] = nil end
     end
 end

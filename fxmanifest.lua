@@ -1,10 +1,9 @@
---- DPEmotes by andristum ---
---- Forked by TayMcKenzieNZ ---
---- Check for updates at https://github.com/TayMcKenzieNZ/dpemotes ---
+--- Maintained by TayMcKenzieNZ ---
+--- Check for updates at https://github.com/TayMcKenzieNZ/rpemotes ---
 
 fx_version 'cerulean'
-
 game 'gta5'
+version '1.0.0'
 lua54 'yes'
 
 -- Remove the following lines if you would like to use the SQL keybinds. Requires oxmysql.

@@ -14,7 +14,7 @@ end
 
 function WalksOnCommand(source, args, raw)
     local WalksCommand = ""
-    for a in pairsByKeys(DP.Walks) do
+    for a in pairsByKeys(RP.Walks) do
         WalksCommand = WalksCommand .. "" .. string.lower(a) .. ", "
     end
     EmoteChatMessage(WalksCommand)
@@ -29,8 +29,8 @@ function WalkCommandStart(source, args, raw)
         return
     end
 
-    if tableHasKey(DP.Walks, name) then
-        local name2 = table.unpack(DP.Walks[name])
+    if tableHasKey(RP.Walks, name) then
+        local name2 = table.unpack(RP.Walks[name])
         WalkMenuStart(name2)
     elseif name == "Injured" then
         WalkMenuStart("move_m@injured")

@@ -1,5 +1,3 @@
-TriggerServerEvent("dp:CheckVersion")
-
 rightPosition = { x = 1450, y = 100 }
 leftPosition = { x = 0, y = 100 }
 menuPosition = { x = 0, y = 200 }
@@ -39,11 +37,11 @@ end
 
 -- Clear all the animal emotes if disabled.
 if not Config.AnimalEmotesEnabled then
-    DP.AnimalEmotes = {}
-    for k, v in pairs(DP) do
+    RP.AnimalEmotes = {}
+    for k, v in pairs(RP) do
         for i, j in pairs(v) do
             if j.AnimalEmote then
-                DP[k][i] = nil
+                RP[k][i] = nil
             end
         end
     end
@@ -126,7 +124,7 @@ function AddEmoteMenu(menu)
         submenu:AddItem(keyinfo)
     end
 
-    for a, b in pairsByKeys(DP.Emotes) do
+    for a, b in pairsByKeys(RP.Emotes) do
         x, y, z = table.unpack(b)
         emoteitem = NativeUI.CreateItem(z, "/e (" .. a .. ")")
         submenu:AddItem(emoteitem)
@@ -136,7 +134,7 @@ function AddEmoteMenu(menu)
         end
     end
 
-    for a, b in pairsByKeys(DP.Dances) do
+    for a, b in pairsByKeys(RP.Dances) do
         x, y, z = table.unpack(b)
         danceitem = NativeUI.CreateItem(z, "/e (" .. a .. ")")
         dancemenu:AddItem(danceitem)
@@ -151,7 +149,7 @@ function AddEmoteMenu(menu)
     end
 
     if Config.AnimalEmotesEnabled then
-        for a, b in pairsByKeys(DP.AnimalEmotes) do
+        for a, b in pairsByKeys(RP.AnimalEmotes) do
             x, y, z = table.unpack(b)
             animalitem = NativeUI.CreateItem(z, "/e (" .. a .. ")")
             animalmenu:AddItem(animalitem)
@@ -163,7 +161,7 @@ function AddEmoteMenu(menu)
     end
 
     if Config.SharedEmotesEnabled then
-        for a, b in pairsByKeys(DP.Shared) do
+        for a, b in pairsByKeys(RP.Shared) do
             x, y, z, otheremotename = table.unpack(b)
             if otheremotename == nil then
                 shareitem = NativeUI.CreateItem(z, "/nearby (~g~" .. a .. "~w~)")
@@ -177,7 +175,7 @@ function AddEmoteMenu(menu)
         end
     end
 
-    for a, b in pairsByKeys(DP.PropEmotes) do
+    for a, b in pairsByKeys(RP.PropEmotes) do
         x, y, z = table.unpack(b)
     
         if b.AnimationOptions.PropTextureVariations then 
@@ -232,7 +230,7 @@ function AddEmoteMenu(menu)
             if ShareTable[index] ~= 'none' then
                 target, distance = GetClosestPlayer()
                 if (distance ~= -1 and distance < 3) then
-                    _, _, rename = table.unpack(DP.Shared[ShareTable[index]])
+                    _, _, rename = table.unpack(RP.Shared[ShareTable[index]])
                     TriggerServerEvent("ServerEmoteRequest", GetPlayerServerId(target), ShareTable[index])
                     SimpleNotify(Config.Languages[lang]['sentrequestto'] .. GetPlayerName(target))
                 else
@@ -244,7 +242,7 @@ function AddEmoteMenu(menu)
         shareddancemenu.OnItemSelect = function(sender, item, index)
             target, distance = GetClosestPlayer()
             if (distance ~= -1 and distance < 3) then
-                _, _, rename = table.unpack(DP.Dances[DanceTable[index]])
+                _, _, rename = table.unpack(RP.Dances[DanceTable[index]])
                 TriggerServerEvent("ServerEmoteRequest", GetPlayerServerId(target), DanceTable[index], 'Dances')
                 SimpleNotify(Config.Languages[lang]['sentrequestto'] .. GetPlayerName(target))
             else
@@ -288,7 +286,7 @@ if Config.Search then
         local input = GetOnscreenKeyboardResult()
         if input ~= nil then
             local results = {}
-            for k, v in pairs(DP) do
+            for k, v in pairs(RP) do
                 if not ignoredCategories[k] then
                     for a, b in pairs(v) do
                         if string.find(string.lower(a), string.lower(input)) or (b[3] ~= nil and string.find(string.lower(b[3]), string.lower(input))) then
@@ -368,7 +366,7 @@ if Config.Search then
                     elseif data.table == "Shared" then
                         target, distance = GetClosestPlayer()
                         if (distance ~= -1 and distance < 3) then
-                            _, _, rename = table.unpack(DP.Shared[data.name])
+                            _, _, rename = table.unpack(RP.Shared[data.name])
                             TriggerServerEvent("ServerEmoteRequest", GetPlayerServerId(target), data.name)
                             SimpleNotify(Config.Languages[lang]['sentrequestto'] .. GetPlayerName(target))
                         else
@@ -388,7 +386,7 @@ if Config.Search then
                             local data = results[index]
                             target, distance = GetClosestPlayer()
                             if (distance ~= -1 and distance < 3) then
-                                _, _, rename = table.unpack(DP.Dances[data.name])
+                                _, _, rename = table.unpack(RP.Dances[data.name])
                                 TriggerServerEvent("ServerEmoteRequest", GetPlayerServerId(target), data.name, 'Dances')
                                 SimpleNotify(Config.Languages[lang]['sentrequestto'] .. GetPlayerName(target))
                             else
@@ -441,7 +439,7 @@ function AddWalkMenu(menu)
     submenu:AddItem(WalkInjured)
     table.insert(WalkTable, "move_m@injured")
 
-    for a, b in pairsByKeys(DP.Walks) do
+    for a, b in pairsByKeys(RP.Walks) do
         x, label = table.unpack(b)
         walkitem = NativeUI.CreateItem(label or a, "/walk (" .. string.lower(a) .. ")")
         submenu:AddItem(walkitem)
@@ -465,7 +463,7 @@ function AddFaceMenu(menu)
     submenu:AddItem(facereset)
     table.insert(FaceTable, "")
 
-    for a, b in pairsByKeys(DP.Expressions) do
+    for a, b in pairsByKeys(RP.Expressions) do
         x, y, z = table.unpack(b)
         faceitem = NativeUI.CreateItem(a, "")
         submenu:AddItem(faceitem)
@@ -570,14 +568,14 @@ function ProcessMenu()
     isMenuProcessing = false
 end
 
-RegisterNetEvent("dp:Update")
-AddEventHandler("dp:Update", function(state)
+RegisterNetEvent("rp:Update")
+AddEventHandler("rp:Update", function(state)
     UpdateAvailable = state
     AddInfoMenu(mainMenu)
     _menuPool:RefreshIndex()
 end)
 
-RegisterNetEvent("dp:RecieveMenu") -- For opening the emote menu from another resource.
-AddEventHandler("dp:RecieveMenu", function()
+RegisterNetEvent("rp:RecieveMenu") -- For opening the emote menu from another resource.
+AddEventHandler("rp:RecieveMenu", function()
     OpenEmoteMenu()
 end)

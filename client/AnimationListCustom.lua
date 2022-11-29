@@ -11,11 +11,11 @@ CustomDP.PropEmotes = {}
 
 -- Add the custom emotes
 for arrayName, array in pairs(CustomDP) do
-    if DP[arrayName] then
+    if RP[arrayName] then
         for emoteName, emoteData in pairs(array) do
             -- We don't add adult animations if not needed
             if not emoteData.AdultAnimation or not Config.AdultEmotesDisabled then
-                DP[arrayName][emoteName] = emoteData
+                RP[arrayName][emoteName] = emoteData
             end
         end
     end
