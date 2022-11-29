@@ -2824,7 +2824,40 @@ DP.AnimalEmotes = {
         AnimationOptions = {
             EmoteLoop = true
         }
+    },    
+    ["bdoglayright"] = {
+        "creatures@rottweiler@move",
+        "dead_right",
+        "Lay Right (big dog)",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
     },
+    ["bdoglayleft"] = {
+        "creatures@rottweiler@move",
+        "dead_left",
+        "Lay Left (big dog)",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["bdogsitcar"] = {
+        "creatures@rottweiler@incar@",
+        "sit",
+        "Sit in car (big dog)",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["bdoghump"] = {
+        "creatures@rottweiler@amb@",
+        "hump_loop_chop",
+        "Hump (big dog)",
+        AnimationOptions = {
+            EmoteLoop = true
+        },
+        AdultAnimation = true
+    }
     ["bdogdump"] = {
         "creatures@rottweiler@move",
         "dump_loop",
