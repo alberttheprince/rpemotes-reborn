@@ -2857,7 +2857,7 @@ DP.AnimalEmotes = {
             EmoteLoop = true
         },
         AdultAnimation = true
-    }
+    },
     ["bdogdump"] = {
         "creatures@rottweiler@move",
         "dump_loop",
