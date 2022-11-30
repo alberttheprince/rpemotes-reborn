@@ -26,7 +26,7 @@ Config = {
     -- Use a 512 x 128 image!
     -- Note this might cause an issue of the image getting stuck on peoples screens
     CustomMenuEnabled = true,
-    MenuImage = "https://i.giphy.com/media/jH7PrzykzUaJnmscOr/giphy.gif", ----[Custom banner IMGUR or GIPHY URLs go here ]---
+    MenuImage = "https://i.imgur.com/9mhoeL2.png", ----[Custom banner IMGUR or GIPHY URLs go here ]---
     -- You can change the menu image by pasting a link above. It must be the same width and length
     -- You can change the name of the menu here or leave it blank to remove the text in front of the custom banners
     MenuTitle = "",
@@ -134,7 +134,8 @@ Config.Languages = {
         ['searchnoresult'] = "No results for search '~r~%s~w~'.",
         ['searchshifttofav'] = "Hold L-Shift and press enter to set as favorite.",
         ['searchcantsetfav'] = "Shared emotes cannot be set as favorites.",
-        ['invalidvariation'] = "Variação de textura inválida. As opções válidas são: %s"
+        ['invalidvariation'] = "Variação de textura inválida. As opções válidas são: %s",
+		['firework'] = "Pressione ~y~G~w~ para usar o fogo de artifício",
     },
     ['cs'] = { -- Czech 🇨🇿
         ['emotes'] = 'Animace 🎬',
@@ -192,7 +193,8 @@ Config.Languages = {
         ['searchnoresult'] = "Žádna animace nebyla nalezena '~r~%s~w~'.",
         ['searchshifttofav'] = "Podrž L-Shift a stiskni enter pro nastavení animace do oblíbeních.",
         ['searchcantsetfav'] = "Sdílené animace nelze nastavit jako oblíbené.",
-        ['invalidvariation'] = "Neplatná variace textury. Platné výběry jsou: %s"
+        ['invalidvariation'] = "Neplatná variace textury. Platné výběry jsou: %s",
+		['firework'] = "Stiskni ~y~G~w~ pro použití ohňostroje"
     },
     ['da'] = { -- Danish 🇩🇰
         ['emotes'] = 'Animationer',
@@ -250,7 +252,8 @@ Config.Languages = {
         ['searchnoresult'] = "Ingen resultater fundet med '~r~%s~w~'.",
         ['searchshifttofav'] = "Hold L-Shift og tryk enter for at sætte som favorit.",
         ['searchcantsetfav'] = "Delte animationer kan ikke være favoritter.",
-        ['invalidvariation'] = "Ugyldig teksturvariation. Gyldige valg er: %s"
+        ['invalidvariation'] = "Ugyldig teksturvariation. Gyldige valg er: %s",
+		['firework'] = "Tryk på ~y~Gw~ for at bruge fyrværkeri" -- GOOGLE TRANSLATED
     },
     ['nl'] = { -- Dutch 🇳🇱
         ['emotes'] = 'Animaties 🎬',
@@ -308,7 +311,8 @@ Config.Languages = {
         ['searchnoresult'] = "Geen resultaat voor zoekopdracht '~r~%s~w~'.",
         ['searchshifttofav'] = "Houd L-Shift ingedrukt en druk enter om als favoriet op te slaan.",
         ['searchcantsetfav'] = "Gedeelde emotes kunnen niet als favoriet worden ingesteld.",
-        ['invalidvariation'] = "Ongeldige textuur variatie. Geldige selecties zijn: %s"
+        ['invalidvariation'] = "Ongeldige textuur variatie. Geldige selecties zijn: %s",
+		['firework'] = "Druk op ~y~Gw~ om vuurwerk te gebruiken" -- GOOGLE TRANSLATED
     },
     ['en'] = { -- English 🇬🇧
         ['emotes'] = 'Emotes 🎬',
@@ -366,7 +370,8 @@ Config.Languages = {
         ['searchnoresult'] = "No results for search '~r~%s~w~'.",
         ['searchshifttofav'] = "Hold L-Shift and press enter to set as favorite.",
         ['searchcantsetfav'] = "Shared emotes cannot be set as favorites.",
-        ['invalidvariation'] = "Invalid texture variation. Valid selections are: %s"
+        ['invalidvariation'] = "Invalid texture variation. Valid selections are: %s",
+		['firework'] = "Press ~y~G~w~ to use the firework",
     },
     ['fi'] = { -- Finnish 🇫🇮
         ['emotes'] = 'Animaatiot 🎬',
@@ -424,7 +429,8 @@ Config.Languages = {
         ['searchnoresult'] = "Ei tuloksia haulle '~r~%s~w~'.",
         ['searchshifttofav'] = "Pidä L-Shift painettuna ja aseta suosikiksi painamalla Enter.",
         ['searchcantsetfav'] = "Jaettuja emoteita ei voi asettaa suosikiksi.",
-        ['invalidvariation'] = "Virheellinen tekstuurimuunnelma. Kelvollisia valintoja ovat: %s"
+        ['invalidvariation'] = "Virheellinen tekstuurimuunnelma. Kelvollisia valintoja ovat: %s",
+		['firework'] = "Käytä ilotulitteita painamalla ~y~Gw~" -- GOOGLE TRANSLATED
     },
     ['fr'] = { -- French 🇫🇷
         ['emotes'] = 'Emotes 🎬',
@@ -481,7 +487,8 @@ Config.Languages = {
         ['searchnoresult'] = "Aucun résultat pour la recherche : '~r~%s~w~'.",
         ['searchshifttofav'] = "Maintenir  L-Shift et appuyer sur entrer pour marquer comme favorie.",
         ['searchcantsetfav'] = "Les emotes partagées ne peuvent pas être mise en favorie.",
-        ['invalidvariation'] = "Variation de texture invalide. Les sélections valides sont : %s"
+        ['invalidvariation'] = "Variation de texture invalide. Les sélections valides sont : %s",
+		['firework'] = "Appuyez sur ~y~Gw~ pour utiliser des feux d'artifice" -- GOOGLE TRANSLATED 
     },
     ['de'] = { -- German 🇩🇪
         ['emotes'] = 'Emotes 🎬',
@@ -538,7 +545,8 @@ Config.Languages = {
         ['searchnoresult'] = "Es wurden keine Ergebnisse gefunden für '~r~%s~w~'.",
         ['searchshifttofav'] = "Halte L-Shift und drücke Enter um den Emote als Favorit zu setzen.",
         ['searchcantsetfav'] = "Geteilte Emotes können nicht als Favorit gesetzt werden.",
-        ['invalidvariation'] = "Ungültige Texturvariante. Korrekte auswahlen sind: %s"
+        ['invalidvariation'] = "Ungültige Texturvariante. Korrekte auswahlen sind: %s",
+		['firework'] = "Drücke ~y~G~w~, um das Feuerwerk zu benutzen",
     },
     ['it'] = { -- Italian 🇮🇹
         ['emotes'] = 'Animazioni 🎬',
@@ -596,7 +604,8 @@ Config.Languages = {
         ['searchnoresult'] = "No results for search '~r~%s~w~'.",
         ['searchshifttofav'] = "Hold L-Shift and press enter to set as favorite.",
         ['searchcantsetfav'] = "Shared emotes cannot be set as favorites.",
-        ['invalidvariation'] = "Opzioni colore non valide. scelte valide sono: %s"
+        ['invalidvariation'] = "Opzioni colore non valide. scelte valide sono: %s",
+		['firework'] =  "Premere ~y~G~w~ per utilizzare il fuoco d'artificio"
     },
     ['pl'] = { -- Polish 🇵🇱
         ['emotes'] = 'Animacje 🎬',
@@ -654,7 +663,8 @@ Config.Languages = {
         ['searchnoresult'] = "Brak wyników dla frazy '~r~%s~w~'.",
         ['searchshifttofav'] = "Przytrzymaj L-Shift i naciśnij Enter by dodać do ulubionych.",
         ['searchcantsetfav'] = "Współdzielona animacja nie może być dodana do ulubionych.",
-        ['invalidvariation'] = "Niepoprawny wariant tekstury. Dostępne tekstury to: %s"
+        ['invalidvariation'] = "Niepoprawny wariant tekstury. Dostępne tekstury to: %s",
+		['firework'] = "Naciśnij ~y~Gw~ aby odpalić fajerwerki"
     },
     ['ro'] = { -- Romana 🇷🇴
         ['emotes'] = 'Emote-uri 🎬',
@@ -712,7 +722,8 @@ Config.Languages = {
         ['searchnoresult'] = "Fara rezultate pentru cautarea '~r~%s~w~'.",
         ['searchshifttofav'] = "Tine apasat L-Shift si apasa enter pentru a seta ca favorit.",
         ['searchcantsetfav'] = "Emote-urile Shared nu pot fi setate ca favorite.",
-        ['invalidvariation'] = "Variație nevalidă a texturii. Selectările valide sunt: ​​%s"
+        ['invalidvariation'] = "Variație nevalidă a texturii. Selectările valide sunt: ​​%s",
+		['firework'] = "Apasa ~y~Gw~ pentru a folosi artificiile"
     },
     ['ru'] = { -- Russian 
         ['emotes'] = 'Эмоции 🎬',
@@ -771,6 +782,7 @@ Config.Languages = {
         ['searchshifttofav'] = "Удерживайте L-Shift и нажмите Enter, чтобы установить в избранное.",
         ['searchcantsetfav'] = "Парные эмоции не могут быть добавлены в избранное.",
         ['invalidvariation'] = "Недопустимая вариация текстуры. Допустимые варианты: %s",
+		['firework'] = "Нажмите ~y~Gw~, чтобы запустить фейерверк." -- GOOGLE TRANSLATED 
     },
     ['es'] = { -- Spanish 🇪🇸
         ['emotes'] = "Animaciones 🎬",
@@ -827,7 +839,8 @@ Config.Languages = {
         ['searchnoresult'] = "No se encontró nada con '~r~%s~w~'.",
         ['searchshifttofav'] = "Mantén L-Shift y presiona Enter para guardar como favorito.",
         ['searchcantsetfav'] = "Animaciones compartidas no pueden ser guardadas como favoritas.",
-        ['invalidvariation'] = "Variación de textura no válida. Las opciones válidas son: %s"
+        ['invalidvariation'] = "Variación de textura no válida. Las opciones válidas son: %s",
+		['firework'] = "Presiona ~y~Gw~ para usar los fuegos artificiales" -- GOOGLE TRANSLATED 
     },
     ['sv'] = { -- Swedish 🇸🇪
         ['emotes'] = 'Emotes 🎬',
@@ -885,6 +898,7 @@ Config.Languages = {
         ['searchnoresult'] = "Inga resultat hittades på '~r~%s~w~'.",
         ['searchshifttofav'] = "Håll ned L-Shift och tryck på enter för att ställa in som favorit.",
         ['searchcantsetfav'] = "Delade Emotes kan inte ställas in som favoriter.",
-        ['invalidvariation'] = "Ogiltig texturvariation. Giltiga val är: %s"
+        ['invalidvariation'] = "Ogiltig texturvariation. Giltiga val är: %s",
+		['firework'] = "Tryck ~y~G~w~ för att avfyra dina fyrverkerier",
     },
 }
