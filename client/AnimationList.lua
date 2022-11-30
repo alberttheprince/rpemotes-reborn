@@ -3399,7 +3399,7 @@ RP.AnimalEmotes = {
                 0.0,
                 0.6
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['firework'],
             PtfxWait = 200
         }
     },
