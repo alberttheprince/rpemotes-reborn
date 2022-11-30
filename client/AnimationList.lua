@@ -1405,6 +1405,102 @@ RP.Shared = {
             SyncOffsetFront = 0.08
         }
     },
+    ["kisscuteneck"] = {
+        "genesismods_kissme@kissmale8",
+        "kissmale8",
+        "Kiss Cute - Neck (Male)",
+        "kisscuteneck2",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            --SyncOffsetFront = 0.05,
+            --bone = 0,
+            xPos = -0.56,
+            yPos = 0.0,
+            zPos = 0.0,
+            xRot = 0.0,
+            yRot = 0.0,
+            zRot = 0.0,
+            
+        }
+    },
+    ["kisscuteneck2"] = {
+        "genesismods_kissme@kissfemale8",
+        "kissfemale8",
+        "Kiss Cute - Neck (Female)",
+        "kisscuteneck",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            --SyncOffsetFront = 0.05,
+            
+        }
+    },
+    ["kisscutecheek"] = {
+        "genesismods_kissme@kissmale9",
+        "kissmale9",
+        "Kiss Cute Cheeck (Male)",
+        "kisscutecheek2",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            --SyncOffsetFront = 0.05,
+            --bone = 0,
+            xPos = 0.35,
+            yPos = 0.0,
+            zPos = 0.0,
+            xRot = 0.0,
+            yRot = 0.0,
+            zRot = 0.0,
+            
+        }
+    },
+    ["kisscutecheek2"] = {
+        "genesismods_kissme@kissfemale9",
+        "kissfemale9",
+        "Kiss Cute Cheeck (Female)",
+        "kisscutecheek",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            --SyncOffsetFront = 0.05,
+            
+        }
+    },
+    ["kisscutefh"] = {
+        "genesismods_kissme@kissmale10",
+        "kissmale10",
+        "Kiss Forehead (Male)",
+        "kisscutefh2",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            --SyncOffsetFront = 0.05,
+            --bone = 0,
+            xPos = 0.38,
+            yPos = 0.0,
+            zPos = 0.0,
+            xRot = 0.0,
+            yRot = 0.0,
+            zRot = 0.0,
+            
+        }
+    },
+    ["kisscutefh2"] = {
+        "genesismods_kissme@kissfemale10",
+        "kissfemale10",
+        "Kiss Forehead (Female)",
+        "kisscutefh",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            --SyncOffsetFront = 0.05,
+            
+        }
+    },
     ["coupleanim"] = {
         "anim@scripted@robbery@tun_prep_uni_ig1_couple@",
         "action_var_01_bank_manager",
@@ -2946,14 +3042,6 @@ RP.AnimalEmotes = {
             PtfxCanHold = true,
         }
     },
-    ["sdogbark"] = {
-        "creatures@pug@amb@world_dog_barking@idle_a",
-        "idle_a",
-        "Bark (small dog)",
-        AnimationOptions = {
-            EmoteLoop = true
-        }
-    },
     ["bdogglowa"] = {
         "creatures@rottweiler@amb@world_dog_sitting@base",
         "nill",
@@ -3253,10 +3341,51 @@ RP.AnimalEmotes = {
             EmoteMoving = false,
         }
     },
+    ["bdogfw"] = {
+       "creatures@rottweiler@amb@world_dog_sitting@base",
+        "nill",
+        "Firework - Big Dog",
+        AnimationOptions = {
+            Prop = 'ind_prop_firework_01', --- blue, green, red, purple pink, cyan, yellow, white
+			 PtfxColor = {{R = 255, G = 0, B = 0, A = 1.0}, {R = 0, G = 255, B = 0, A = 1.0}, {R = 0, G = 0, B = 255, A = 1.0}, {R = 177, G = 5, B = 245, A = 1.0}, {R = 251, G = 3, B = 255, A = 1.0}, {R = 2, G = 238, B = 250, A = 1.0}, {R = 252, G = 248, B = 0, A = 1.0}, {R = 245, G = 245, B = 245, A = 1.0}},
+            PropBone = 31086,
+            PropPlacement = {
+                0.1400,
+                0.3300,
+               -0.0800,
+               -85.6060,
+                -176.7400,
+                -9.8767
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+            PtfxAsset = "scr_indep_fireworks",
+            PtfxName = "scr_indep_firework_trail_spawn",
+            PtfxPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.6
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
+        }
+    },
 
     ---- ANIMAL EMOTES ----
     ----   SMALL DOG   ----
 
+    ["sdogbark"] = {
+        "creatures@pug@amb@world_dog_barking@idle_a",
+        "idle_a",
+        "Bark (small dog)",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
     ["sdogitch"] = {
         "creatures@pug@amb@world_dog_sitting@idle_a",
         "idle_a",
@@ -4545,6 +4674,39 @@ RP.AnimalEmotes = {
             PtfxCanHold = true,
         }
     },
+    ["sdogfw"] = {
+       "creatures@pug@move",
+        "nill",
+        "Firework - Small Dog",
+        AnimationOptions = {
+            Prop = 'ind_prop_firework_01', --- blue, green, red, purple pink, cyan, yellow, white
+			 PtfxColor = {{R = 255, G = 0, B = 0, A = 1.0}, {R = 0, G = 255, B = 0, A = 1.0}, {R = 0, G = 0, B = 255, A = 1.0}, {R = 177, G = 5, B = 245, A = 1.0}, {R = 251, G = 3, B = 255, A = 1.0}, {R = 2, G = 238, B = 250, A = 1.0}, {R = 252, G = 248, B = 0, A = 1.0}, {R = 245, G = 245, B = 245, A = 1.0}},
+            PropBone = 31086,
+            PropPlacement = {
+                0.1330,
+               -0.0210,
+               -0.2760,
+                0.0,
+               -180.0,
+                44.0000
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+            PtfxAsset = "scr_indep_fireworks",
+            PtfxName = "scr_indep_firework_trail_spawn",
+            PtfxPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.6
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['firework'],
+            PtfxWait = 200,
+        }
+    }
 }
 
 
@@ -15390,6 +15552,39 @@ RP.PropEmotes = {
             EmoteLoop = true,
         }
     },
+    ["holdfw"] = {
+        "anim@heists@humane_labs@finale@keycards",
+        "ped_a_enter_loop",
+        "Hold Firework",
+        AnimationOptions = {
+            Prop = 'ind_prop_firework_01', --- blue, green, red, purple pink, cyan, yellow, white
+			 PtfxColor = {{R = 255, G = 0, B = 0, A = 1.0}, {R = 0, G = 255, B = 0, A = 1.0}, {R = 0, G = 0, B = 255, A = 1.0}, {R = 177, G = 5, B = 245, A = 1.0}, {R = 251, G = 3, B = 255, A = 1.0}, {R = 2, G = 238, B = 250, A = 1.0}, {R = 252, G = 248, B = 0, A = 1.0}, {R = 245, G = 245, B = 245, A = 1.0}},
+            PropBone = 18905,
+            PropPlacement = {
+                0.1100,
+                0.3200,
+               -0.2400,
+               -130.0688,
+                -2.5736,
+                -3.0631
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+            PtfxAsset = "scr_indep_fireworks",
+            PtfxName = "scr_indep_firework_trail_spawn",
+            PtfxPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.6
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['firework'],
+            PtfxWait = 200,
+        }
+    }
 
 }
 
@@ -15408,7 +15603,7 @@ for i = 1, #emoteTypes do
     for emoteName, emoteData in pairs(RP[emoteType]) do
         local shouldRemove = false
         if Config.AdultEmotesDisabled and emoteData.AdultAnimation then shouldRemove = true end
-        if emoteData[1] and (emoteData[1] ~= 'Scenario' and emoteData[1] ~= 'ScenarioObject' and emoteData[1] ~= 'MaleScenario') and not DoesAnimDictExist(emoteData[1]) then shouldRemove = true end
+        if emoteData[1] and not ((emoteData[1] == 'Scenario') or (emoteData[1] == 'ScenarioObject') or (emoteData[1] == 'MaleScenario')) and not DoesAnimDictExist(emoteData[1]) then shouldRemove = true end
         if emoteData.AnimationOptions and emoteData.AnimationOptions.Prop and not IsModelValid(joaat(emoteData.AnimationOptions.Prop)) then shouldRemove = true end
         if emoteData.AnimationOptions and emoteData.AnimationOptions.SecondProp and not IsModelValid(joaat(emoteData.AnimationOptions.SecondProp)) then shouldRemove = true end
         if shouldRemove then RP[emoteType][emoteName] = nil end
