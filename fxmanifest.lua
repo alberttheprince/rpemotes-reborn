@@ -6,6 +6,11 @@ game 'gta5'
 version '1.0.0'
 lua54 'yes'
 
+dependencies {
+    '/server:5848',
+    '/onesync',
+}
+
 -- Remove the following lines if you would like to use the SQL keybinds. Requires oxmysql.
 
 --#region oxmysql
