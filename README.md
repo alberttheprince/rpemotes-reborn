@@ -1,6 +1,6 @@
 # RpEmotes 🏋️
 
-RpEmotes is a community driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walkstyles and props, originally created by [DullPear](https://github.com/andristum/dpemotes).
+RpEmotes is a community driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walkstyles and props, inspired by [DullPear](https://github.com/andristum/dpemotes).
 
 <img src="https://forum.cfx.re/uploads/default/original/4X/6/8/c/68cd34ce003360d74d73551f9be7215f5b6c7a31.jpeg" width="800">
 
@@ -18,7 +18,7 @@ RpEmotes is a community driven FiveM emote menu allowing players to express them
 
 - Contribute Translations 🌎
 
-- Chat With Me 🗨️
+- Chat With Our Amazing Community 🗨️
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -64,7 +64,7 @@ Languages can be selected and / or added in the config.lua.
 
 - Search Function 🔎
 
-- Custom Animations with **explitic Usage Rights granted** 🏃
+- Custom Animations with **permission from the community** 🏃
 
 - Facial Expressions 🤪
 
@@ -76,11 +76,11 @@ Languages can be selected and / or added in the config.lua.
 
 - Shared Particle Effects 💨
 
-- QBCore Framework & Keybinding Support ⚙️
+- QB-Core Framework & SQL Keybinding Support ⚙️
 
 - Further support for shared and couple poses / animations 👫
 
-- Easily convert Menyoo to rpemotes 🔄
+- Easily convert Menyoo to RPEmotes 🔄
 
 - Hide Adult Emotes 🔞
 
@@ -117,9 +117,15 @@ Alternatively, the player base can set their own menu keybind to open RpEmotes
 
 # Keybinds and SQL 🎛️
 
-To use the SQL features, install the latest version of the [oxmysql](https://github.com/overextended/oxmysql) resource. If you do not want to use the SQL features keep the `oxmysql` region in fxmanifest.lua commented out.
+To use the SQL features, install the latest version of the [oxmysql](https://github.com/overextended/oxmysql) resource and enable the setting in `config.lua`
 
-Alternatively, you can use the keybind command that comes with FiveM without having the SQL, by entering the following into F8: 
+```lua
+SqlKeybinding = false,
+```
+
+If you do not want to use the SQL features keep the `oxmysql` region in fxmanifest.lua commented out.
+
+Alternatively, you can use the keybind command that comes with FiveM without having to use SQL, by entering the following into F8: 
 
 `bind keyboard "Yourbutton" "e youremote"`. To remove the keybind, type `"unbind keyboard "Yourbutton"`.
 
@@ -135,6 +141,14 @@ Much like the menu key, `RagdollKeybind` is also using RegisterKeyMapping. It is
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+# Finger Pointing & Hands Up 👆
+
+Once enabled, players can press `B` on the keyboard to enable standalone finger pointing, and `H` to put their hands up, without the need for unnecessary frameworks or "small resources".
+
+Much like everything else in the menu, server owners can change these keybinds to their own preferences.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Adult Emotes 🔞
 
 Adult Emotes can be hidden from the menu by setting `AdultEmotesDisabled` to `true` in the config.lua file.
@@ -147,13 +161,25 @@ Alternatively, you can also hide animal emotes.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# QBCore ⚙️
+# QB-Core ⚙️
 
 **QBCore integration to match their fork of dpemotes**
 
-- Config option which supports the QB Framework in their fork of dpemotes
+- Config option which supports the QB Framework in their fork of the original dpemotes.
 
-If you’re using qb-core, you can now set `Framework = "qb-core"` in the config file, otherwise leave it as `false`.
+If you’re using qb-core, you can now set
+
+```lua
+Framework = "qb-core",
+```
+
+in the config file, otherwise leave it as
+
+```lua
+Framework = false,
+```
+
+*You may need to alter some code within qbcore to work with RPEmotes.*
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -169,30 +195,27 @@ If you’re using qb-core, you can now set `Framework = "qb-core"` in the config
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
 # Installation Instructions ⚙️:
 
-* Add RpEmotes to your `server.cfg`
+* Add `ensure rpemotes` to your `server.cfg`
 
 * Download the latest recommended artifacts [for Windows](https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/) or [for Linux](https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/)
 
-* [Enforce gamebuild to latest build](https://forum.cfx.re/t/tutorial-forcing-gamebuild-to-casino-cayo-perico-or-tuners-update/4784977) for all emotes and props to work correctly
+* [Enforce gamebuild to latest build](https://forum.cfx.re/t/tutorial-forcing-gamebuild-to-casino-cayo-perico-or-tuners-update/4784977) for all emotes and props to work as intended.
 
 * Set the desired language and settings in the config.lua
 
 * Qb-Core server owners, set `Framework = 'qb-core'` in the config file, otherwise leave it as false.
 
-* To use the SQL features, install the [oxmysql](https://github.com/overextended/oxmysql) resource. If you do not want to use the SQL features, comment out the `oxmysql` region in fxmanifest.lua.
+* To use the SQL features, install the [oxmysql](https://github.com/overextended/oxmysql) resource then open `keybinds.lua` in RPEmotes. If you do not want to use the SQL features, comment out the `oxmysql` region in fxmanifest.lua.
 
 Alternatively, you can use the keybind command that comes with FiveM without having the SQL, by entering the following into F8: 
 
 `bind keyboard "Yourbutton" "e youremote"`. To remove the keybind, type `"unbind keyboard "Yourbutton"`.
 
-* Start rpemotes
+* Type `/refresh` and `/start rpemotes` into your chat resource, or simply restart your server
 
 # Additional Instructions ⚙️
-
-- **[Please check the fivem forum thread](https://forum.fivem.net/t/rpemotes-356ish-emotes-usable-while-walking-props-and-more/843105)**
 
 - **Check out my youtube playlist below:**
 
@@ -220,12 +243,15 @@ You can find a list of ped bones to attach the other player here: [Ped Bones](ht
 
 Using the websites provided above, enter the bone ID, ie `1356` and not `111`, which is the Bone Index.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Understandably, this can be confusing for some people. We suggest using the `Attachto` approach.
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Particle Effects 💨
 
 Particle effects can be found using the [DurtyFree GTA V Dump](https://github.com/DurtyFree/gta-v-data-dumps/blob/master/particleEffectsCompact.json). You will need to add the particle assest, name, and placement. Placement is done via XYZ, Pitch, Roll, Yaw, and scale.
+
+Onesync is required for them to work across all clients.
 
 Big thanks to DurtyFree for his amazing work.
 
@@ -260,6 +286,7 @@ Add your animation code to the `AnimationListCustom.lua` and make a backup of th
 
 Whenever an update is released, rename `BackUpAnimationListCustom.lua` to `AnimationListCustom.lua`, click yes to overwrite, and you're good to go. 
 
+It is also a good idea to keep a backup of your config file.
 Below is an example:
 
 <img src="screenshots/customanims.png" width="550">
@@ -283,38 +310,30 @@ Below is an example:
 
 # 📜 LICENSE & DISCLAIMER
 
-This project does not contain a license however is in compliance with express custom animation and prop usage rights granted by each individual author.
+This project is under the GPL V3 license, however all custom props and animations were provided to RPEmotes by the community with express permission and must not be extracted from [RpEmotes](https://github.com/TayMcKenzieNZ/rpemotes), reuploaded to any websites, forums or discord servers.
 
-You are not allowed to change / add a license.
+If you want to modify RpEmotes ***(does not apply if you want to use it for personal purposes)*** or make an agreement, you can contact TayMcKenzieNZ via Discord. Pull requests are actively reviewed and discussed with TayMcKenzieNZ and contributors, and will be accepted as long as they do not contain  animation / prop files *(we need permission before adding them)* breaking changes or suspicious code.
 
-These usage rights do not carry over to any third party including any other forks and/or projects without express permission and must not be extracted from [RpEmotes](https://github.com/TayMcKenzieNZ/rpemotes).
 
-If you want to modify RpEmotes  ***(does not apply if you want to use it for personal purposes)*** or make an agreement, you can contact TayMcKenzieNZ via Discord. Pull requests are actively reviewed and discussed with TayMcKenzieNZ and contributors and will be accepted as long as they do not contain breaking changes. 
 
-You can read more about unlicensed repositories [here](https://opensource.stackexchange.com/questions/1720/what-can-i-assume-if-a-publicly-published-project-has-no-license) if questions remain.
+✅ You are allowed to use the custom animations explicitly provided within this repository only 
 
-If you wish to fork this repository, the animations and their respective code must be removed unless stated otherwise by their respective authors.
+✅ You are allowed to add your own custom animations to this resource and use it on your server. The entire content must remain on your server and not be reuploaded.
 
-✅ You are allowed to use the custom animations explicitly provided within this fork only 
+❌ You are not allowed to re-distribute the custom animations provided with this repository either on websites, forums, tebex store or discord. 
 
-✅ You are allowed to add your own custom animations to this fork and use it on your server. The entire content must remain on your server and not be reuploaded.
-
-❌ You are not allowed to re-distribute the custom animations provided with this fork
-
-❌ You are not allowed to claim the custom animations provided within this fork as your own work
-
-✅ You must respect an authors wishes and remove code, animations and props if your permission request is denied
+❌ You are not allowed to claim the custom animations provided within this resource as your own work
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Credits 🤝
 
-**All** custom animations were added with permissions from the creators and does **not** contain any paid or leaked work.
+**All** custom animations and props were added with permissions from the creators and does **not** contain any paid or leaked work.
 
-All animation creators have ***specifically*** asked that their content remains free and that I do not try to profit from them, claim them as my own or reupload them anywhere else but my GitHub, therefore you may not extract the animations and / or use them for your own menus. 
+All animation creators have ***specifically*** asked that their content remains free and that the RPEmotes team and community do not try to profit from them, claim them as their own or reupload them anywhere else but TayMcKenzieNZ's GitHub unless express permission has been arranged and granted by their respective creators, therefore you may not extract the animations and / or use them for your own menus. 
 
 
-This script is where it is today because of the amazing contributions made by the following people: 
+Thank you to our amazing contributions made by the following people: 
 
 - Thank you to [Tigerle](https://forum.cfx.re/u/tigerle_studios) for providing the additional code required to make Shared Emotes work to it's full extent
 
@@ -350,13 +369,15 @@ This script is where it is today because of the amazing contributions made by th
 
 - Thank you to [BoringNeptune](https://www.gta5-mods.com/users/BoringNeptune) for the custom dance emotes
 
-- Thank you to [-CMG Mods-](https://www.gta5-mods.com/users/-moses-) for the custom emotes
+- Thank you to [CMG Mods](https://www.gta5-mods.com/users/-moses-) for the custom emotes
 
-- Thank you to [prue颜](discord.gg/lunyxmods) for being a great friend, partnering with me and for the custom emotes
+- Thank you to [prue颜](discord.gg/lunyxmods) for being a great friend and providing us with custom animations
+
+- Thank you to [Scullyy](https://github.com/Scullyy/) for assisting with the rebranding of RPEmotes, providing a much more cleaner version checker and many more additional features
 
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
-You pay a big role in keeping this script alive and we could not do it without you 🙏
+You pay a big role in making this script what it is today and we could not do it without you 🙏
 
 -------------------------------------------------------------------------------
 
