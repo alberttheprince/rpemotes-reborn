@@ -15408,7 +15408,7 @@ for i = 1, #emoteTypes do
     for emoteName, emoteData in pairs(RP[emoteType]) do
         local shouldRemove = false
         if Config.AdultEmotesDisabled and emoteData.AdultAnimation then shouldRemove = true end
-        if emoteData[1] and not DoesAnimDictExist(emoteData[1]) then shouldRemove = true end
+        if emoteData[1] and (emoteData[1] ~= 'Scenario' and emoteData[1] ~= 'ScenarioObject' and emoteData[1] ~= 'MaleScenario') and not DoesAnimDictExist(emoteData[1]) then shouldRemove = true end
         if emoteData.AnimationOptions and emoteData.AnimationOptions.Prop and not IsModelValid(joaat(emoteData.AnimationOptions.Prop)) then shouldRemove = true end
         if emoteData.AnimationOptions and emoteData.AnimationOptions.SecondProp and not IsModelValid(joaat(emoteData.AnimationOptions.SecondProp)) then shouldRemove = true end
         if shouldRemove then RP[emoteType][emoteName] = nil end
