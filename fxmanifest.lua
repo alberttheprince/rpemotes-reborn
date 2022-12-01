@@ -22,6 +22,7 @@ dependencies {
 
 shared_scripts {
     'config.lua',
+    'Translations.lua'
 }
 
 server_scripts {
