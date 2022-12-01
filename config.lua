@@ -6,7 +6,7 @@ Config = {
     -- Thank you to those who provided translations.
     -- If you would like to provide translations or help fix them, join our Discord!
     -- Check languages code below to change the MenuLanguage
-    MenuLanguage = 'da',
+    MenuLanguage = 'en',
     -- Set this to true to enable some extra prints
     DebugDisplay = false,
     -- Set this to false if you have something else on X, and then just use /e c to cancel emotes.
