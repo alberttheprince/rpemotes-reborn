@@ -2357,6 +2357,14 @@ RP.Dances = {
             EmoteLoop = true
         }
     },
+	["dancethriller"] = { -- Custom Emote By BoringNeptune
+        "mj_thriller",
+        "mj_thriller_dance",
+        "Dance - MJ Thriller",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
     ["dj"] = {
         "anim@amb@nightclub@djs@dixon@",
         "dixn_dance_cntr_open_dix",
@@ -8113,6 +8121,47 @@ RP.Emotes = {
             EmoteLoop = true,
             EmoteMoving = false,
        }
+    },
+	["zombiewalk"] = { -- Custom Emote By BoringNeptune
+        "zombies_animations",
+        "zombi_walk_01",
+        "Zombie Walk",
+        AnimationOptions = {
+            EmoteLoop = true,
+			EmoteMoving = false, -- true looks weird but the option is here
+        }
+    },
+	["zombiewalk2"] = { -- Custom Emote By BoringNeptune
+        "zombies_animations",
+        "zombi_walk_02",
+        "Zombie Walk 2",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+	["zombieagony"] = { -- Custom Emote By BoringNeptune
+        "zombies_animations",
+        "agony",
+        "Zombie Agony",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+	["zombiescream"] = { -- Custom Emote By BoringNeptune
+        "zombies_animations",
+        "scream",
+        "Zombie Scream",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+	["zombiecrawl"] = { -- Custom Emote By BoringNeptune
+        "zombies_animations",
+        "crawl_01",
+        "Zombie Crawl",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
     },
 }
 
