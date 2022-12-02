@@ -1543,6 +1543,34 @@ RP.Shared = {
             EmoteLoop = true
         }
     },
+    ["bdoghumping"] = {
+        "creatures@rottweiler@amb@",
+        "hump_loop_chop",
+        "Dogs Humping (Male)",
+        "bdoghumping2",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            SyncOffsetFront = 0.0,
+            SyncOffsetSide = -0.028,
+            SyncOffsetHeading = 0.0
+        },
+        AdultAnimation = true
+    },
+    ["bdoghumping2"] = {
+        "creatures@rottweiler@amb@",
+        "hump_loop_ladydog",
+        "Dogs Humping (Female)",
+        "bdoghumping",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            SyncOffsetFront = 0.0,
+            SyncOffsetSide = -0.028,
+            SyncOffsetHeading = 0.0
+        },
+        AdultAnimation = true
+    }
 }
 
 --- DANCING EMOTES, SOME WITH PROPS ---
@@ -2976,15 +3004,24 @@ RP.AnimalEmotes = {
             EmoteLoop = true
         }
     },
-    ["bdoghump"] = {
+    ["bdogfhump"] = {
         "creatures@rottweiler@amb@",
-        "hump_loop_chop",
-        "Hump (big dog)",
+        "hump_loop_ladydog",
+        "Female Hump (big dog)",
         AnimationOptions = {
             EmoteLoop = true
         },
         AdultAnimation = true
-    },    
+    }, 
+    ["bdogmhump"] = {
+        "creatures@rottweiler@amb@",
+        "hump_loop_chop",
+        "Male Hump (big dog)",
+        AnimationOptions = {
+            EmoteLoop = true
+        },
+        AdultAnimation = true
+    },
     ["bdogdump"] = {
         "creatures@rottweiler@move",
         "dump_loop",
