@@ -13,7 +13,7 @@ if Config.CheckForUpdates then
             end
             VersionLog('success', ('Current Version: %s'):format(currentVersion))
             VersionLog('success', ('Latest Version: %s'):format(text))
-            if text == currentVersion then
+            if text:gsub("%s+", "") == currentVersion:gsub("%s+", "") then
                 VersionLog('success', 'You are running the latest version.')
             else
                 VersionLog('error', ('You are currently running an outdated version, please update to version %s'):format(text))
