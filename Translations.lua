@@ -475,7 +475,7 @@ Config.Languages = {
         ['searchcantsetfav'] = "Geteilte Emotes können nicht als Favorit gesetzt werden.",
         ['invalidvariation'] = "Ungültige Texturvariante. Korrekte auswahlen sind: %s",
 	['firework'] = "Drücke ~y~G~w~, um das Feuerwerk zu benutzen",
-        ['poop'] = "Drücke ~y~G~w~, um zu kacken", Translated using smodin.io
+        ['poop'] = "Drücke ~y~G~w~, um zu kacken", --Translated using smodin.io
     },
     ['it'] = { -- Italian 🇮🇹
         ['emotes'] = 'Animazioni 🎬',
