@@ -3,10 +3,38 @@
 -----------------------------------------------------------------------------------------------------
 
 RegisterNetEvent("ServerEmoteRequest", function(target, emotename, etype)
+    local ped = GetPlayerPed(source)
+
+    if target == -1 then
+      return
+   end
+   local tped = GetPlayerPed(target)
+   local pedcoord = GetEntityCoords(ped)
+   local targetcoord = GetEntityCoords(tped)
+
+   local distance = #(pedcoord - targetcoord)
+
+   if distance > 3 then
+       return
+   end
     TriggerClientEvent("ClientEmoteRequestReceive", target, emotename, etype)
 end)
 
 RegisterNetEvent("ServerValidEmote", function(target, requestedemote, otheremote)
+    local ped = GetPlayerPed(source)
+
+    if target == -1 then
+      return
+   end
+   local tped = GetPlayerPed(target)
+   local pedcoord = GetEntityCoords(ped)
+   local targetcoord = GetEntityCoords(tped)
+
+   local distance = #(pedcoord - targetcoord)
+
+   if distance > 3 then
+       return
+   end
     TriggerClientEvent("SyncPlayEmote", source, otheremote, target)
     TriggerClientEvent("SyncPlayEmoteSource", target, requestedemote, source)
 end)
