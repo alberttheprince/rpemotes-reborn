@@ -3,7 +3,7 @@
 
 fx_version 'cerulean'
 game 'gta5'
-version '1.0.4'
+version '1.0.5'
 lua54 'yes'
 
 dependencies {
@@ -46,6 +46,8 @@ client_scripts {
 }
 
 
+---- These are required for the custom props to load. If you have custom props, add data_file 'DLC_ITYP_REQUEST' 'custompropytypnamehere.ytyp' below ---------
+
 data_file 'DLC_ITYP_REQUEST' 'badge1.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'copbadge.ytyp'
@@ -67,4 +69,8 @@ data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_food_icecream_pack.ytyp'
 data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_food_dessert_a.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/ultra_ringcase.ytyp'
+
+data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_food_xmas22.ytyp'
+
+data_file 'DLC_ITYP_REQUEST' 'stream/knjgh_pizzas.ytyp'
 
