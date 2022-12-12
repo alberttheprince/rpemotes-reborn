@@ -3067,7 +3067,8 @@ RP.AnimalEmotes = {
         AnimationOptions = {
             EmoteLoop = true
         },
-        AdultAnimation = true
+        AdultAnimation = true,
+	AnimalEmote = true
     }, 
     ["bdogmhump"] = {
         "creatures@rottweiler@amb@",
@@ -3076,7 +3077,8 @@ RP.AnimalEmotes = {
         AnimationOptions = {
             EmoteLoop = true
         },
-        AdultAnimation = true
+        AdultAnimation = true,
+	AnimalEmote = true
     },
     ["bdogdump"] = {
         "creatures@rottweiler@move",
