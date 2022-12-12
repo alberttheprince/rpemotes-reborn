@@ -35,18 +35,6 @@ function ShowNotification(text)
     end
 end
 
--- Clear all the animal emotes if disabled.
-if not Config.AnimalEmotesEnabled then
-    RP.AnimalEmotes = {}
-    for k, v in pairs(RP) do
-        for i, j in pairs(v) do
-            if j.AnimalEmote then
-                RP[k][i] = nil
-            end
-        end
-    end
-end
-
 local EmoteTable = {}
 local FavEmoteTable = {}
 local KeyEmoteTable = {}
