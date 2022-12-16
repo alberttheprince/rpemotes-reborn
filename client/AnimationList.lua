@@ -865,7 +865,7 @@ RP.Shared = {
 	["carrycmg"] = { -- Male Custom emote by CMG Mods
         "couplepose1cmg@animation",
         "couplepose1cmg_clip",
-        "Carry Me Cute 3 CMG",
+        "Carry Me Cute 3",
         "carrycmg2",
         AnimationOptions = {
             EmoteMoving = false,
@@ -875,7 +875,7 @@ RP.Shared = {
     ["carrycmg2"] = { -- Female Custom emote by CMG Mods
         "couplepose2cmg@animation",
         "couplepose2cmg_clip",
-        "Carry Me Cute 4 CMG",
+        "Carry Me Cute 4",
         "carrycmg",
         AnimationOptions = {
             EmoteLoop = true,
