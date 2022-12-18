@@ -203,6 +203,8 @@ Framework = false,
 
 * [Enforce gamebuild to latest build](https://forum.cfx.re/t/tutorial-forcing-gamebuild-to-casino-cayo-perico-or-tuners-update/4784977) for all emotes and props to work as intended.
 
+**Onesync is required for the particle effects to work as intended**
+
 * Set the desired language and settings in the config.lua
 
 * Qb-Core server owners, set `Framework = 'qb-core'` in the config file, otherwise leave it as false.
@@ -333,7 +335,7 @@ If you want to modify RpEmotes ***(does not apply if you want to use it for pers
 All animation creators have ***specifically*** asked that their content remains free and that the RPEmotes team and community do not try to profit from them, claim them as their own or reupload them anywhere else but TayMcKenzieNZ's GitHub unless express permission has been arranged and granted by their respective creators, therefore you may not extract the animations and / or use them for your own menus. 
 
 
-Thank you to our amazing contributions made by the following people: 
+A huge thank  you to the following people for their amazing contributions made to the menu 🫶🏻 : 
 
 - Thank you to [Tigerle](https://forum.cfx.re/u/tigerle_studios) for providing the additional code required to make Shared Emotes work to it's full extent
 
@@ -343,7 +345,11 @@ Thank you to our amazing contributions made by the following people:
 
 - A huge thank you to [Kibook](https://github.com/kibook) for the addition of the Animal Emotes sub menu
 
-- Thank you to [AvaN0x](https://github.com/AvaN0x) for reformatting and assisting with code, additional features and figuring out shared particle effects 
+- Thank you to [AvaN0x](https://github.com/AvaN0x) for reformatting and assisting with code, additional features and figuring out shared particle effects
+
+- Thank you to [Scullyy](https://github.com/Scullyy) for reformatting and assisting with code, rebranding of RPEmotes, providing a much more cleaner version checker, and firework RGB research
+
+- Thank you to [GeekGarage](https://github.com/geekgarage) for their knowledge, time and dedication, helping to bring new and exciting features to the menu
 
 - Thank you to [Smokey](https://www.gta5-mods.com/users/struggleville) for the Explicit Usage Rights Agreement to add free custom animations either publicly available on on their discord
 
@@ -372,8 +378,6 @@ Thank you to our amazing contributions made by the following people:
 - Thank you to [CMG Mods](https://www.gta5-mods.com/users/-moses-) for the custom emotes
 
 - Thank you to [prue颜](discord.gg/lunyxmods) for being a great friend and providing us with custom animations
-
-- Thank you to [Scullyy](https://github.com/Scullyy/) for assisting with the rebranding of RPEmotes, providing a much more cleaner version checker and many more additional features
 
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
