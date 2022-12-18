@@ -107,11 +107,11 @@ if Config.SqlKeybinding then
             local key = string.lower(args[1])
             local emote = string.lower(args[2])
             if (Config.KeybindKeys[key]) ~= nil then
-                if RP.Emotes[emote] ~= nil then
-                    TriggerServerEvent("rp:ServerKeybindUpdate", key, emote)
-                elseif RP.Dances[emote] ~= nil then
-                    TriggerServerEvent("rp:ServerKeybindUpdate", key, emote)
-                elseif RP.PropEmotes[emote] ~= nil then
+                if RP.Emotes[emote] ~= nil
+                    or RP.Dances[emote] ~= nil
+                    or RP.PropEmotes[emote] ~= nil
+                    or RP.AnimalEmotes[emote] ~= nil
+                then
                     TriggerServerEvent("rp:ServerKeybindUpdate", key, emote)
                 else
                     EmoteChatMessage("'" .. emote .. "' " .. Config.Languages[lang]['notvalidemote'] .. "")
