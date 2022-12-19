@@ -3,7 +3,7 @@
 
 fx_version 'cerulean'
 game 'gta5'
-version '1.0.7'
+version '1.0.8'
 lua54 'yes'
 
 dependencies {
@@ -73,4 +73,10 @@ data_file 'DLC_ITYP_REQUEST' 'stream/ultra_ringcase.ytyp'
 data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_food_xmas22.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/knjgh_pizzas.ytyp'
+
+data_file 'DLC_ITYP_REQUEST' 'stream/pata_christmasfood.ytyp'
+
+data_file 'DLC_ITYP_REQUEST' 'stream/Props/bz_prop_gift.ytyp'
+
+data_file 'DLC_ITYP_REQUEST' 'stream/Props/bz_prop_gift2.ytyp'
 

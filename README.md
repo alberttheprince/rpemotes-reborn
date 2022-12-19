@@ -379,6 +379,10 @@ A huge thank  you to the following people for their amazing contributions made t
 
 - Thank you to [prue颜](discord.gg/lunyxmods) for being a great friend and providing us with custom animations
 
+- Thank you to [PataMods](https://forum.cfx.re/u/Pata_PataMods) for the custom Christmas props
+
+- Thank you to [Crowded1337](https://www.gta5-mods.com/users/crowded1337) for the custom Gucci bag. I have removed the Gucci logo to comply with Rockstar Games & TakeTwo Interactive
+
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
 You pay a big role in making this script what it is today and we could not do it without you 🙏
