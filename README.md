@@ -52,6 +52,8 @@ RpEmotes is a community driven FiveM emote menu allowing players to express them
 
 * Swedish 🇸🇪
 
+* Turkish 🇹🇷
+
 All languages were translated or contributed by you, the community with the odd exception of using Google Translate.
 
 If you happen to find any incorrect translations or would like to add more languages, please feel free to make a pull request with the correct / additional translations or join our discord.
