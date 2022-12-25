@@ -8123,7 +8123,7 @@ RP.Emotes = {
     ["uwu"] = {
         "uwu@egirl",
         "base",
-        "uWu",
+        "UwU",
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = true
