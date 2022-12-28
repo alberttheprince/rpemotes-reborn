@@ -68,6 +68,10 @@ data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_food_icecream_pack.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_food_dessert_a.ytyp'
 
+data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_prop_give_gift.ytyp'
+
+data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_prop_cake_love_001.ytyp'
+
 data_file 'DLC_ITYP_REQUEST' 'stream/ultra_ringcase.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_food_xmas22.ytyp'
@@ -75,8 +79,4 @@ data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_food_xmas22.ytyp'
 data_file 'DLC_ITYP_REQUEST' 'stream/knjgh_pizzas.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/pata_christmasfood.ytyp'
-
-data_file 'DLC_ITYP_REQUEST' 'stream/Props/bz_prop_gift.ytyp'
-
-data_file 'DLC_ITYP_REQUEST' 'stream/Props/bz_prop_gift2.ytyp'
 

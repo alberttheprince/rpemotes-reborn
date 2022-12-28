@@ -1496,7 +1496,7 @@ RP.Shared = {
     ["kisscutecheek"] = {
         "genesismods_kissme@kissmale9",
         "kissmale9",
-        "Kiss Cute Cheeck (Male)",
+        "Kiss Cute Cheek (Male)",
         "kisscutecheek2",
         AnimationOptions = {
             EmoteMoving = false,
@@ -1516,7 +1516,7 @@ RP.Shared = {
     ["kisscutecheek2"] = {
         "genesismods_kissme@kissfemale9",
         "kissfemale9",
-        "Kiss Cute Cheeck (Female)",
+        "Kiss Cute Cheek (Female)",
         "kisscutecheek",
         AnimationOptions = {
             EmoteMoving = false,
@@ -8442,15 +8442,15 @@ RP.PropEmotes = {
 	   "bz_give",
 	   "Gift", 
         AnimationOptions = {
-            Prop = 'bz_prop_gift',
+            Prop = 'bzzz_prop_gift_orange',
             PropBone = 57005,
             PropPlacement = {
-                0.15,
-                -0.08,
-                -0.08,
-                -60.0,
-                -120.0,
-                40.0
+               0.15,
+			  -0.03,
+			  -0.14,
+			  -77.0,
+			  -120.0,
+			  40.0
             },
             EmoteMoving = true
         }
@@ -8460,15 +8460,33 @@ RP.PropEmotes = {
 	   "bz_give",
 	   "Gift 2", 
         AnimationOptions = {
-            Prop = 'bz_prop_gift2',
+            Prop = 'bzzz_prop_gift_purple',
             PropBone = 57005,
             PropPlacement = {
                 0.15,
-                -0.08,
-                -0.08,
-                -60.0,
-                -120.0,
-                40.0
+			   -0.03,
+			   -0.14,
+			   -77.0,
+			   -120.0,
+			     40.0
+            },
+            EmoteMoving = true
+        }
+    },
+    ["cake"] = { --- Custom Prop & Emote By BzZzi
+       "anim@heists@box_carry@", 
+	   "idle",
+	   "Love Cake", 
+        AnimationOptions = {
+            Prop = 'bzzz_prop_cake_love_001',
+            PropBone = 18905,
+            PropPlacement = {
+                0.28,
+				0.06,
+				0.2,
+			   -54.0,
+			   -72.0,
+			    -6.0
             },
             EmoteMoving = true
         }
