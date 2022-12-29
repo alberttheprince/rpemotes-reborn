@@ -468,13 +468,18 @@ function AddFaceMenu(menu)
 end
 
 function AddInfoMenu(menu)
-    if not UpdateAvailable then
+    -- TODO: Add a way to check if there is an update available.
+    -- This got broken with the Update refactor of the name change and
+    -- at the time I'm fixing this, I couldn't test anything in game so
+    -- I won't introduce any breaking changes - AvaN0x
+
+    -- if not UpdateAvailable then
         infomenu = _menuPool:AddSubMenu(menu, Config.Languages[lang]['infoupdate'], "Huge Thank You ❤️", "",
             Menuthing, Menuthing)
-    else
-        infomenu = _menuPool:AddSubMenu(menu, Config.Languages[lang]['infoupdateav'],
-            Config.Languages[lang]['infoupdateavtext'], "", Menuthing, Menuthing)
-    end
+    -- else
+    --     infomenu = _menuPool:AddSubMenu(menu, Config.Languages[lang]['infoupdateav'],
+    --         Config.Languages[lang]['infoupdateavtext'], "", Menuthing, Menuthing)
+    -- end
     infomenu:AddItem(NativeUI.CreateItem(Config.Languages[lang]['suggestions'],
         Config.Languages[lang]['suggestionsinfo'
         ]))
@@ -542,6 +547,7 @@ end
 if Config.ExpressionsEnabled then
     AddFaceMenu(mainMenu)
 end
+AddInfoMenu(mainMenu)
 
 _menuPool:RefreshIndex()
 
