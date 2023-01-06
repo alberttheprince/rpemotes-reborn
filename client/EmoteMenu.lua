@@ -483,45 +483,55 @@ function AddInfoMenu(menu)
     infomenu:AddItem(NativeUI.CreateItem(Config.Languages[lang]['suggestions'],
         Config.Languages[lang]['suggestionsinfo'
         ]))
-    infomenu:AddItem(NativeUI.CreateItem("Join the <font color=\"#00ceff\">Discord</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Join the <font color=\"#00ceff\">Discord 💬</font>",
         "Join our official discord! 💬 <font color=\"#00ceff\">https://discord.gg/sw3NwDq6C8</font>"))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks ~o~DullPear~s~", "~o~DullPear~s~ for the original dpemotes ❤️"))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks <b>Kibook</b>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks ~o~DullPear 🍐~s~", "~o~DullPear~s~ for the original dpemotes ❤️"))
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <b>Kibook 🐩</b>",
         "<b>Kibook</b> for the addition of Animal Emotes 🐩 submenu."))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks ~y~AvaN0x~s~",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks ~y~AvaN0x 🇮🇹~s~",
         "~y~AvaN0x~s~ for reformatting and assisting with code and additional features 🙏"))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#3b8eea\">SMGMissy</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#1C9369\">northsqrd ⚙️</font>",
+        "<font color=\"#1C9369\">northsqrd</font> for assisting with search feature and phone colours 🔎"))
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#A6A333\">Scullyy 👨‍💻</font>",
+        "<font color=\"#A6A333\">Scullyy</font> for assisting with code and rebranding"))
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#15BCEC\">GeekGarage 🤓</font>",
+        "<font color=\"#15BCEC\">GeekGarage</font> for assisting with code and features"))
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#3b8eea\">SMGMissy 🪖</font>",
         "<font color=\"#3b8eea\">SMGMissy</font> for the custom pride flags 🏳️‍🌈."))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#a356fa\">Dollie</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#a356fa\">Dollie 👧</font>",
         "<font color=\"#a356fa\">DollieMods</font> for the custom emotes 💜."))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#ff00c3\">Tigerle</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#ff00c3\">Tigerle 🐯</font>",
         "<font color=\"#ff00c3\">Tigerle</font> for assisting with attached Shared Emotes ⚙️."))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#7dbf7b\">MissSnowie</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#7dbf7b\">MissSnowie 🐰</font>",
         "<font color=\"#7dbf7b\">MissSnowie</font> for the custom emotes 🐇."))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#FF6100\">Smokey</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#FF6100\">Smokey 💨</font>",
         "<font color=\"#FF6100\">Smokey</font> for the custom emotes 🤙🏼."))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks ~b~Ultrahacx~s~", "~b~Ultrahacx~s~ for the custom emotes ☺️."))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#37DA00\">BzZzi</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks ~b~Ultrahacx 🧑‍💻~s~",
+	"~b~Ultrahacx~s~ for the custom emotes ☺️."))
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#37DA00\">BzZzi 🤭</font>",
         "<font color=\"#37DA00\">BzZzi</font> for the custom food props 🍩."))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#C40A7D\">Natty3d</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#C40A7D\">Natty3d 🍭</font>",
         "<font color=\"#C40A7D\">Natty3d</font> for the custom lollipop props 🍭."))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#189FD0\">Northsqrd</font>",
-        "<font color=\"#189FD0\">Northsqrd</font> for the search feature 🔎."))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#ff61a0\">Amnilka</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#ff61a0\">Amnilka 🇵🇱</font>",
         "<font color=\"#ff61a0\">Amnilka</font> for the custom emotes ☺️."))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#ff058f\">LittleSpoon</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#ff058f\">LittleSpoon 🥄</font>",
         "<font color=\"#ff058f\">LittleSpoon</font> for the custom emotes 💗."))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#1a88c9\">Pupppy</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#1a88c9\">Pupppy 🐶</font>",
         "<font color=\"#1a88c9\">Pupppy</font> for the custom emotes 🦴."))
     infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#53ba04\">SapphireMods</font>",
         "<font color=\"#53ba04\">SapphireMods</font> for the custom emotes ✨."))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#8526f0\">QueenSisters Animations</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#8526f0\">QueenSisters Animations 👭</font>",
         "<font color=\"#8526f0\">QueenSistersAnimations</font> for the custom emotes 🍧"))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#0acf52\">BoringNeptune</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#0acf52\">BoringNeptune 👽</font>",
         "<font color=\"#0acf52\">BoringNeptune</font> for the custom emotes 🕺"))
-    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#edae00\">-Moses-</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#edae00\">Moses 🐮</font>",
         "<font color=\"#edae00\">-Moses-</font> for the custom emotes 🧡"))
-		
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#D71196\">PataMods 🍓</font>",
+        "<font color=\"#edae00\">-Moses-</font> for the custom props 🍕"))
+   infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#FB7403\">Crowded1337 👝</font>",
+        "<font color=\"#edae00\">-Moses-</font> for the custom Gucci bag 👝"))
+  infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#8180E5\">EnchantedBrownie 🍪</font>",
+        "<font color=\"#edae00\">-Moses-</font> for the custom animations 🙏"))
 
     infomenu:AddItem(NativeUI.CreateItem("Thanks to the community", "Translations, bug reports and moral support 🌐"))
 end
