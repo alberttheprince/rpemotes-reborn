@@ -13396,7 +13396,7 @@ RP.PropEmotes = {
 	 ["selfieegirl"] = { -- Custom emote by Struggleville
         "anim@female_egirl_cute_selfie",
         "cute_selfie_clip",
-        "Selfie E-Girl",
+        "Selfie E Girl",
         AnimationOptions = {
             Prop = "prop_phone_ing",
             PropTextureVariations = {
