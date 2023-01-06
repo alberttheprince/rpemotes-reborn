@@ -889,6 +889,34 @@ RP.Shared = {
             zRot = -1.9999
         }
     },
+    ["bff"] = {
+        "anim@male_couple_03_b",
+        "m_couple_03_b_clip",
+        "BFF Pose",
+        "bffb",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true
+        },
+    },
+    ["bffb"] = {
+        "anim@female_couple_03_b",
+        "f_couple_03_b_clip",
+        "BFF Pose 2",
+        "bff",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            bone = 0,
+            xPos = 0.0100,
+            yPos = 0.1300,
+            zPos = 0.0,
+            xRot = 0.0,
+            yRot = 0.0,
+            zRot = 76.0000
+        },
+    },
     ["sitwithmepose"] = { -- Male Custom emote by Amnilka
         "amnilka@photopose@couple@couplefirst",
         "amnilka_couple_mal_003",
@@ -8204,11 +8232,20 @@ RP.Emotes = {
 	["model2"] = { -- Custom Emote By QueenSistersAnimations
         "sitdownonknees@queensisters",
         "sitdown_clip",
-        "Model 2",
+        "Model Pose 2",
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = false,
        }
+    },
+	["model3"] = { -- Custom emote by Struggleville
+        "anim@female_model_photo_cute",
+        "photo_cute_clip",
+        "Model Pose 3",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
     },
 	["layncry"] = {
         "anim@amb@nightclub@lazlow@lo_sofa@",
@@ -8337,6 +8374,22 @@ RP.Emotes = {
         "zombies_animations",
         "crawl_01",
         "Zombie Crawl",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+	["laysexy"] = { -- Custom Emote By Amnilka
+        "amnilka@photopose@female@homepack001",
+        "amnilka_femalehome_photopose_004",
+        "Lay Sexy",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+	["gungirl1"] = { -- Custom Emote By Struggleville
+        "anim@female_gunbunny_rifle_photo",
+        "rifle_photo_clip",
+        "Rifle Pose",
         AnimationOptions = {
             EmoteLoop = true
         }
@@ -13340,6 +13393,92 @@ RP.PropEmotes = {
             PtfxWait = 200
         }
     },
+	 ["selfieegirl"] = { -- Custom emote by Struggleville
+        "anim@female_egirl_cute_selfie",
+        "cute_selfie_clip",
+        "Selfie E-Girl",
+        AnimationOptions = {
+            Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
+                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
+                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
+                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
+                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4}, 
+                {Name = "<font color=\"#a356fa\">Purple", Value = 5}, 
+                {Name = "<font color=\"#FF0099\">Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
+            PropBone = 26613, -- Left Finger 30
+            PropPlacement = {
+                0.0760,
+               -0.0220,
+                0.0350,
+               -22.0968,
+                30.4351,
+                -7.9339
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200
+        }
+    },
+    ["selfieslut"] = { -- Custom Emote By Struggleville 
+        "anim@female_floor_slutarch_selfie",
+        "slutarch_selfie_clip",
+        "Selfie Slut Pose",
+        AnimationOptions = {
+            Prop = "prop_phone_ing",
+            PropTextureVariations = {
+                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
+                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
+                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
+                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
+                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4}, 
+                {Name = "<font color=\"#a356fa\">Purple", Value = 5}, 
+                {Name = "<font color=\"#FF0099\">Pink", Value = 6}, 
+                {Name = "Black", Value = 7}, 
+            },
+            PropBone = 58868, -- Right Finger 20
+            PropPlacement = {
+                0.0350,
+				0.0140,
+                0.0290,
+              167.9999,
+              180.0000,
+               -8.8999
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200
+
+        },
+        AdultAnimation = true
+    },
     ["selfiesit"] = { -- Emote by WhiskerValeMod. Need to configure camera flash and texture variants 
         "mouse@female_sitting_selfie",
         "female_sitting_selfie_clip",
@@ -16303,6 +16442,24 @@ RP.PropEmotes = {
             PtfxInfo = Config.Languages[Config.MenuLanguage]['firework'],
             PtfxWait = 200,
         }
-    }
+    },
+    ["chillteq"] = { --- Custom Emote By Amnilka
+        "amnilka@photopose@female@homepack001",
+        "amnilka_femalehome_photopose_003",
+        "Chill Tequila",
+        AnimationOptions = {
+            Prop = 'prop_tequila',
+            PropBone = 60309,
+            PropPlacement = {
+               0.0810,
+              -0.0460,
+               0.0430,
+              -110.1784,
+               2.9283,
+              -12.5092
+            },
+            EmoteLoop = true
+        }
+    },
 
 }
