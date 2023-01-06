@@ -12324,6 +12324,34 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
+    ["dinner"] = {
+        "anim@scripted@island@special_peds@pavel@hs4_pavel_ig5_caviar_p1",
+        "base_idle",
+        "Dinner",
+        AnimationOptions = {
+            Prop = "prop_cs_plate_01",
+            PropBone = 60309,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+				 0.0
+            },
+            SecondProp = 'h4_prop_h4_caviar_spoon_01a',
+            SecondPropBone = 28422,
+            SecondPropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["newscam"] = {
         "missfinale_c2mcs_1",
         "fin_c2_mcs_1_camman",
