@@ -8529,6 +8529,24 @@ RP.PropEmotes = {
     ["cake"] = { --- Custom Prop & Emote By BzZzi
        "anim@heists@box_carry@", 
 	   "idle",
+	   "Birthday Cake", 
+        AnimationOptions = {
+            Prop = 'bzzz_prop_cake_birthday_001',
+            PropBone = 18905,
+            PropPlacement = {
+                0.33,
+				0.09,
+				0.2,
+			   -128.0,
+			   -245.0,
+			    2.0
+            },
+            EmoteMoving = true
+        }
+   },
+    ["cake2"] = { --- Custom Prop & Emote By BzZzi
+       "anim@heists@box_carry@", 
+	   "idle",
 	   "Love Cake", 
         AnimationOptions = {
             Prop = 'bzzz_prop_cake_love_001',
