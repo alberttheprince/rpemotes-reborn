@@ -8547,6 +8547,42 @@ RP.PropEmotes = {
     ["cake2"] = { --- Custom Prop & Emote By BzZzi
        "anim@heists@box_carry@", 
 	   "idle",
+	   "Baby Cake", 
+        AnimationOptions = {
+            Prop = 'bzzz_prop_cake_baby_001',
+            PropBone = 18905,
+            PropPlacement = {
+                0.33,
+				0.09,
+				0.2,
+			   -94.0,
+			   -162.0,
+			    -44.0
+            },
+            EmoteMoving = true
+        }
+    },
+    ["cake3"] = { --- Custom Prop & Emote By BzZzi
+       "anim@heists@box_carry@", 
+	   "idle",
+	   "Casino Cake", 
+        AnimationOptions = {
+            Prop = 'bzzz_prop_cake_casino001',
+            PropBone = 18905,
+            PropPlacement = {
+                0.33,
+				0.09,
+				0.2,
+			   -54.0,
+			   -72.0,
+			    -6.0
+            },
+            EmoteMoving = true
+        }
+   },
+   ["cake4"] = { --- Custom Prop & Emote By BzZzi
+       "anim@heists@box_carry@", 
+	   "idle",
 	   "Love Cake", 
         AnimationOptions = {
             Prop = 'bzzz_prop_cake_love_001',
@@ -8562,6 +8598,82 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
    },
+    ["cakew"] = {
+        "anim@move_f@waitress",
+        "idle",
+        "Cake Waiter - Birthday",
+        AnimationOptions = {
+            Prop = "bzzz_prop_cake_birthday_001",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0100,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["cakew2"] = { --- Custom Prop & Emote By BzZzi
+        "anim@move_f@waitress",
+        "idle",
+        "Cake Waiter - Baby",
+        AnimationOptions = {
+            Prop = "bzzz_prop_cake_baby_001",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0100,
+                0.0,
+                0.0,
+                80.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["cakew3"] = { --- Custom Prop & Emote By BzZzi
+        "anim@move_f@waitress",
+        "idle",
+        "Cake Waiter - Casino",
+        AnimationOptions = {
+            Prop = "bzzz_prop_cake_casino001",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0100,
+                0.0,
+                0.0,
+             -160.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+     },
+    ["cakew4"] = { --- Custom Prop & Emote By BzZzi
+        "anim@move_f@waitress",
+        "idle",
+        "Cake Waiter - Love",
+        AnimationOptions = {
+            Prop = "bzzz_prop_cake_love_001",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0100,
+                0.0,
+                0.0,
+              180.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["rose"] = {
         "anim@heists@humane_labs@finale@keycards",
         "ped_a_enter_loop",
