@@ -139,6 +139,9 @@ RP.Walks = {
     ["Arrogant"] = {
         "move_f@arrogant@a"
     },
+    ["Bigfoot"] = {
+        "move_characters@orleans@core@"
+    },
     ["Butch"] = {
         "move_m@hurry_butch@a"
     },
@@ -196,6 +199,9 @@ RP.Walks = {
         "move_m@business@c",
         "Cop 3"
     },
+    ["Coward"] = {
+        "move_m@coward"
+    },
     ["Chubbymale"] = {
         "move_chubby",
         "Chubby Male"
@@ -206,6 +212,9 @@ RP.Walks = {
      },
     ["Crouched"] = {
         "move_ped_crouched",
+    },
+    ["Dave"] = {
+        "move_characters@dave_n"
     },
     ["Defaultfemale"] = {
         "move_f@multiplayer",
@@ -264,6 +273,10 @@ RP.Walks = {
     ["Femme"] = {
         "move_f@femme@"
     },
+    ["Femme2"] = {
+        "move_m@femme@",
+        "Femme 2 - Male"
+    },
     ["Fire"] = {
         "move_characters@franklin@fire"
     },
@@ -290,6 +303,10 @@ RP.Walks = {
         "move_m@flee@b",
         "Flee 4"
     },
+    ["Flee5"] = {
+        "move_m@flee@c",
+        "Flee 5"
+    },
     ["Franklin"] = {
         "move_p_m_one"
     },
@@ -311,6 +328,10 @@ RP.Walks = {
     ["Gangster5"] = {
         "move_m@gangster@var_i",
         "Gangster 5"
+    },
+    ["Gangster6"] = {
+        "move_f@gangster@ng",
+        "Gangster 6 - Female"
     },
     ["Genenric"] = {
         "move_m@generic",
@@ -392,6 +413,9 @@ RP.Walks = {
         "move_p_m_zero_slow",
         "Janitor 2"
     },
+    ["Jimmy"] = {
+        "move_characters@jimmy"
+    },
     ["Jog"] = {
         "move_m@jog@"
     },
@@ -420,6 +444,9 @@ RP.Walks = {
     ["Muscle"] = {
         "move_m@muscle@a"
     },
+    ["Patricia"] = {
+        "move_characters@patricia"
+    },
     ["Posh"] = {
         "move_m@posh@"
     },
@@ -429,6 +456,9 @@ RP.Walks = {
     },
     ["Quick"] = {
         "move_m@quick"
+    },
+    ["Ron"] = {
+        "move_characters@ron"
     },
     ["Runner"] = {
         "female_fast_runner"
@@ -475,6 +505,10 @@ RP.Walks = {
     ["Swagger"] = {
         "move_m@swagger"
     },
+    ["Swagger2"] = {
+        "move_m@swagger@b",
+        "Swagger 2"
+    },
     ["Tough"] = {
         "move_m@tough_guy@"
     },
@@ -500,6 +534,10 @@ RP.Walks = {
     },
     ["Trevor"] = {
         "move_p_m_two"
+    },
+    ["Veryslow"] = {
+        "move_m@leaf_blower",
+        "Very Slow"
     },
     ["Wide"] = {
         "move_m@bag"
