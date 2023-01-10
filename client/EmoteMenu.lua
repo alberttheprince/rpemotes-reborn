@@ -527,9 +527,9 @@ function AddInfoMenu(menu)
     infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#edae00\">Moses 🐮</font>",
         "<font color=\"#edae00\">-Moses-</font> for the custom emotes 🧡"))
     infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#D71196\">PataMods 🍓</font>",
-        "<font color=\"#edae00\">-Moses-</font> for the custom props 🍕"))
+        "<font color=\"#D71196\">PataMods</font> for the custom props 🍕"))
    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#FB7403\">Crowded1337 👝</font>",
-        "<font color=\"#edae00\">-Moses-</font> for the custom Gucci bag 👝"))
+        "<font color=\"#FB7403\">Crowded1337</font> for the custom Gucci bag 👝"))
   infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#8180E5\">EnchantedBrownie 🍪</font>",
         "<font color=\"#8180E5\">EnchantedBrownie 🍪</font> for the custom animations 🍪"))
 
