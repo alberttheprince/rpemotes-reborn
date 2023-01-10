@@ -16657,5 +16657,144 @@ RP.PropEmotes = {
             EmoteLoop = true
         }
     },
+        "amb@world_human_security_shine_torch@male@base",
+        "base",
+        "Patrol - On Foot",
+        AnimationOptions = {
+            Prop = 'prop_cs_police_torch_02',
+            PropBone = 60309,
+            PropPlacement = {
+               0.0,
+               0.0,
+               0.0,
+               0.0,
+               0.0,
+               80.0000
+            },
+            EmoteLoop = true,
+			EmoteMoving = true
+        }
+    },
+    ["patrolf2"] = {
+        "amb@world_human_security_shine_torch@male@idle_b",
+        "idle_e",
+        "Patrol - On Foot 2",
+        AnimationOptions = {
+            Prop = 'prop_cs_police_torch_02',
+            PropBone = 60309,
+            PropPlacement = {
+               0.0,
+               0.0,
+               0.0,
+               0.0,
+               0.0,
+               80.0000
+            },
+            EmoteLoop = true,
+			EmoteMoving = true
+        }
+    },
+    ["patrolf3"] = {
+        "amb@world_human_security_shine_torch@male@idle_a",
+        "idle_a",
+        "Patrol - On Foot 3",
+        AnimationOptions = {
+            Prop = 'prop_cs_police_torch_02',
+            PropBone = 60309,
+            PropPlacement = {
+               0.0,
+               0.0,
+               0.0,
+               0.0,
+               0.0,
+               80.0000
+            },
+            EmoteLoop = true,
+			EmoteMoving = true
+        }
+    },
+    ["patrolf4"] = { -- Huge thanks to MadsLeander on GitHub
+        "amb@incar@male@patrol@torch@base",
+        "base",
+        "Patrol - On Foot 4 Over The Shoulder",
+        AnimationOptions = {
+            Prop = 'prop_cs_police_torch_02',
+            PropBone = 28422, -- Right Wrist 
+            PropPlacement = {
+                0.0,
+               -0.00100,
+                0.0,
+                0.0,
+				0.0,
+                90.0
+            },
+            SecondProp = 'prop_cs_hand_radio',
+            SecondPropBone = 60309, -- Left Wrist
+            SecondPropPlacement = {
+                0.0560,
+                0.0470,
+                0.0110,
+              -43.82733,
+              164.6747,
+			   -7.5569
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["patrolcar"] = {
+        "amb@incar@male@patrol@torch@base",
+        "base",
+        "Patrol Car - Front",
+        AnimationOptions = {
+            Prop = 'prop_cs_police_torch_02',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0,
+              -0.0100,
+              -0.0100,
+               0.0,
+               0.0,
+             100.0000
+            },
+            EmoteLoop = true
+        }
+    },
+    ["patrolcarl"] = {
+        "amb@incar@male@patrol@torch@idle_b",
+        "idle_d",
+        "Patrol Car - Left",
+        AnimationOptions = {
+            Prop = 'prop_cs_police_torch_02',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0,
+              -0.0100,
+              -0.0100,
+               0.0,
+               0.0,
+             100.0000
+            },
+            EmoteLoop = true
+        }
+    },
+    ["patrolcarr"] = {
+        "amb@incar@male@patrol@torch@idle_a",
+        "idle_a",
+        "Patrol Car - Right",
+        AnimationOptions = {
+            Prop = 'prop_cs_police_torch_02',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0,
+              -0.0100,
+              -0.0100,
+               0.0,
+               0.0,
+             100.0000
+            },
+            EmoteLoop = true
+        }
+    },
 
 }
