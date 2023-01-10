@@ -16657,6 +16657,7 @@ RP.PropEmotes = {
             EmoteLoop = true
         }
     },
+	["patrolf1"] = {
         "amb@world_human_security_shine_torch@male@base",
         "base",
         "Patrol - On Foot",
