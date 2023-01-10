@@ -8211,7 +8211,7 @@ RP.Emotes = {
             EmoteMoving = false
         }
     },
-	["laysexy"] = { -- Custom emote by Struggleville
+	["laydownsexy"] = { -- Custom emote by Struggleville
         "anim@female_laying_sexy",
         "laying_sexy_clip",
         "Laying Down Sexy",
