@@ -5001,6 +5001,14 @@ RP.Exits = {
         AnimationOptions = {
             EmoteDuration = 2000
         }
+    },
+	["offchair"] = {
+        "switch@michael@sitting",
+        "exit_forward",
+        "Off Chair",
+        AnimationOptions = {
+            EmoteDuration = 2000
+        }
     }
 }
 
@@ -6388,7 +6396,9 @@ RP.Emotes = {
         "ig_5_p3_base",
         "Sit Chair 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+			ExitEmote = "offchair",
+            ExitEmoteType = "Exits"
         }
     },
     ["sitchair3"] = {
@@ -6396,7 +6406,9 @@ RP.Emotes = {
         "base_amanda",
         "Sit Chair 3 (Female)",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+			ExitEmote = "offchair",
+            ExitEmoteType = "Exits"
         }
     },
     ["sitchair4"] = {
@@ -6404,7 +6416,9 @@ RP.Emotes = {
         "base",
         "Sit Chair 4",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+			ExitEmote = "offchair",
+            ExitEmoteType = "Exits"
         }
     },
     ["sitchair5"] = {
@@ -6412,7 +6426,9 @@ RP.Emotes = {
         "mics3_15_base_tracy",
         "Sit Chair Legs Crossed",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+			ExitEmote = "offchair",
+            ExitEmoteType = "Exits"
         }
     },
     ["sitchair6"] = {
@@ -6420,7 +6436,9 @@ RP.Emotes = {
         "base",
         "Sit Chair Lean Back",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+			ExitEmote = "offchair",
+            ExitEmoteType = "Exits"
         }
     },
     ["sitchairside"] = {
@@ -6428,7 +6446,9 @@ RP.Emotes = {
         "ig_2_alt1_base",
         "Sit Chair Side",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+			ExitEmote = "offchair",
+            ExitEmoteType = "Exits"
         }
     },
     ["sitcute"] = { -- Custom Emote By QueenSistersAnimations
@@ -6438,6 +6458,8 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = false,
+			ExitEmote = "offchair",
+            ExitEmoteType = "Exits"
        }
     },
     ["situp"] = {
