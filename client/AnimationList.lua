@@ -5007,7 +5007,7 @@ RP.Exits = {
         "exit_forward",
         "Off Chair",
         AnimationOptions = {
-            EmoteDuration = 2000
+            EmoteDuration = 1000
         }
     }
 }
