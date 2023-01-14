@@ -70,6 +70,8 @@ Languages can be selected and / or added in the config.lua.
 
 # Features 🛠️
 
+- Multiple Translations 🌏
+
 - Search Function 🔎
 
 - Custom Animations with **permission from the community** 🏃
@@ -95,6 +97,8 @@ Languages can be selected and / or added in the config.lua.
 - Hide Animal Emotes ⛔
 
 - Easy To Understand Configuration File ⚙️
+
+- Exit Emotes 😎
 
 - Standalone exports to play anim, cancel anim and block (or not) the cancel key
 
@@ -154,6 +158,52 @@ Much like the menu key, `RagdollKeybind` is also using RegisterKeyMapping. It is
 Once enabled, players can press `B` on the keyboard to enable standalone finger pointing, and `H` to put their hands up, without the need for unnecessary frameworks or "small resources".
 
 Much like everything else in the menu, server owners can change these keybinds to their own preferences.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Favorite Emote
+
+Players can search for an emote (so long as search is enabled) and press LEFT SHIFT and CAPLOCKS on their keyboard to add it to their 'Favorites'. Pressing CAPLOCKS will toggle the emote.
+
+Alternatively, you can use the 🌟 Favorite menu to find an emote and press enter.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Exit Emotes
+
+Exit Emotes are used to make cancelling an animation more smoother and dynamic, such as getting up off a chair or throwing a cigarette out instead of dropping it.
+
+You can add your own Exit Emotes under `AnimationListCustom.lua`'s new `CustomDP.Exits = {}` array. 
+
+Below is an example of how this would look:
+
+```lua
+    },
+    ["sit"] = {
+        "anim@amb@business@bgen@bgen_no_work@",
+        "sit_phone_phoneputdown_idle_nowork",
+        "Sit",
+        AnimationOptions = {
+            EmoteLoop = true,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits"
+        }
+    },
+```
+
+The ExitEmote calls for the 'getup' emote, which is noted as the following:
+
+```lua
+["getup"] = {
+        "get_up@sat_on_floor@to_stand",
+        "getup_0",
+        "Get Up",
+        AnimationOptions = {
+            EmoteDuration = 2000
+        }
+    }
+}
+```
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -392,6 +442,10 @@ A huge thank  you to the following people for their amazing contributions made t
 - Thank you to [Crowded1337](https://www.gta5-mods.com/users/crowded1337) for the custom Gucci bag. I have removed the Gucci logo to comply with Rockstar Games & TakeTwo Interactive
 
 - Thanks to [EnchantedBrownie](https://www.gta5-mods.com/users/EnchantedBrownie) for the custom animations
+
+- Thanks to [Copofiscool](https://forum.cfx.re/u/copofiscool/) for adding a toggle to the Favorite Keybinds
+
+- Thank you to [Mads](https://github.com/MadsLeander) for contributing to the menu and adding Exit Emotes
 
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
