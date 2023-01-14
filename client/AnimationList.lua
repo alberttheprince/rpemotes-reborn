@@ -7784,6 +7784,14 @@ RP.Emotes = {
         },
         AdultAnimation = true
     },
+    ["calldog"] = {
+        "switch@franklin@plays_w_dog",
+        "001916_01_fras_v2_9_plays_w_dog_idle",
+        "Call Dog",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
     ["calldogr"] = {
         "missfra0_chop_find",
         "call_chop_r",
