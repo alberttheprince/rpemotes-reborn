@@ -9,6 +9,7 @@ CustomDP.Walks = {}
 CustomDP.Shared = {}
 CustomDP.Dances = {}
 CustomDP.AnimalEmotes = {}
+CustomDP.Exits = {}
 CustomDP.Emotes = {}
 CustomDP.PropEmotes = {}
 

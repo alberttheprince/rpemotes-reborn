@@ -2,6 +2,7 @@
 local AnimationDuration = -1
 local ChosenAnimation = ""
 local ChosenDict = ""
+local ChosenAnimOptions = false
 local IsInAnimation = false
 local MostRecentChosenAnimation = ""
 local MostRecentChosenDict = ""
@@ -248,11 +249,28 @@ function EmoteCancel(force)
         if LocalPlayer.state.ptfx then
             PtfxStop()
         end
-        ClearPedTasks(ply)
         DetachEntity(ply, true, false)
         CancelSharedEmote(ply)
         DestroyAllProps()
-        IsInAnimation = false
+
+        if ChosenAnimOptions and ChosenAnimOptions.ExitEmote then
+            -- If the emote exit type is not spesifed it defaults to Emotes
+            local ExitEmoteType = ChosenAnimOptions.ExitEmoteType or "Emotes"
+
+            -- Checks that the exit emote actually exists
+            if not RP[ExitEmoteType] or not RP[ExitEmoteType][ChosenAnimOptions.ExitEmote] then
+                DebugPrint("Exit emote was invalid")
+                ClearPedTasks(ply)
+                IsInAnimation = false
+                return
+            end
+
+            OnEmotePlay(RP[ExitEmoteType][ChosenAnimOptions.ExitEmote])
+            DebugPrint("Playing exit animation")
+        else
+            ClearPedTasks(ply)
+            IsInAnimation = false
+        end
     end
     AnimationThreadStatus = false
 end
@@ -420,6 +438,9 @@ function EmoteCommandStart(source, args, raw)
         elseif RP.AnimalEmotes[name] ~= nil then
             OnEmotePlay(RP.AnimalEmotes[name])
             return
+        elseif RP.Exits[name] ~= nil then
+            OnEmotePlay(RP.Exits[name])
+            return
         elseif RP.PropEmotes[name] ~= nil then
             if RP.PropEmotes[name].AnimationOptions.PropTextureVariations then
                 if #args > 1 then
@@ -531,6 +552,7 @@ function OnEmotePlay(EmoteName, textureVariation)
     end
 
     ChosenDict, ChosenAnimation, ename = table.unpack(EmoteName)
+    ChosenAnimOptions = EmoteName.AnimationOptions
     AnimationDuration = -1
 
     if ChosenDict == "Expression" then
