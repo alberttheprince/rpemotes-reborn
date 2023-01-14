@@ -7784,6 +7784,22 @@ RP.Emotes = {
         },
         AdultAnimation = true
     },
+    ["calldogr"] = {
+        "missfra0_chop_find",
+        "call_chop_r",
+        "Call Dog - Right",
+        AnimationOptions = {
+            EmoteLoop = false,
+        }
+    },
+    ["calldogl"] = {
+        "missfra0_chop_find",
+        "call_chop_l",
+        "Call Dog - Left",
+        AnimationOptions = {
+            EmoteLoop = false,
+        }
+    },
 
 
     -----------------------------------------------------------------------------------------------------------
