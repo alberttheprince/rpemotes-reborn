@@ -307,6 +307,9 @@ RP.Walks = {
         "move_m@flee@c",
         "Flee 5"
     },
+    ["Floyd"] = {
+        "move_characters@floyd"
+    },
     ["Franklin"] = {
         "move_p_m_one"
     },
@@ -390,6 +393,10 @@ RP.Walks = {
         "move_f@hurry@a",
         "Hurry Female"
     },
+    ["Hurry3"] = {
+        "move_f@hurry@b",
+        "Hurry Female 2"
+    },
     ["Injured2"] = {
         "move_f@injured",
         "Injured 2 - Female"
@@ -423,7 +430,11 @@ RP.Walks = {
         "move_characters@jimmy@nervous@"
     },
     ["Lamar"] = {
-        "anim_group_move_lemar_alley"
+        "move_characters@lamar"
+    },
+    ["Lamar2"] = {
+        "anim_group_move_lemar_alley",
+        "Lamar 2"
     },
     ["Lester"] = {
         "move_heist_lester"
@@ -531,6 +542,9 @@ RP.Walks = {
     ["Trash2"] = {
         "missfbi4prepp1_garbageman",
         "Trash 2"
+    },
+    ["Tracey"] = {
+        "move_characters@tracey"
     },
     ["Trevor"] = {
         "move_p_m_two"
