@@ -326,7 +326,7 @@ AddStateBagChangeHandler('ptfx', nil, function(bagName, key, value, _unused, rep
         local name = stateBag.ptfxName
         local offset = stateBag.ptfxOffset
         local rot = stateBag.ptfxRot
-        local boneIndex = stateBag.ptfxBone and GetEntityBoneIndexByName(plyPed, stateBag.ptfxBone) or GetEntityBoneIndexByName(name, "VFX")
+        local boneIndex = stateBag.ptfxBone and GetPedBoneIndex(plyPed, stateBag.ptfxBone) or GetEntityBoneIndexByName(name, "VFX")
         local scale = stateBag.ptfxScale or 1
         local color = stateBag.ptfxColor
         local propNet = stateBag.ptfxPropNet
