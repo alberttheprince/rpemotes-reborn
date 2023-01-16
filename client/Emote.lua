@@ -326,6 +326,7 @@ AddStateBagChangeHandler('ptfx', nil, function(bagName, key, value, _unused, rep
         local name = stateBag.ptfxName
         local offset = stateBag.ptfxOffset
         local rot = stateBag.ptfxRot
+        local boneIndex = stateBag.ptfxBone and GetEntityBoneIndexByName(plyPed, stateBag.ptfxBone) or GetEntityBoneIndexByName(name, "VFX")
         local scale = stateBag.ptfxScale or 1
         local color = stateBag.ptfxColor
         local propNet = stateBag.ptfxPropNet
@@ -338,7 +339,7 @@ AddStateBagChangeHandler('ptfx', nil, function(bagName, key, value, _unused, rep
             end
         end
         PtfxThis(asset)
-        PlayerParticles[plyId] = StartNetworkedParticleFxLoopedOnEntityBone(name, entityTarget, offset.x, offset.y, offset.z, rot.x, rot.y, rot.z, GetEntityBoneIndexByName(name, "VFX"), scale + 0.0, 0, 0, 0, 1065353216, 1065353216, 1065353216, 0)
+        PlayerParticles[plyId] = StartNetworkedParticleFxLoopedOnEntityBone(name, entityTarget, offset.x, offset.y, offset.z, rot.x, rot.y, rot.z, boneIndex, scale + 0.0, 0, 0, 0, 1065353216, 1065353216, 1065353216, 0)
         if color then
             if color[1] and type(color[1]) == 'table' then
                 local randomIndex = math.random(1, #color)
@@ -653,6 +654,7 @@ function OnEmotePlay(EmoteName, textureVariation)
                 PtfxNoProp = false
             end
             Ptfx1, Ptfx2, Ptfx3, Ptfx4, Ptfx5, Ptfx6, PtfxScale = table.unpack(EmoteName.AnimationOptions.PtfxPlacement)
+            PtfxBone = EmoteName.AnimationOptions.PtfxBone
             PtfxColor = EmoteName.AnimationOptions.PtfxColor
             PtfxInfo = EmoteName.AnimationOptions.PtfxInfo
             PtfxWait = EmoteName.AnimationOptions.PtfxWait
@@ -662,7 +664,7 @@ function OnEmotePlay(EmoteName, textureVariation)
             -- RunAnimationThread() -- ? This call should not be required, see if needed with tests
 
             TriggerServerEvent("rpemotes:ptfx:sync", PtfxAsset, PtfxName, vector3(Ptfx1, Ptfx2, Ptfx3),
-                vector3(Ptfx4, Ptfx5, Ptfx6), PtfxScale, PtfxColor)
+                vector3(Ptfx4, Ptfx5, Ptfx6), PtfxBone, PtfxScale, PtfxColor)
         else
             DebugPrint("Ptfx = none")
             PtfxPrompt = false

@@ -44,7 +44,7 @@ RegisterNetEvent("ServerEmoteCancel", function(target)
 end)
 
 --#region ptfx
-RegisterNetEvent("rpemotes:ptfx:sync", function(asset, name, offset, rot, scale, color)
+RegisterNetEvent("rpemotes:ptfx:sync", function(asset, name, offset, rot, bone, scale, color)
     if type(asset) ~= "string" or type(name) ~= "string" or type(offset) ~= "vector3" or type(rot) ~= "vector3" then
         print("[rpemotes] ptfx:sync: invalid arguments for source:", source)
         return
@@ -54,6 +54,7 @@ RegisterNetEvent("rpemotes:ptfx:sync", function(asset, name, offset, rot, scale,
     srcPlayerState:set('ptfxName', name, true)
     srcPlayerState:set('ptfxOffset', offset, true)
     srcPlayerState:set('ptfxRot', rot, true)
+    srcPlayerState:set('ptfxBone', bone, true)
     srcPlayerState:set('ptfxScale', scale, true)
     srcPlayerState:set('ptfxColor', color, true)
     srcPlayerState:set('ptfxPropNet', false, true)
