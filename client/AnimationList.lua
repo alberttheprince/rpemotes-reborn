@@ -13527,7 +13527,7 @@ RP.PropEmotes = {
             0.0,
             1.0
         },
-        PtfxInfo = Config.Languages[Config.MenuLanguage]['poop'],
+        PtfxInfo = Config.Languages[Config.MenuLanguage]['puke'],
         PtfxWait = 200,
         PtfxCanHold = true
     },
