@@ -17216,4 +17216,42 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
+    ["vlog"] = {
+        "amb@world_human_mobile_film_shocking@male@base",
+        "base",
+        "Vlog",
+        AnimationOptions = {
+            Prop = 'prop_ing_camera_01',
+            PropBone = 28422,
+            PropPlacement = {
+               -0.07,
+			   -0.01,
+			    0.0,
+				0.0,
+				0.0,
+				0.0
+            },
+            EmoteLoop = true,
+			EmoteMoving = true,
+        }
+    },
+    ["vlog2"] = {
+        "anim@heists@humane_labs@finale@keycards",
+        "ped_a_enter_loop",
+        "Vlog 2",
+        AnimationOptions = {
+            Prop = 'prop_ing_camera_01',
+            PropBone = 18905,
+            PropPlacement = {
+               0.15,
+			   0.03,
+			   0.1,
+			 280.0,
+			 110.0,
+			 -11.0
+            },
+            EmoteLoop = true,
+			EmoteMoving = true,
+        }
+    },
 }
