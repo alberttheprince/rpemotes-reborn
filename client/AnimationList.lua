@@ -3220,7 +3220,7 @@ RP.AnimalEmotes = {
         "sit",
         "Sit in car (big dog)",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
         }
     },
     ["bdogfhump"] = {
@@ -3243,10 +3243,10 @@ RP.AnimalEmotes = {
         AdultAnimation = true,
 	AnimalEmote = true
     },
-    ["bdogdump"] = {
+    ["bdogshit"] = {
         "creatures@rottweiler@move",
         "dump_loop",
-        "Dump (big dog)",
+        "Shit (big dog)",
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = false,
@@ -3280,7 +3280,9 @@ RP.AnimalEmotes = {
         "sleep_in_kennel",
         "Sleep (big dog)",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            ExitEmote = "bdogupk",
+            ExitEmoteType = "Exits"
         }
     },
     ["bdogsit"] = {
@@ -3288,7 +3290,9 @@ RP.AnimalEmotes = {
         "base",
         "Sit (big dog)",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            ExitEmote = "bdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["bdogpee"] = {
@@ -3372,7 +3376,8 @@ RP.AnimalEmotes = {
                 0.00
             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "bdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["bdogpridea"] = {
@@ -3401,7 +3406,8 @@ RP.AnimalEmotes = {
                 0.0000
             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "bdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["bdogprideb"] = {
@@ -3428,9 +3434,10 @@ RP.AnimalEmotes = {
                 -90.0000,
                 -90.0000,
                 0.0000
-            },
+             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "bdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["bdogpridec"] = {
@@ -3457,9 +3464,10 @@ RP.AnimalEmotes = {
                 -90.0000,
                 -90.0000,
                 0.0000
-            },
+             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "bdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["bdogprided"] = {
@@ -3486,9 +3494,10 @@ RP.AnimalEmotes = {
                 -90.0000,
                 -90.0000,
                 0.0000
-            },
+             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "bdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["bdogpridee"] = {
@@ -3515,9 +3524,10 @@ RP.AnimalEmotes = {
                 -90.0000,
                 -90.0000,
                 0.0000
-            },
+             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "bdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["bdogpridef"] = {
@@ -3544,9 +3554,10 @@ RP.AnimalEmotes = {
                 -90.0000,
                 -90.0000,
                 0.0000
-            },
+             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "bdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["bdogprideg"] = {
@@ -3573,9 +3584,10 @@ RP.AnimalEmotes = {
                 -90.0000,
                 -90.0000,
                 0.0000
-            },
+             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "bdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["bdogprideh"] = {
@@ -3602,9 +3614,10 @@ RP.AnimalEmotes = {
                 -90.0000,
                 -90.0000,
                 0.0000
-            },
+             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "bdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["bdogpridei"] = {
@@ -3631,9 +3644,10 @@ RP.AnimalEmotes = {
                 -90.0000,
                 -90.0000,
                 0.0000
-            },
+             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "bdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["bdogfw"] = {
@@ -3686,7 +3700,9 @@ RP.AnimalEmotes = {
         "idle_a",
         "Itch (small dog)",
         AnimationOptions = {
-            EmoteDuration = 2000
+            EmoteLoop = true,
+            ExitEmote = "sdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["sdogsit"] = {
@@ -3694,7 +3710,9 @@ RP.AnimalEmotes = {
         "idle_b",
         "Sit (small dog)",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            ExitEmote = "sdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["sdogld"] = {
@@ -3703,7 +3721,8 @@ RP.AnimalEmotes = {
         "Lay Down (small dog)",
         AnimationOptions = {
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "sdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["sdogshake"] = {
@@ -4206,7 +4225,8 @@ RP.AnimalEmotes = {
                 0.0000
             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "sdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["sdogtennis"] = {
@@ -4282,7 +4302,8 @@ RP.AnimalEmotes = {
                 0.0
             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "sdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["sdogggun"] = {
@@ -4320,7 +4341,8 @@ RP.AnimalEmotes = {
                 0.0
             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "sdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["sdogstun"] = {
@@ -4390,7 +4412,8 @@ RP.AnimalEmotes = {
                 0.00
             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "sdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["sdoggl3"] = {
@@ -4428,7 +4451,8 @@ RP.AnimalEmotes = {
                 0.00
             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "sdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["sdoghd1"] = {
@@ -4466,7 +4490,8 @@ RP.AnimalEmotes = {
                 -0.1488562
             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "sdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["sdoghlmt1"] = {
@@ -4562,7 +4587,8 @@ RP.AnimalEmotes = {
                 0.00
             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "sdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["sdogsteak"] = {
@@ -4600,7 +4626,8 @@ RP.AnimalEmotes = {
                 0.00
             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "sdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["sdogpridea"] = {
@@ -4790,7 +4817,8 @@ RP.AnimalEmotes = {
                 -74.6999
             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "sdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["sdogpridesitb"] = {
@@ -4809,7 +4837,8 @@ RP.AnimalEmotes = {
                 -74.6999
             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "sdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["sdogpridesitc"] = {
@@ -4828,7 +4857,8 @@ RP.AnimalEmotes = {
                 -74.6999
             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "sdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["sdogpridesitd"] = {
@@ -4845,9 +4875,10 @@ RP.AnimalEmotes = {
                 0.0,
                 0.0,
                 -74.6999
-            },
+           },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "sdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["sdogpridesite"] = {
@@ -4866,7 +4897,8 @@ RP.AnimalEmotes = {
                 -74.6999
             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "sdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["sdogpridesitf"] = {
@@ -4885,7 +4917,8 @@ RP.AnimalEmotes = {
                 -74.6999
             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "sdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["sdogpridesitg"] = {
@@ -4904,7 +4937,8 @@ RP.AnimalEmotes = {
                 -74.6999
             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "sdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["sdogpridesith"] = {
@@ -4922,9 +4956,10 @@ RP.AnimalEmotes = {
                 0.0,
                 0.0,
                 -74.6999
-            },
+           },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "sdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["sdogpridesiti"] = {
@@ -4943,7 +4978,8 @@ RP.AnimalEmotes = {
                 -74.6999
             },
             EmoteLoop = true,
-            EmoteMoving = false
+            ExitEmote = "sdogup",
+            ExitEmoteType = "Exits"
         }
     },
     ["sdogpee"] = {
@@ -4966,6 +5002,31 @@ RP.AnimalEmotes = {
             },
             PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
             PtfxWait = 3000,
+            PtfxCanHold = true
+        }
+    },
+    ["sdogshit"] = {
+        "creatures@pug@move",
+        "nill",
+        "Shit (Small Dog)",
+        AnimationOptions = {
+            EmoteLoop = true,
+			EmoteMoving = true,
+            PtfxAsset = "scr_amb_chop",
+            PtfxName = "ent_anim_dog_poo",
+            PtfxNoProp = true,
+			PtfxBone = 11816,
+            PtfxPlacement = {
+               -0.0330,
+                0.0210,
+               -0.0040,
+                0.0,
+                0.0,
+                0.0,
+                0.4
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['poop'],
+            PtfxWait = 2000,
             PtfxCanHold = true
         }
     },
@@ -5022,6 +5083,30 @@ RP.Exits = {
         "Off Chair",
         AnimationOptions = {
             EmoteDuration = 1000
+        }
+    },
+	["sdogup"] = {
+        "creatures@pug@amb@world_dog_sitting@exit",
+        "exit",
+        "Small Dog Get Up",
+        AnimationOptions = {
+            EmoteDuration = 1000
+        }
+    },
+	["bdogup"] = {
+        "creatures@rottweiler@amb@world_dog_sitting@exit",
+        "exit",
+        "Big Dog Get Up",
+        AnimationOptions = {
+            EmoteDuration = 1000
+        }
+     },
+	["bdogupk"] = {
+        "creatures@rottweiler@amb@sleep_in_kennel@",
+        "exit_kennel",
+        "Big Dog Get Up V2",
+        AnimationOptions = {
+            EmoteDuration = 5000
         }
     }
 }
@@ -6605,7 +6690,7 @@ RP.Emotes = {
     ["t"] = {
         "missfam5_yoga",
         "a2_pose",
-        "T",
+        "T Pose",
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = true
@@ -6614,7 +6699,7 @@ RP.Emotes = {
     ["t2"] = {
         "mp_sleep",
         "bind_pose_180",
-        "T 2",
+        "T Pose 2",
         AnimationOptions = {
             EmoteLoop = true
         }
@@ -13387,36 +13472,66 @@ RP.PropEmotes = {
         }
     },
     ["shit"] = {
-        "missfbi3ig_0",
-        "shit_loop_trev",
-        "Shit",
-        AnimationOptions = {
-            Prop = "prop_toilet_roll_01",
-            PropBone = 28422,
-            PropPlacement = {
-                0.0700,
-                -0.02000,
-                -0.2100,
-                0,
-                0,
-                0.0,
-                0.0
-            },
-            SecondProp = 'prop_big_shit_01',
-            SecondPropBone = 0,
-            SecondPropPlacement = {
-                -0.0100,
-                0.0600,
-                -0.1550,
-                101.3015175,
-                7.3512213,
-                -29.2665794
-            },
-            EmoteLoop = true,
-            EmoteMoving = false,
+    "missfbi3ig_0",
+    "shit_loop_trev",
+    "Shit",
+    AnimationOptions = {
+        Prop = "prop_toilet_roll_01",
+        PropBone = 28422,
+        PropPlacement = {
+            0.0700,
+            -0.02000,
+            -0.2100,
+            0,
+            0,
+            0.0,
+            0.0
         },
-        AdultAnimation = true
+        EmoteLoop = true,
+        EmoteMoving = false,
+        PtfxAsset = "scr_amb_chop",
+        PtfxName = "ent_anim_dog_poo",
+        PtfxNoProp = true,
+        PtfxBone = 11816,
+        PtfxPlacement = {
+            0.0,
+            0.0,
+            -0.1,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        },
+        PtfxInfo = Config.Languages[Config.MenuLanguage]['poop'],
+        PtfxWait = 200,
+        PtfxCanHold = true
+        }
     },
+    ["puke"] = {
+    "missheistpaletoscore1leadinout",
+    "trv_puking_leadout",
+    "Puke",
+    AnimationOptions = {
+        EmoteLoop = false,
+        EmoteMoving = true,
+        PtfxAsset = "scr_paletoscore",
+        PtfxName = "scr_trev_puke",
+        PtfxNoProp = true,
+        PtfxBone = 31086,
+        PtfxPlacement = {
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        },
+        PtfxInfo = Config.Languages[Config.MenuLanguage]['poop'],
+        PtfxWait = 200,
+        PtfxCanHold = true
+    },
+},
     ["selfie"] = {
         "anim@mp_player_intuppertake_selfie",
         "idle_a",
