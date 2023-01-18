@@ -7562,6 +7562,15 @@ RP.Emotes = {
             EmoteLoop = true
         }
     },
+    ['handsup3'] = {
+        'anim@mp_rollarcoaster',
+        'hands_up_idle_a_player_one',
+        'Hands Up 3',
+        AnimationOptions = {
+          EmoteMoving = true,
+          EmoteLoop = true
+        }
+    },
     ["valet"] = {
         "anim@amb@casino@valet_scenario@pose_a@",
         "base_a_m_y_vinewood_01",
