@@ -15346,11 +15346,12 @@ RP.PropEmotes = {
             PropPlacement = {
                 0.1000,
                 0.0200,
-                -0.0300,
-                -90.000,
-                170.000,
+               -0.0300,
+              -90.000,
+               170.000,
                 78.999
             },
+            EmoteStuck = true,
             EmoteLoop = false,
             EmoteMoving = true
         }
@@ -15365,11 +15366,12 @@ RP.PropEmotes = {
             PropPlacement = {
                 0.0600,
                 0.0210,
-                -0.0400,
-                -90.00,
-                -180.00,
+               -0.0400,
+              -90.00,
+              -180.00,
                 78.999
             },
+            EmoteStuck = true,
             EmoteLoop = false,
             EmoteMoving = true
         }
@@ -15384,11 +15386,12 @@ RP.PropEmotes = {
             PropPlacement = {
                 0.1000,
                 0.0200,
-                -0.0300,
-                -90.00,
-                -180.00,
-                78.999
+               -0.0300,
+              -90.00,
+             -180.00,
+               78.999
             },
+            EmoteStuck = true,
             EmoteLoop = false,
             EmoteMoving = true
         }
@@ -15408,6 +15411,7 @@ RP.PropEmotes = {
                 -180.00,
                 78.999
             },
+            EmoteStuck = true,
             EmoteLoop = false,
             EmoteMoving = true
         }
@@ -15427,6 +15431,7 @@ RP.PropEmotes = {
                 -180.00,
                 78.999
             },
+            EmoteStuck = true,
             EmoteLoop = false,
             EmoteMoving = true
         }
@@ -15446,6 +15451,7 @@ RP.PropEmotes = {
                 -180.00,
                 78.999
             },
+            EmoteStuck = true,
             EmoteLoop = false,
             EmoteMoving = true
         }
@@ -15465,6 +15471,7 @@ RP.PropEmotes = {
                 -180.00,
                 78.999
             },
+            EmoteStuck = true,
             EmoteLoop = false,
             EmoteMoving = true
         }
@@ -15478,12 +15485,53 @@ RP.PropEmotes = {
             PropBone = 28422,
             PropPlacement = {
                 0.0800,
-                -0.0120,
-                -0.0600,
-                -90.00,
+               -0.0120,
+               -0.0600,
+              -90.00,
                 180.00,
-                69.99
+                 69.99
             },
+            EmoteStuck = true,
+            EmoteLoop = false,
+            EmoteMoving = true
+        }
+     },
+    ["idcardi"] = {
+        "paper_1_rcm_alt1-8",
+        "player_one_dual-8",
+        "ID Card 9 - Drivers License",
+        AnimationOptions = {
+            Prop = "bkr_prop_fakeid_singledriverl",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0700,
+                0.0260,
+               -0.0320,
+               -10.8683,
+              -177.8499,
+                23.6377
+            },
+			EmoteStuck = true,
+            EmoteLoop = false,
+            EmoteMoving = true
+        }
+     },
+    ["idcardj"] = {
+        "amb@code_human_wander_clipboard@male@base",
+        "static",
+        "ID Card 10 - Passport",
+        AnimationOptions = {
+            Prop = "bkr_prop_fakeid_openpassport",
+            PropBone = 60309,
+            PropPlacement = {
+                -0.0230,
+                 0.0330,
+                -0.0600,
+               -80.7083,
+                90.8670,
+                41.4814
+            },
+            EmoteStuck = true,
             EmoteLoop = false,
             EmoteMoving = true
         }
