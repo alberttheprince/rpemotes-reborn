@@ -123,6 +123,7 @@ Citizen.CreateThread(function()
     TriggerEvent('chat:addSuggestion', '/emotecancel', 'Cancel currently playing emote.')
     TriggerEvent('chat:addSuggestion', '/handsup', 'Put your arms up.')
     TriggerEvent('chat:addSuggestion', '/pointing', 'Finger pointing.')
+    TriggerEvent('chat:addSuggestion', '/crouch', 'Crouch')
 end)
 
 RegisterCommand('e', function(source, args, raw) EmoteCommandStart(source, args, raw) end, false)

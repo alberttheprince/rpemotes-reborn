@@ -36,6 +36,7 @@ client_scripts {
     'NativeUI.lua',
     'client/AnimationList.lua',
     'client/AnimationListCustom.lua',
+    'client/Crouch.lua',
     'client/Emote.lua',
     'client/EmoteMenu.lua',
     'client/Keybinds.lua',

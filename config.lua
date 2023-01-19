@@ -65,6 +65,8 @@ Config = {
     -- You can disable the fingrer pointing here / change the keybind. It is currently set to B
     PointingKeybindEnabled = false,
     PointingKeybind = 'b', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
+    CrouchKeybindEnabled = true,
+    CrouchKeybind = 'lcontrol', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
 	CheckForUpdates = true,
 }
 

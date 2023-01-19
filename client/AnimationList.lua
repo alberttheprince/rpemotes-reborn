@@ -209,9 +209,6 @@ RP.Walks = {
     ["Chubbyfemale"] = {
         "move_f@chubby@a",
         "Chubby Female"
-     },
-    ["Crouched"] = {
-        "move_ped_crouched",
     },
     ["Dave"] = {
         "move_characters@dave_n"
