@@ -1,4 +1,6 @@
 local isCrouched = false
+local keyPressed = false
+local lastKeyPress = 0
 
 local function LoadAnimSet(set)
     RequestAnimSet(set)
@@ -8,9 +10,9 @@ local function LoadAnimSet(set)
 end
 
 local function CanPlayerCrouch(playerPed)
-	if not IsPedOnFoot(playerPed) or IsPedJumping(playerPed) or IsPedFalling(playerPed) or IsPedInjured(playerPed) or IsPedInMeleeCombat(playerPed) then
-		return false
-	end
+    if not IsPedOnFoot(playerPed) or IsPedJumping(playerPed) or IsPedFalling(playerPed) or IsPedInjured(playerPed) or IsPedInMeleeCombat(playerPed) then
+        return false
+    end
 
     return true
 end
@@ -61,9 +63,11 @@ local function CrouchThread()
             -- This blocks the ped from standing up and playing idle anims (this needs to be looped)
             SetPedCanPlayAmbientAnims(playerPed, false)
 
-            -- Disables "INPUT_DUCK" and action mode
+            -- Disables "INPUT_DUCK" and blocks stealth mode
             DisableControlAction(0, 36, true)
-            SetPedUsingActionMode(playerPed, false, -1, "DEFAULT_ACTION")
+            if GetPedStealthMovement(playerPed) == 1 then
+                SetPedStealthMovement(playerPed, false, "DEFAULT_ACTION")
+            end
 
             -- Disable first person
             DisableFirstPersonCamThisFrame()
@@ -81,9 +85,11 @@ local function StartCrouch()
     local playerPed = PlayerPedId()
     LoadAnimSet("move_ped_crouched")
 
-    -- Force leave action mode
-    SetPedUsingActionMode(playerPed, false, -1, "DEFAULT_ACTION")
-    Wait(100)
+    -- Force leave stealth mode
+    if GetPedStealthMovement(playerPed) == 1 then
+        SetPedStealthMovement(playerPed, false, "DEFAULT_ACTION")
+        Wait(100)
+    end
 
     -- Force leave first person view
     if GetFollowPedCamViewMode() == 4 then
@@ -96,21 +102,56 @@ local function StartCrouch()
     CrouchThread()
 end
 
-local function ToggleCrouch()
-    DisableControlAction(0, 36, true) -- Disables "INPUT_DUCK" this frame
-    if not isCrouched then
-        local playerPed = PlayerPedId()
-        if CanPlayerCrouch(playerPed) then
-            StartCrouch()
-        else
-            EmoteChatMessage("You can't crouch right now.")
-        end
+local function AttemptCrouch(playerPed)
+    if CanPlayerCrouch(playerPed) then
+        StartCrouch()
     else
-        isCrouched = false
+        EmoteChatMessage("You can't crouch right now.")
     end
 end
 
-RegisterCommand('crouch', function(source, args, raw) ToggleCrouch() end, false)
-if Config.CrouchKeybindEnabled then
-    RegisterKeyMapping('crouch', "Crouch", "keyboard", Config.CrouchKeybind)
+local function CrouchKeyPressed()
+    -- If crouched then stop crouching
+    if isCrouched then
+        isCrouched = false
+        return
+    end
+
+    -- Get +crouch and INPUT_DUCK keys
+    local crouchKey = GetControlInstructionalButton(0, 0xD2D0BEBA, false)
+    local duckKey = GetControlInstructionalButton(0, 36, false)
+
+    local playerPed = PlayerPedId()
+
+    -- If crouch is the same as duck
+    if crouchKey == duckKey then
+        local timer = GetGameTimer()
+        local timeSinceLastPress = timer - lastKeyPress
+        -- If we are in stealth mode and we have already pressed the button in the last second
+        if GetPedStealthMovement(playerPed) == 1 and timeSinceLastPress < 1000 then
+            DisableControlAction(0, 36, true) -- Disable INPUT_DUCK this frame
+            lastKeyPress = 0
+            AttemptCrouch(playerPed)
+            return
+        end
+        lastKeyPress = timer
+    else
+        AttemptCrouch(playerPed)
+    end
 end
+
+if Config.CrouchKeybindEnabled then
+    RegisterKeyMapping('+crouch', "Crouch", "keyboard", Config.CrouchKeybind)
+end
+RegisterCommand('+crouch', function(source, args, raw) keyPressed = true; CrouchKeyPressed() end, false)
+RegisterCommand('-crouch', function(source, args, raw) keyPressed = false end, false)
+RegisterCommand('crouch', function(source, args, raw)
+    if not keyPressed then
+        if isCrouched then
+            isCrouched = false
+            return
+        end
+
+        AttemptCrouch(PlayerPedId())
+    end
+end, false)
