@@ -63,10 +63,10 @@ local function CrouchThread()
             -- This blocks the ped from standing up and playing idle anims (this needs to be looped)
             SetPedCanPlayAmbientAnims(playerPed, false)
 
-            -- Disables "INPUT_DUCK" and blocks stealth mode
+            -- Disables "INPUT_DUCK" and blocks action mode
             DisableControlAction(0, 36, true)
-            if GetPedStealthMovement(playerPed) == 1 then
-                SetPedStealthMovement(playerPed, false, "DEFAULT_ACTION")
+            if IsPedUsingActionMode(playerPed) == 1 then
+                SetPedUsingActionMode(playerPed, false, -1, "DEFAULT_ACTION")
             end
 
             -- Disable first person
