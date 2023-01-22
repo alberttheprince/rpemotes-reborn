@@ -17308,4 +17308,102 @@ RP.PropEmotes = {
 			EmoteMoving = true,
         }
     },
+    ["skatehold"] = {
+        "molly@boombox1",
+        "boombox1_clip",
+        "Skateboard - Hold Female",
+        AnimationOptions = {
+            Prop = "prop_cs_sol_glasses",
+            PropBone = 31086,
+            PropPlacement = {
+                0.0440,
+                0.0740,
+                0.0000,
+                -160.9843,
+                -88.7288,
+                -0.6197
+            },
+            SecondProp = 'taymckenzienz_skateboard01',
+            SecondPropBone = 60309,
+            SecondPropPlacement = {
+               -0.0050,
+                0.0320,
+                0.1640,
+                44.6076,
+               -112.2983,
+                -86.1199
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["skatehold2"] = { -- Emote by Molly
+        "beachanims@molly",
+        "beachanim_surf_clip",
+        "Skatebboard - Hold Female 2",
+        AnimationOptions =
+        {
+            Prop = "taymckenzienz_skateboard01",
+            PropBone = 28422,
+            PropPlacement = {
+               -0.1020,
+                0.2240,
+                0.0840,
+                5.6655,
+               175.3526,
+               49.7964
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["skatehold3"] = {
+        "molly@boombox1",
+        "boombox1_clip",
+        "Skateboard - Hold Male",
+        AnimationOptions = {
+            Prop = "prop_cs_sol_glasses",
+            PropBone = 31086,
+            PropPlacement = {
+                0.0440,
+                0.0740,
+                0.0000,
+                -160.9843,
+                -88.7288,
+                -0.6197
+            },
+            SecondProp = 'taymckenzienz_skateboard02',
+            SecondPropBone = 60309,
+            SecondPropPlacement = {
+               -0.0050,
+                0.0320,
+                0.1640,
+                44.6076,
+               -112.2983,
+                -86.1199
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["skatehold4"] = { -- Emote by Molly
+        "beachanims@molly",
+        "beachanim_surf_clip",
+        "Skatebboard - Hold Male 2",
+        AnimationOptions =
+        {
+            Prop = "taymckenzienz_skateboard02",
+            PropBone = 28422,
+            PropPlacement = {
+               -0.1020,
+                0.2240,
+                0.0840,
+                5.6655,
+               175.3526,
+               49.7964
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
 }
