@@ -13538,6 +13538,54 @@ RP.PropEmotes = {
         PtfxCanHold = true
     },
 },
+    ["puke2"] = {
+        "anim@scripted@ulp_missions@injured_agent@",
+        "idle",
+        "Puke 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            PtfxAsset = "scr_paletoscore",
+            PtfxName = "scr_trev_puke",
+            PtfxNoProp = true,
+            PtfxBone = 31086,
+            PtfxPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['puke'],
+            PtfxWait = 200,
+            PtfxCanHold = true
+        },
+    },
+    ["puke3"] = {
+        "anim@scripted@freemode@throw_up_toilet@male@",
+        "vomit",
+        "Puke 3",
+        AnimationOptions = {
+            EmoteLoop = true,
+            PtfxAsset = "scr_paletoscore",
+            PtfxName = "scr_trev_puke",
+            PtfxNoProp = true,
+            PtfxBone = 31086,
+            PtfxPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['puke'],
+            PtfxWait = 200,
+            PtfxCanHold = true
+        },
+    },
     ["selfie"] = {
         "anim@mp_player_intuppertake_selfie",
         "idle_a",
@@ -17404,6 +17452,28 @@ RP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = true
+    ["kick"] = {
+        "missheistdockssetup1ig_13@kick_idle",
+        "guard_beatup_kickidle_guard1",
+        "Kick",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["kick2"] = {
+        "missheistdockssetup1ig_13@kick_idle",
+        "guard_beatup_kickidle_guard2",
+        "Kick 2",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["kick3"] = {
+        "melee@unarmed@streamed_core",
+        "kick_close_a",
+        "Kick 3",
+        AnimationOptions = {
+            EmoteDuration = 1750
         }
     },
 }
