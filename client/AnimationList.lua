@@ -16810,6 +16810,24 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
+    ["airportbag2"] = { -- Custom Emote By Chocoholic Animations 
+        "chocoholic@single63",
+        "single63_clip",
+        "Airport Bag Pose",
+        AnimationOptions = {
+            Prop = "prop_suitcase_03",
+            PropBone = 58869,
+            PropPlacement = {
+                0.2100,
+                0.4100,
+               -0.3600,
+                56.9074,
+               -6.1917,
+               -24.3334
+            },
+            EmoteLoop = true,
+        }
+    },
     ["megaphone"] = { -- Custom Emote By MollyEmotes
         "molly@megaphone",
         "megaphone_clip",
@@ -17356,6 +17374,43 @@ RP.PropEmotes = {
 			EmoteMoving = true,
         }
     },
+    ["skatesit"] = { -- Custom Emote By CMG Mods 
+       "skateboardposecmganimation",
+        "skateboardposecmg_clip",
+        "Skateboard - Sit",
+        AnimationOptions = {
+            Prop = 'taymckenzienz_skateboard01',
+            PropBone = 0,
+            PropPlacement = {
+               0.0,
+			   0.0400,
+			  -0.2300,
+			   0.0,
+			   0.0,
+			   0.0
+            },
+            EmoteLoop = true,
+        }
+    },
+	["skatesit2"] = { -- Custom Emote By Chocoholic Animations 
+        "chocoholic@skate2",
+        "skate2_clip",
+        "Skateboard - Sit 2",
+        AnimationOptions = {
+            Prop = "taymckenzienz_skateboard02",
+            PropBone = 0,
+            PropPlacement = {
+                0.0,
+			   -0.0200,
+			   -0.2900,
+			   0.0,
+			   0.0,
+			   0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
+    },
     ["skatehold"] = {
         "molly@boombox1",
         "boombox1_clip",
@@ -17452,6 +17507,7 @@ RP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = true
+    },
     ["kick"] = {
         "missheistdockssetup1ig_13@kick_idle",
         "guard_beatup_kickidle_guard1",
@@ -17480,8 +17536,7 @@ RP.PropEmotes = {
         "beachanims@molly",
         "beachanim_surf_clip",
         "Shield (transparent)",
-        AnimationOptions =
-        {
+        AnimationOptions = {
             Prop = "prop_riot_shield",
             PropBone = 18905,
             PropPlacement = {
@@ -17500,8 +17555,7 @@ RP.PropEmotes = {
         "beachanims@molly",
         "beachanim_surf_clip",
         "Shield (solid)",
-        AnimationOptions =
-        {
+        AnimationOptions ={
             Prop = "prop_ballistic_shield",
             PropBone = 18905,
             PropPlacement = {
@@ -17515,5 +17569,34 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true
         }
-    }
+    },
+    ["mafia"] = { -- Custom Emote By Chocoholic Animations
+        "chocoholic@single12",
+        "single12_clip",
+        "Mafia Boss - Gun Point",
+        AnimationOptions = {
+            Prop = "w_pi_revolver_b",
+            PropBone = 28422,
+            PropPlacement = {
+                0.1150,
+                0.0590,
+               -0.0100,
+               -69.7101,
+                1.4074,
+               -13.7554
+            },
+            SecondProp = 'prop_cigar_01',
+            SecondPropBone = 17188,
+            SecondPropPlacement = {
+                0.0450,
+                0.0130,
+                0.0170,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
 }
