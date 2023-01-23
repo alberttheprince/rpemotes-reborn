@@ -17476,4 +17476,44 @@ RP.PropEmotes = {
             EmoteDuration = 1750
         }
     },
+    ["shield"] = {
+        "beachanims@molly",
+        "beachanim_surf_clip",
+        "Shield (transparent)",
+        AnimationOptions =
+        {
+            Prop = "prop_riot_shield",
+            PropBone = 18905,
+            PropPlacement = {
+                -0.04,
+                -0.06,
+                0.0,
+                4.04,
+                108.17,
+                -17.48
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["shield2"] = {
+        "beachanims@molly",
+        "beachanim_surf_clip",
+        "Shield (solid)",
+        AnimationOptions =
+        {
+            Prop = "prop_ballistic_shield",
+            PropBone = 18905,
+            PropPlacement = {
+                0.01,
+                -0.1,
+                -0.07,
+                1.83,
+                105.38,
+                -10.14
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    }
 }
