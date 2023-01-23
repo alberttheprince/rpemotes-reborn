@@ -100,12 +100,20 @@ Languages can be selected and / or added in the config.lua.
 
 - Exit Emotes 😎
 
-- Standalone exports to play anim, cancel anim and block (or not) the cancel key
+- Standalone exports
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Exports ↔️
 
 ```lua
 exports["rpemotes"]:EmoteCommandStart(emoteName, textureVariation)
 exports["rpemotes"]:EmoteCancel(forceCancel) – forceCancel is optional
 exports["rpemotes"]:CanCancelEmote(state)
+exports["rpemotes"]:IsPlayerCrouched()
+exports["rpemotes"]:IsPlayerProne()
+exports["rpemotes"]:IsPlayerCrawling()
+
 ```
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -158,6 +166,25 @@ Much like the menu key, `RagdollKeybind` is also using RegisterKeyMapping. It is
 Once enabled, players can press `B` on the keyboard to enable standalone finger pointing, and `H` to put their hands up, without the need for unnecessary frameworks or "small resources".
 
 Much like everything else in the menu, server owners can change these keybinds to their own preferences.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Crouching & Crawling
+
+**Crawling:**
+
+Server owners can opt in to either overriding the stealth/action animation when pressing the LEFT CONTROL keybind or have players tap LEFT CONTROL twice to switch from stealth to crouch (when enabled in the config.lua file)
+
+
+**Crouching:** 
+
+RIGHT CONTROL. Players can move forward, back, left and right as well as turning around. Press SPACEBAR to switch from stomach to back. Pressing RIGHT CONTROL key while running will have the player "dive into" a crouching animation.
+
+# Chat Commands
+
+/crouch
+
+/crawl
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -261,9 +288,19 @@ Framework = false,
 
 * [Enforce gamebuild to latest build](https://forum.cfx.re/t/tutorial-forcing-gamebuild-to-casino-cayo-perico-or-tuners-update/4784977) for all emotes and props to work as intended.
 
-**Onesync is required for the particle effects to work as intended**
+**Onesync Infinity is required for the particle effects to work as intended** This can be done via txadmin or your localhost .bat file.**
 
-* Set the desired language and settings in the config.lua
+For localhost servers, comment out onesync from your server.cfg and add the following to your `.bat` file:
+
+```lua
+
++set onesync on +set onesync_enableInfinity 1 +set onesync_enableBeyond 1 +set onesync_population true
+
+```
+
+You can put this before your gamebuild enforcement, aka `+set sv_enforceGameBuild XXXX`
+
+* Set the desired language and settings in the config.lua under `MenuLanguage = 'en',` 
 
 * Qb-Core server owners, set `Framework = 'qb-core'` in the config file, otherwise leave it as false.
 
@@ -308,6 +345,8 @@ Understandably, this can be confusing for some people. We suggest using the `Att
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Particle Effects 💨
+
+**REQUIRES ONESYNC INFINITY**
 
 Particle effects can be found using the [DurtyFree GTA V Dump](https://github.com/DurtyFree/gta-v-data-dumps/blob/master/particleEffectsCompact.json). You will need to add the particle assest, name, and placement. Placement is done via XYZ, Pitch, Roll, Yaw, and scale.
 
@@ -448,6 +487,10 @@ A huge thank  you to the following people for their amazing contributions made t
 - Thanks to [Copofiscool](https://forum.cfx.re/u/copofiscool/) for adding a toggle to the Favorite Keybinds
 
 - Thank you to [Mads](https://github.com/MadsLeander) for contributing to the menu and adding Exit Emotes
+
+- Thank you to [iSentrie](https://forum.cfx.re/u/isentrie/) for additional code and support
+
+- Thank you to Chocoholic Animations for the custom animations
 
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
