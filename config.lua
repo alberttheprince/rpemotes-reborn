@@ -65,8 +65,16 @@ Config = {
     -- You can disable the fingrer pointing here / change the keybind. It is currently set to B
     PointingKeybindEnabled = false,
     PointingKeybind = 'b', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
-    CrouchKeybindEnabled = false,
-    CrouchKeybind = 'lcontrol', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
+    -- If crouching should be enabled.
+    CrouchEnabled = true,
+    CrouchKeybindEnabled = true, -- If true, crouching will use keybinds.
+    CrouchKeybind = 'lcontrol', -- The default crouch keybind, get the button string here: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
+    CrouchOverride = false, -- If true, you won't enter stealth mode even if the crouch key and the "duck" key are the same.
+    -- If crawling should be enabled.
+    CrawlEnabled = true,
+    CrawlKeybindEnabled = true, -- If true, crawling will use keybinds.
+    CrawlKeybind = 'rcontrol', -- The default crawl keybind, get the button string here: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
+    -- Check for updates
 	CheckForUpdates = true,
 }
 

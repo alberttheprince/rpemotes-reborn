@@ -3,7 +3,6 @@ local AnimationDuration = -1
 local ChosenAnimation = ""
 local ChosenDict = ""
 local ChosenAnimOptions = false
-local IsInAnimation = false
 local MostRecentChosenAnimation = ""
 local MostRecentChosenDict = ""
 local MovementType = 0
@@ -20,7 +19,8 @@ local PtfxCanHold = false
 local PtfxNoProp = false
 local AnimationThreadStatus = false
 local CanCancel = true
-local Pointing = false
+IsInAnimation = false
+Pointing = false
 
 
 -- Remove emotes if needed
@@ -150,7 +150,16 @@ end, false)
 
 RegisterCommand('pointing', function(source, args, raw)
 	if Config.PointingKeybindEnabled then
+        if IsProne then
+            EmoteChatMessage("You can't point while crawling.")
+            return
+        end
+
 		local ped = PlayerPedId()
+		if not IsPedOnFoot(ped) then
+		    return
+		end
+
 		Pointing = not Pointing
 
 		if Pointing then
@@ -195,18 +204,11 @@ RegisterCommand('pointing', function(source, args, raw)
 					SetTaskMoveNetworkSignalBool(ped, 'isFirstPerson', GetCamViewModeForContext(GetCamActiveViewModeContext()) == 4)
 				end
 
-				ResetPedMovementClipset(ped, 0)
 				RequestTaskMoveNetworkStateTransition(ped, 'Stop')
 
 				if not IsPedInjured(ped) then ClearPedSecondaryTask(ped) end
 
 				SetPedConfigFlag(ped, 36, 0)
-
-				if Config.WalkingStylesEnabled and Config.PersistentWalk then
-					local kvp = GetResourceKvpString("walkstyle")
-
-					if kvp ~= nil then WalkMenuStart(kvp) end
-				end
 			end)
 		else
 			Pointing = false
@@ -550,6 +552,11 @@ function OnEmotePlay(EmoteName, textureVariation)
     end
 
     if not DoesEntityExist(PlayerPedId()) then
+        return false
+    end
+
+    if IsProne then
+        EmoteChatMessage("You can't play animations while crawling.")
         return false
     end
 
