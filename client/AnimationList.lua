@@ -13514,30 +13514,30 @@ RP.PropEmotes = {
         }
     },
     ["puke"] = {
-    "missheistpaletoscore1leadinout",
-    "trv_puking_leadout",
-    "Puke",
-    AnimationOptions = {
-        EmoteLoop = false,
-        EmoteMoving = true,
-        PtfxAsset = "scr_paletoscore",
-        PtfxName = "scr_trev_puke",
-        PtfxNoProp = true,
-        PtfxBone = 31086,
-        PtfxPlacement = {
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            0.0,
-            1.0
+        "missheistpaletoscore1leadinout",
+        "trv_puking_leadout",
+        "Puke",
+        AnimationOptions = {
+            EmoteLoop = false,
+            EmoteMoving = true,
+            PtfxAsset = "scr_paletoscore",
+            PtfxName = "scr_trev_puke",
+            PtfxNoProp = true,
+            PtfxBone = 31086,
+            PtfxPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['puke'],
+            PtfxWait = 200,
+            PtfxCanHold = true
         },
-        PtfxInfo = Config.Languages[Config.MenuLanguage]['puke'],
-        PtfxWait = 200,
-        PtfxCanHold = true
     },
-},
     ["puke2"] = {
         "anim@scripted@ulp_missions@injured_agent@",
         "idle",
@@ -17320,8 +17320,7 @@ RP.PropEmotes = {
         "missheistdocksprep1hold_cellphone",
         "static",
         "Papers",
-        AnimationOptions =
-        {
+        AnimationOptions = {
             Prop = "xm3_prop_xm3_papers_01a",
             PropBone = 18905,
             PropPlacement = {
@@ -17444,8 +17443,7 @@ RP.PropEmotes = {
         "beachanims@molly",
         "beachanim_surf_clip",
         "Skatebboard - Hold Female 2",
-        AnimationOptions =
-        {
+        AnimationOptions = {
             Prop = "taymckenzienz_skateboard01",
             PropBone = 28422,
             PropPlacement = {
@@ -17493,8 +17491,7 @@ RP.PropEmotes = {
         "beachanims@molly",
         "beachanim_surf_clip",
         "Skatebboard - Hold Male 2",
-        AnimationOptions =
-        {
+        AnimationOptions = {
             Prop = "taymckenzienz_skateboard02",
             PropBone = 28422,
             PropPlacement = {
@@ -17535,7 +17532,7 @@ RP.PropEmotes = {
     ["shield"] = {
         "beachanims@molly",
         "beachanim_surf_clip",
-        "Shield (transparent)",
+        "Shield",
         AnimationOptions = {
             Prop = "prop_riot_shield",
             PropBone = 18905,
@@ -17554,8 +17551,8 @@ RP.PropEmotes = {
     ["shield2"] = {
         "beachanims@molly",
         "beachanim_surf_clip",
-        "Shield (solid)",
-        AnimationOptions ={
+        "Shield 2",
+        AnimationOptions = {
             Prop = "prop_ballistic_shield",
             PropBone = 18905,
             PropPlacement = {
@@ -17598,5 +17595,6 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true
         }
-    },
+    }
+}
 }
