@@ -8012,6 +8012,15 @@ RP.Emotes = {
             EmoteLoop = false,
         }
     },
+    ["block"] = {
+        "missheist_agency3ashield_face",
+        "idle",
+        "Block Face",
+        AnimationOptions = {
+            EmoteMoving = true,
+			EmoteLoop = true,
+        }
+    },
 
 
     -----------------------------------------------------------------------------------------------------------
