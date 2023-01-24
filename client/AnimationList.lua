@@ -17504,6 +17504,55 @@ RP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = true
+        }
+    },
+    ["skatehold5"] = { -- Custom Emote By Chocoholic Animations 
+        "chocoholic@skate4",
+        "skate4_clip",
+        "Skateboard - Hold Male 5",
+        AnimationOptions = {
+            Prop = "taymckenzienz_skateboard02",
+            PropBone = 28422,
+            PropPlacement = {
+                0.2780,
+               -0.0200,
+               -0.0700,
+               -180.0000,
+                28.0000,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
+    },
+    ["mafia"] = { -- Custom Emote By Chocoholic Animations
+        "chocoholic@single12",
+        "single12_clip",
+        "Mafia Boss - Gun Point",
+        AnimationOptions = {
+            Prop = "w_pi_revolver_b",
+            PropBone = 28422,
+            PropPlacement = {
+                0.1150,
+                0.0590,
+               -0.0100,
+               -69.7101,
+                1.4074,
+               -13.7554
+            },
+            SecondProp = 'prop_cigar_01',
+            SecondPropBone = 17188,
+            SecondPropPlacement = {
+                0.0450,
+                0.0130,
+                0.0170,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
     },
     ["kick"] = {
         "missheistdockssetup1ig_13@kick_idle",
@@ -17567,34 +17616,4 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["mafia"] = { -- Custom Emote By Chocoholic Animations
-        "chocoholic@single12",
-        "single12_clip",
-        "Mafia Boss - Gun Point",
-        AnimationOptions = {
-            Prop = "w_pi_revolver_b",
-            PropBone = 28422,
-            PropPlacement = {
-                0.1150,
-                0.0590,
-               -0.0100,
-               -69.7101,
-                1.4074,
-               -13.7554
-            },
-            SecondProp = 'prop_cigar_01',
-            SecondPropBone = 17188,
-            SecondPropPlacement = {
-                0.0450,
-                0.0130,
-                0.0170,
-                0.0,
-                0.0,
-                0.0
-            },
-            EmoteLoop = true,
-            EmoteMoving = true
-        }
-    }
-}
 }
