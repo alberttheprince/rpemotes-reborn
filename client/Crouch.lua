@@ -447,6 +447,7 @@ if Config.CrouchEnabled then
 
         AttemptCrouch(PlayerPedId())
     end, false)
+    TriggerEvent('chat:addSuggestion', '/crouch', 'Crouch')
 end
 
 if Config.CrawlEnabled then

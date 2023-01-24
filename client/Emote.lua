@@ -118,7 +118,6 @@ Citizen.CreateThread(function()
     TriggerEvent('chat:addSuggestion', '/walks', 'List available walking styles.')
     TriggerEvent('chat:addSuggestion', '/emotecancel', 'Cancel currently playing emote.')
     TriggerEvent('chat:addSuggestion', '/handsup', 'Put your arms up.')
-    TriggerEvent('chat:addSuggestion', '/crouch', 'Crouch')
 end)
 
 RegisterCommand('e', function(source, args, raw) EmoteCommandStart(source, args, raw) end, false)
