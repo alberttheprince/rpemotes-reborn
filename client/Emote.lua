@@ -19,6 +19,7 @@ local PtfxCanHold = false
 local PtfxNoProp = false
 local AnimationThreadStatus = false
 local CanCancel = true
+local InExitEmote = false
 IsInAnimation = false
 Pointing = false
 
@@ -244,6 +245,11 @@ function EmoteCancel(force)
         DebugPrint("Forced scenario exit")
     end
 
+    -- Don't cancel if we are in an exit emote
+    if InExitEmote then
+        return
+    end
+
     PtfxNotif = false
     PtfxPrompt = false
 	Pointing = false
@@ -258,18 +264,28 @@ function EmoteCancel(force)
 
         if ChosenAnimOptions and ChosenAnimOptions.ExitEmote then
             -- If the emote exit type is not spesifed it defaults to Emotes
-            local ExitEmoteType = ChosenAnimOptions.ExitEmoteType or "Emotes"
+            local options = ChosenAnimOptions
+            local ExitEmoteType = options.ExitEmoteType or "Emotes"
 
             -- Checks that the exit emote actually exists
-            if not RP[ExitEmoteType] or not RP[ExitEmoteType][ChosenAnimOptions.ExitEmote] then
+            if not RP[ExitEmoteType] or not RP[ExitEmoteType][options.ExitEmote] then
                 DebugPrint("Exit emote was invalid")
                 ClearPedTasks(ply)
                 IsInAnimation = false
                 return
             end
 
-            OnEmotePlay(RP[ExitEmoteType][ChosenAnimOptions.ExitEmote])
+            OnEmotePlay(RP[ExitEmoteType][options.ExitEmote])
             DebugPrint("Playing exit animation")
+
+            -- Check that the exit emote has a duration, and if so, set inExitEmote variable
+            local animationOptions = RP[ExitEmoteType][options.ExitEmote].AnimationOptions
+            if animationOptions and animationOptions.EmoteDuration then
+                inExitEmote = true
+                SetTimeout(animationOptions.EmoteDuration, function()
+                    inExitEmote = false
+                end)
+            end
         else
             ClearPedTasks(ply)
             IsInAnimation = false
@@ -552,6 +568,11 @@ function OnEmotePlay(EmoteName, textureVariation)
     end
 
     if not DoesEntityExist(PlayerPedId()) then
+        return false
+    end
+
+    -- Don't play a new animation if we are in an exit emote
+    if InExitEmote then
         return false
     end
 
