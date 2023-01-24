@@ -278,12 +278,12 @@ function EmoteCancel(force)
             OnEmotePlay(RP[ExitEmoteType][options.ExitEmote])
             DebugPrint("Playing exit animation")
 
-            -- Check that the exit emote has a duration, and if so, set inExitEmote variable
+            -- Check that the exit emote has a duration, and if so, set InExitEmote variable
             local animationOptions = RP[ExitEmoteType][options.ExitEmote].AnimationOptions
             if animationOptions and animationOptions.EmoteDuration then
-                inExitEmote = true
+                InExitEmote = true
                 SetTimeout(animationOptions.EmoteDuration, function()
-                    inExitEmote = false
+                    InExitEmote = false
                 end)
             end
         else
