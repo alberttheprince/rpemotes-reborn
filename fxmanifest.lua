@@ -40,6 +40,7 @@ client_scripts {
     'client/Emote.lua',
     'client/EmoteMenu.lua',
     'client/Keybinds.lua',
+    'client/Pointing.lua',
     'client/Ragdoll.lua',
     'client/Syncing.lua',
     'client/Walk.lua',

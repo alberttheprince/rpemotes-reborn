@@ -21,7 +21,6 @@ local AnimationThreadStatus = false
 local CanCancel = true
 local InExitEmote = false
 IsInAnimation = false
-Pointing = false
 
 
 -- Remove emotes if needed
@@ -95,10 +94,6 @@ if Config.HandsupKeybindEnabled then
     RegisterKeyMapping("handsup", "Put your arms up", "keyboard", Config.HandsupKeybind)
 end
 
-if Config.PointingKeybindEnabled then
-    RegisterKeyMapping("pointing", "Finger pointing", "keyboard", Config.PointingKeybind)
-end
-
 -----------------------------------------------------------------------------------------------------
 -- Commands / Events --------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
@@ -123,7 +118,6 @@ Citizen.CreateThread(function()
     TriggerEvent('chat:addSuggestion', '/walks', 'List available walking styles.')
     TriggerEvent('chat:addSuggestion', '/emotecancel', 'Cancel currently playing emote.')
     TriggerEvent('chat:addSuggestion', '/handsup', 'Put your arms up.')
-    TriggerEvent('chat:addSuggestion', '/pointing', 'Finger pointing.')
     TriggerEvent('chat:addSuggestion', '/crouch', 'Crouch')
 end)
 
@@ -145,74 +139,6 @@ RegisterCommand('handsup', function(source, args, raw)
 			EmoteCancel()
 		else
 			EmoteCommandStart(nil, {"handsup"}, nil)
-		end
-	end
-end, false)
-
-RegisterCommand('pointing', function(source, args, raw)
-	if Config.PointingKeybindEnabled then
-        if IsProne then
-            EmoteChatMessage("You can't point while crawling.")
-            return
-        end
-
-		local ped = PlayerPedId()
-		if not IsPedOnFoot(ped) then
-		    return
-		end
-
-		Pointing = not Pointing
-
-		if Pointing then
-			if LoadAnim("anim@mp_point") then
-				SetPedConfigFlag(ped, 36, 1)
-				TaskMoveNetworkByName(ped, 'task_mp_pointing', 0.5, 0, 'anim@mp_point', 24)
-			end
-
-			Citizen.CreateThread(function()
-				local ped = PlayerPedId()
-
-				while Pointing and IsPedOnFoot(ped) do
-					Citizen.Wait(0)
-
-					local camPitch = GetGameplayCamRelativePitch()
-
-					if camPitch < -70.0 then
-						camPitch = -70.0
-					elseif camPitch > 42.0 then
-						camPitch = 42.0
-					end
-
-					camPitch = (camPitch + 70.0) / 112.0
-
-					local camHeading = GetGameplayCamRelativeHeading()
-					local cosCamHeading = Cos(camHeading)
-					local sinCamHeading = Sin(camHeading)
-
-					if camHeading < -180.0 then
-						camHeading = -180.0
-					elseif camHeading > 180.0 then
-						camHeading = 180.0
-					end
-
-					camHeading = (camHeading + 180.0) / 360.0
-					local coords = GetOffsetFromEntityInWorldCoords(ped, (cosCamHeading * -0.2) - (sinCamHeading * (0.4 * camHeading + 0.3)), (sinCamHeading * -0.2) + (cosCamHeading * (0.4 * camHeading + 0.3)), 0.6)
-					local rayHandle, blocked = GetShapeTestResult(StartShapeTestCapsule(coords.x, coords.y, coords.z - 0.2, coords.x, coords.y, coords.z + 0.2, 0.4, 95, ped, 7))
-
-					SetTaskMoveNetworkSignalFloat(ped, 'Pitch', camPitch)
-					SetTaskMoveNetworkSignalFloat(ped, 'Heading', (camHeading * -1.0) + 1.0)
-					SetTaskMoveNetworkSignalBool(ped, 'isBlocked', blocked)
-					SetTaskMoveNetworkSignalBool(ped, 'isFirstPerson', GetCamViewModeForContext(GetCamActiveViewModeContext()) == 4)
-				end
-
-				RequestTaskMoveNetworkStateTransition(ped, 'Stop')
-
-				if not IsPedInjured(ped) then ClearPedSecondaryTask(ped) end
-
-				SetPedConfigFlag(ped, 36, 0)
-			end)
-		else
-			Pointing = false
 		end
 	end
 end, false)

@@ -63,7 +63,8 @@ Config = {
     HandsupKeybindEnabled = false,
     HandsupKeybind = 'h', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- You can disable the fingrer pointing here / change the keybind. It is currently set to B
-    PointingKeybindEnabled = false,
+    PointingEnabled = false,
+    PointingKeybindEnabled = true,
     PointingKeybind = 'b', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- If crouching should be enabled.
     CrouchEnabled = true,
