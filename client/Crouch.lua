@@ -369,6 +369,11 @@ local function CrawlKeyPressed()
         return
     end
 
+    -- Don't start/stop to crawl if we are in the pause menu
+    if IsPauseMenuActive() then
+        return
+    end
+
     -- If already prone, then stop
     if IsProne then
         IsProne = false
