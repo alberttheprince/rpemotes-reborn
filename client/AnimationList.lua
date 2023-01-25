@@ -5074,6 +5074,14 @@ RP.Exits = {
             EmoteDuration = 2000
         }
     },
+    ["surrender_exit"] = {
+        "random@arrests",
+        "kneeling_arrest_get_up",
+        "Surrender Exit",
+        AnimationOptions = {
+            EmoteDuration = 2200
+        }
+    },
 	["offchair"] = {
         "switch@michael@sitting",
         "exit_forward",
@@ -5491,9 +5499,9 @@ RP.Emotes = {
         "random@arrests@busted",
         "idle_a",
         "Surrender",
-         AnimationOptions = {
+        AnimationOptions = {
             EmoteLoop = true,
-            ExitEmote = "getup",
+            ExitEmote = "surrender_exit",
             ExitEmoteType = "Exits"
         }
     },
@@ -5531,9 +5539,9 @@ RP.Emotes = {
         "random@arrests",
         "kneeling_arrest_idle",
         "Surrender 5",
-         AnimationOptions = {
+        AnimationOptions = {
             EmoteLoop = true,
-            ExitEmote = "getup",
+            ExitEmote = "surrender_exit",
             ExitEmoteType = "Exits"
         }
     },
@@ -6443,10 +6451,10 @@ RP.Emotes = {
             ExitEmoteType = "Exits"
         }
     },
-    ["sitlow"] = {
+    ["elbow"] = {
         "anim@veh@lowrider@std@ds@arm@base",
         "sit_low_lowdoor",
-        "Sit Lowrider",
+        "Window Elbow",
         AnimationOptions = {
             EmoteLoop = true
         }
@@ -15663,7 +15671,7 @@ RP.PropEmotes = {
     ["phone"] = {
         "cellphone@",
         "cellphone_text_read_base",
-        "phone",
+        "Phone",
         AnimationOptions = {
             Prop = "prop_phone_ing",
             PropTextureVariations = {
@@ -17713,6 +17721,22 @@ RP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = true
+        }
+    },
+    ["policecrowd"] = {
+        "amb@code_human_police_crowd_control@idle_a",
+        "idle_a",
+        "Police Crowd",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["policecrowd2"] = {
+        "amb@code_human_police_crowd_control@idle_b",
+        "idle_d",
+        "Police Crowd",
+        AnimationOptions = {
+            EmoteLoop = true
         }
     },
 }
