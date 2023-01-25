@@ -17742,7 +17742,7 @@ RP.PropEmotes = {
     ["policecrowd2"] = {
         "amb@code_human_police_crowd_control@idle_b",
         "idle_d",
-        "Police Crowd",
+        "Police Crowd 2",
         AnimationOptions = {
             EmoteLoop = true
         }
