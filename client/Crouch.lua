@@ -274,6 +274,8 @@ end
 
 local function CrawlThread()
     CreateThread(function()
+        Wait(400)
+
         local forceEnd = false
 
         while IsProne do
