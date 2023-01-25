@@ -5,8 +5,11 @@ if Config.RagdollEnabled then
 
     local stop = true
     function Ragdoll()
+        if IsInAnimation then return end
+
         local ped = PlayerPedId()
         if not IsPedOnFoot(ped) then return end
+
         if Config.RagdollAsToggle then
             stop = not stop
         else
