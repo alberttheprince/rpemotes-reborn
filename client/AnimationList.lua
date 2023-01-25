@@ -15389,6 +15389,58 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
+    ['shopbag4'] = {
+        'chocoholic@single54',
+        'single54_clip',
+        'Shopping Bag 4',
+        AnimationOptions = {
+            Prop = 'prop_carrier_bag_01',
+            PropBone = 28422,
+            PropPlacement = {
+                0.2280,
+                0.0070,
+               -0.1230,
+                1.2556,
+               -53.8020,
+               -34.4621
+            },
+            SecondProp = 'prop_phone_ing',
+            PropTextureVariations = {
+                { Name = "<font color=\"#00A0F4\">Blue", Value = 0 },
+                { Name = "<font color=\"#1AA20E\">Green", Value = 1 },
+                { Name = "<font color=\"#800B0B\">Dark Red", Value = 2 },
+                { Name = "<font color=\"#FF7B00\">Orange", Value = 3 },
+                { Name = "<font color=\"#5F5F5F\">Grey", Value = 4 },
+                { Name = "<font color=\"#a356fa\">Purple", Value = 5 },
+                { Name = "<font color=\"#FF0099\">Pink", Value = 6 },
+                { Name = "Black", Value = 7 },
+            },
+            SecondPropBone = 60309, -- Left Wrist
+            SecondPropPlacement = {
+                0.0910,
+                0.0410,
+               -0.0040,
+               -129.2433,
+               -18.1966,
+               -41.2633
+            },
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["guccibag"] = { -- Custom prop by crowded1337, unbranded by TayMcKenzieNZ
         "move_weapon@jerrycan@generic",
         "idle",
@@ -17629,6 +17681,35 @@ RP.PropEmotes = {
                 1.83,
                 105.38,
                 -10.14
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["cofpose"] = {
+        "chocoholic@single23",
+        "single23_clip",
+        "Coffee & Burger Pose",
+        AnimationOptions = {
+            Prop = "prop_fib_coffee",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0720,
+                0.0390,
+               -0.0230,
+             -125.8797,
+             -168.4347,
+               17.4518
+            },
+            SecondProp = 'prop_cs_burger_01',
+            SecondPropBone = 60309,
+            SecondPropPlacement = {
+                0.1240,
+                0.0230,
+                0.0520,
+              89.8585,
+             -179.9282,
+              -39.9999
             },
             EmoteLoop = true,
             EmoteMoving = true
