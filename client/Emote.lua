@@ -159,6 +159,11 @@ end)
 -----------------------------------------------------------------------------------------------------
 
 function EmoteCancel(force)
+    -- Don't cancel if we are in an exit emote
+    if InExitEmote then
+        return
+    end
+
     local ply = PlayerPedId()
 	if not CanCancel and force ~= true then return end
     if ChosenDict == "MaleScenario" and IsInAnimation then
@@ -169,11 +174,6 @@ function EmoteCancel(force)
         ClearPedTasksImmediately(ply)
         IsInAnimation = false
         DebugPrint("Forced scenario exit")
-    end
-
-    -- Don't cancel if we are in an exit emote
-    if InExitEmote then
-        return
     end
 
     PtfxNotif = false
@@ -500,6 +500,12 @@ function OnEmotePlay(EmoteName, textureVariation)
     -- Don't play a new animation if we are in an exit emote
     if InExitEmote then
         return false
+    end
+
+    if ChosenAnimOptions and ChosenAnimOptions.ExitEmote then
+        if RP.Exits[ChosenAnimOptions.ExitEmote][2] ~= EmoteName[2] then
+            return
+        end
     end
 
     if IsProne then
