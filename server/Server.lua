@@ -6,17 +6,18 @@ RegisterNetEvent("ServerEmoteRequest", function(target, emotename, etype)
     local ped = GetPlayerPed(source)
 
     if target == -1 then
-      return
-   end
-   local tped = GetPlayerPed(target)
-   local pedcoord = GetEntityCoords(ped)
-   local targetcoord = GetEntityCoords(tped)
+        return
+    end
+    local tped = GetPlayerPed(target)
+    local pedcoord = GetEntityCoords(ped)
+    local targetcoord = GetEntityCoords(tped)
 
-   local distance = #(pedcoord - targetcoord)
+    local distance = #(pedcoord - targetcoord)
 
-   if distance > 3 then
-       return
-   end
+    if distance > 3 then
+        return
+    end
+
     TriggerClientEvent("ClientEmoteRequestReceive", target, emotename, etype)
 end)
 
@@ -24,17 +25,18 @@ RegisterNetEvent("ServerValidEmote", function(target, requestedemote, otheremote
     local ped = GetPlayerPed(source)
 
     if target == -1 then
-      return
-   end
-   local tped = GetPlayerPed(target)
-   local pedcoord = GetEntityCoords(ped)
-   local targetcoord = GetEntityCoords(tped)
+        return
+    end
+    local tped = GetPlayerPed(target)
+    local pedcoord = GetEntityCoords(ped)
+    local targetcoord = GetEntityCoords(tped)
 
-   local distance = #(pedcoord - targetcoord)
+    local distance = #(pedcoord - targetcoord)
 
-   if distance > 3 then
-       return
-   end
+    if distance > 3 then
+        return
+    end
+
     TriggerClientEvent("SyncPlayEmote", source, otheremote, target)
     TriggerClientEvent("SyncPlayEmoteSource", target, requestedemote, source)
 end)
@@ -89,7 +91,7 @@ end)
 local function addKeybindEventHandlers()
     RegisterNetEvent("rp:ServerKeybindExist", function()
         local src = source
-        local srcid = GetPlayerIdentifier(source)
+        local srcid = GetPlayerIdentifier(src)
         MySQL.query('SELECT * FROM dpkeybinds WHERE `id`=@id;', { id = srcid }, function(dpkeybinds)
             if dpkeybinds[1] then
                 TriggerClientEvent("rp:ClientKeybindExist", src, true)
@@ -104,7 +106,7 @@ local function addKeybindEventHandlers()
 
     RegisterNetEvent("rp:ServerKeybindCreate", function()
         local src = source
-        local srcid = GetPlayerIdentifier(source)
+        local srcid = GetPlayerIdentifier(src)
         MySQL.insert('INSERT INTO dpkeybinds (`id`, `keybind1`, `emote1`, `keybind2`, `emote2`, `keybind3`, `emote3`, `keybind4`, `emote4`, `keybind5`, `emote5`, `keybind6`, `emote6`) VALUES (@id, @keybind1, @emote1, @keybind2, @emote2, @keybind3, @emote3, @keybind4, @emote4, @keybind5, @emote5, @keybind6, @emote6);'
             ,
             { id = srcid, keybind1 = "num4", emote1 = "", keybind2 = "num5", emote2 = "", keybind3 = "num6", emote3 = "",
@@ -117,7 +119,7 @@ local function addKeybindEventHandlers()
 
     RegisterNetEvent("rp:ServerKeybindGrab", function()
         local src = source
-        local srcid = GetPlayerIdentifier(source)
+        local srcid = GetPlayerIdentifier(src)
         MySQL.query('SELECT keybind1, emote1, keybind2, emote2, keybind3, emote3, keybind4, emote4, keybind5, emote5, keybind6, emote6 FROM `dpkeybinds` WHERE `id` = @id'
             ,
             { ['@id'] = srcid }, function(kb)

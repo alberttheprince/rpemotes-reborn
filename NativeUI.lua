@@ -325,7 +325,7 @@ Colours = {
 }
 
 --[[
-    Utils.lua 
+    Utils.lua
     Utilities
 --]]
 
@@ -395,7 +395,7 @@ function Controller()
     return not IsInputDisabled(2)
 end
 
---[[    
+--[[
     UIResRectangle.lua
     Elements
 --]]

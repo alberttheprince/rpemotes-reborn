@@ -37,7 +37,6 @@ end
 
 local EmoteTable = {}
 local FavEmoteTable = {}
-local KeyEmoteTable = {}
 local DanceTable = {}
 local AnimalTable = {}
 local PropETable = {}
@@ -47,7 +46,7 @@ local ShareTable = {}
 local FavoriteEmote = ""
 
 if Config.FavKeybindEnabled then
-    RegisterCommand('emotefav', function(source, args, raw) FavKeybind() end)
+    RegisterCommand('emotefav', function() FavKeybind() end)
 
     RegisterKeyMapping("emotefav", "Execute your favorite emote", "keyboard", Config.FavKeybind)
 
@@ -168,14 +167,14 @@ function AddEmoteMenu(menu)
 
     for a, b in pairsByKeys(RP.PropEmotes) do
         x, y, z = table.unpack(b)
-    
-        if b.AnimationOptions.PropTextureVariations then 
+
+        if b.AnimationOptions.PropTextureVariations then
             propitem = NativeUI.CreateListItem(z, b.AnimationOptions.PropTextureVariations, 1, "/e (" .. a .. ")")
             propmenu:AddItem(propitem)
         else
             propitem = NativeUI.CreateItem(z, "/e (" .. a .. ")")
             propmenu:AddItem(propitem)
-        end 
+        end
 
         table.insert(PropETable, a)
         if not Config.SqlKeybinding then
@@ -245,7 +244,7 @@ function AddEmoteMenu(menu)
     propmenu.OnItemSelect = function(sender, item, index)
         EmoteMenuStart(PropETable[index], "props")
     end
-    
+
    propmenu.OnListSelect = function(menu, item, itemIndex, listIndex)
         EmoteMenuStart(PropETable[itemIndex], "props", item:IndexToItem(listIndex).Value)
     end
@@ -320,7 +319,7 @@ if Config.Search then
                         local item = NativeUI.CreateItem(v.data[3], desc)
                         searchMenu:AddItem(item)
                     end
-                    
+
                     if v.table == "Dances" and Config.SharedEmotesEnabled then
                         local item2 = NativeUI.CreateItem(v.data[3], "")
                         sharedDanceMenu:AddItem(item2)
@@ -335,10 +334,10 @@ if Config.Search then
                     local data = results[index]
 
                     if data == Config.Languages[lang]['sharedanceemotes'] then return end
-                    if data == Config.Languages[lang]['rfavorite'] then 
+                    if data == Config.Languages[lang]['rfavorite'] then
                         FavoriteEmote = ""
                         ShowNotification(Config.Languages[lang]['rfavorite'], 2000)
-                        return 
+                        return
                     end
 
                     if favEnabled and IsControlPressed(0, 21) then
@@ -362,7 +361,7 @@ if Config.Search then
                             SimpleNotify(Config.Languages[lang]['sentrequestto'] .. GetPlayerName(target))
                         else
                             SimpleNotify(Config.Languages[lang]['nobodyclose'])
-                        end   
+                        end
                     end
                 end
 

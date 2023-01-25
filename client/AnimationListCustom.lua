@@ -13,8 +13,6 @@ CustomDP.Exits = {}
 CustomDP.Emotes = {}
 CustomDP.PropEmotes = {}
 
-
-
 -----------------------------------------------------------------------------------------
 --| I don't think you should change the code below unless you know what you are doing |--
 -----------------------------------------------------------------------------------------

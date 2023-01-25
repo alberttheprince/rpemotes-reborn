@@ -164,10 +164,10 @@ local function CrouchKeyPressed()
         local crouchKey = GetControlInstructionalButton(0, 0xD2D0BEBA, false)
         local duckKey = GetControlInstructionalButton(0, 36, false)
 
-        -- If they are the same and we aren't prone, then check if we are in stealth mode and how long ago the last button press was. 
+        -- If they are the same and we aren't prone, then check if we are in stealth mode and how long ago the last button press was.
         if crouchKey == duckKey and not IsProne then
             local timer = GetGameTimer()
-    
+
             -- If we are in stealth mode and we have already pressed the button in the last second
             if GetPedStealthMovement(playerPed) == 1 and timer - lastKeyPress < 1000 then
                 DisableControlAction(0, 36, true) -- Disable INPUT_DUCK this frame
@@ -399,7 +399,7 @@ local function CrawlKeyPressed()
         return
     end
     inAction = true
-    
+
     -- If we are pointing then stop pointing
     if Pointing then
         Pointing = false

@@ -7,9 +7,9 @@ if Config.CheckForUpdates then
     local function CheckMenuVersion()
         PerformHttpRequest('https://raw.githubusercontent.com/TayMcKenzieNZ/rpemotes/master/version.txt', function(err, text, headers)
             local currentVersion = GetResourceMetadata(GetCurrentResourceName(), 'version')
-            if not text then 
+            if not text then
                 VersionLog('error', 'Currently unable to run a version check.')
-                return 
+                return
             end
             VersionLog('success', ('Current Version: %s'):format(currentVersion))
             VersionLog('success', ('Latest Version: %s'):format(text))
@@ -20,6 +20,6 @@ if Config.CheckForUpdates then
             end
         end)
     end
-    
+
     CheckMenuVersion()
 end

@@ -1,5 +1,5 @@
 Config.Languages = {
-['pt'] = { -- Brazilian Portuguese 🇧🇷
+    ['pt'] = { -- Brazilian Portuguese 🇧🇷
         ['emotes'] = 'Emotes 🎬',
         ['danceemotes'] = "🕺 Emotes de Danças",
         ['animalemotes'] = "🐩 Emotes de Animais",
@@ -59,7 +59,6 @@ Config.Languages = {
         ['firework'] = "Pressione ~y~G~w~ para usar o fogo de artifício",
         ['poop'] = "Pressione ~y~G~w~ para fazer cocô", -- Translated using smodin.io
         ['puke'] = "Pressione ~y~G~w~ para vomitar",
-
     },
     ['cs'] = { -- Czech 🇨🇿
         ['emotes'] = 'Animace 🎬',
@@ -422,7 +421,7 @@ Config.Languages = {
         ['searchshifttofav'] = "Maintenir  L-Shift et appuyer sur entrer pour marquer comme favorie.",
         ['searchcantsetfav'] = "Les emotes partagées ne peuvent pas être mise en favorie.",
         ['invalidvariation'] = "Variation de texture invalide. Les sélections valides sont : %s",
-        ['firework'] = "Appuyez sur ~y~Gw~ pour utiliser des feux d'artifice", -- GOOGLE TRANSLATED 
+        ['firework'] = "Appuyez sur ~y~Gw~ pour utiliser des feux d'artifice", -- GOOGLE TRANSLATED
         ['poop'] = "Appuyez sur ~y~G~w~ pour faire caca.", -- Translated using smodin.io
         ['puke'] = "Appuyez sur ~y~G~w~ pour vomir.",
     },
@@ -909,7 +908,7 @@ Config.Languages = {
         ['searchshifttofav'] = "Удерживайте L-Shift и нажмите Enter, чтобы установить в избранное.",
         ['searchcantsetfav'] = "Парные эмоции не могут быть добавлены в избранное.",
         ['invalidvariation'] = "Недопустимая вариация текстуры. Допустимые варианты: %s",
-        ['firework'] = "Нажмите ~y~Gw~, чтобы запустить фейерверк.", -- GOOGLE TRANSLATED 
+        ['firework'] = "Нажмите ~y~Gw~, чтобы запустить фейерверк.", -- GOOGLE TRANSLATED
         ['poop'] = "Нажмите ~y~G~w~, чтобы какать",
         ['puke'] = "Нажмите ~y~G~w~ для рвоты",
     },
@@ -969,7 +968,7 @@ Config.Languages = {
         ['searchshifttofav'] = "Mantén L-Shift y presiona Enter para guardar como favorito.",
         ['searchcantsetfav'] = "Las animaciones compartidas no pueden ser guardadas como favoritas.",
         ['invalidvariation'] = "Variación de textura no válida. Las opciones válidas son: %s",
-        ['firework'] = "Presione ~y~Gw~ para usar los fuegos artificiales", 
+        ['firework'] = "Presione ~y~Gw~ para usar los fuegos artificiales",
         ['poop'] = "Presione ~y~G~w~ para hacer caca",
         ['puke'] = "Presiona ~y~G~w~ para vomitar", ---- Translated via smodin.io
     },
@@ -1094,5 +1093,5 @@ Config.Languages = {
         ['firework'] = "Havai fişeği kullanmak için ~y~G~w~ tuşlarına basın",
         ['poop'] = "Kaka yapmak için ~y~G~w~ tuşlarına basın",
         ['puke'] = "Kusmak için ~y~G~w~ tuşlarına basın",
-    },
+    }
 }

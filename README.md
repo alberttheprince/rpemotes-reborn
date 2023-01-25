@@ -145,7 +145,7 @@ SqlKeybinding = false,
 
 If you do not want to use the SQL features keep the `oxmysql` region in fxmanifest.lua commented out.
 
-Alternatively, you can use the keybind command that comes with FiveM without having to use SQL, by entering the following into F8: 
+Alternatively, you can use the keybind command that comes with FiveM without having to use SQL, by entering the following into F8:
 
 `bind keyboard "Yourbutton" "e youremote"`. To remove the keybind, type `"unbind keyboard "Yourbutton"`.
 
@@ -176,7 +176,7 @@ Much like everything else in the menu, server owners can change these keybinds t
 Server owners can opt in to either overriding the stealth/action animation when pressing the LEFT CONTROL keybind or have players tap LEFT CONTROL twice to switch from stealth to crouch (when enabled in the config.lua file)
 
 
-**Crouching:** 
+**Crouching:**
 
 RIGHT CONTROL. Players can move forward, back, left and right as well as turning around. Press SPACEBAR to switch from stomach to back. Pressing RIGHT CONTROL key while running will have the player "dive into" a crouching animation.
 
@@ -200,7 +200,7 @@ Alternatively, you can use the 🌟 Favorite menu to find an emote and press ent
 
 Exit Emotes are used to make cancelling an animation more smoother and dynamic, such as getting up off a chair or throwing a cigarette out instead of dropping it.
 
-You can add your own Exit Emotes under `AnimationListCustom.lua`'s new `CustomDP.Exits = {}` array. 
+You can add your own Exit Emotes under `AnimationListCustom.lua`'s new `CustomDP.Exits = {}` array.
 
 Below is an example of how this would look:
 
@@ -300,13 +300,13 @@ For localhost servers, comment out onesync from your server.cfg and add the foll
 
 You can put this before your gamebuild enforcement, aka `+set sv_enforceGameBuild XXXX`
 
-* Set the desired language and settings in the config.lua under `MenuLanguage = 'en',` 
+* Set the desired language and settings in the config.lua under `MenuLanguage = 'en',`
 
 * Qb-Core server owners, set `Framework = 'qb-core'` in the config file, otherwise leave it as false.
 
 * To use the SQL features, install the [oxmysql](https://github.com/overextended/oxmysql) resource then open `keybinds.lua` in RPEmotes. If you do not want to use the SQL features, comment out the `oxmysql` region in fxmanifest.lua.
 
-Alternatively, you can use the keybind command that comes with FiveM without having the SQL, by entering the following into F8: 
+Alternatively, you can use the keybind command that comes with FiveM without having the SQL, by entering the following into F8:
 
 `bind keyboard "Yourbutton" "e youremote"`. To remove the keybind, type `"unbind keyboard "Yourbutton"`.
 
@@ -385,7 +385,7 @@ Because the menu gets updated frequently, the files get overwritten. To avoid th
 
 Add your animation code to the `AnimationListCustom.lua` and make a backup of this file, call it `BackUpAnimationListCustom.lua`.
 
-Whenever an update is released, rename `BackUpAnimationListCustom.lua` to `AnimationListCustom.lua`, click yes to overwrite, and you're good to go. 
+Whenever an update is released, rename `BackUpAnimationListCustom.lua` to `AnimationListCustom.lua`, click yes to overwrite, and you're good to go.
 
 It is also a good idea to keep a backup of your config file.
 Below is an example:
@@ -417,11 +417,11 @@ If you want to modify RpEmotes ***(does not apply if you want to use it for pers
 
 
 
-✅ You are allowed to use the custom animations explicitly provided within this repository only 
+✅ You are allowed to use the custom animations explicitly provided within this repository only
 
 ✅ You are allowed to add your own custom animations to this resource and use it on your server. The entire content must remain on your server and not be reuploaded.
 
-❌ You are not allowed to re-distribute the custom animations provided with this repository either on websites, forums, tebex store or discord. 
+❌ You are not allowed to re-distribute the custom animations provided with this repository either on websites, forums, tebex store or discord.
 
 ❌ You are not allowed to claim the custom animations provided within this resource as your own work
 
@@ -431,16 +431,16 @@ If you want to modify RpEmotes ***(does not apply if you want to use it for pers
 
 **All** custom animations and props were added with permissions from the creators and does **not** contain any paid or leaked work.
 
-All animation creators have ***specifically*** asked that their content remains free and that the RPEmotes team and community do not try to profit from them, claim them as their own or reupload them anywhere else but TayMcKenzieNZ's GitHub unless express permission has been arranged and granted by their respective creators, therefore you may not extract the animations and / or use them for your own menus. 
+All animation creators have ***specifically*** asked that their content remains free and that the RPEmotes team and community do not try to profit from them, claim them as their own or reupload them anywhere else but TayMcKenzieNZ's GitHub unless express permission has been arranged and granted by their respective creators, therefore you may not extract the animations and / or use them for your own menus.
 
 
-A huge thank  you to the following people for their amazing contributions made to the menu 🫶🏻 : 
+A huge thank  you to the following people for their amazing contributions made to the menu 🫶🏻 :
 
 - Thank you to [Tigerle](https://forum.cfx.re/u/tigerle_studios) for providing the additional code required to make Shared Emotes work to it's full extent
 
 - Thank you to [SMGMissy](https://forum.cfx.re/u/smgmissy/) for assisting with custom pride flags and how to stream them
 
-- Thank you to [MissSnowie](https://www.gta5-mods.com/users/MissySnowie) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord and for the motivational and overal moral support 
+- Thank you to [MissSnowie](https://www.gta5-mods.com/users/MissySnowie) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord and for the motivational and overal moral support
 
 - A huge thank you to [Kibook](https://github.com/kibook) for the addition of the Animal Emotes sub menu
 
@@ -458,7 +458,7 @@ A huge thank  you to the following people for their amazing contributions made t
 
 - Thank you to [northsqrd](https://github.com/0sqrd) for adding the search function, Animal Emotes config, mobile phone prop texture variants and general contributions
 
-- Thank you to crusopaul and Eki for discussing KVP and initializing it to the menu for persistent walkstyles 
+- Thank you to crusopaul and Eki for discussing KVP and initializing it to the menu for persistent walkstyles
 
 - Thank you to [Amnilka](https://www.gta5-mods.com/users/frabi) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
 
