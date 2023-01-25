@@ -3,7 +3,7 @@
 
 fx_version 'cerulean'
 game 'gta5'
-version '1.1.1'
+version '1.1.2'
 lua54 'yes'
 
 dependencies {
