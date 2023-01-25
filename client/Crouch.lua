@@ -417,8 +417,8 @@ local function CrawlKeyPressed()
     LoadAnimDict("move_crawlprone2crawlfront")
 
     if ShouldPlayerDiveToCrawl(playerPed) then
-        PlayAnimOnce(playerPed, "move_jump", "dive_start_run", -1)
-        Wait(1050)
+        PlayAnimOnce(playerPed, "explosions", "react_blown_forwards", -1)
+        Wait(1100)
     elseif wasCrouched then
         PlayAnimOnce(playerPed, "amb@world_human_sunbathe@male@front@enter", "enter", -1, 2.0, 0.3)
         Wait(1500)
