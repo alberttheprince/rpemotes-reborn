@@ -7125,6 +7125,15 @@ RP.Emotes = {
             EmoteMoving = true
         }
     },
+    ["reaching2"] = { --- Custom Emote Provided To RpEmotes By Mads
+        "mads@police_reaching_holster",
+        "idle",
+        "Reaching 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["slap"] = {
         "melee@unarmed@streamed_variations",
         "plyr_takedown_front_slap",
