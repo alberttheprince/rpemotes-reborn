@@ -86,10 +86,6 @@ if Config.EnableXtoCancel then
     RegisterKeyMapping("emotecancel", "Cancel current emote", "keyboard", Config.CancelEmoteKey)
 end
 
-if Config.MenuKeybindEnabled then
-    RegisterKeyMapping("emotemenu", "Open rpemotes menu", "keyboard", Config.MenuKeybind)
-end
-
 if Config.HandsupKeybindEnabled then
     RegisterKeyMapping("handsup", "Put your arms up", "keyboard", Config.HandsupKeybind)
 end
@@ -126,7 +122,12 @@ if Config.SqlKeybinding then
     RegisterCommand('emotebind', function(source, args, raw) EmoteBindStart(source, args, raw) end, false)
     RegisterCommand('emotebinds', function(source, args, raw) EmoteBindsStart(source, args, raw) end, false)
 end
-RegisterCommand('emotemenu', function(source, args, raw) OpenEmoteMenu() end, false)
+if Config.MenuKeybindEnabled then
+    RegisterCommand('emoteui', function(source, args, raw) OpenEmoteMenu() end, false)
+    RegisterKeyMapping("emoteui", "Open rpemotes menu", "keyboard", Config.MenuKeybind)
+else
+    RegisterCommand('emotemenu', function(source, args, raw) OpenEmoteMenu() end, false)
+end
 RegisterCommand('emotes', function(source, args, raw) EmotesOnCommand() end, false)
 RegisterCommand('walk', function(source, args, raw) WalkCommandStart(source, args, raw) end, false)
 RegisterCommand('walks', function(source, args, raw) WalksOnCommand() end, false)
