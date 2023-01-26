@@ -33,9 +33,9 @@ local function CanPlayerCrouchCrawl(playerPed)
     return true
 end
 
-local function PlayAnimOnce(playerPed, animDict, animName, duration, blendInSpeed, startTime)
+local function PlayAnimOnce(playerPed, animDict, animName, blendInSpeed, blendOutSpeed, duration, startTime)
     LoadAnimDict(animDict)
-    TaskPlayAnim(playerPed, animDict, animName, blendInSpeed or 2.0, 2.0, duration, 0, startTime or 0.0, false, false, false)
+    TaskPlayAnim(playerPed, animDict, animName, blendInSpeed or 2.0, blendOutSpeed or 2.0, duration or -1, 0, startTime or 0.0, false, false, false)
     RemoveAnimDict(animDict)
 end
 
@@ -184,7 +184,7 @@ local function CrouchKeyPressed()
     if AttemptCrouch(playerPed) and IsProne then
         inAction = true
         IsProne = false
-        PlayAnimOnce(playerPed, "get_up@directional@transition@prone_to_knees@crawl", "front", 780)
+        PlayAnimOnce(playerPed, "get_up@directional@transition@prone_to_knees@crawl", "front", nil, nil, 780)
         Wait(780)
         inAction = false
     end
@@ -200,9 +200,9 @@ local function ShouldPlayerDiveToCrawl(playerPed)
     return false
 end
 
-local function PlayIdleCrawlAnim(playerPed, heading)
+local function PlayIdleCrawlAnim(playerPed, heading, blendInSpeed)
     local playerCoords = GetEntityCoords(playerPed)
-    TaskPlayAnimAdvanced(playerPed, "move_crawl", proneType.."_fwd", playerCoords.x, playerCoords.y, playerCoords.z, 0.0, 0.0, heading or GetEntityHeading(playerPed), 2.0, 2.0, -1, 2, 1.0, false, false)
+    TaskPlayAnimAdvanced(playerPed, "move_crawl", proneType.."_fwd", playerCoords.x, playerCoords.y, playerCoords.z, 0.0, 0.0, heading or GetEntityHeading(playerPed), blendInSpeed or 2.0, 2.0, -1, 2, 1.0, false, false)
 end
 
 local function PlayExitCrawlAnims(forceEnd)
@@ -211,20 +211,20 @@ local function PlayExitCrawlAnims(forceEnd)
         local playerPed = PlayerPedId()
 
         if proneType == "onfront" then
-            PlayAnimOnce(playerPed, "get_up@directional@transition@prone_to_knees@crawl", "front", 780)
+            PlayAnimOnce(playerPed, "get_up@directional@transition@prone_to_knees@crawl", "front", nil, nil, 780)
 
             -- Only stand fully up if we are not crouching
             if not isCrouched then
                 Wait(780)
-                PlayAnimOnce(playerPed, "get_up@directional@movement@from_knees@standard", "getup_l_0", 1300)
+                PlayAnimOnce(playerPed, "get_up@directional@movement@from_knees@standard", "getup_l_0", nil, nil, 1300)
             end
         else
-            PlayAnimOnce(playerPed, "get_up@directional@transition@prone_to_seated@crawl", "back", 950, 16.0)
+            PlayAnimOnce(playerPed, "get_up@directional@transition@prone_to_seated@crawl", "back", 16.0, nil, 950)
 
             -- Only stand fully up if we are not crouching
             if not isCrouched then
                 Wait(950)
-                PlayAnimOnce(playerPed, "get_up@directional@movement@from_seated@standard", "get_up_l_0", 1300)
+                PlayAnimOnce(playerPed, "get_up@directional@movement@from_seated@standard", "get_up_l_0", nil, nil, 1300)
             end
         end
     end
@@ -258,12 +258,12 @@ local function CrawlFlip(playerPed)
     if proneType == "onfront" then
         proneType = "onback"
 
-        PlayAnimOnce(playerPed, "get_up@directional_sweep@combat@pistol@front", "front_to_prone", -1, 2.0)
+        PlayAnimOnce(playerPed, "get_up@directional_sweep@combat@pistol@front", "front_to_prone", 2.0)
         ChangeHeadingSmooth(playerPed, -18.0, 3600)
     else
         proneType = "onfront"
 
-        PlayAnimOnce(playerPed, "amb@world_human_bum_slumped@male@laying_on_left_side@flee", "back", 500, 2.0)
+        PlayAnimOnce(playerPed, "amb@world_human_bum_slumped@male@laying_on_left_side@flee", "back", 2.0, nil, 500)
         Wait(500)
     end
 
@@ -312,7 +312,7 @@ local function CrawlThread()
                         ChangeHeadingSmooth(playerPed, -10.0, 300)
                         Wait(700)
                     else
-                        PlayAnimOnce(playerPed, "get_up@directional_sweep@combat@pistol@left", "left_to_prone", -1)
+                        PlayAnimOnce(playerPed, "get_up@directional_sweep@combat@pistol@left", "left_to_prone")
                         ChangeHeadingSmooth(playerPed, 25.0, 400)
                         PlayIdleCrawlAnim(playerPed)
                         Wait(600)
@@ -331,7 +331,7 @@ local function CrawlThread()
                         ChangeHeadingSmooth(playerPed, 10.0, 300)
                         Wait(700)
                     else
-                        PlayAnimOnce(playerPed, "get_up@directional_sweep@combat@pistol@right", "right_to_prone", -1)
+                        PlayAnimOnce(playerPed, "get_up@directional_sweep@combat@pistol@right", "right_to_prone")
                         ChangeHeadingSmooth(playerPed, -25.0, 400)
                         PlayIdleCrawlAnim(playerPed)
                         Wait(600)
@@ -419,19 +419,19 @@ local function CrawlKeyPressed()
     LoadAnimDict("move_crawlprone2crawlfront")
 
     if ShouldPlayerDiveToCrawl(playerPed) then
-        PlayAnimOnce(playerPed, "explosions", "react_blown_forwards", -1)
+        PlayAnimOnce(playerPed, "explosions", "react_blown_forwards", nil, 3.0)
         Wait(1100)
     elseif wasCrouched then
-        PlayAnimOnce(playerPed, "amb@world_human_sunbathe@male@front@enter", "enter", -1, 2.0, 0.3)
+        PlayAnimOnce(playerPed, "amb@world_human_sunbathe@male@front@enter", "enter", nil, nil, -1, 0.3)
         Wait(1500)
     else
-        PlayAnimOnce(playerPed, "amb@world_human_sunbathe@male@front@enter", "enter", -1)
+        PlayAnimOnce(playerPed, "amb@world_human_sunbathe@male@front@enter", "enter")
         Wait(3000)
     end
 
     -- Set the player into the idle position (but only if we can still crawl)
     if CanPlayerCrouchCrawl(playerPed) and not IsEntityInWater(playerPed) then
-        PlayIdleCrawlAnim(playerPed)
+        PlayIdleCrawlAnim(playerPed, nil, 3.0)
     end
     inAction = false
 
