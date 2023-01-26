@@ -84,6 +84,10 @@ Languages can be selected and / or added in the config.lua.
 
 - Persistent Walkstyles via client KVP 🚶‍♂️
 
+- Crouching 
+
+- Crawling 
+
 - Shared Particle Effects 💨
 
 - QB-Core Framework & SQL Keybinding Support ⚙️
@@ -424,6 +428,8 @@ If you want to modify RpEmotes ***(does not apply if you want to use it for pers
 ❌ You are not allowed to re-distribute the custom animations provided with this repository either on websites, forums, tebex store or discord.
 
 ❌ You are not allowed to claim the custom animations provided within this resource as your own work
+
+❌ You are not allowed to sell this script
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
