@@ -448,6 +448,11 @@ function AddPropToPlayer(prop1, bone, off1, off2, off3, rot1, rot2, rot3, textur
     local Player = PlayerPedId()
     local x, y, z = table.unpack(GetEntityCoords(Player))
 
+    if not IsModelValid(prop1) then
+        DebugPrint(tostring(prop1).." is not a valid model!")
+        return false
+    end
+
     if not HasModelLoaded(prop1) then
         LoadPropDict(prop1)
     end
