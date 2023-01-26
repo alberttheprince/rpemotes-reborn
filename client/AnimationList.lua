@@ -7133,22 +7133,49 @@ RP.Emotes = {
             EmoteDuration = 1000
         }
     },
-    ["reaching"] = {
+    ["holdster"] = {
         "move_m@intimidation@cop@unarmed",
         "idle",
-        "Reaching",
+        "Holdster",
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = true
         }
     },
-    ["reaching2"] = { --- Custom Emote Provided To RpEmotes By Mads
+    ["holdster2"] = { --- Custom Emote Provided To RpEmotes By Mads
         "mads@police_reaching_holster",
         "idle",
-        "Reaching 2",
+        "Holdster 2",
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = true
+        }
+    },
+    ["holdster3"] = {
+        "anim@hlstr_7360_walk",
+        "holster_walk",
+        "Holster 3",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+	["holdster4"] = {
+        "anim@hlstr_7360_hold",
+        "holster_stop",
+        "Holster 4 - Stop",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+	["holdster5"] = {
+        "anim@holster_hold_there",
+        "holster_hold",
+        "Holster 5 - Stop 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
         }
     },
     ["slap"] = {
@@ -8046,6 +8073,40 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteMoving = true,
             EmoteLoop = true
+        }
+    },
+    ["policecrowd"] = {
+        "amb@code_human_police_crowd_control@idle_a",
+        "idle_a",
+        "Police Crowd",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["policecrowd2"] = {
+        "amb@code_human_police_crowd_control@idle_b",
+        "idle_d",
+        "Police Crowd 2",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+	["k9pose"] = {
+        "anim@k9_pose",
+        "hug_dog",
+        "Hug Dog",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+	["maleprepgears"] = {
+        "anim@male@prep_gears",
+        "prep_gears_clip",
+        "Prep Gears",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
 
@@ -17731,20 +17792,42 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["policecrowd"] = {
-        "amb@code_human_police_crowd_control@idle_a",
-        "idle_a",
-        "Police Crowd",
+	["holdster6"] = {
+        "anim@hlstr_7360_torch",
+        "flsh_ps",
+        "Holdster 6 - Flash Light",
         AnimationOptions = {
-            EmoteLoop = true
+            Prop = 'prop_cs_police_torch_02',
+            PropBone = 60309,
+            PropPlacement = {
+                0.0550,
+               -0.0200,
+                0.0370,
+              -29.6216,
+               -8.6822,
+                4.9809
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
-    ["policecrowd2"] = {
-        "amb@code_human_police_crowd_control@idle_b",
-        "idle_d",
-        "Police Crowd 2",
+    ["holdster8"] = {
+        "anim@holster_walk_torch",
+        "flash_ps",
+        "Holdster 8 Flashlight 2",
         AnimationOptions = {
-            EmoteLoop = true
+            Prop = 'prop_cs_police_torch_02',
+            PropBone = 60309,
+            PropPlacement = {
+                0.0600,
+               -0.0100,
+                0.0200,
+              -20.0000,
+               0.0000,
+               3.9999
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
         }
-    }
+    },
 }
