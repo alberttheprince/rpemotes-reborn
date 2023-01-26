@@ -8109,6 +8109,25 @@ RP.Emotes = {
             EmoteMoving = false,
         }
     },
+    ["snot"] = {
+        "move_p_m_two_idles@generic", 
+        "fidget_blow_snot", 
+        "Blow Snot", 
+        AnimationOptions = {
+            EmoteMoving = true,
+            EmoteDuration = 4500,
+        }
+    }, 
+    ["scratch"] = {
+        "move_p_m_two_idles@generic", 
+        "fidget_scratch_balls", 
+        "Scratch Balls", 
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteDuration = 4000,
+        },
+        AdultAnimation = true
+    },
 
 
     -----------------------------------------------------------------------------------------------------------
