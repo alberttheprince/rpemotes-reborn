@@ -41,7 +41,12 @@ for i = 1, #emoteTypes do
     end
 end
 
+local function IsPlayerAiming(player)
+    return IsPlayerFreeAiming(player) or IsAimCamActive() or IsAimCamThirdPersonActive()
+end
+
 local function RunAnimationThread()
+    local playerId = PlayerId()
     if AnimationThreadStatus then return end
     AnimationThreadStatus = true
     CreateThread(function()
@@ -51,7 +56,7 @@ local function RunAnimationThread()
 
             if IsInAnimation then
                 sleep = 0
-                if IsPedShooting(PlayerPedId()) then
+                if IsPlayerAiming(playerId) then
                     EmoteCancel()
                 end
             end
