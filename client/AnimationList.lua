@@ -5324,6 +5324,42 @@ RP.Emotes = {
             EmoteMoving = true
         }
     },
+    ["argue3"] = {
+        "missheistdockssetup1leadinoutig_1", 
+        "lsdh_ig_1_argue_wade", 
+        "Argue 3", 
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    }, 
+    ["argue4"] = {
+        "car_2_mcs_1-6", 
+        "cs_devin_dual-6", 
+        "Argue 4", 
+        AnimationOptions = {            
+            EmoteDuration = 6000,
+            EmoteMoving = true
+        }
+    }, 
+    ["argue5"] = {
+        "anim@amb@casino@brawl@fights@argue@", 
+        "arguement_loop_mp_m_brawler_01", 
+        "Argue Angry 1", 
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    }, 
+    ["argue6"] = {
+        "anim@amb@casino@brawl@fights@argue@", 
+        "arguement_loop_mp_m_brawler_02", 
+        "Argue Angry 2", 
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },  
     ["bartender"] = {
         "anim@amb@clubhouse@bar@drink@idle_a",
         "idle_a_bartender",
