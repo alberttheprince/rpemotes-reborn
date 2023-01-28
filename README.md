@@ -54,6 +54,8 @@ RpEmotes is a community driven FiveM emote menu allowing players to express them
 
 * Russian 🇷🇺
 
+* Sinhala 🇱🇰
+
 * Spanish 🇪🇸
 
 * Swedish 🇸🇪
