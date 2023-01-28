@@ -6493,6 +6493,14 @@ RP.Emotes = {
             EmoteLoop = true
         }
     },
+    ["elbow2"] = { -- Custom Emote By Chocoholic Animations 
+        "chocoholic@single47",
+        "single47_clip",
+        "Window Elbow 2",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
     ["sitlean"] = {
         "timetable@tracy@ig_14@",
         "ig_14_base_tracy",
@@ -8133,16 +8141,7 @@ RP.Emotes = {
         "Hug Dog",
         AnimationOptions = {
             EmoteLoop = true,
-            EmoteMoving = false,
-        }
-    },
-	["maleprepgears"] = {
-        "anim@male@prep_gears",
-        "prep_gears_clip",
-        "Prep Gears",
-        AnimationOptions = {
-            EmoteLoop = true,
-            EmoteMoving = false,
+			EmoteMoving = false,
         }
     },
     ["snot"] = {
@@ -8824,6 +8823,60 @@ RP.Emotes = {
         "Rifle Pose",
         AnimationOptions = {
             EmoteLoop = true
+        }
+    },
+    ["vest"] = {
+        "anim@male@holding_vest",
+        "holding_vest_clip",
+        "Hold Vest",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["vest2"] = {
+        "anim@holding_side_vest",
+        "holding_side_vest_clip",
+        "Hold Vest 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["vest3"] = {
+        "anim@holding_siege_vest_side",
+        "holding_siege_vest_side_clip",
+        "Hold Vest 3",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["vest4"] = {
+        "anim@male@holding_vest_2",
+        "holding_vest_2_clip",
+        "Hold Vest 4",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["vest5"] = {
+        "anim@male@holding_vest_siege",
+        "holding_vest_siege_clip",
+        "Hold Vest 5",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["vest6"] = {
+        "anim@male@holding_vest_siege_2",
+        "holding_vest_siege_2_clip",
+        "Hold Vest 6",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
         }
     },
 }
@@ -11870,6 +11923,63 @@ RP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = true
+        }
+    },
+	["wt2"] = {
+        "anim@radio_pose_3",
+        "radio_holding_gun",
+        "Walkie Talkie 2",
+        AnimationOptions = {
+            Prop = "prop_cs_hand_radio",
+            PropBone = 60309,
+            PropPlacement = {
+                0.0750,
+                0.0470,
+                0.0110,
+              -97.9442,
+                3.7058,
+                -23.2367
+				},
+            EmoteLoop = true,
+
+        }
+    },
+    ["wt3"] = {
+        "anim@radio_left",
+        "radio_left_clip",
+        "Walkie Talkie 3 Left",
+        AnimationOptions = {
+            Prop = "prop_cs_hand_radio",
+            PropBone = 60309,
+            PropPlacement = {
+                0.0750,
+                0.0470,
+                0.0110,
+              -97.9442,
+                3.7058,
+                -23.2367
+				},
+            EmoteLoop = true,
+			EmoteMoving = true
+        }
+    },
+    ["wt4"] = {
+        "anim@male@holding_radio",
+        "holding_radio_clip",
+        "Walkie Talkie 4",
+        AnimationOptions = {
+            Prop = "prop_cs_hand_radio",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0750,
+                0.0230,
+               -0.0230,
+              -90.0000,
+                0.0,
+              -59.9999
+				},
+            EmoteLoop = true,
+			EmoteMoving = true
         }
     },
     ["clean"] = {
@@ -17068,6 +17178,25 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
+	["megaphone3"] = {
+        "anim@rifle_megaphone",
+        "rifle_holding_megaphone",
+        "Megaphone 3",
+        AnimationOptions = {
+            Prop = "prop_megaphone_01",
+            PropBone = 60309,
+            PropPlacement = {
+                0.0480,
+                0.0190,
+                0.0160,
+              -94.8944,
+               -2.3093,
+              -10.9030
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["bball"] = { -- Custom Emote By Struggleville
         "anim@male_bskball_hold",
         "bskball_hold_clip",
@@ -17660,7 +17789,26 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["skatehold3"] = {
+    ["skatehold3"] = { -- Custom Emote By Chocoholic Animations
+        "chocoholic@skate4",
+        "skate4_clip",
+        "Skateboard - Hold Female 3",
+        AnimationOptions = {
+            Prop = "taymckenzienz_skateboard01",
+            PropBone = 28422,
+            PropPlacement = {
+                0.2780,
+               -0.0200,
+               -0.0700,
+               -180.0000,
+                28.0000,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
+    },
+    ["skatehold4"] = {
         "molly@boombox1",
         "boombox1_clip",
         "Skateboard - Hold Male",
@@ -17689,7 +17837,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["skatehold4"] = { -- Emote by Molly
+    ["skatehold5"] = { -- Emote by Molly
         "beachanims@molly",
         "beachanim_surf_clip",
         "Skatebboard - Hold Male 2",
@@ -17708,10 +17856,10 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["skatehold5"] = { -- Custom Emote By Chocoholic Animations
+    ["skatehold6"] = { -- Custom Emote By Chocoholic Animations
         "chocoholic@skate4",
         "skate4_clip",
-        "Skateboard - Hold Male 5",
+        "Skateboard - Hold Male 3",
         AnimationOptions = {
             Prop = "taymckenzienz_skateboard02",
             PropBone = 28422,
@@ -17880,6 +18028,25 @@ RP.PropEmotes = {
               -20.0000,
                0.0000,
                3.9999
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["heartprop"] = {
+        "anim@heists@box_carry@",
+        "idle",
+        "Heart Prop",
+        AnimationOptions = {
+            Prop = 'brum_heart',
+            PropBone = 28422,
+            PropPlacement = {
+               -0.5600,
+                0.0240,
+               -0.3690,
+              -10.0000,
+               0.0000,
+              -0.0000
             },
             EmoteLoop = true,
             EmoteMoving = true

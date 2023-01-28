@@ -90,3 +90,5 @@ data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_prop_cake_casino001.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/taymckenzienz_skateboards.ytyp'
 
+data_file 'DLC_ITYP_REQUEST' 'stream/brum_heart.ytyp'
+
