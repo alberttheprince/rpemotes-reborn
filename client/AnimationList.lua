@@ -159,6 +159,13 @@ RP.Walks = {
     ["Brave"] = {
         "move_m@brave"
     },
+    ["Brave2"] = {
+        "move_m@brave@a",
+        "Brave 2"
+    },
+    ["Casey"] = {
+        "move_casey"
+    },
     ["Casual"] = {
         "move_m@casual@a"
     },
@@ -232,6 +239,13 @@ RP.Walks = {
         "move_f@depressed@a",
         "Depressed 3"
     },
+    ["Depressed4"] = {
+        "move_f@depressed@c",
+        "Depressed 4"
+    },
+    ["Dreyfuss"] = {
+        "move_dreyfuss"
+    },
     ["Drunk"] = {
         "move_m@drunk@a"
     },
@@ -266,6 +280,10 @@ RP.Walks = {
     ["Fat3"] = {
         "move_m@fat@bulky",
         "Fat & Bulky"
+    },
+    ["Fat4"] = {
+        "move_f@fat@a_no_add",
+        "Fat Female 2"
     },
     ["Femme"] = {
         "move_f@femme@"
@@ -314,24 +332,56 @@ RP.Walks = {
         "move_m@gangster@generic"
     },
     ["Gangster2"] = {
-        "move_m@gangster@ng",
+        "move_gangster",
         "Gangster 2"
     },
     ["Gangster3"] = {
-        "move_m@gangster@var_e",
+        "move_m@gangster@ng",
         "Gangster 3"
     },
     ["Gangster4"] = {
-        "move_m@gangster@var_f",
+        "move_m@gangster@var_a",
         "Gangster 4"
     },
     ["Gangster5"] = {
-        "move_m@gangster@var_i",
+        "move_m@gangster@var_b",
         "Gangster 5"
     },
     ["Gangster6"] = {
-        "move_f@gangster@ng",
-        "Gangster 6 - Female"
+        "move_m@gangster@var_c",
+        "Gangster 6"
+    },
+    ["Gangster7"] = {
+        "move_m@gangster@var_d",
+        "Gangster 7"
+    },
+    ["Gangster8"] = {
+        "move_m@gangster@var_e",
+        "Gangster 8"
+    },
+    ["Gangster9"] = {
+        "move_m@gangster@var_f",
+        "Gangster 9"
+    },
+    ["Gangster10"] = {
+        "move_m@gangster@var_g",
+        "Gangster 10"
+    },
+    ["Gangster11"] = {
+        "move_m@gangster@var_h",
+        "Gangster 11"
+    },
+    ["Gangster12"] = {
+        "move_m@gangster@var_i",
+        "Gangster 12"
+    },
+    ["Gangster13"] = {
+        "move_m@gangster@var_j",
+        "Gangster 13"
+    },
+    ["Gangster14"] = {
+        "move_m@gangster@var_k",
+        "Gangster 14"
     },
     ["Genenric"] = {
         "move_m@generic",
@@ -453,6 +503,9 @@ RP.Walks = {
     ["Patricia"] = {
         "move_characters@patricia"
     },
+    ["Paramedic"] = {
+        "move_paramedic"
+    },
     ["Posh"] = {
         "move_m@posh@"
     },
@@ -507,6 +560,9 @@ RP.Walks = {
     },
     ["Slow"] = {
         "move_characters@jimmy@slow@"
+    },
+    ["Stripper"] = {
+        "move_f@stripper@a"
     },
     ["Swagger"] = {
         "move_m@swagger"
