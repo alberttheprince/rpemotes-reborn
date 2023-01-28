@@ -331,55 +331,55 @@ RP.Walks = {
     ["Gangster"] = {
         "move_m@gangster@generic"
     },
-    ["Gangster2"] = {
+    ["Gangsterb"] = {
         "move_gangster",
         "Gangster 2"
     },
-    ["Gangster3"] = {
+    ["Gangsterc"] = {
         "move_m@gangster@ng",
         "Gangster 3"
     },
-    ["Gangster4"] = {
+    ["Gangsterd"] = {
         "move_m@gangster@var_a",
         "Gangster 4"
     },
-    ["Gangster5"] = {
+    ["Gangstere"] = {
         "move_m@gangster@var_b",
         "Gangster 5"
     },
-    ["Gangster6"] = {
+    ["Gangsterf"] = {
         "move_m@gangster@var_c",
         "Gangster 6"
     },
-    ["Gangster7"] = {
+    ["Gangsterg"] = {
         "move_m@gangster@var_d",
         "Gangster 7"
     },
-    ["Gangster8"] = {
+    ["Gangsterh"] = {
         "move_m@gangster@var_e",
         "Gangster 8"
     },
-    ["Gangster9"] = {
+    ["Gangsteri"] = {
         "move_m@gangster@var_f",
         "Gangster 9"
     },
-    ["Gangster10"] = {
+    ["Gangsterj"] = {
         "move_m@gangster@var_g",
         "Gangster 10"
     },
-    ["Gangster11"] = {
+    ["Gangsterk"] = {
         "move_m@gangster@var_h",
         "Gangster 11"
     },
-    ["Gangster12"] = {
+    ["Gangsterl"] = {
         "move_m@gangster@var_i",
         "Gangster 12"
     },
-    ["Gangster13"] = {
+    ["Gangsterm"] = {
         "move_m@gangster@var_j",
         "Gangster 13"
     },
-    ["Gangster14"] = {
+    ["Gangstern"] = {
         "move_m@gangster@var_k",
         "Gangster 14"
     },
