@@ -263,8 +263,8 @@ local function CrawlFlip(playerPed)
     else
         proneType = "onfront"
 
-        PlayAnimOnce(playerPed, "amb@world_human_bum_slumped@male@laying_on_left_side@flee", "back", 2.0, nil, 500)
-        Wait(500)
+        PlayAnimOnce(playerPed, "move_crawlprone2crawlfront", "back", 2.0, nil, -1)
+        ChangeHeadingSmooth(playerPed, 12.0, 1700)
     end
 
     PlayIdleCrawlAnim(playerPed, heading + 180.0)
