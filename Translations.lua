@@ -59,6 +59,9 @@ Config.Languages = {
         ['firework'] = "Pressione ~y~G~w~ para usar o fogo de artifício",
         ['poop'] = "Pressione ~y~G~w~ para fazer cocô", -- Translated using smodin.io
         ['puke'] = "Pressione ~y~G~w~ para vomitar",
+        ['btn_select'] = "Select",
+        ['btn_back'] = "Back",
+        ['btn_switch'] = "Movement",
     },
     ['cs'] = { -- Czech 🇨🇿
         ['emotes'] = 'Animace 🎬',
@@ -120,6 +123,9 @@ Config.Languages = {
         ['firework'] = "Stiskni ~y~G~w~ pro použití ohňostroje",
         ['poop'] = "Stisknutím ~y~G~w~ se vykakáte",
         ['puke'] = "Stiskni ~y~G~w~ pro zvracení",
+        ['btn_select'] = "Select",
+        ['btn_back'] = "Back",
+        ['btn_switch'] = "Movement",
     },
     ['da'] = { -- Danish 🇩🇰
         ['emotes'] = 'Animationer',
@@ -181,6 +187,9 @@ Config.Languages = {
         ['firework'] = "Tryk på ~y~Gw~ for at bruge fyrværkeri",
         ['poop'] = "Tryk på ~y~G~w~ for at skide",
         ['puke'] = "Tryk ~y~G~w~ for at kaste op",---- Translated via smodin.io
+        ['btn_select'] = "Select",
+        ['btn_back'] = "Back",
+        ['btn_switch'] = "Movement",
     },
     ['nl'] = { -- Dutch 🇳🇱
         ['emotes'] = 'Animaties 🎬',
@@ -242,6 +251,9 @@ Config.Languages = {
         ['firework'] = "Druk op ~y~Gw~ om vuurwerk te gebruiken",
         ['poop'] = "Druk op ~y~G~w~ om te poepen",
         ['puke'] = "Druk op ~y~G~w~ om te kotsen",
+        ['btn_select'] = "Select",
+        ['btn_back'] = "Back",
+        ['btn_switch'] = "Movement",
     },
     ['en'] = { -- English 🇬🇧
         ['emotes'] = 'Emotes 🎬',
@@ -305,7 +317,7 @@ Config.Languages = {
         ['puke'] = "Press ~y~G~w~ to puke",
         ['btn_select'] = "Select",
         ['btn_back'] = "Back",
-        ['btn_switch'] = "Movement"
+        ['btn_switch'] = "Movement",
     },
     ['fi'] = { -- Finnish 🇫🇮
         ['emotes'] = 'Animaatiot 🎬',
@@ -367,6 +379,9 @@ Config.Languages = {
         ['firework'] = "Käytä ilotulitteita painamalla ~y~Gw~", -- GOOGLE TRANSLATED
         ['poop'] = "Paina ~y~G~w~ kakkaaksesi.",
         ['puke'] = "Paina ~y~G~w~ oksentaaksesi.",
+        ['btn_select'] = "Select",
+        ['btn_back'] = "Back",
+        ['btn_switch'] = "Movement",
     },
     ['fr'] = { -- French 🇫🇷
         ['emotes'] = 'Emotes 🎬',
@@ -427,6 +442,9 @@ Config.Languages = {
         ['firework'] = "Appuyez sur ~y~Gw~ pour utiliser des feux d'artifice", -- GOOGLE TRANSLATED
         ['poop'] = "Appuyez sur ~y~G~w~ pour faire caca.", -- Translated using smodin.io
         ['puke'] = "Appuyez sur ~y~G~w~ pour vomir.",
+        ['btn_select'] = "Select",
+        ['btn_back'] = "Back",
+        ['btn_switch'] = "Movement",
     },
     ['de'] = { -- German 🇩🇪
         ['emotes'] = 'Emotes 🎬',
@@ -487,6 +505,9 @@ Config.Languages = {
         ['firework'] = "Drücke ~y~G~w~, um das Feuerwerk zu benutzen",
         ['poop'] = "Drücke ~y~G~w~, um zu kacken", --Translated using smodin.io
         ['puke'] = "Drücke ~y~G~w~ um dich zu übergeben",
+        ['btn_select'] = "Auswählen",
+        ['btn_back'] = "Zurück",
+        ['btn_switch'] = "Bewegung",
     },
     ['hu'] = { -- Hungarian 🇭🇺
         ['emotes'] = 'Animációs Menü 🎬',
@@ -609,6 +630,9 @@ Config.Languages = {
         ['firework'] =  "Premere ~y~G~w~ per utilizzare il fuoco d'artificio",
         ['poop'] = "Premere ~y~G  w~ per fare la cacca",
         ['puke'] = "Premi ~y~G~w~ per vomitare", ---- Translated via smodin.io
+        ['btn_select'] = "Select",
+        ['btn_back'] = "Back",
+        ['btn_switch'] = "Movement",
     },
 	['no'] = { -- Norwegian 🇳🇴
         ['emotes'] = 'Animasjoner 🎬',
@@ -670,6 +694,9 @@ Config.Languages = {
         ['firework'] = "Trykk ~y~G~w~ for å avfyre fyrverkeriet",
         ['poop'] = "Hold ~y~G~w~ for å bæsje",
         ['puke'] = "Trykk ~y~G~w~ for å spy",---- Translated via smodin.io
+        ['btn_select'] = "Select",
+        ['btn_back'] = "Back",
+        ['btn_switch'] = "Movement",
     },
 	['fa'] = { -- persian 🇮🇷
         ['emotes'] = 'Emotes 🎬',
@@ -731,6 +758,9 @@ Config.Languages = {
         ['firework'] = "Press ~y~G~w~ to use the firework",
         ['poop'] = "Press ~y~G~w~ to poop",
         ['puke'] = "Press ~y~G~w~ to vomit",
+        ['btn_select'] = "Select",
+        ['btn_back'] = "Back",
+        ['btn_switch'] = "Movement",
     },
     ['pl'] = { -- Polish 🇵🇱
         ['emotes'] = 'Animacje 🎬',
@@ -792,6 +822,9 @@ Config.Languages = {
         ['firework'] = "Naciśnij ~y~Gw~ aby odpalić fajerwerki",
         ['poop'] = "Naciśnij ~y~G~w~ by zrobić kupę",
         ['puke'] = "Naciśnij ~y~G~w~, aby zwymiotować",---- Translated via smodin.io
+        ['btn_select'] = "Select",
+        ['btn_back'] = "Back",
+        ['btn_switch'] = "Movement",
     },
     ['ro'] = { -- Romanian 🇷🇴
         ['emotes'] = 'Emote-uri 🎬',
@@ -853,6 +886,9 @@ Config.Languages = {
         ['firework'] = "Apasa ~y~Gw~ pentru a folosi artificiile",
         ['poop'] = "Apăsați pe ~y~G~w~ pentru a face caca", --Trannslated using smodin.io
         ['puke'] = "Apăsați pe ~y~G~w~ pentru a vomita",---- Translated via smodin.io
+        ['btn_select'] = "Select",
+        ['btn_back'] = "Back",
+        ['btn_switch'] = "Movement",
     },
     ['ru'] = { -- Russian 🇷🇺
         ['emotes'] = 'Эмоции 🎬',
@@ -914,6 +950,9 @@ Config.Languages = {
         ['firework'] = "Нажмите ~y~Gw~, чтобы запустить фейерверк.", -- GOOGLE TRANSLATED
         ['poop'] = "Нажмите ~y~G~w~, чтобы какать",
         ['puke'] = "Нажмите ~y~G~w~ для рвоты",
+        ['btn_select'] = "Выбрать",
+        ['btn_back'] = "Назад",
+        ['btn_switch'] = "Движение",
     },
     ['lk'] = { -- Sinhala 🇱🇰
         ['emotes'] = 'Emotes 🎬',
@@ -1038,6 +1077,9 @@ Config.Languages = {
         ['firework'] = "Presione ~y~Gw~ para usar los fuegos artificiales",
         ['poop'] = "Presione ~y~G~w~ para hacer caca",
         ['puke'] = "Presiona ~y~G~w~ para vomitar", ---- Translated via smodin.io
+        ['btn_select'] = "Select",
+        ['btn_back'] = "Back",
+        ['btn_switch'] = "Movement",
     },
     ['sv'] = { -- Swedish 🇸🇪
         ['emotes'] = 'Emotes 🎬',
@@ -1099,6 +1141,9 @@ Config.Languages = {
         ['firework'] = "Tryck ~y~G~w~ för att avfyra dina fyrverkerier",
         ['poop'] = "Tryck ~y~G~w~ för att bajsa", -- Translated using smodin.io
         ['puke'] = "Tryck ~y~G~w~ För att Spy",
+        ['btn_select'] = "Select",
+        ['btn_back'] = "Back",
+        ['btn_switch'] = "Movement",
     },
     ['tr'] = { -- Turkish 🇹🇷
         ['emotes'] = 'İfadeler 🎬',
@@ -1160,5 +1205,8 @@ Config.Languages = {
         ['firework'] = "Havai fişeği kullanmak için ~y~G~w~ tuşlarına basın",
         ['poop'] = "Kaka yapmak için ~y~G~w~ tuşlarına basın",
         ['puke'] = "Kusmak için ~y~G~w~ tuşlarına basın",
+        ['btn_select'] = "Select",
+        ['btn_back'] = "Back",
+        ['btn_switch'] = "Movement",
     }
 }
