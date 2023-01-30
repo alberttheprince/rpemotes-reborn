@@ -975,6 +975,9 @@ Config.Languages = {
         ['firework'] = "Firework ekata ~y~G~w~ press karanna",
         ['poop'] = "Kakki danna ~y~G~w~ press karanna",
         ['puke'] = "Wamane danna ~y~G~w~ press karanna",
+        ['btn_select'] = "Select Karanna",
+        ['btn_back'] = "Aapassata",
+        ['btn_switch'] = "Movement eka",
     },
     ['es'] = { -- Spanish 🇪🇸
         ['emotes'] = "Animaciones 🎬",
