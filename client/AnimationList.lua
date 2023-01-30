@@ -6819,6 +6819,22 @@ RP.Emotes = {
             EmoteLoop = true
         }
     },
+    ["gangsign3"] = {
+        "amb@code_human_in_car_mp_actions@gang_sign_b@low@ps@base",
+        "idle_a",
+        "Gang Sign 3",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["gangsign4"] = {
+        "amb@code_human_in_car_mp_actions@v_sign@std@rds@base",
+        "idle_a",
+        "Gang Sign 4",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
     ["passout"] = {
         "missarmenian2",
         "drunk_loop",
