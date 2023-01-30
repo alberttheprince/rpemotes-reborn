@@ -19,6 +19,7 @@ local AnimationThreadStatus = false
 local CanCancel = true
 local InExitEmote = false
 IsInAnimation = false
+ToggleEmoteMovement = true
 
 -- Remove emotes if needed
 
@@ -493,6 +494,8 @@ end
 -----------------------------------------------------------------------------------------------------
 
 function OnEmotePlay(EmoteName, textureVariation)
+    local animOption = EmoteName.AnimationOptions
+
     InVehicle = IsPedInAnyVehicle(PlayerPedId(), true)
 	Pointing = false
 
@@ -509,7 +512,7 @@ function OnEmotePlay(EmoteName, textureVariation)
         return false
     end
 
-    if EmoteName.AnimationOptions and EmoteName.AnimationOptions.NotInVehicle and InVehicle then
+    if animOption and animOption.NotInVehicle and InVehicle then
         return EmoteChatMessage("You can't play this animation while in vehicle.")
     end
 
@@ -525,7 +528,7 @@ function OnEmotePlay(EmoteName, textureVariation)
     end
 
     ChosenDict, ChosenAnimation, ename = table.unpack(EmoteName)
-    ChosenAnimOptions = EmoteName.AnimationOptions
+    ChosenAnimOptions = animOption
     AnimationDuration = -1
 
     if ChosenDict == "Expression" then
@@ -576,8 +579,8 @@ function OnEmotePlay(EmoteName, textureVariation)
     end
 
     -- Small delay at the start
-    if EmoteName.AnimationOptions and EmoteName.AnimationOptions.StartDelay then
-        Wait(EmoteName.AnimationOptions.StartDelay)
+    if animOption and animOption.StartDelay then
+        Wait(animOption.StartDelay)
     end
 
     if not LoadAnim(ChosenDict) then
@@ -585,52 +588,43 @@ function OnEmotePlay(EmoteName, textureVariation)
         return
     end
 
-    if EmoteName.AnimationOptions then
-        if EmoteName.AnimationOptions.EmoteLoop then
-            MovementType = 1
-            if EmoteName.AnimationOptions.EmoteMoving then
-                MovementType = 51 -- 110011
-            end
-
-        elseif EmoteName.AnimationOptions.EmoteMoving then
-            MovementType = 51 -- 110011
-        elseif EmoteName.AnimationOptions.EmoteMoving == false then
-            MovementType = 0
-        elseif EmoteName.AnimationOptions.EmoteStuck then
-            MovementType = 50 -- 110010
-        end
-
-    else
-        MovementType = 0
-    end
-
     if InVehicle == 1 then
         MovementType = 51
+    elseif animOption then
+        if animOption.EmoteLoop then
+            MovementType = (ToggleEmoteMovement and 51 or 1)
+        elseif animOption.EmoteStuck then
+            MovementType = (ToggleEmoteMovement and 50 or 1) -- 110010
+        else
+            MovementType = (ToggleEmoteMovement and 51 or 1)
+        end
+    else
+        MovementType = (ToggleEmoteMovement and 51 or 0)
     end
 
-    if EmoteName.AnimationOptions then
-        if EmoteName.AnimationOptions.EmoteDuration == nil then
-            EmoteName.AnimationOptions.EmoteDuration = -1
+    if animOption then
+        if animOption.EmoteDuration == nil then
+            animOption.EmoteDuration = -1
             AttachWait = 0
         else
-            AnimationDuration = EmoteName.AnimationOptions.EmoteDuration
-            AttachWait = EmoteName.AnimationOptions.EmoteDuration
+            AnimationDuration = animOption.EmoteDuration
+            AttachWait = animOption.EmoteDuration
         end
 
-        if EmoteName.AnimationOptions.PtfxAsset then
-            PtfxAsset = EmoteName.AnimationOptions.PtfxAsset
-            PtfxName = EmoteName.AnimationOptions.PtfxName
-            if EmoteName.AnimationOptions.PtfxNoProp then
-                PtfxNoProp = EmoteName.AnimationOptions.PtfxNoProp
+        if animOption.PtfxAsset then
+            PtfxAsset = animOption.PtfxAsset
+            PtfxName = animOption.PtfxName
+            if animOption.PtfxNoProp then
+                PtfxNoProp = animOption.PtfxNoProp
             else
                 PtfxNoProp = false
             end
-            Ptfx1, Ptfx2, Ptfx3, Ptfx4, Ptfx5, Ptfx6, PtfxScale = table.unpack(EmoteName.AnimationOptions.PtfxPlacement)
-            PtfxBone = EmoteName.AnimationOptions.PtfxBone
-            PtfxColor = EmoteName.AnimationOptions.PtfxColor
-            PtfxInfo = EmoteName.AnimationOptions.PtfxInfo
-            PtfxWait = EmoteName.AnimationOptions.PtfxWait
-            PtfxCanHold = EmoteName.AnimationOptions.PtfxCanHold
+            Ptfx1, Ptfx2, Ptfx3, Ptfx4, Ptfx5, Ptfx6, PtfxScale = table.unpack(animOption.PtfxPlacement)
+            PtfxBone = animOption.PtfxBone
+            PtfxColor = animOption.PtfxColor
+            PtfxInfo = animOption.PtfxInfo
+            PtfxWait = animOption.PtfxWait
+            PtfxCanHold = animOption.PtfxCanHold
             PtfxNotif = false
             PtfxPrompt = true
             -- RunAnimationThread() -- ? This call should not be required, see if needed with tests
@@ -643,24 +637,21 @@ function OnEmotePlay(EmoteName, textureVariation)
         end
     end
 
-    TaskPlayAnim(PlayerPedId(), ChosenDict, ChosenAnimation, 5.0, 5.0, AnimationDuration, MovementType, 0, false, false,
-        false)
+    TaskPlayAnim(PlayerPedId(), ChosenDict, ChosenAnimation, 5.0, 5.0, AnimationDuration, MovementType, 0, false, false, false)
     RemoveAnimDict(ChosenDict)
     IsInAnimation = true
     RunAnimationThread()
     MostRecentDict = ChosenDict
     MostRecentAnimation = ChosenAnimation
 
-    if EmoteName.AnimationOptions then
-        if EmoteName.AnimationOptions.Prop then
-            PropName = EmoteName.AnimationOptions.Prop
-            PropBone = EmoteName.AnimationOptions.PropBone
-            PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6 = table.unpack(EmoteName.AnimationOptions.PropPlacement)
-            if EmoteName.AnimationOptions.SecondProp then
-                SecondPropName = EmoteName.AnimationOptions.SecondProp
-                SecondPropBone = EmoteName.AnimationOptions.SecondPropBone
-                SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6 = table.unpack(EmoteName
-                    .AnimationOptions.SecondPropPlacement)
+    if animOption and animOption.Prop then
+            PropName = animOption.Prop
+            PropBone = animOption.PropBone
+            PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6 = table.unpack(animOption.PropPlacement)
+            if animOption.SecondProp then
+                SecondPropName = animOption.SecondProp
+                SecondPropBone = animOption.SecondPropBone
+            SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6 = table.unpack(EmoteName.AnimationOptions.SecondPropPlacement)
                 SecondPropEmote = true
             else
                 SecondPropEmote = false
@@ -668,17 +659,15 @@ function OnEmotePlay(EmoteName, textureVariation)
             Wait(AttachWait)
             if not AddPropToPlayer(PropName, PropBone, PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6, textureVariation) then return end
             if SecondPropEmote then
-                if not AddPropToPlayer(SecondPropName, SecondPropBone, SecondPropPl1, SecondPropPl2, SecondPropPl3,
-                    SecondPropPl4, SecondPropPl5, SecondPropPl6, textureVariation) then
+            if not AddPropToPlayer(SecondPropName, SecondPropBone, SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6, textureVariation) then
                     DestroyAllProps()
                     return
                 end
             end
 
             -- Ptfx is on the prop, then we need to sync it
-            if EmoteName.AnimationOptions.PtfxAsset and not PtfxNoProp then
+            if animOption.PtfxAsset and not PtfxNoProp then
                 TriggerServerEvent("rpemotes:ptfx:syncProp", ObjToNet(prop))
-            end
         end
     end
 end

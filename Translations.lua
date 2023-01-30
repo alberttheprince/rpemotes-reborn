@@ -303,6 +303,9 @@ Config.Languages = {
         ['firework'] = "Press ~y~G~w~ to use the firework",
         ['poop'] = "Press ~y~G~w~ to poop",
         ['puke'] = "Press ~y~G~w~ to puke",
+        ['btn_select'] = "Select",
+        ['btn_back'] = "Back",
+        ['btn_switch'] = "Movement"
     },
     ['fi'] = { -- Finnish 🇫🇮
         ['emotes'] = 'Animaatiot 🎬',
