@@ -1077,9 +1077,9 @@ Config.Languages = {
         ['firework'] = "Presione ~y~Gw~ para usar los fuegos artificiales",
         ['poop'] = "Presione ~y~G~w~ para hacer caca",
         ['puke'] = "Presiona ~y~G~w~ para vomitar", ---- Translated via smodin.io
-        ['btn_select'] = "Select",
-        ['btn_back'] = "Back",
-        ['btn_switch'] = "Movement",
+        ['btn_select'] = "Seleccionar",
+        ['btn_back'] = "Atrás ",
+        ['btn_switch'] = "Movimiento ",
     },
     ['sv'] = { -- Swedish 🇸🇪
         ['emotes'] = 'Emotes 🎬',
