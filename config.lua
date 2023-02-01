@@ -39,6 +39,8 @@ Config = {
     RagdollAsToggle = true,
     -- You can disable the Facial Expressions menu here.
     ExpressionsEnabled = true,
+    -- Saves expression style to client and applies them on joining
+    PersistentExpression = true,
     -- You can disable the Walking Styles menu here.
     WalkingStylesEnabled = true,
     -- Saves walk styles to client and applies them periodically

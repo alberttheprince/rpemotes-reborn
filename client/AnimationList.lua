@@ -9,116 +9,102 @@ RP = {}
 
 RP.Expressions = {
     ["Aiming"] = {
-        "Expression",
         "mood_aiming_1"
     },
     ["Angry"] = {
-        "Expression",
         "mood_angry_1"
     },
     ["Burning"] = {
-        "Expression",
         "burning_1"
     },
     ["Crying"] = {
-        "Expression",
         "console_wasnt_fun_end_loop_floyd_facial"
     },
     ["Dead"] = {
-        "Expression",
         "dead_1"
     },
     ["Drunk"] = {
-        "Expression",
         "mood_drunk_1"
     },
     ["Dumb"] = {
-        "Expression",
         "pose_injured_1"
     },
     ["Electrocuted"] = {
-        "Expression",
         "electrocuted_1"
     },
+    ["Excited"] = {
+        "mood_excited_1"
+    },
+    ["Frustrated"] = {
+        "mood_frustrated_1"
+    },
     ["Grumpy"] = {
-        "Expression",
         "effort_1"
     },
     ["Grumpy2"] = {
-        "Expression",
-        "mood_drivefast_1"
+        "mood_drivefast_1",
+        "Grumpy 2"
     },
     ["Grumpy3"] = {
-        "Expression",
-        "pose_angry_1"
+        "pose_angry_1",
+        "Grumpy 3"
     },
     ["Happy"] = {
-        "Expression",
         "mood_happy_1"
     },
     ["Injured"] = {
-        "Expression",
         "mood_injured_1"
     },
     ["Joyful"] = {
-        "Expression",
         "mood_dancing_low_1"
     },
     ["Mouthbreather"] = {
-        "Expression",
         "smoking_hold_1"
     },
-    ["Never Blink"] = {
-        "Expression",
-        "pose_normal_1"
+    ["Neverblink"] = {
+        "pose_normal_1",
+        "Never Blink"
     },
-    ["One Eye"] = {
-        "Expression",
-        "pose_aiming_1"
+    ["Oneeye"] = {
+        "pose_aiming_1",
+        "One Eye"
     },
     ["Shocked"] = {
-        "Expression",
         "shocked_1"
     },
     ["Shocked2"] = {
-        "Expression",
-        "shocked_2"
+        "shocked_2",
+        "Shocked 2"
     },
     ["Sleeping"] = {
-        "Expression",
         "mood_sleeping_1"
     },
     ["Sleeping2"] = {
-        "Expression",
-        "dead_1"
+        "dead_1",
+        "Sleeping 2"
     },
     ["Sleeping3"] = {
-        "Expression",
-        "dead_2"
+        "dead_2",
+        "Sleeping 3"
     },
     ["Smug"] = {
-        "Expression",
         "mood_smug_1"
     },
     ["Speculative"] = {
-        "Expression",
         "mood_aiming_1"
     },
     ["Stressed"] = {
-        "Expression",
         "mood_stressed_1"
     },
     ["Sulking"] = {
-        "Expression",
         "mood_sulk_1"
     },
     ["Weird"] = {
-        "Expression",
         "effort_2"
     },
     ["Weird2"] = {
-        "Expression",
-        "effort_3"
+        "effort_3",
+        "Weird 2"
     },
 }
 
@@ -644,6 +630,7 @@ RP.Shared = {
         "Handshake",
         "handshake2",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 3000,
             SyncOffsetFront = 0.9
         }
@@ -654,6 +641,7 @@ RP.Shared = {
         "Handshake 2",
         "handshake",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 3000
         }
     },
@@ -663,6 +651,7 @@ RP.Shared = {
         "Hug",
         "hug2",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteDuration = 5000,
             SyncOffsetFront = 1.05
         }
@@ -673,6 +662,7 @@ RP.Shared = {
         "Hug 2",
         "hug",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteDuration = 5000,
             SyncOffsetFront = 1.18
         }
@@ -683,6 +673,7 @@ RP.Shared = {
         "Hug Romantic 1",
         "hugr2",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             SyncOffsetSide = -0.05,
             SyncOffsetFront = 0.52
@@ -694,6 +685,7 @@ RP.Shared = {
         "Hug Romantic 2",
         "hugr",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             SyncOffsetSide = -0.05,
             SyncOffsetFront = 0.52
@@ -723,6 +715,7 @@ RP.Shared = {
         "Give",
         "give2",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 2000
         }
     },
@@ -732,6 +725,7 @@ RP.Shared = {
         "Give 2",
         "give",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 2000
         }
     },
@@ -753,7 +747,8 @@ RP.Shared = {
         "Stick Up",
         "stickupscared",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["stickupscared"] = {
@@ -762,6 +757,7 @@ RP.Shared = {
         "Stickup Scared",
         "stickup",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -796,6 +792,7 @@ RP.Shared = {
         "slapped2",
         AnimationOptions = {
             EmoteLoop = true,
+            EmoteMoving = true,
             EmoteDuration = 2000
         }
     },
@@ -806,6 +803,7 @@ RP.Shared = {
         "slapped",
         AnimationOptions = {
             EmoteLoop = true,
+            EmoteMoving = true,
             EmoteDuration = 2000
         }
     },
@@ -827,6 +825,7 @@ RP.Shared = {
         "Receive Blowjob",
         "giveblowjob",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteDuration = 30000,
             SyncOffsetFront = 0.63
         },
@@ -838,6 +837,7 @@ RP.Shared = {
         "Give Blowjob",
         "receiveblowjob",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteDuration = 30000,
             SyncOffsetFront = 0.63
         },
@@ -849,6 +849,7 @@ RP.Shared = {
         "Street Sex Male",
         "streetsexfemale",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             SyncOffsetFront = 0.50
         },
@@ -860,6 +861,7 @@ RP.Shared = {
         "Street Sex Female",
         "streetsexmale",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             SyncOffsetFront = 0.50
         },
@@ -871,6 +873,7 @@ RP.Shared = {
         "Carry",
         "carry2",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -880,6 +883,7 @@ RP.Shared = {
         "Be carried",
         "carry",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             bone = 40269,
@@ -897,6 +901,7 @@ RP.Shared = {
         "Carry 2",
         "carry4",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -906,6 +911,7 @@ RP.Shared = {
         "Be carried 2",
         "carry3",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             bone = 28252,
@@ -923,6 +929,7 @@ RP.Shared = {
         "Carry Me Cute",
         "carrymecute2",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -932,6 +939,7 @@ RP.Shared = {
         "Carry Me Cute 2",
         "carrymecute",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             bone = 0,
@@ -949,6 +957,7 @@ RP.Shared = {
         "Carry Me Cute 3",
         "carrycmg2",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true
         }
     },
@@ -975,6 +984,7 @@ RP.Shared = {
         "BFF Pose",
         "bffb",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true
         },
     },
@@ -984,6 +994,7 @@ RP.Shared = {
         "BFF Pose 2",
         "bff",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             bone = 0,
@@ -1001,6 +1012,7 @@ RP.Shared = {
         "Sit With Me",
         "sitwithmepose2",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true
         }
     },
@@ -1010,6 +1022,7 @@ RP.Shared = {
         "Sit With Me Please?",
         "carrymecute",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             bone = 0,
@@ -1027,6 +1040,7 @@ RP.Shared = {
         "Hug Pose",
         "hugpose2",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true
         }
     },
@@ -1036,6 +1050,7 @@ RP.Shared = {
         "Hug Pose With Me?",
         "hugpose",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             bone = 0,
@@ -1053,6 +1068,7 @@ RP.Shared = {
         "Hug Pose Tippy Toes",
         "hugtip2",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true
         }
     },
@@ -1062,6 +1078,7 @@ RP.Shared = {
         "Hug Pose Tippy Toes 2",
         "hugtip",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             bone = 0,
@@ -1079,6 +1096,7 @@ RP.Shared = {
         "Cute Pic Pose",
         "cutepicpose2",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true
         }
     },
@@ -1088,6 +1106,7 @@ RP.Shared = {
         "Cute Pic Pose 2",
         "cutepicpose",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             bone = 0,
@@ -1105,6 +1124,7 @@ RP.Shared = {
         "Couple Heart Hands",
         "couplehhands2",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true
         }
     },
@@ -1114,6 +1134,7 @@ RP.Shared = {
         "Couple Heart Hands 2",
         "couplehhands",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             bone = 0,
@@ -1131,6 +1152,7 @@ RP.Shared = {
         "Couple Wedding Pose 1A",
         "couplewed1b",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true
         }
     },
@@ -1140,6 +1162,7 @@ RP.Shared = {
         "Couple Wedding Pose 1B",
         "couplewed1a",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             bone = 0,
@@ -1157,6 +1180,7 @@ RP.Shared = {
         "Couple Wedding Pose 2A",
         "couplewed2b",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true
         }
     },
@@ -1166,6 +1190,7 @@ RP.Shared = {
         "Couple Wedding Pose 2B",
         "couplewed2a",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             bone = 0,
@@ -1192,6 +1217,7 @@ RP.Shared = {
         "Lift Me 2",
         "liftme",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             bone = 0,
@@ -1209,6 +1235,7 @@ RP.Shared = {
         "Lift Me 3",
         "liftme4",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true
         }
     },
@@ -1218,6 +1245,7 @@ RP.Shared = {
         "Lift Me 4",
         "liftme3",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             bone = 0,
@@ -1244,6 +1272,7 @@ RP.Shared = {
         "Lift Me 6",
         "liftme5",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             bone = 0,
@@ -1261,6 +1290,7 @@ RP.Shared = {
         "Carry Small Dog",
         "csdog2",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         },
         AnimalEmote = true
@@ -1271,6 +1301,7 @@ RP.Shared = {
         "Small Dog Carried",
         "csdog",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             xPos = -0.040,
@@ -1288,6 +1319,7 @@ RP.Shared = {
         "Carry Small Dog 2",
         "csdog4",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         },
         AnimalEmote = true
@@ -1298,6 +1330,7 @@ RP.Shared = {
         "Small Dog Carried 2",
         "csdog3",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             bone = 24818,
@@ -1316,6 +1349,7 @@ RP.Shared = {
         "Carry Big Dog",
         "cbdog2",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         },
         AnimalEmote = true
@@ -1326,6 +1360,7 @@ RP.Shared = {
         "Big Dog Carried",
         "cbdog",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             xPos = -0.100,
@@ -1343,6 +1378,7 @@ RP.Shared = {
         "Offer Piggy Back",
         "pback2",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -1352,6 +1388,7 @@ RP.Shared = {
         "Be Piggy Backed",
         "pback",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             bone = 0,
@@ -1421,6 +1458,7 @@ RP.Shared = {
         "Take hostage",
         "hostage2",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -1446,6 +1484,7 @@ RP.Shared = {
         "Search",
         "search2",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = false,
             -- EmoteDuration = 9700
         }
@@ -1456,6 +1495,7 @@ RP.Shared = {
         "Be searched",
         "search",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = false,
             -- EmoteDuration = 9700,
             Attachto = true,
@@ -1474,6 +1514,7 @@ RP.Shared = {
         "followb",
         AnimationOptions = {
             EmoteLoop = true,
+            EmoteMoving = false,
             -- We can set this to true for lols, however it messes up if you walk through doors. Either player can press X to cancel the shared emotes
         }
     },
@@ -1499,6 +1540,7 @@ RP.Shared = {
         "Kiss",
         "kiss2",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteDuration = 10000,
             SyncOffsetFront = 0.08
         }
@@ -1509,6 +1551,7 @@ RP.Shared = {
         "Kiss 2",
         "kiss",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteDuration = 10000,
             SyncOffsetFront = 0.08
         }
@@ -1519,6 +1562,7 @@ RP.Shared = {
         "Kiss 3",
         "kiss4",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteDuration = 10000,
             SyncOffsetFront = 0.08
         }
@@ -1529,6 +1573,7 @@ RP.Shared = {
         "Kiss 4",
         "kiss3",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteDuration = 10000,
             SyncOffsetFront = 0.08
         }
@@ -1539,6 +1584,7 @@ RP.Shared = {
         "Kiss Cute - Neck (Male)",
         "kisscuteneck2",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             --SyncOffsetFront = 0.05,
@@ -1558,6 +1604,7 @@ RP.Shared = {
         "Kiss Cute - Neck (Female)",
         "kisscuteneck",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             --SyncOffsetFront = 0.05,
 
@@ -1569,6 +1616,7 @@ RP.Shared = {
         "Kiss Cute Cheek (Male)",
         "kisscutecheek2",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             --SyncOffsetFront = 0.05,
@@ -1588,6 +1636,7 @@ RP.Shared = {
         "Kiss Cute Cheek (Female)",
         "kisscutecheek",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             --SyncOffsetFront = 0.05,
 
@@ -1599,6 +1648,7 @@ RP.Shared = {
         "Kiss Forehead (Male)",
         "kisscutefh2",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             --SyncOffsetFront = 0.05,
@@ -1618,6 +1668,7 @@ RP.Shared = {
         "Kiss Forehead (Female)",
         "kisscutefh",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             --SyncOffsetFront = 0.05,
 
@@ -1639,6 +1690,7 @@ RP.Shared = {
                 0.0,
                 0.0,
             },
+            EmoteMoving = false,
             EmoteLoop = true
         }
     },
@@ -1660,6 +1712,7 @@ RP.Shared = {
             },
             SyncOffsetSide = -0.04125,
             SyncOffsetFront = 0.11,
+            EmoteMoving = false,
             EmoteLoop = true
         }
     },
@@ -1678,6 +1731,7 @@ RP.Shared = {
         "Be Held",
         "holdme",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             bone = 0,
@@ -1704,6 +1758,7 @@ RP.Shared = {
         "Be Held 2",
         "holdmec",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             bone = 0,
@@ -1730,6 +1785,7 @@ RP.Shared = {
         "Be Held 3",
         "holdmee",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Attachto = true,
             bone = 0,
@@ -1747,6 +1803,7 @@ RP.Shared = {
         "Dogs Humping (Male)",
         "bdoghumping2",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             SyncOffsetFront = 0.0,
             SyncOffsetSide = -0.028,
@@ -1761,6 +1818,7 @@ RP.Shared = {
         "Dogs Humping (Female)",
         "bdoghumping",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             SyncOffsetFront = 0.0,
             SyncOffsetSide = -0.028,
@@ -2037,7 +2095,8 @@ RP.Dances = {
                 0.0,
                 20.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["dancedrink2"] = {
@@ -2055,7 +2114,8 @@ RP.Dances = {
                 0.0,
                 0.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["dancedrink3"] = {
@@ -2073,7 +2133,8 @@ RP.Dances = {
                 0.0,
                 10.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["dancedrink4"] = {
@@ -2091,7 +2152,8 @@ RP.Dances = {
                 0.0,
                 10.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["dancedrink5"] = {
@@ -2109,7 +2171,8 @@ RP.Dances = {
                 0.0,
                 0.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["dancedrink6"] = {
@@ -2127,7 +2190,8 @@ RP.Dances = {
                 180.0,
                 -69.99
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["dancedrink7"] = {
@@ -2145,7 +2209,8 @@ RP.Dances = {
                 0.0,
                 0.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["dancedrink8"] = {
@@ -2163,7 +2228,8 @@ RP.Dances = {
                 0.0,
                 0.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["danceslow2"] = {
@@ -2195,7 +2261,8 @@ RP.Dances = {
         "high_center",
         "Dance Upper",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["danceupper2"] = {
@@ -2203,7 +2270,8 @@ RP.Dances = {
         "high_center_up",
         "Dance Upper 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["danceshy"] = {
@@ -2315,7 +2383,8 @@ RP.Dances = {
         "idle_a",
         "Dance Old",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            --			EmoteMoving = true,-- Removing the comment will allow for you to mix and match dance emotes, ie /e danceold and /e dance to control the bottom half of the body.
         }
     },
     ["danceglowstick"] = {
@@ -2341,7 +2410,8 @@ RP.Dances = {
                 -120.0,
                 -20.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["danceglowstick2"] = {
@@ -2411,7 +2481,8 @@ RP.Dances = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["dancehorse2"] = {
@@ -2583,7 +2654,8 @@ RP.Dances = {
         "dixn_dance_cntr_open_dix",
         "DJ",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["dj2"] = {
@@ -2591,7 +2663,8 @@ RP.Dances = {
         "sol_idle_ctr_mid_a_sol",
         "DJ 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["dj3"] = {
@@ -2599,7 +2672,8 @@ RP.Dances = {
         "sol_dance_l_sol",
         "DJ 3",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["dj4"] = {
@@ -2607,7 +2681,8 @@ RP.Dances = {
         "dance_b_idle_a_blamadon",
         "DJ 4",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["dj1"] = {
@@ -2615,7 +2690,8 @@ RP.Dances = {
         "dixn_end_dix",
         "DJ 1",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["dj5"] = {
@@ -2623,7 +2699,8 @@ RP.Dances = {
         "dixn_idle_cntr_a_dix",
         "DJ 5",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["dj6"] = {
@@ -2631,7 +2708,8 @@ RP.Dances = {
         "dixn_idle_cntr_b_dix",
         "DJ 6",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["dj7"] = {
@@ -2639,7 +2717,8 @@ RP.Dances = {
         "dixn_idle_cntr_g_dix",
         "DJ 7",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["dj8"] = {
@@ -2647,7 +2726,8 @@ RP.Dances = {
         "dixn_idle_cntr_gb_dix",
         "DJ 8",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["dj9"] = {
@@ -2655,7 +2735,8 @@ RP.Dances = {
         "dixn_sync_cntr_j_dix",
         "DJ 9",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["twerk"] = {
@@ -2864,7 +2945,8 @@ RP.Dances = {
                 5.7068,
                 -28.7797
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["danceprideb"] = {
@@ -2892,7 +2974,8 @@ RP.Dances = {
                 5.7068,
                 -28.7797
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["dancepridea"] = {
@@ -2920,7 +3003,8 @@ RP.Dances = {
                 5.7068,
                 -28.7797
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["dancepridec"] = {
@@ -2948,7 +3032,8 @@ RP.Dances = {
                 5.7068,
                 -28.7797
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["danceprided"] = {
@@ -2976,7 +3061,8 @@ RP.Dances = {
                 5.7068,
                 -28.7797
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["dancepridee"] = {
@@ -3004,7 +3090,8 @@ RP.Dances = {
                 5.7068,
                 -28.7797
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["dancepridef"] = {
@@ -3032,7 +3119,8 @@ RP.Dances = {
                 5.7068,
                 -28.7797
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["danceprideg"] = {
@@ -3060,7 +3148,8 @@ RP.Dances = {
                 5.7068,
                 -28.7797
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["danceprideh"] = {
@@ -3088,7 +3177,8 @@ RP.Dances = {
                 5.7068,
                 -28.7797
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
 }
@@ -3196,6 +3286,7 @@ RP.AnimalEmotes = {
         "Shit (big dog)",
         AnimationOptions = {
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_amb_chop",
             PtfxName = "ent_anim_dog_poo",
             PtfxNoProp = true,
@@ -3302,7 +3393,8 @@ RP.AnimalEmotes = {
                 0.00,
                 0.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["bdogglowb"] = {
@@ -3612,6 +3704,7 @@ RP.AnimalEmotes = {
                 -9.8767
             },
             EmoteLoop = true,
+            EmoteMoving = true,
             PtfxAsset = "scr_indep_fireworks",
             PtfxName = "scr_indep_firework_trail_spawn",
             PtfxPlacement = {
@@ -3691,7 +3784,8 @@ RP.AnimalEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogdance2"] = {
@@ -3718,7 +3812,8 @@ RP.AnimalEmotes = {
                 90.00,
                 0.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogdancepridea"] = {
@@ -3746,7 +3841,8 @@ RP.AnimalEmotes = {
                 90.00,
                 0.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogdanceprideb"] = {
@@ -3774,7 +3870,8 @@ RP.AnimalEmotes = {
                 90.00,
                 0.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogdancepridec"] = {
@@ -3802,7 +3899,8 @@ RP.AnimalEmotes = {
                 90.00,
                 0.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogdanceprided"] = {
@@ -3830,7 +3928,8 @@ RP.AnimalEmotes = {
                 90.00,
                 0.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogdancepridee"] = {
@@ -3858,7 +3957,8 @@ RP.AnimalEmotes = {
                 90.00,
                 0.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogdancepridef"] = {
@@ -3886,7 +3986,8 @@ RP.AnimalEmotes = {
                 90.00,
                 0.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogdanceprideg"] = {
@@ -3914,7 +4015,8 @@ RP.AnimalEmotes = {
                 90.00,
                 0.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogdanceprideh"] = {
@@ -3942,7 +4044,8 @@ RP.AnimalEmotes = {
                 90.00,
                 0.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogdancepridei"] = {
@@ -3970,7 +4073,8 @@ RP.AnimalEmotes = {
                 90.00,
                 0.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogbb"] = {
@@ -3987,7 +4091,8 @@ RP.AnimalEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogburger"] = {
@@ -4004,7 +4109,8 @@ RP.AnimalEmotes = {
                 -90.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogcontroller"] = {
@@ -4022,7 +4128,8 @@ RP.AnimalEmotes = {
                 90.0000,
                 0.0000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogdolla"] = {
@@ -4040,7 +4147,8 @@ RP.AnimalEmotes = {
                 0.0000,
                 0.000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogdolla2"] = {
@@ -4058,7 +4166,8 @@ RP.AnimalEmotes = {
                 00.0000,
                 00.0000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogdolla3"] = {
@@ -4076,7 +4185,8 @@ RP.AnimalEmotes = {
                 0.0000,
                 0.000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogdolla4"] = {
@@ -4094,7 +4204,8 @@ RP.AnimalEmotes = {
                 90.00,
                 0.0000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogmic"] = {
@@ -4112,7 +4223,8 @@ RP.AnimalEmotes = {
                 0.0000,
                 0.0000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogteddy"] = {
@@ -4130,7 +4242,8 @@ RP.AnimalEmotes = {
                 0.0000,
                 0.0000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogteddy2"] = {
@@ -4168,7 +4281,8 @@ RP.AnimalEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogtennisr"] = {
@@ -4186,7 +4300,8 @@ RP.AnimalEmotes = {
                 0.0000,
                 -28.0000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogrose"] = {
@@ -4204,7 +4319,8 @@ RP.AnimalEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogrose2"] = {
@@ -4242,7 +4358,8 @@ RP.AnimalEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdoggun2"] = {
@@ -4281,6 +4398,7 @@ RP.AnimalEmotes = {
                 0.0
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "core",
             PtfxName = "blood_stungun",
             PtfxPlacement = {
@@ -4311,7 +4429,8 @@ RP.AnimalEmotes = {
                 90.00,
                 0.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdoggl2"] = {
@@ -4349,7 +4468,8 @@ RP.AnimalEmotes = {
                 90.00,
                 0.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdoggl4"] = {
@@ -4387,7 +4507,8 @@ RP.AnimalEmotes = {
                 -9.8465858,
                 -0.1488562
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdoghd2"] = {
@@ -4425,7 +4546,8 @@ RP.AnimalEmotes = {
                 90.00,
                 0.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdoghlmt2"] = {
@@ -4443,7 +4565,8 @@ RP.AnimalEmotes = {
                 90.00,
                 0.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdoghat"] = {
@@ -4471,7 +4594,8 @@ RP.AnimalEmotes = {
                 90.00,
                 0.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdoghat2"] = {
@@ -4519,7 +4643,8 @@ RP.AnimalEmotes = {
                 0.00,
                 0.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogsteak2"] = {
@@ -4557,7 +4682,8 @@ RP.AnimalEmotes = {
                 0.0,
                 -74.6999
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogprideb"] = {
@@ -4575,7 +4701,8 @@ RP.AnimalEmotes = {
                 0.0,
                 -74.6999
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogpridec"] = {
@@ -4593,7 +4720,8 @@ RP.AnimalEmotes = {
                 0.0,
                 -74.6999
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogprided"] = {
@@ -4611,7 +4739,8 @@ RP.AnimalEmotes = {
                 0.0,
                 -74.6999
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogpridee"] = {
@@ -4629,7 +4758,8 @@ RP.AnimalEmotes = {
                 0.0,
                 -74.6999
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogpridef"] = {
@@ -4647,7 +4777,8 @@ RP.AnimalEmotes = {
                 0.0,
                 -74.6999
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogprideg"] = {
@@ -4665,7 +4796,8 @@ RP.AnimalEmotes = {
                 0.0,
                 -74.6999
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogprideh"] = {
@@ -4683,7 +4815,8 @@ RP.AnimalEmotes = {
                 0.0,
                 -74.6999
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogpridei"] = {
@@ -4701,7 +4834,8 @@ RP.AnimalEmotes = {
                 0.0,
                 -74.6999
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sdogpridesita"] = {
@@ -4914,6 +5048,7 @@ RP.AnimalEmotes = {
         "Shit (Small Dog)",
         AnimationOptions = {
             EmoteLoop = true,
+            EmoteMoving = true,
             PtfxAsset = "scr_amb_chop",
             PtfxName = "ent_anim_dog_poo",
             PtfxNoProp = true,
@@ -4949,6 +5084,7 @@ RP.AnimalEmotes = {
                 44.0000
             },
             EmoteLoop = true,
+            EmoteMoving = true,
             PtfxAsset = "scr_indep_fireworks",
             PtfxName = "scr_indep_firework_trail_spawn",
             PtfxPlacement = {
@@ -5039,6 +5175,7 @@ RP.Emotes = {
         "beast_transform",
         "Beast",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 5000
         }
     },
@@ -5087,6 +5224,7 @@ RP.Emotes = {
         "pull_over_right",
         "Pullover",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 1300
         }
     },
@@ -5116,7 +5254,8 @@ RP.Emotes = {
         "idle",
         "Idle 10",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["idle11"] = {
@@ -5214,7 +5353,8 @@ RP.Emotes = {
         "actor_berating_loop",
         "Argue",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["argue2"] = {
@@ -5222,47 +5362,53 @@ RP.Emotes = {
         "argue_a",
         "Argue 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["argue3"] = {
-        "missheistdockssetup1leadinoutig_1",
-        "lsdh_ig_1_argue_wade",
-        "Argue 3",
+        "missheistdockssetup1leadinoutig_1", 
+        "lsdh_ig_1_argue_wade", 
+        "Argue 3", 
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
-    },
+    }, 
     ["argue4"] = {
-        "car_2_mcs_1-6",
-        "cs_devin_dual-6",
-        "Argue 4",
-        AnimationOptions = {
-            EmoteDuration = 6000
+        "car_2_mcs_1-6", 
+        "cs_devin_dual-6", 
+        "Argue 4", 
+        AnimationOptions = {            
+            EmoteDuration = 6000,
+            EmoteMoving = true
         }
-    },
+    }, 
     ["argue5"] = {
-        "anim@amb@casino@brawl@fights@argue@",
-        "arguement_loop_mp_m_brawler_01",
-        "Argue Angry 1",
+        "anim@amb@casino@brawl@fights@argue@", 
+        "arguement_loop_mp_m_brawler_01", 
+        "Argue Angry 1", 
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
-    },
+    }, 
     ["argue6"] = {
-        "anim@amb@casino@brawl@fights@argue@",
-        "arguement_loop_mp_m_brawler_02",
-        "Argue Angry 2",
+        "anim@amb@casino@brawl@fights@argue@", 
+        "arguement_loop_mp_m_brawler_02", 
+        "Argue Angry 2", 
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
-    },
+    },  
     ["bartender"] = {
         "anim@amb@clubhouse@bar@drink@idle_a",
         "idle_a_bartender",
         "Bartender",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["blowkiss"] = {
@@ -5275,6 +5421,7 @@ RP.Emotes = {
         "exit",
         "Blow Kiss 2",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 2000
         }
     },
@@ -5288,6 +5435,7 @@ RP.Emotes = {
         "bring_it_on",
         "Bring It On",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 3000
         }
     },
@@ -5296,6 +5444,7 @@ RP.Emotes = {
         "want_some_of_this",
         "Come at me bro",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 2000
         }
     },
@@ -5320,21 +5469,25 @@ RP.Emotes = {
         "idle_a",
         "Crossarms",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["crossarms2"] = {
         "amb@world_human_hang_out_street@male_c@idle_a",
         "idle_b",
         "Crossarms 2",
-        AnimationOptions = {}
+        AnimationOptions = {
+            EmoteMoving = true
+        }
     },
     ["crossarms3"] = {
         "anim@heists@heist_corona@single_team",
         "single_team_loop_boss",
         "Crossarms 3",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["crossarms4"] = {
@@ -5342,7 +5495,8 @@ RP.Emotes = {
         "_car_b_lookout",
         "Crossarms 4",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["crossarms5"] = {
@@ -5350,7 +5504,8 @@ RP.Emotes = {
         "rcmme_amanda1_stand_loop_cop",
         "Crossarms 5",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["foldarms2"] = {
@@ -5358,7 +5513,8 @@ RP.Emotes = {
         "rcmme_amanda1_stand_loop_cop",
         "Fold Arms 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["crossarms6"] = {
@@ -5366,7 +5522,8 @@ RP.Emotes = {
         "_idle",
         "Crossarms 6",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["foldarms"] = {
@@ -5374,7 +5531,8 @@ RP.Emotes = {
         "stand_phone_phoneputdown_idle_nowork",
         "Fold Arms",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["crossarmsside"] = {
@@ -5382,7 +5540,8 @@ RP.Emotes = {
         "base_m2",
         "Crossarms Side",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["damn"] = {
@@ -5390,6 +5549,7 @@ RP.Emotes = {
         "gesture_damn",
         "Damn",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 1000
         }
     },
@@ -5398,6 +5558,7 @@ RP.Emotes = {
         "shoplift_mid",
         "Damn 2",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 1000
         }
     },
@@ -5406,6 +5567,7 @@ RP.Emotes = {
         "gesture_hand_down",
         "Point Down",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 1000
         }
     },
@@ -5474,6 +5636,7 @@ RP.Emotes = {
         "face_palm",
         "Facepalm 2",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 8000
         }
     },
@@ -5482,6 +5645,7 @@ RP.Emotes = {
         "agitated_idle_a",
         "Facepalm",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 8000
         }
     },
@@ -5490,6 +5654,7 @@ RP.Emotes = {
         "tasered_2",
         "Facepalm 3",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 8000
         }
     },
@@ -5498,6 +5663,7 @@ RP.Emotes = {
         "idle_a",
         "Facepalm 4",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -5531,6 +5697,7 @@ RP.Emotes = {
         "sleep_loop",
         "Fall Asleep",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -5549,7 +5716,8 @@ RP.Emotes = {
         "idle_a",
         "Finger",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["finger2"] = {
@@ -5557,7 +5725,8 @@ RP.Emotes = {
         "idle_a_fp",
         "Finger 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["handshake"] = {
@@ -5565,6 +5734,7 @@ RP.Emotes = {
         "handshake_guy_a",
         "Handshake",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 3000
         }
     },
@@ -5573,6 +5743,7 @@ RP.Emotes = {
         "handshake_guy_b",
         "Handshake 2",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 3000
         }
     },
@@ -5581,7 +5752,8 @@ RP.Emotes = {
         "_idle_a",
         "Wait",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wait2"] = {
@@ -5589,7 +5761,8 @@ RP.Emotes = {
         "wait_for_van_c",
         "Wait 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wait3"] = {
@@ -5597,7 +5770,8 @@ RP.Emotes = {
         "idle_a",
         "Wait 3",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wait4"] = {
@@ -5605,7 +5779,8 @@ RP.Emotes = {
         "idle_a",
         "Wait 4",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wait5"] = {
@@ -5613,7 +5788,8 @@ RP.Emotes = {
         "idle_storeclerk",
         "Wait 5",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wait6"] = {
@@ -5621,7 +5797,8 @@ RP.Emotes = {
         "ig_2_base_amanda",
         "Wait 6",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wait7"] = {
@@ -5629,7 +5806,8 @@ RP.Emotes = {
         "base",
         "Wait 7",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wait8"] = {
@@ -5637,7 +5815,8 @@ RP.Emotes = {
         "idle",
         "Wait 8",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wait9"] = {
@@ -5645,7 +5824,8 @@ RP.Emotes = {
         "josh_2_intp1_base",
         "Wait 9",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wait10"] = {
@@ -5653,7 +5833,8 @@ RP.Emotes = {
         "ig_3_base_tracy",
         "Wait 10",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wait11"] = {
@@ -5661,7 +5842,8 @@ RP.Emotes = {
         "keeper_base",
         "Wait 11",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wait12"] = {
@@ -5669,7 +5851,8 @@ RP.Emotes = {
         "keeper_base",
         "Wait 12",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wait13"] = {
@@ -5677,7 +5860,8 @@ RP.Emotes = {
         "base",
         "Wait 13",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["hiking"] = {
@@ -5685,7 +5869,8 @@ RP.Emotes = {
         "idle",
         "Hiking",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["hugme"] = {
@@ -5708,6 +5893,7 @@ RP.Emotes = {
         "jazz_hands",
         "Jazzhands",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 6000
         }
     },
@@ -5716,7 +5902,8 @@ RP.Emotes = {
         "idle_a",
         "Jog 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["jog3"] = {
@@ -5724,7 +5911,8 @@ RP.Emotes = {
         "idle_a",
         "Jog 3",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["jog4"] = {
@@ -5732,7 +5920,8 @@ RP.Emotes = {
         "idle_a",
         "Jog 4",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["jog5"] = {
@@ -5740,7 +5929,8 @@ RP.Emotes = {
         "walk",
         "Jog 5",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["jumpingjacks"] = {
@@ -5780,6 +5970,7 @@ RP.Emotes = {
         "knockdoor_idle",
         "Knock",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -5796,7 +5987,8 @@ RP.Emotes = {
         "knuckle_crunch",
         "Knuckle Crunch",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["lean2"] = {
@@ -5868,7 +6060,8 @@ RP.Emotes = {
         "idle_a_player_one",
         "Lean High",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["leanhigh2"] = {
@@ -5876,7 +6069,8 @@ RP.Emotes = {
         "idle_a_player_two",
         "Lean High 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["leanside"] = {
@@ -5884,7 +6078,8 @@ RP.Emotes = {
         "idle_a",
         "Leanside",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["leanside2"] = {
@@ -5892,7 +6087,8 @@ RP.Emotes = {
         "packer_idle_1_trevor",
         "Leanside 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["leanside3"] = {
@@ -5900,7 +6096,8 @@ RP.Emotes = {
         "waitloop_lamar",
         "Leanside 3",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["leanside4"] = {
@@ -5908,7 +6105,8 @@ RP.Emotes = {
         "waitloop_lamar",
         "Leanside 4",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["leanside5"] = {
@@ -5916,7 +6114,8 @@ RP.Emotes = {
         "josh_2_intp1_base",
         "Leanside 5",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["me"] = {
@@ -5924,6 +6123,7 @@ RP.Emotes = {
         "gesture_me_hard",
         "Me",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 1000
         }
     },
@@ -6013,7 +6213,8 @@ RP.Emotes = {
         "Metal",
         AnimationOptions = {
             -- CHANGE ME
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["no"] = {
@@ -6021,7 +6222,8 @@ RP.Emotes = {
         "fail",
         "No",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["no2"] = {
@@ -6029,7 +6231,8 @@ RP.Emotes = {
         "mp_player_int_nod_no",
         "No 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["nosepick"] = {
@@ -6037,7 +6240,8 @@ RP.Emotes = {
         "nose_pick",
         "Nose Pick",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["noway"] = {
@@ -6045,7 +6249,8 @@ RP.Emotes = {
         "gesture_no_way",
         "No Way",
         AnimationOptions = {
-            EmoteDuration = 1500
+            EmoteDuration = 1500,
+            EmoteMoving = true
         }
     },
     ["ok"] = {
@@ -6053,7 +6258,8 @@ RP.Emotes = {
         "idle_a",
         "OK",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["dock"] = {
@@ -6061,7 +6267,8 @@ RP.Emotes = {
         "idle_a",
         "Dock",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["outofbreath"] = {
@@ -6069,7 +6276,8 @@ RP.Emotes = {
         "out_of_breath",
         "Out of Breath",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["pickup"] = {
@@ -6098,7 +6306,8 @@ RP.Emotes = {
         "gesture_point",
         "Point",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["pushup"] = {
@@ -6114,7 +6323,8 @@ RP.Emotes = {
         "grid_girl_race_start",
         "Countdown",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["pointright"] = {
@@ -6122,7 +6332,8 @@ RP.Emotes = {
         "indicate_right",
         "Point Right",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["salute"] = {
@@ -6130,7 +6341,8 @@ RP.Emotes = {
         "idle_a",
         "Salute",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["salute2"] = {
@@ -6138,7 +6350,8 @@ RP.Emotes = {
         "idle_a",
         "Salute 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["salute3"] = {
@@ -6146,7 +6359,8 @@ RP.Emotes = {
         "idle_a",
         "Salute 3",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["scared"] = {
@@ -6154,7 +6368,8 @@ RP.Emotes = {
         "f_distressed_loop",
         "Scared",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["scared2"] = {
@@ -6162,7 +6377,8 @@ RP.Emotes = {
         "knees_loop_girl",
         "Scared 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["screwyou"] = {
@@ -6170,7 +6386,8 @@ RP.Emotes = {
         "screw_you",
         "Screw You",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["shakeoff"] = {
@@ -6178,6 +6395,7 @@ RP.Emotes = {
         "shakeoff_1",
         "Shake Off",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 3500
         }
     },
@@ -6206,6 +6424,7 @@ RP.Emotes = {
         "gesture_shrug_hard",
         "Shrug",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 1000
         }
     },
@@ -6214,6 +6433,7 @@ RP.Emotes = {
         "gesture_shrug_hard",
         "Shrug 2",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 1000
         }
     },
@@ -6315,7 +6535,7 @@ RP.Emotes = {
             EmoteLoop = true
         }
     },
-    ["elbow2"] = { -- Custom Emote By Chocoholic Animations
+    ["elbow2"] = { -- Custom Emote By Chocoholic Animations 
         "chocoholic@single47",
         "single47_clip",
         "Window Elbow 2",
@@ -6449,6 +6669,7 @@ RP.Emotes = {
         "Sit Cute",
         AnimationOptions = {
             EmoteLoop = true,
+            EmoteMoving = false,
             ExitEmote = "offchair",
             ExitEmoteType = "Exits"
         }
@@ -6474,7 +6695,8 @@ RP.Emotes = {
         "idle_a",
         "Slow Clap 3",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["clap"] = {
@@ -6482,7 +6704,8 @@ RP.Emotes = {
         "base",
         "Clap",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["slowclap"] = {
@@ -6490,7 +6713,8 @@ RP.Emotes = {
         "slow_clap",
         "Slow Clap",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["slowclap2"] = {
@@ -6498,7 +6722,8 @@ RP.Emotes = {
         "slow_clap",
         "Slow Clap 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["smell"] = {
@@ -6506,7 +6731,8 @@ RP.Emotes = {
         "fidget_sniff_fingers",
         "Smell",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["stickup"] = {
@@ -6514,7 +6740,8 @@ RP.Emotes = {
         "biker_02_stickup_loop",
         "Stick Up",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["stumble"] = {
@@ -6560,7 +6787,8 @@ RP.Emotes = {
         "a2_pose",
         "T Pose",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["t2"] = {
@@ -6576,6 +6804,7 @@ RP.Emotes = {
         "b_think",
         "Think 5",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 2000
         }
     },
@@ -6584,7 +6813,8 @@ RP.Emotes = {
         "rehearsal_base_idle_director",
         "Think",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["think3"] = {
@@ -6592,7 +6822,8 @@ RP.Emotes = {
         "base",
         "Think 3",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["think2"] = {
@@ -6600,7 +6831,8 @@ RP.Emotes = {
         "jh_int_outro_loop_a",
         "Think 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["thumbsup3"] = {
@@ -6608,6 +6840,7 @@ RP.Emotes = {
         "enter",
         "Thumbs Up 3",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 3000
         }
     },
@@ -6616,7 +6849,8 @@ RP.Emotes = {
         "idle_a",
         "Thumbs Up 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["thumbsup"] = {
@@ -6624,7 +6858,8 @@ RP.Emotes = {
         "idle_a",
         "Thumbs Up",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["type"] = {
@@ -6632,7 +6867,8 @@ RP.Emotes = {
         "cop_b_idle",
         "Type",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["type2"] = {
@@ -6640,7 +6876,8 @@ RP.Emotes = {
         "loop",
         "Type 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["type3"] = {
@@ -6648,7 +6885,8 @@ RP.Emotes = {
         "hack_loop",
         "Type 3",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["type4"] = {
@@ -6664,7 +6902,8 @@ RP.Emotes = {
         "idle_a",
         "Warmth",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wave4"] = {
@@ -6672,6 +6911,7 @@ RP.Emotes = {
         "001445_01_gangintimidation_1_female_idle_b",
         "Wave 4",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 3000
         }
     },
@@ -6680,7 +6920,8 @@ RP.Emotes = {
         "wave",
         "Wave 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wave3"] = {
@@ -6688,7 +6929,8 @@ RP.Emotes = {
         "over_here_idle_a",
         "Wave 3",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wave"] = {
@@ -6696,7 +6938,8 @@ RP.Emotes = {
         "wave_a",
         "Wave",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wave5"] = {
@@ -6704,7 +6947,8 @@ RP.Emotes = {
         "wave_b",
         "Wave 5",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wave6"] = {
@@ -6712,7 +6956,8 @@ RP.Emotes = {
         "wave_c",
         "Wave 6",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wave7"] = {
@@ -6720,7 +6965,8 @@ RP.Emotes = {
         "wave_d",
         "Wave 7",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wave8"] = {
@@ -6728,7 +6974,8 @@ RP.Emotes = {
         "wave_e",
         "Wave 8",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wave9"] = {
@@ -6736,7 +6983,8 @@ RP.Emotes = {
         "gesture_hello",
         "Wave 9",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["whistle"] = {
@@ -6744,6 +6992,7 @@ RP.Emotes = {
         "hail_taxi",
         "Whistle",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 1300
         }
     },
@@ -6752,6 +7001,7 @@ RP.Emotes = {
         "hailing_whistle_waive_a",
         "Whistle 2",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 2000
         }
     },
@@ -6760,7 +7010,8 @@ RP.Emotes = {
         "idle_a",
         "Yeah",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["lift"] = {
@@ -6768,7 +7019,8 @@ RP.Emotes = {
         "idle_f",
         "Lift",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["lol"] = {
@@ -6792,7 +7044,8 @@ RP.Emotes = {
         "cs_lamardavis_dual-1",
         "Statue 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["statue3"] = {
@@ -6808,7 +7061,8 @@ RP.Emotes = {
         "mp_player_int_gang_sign_a",
         "Gang Sign",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["gangsign2"] = {
@@ -6816,7 +7070,8 @@ RP.Emotes = {
         "mp_player_int_gang_sign_b",
         "Gang Sign 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["gangsign3"] = {
@@ -6940,20 +7195,25 @@ RP.Emotes = {
         "anim@arena@celeb@podium@no_prop@",
         "flip_off_a_1st",
         "Flip Off",
-        AnimationOptions = {}
+        AnimationOptions = {
+            EmoteMoving = true
+        }
     },
     ["flipoff2"] = {
         "anim@arena@celeb@podium@no_prop@",
         "flip_off_c_1st",
         "Flip Off 2",
-        AnimationOptions = {}
+        AnimationOptions = {
+            EmoteMoving = true
+        }
     },
     ["bow"] = {
         "anim@arena@celeb@podium@no_prop@",
         "regal_c_1st",
         "Bow",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["bow2"] = {
@@ -6961,7 +7221,8 @@ RP.Emotes = {
         "regal_a_1st",
         "Bow 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["keyfob"] = {
@@ -6970,6 +7231,7 @@ RP.Emotes = {
         "Key Fob",
         AnimationOptions = {
             EmoteLoop = false,
+            EmoteMoving = true,
             EmoteDuration = 1000
         }
     },
@@ -6978,7 +7240,8 @@ RP.Emotes = {
         "idle",
         "Holster",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["holster2"] = { --- Custom Emote Provided To RpEmotes By Mads
@@ -6986,7 +7249,8 @@ RP.Emotes = {
         "idle",
         "Holster 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["holster3"] = {
@@ -6995,6 +7259,7 @@ RP.Emotes = {
         "Holster 3",
         AnimationOptions = {
             EmoteLoop = true,
+            EmoteMoving = true,
         }
     },
 	["holster4"] = {
@@ -7003,6 +7268,7 @@ RP.Emotes = {
         "Holster 4 - Stop",
         AnimationOptions = {
             EmoteLoop = true,
+            EmoteMoving = true,
         }
     },
 	["holster5"] = {
@@ -7011,6 +7277,7 @@ RP.Emotes = {
         "Holster 5 - Stop 2",
         AnimationOptions = {
             EmoteLoop = true,
+            EmoteMoving = true,
         }
     },
     ["slap"] = {
@@ -7019,6 +7286,7 @@ RP.Emotes = {
         "Slap",
         AnimationOptions = {
             EmoteLoop = true,
+            EmoteMoving = true,
             EmoteDuration = 2000
         }
     },
@@ -7032,7 +7300,8 @@ RP.Emotes = {
         "idle_a",
         "Fish Dance",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["peace"] = {
@@ -7040,7 +7309,8 @@ RP.Emotes = {
         "mp_player_int_peace_sign",
         "Peace",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["peace2"] = {
@@ -7048,7 +7318,8 @@ RP.Emotes = {
         "idle_a",
         "Peace 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["peace3"] = {
@@ -7056,7 +7327,8 @@ RP.Emotes = {
         "idle_a_fp",
         "Peace 3",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["peace4"] = {
@@ -7064,7 +7336,8 @@ RP.Emotes = {
         "idle_a",
         "Peace 4",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["peace5"] = {
@@ -7072,7 +7345,8 @@ RP.Emotes = {
         "idle_a_fp",
         "Peace 5",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["peace6"] = {
@@ -7080,7 +7354,8 @@ RP.Emotes = {
         "idle_a",
         "Peace 6",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["peace7"] = {
@@ -7088,7 +7363,8 @@ RP.Emotes = {
         "idle_a_fp",
         "Peace 7",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["peacef"] = {
@@ -7096,7 +7372,8 @@ RP.Emotes = {
         "peace",
         "Peace Female",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["cpr"] = {
@@ -7112,7 +7389,8 @@ RP.Emotes = {
         "cpr_pumpchest",
         "CPR 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["ledge"] = {
@@ -7128,7 +7406,8 @@ RP.Emotes = {
         "ledge_loop",
         "Air Plane",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["peek"] = {
@@ -7144,7 +7423,8 @@ RP.Emotes = {
         "idle_cough",
         "Cough",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["stretch"] = {
@@ -7192,7 +7472,8 @@ RP.Emotes = {
         "loop_punching",
         "Punching",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["superhero"] = {
@@ -7208,7 +7489,8 @@ RP.Emotes = {
         "base",
         "Superhero 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["mindcontrol"] = {
@@ -7256,7 +7538,8 @@ RP.Emotes = {
         "clown_idle_3",
         "Clown 4",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["clown5"] = {
@@ -7296,7 +7579,8 @@ RP.Emotes = {
         "nervous_idle",
         "Nervous 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["nervous"] = {
@@ -7304,7 +7588,8 @@ RP.Emotes = {
         "idle_c",
         "Nervous",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["nervous3"] = {
@@ -7312,7 +7597,8 @@ RP.Emotes = {
         "nervous_loop",
         "Nervous 3",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["uncuff"] = {
@@ -7320,7 +7606,8 @@ RP.Emotes = {
         "a_uncuff",
         "Uncuff",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["namaste"] = {
@@ -7328,7 +7615,8 @@ RP.Emotes = {
         "ig_4_base",
         "Namaste",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["threaten"] = {
@@ -7336,7 +7624,8 @@ RP.Emotes = {
         "b_atm_mugging",
         "Threaten",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["radio"] = {
@@ -7344,7 +7633,8 @@ RP.Emotes = {
         "generic_radio_chatter",
         "Radio",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["pull"] = {
@@ -7352,7 +7642,8 @@ RP.Emotes = {
         "struggle_loop_b_thief",
         "Pull",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["bird"] = {
@@ -7365,7 +7656,8 @@ RP.Emotes = {
         "wakeup",
         "Chicken",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["bark"] = {
@@ -7392,6 +7684,7 @@ RP.Emotes = {
         "brotheradrianhasshown_2",
         "BOI",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 3000
         }
     },
@@ -7400,6 +7693,7 @@ RP.Emotes = {
         "michael_tux_fidget",
         "Adjust",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 4000
         }
     },
@@ -7408,6 +7702,7 @@ RP.Emotes = {
         "handsup_base",
         "Hands Up",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -7416,6 +7711,7 @@ RP.Emotes = {
         "idle_a_fp",
         "Hands Up 2",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -7424,6 +7720,7 @@ RP.Emotes = {
         'hands_up_idle_a_player_one',
         'Hands Up 3',
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -7432,7 +7729,8 @@ RP.Emotes = {
         "base_a_m_y_vinewood_01",
         "Valet",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["valet2"] = {
@@ -7440,7 +7738,8 @@ RP.Emotes = {
         "base_a_m_y_vinewood_01",
         "Valet 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["valet3"] = {
@@ -7448,7 +7747,8 @@ RP.Emotes = {
         "base_a_m_y_vinewood_01",
         "Valet 3",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["tighten"] = {
@@ -7466,6 +7766,7 @@ RP.Emotes = {
         "c2_pose",
         "F Sex Pose",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true
         },
         AdultAnimation = true
@@ -7475,6 +7776,7 @@ RP.Emotes = {
         "c6_pose",
         "F Sex Pose 2",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true
         },
         AdultAnimation = true
@@ -7484,6 +7786,7 @@ RP.Emotes = {
         "female_c_idle_d",
         "F Sex Pose 3",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true
         },
         AdultAnimation = true
@@ -7493,6 +7796,7 @@ RP.Emotes = {
         "shower_enter_into_idle",
         "Shower Enter Female",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true
         }
     },
@@ -7501,6 +7805,7 @@ RP.Emotes = {
         "shower_idle_a",
         "Shower Female",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true
         }
     },
@@ -7509,6 +7814,7 @@ RP.Emotes = {
         "shower_idle_b",
         "Shower Female 2",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true
         }
     },
@@ -7517,6 +7823,7 @@ RP.Emotes = {
         "male_shower_idle_a",
         "Shower Enter Male",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true
         }
     },
@@ -7525,6 +7832,7 @@ RP.Emotes = {
         "male_shower_idle_b",
         "Shower Male 2",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true
         }
     },
@@ -7533,6 +7841,7 @@ RP.Emotes = {
         "male_shower_idle_c",
         "Shower Male 3",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true
         }
     },
@@ -7541,6 +7850,7 @@ RP.Emotes = {
         "male_shower_idle_d",
         "Shower Male 4",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true
         }
     },
@@ -7549,6 +7859,7 @@ RP.Emotes = {
         "hassle_intro_loop_f",
         "Picklock",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -7557,6 +7868,7 @@ RP.Emotes = {
         "urinal_sink_loop",
         "Clean Them Filthy Hands",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -7565,6 +7877,7 @@ RP.Emotes = {
         "loop_michael",
         "Clean Your Face",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -7573,7 +7886,8 @@ RP.Emotes = {
         "buzz_reg",
         "Buzz Door",
         AnimationOptions = {
-            EmoteLoop = false
+            EmoteLoop = false,
+            EmoteMoving = false
         }
     },
     ["grieve"] = {
@@ -7581,6 +7895,7 @@ RP.Emotes = {
         "idle_ped05",
         "Grieve The Dead",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -7589,6 +7904,7 @@ RP.Emotes = {
         "respect",
         "Respect Male",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = false
         }
     },
@@ -7597,6 +7913,7 @@ RP.Emotes = {
         "respect",
         "Respect Female",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = false
         }
     },
@@ -7605,6 +7922,7 @@ RP.Emotes = {
         "bang_bang",
         "Bang Bang ",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteDuration = 2500
         }
     },
@@ -7629,6 +7947,7 @@ RP.Emotes = {
         "stripper_b_backroom_idle_b",
         "Show Boobs ",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteDuration = 6000,
         },
         AdultAnimation = true
@@ -7638,6 +7957,7 @@ RP.Emotes = {
         "stripper_idle_05",
         "Show Boobs 2",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteDuration = 6000,
         },
         AdultAnimation = true
@@ -7647,6 +7967,7 @@ RP.Emotes = {
         "idle_b",
         "Watch Stripper ",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteDuration = 6000,
         },
         AdultAnimation = true
@@ -7656,7 +7977,8 @@ RP.Emotes = {
         "base",
         "Heart Hands",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["posecutef"] = { -- Custom Emote By Pupppy
@@ -7664,7 +7986,8 @@ RP.Emotes = {
         "freepose01",
         "Cute Pose Female",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["posecutef2"] = { -- Custom Emote By Pupppy
@@ -7672,7 +7995,8 @@ RP.Emotes = {
         "freepose03",
         "Cute Pose Female 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["posecutef3"] = { -- Custom Emote By Pupppy
@@ -7680,7 +8004,8 @@ RP.Emotes = {
         "freepose04",
         "Cute Pose Female 3",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["posecutef4"] = { -- Custom Emote By QueenSistersAnimations
@@ -7688,7 +8013,8 @@ RP.Emotes = {
         "kylie_clip",
         "Cute Pose Female 4",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["posecutem"] = { -- Custom Emote By Pupppy
@@ -7696,7 +8022,8 @@ RP.Emotes = {
         "freepose02",
         "Cute Pose Male",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["checkwatch"] = { -- Custom Emote By MissSnowie
@@ -7704,7 +8031,8 @@ RP.Emotes = {
         "base",
         "Check Watch",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["pee"] = {
@@ -7736,6 +8064,7 @@ RP.Emotes = {
         "piss_loop",
         "Pee 2 (Male)",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             PtfxAsset = "scr_amb_chop",
             PtfxName = "ent_anim_dog_peeing",
@@ -7760,6 +8089,7 @@ RP.Emotes = {
         "skull_loving_bear",
         "Hump",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true
         },
         AdultAnimation = true
@@ -7769,6 +8099,7 @@ RP.Emotes = {
         "idle_a",
         "Wank",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         },
         AdultAnimation = true
@@ -7778,6 +8109,7 @@ RP.Emotes = {
         "idle_a",
         "Wank 2",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         },
         AdultAnimation = true
@@ -7787,6 +8119,7 @@ RP.Emotes = {
         "mp_player_int_wank_02",
         "Wank 3",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         },
         AdultAnimation = true
@@ -7796,6 +8129,7 @@ RP.Emotes = {
         "mp_player_int_wank_02_fp",
         "Wank 4",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         },
         AdultAnimation = true
@@ -7805,6 +8139,7 @@ RP.Emotes = {
         "mp_player_int_wank",
         "Wank 5",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = false
         },
         AdultAnimation = true
@@ -7838,6 +8173,7 @@ RP.Emotes = {
         "idle",
         "Block Face",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -7862,23 +8198,26 @@ RP.Emotes = {
         "hug_dog",
         "Hug Dog",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+			EmoteMoving = false,
         }
     },
     ["snot"] = {
-        "move_p_m_two_idles@generic",
-        "fidget_blow_snot",
-        "Blow Snot",
+        "move_p_m_two_idles@generic", 
+        "fidget_blow_snot", 
+        "Blow Snot", 
         AnimationOptions = {
-            EmoteDuration = 4500
+            EmoteMoving = true,
+            EmoteDuration = 4500,
         }
-    },
+    }, 
     ["scratch"] = {
-        "move_p_m_two_idles@generic",
-        "fidget_scratch_balls",
-        "Scratch Balls",
+        "move_p_m_two_idles@generic", 
+        "fidget_scratch_balls", 
+        "Scratch Balls", 
         AnimationOptions = {
-            EmoteDuration = 4000
+            EmoteMoving = false,
+            EmoteDuration = 4000,
         },
         AdultAnimation = true
     },
@@ -7959,7 +8298,8 @@ RP.Emotes = {
         "pose_sport_002",
         "Flex 2",
         AnimationOptions = {
-            EmoteLoop = true, --- Allows us to flex while performing another animation
+            EmoteLoop = true,
+            EmoteMoving = true, --- Allows us to flex while performing another animation
         }
     },
     ["gympose"] = { -- Custom Emote By Amnilka
@@ -8190,6 +8530,7 @@ RP.Emotes = {
         "mind_blown",
         "Mind Blown",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 4000
         }
     },
@@ -8198,6 +8539,7 @@ RP.Emotes = {
         "mind_blown",
         "Mind Blown 2",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 4000
         }
     },
@@ -8206,6 +8548,7 @@ RP.Emotes = {
         "shadow_boxing",
         "Boxing",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 4000
         }
     },
@@ -8214,6 +8557,7 @@ RP.Emotes = {
         "shadow_boxing",
         "Boxing 2",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 4000
         }
     },
@@ -8222,6 +8566,7 @@ RP.Emotes = {
         "stinker",
         "Stink",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -8230,7 +8575,8 @@ RP.Emotes = {
         "idle_a",
         "Think 4",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["adjusttie"] = {
@@ -8238,6 +8584,7 @@ RP.Emotes = {
         "try_tie_positive_a",
         "Adjust Tie",
         AnimationOptions = {
+            EmoteMoving = true,
             EmoteDuration = 5000
         }
     },
@@ -8246,7 +8593,8 @@ RP.Emotes = {
         "base",
         "Shaka 'Hang Loose'",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["shaka2"] = {
@@ -8254,7 +8602,8 @@ RP.Emotes = {
         "base",
         "Shaka 'Hang Loose Casual'",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["relax"] = {
@@ -8284,7 +8633,8 @@ RP.Emotes = {
         "base",
         "UwU",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["sexypose"] = { -- Custom Emote By Little Spoon
@@ -8292,7 +8642,8 @@ RP.Emotes = {
         "sexy003",
         "Sexy Pose",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sexypose2"] = { -- Custom Emote By Little Spoon
@@ -8300,7 +8651,8 @@ RP.Emotes = {
         "sexy004",
         "Sexy Pose 2",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sexypose3"] = { -- Custom Emote By Little Spoon
@@ -8308,7 +8660,8 @@ RP.Emotes = {
         "sexy005",
         "Sexy Pose 3",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sexypose4"] = { -- Custom Emote By Little Spoon
@@ -8316,7 +8669,8 @@ RP.Emotes = {
         "sexy006",
         "Sexy Pose 4",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sexypose5"] = { -- Custom Emote By Little Spoon
@@ -8324,7 +8678,8 @@ RP.Emotes = {
         "sexy009",
         "Sexy Pose 5",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sexypose6"] = { -- Custom Emote By Little Spoon
@@ -8332,7 +8687,8 @@ RP.Emotes = {
         "sexy012",
         "Sexy Pose 5",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["laydownsexy"] = { -- Custom emote by Struggleville
@@ -8350,7 +8706,8 @@ RP.Emotes = {
         "model_showoff_clip",
         "Model Pose Sexy",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["model2"] = { -- Custom Emote By QueenSistersAnimations
@@ -8359,6 +8716,7 @@ RP.Emotes = {
         "Model Pose 2",
         AnimationOptions = {
             EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["model3"] = { -- Custom emote by Struggleville
@@ -8366,7 +8724,8 @@ RP.Emotes = {
         "photo_cute_clip",
         "Model Pose 3",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["layncry"] = {
@@ -8434,7 +8793,8 @@ RP.Emotes = {
         "base",
         "Airforce - At Ease", -- MissSnowie
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["airforce02"] = { -- MissSnowie
@@ -8442,7 +8802,8 @@ RP.Emotes = {
         "base",
         "Airforce - Attention",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["airforce03"] = { -- MissSnowie
@@ -8450,7 +8811,8 @@ RP.Emotes = {
         "base",
         "Airforce - Parade Rest",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["airforce04"] = {
@@ -8458,7 +8820,8 @@ RP.Emotes = {
         "base",
         "Airforce - Salute",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["zombiewalk"] = { -- Custom Emote By BoringNeptune
@@ -8466,7 +8829,8 @@ RP.Emotes = {
         "zombi_walk_01",
         "Zombie Walk",
         AnimationOptions = {
-            EmoteLoop = true -- true looks weird but the option is here
+            EmoteLoop = true,
+            EmoteMoving = false -- true looks weird but the option is here
         }
     },
     ["zombiewalk2"] = { -- Custom Emote By BoringNeptune
@@ -8525,6 +8889,7 @@ RP.Emotes = {
         "Hold Vest",
         AnimationOptions = {
             EmoteLoop = true,
+            EmoteMoving = true,
         }
     },
     ["vest2"] = {
@@ -8533,6 +8898,7 @@ RP.Emotes = {
         "Hold Vest 2",
         AnimationOptions = {
             EmoteLoop = true,
+            EmoteMoving = true,
         }
     },
     ["vest3"] = {
@@ -8541,6 +8907,7 @@ RP.Emotes = {
         "Hold Vest 3",
         AnimationOptions = {
             EmoteLoop = true,
+            EmoteMoving = true,
         }
     },
     ["vest4"] = {
@@ -8549,6 +8916,7 @@ RP.Emotes = {
         "Hold Vest 4",
         AnimationOptions = {
             EmoteLoop = true,
+            EmoteMoving = true,
         }
     },
     ["vest5"] = {
@@ -8557,6 +8925,7 @@ RP.Emotes = {
         "Hold Vest 5",
         AnimationOptions = {
             EmoteLoop = true,
+            EmoteMoving = true,
         }
     },
     ["vest6"] = {
@@ -8565,6 +8934,7 @@ RP.Emotes = {
         "Hold Vest 6",
         AnimationOptions = {
             EmoteLoop = true,
+            EmoteMoving = true,
         }
     },
 }
@@ -8586,7 +8956,8 @@ RP.PropEmotes = {
                 -20.0,
                 180.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ['umbrella2'] = {
@@ -8604,7 +8975,8 @@ RP.PropEmotes = {
                 -150.9605721,
                 57.3374916
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     -----------------------------------------------------------------------------------------------------
@@ -8638,7 +9010,8 @@ RP.PropEmotes = {
             -- EmoteLoop is used for emotes that should loop, its as simple as that.
             -- Then EmoteMoving is used for emotes that should only play on the upperbody.
             -- The code then checks both values and sets the MovementType to the correct one
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["box"] = {
@@ -8656,7 +9029,8 @@ RP.PropEmotes = {
                 290.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["gift"] = { --- Custom Prop & Emote By BzZzi
@@ -8673,7 +9047,8 @@ RP.PropEmotes = {
                 -77.0,
                 -120.0,
                 40.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["gift2"] = { --- Custom Prop & Emote By BzZzi
@@ -8690,7 +9065,8 @@ RP.PropEmotes = {
                 -77.0,
                 -120.0,
                 40.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["cake"] = { --- Custom Prop & Emote By BzZzi
@@ -8707,7 +9083,8 @@ RP.PropEmotes = {
                -128.0,
                -245.0,
                 2.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["cake2"] = { --- Custom Prop & Emote By BzZzi
@@ -8724,7 +9101,8 @@ RP.PropEmotes = {
                -94.0,
                -162.0,
                 -44.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["cake3"] = { --- Custom Prop & Emote By BzZzi
@@ -8741,7 +9119,8 @@ RP.PropEmotes = {
                -54.0,
                -72.0,
                 -6.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["cake4"] = { --- Custom Prop & Emote By BzZzi
@@ -8758,7 +9137,8 @@ RP.PropEmotes = {
                -54.0,
                -72.0,
                 -6.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["cakew"] = {
@@ -8776,7 +9156,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["cakew2"] = { --- Custom Prop & Emote By BzZzi
@@ -8794,7 +9175,8 @@ RP.PropEmotes = {
                 0.0,
                 80.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["cakew3"] = { --- Custom Prop & Emote By BzZzi
@@ -8812,7 +9194,8 @@ RP.PropEmotes = {
                 0.0,
              -160.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["cakew4"] = { --- Custom Prop & Emote By BzZzi
@@ -8830,7 +9213,8 @@ RP.PropEmotes = {
                 0.0,
               180.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["rose"] = {
@@ -8848,7 +9232,8 @@ RP.PropEmotes = {
                 0.0,
                 -20.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["smoke2"] = {
@@ -8866,7 +9251,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["smoke3"] = {
@@ -8884,7 +9270,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["smoke4"] = {
@@ -8902,7 +9289,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["vape"] = {
@@ -8920,6 +9308,7 @@ RP.PropEmotes = {
                 270.0,
                 -360.0
             },
+            EmoteMoving = true,
             EmoteLoop = true,
             PtfxAsset = "core",
             PtfxName = "exp_grd_bzgas_smoke",
@@ -8953,6 +9342,7 @@ RP.PropEmotes = {
                 110.0,
                 10.0
             },
+            EmoteMoving = true,
             EmoteLoop = true,
             PtfxAsset = "core",
             PtfxName = "exp_grd_bzgas_smoke",
@@ -9020,7 +9410,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["fishing2"] = {
@@ -9038,7 +9429,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["fishing3"] = {
@@ -9056,7 +9448,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["suitcase"] = {
@@ -9074,7 +9467,8 @@ RP.PropEmotes = {
                 266.0,
                 90.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["suitcase2"] = {
@@ -9092,7 +9486,8 @@ RP.PropEmotes = {
                 280.0,
                 90.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["boombox"] = {
@@ -9110,7 +9505,8 @@ RP.PropEmotes = {
                 263.0,
                 58.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["boombox2"] = {
@@ -9138,7 +9534,8 @@ RP.PropEmotes = {
                 176.7406,
                 23.0190
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["toolbox"] = {
@@ -9156,7 +9553,8 @@ RP.PropEmotes = {
                 0.0,
                 90.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["toolbox2"] = {
@@ -9174,7 +9572,8 @@ RP.PropEmotes = {
                 0.0,
                 -90.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["toolbox3"] = {
@@ -9192,7 +9591,8 @@ RP.PropEmotes = {
                 0.0,
                 -90.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["toolbox4"] = {
@@ -9210,7 +9610,8 @@ RP.PropEmotes = {
                 0.0,
                 -90.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["gbag"] = {
@@ -9228,7 +9629,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["beerbox"] = {
@@ -9246,7 +9648,8 @@ RP.PropEmotes = {
                 266.0,
                 48.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["beerbox2"] = {
@@ -9264,7 +9667,8 @@ RP.PropEmotes = {
                 266.0,
                 48.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["beerbox3"] = {
@@ -9282,7 +9686,8 @@ RP.PropEmotes = {
                 266.0,
                 48.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["beerbox4"] = {
@@ -9300,7 +9705,8 @@ RP.PropEmotes = {
                 266.0,
                 60.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["mugshot"] = {
@@ -9318,7 +9724,8 @@ RP.PropEmotes = {
                 0.0,
                 70.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["coffee"] = {
@@ -9336,7 +9743,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["whiskey"] = {
@@ -9354,7 +9762,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["whiskeyb"] = {
@@ -9372,7 +9781,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["beer"] = {
@@ -9390,7 +9800,8 @@ RP.PropEmotes = {
                 15.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["whiskeyb2"] = {
@@ -9408,7 +9819,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["beer2"] = {
@@ -9426,7 +9838,8 @@ RP.PropEmotes = {
                 15.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["whiskeyb3"] = {
@@ -9444,7 +9857,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["beerf"] = {
@@ -9462,7 +9876,8 @@ RP.PropEmotes = {
                 15.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wine2"] = {
@@ -9481,6 +9896,7 @@ RP.PropEmotes = {
                 0.0
             },
             EmoteLoop = true,
+            EmoteMoving = true,
             ---       PropPlacement = {-0.0, 0.03, -0.20, 5.0, 0.0, 0.0},
             ---     F&B   L&R   U&D  R.F&B
         }
@@ -9500,7 +9916,8 @@ RP.PropEmotes = {
                 15.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["wine3"] = {
@@ -9518,7 +9935,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["cup"] = {
@@ -9536,7 +9954,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["apple"] = {
@@ -9553,7 +9972,8 @@ RP.PropEmotes = {
                 -124.6964,
                 -166.5760,
                 8.4572
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["taco"] = {
@@ -9570,7 +9990,8 @@ RP.PropEmotes = {
                 107.9846,
                 -105.0251,
                 55.7779
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["hotdog"] = {
@@ -9587,7 +10008,8 @@ RP.PropEmotes = {
                 95.1071,
                 94.7001,
                 -66.9179
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["donut"] = {
@@ -9604,7 +10026,8 @@ RP.PropEmotes = {
                 -50.0,
                 16.0,
                 60.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["donut2"] = { --- Custom Prop by Bzzzi
@@ -9621,7 +10044,8 @@ RP.PropEmotes = {
                 10.0000,
                 0.0000,
                 -1.0000
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["donut3"] = { --- Custom Prop by Bzzzi
@@ -9638,7 +10062,8 @@ RP.PropEmotes = {
                 10.0000,
                 0.0000,
                 -1.0000
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["desert"] = { --- Custom Prop by Bzzzi
@@ -9655,7 +10080,8 @@ RP.PropEmotes = {
                 -42.0,
                 -36.0,
                 0.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["croissant"] = { --- Custom Prop by Bzzzi
@@ -9672,7 +10098,8 @@ RP.PropEmotes = {
                 0.0000,
                 0.0000,
                 90.0000
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["gingerbread"] = { --- Custom Prop by Bzzzi
@@ -9689,7 +10116,8 @@ RP.PropEmotes = {
                 18.0,
                 164.0,
                 -5.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["candycane"] = { --- Custom Prop by Bzzzi
@@ -9706,7 +10134,8 @@ RP.PropEmotes = {
                -73.0,
                 146.0,
                 -5.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["candycaneb"] = { --- Custom Prop by Bzzzi
@@ -9723,7 +10152,8 @@ RP.PropEmotes = {
                -73.0,
                 146.0,
                 -5.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["candycanec"] = { --- Custom Prop by Bzzzi
@@ -9740,7 +10170,8 @@ RP.PropEmotes = {
                -73.0,
                 146.0,
                 -5.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["candycaned"] = { --- Custom Prop by Bzzzi
@@ -9757,7 +10188,8 @@ RP.PropEmotes = {
                -73.0,
                 146.0,
                 -5.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["candycanee"] = { --- Custom Prop by Bzzzi
@@ -9774,7 +10206,8 @@ RP.PropEmotes = {
                -73.0,
                 146.0,
                 -5.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["macaroon"] = { --- Custom Prop by Bzzzi
@@ -9791,7 +10224,8 @@ RP.PropEmotes = {
                 38.0,
                 7.0,
                 7.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["xmasmug"] = { --- Custom Prop by Bzzzi
@@ -9808,7 +10242,8 @@ RP.PropEmotes = {
                -44.0,
                 137.0,
                 9.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["xmasmug2"] = { --- Custom Prop by Bzzzi
@@ -9825,7 +10260,8 @@ RP.PropEmotes = {
                -44.0,
                 137.0,
                 9.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["xmaswine"] = { --- Custom Prop by Bzzzi
@@ -9842,7 +10278,8 @@ RP.PropEmotes = {
                -110.0,
                -47.0,
                 7.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["cocoa"] = {
@@ -9860,7 +10297,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["xmassf"] = { --- Custom Prop by PataMods
@@ -9877,7 +10315,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0,
                 0.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["xmascc"] = { --- Custom Prop by PataMods
@@ -9894,7 +10333,8 @@ RP.PropEmotes = {
                -170.1788,
                 87.6716,
                 30.0540
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["xmascc2"] = { --- Custom Prop by PataMods
@@ -9911,7 +10351,8 @@ RP.PropEmotes = {
                 9.3608,
               -90.1809,
                66.3689
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["xmasic"] = {
@@ -9939,7 +10380,8 @@ RP.PropEmotes = {
                20.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["pizzaslice"] = { --- Custom Prop by knjgh
@@ -9957,7 +10399,7 @@ RP.PropEmotes = {
                 -66.7427,
                 68.3677
             },
-            EmoteLoop = true
+            EmoteMoving = true
         }
     },
     ["pizzas"] = { --- Custom Prop by knjgh
@@ -9974,7 +10416,8 @@ RP.PropEmotes = {
                 73.6928,
                 -66.7427,
                 68.3677
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["pizzas2"] = { --- Custom Prop by knjgh
@@ -9991,7 +10434,8 @@ RP.PropEmotes = {
                 73.6928,
                 -66.7427,
                 68.3677
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["pizzas3"] = { --- Custom Prop by knjgh
@@ -10008,7 +10452,8 @@ RP.PropEmotes = {
                 73.6928,
                 -66.7427,
                 68.3677
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["pizzas4"] = { --- Custom Prop by knjgh
@@ -10025,7 +10470,8 @@ RP.PropEmotes = {
                 73.6928,
                 -66.7427,
                 68.3677
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["pizzas5"] = { --- Custom Prop by knjgh
@@ -10042,7 +10488,8 @@ RP.PropEmotes = {
                 73.6928,
                 -66.7427,
                 68.3677
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["burger"] = {
@@ -10059,7 +10506,8 @@ RP.PropEmotes = {
                 -50.0,
                 16.0,
                 60.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["sandwich"] = {
@@ -10076,7 +10524,8 @@ RP.PropEmotes = {
                 -50.0,
                 16.0,
                 60.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["soda"] = {
@@ -10094,7 +10543,8 @@ RP.PropEmotes = {
                 0.0,
                 130.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["water"] = {
@@ -10112,7 +10562,8 @@ RP.PropEmotes = {
                 0.0,
                 130.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["egobar"] = {
@@ -10129,7 +10580,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0,
                 0.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["candy"] = {
@@ -10146,7 +10598,8 @@ RP.PropEmotes = {
                 180.0,
                 180.0,
                 -88.099
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["lollipop1"] = {
@@ -10163,7 +10616,8 @@ RP.PropEmotes = {
                 -175.1935,
                 97.6975,
                 20.9598
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["lollipop1b"] = {
@@ -10180,7 +10634,8 @@ RP.PropEmotes = {
                 -175.1935,
                 97.6975,
                 20.9598
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["lollipop1c"] = {
@@ -10197,7 +10652,8 @@ RP.PropEmotes = {
                 -175.1935,
                 97.6975,
                 20.9598
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["lollipop1d"] = {
@@ -10214,7 +10670,8 @@ RP.PropEmotes = {
                 -175.1935,
                 97.6975,
                 20.9598
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["lollipop1e"] = {
@@ -10231,7 +10688,8 @@ RP.PropEmotes = {
                 -175.1935,
                 97.6975,
                 20.9598
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["lollipop1f"] = {
@@ -10248,7 +10706,8 @@ RP.PropEmotes = {
                 -175.1935,
                 97.6975,
                 20.9598
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["lollipop2a"] = {
@@ -10266,7 +10725,8 @@ RP.PropEmotes = {
                 -128.8559,
                 15.6107
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["lollipop2b"] = {
@@ -10284,7 +10744,8 @@ RP.PropEmotes = {
                 -128.8559,
                 15.6107
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["lollipop2c"] = {
@@ -10302,7 +10763,8 @@ RP.PropEmotes = {
                 -128.8559,
                 15.6107
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["lollipop2d"] = {
@@ -10320,7 +10782,8 @@ RP.PropEmotes = {
                 -128.8559,
                 15.6107
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["lollipop2e"] = {
@@ -10338,7 +10801,8 @@ RP.PropEmotes = {
                 -128.8559,
                 15.6107
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["lollipop3a"] = {
@@ -10356,6 +10820,7 @@ RP.PropEmotes = {
                 10.0000,
                 -10.0000
             },
+            EmoteMoving = true,
             EmoteDuration = 2600
         }
     },
@@ -10373,7 +10838,8 @@ RP.PropEmotes = {
                 85.0,
                 70.0,
                 -203.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["icecreamb"] = {
@@ -10390,7 +10856,8 @@ RP.PropEmotes = {
                 85.0,
                 70.0,
                 -203.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["icecreamc"] = {
@@ -10407,7 +10874,8 @@ RP.PropEmotes = {
                 85.0,
                 70.0,
                 -203.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["icecreamd"] = {
@@ -10424,7 +10892,8 @@ RP.PropEmotes = {
                 85.0,
                 70.0,
                 -203.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["icecreame"] = {
@@ -10441,7 +10910,8 @@ RP.PropEmotes = {
                 85.0,
                 70.0,
                 -203.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["icecreamf"] = {
@@ -10458,7 +10928,8 @@ RP.PropEmotes = {
                 85.0,
                 70.0,
                 -203.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["icecreamg"] = {
@@ -10475,7 +10946,8 @@ RP.PropEmotes = {
                 85.0,
                 70.0,
                 -203.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["icecreamh"] = {
@@ -10492,7 +10964,8 @@ RP.PropEmotes = {
                 85.0,
                 70.0,
                 -203.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["wine"] = {
@@ -10510,6 +10983,7 @@ RP.PropEmotes = {
                 0.0,
                 -10.0
             },
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -10528,6 +11002,7 @@ RP.PropEmotes = {
                 0.0,
                 -10.0
             },
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -10546,6 +11021,7 @@ RP.PropEmotes = {
                 0.0,
                 -10.0
             },
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -10564,6 +11040,7 @@ RP.PropEmotes = {
                 0.0,
                 -80.0
             },
+            EmoteMoving = true,
             EmoteDuration = 2600
         }
     },
@@ -10582,6 +11059,7 @@ RP.PropEmotes = {
                 0.0,
                 -80.0
             },
+            EmoteMoving = true,
             EmoteDuration = 2600
         }
     },
@@ -10600,6 +11078,7 @@ RP.PropEmotes = {
                 20.0,
                 150.0
             },
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -10618,6 +11097,7 @@ RP.PropEmotes = {
                 20.0,
                 150.0
             },
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -10636,6 +11116,7 @@ RP.PropEmotes = {
                 20.0,
                 150.0
             },
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -10654,6 +11135,7 @@ RP.PropEmotes = {
                 20.0,
                 150.0
             },
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -10672,7 +11154,8 @@ RP.PropEmotes = {
                 0.0,
                 15.0000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["guitarcarry2"] = {
@@ -10690,7 +11173,8 @@ RP.PropEmotes = {
                 5.7251,
                 29.4987
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["guitarcarry3"] = {
@@ -10708,7 +11192,8 @@ RP.PropEmotes = {
                 0.0,
                 21.9999
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["guitarcarry4"] = {
@@ -10726,7 +11211,8 @@ RP.PropEmotes = {
                 0.0,
                 21.9999
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["guitarcarry5"] = {
@@ -10744,7 +11230,8 @@ RP.PropEmotes = {
                 0.0,
                 21.9999
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["guitarcarry6"] = {
@@ -10762,7 +11249,8 @@ RP.PropEmotes = {
                 0.0,
                 21.9999
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["guitarcarry7"] = {
@@ -10780,7 +11268,8 @@ RP.PropEmotes = {
                 0.0,
                 21.9999
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["guitarsit"] = {
@@ -10819,6 +11308,7 @@ RP.PropEmotes = {
                 90.0
             },
             -- This positioning isnt too great, was to much of a hassle
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -10837,6 +11327,7 @@ RP.PropEmotes = {
                 -90.0,
                 0.0
             },
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -10855,6 +11346,7 @@ RP.PropEmotes = {
                 -90.0,
                 0.0
             },
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -10873,6 +11365,7 @@ RP.PropEmotes = {
                 90.0,
                 175.0
             },
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -10891,6 +11384,7 @@ RP.PropEmotes = {
                 -50.0,
                 0.0
             },
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -10909,6 +11403,7 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -10927,7 +11422,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["beg"] = {
@@ -10945,7 +11441,8 @@ RP.PropEmotes = {
                 0.0,
                 40.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["newspaper"] = {
@@ -10963,6 +11460,7 @@ RP.PropEmotes = {
                 3.2712,
                 -10.5080
             },
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -10981,6 +11479,7 @@ RP.PropEmotes = {
                 0.0087,
                 0.5000
             },
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -10999,6 +11498,7 @@ RP.PropEmotes = {
                 3.2841,
                 -4.7185
             },
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -11017,6 +11517,7 @@ RP.PropEmotes = {
                 179.2527,
                 13.8804
             },
+            EmoteMoving = true,
             EmoteLoop = true
         },
         AdultAnimation = true
@@ -11036,6 +11537,7 @@ RP.PropEmotes = {
                 -0.4292,
                 -14.3925
             },
+            EmoteMoving = true,
             EmoteLoop = true
         },
         AdultAnimation = true
@@ -11055,6 +11557,7 @@ RP.PropEmotes = {
                 -180.0000,
                 22.7007
             },
+            EmoteMoving = true,
             EmoteLoop = true
         },
         AdultAnimation = true
@@ -11074,6 +11577,7 @@ RP.PropEmotes = {
                 0.2032,
                 -20.0016
             },
+            EmoteMoving = true,
             EmoteLoop = true
         },
         AdultAnimation = true
@@ -11093,6 +11597,7 @@ RP.PropEmotes = {
                 0.2032,
                 -20.0016
             },
+            EmoteMoving = true,
             EmoteLoop = true
         },
         AdultAnimation = true
@@ -11112,6 +11617,7 @@ RP.PropEmotes = {
                 0.2032,
                 -20.0016
             },
+            EmoteMoving = true,
             EmoteLoop = true
         },
         AdultAnimation = true
@@ -11131,6 +11637,7 @@ RP.PropEmotes = {
                 0.2032,
                 -20.0016
             },
+            EmoteMoving = true,
             EmoteLoop = true
         },
         AdultAnimation = true
@@ -11150,6 +11657,7 @@ RP.PropEmotes = {
                 0.0,
                 70.0
             },
+            EmoteMoving = true,
             EmoteLoop = true,
             PtfxAsset = "scr_xs_celebration",
             PtfxName = "scr_xs_money_rain",
@@ -11183,6 +11691,7 @@ RP.PropEmotes = {
                 0.0
             },
             EmoteLoop = true,
+            EmoteMoving = true,
             PtfxAsset = "scr_bike_business",
             PtfxName = "scr_bike_cfid_camera_flash",
             PtfxPlacement = {
@@ -11214,6 +11723,7 @@ RP.PropEmotes = {
                 -29.0221
             },
             EmoteLoop = false,
+            EmoteMoving = true,
             PtfxAsset = "scr_bike_business",
             PtfxName = "scr_bike_cfid_camera_flash",
             PtfxPlacement = {
@@ -11244,6 +11754,7 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
+            EmoteMoving = true,
             EmoteLoop = true,
             PtfxAsset = "scr_ba_club",
             PtfxName = "scr_ba_club_champagne_spray",
@@ -11275,6 +11786,7 @@ RP.PropEmotes = {
                 0.0,
                 110.0
             },
+            EmoteMoving = true,
             EmoteDuration = 2600
         }
     },
@@ -11293,6 +11805,7 @@ RP.PropEmotes = {
                 0.0,
                 110.0
             },
+            EmoteMoving = true,
             EmoteDuration = 2600
         }
     },
@@ -11311,7 +11824,8 @@ RP.PropEmotes = {
                 255.0,
                 80.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["brief2"] = { -- Added for compatibility
@@ -11330,7 +11844,8 @@ RP.PropEmotes = {
                 280.0,
                 53.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["guncase"] = {
@@ -11349,7 +11864,8 @@ RP.PropEmotes = {
                 145.0,
                 115.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["tablet"] = {
@@ -11367,7 +11883,8 @@ RP.PropEmotes = {
                 -90.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["tablet2"] = {
@@ -11385,7 +11902,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["phonecall"] = {
@@ -11413,7 +11931,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["phonecall2"] = {
@@ -11441,7 +11960,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["wt"] = {
@@ -11459,7 +11979,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
 	["wt2"] = {
@@ -11496,7 +12017,8 @@ RP.PropEmotes = {
                 3.7058,
                 -23.2367
 				},
-            EmoteLoop = true
+            EmoteLoop = true,
+			EmoteMoving = true
         }
     },
     ["wt4"] = {
@@ -11514,7 +12036,8 @@ RP.PropEmotes = {
                 0.0,
               -59.9999
 				},
-            EmoteLoop = true
+            EmoteLoop = true,
+			EmoteMoving = true
         }
     },
     ["clean"] = {
@@ -11532,7 +12055,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["clean2"] = {
@@ -11550,7 +12074,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["protest"] = {
@@ -11569,7 +12094,8 @@ RP.PropEmotes = {
                 -13.9572354
             },
             --
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["protest2"] = {
@@ -11587,7 +12113,8 @@ RP.PropEmotes = {
                 5.9142048,
                 -13.9572354
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["binoculars"] = {
@@ -11605,7 +12132,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["binoculars2"] = {
@@ -11623,7 +12151,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["tennisplay"] = {
@@ -11651,7 +12180,8 @@ RP.PropEmotes = {
                 3.8782324,
                 6.588224
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["weights"] = {
@@ -11669,7 +12199,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["weights2"] = {
@@ -11687,7 +12218,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["weights3"] = { -- Custom Emote By Amnilka
@@ -11790,6 +12322,7 @@ RP.PropEmotes = {
                 0.5710
             },
             EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["weights7"] = { -- Custom Female Emote By Frabi
@@ -11808,6 +12341,7 @@ RP.PropEmotes = {
                 54.3903
             },
             EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["fuel"] = {
@@ -11825,7 +12359,8 @@ RP.PropEmotes = {
                 -11.2122753,
                 -32.9453021
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["fuel2"] = {
@@ -11843,7 +12378,8 @@ RP.PropEmotes = {
                 180.000,
                 79.99
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["hitchhike"] = {
@@ -11871,7 +12407,8 @@ RP.PropEmotes = {
                 117.358,
                 -6.16
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["ssign"] = {
@@ -11889,7 +12426,8 @@ RP.PropEmotes = {
                 145.0627869,
                 -4.4318885
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["ssign2"] = {
@@ -11907,7 +12445,8 @@ RP.PropEmotes = {
                 145.0627869,
                 -4.4318885
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["ssign3"] = {
@@ -11925,7 +12464,8 @@ RP.PropEmotes = {
                 145.0627869,
                 -4.4318885
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["ssign4"] = {
@@ -11943,7 +12483,8 @@ RP.PropEmotes = {
                 145.0627869,
                 -4.4318885
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["ssign5"] = {
@@ -11961,7 +12502,8 @@ RP.PropEmotes = {
                 145.0627869,
                 -4.4318885
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["ssign6"] = {
@@ -11979,7 +12521,8 @@ RP.PropEmotes = {
                 145.0627869,
                 -4.4318885
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["ssign7"] = {
@@ -11997,7 +12540,8 @@ RP.PropEmotes = {
                 145.0627869,
                 -4.4318885
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["ssign8"] = {
@@ -12015,7 +12559,8 @@ RP.PropEmotes = {
                 145.0627869,
                 -4.4318885
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["ssign9"] = {
@@ -12033,7 +12578,8 @@ RP.PropEmotes = {
                 145.0627869,
                 -4.4318885
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["conehead"] = {
@@ -12051,7 +12597,8 @@ RP.PropEmotes = {
                 90.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["foodtraya"] = {
@@ -12069,7 +12616,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["foodtrayb"] = {
@@ -12087,7 +12635,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["foodtrayc"] = {
@@ -12105,7 +12654,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["foodtrayd"] = {
@@ -12123,7 +12673,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["foodtraye"] = {
@@ -12141,7 +12692,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["foodtrayf"] = {
@@ -12169,7 +12721,8 @@ RP.PropEmotes = {
                 110.2074758,
                 -3.5886263
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["foodtrayg"] = {
@@ -12197,7 +12750,8 @@ RP.PropEmotes = {
                 110.2074758,
                 -3.5886263
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["foodtrayh"] = {
@@ -12225,7 +12779,8 @@ RP.PropEmotes = {
                 110.2074758,
                 -3.5886263
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["foodtrayi"] = {
@@ -12253,7 +12808,8 @@ RP.PropEmotes = {
                 110.2074758,
                 -3.5886263
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["foodtrayj"] = {
@@ -12271,7 +12827,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["foodtrayk"] = {
@@ -12289,7 +12846,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["foodtrayl"] = {
@@ -12307,7 +12865,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["foodtraym"] = {
@@ -12325,7 +12884,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["foodtrayn"] = {
@@ -12343,7 +12903,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["foodtrayo"] = {
@@ -12361,7 +12922,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["carrypizza"] = {
@@ -12379,7 +12941,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["carryfoodbag"] = {
@@ -12397,7 +12960,8 @@ RP.PropEmotes = {
                 -79.9999997,
                 110.0651988
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["carryfoodbag2"] = {
@@ -12415,7 +12979,8 @@ RP.PropEmotes = {
                 -79.9999997,
                 110.0651988
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["carryfoodbag3"] = {
@@ -12433,7 +12998,8 @@ RP.PropEmotes = {
                 -79.9999997,
                 110.0651988
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["tag"] = {
@@ -12451,7 +13017,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["tag2"] = {
@@ -12469,7 +13036,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["tag3"] = {
@@ -12487,7 +13055,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["tag4"] = {
@@ -12505,7 +13074,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["tag5"] = {
@@ -12523,7 +13093,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["tag6"] = {
@@ -12541,7 +13112,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["beans"] = {
@@ -12569,7 +13141,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["dinner"] = {
@@ -12596,7 +13169,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["newscam"] = {
@@ -12614,7 +13188,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["newsmic"] = {
@@ -12632,7 +13207,8 @@ RP.PropEmotes = {
                 0.0,
                 60.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["newsbmic"] = {
@@ -12650,7 +13226,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["microck"] = { --- Custom Emote Provided To RpEmotes By Prue颜
@@ -12668,7 +13245,8 @@ RP.PropEmotes = {
                 -91.1712,
                 -3.8249
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["microckb"] = { --- Custom Emote Provided To RpEmotes By Prue颜
@@ -12686,7 +13264,8 @@ RP.PropEmotes = {
               -13.0000,
                 0.0000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["microckc"] = { --- Custom Emote Provided To RpEmotes By Prue颜
@@ -12704,7 +13283,8 @@ RP.PropEmotes = {
                 -91.1712,
                 -3.8249
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["microckd"] = { --- Custom Emote Provided To RpEmotes By Prue颜
@@ -12722,7 +13302,8 @@ RP.PropEmotes = {
                 -91.1712,
                 -3.8249
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["microcke"] = { --- Custom Emote Provided To RpEmotes By Prue颜
@@ -12740,7 +13321,8 @@ RP.PropEmotes = {
                -93.5253,
                 4.6450
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["microckf"] = { --- Custom Emote Provided To RpEmotes By Prue颜
@@ -12758,7 +13340,8 @@ RP.PropEmotes = {
                 51.8164,
                 3.0976
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["microckg"] = { --- Custom Emote Provided To RpEmotes By Prue颜
@@ -12776,7 +13359,8 @@ RP.PropEmotes = {
                 36.3684,
                 -11.7503
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["microckh"] = { --- Custom Emote Provided To RpEmotes By Prue颜
@@ -12794,7 +13378,8 @@ RP.PropEmotes = {
                -93.5253,
                 4.6450
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["microcki"] = { --- Custom Emote Provided To RpEmotes By Prue颜
@@ -12812,7 +13397,8 @@ RP.PropEmotes = {
                 -91.1712,
                 -3.8249
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["microckj"] = { --- Custom Emote Provided To RpEmotes By Prue颜
@@ -12830,7 +13416,8 @@ RP.PropEmotes = {
                 -91.1712,
                 -3.8249
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["leafblower"] = {
@@ -12849,6 +13436,7 @@ RP.PropEmotes = {
                 0.0
             },
             EmoteLoop = true,
+            EmoteMoving = true,
             PtfxAsset = "scr_armenian3",
             PtfxName = "ent_anim_leaf_blower",
             PtfxPlacement = {
@@ -12880,7 +13468,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["pump"] = {
@@ -12898,7 +13487,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["pump2"] = {
@@ -12916,7 +13506,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["pump3"] = {
@@ -12934,7 +13525,8 @@ RP.PropEmotes = {
                 179.8707,
                 -39.9860
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["pump4"] = {
@@ -12952,7 +13544,8 @@ RP.PropEmotes = {
                 179.8707,
                 -39.9860
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["pump5"] = {
@@ -12970,7 +13563,8 @@ RP.PropEmotes = {
                 179.8707,
                 -39.9860
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["mop"] = {
@@ -12988,7 +13582,8 @@ RP.PropEmotes = {
                 10.3568,
                 17.9681
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["mop2"] = {
@@ -13006,7 +13601,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["jerkf"] = {
@@ -13024,7 +13620,8 @@ RP.PropEmotes = {
                 80.0,
                 30.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         },
         AdultAnimation = true
     },
@@ -13197,7 +13794,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["shit"] = {
@@ -13217,6 +13815,7 @@ RP.PropEmotes = {
                 0.0
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_amb_chop",
             PtfxName = "ent_anim_dog_poo",
             PtfxNoProp = true,
@@ -13241,6 +13840,7 @@ RP.PropEmotes = {
         "Puke",
         AnimationOptions = {
             EmoteLoop = false,
+            EmoteMoving = true,
             PtfxAsset = "scr_paletoscore",
             PtfxName = "scr_trev_puke",
             PtfxNoProp = true,
@@ -13332,7 +13932,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["selfie2"] = {
@@ -13360,7 +13961,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["selfie3"] = {
@@ -13388,7 +13990,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["selfie4"] = {
@@ -13416,7 +14019,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["selfie5"] = {
@@ -13444,7 +14048,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["selfie6"] = {
@@ -13472,7 +14077,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["selfie7"] = {
@@ -13500,7 +14106,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["selfiepeace"] = { -- MissSnowie Custom Emote
@@ -13529,6 +14136,7 @@ RP.PropEmotes = {
                 35.6203
             },
             EmoteLoop = true,
+            EmoteMoving = true,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -13570,6 +14178,7 @@ RP.PropEmotes = {
                 -46.0417
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -13611,6 +14220,7 @@ RP.PropEmotes = {
                 -25.9000
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -13652,6 +14262,7 @@ RP.PropEmotes = {
                 -150.0000
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -13693,6 +14304,7 @@ RP.PropEmotes = {
                 -46.0417
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -13734,6 +14346,7 @@ RP.PropEmotes = {
                 -7.9339
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -13775,6 +14388,7 @@ RP.PropEmotes = {
                -8.8999
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -13817,7 +14431,8 @@ RP.PropEmotes = {
                 -180.0000,
                 10.0000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["selfiesit2"] = { -- Emote by WolfSquareEmotes
@@ -13846,6 +14461,7 @@ RP.PropEmotes = {
                 18.2605
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -13887,6 +14503,7 @@ RP.PropEmotes = {
                 109.6216
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -13928,6 +14545,7 @@ RP.PropEmotes = {
                 -3.4048
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -13969,6 +14587,7 @@ RP.PropEmotes = {
                 -18.7472
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -14010,6 +14629,7 @@ RP.PropEmotes = {
                 170.0000
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -14051,6 +14671,7 @@ RP.PropEmotes = {
                 8.6491
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -14092,6 +14713,7 @@ RP.PropEmotes = {
                 8.6491
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -14133,6 +14755,7 @@ RP.PropEmotes = {
                 8.6491
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -14174,6 +14797,7 @@ RP.PropEmotes = {
                 8.6491
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -14215,6 +14839,7 @@ RP.PropEmotes = {
                 10.0000
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -14256,6 +14881,7 @@ RP.PropEmotes = {
                 4.7551
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -14297,6 +14923,7 @@ RP.PropEmotes = {
                 0.0000
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -14338,6 +14965,7 @@ RP.PropEmotes = {
                 6.1827
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -14379,6 +15007,7 @@ RP.PropEmotes = {
                 -26.6415
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -14420,6 +15049,7 @@ RP.PropEmotes = {
                -14.9588
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -14471,6 +15101,7 @@ RP.PropEmotes = {
                -5.1311
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -14512,6 +15143,7 @@ RP.PropEmotes = {
                 13.0000
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -14553,6 +15185,7 @@ RP.PropEmotes = {
                 0.0000
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -14604,6 +15237,7 @@ RP.PropEmotes = {
                 2.6457
             },
             EmoteLoop = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -14646,6 +15280,7 @@ RP.PropEmotes = {
                 33.1691
             },
             EmoteLoop = true,
+            EmoteMoving = true,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -14697,6 +15332,7 @@ RP.PropEmotes = {
                  13.7795
             },
             EmoteLoop = true,
+            EmoteMoving = true,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -14727,7 +15363,8 @@ RP.PropEmotes = {
                 -109.544,
                 18.717
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sitchairf"] = { -- Emote by WhiskerValeMods
@@ -14745,7 +15382,8 @@ RP.PropEmotes = {
                 -180.0000,
                 -40.9999
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sitchairf2"] = { -- Custom Emote by WhiskerValeMods
@@ -14762,7 +15400,8 @@ RP.PropEmotes = {
                 0.0,
                 -170.0000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sitchairf3"] = { -- Custom Emote by WhiskerValeMods
@@ -14779,7 +15418,8 @@ RP.PropEmotes = {
                 0.0,
                 -170.0000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sitchairf4"] = { -- Custom Emote by WhiskerValeMods
@@ -14796,7 +15436,8 @@ RP.PropEmotes = {
                 0.0,
                 -170.0000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sitchairf5"] = { -- Custom Emote By WhiskerValeMods
@@ -14813,7 +15454,8 @@ RP.PropEmotes = {
                 0.0,
                 -170.0000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sitchairf6"] = { -- Custom Emote By WhiskerValeMods
@@ -14841,7 +15483,8 @@ RP.PropEmotes = {
                 -180.0000,
                 9.0999
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sitchairf7"] = { -- Custom Emote By Emote by WhiskerValeMods
@@ -14869,7 +15512,8 @@ RP.PropEmotes = {
                 -180.0000,
                 10.0000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["sitchairf8"] = { -- Custom Emote By Emote by WhiskerValeMods
@@ -14897,7 +15541,8 @@ RP.PropEmotes = {
                 -180.0000,
                 10.0000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["dig"] = {
@@ -14926,7 +15571,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["bongos"] = {
@@ -14944,7 +15590,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["medbag"] = {
@@ -14962,7 +15609,8 @@ RP.PropEmotes = {
                 -180.00,
                 -78.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["dufbag"] = {
@@ -14980,7 +15628,8 @@ RP.PropEmotes = {
                 0.00,
                 -78.99
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["shopbag"] = {
@@ -14998,7 +15647,8 @@ RP.PropEmotes = {
                 -90.00,
                 10.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["shopbag2"] = {
@@ -15016,7 +15666,8 @@ RP.PropEmotes = {
                 91.19,
                 9.97
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["shopbag3"] = {
@@ -15034,7 +15685,8 @@ RP.PropEmotes = {
                 -90.00,
                 10.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ['shopbag4'] = {
@@ -15085,7 +15737,8 @@ RP.PropEmotes = {
             },
             PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
             PtfxWait = 200,
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["guccibag"] = { -- Custom prop by crowded1337, unbranded by TayMcKenzieNZ
@@ -15103,7 +15756,8 @@ RP.PropEmotes = {
                 -177.4267,
                 83.0011
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["idcard"] = {
@@ -15122,7 +15776,8 @@ RP.PropEmotes = {
                78.999
             },
             EmoteStuck = true,
-            EmoteLoop = false
+            EmoteLoop = false,
+            EmoteMoving = true
         }
     },
     ["idcardb"] = {
@@ -15141,7 +15796,8 @@ RP.PropEmotes = {
                78.999
             },
             EmoteStuck = true,
-            EmoteLoop = false
+            EmoteLoop = false,
+            EmoteMoving = true
         }
     },
     ["idcardc"] = {
@@ -15160,7 +15816,8 @@ RP.PropEmotes = {
                78.999
             },
             EmoteStuck = true,
-            EmoteLoop = false
+            EmoteLoop = false,
+            EmoteMoving = true
         }
     },
     ["idcardd"] = {
@@ -15179,7 +15836,8 @@ RP.PropEmotes = {
                 78.999
             },
             EmoteStuck = true,
-            EmoteLoop = false
+            EmoteLoop = false,
+            EmoteMoving = true
         }
     },
     ["idcarde"] = {
@@ -15198,7 +15856,8 @@ RP.PropEmotes = {
                 78.999
             },
             EmoteStuck = true,
-            EmoteLoop = false
+            EmoteLoop = false,
+            EmoteMoving = true
         }
     },
     ["idcardf"] = {
@@ -15217,7 +15876,8 @@ RP.PropEmotes = {
                 78.999
             },
             EmoteStuck = true,
-            EmoteLoop = false
+            EmoteLoop = false,
+            EmoteMoving = true
         }
     },
     ["idcardg"] = {
@@ -15236,7 +15896,8 @@ RP.PropEmotes = {
                 78.999
             },
             EmoteStuck = true,
-            EmoteLoop = false
+            EmoteLoop = false,
+            EmoteMoving = true
         }
     },
     ["idcardh"] = {
@@ -15255,7 +15916,8 @@ RP.PropEmotes = {
                69.99
             },
             EmoteStuck = true,
-            EmoteLoop = false
+            EmoteLoop = false,
+            EmoteMoving = true
         }
     },
     ["idcardi"] = {
@@ -15274,7 +15936,8 @@ RP.PropEmotes = {
                 23.6377
             },
             EmoteStuck = true,
-            EmoteLoop = false
+            EmoteLoop = false,
+            EmoteMoving = true
         }
     },
     ["idcardj"] = {
@@ -15293,7 +15956,8 @@ RP.PropEmotes = {
                 41.4814
             },
             EmoteStuck = true,
-            EmoteLoop = false
+            EmoteLoop = false,
+            EmoteMoving = true
         }
     },
     ["phone"] = {
@@ -15321,7 +15985,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["sms"] = {
@@ -15349,7 +16014,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["sms2"] = {
@@ -15377,7 +16043,8 @@ RP.PropEmotes = {
                 00.00,
                 00.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["sms3"] = {
@@ -15405,7 +16072,8 @@ RP.PropEmotes = {
                 -72.07,
                 6.39
             },
-            EmoteLoop = false
+            EmoteLoop = false,
+            EmoteMoving = true
         }
     },
     ["sms4"] = {
@@ -15434,6 +16102,7 @@ RP.PropEmotes = {
                 14.97
             },
             EmoteLoop = false,
+            EmoteMoving = true,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -15474,7 +16143,8 @@ RP.PropEmotes = {
                 88.845,
                 29.979
             },
-            EmoteLoop = false
+            EmoteLoop = false,
+            EmoteMoving = true
         }
     },
     ["tire"] = {
@@ -15492,7 +16162,8 @@ RP.PropEmotes = {
                 -55.0,
                 150.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["golfswing"] = {
@@ -15528,7 +16199,8 @@ RP.PropEmotes = {
                 290.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["weedbrick"] = {
@@ -15546,7 +16218,8 @@ RP.PropEmotes = {
                 -90.0,
                 90.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["weedbrick2"] = {
@@ -15564,7 +16237,8 @@ RP.PropEmotes = {
                 290.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["potplant"] = {
@@ -15582,7 +16256,8 @@ RP.PropEmotes = {
                 290.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["potplant2"] = {
@@ -15600,7 +16275,8 @@ RP.PropEmotes = {
                 290.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["potplant3"] = {
@@ -15618,7 +16294,8 @@ RP.PropEmotes = {
                 290.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["weedbucket"] = {
@@ -15636,7 +16313,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["lawnchair"] = {
@@ -15654,7 +16332,8 @@ RP.PropEmotes = {
                 -5.0,
                 180.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["lawnchair2"] = {
@@ -15672,7 +16351,8 @@ RP.PropEmotes = {
                 5.0,
                 180.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["lawnchair3"] = {
@@ -15690,7 +16370,8 @@ RP.PropEmotes = {
                 0.0,
                 180.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["rose2"] = {
@@ -15708,7 +16389,8 @@ RP.PropEmotes = {
                 4.564,
                 39.910
             },
-            EmoteLoop = false
+            EmoteLoop = false,
+            EmoteMoving = true
         }
     },
     ["rose3"] = {
@@ -15726,7 +16408,8 @@ RP.PropEmotes = {
                 0.00,
                 2.99
             },
-            EmoteLoop = false
+            EmoteLoop = false,
+            EmoteMoving = true
         }
     },
     ["cbbox"] = {
@@ -15744,7 +16427,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["cbbox2"] = {
@@ -15762,7 +16446,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["cbbox3"] = {
@@ -15780,7 +16465,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["cbbox4"] = {
@@ -15798,7 +16484,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["cbbox5"] = {
@@ -15816,7 +16503,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["cbbox6"] = {
@@ -15834,7 +16522,8 @@ RP.PropEmotes = {
                 -180.00,
                 1.99
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["gbin"] = {
@@ -15852,7 +16541,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["gbin2"] = {
@@ -15870,7 +16560,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["gbin3"] = {
@@ -15888,7 +16579,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["gbin4"] = {
@@ -15906,7 +16598,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["gbin5"] = {
@@ -15924,7 +16617,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ['pflag'] = {
@@ -15942,7 +16636,8 @@ RP.PropEmotes = {
                 -141.2988,
                 12.3308
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ['pflag2'] = {
@@ -15960,7 +16655,8 @@ RP.PropEmotes = {
                 -141.2988,
                 12.3308
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ['pflag3'] = {
@@ -15978,7 +16674,8 @@ RP.PropEmotes = {
                 -141.2988,
                 12.3308
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ['pflag4'] = {
@@ -15996,7 +16693,8 @@ RP.PropEmotes = {
                 -141.2988,
                 12.3308
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ['pflag5'] = {
@@ -16014,7 +16712,8 @@ RP.PropEmotes = {
                 -141.2988,
                 12.3308
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ['pflag6'] = {
@@ -16032,7 +16731,8 @@ RP.PropEmotes = {
                 -141.2988,
                 12.3308
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ['pflag7'] = {
@@ -16050,7 +16750,8 @@ RP.PropEmotes = {
                 -141.2988,
                 12.3308
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ['pflag8'] = {
@@ -16068,7 +16769,8 @@ RP.PropEmotes = {
                 -141.2988,
                 12.3308
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ['pflag9'] = {
@@ -16086,7 +16788,8 @@ RP.PropEmotes = {
                 -141.2988,
                 12.3308
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ['old'] = {
@@ -16137,7 +16840,8 @@ RP.PropEmotes = {
             },
             PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
             PtfxWait = 200,
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ['digiscan'] = {
@@ -16155,7 +16859,8 @@ RP.PropEmotes = {
                 2.5616,
                 -15.7909
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ['digiscan2'] = {
@@ -16173,7 +16878,8 @@ RP.PropEmotes = {
                 2.5616,
                 -15.7909
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ['digiscan3'] = {
@@ -16191,7 +16897,8 @@ RP.PropEmotes = {
                 2.5616,
                 -15.7909
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["cop4"] = {
@@ -16209,7 +16916,8 @@ RP.PropEmotes = {
                 -20.0,
                 180.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["copbeacon"] = { -- Added for compatibility
@@ -16227,7 +16935,8 @@ RP.PropEmotes = {
                 -20.0,
                 180.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["leanphone"] = {
@@ -16235,6 +16944,7 @@ RP.PropEmotes = {
         "base",
         "Leaning With Phone",
         AnimationOptions = {
+            EmoteMoving = false,
             EmoteLoop = true,
             Prop = "prop_phone_taymckenzienz",
             PropTextureVariations = {
@@ -16273,6 +16983,7 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
+            EmoteMoving = false,
             EmoteLoop = true
         },
         AdultAnimation = true
@@ -16291,7 +17002,8 @@ RP.PropEmotes = {
                 -50.0,
                 16.0,
                 60.0
-            }
+            },
+            EmoteMoving = true
         }
     },
     ["drink"] = {
@@ -16309,6 +17021,7 @@ RP.PropEmotes = {
                 240.0,
                 -60.0
             },
+            EmoteMoving = true,
             EmoteLoop = true
         }
     },
@@ -16328,7 +17041,8 @@ RP.PropEmotes = {
                 176.1446,
                 -2.1500
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["stealtv"] = { -- Emote by Molly
@@ -16347,7 +17061,8 @@ RP.PropEmotes = {
                 168.9069,
                 84.2402
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["beachring"] = { -- Emote by Molly
@@ -16366,7 +17081,8 @@ RP.PropEmotes = {
                 0.0,
                 -2.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["cashcase"] = {
@@ -16384,7 +17100,8 @@ RP.PropEmotes = {
                 0.0,
                 -90.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["cashcase2"] = {
@@ -16402,7 +17119,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["cashcase3"] = {
@@ -16420,7 +17138,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["cashcase4"] = {
@@ -16438,7 +17157,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["airportbag"] = {
@@ -16456,7 +17176,8 @@ RP.PropEmotes = {
                 0.0,
                 30.0000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["airportbag2"] = { -- Custom Emote By Chocoholic Animations
@@ -16492,7 +17213,8 @@ RP.PropEmotes = {
                 -13.0889,
                 -16.0242
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["megaphone2"] = { -- Custom Emote By MollyEmotes
@@ -16510,7 +17232,8 @@ RP.PropEmotes = {
                 -13.0889,
                 -16.0242
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
 	["megaphone3"] = {
@@ -16528,7 +17251,8 @@ RP.PropEmotes = {
                -2.3093,
               -10.9030
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["bball"] = { -- Custom Emote By Struggleville
@@ -16546,7 +17270,8 @@ RP.PropEmotes = {
                 0.0,
                 40.00
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["bball2"] = { -- Custom Emote By Struggleville
@@ -16564,7 +17289,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["bball3"] = { -- Custom Emote By Struggleville
@@ -16582,7 +17308,8 @@ RP.PropEmotes = {
                -99.9999,
                 79.9999
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["bball4"] = { -- Custom Emote By SapphireMods
@@ -16618,7 +17345,8 @@ RP.PropEmotes = {
                 -1.0,
                 -10.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ['ftorch2'] = {
@@ -16636,7 +17364,8 @@ RP.PropEmotes = {
                 -159.1026,
                 15.0338
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["watchstripper2"] = {
@@ -16654,7 +17383,8 @@ RP.PropEmotes = {
                 81.7098,
                 -39.2734
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         },
         AdultAnimation = true
     },
@@ -16674,6 +17404,7 @@ RP.PropEmotes = {
                 -12.0
             },
             EmoteLoop = true,
+            EmoteMoving = true,
         },
     },
     ["gamer"] = { --- Custom Emote By MissSnowie
@@ -16721,7 +17452,8 @@ RP.PropEmotes = {
                 178.6009,
                 29.9195
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["propose"] = { --- Custom Emote By ultrahacx
@@ -16759,6 +17491,7 @@ RP.PropEmotes = {
                -3.0631
             },
             EmoteLoop = true,
+            EmoteMoving = true,
             PtfxAsset = "scr_indep_fireworks",
             PtfxName = "scr_indep_firework_trail_spawn",
             PtfxPlacement = {
@@ -16809,7 +17542,8 @@ RP.PropEmotes = {
                0.0,
                80.0000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["patrolf2"] = {
@@ -16827,7 +17561,8 @@ RP.PropEmotes = {
                0.0,
                80.0000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["patrolf3"] = {
@@ -16845,7 +17580,8 @@ RP.PropEmotes = {
                0.0,
                80.0000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["patrolf4"] = { -- Huge thanks to MadsLeander on GitHub
@@ -16873,7 +17609,8 @@ RP.PropEmotes = {
               164.6747,
                -7.5569
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["patrolcar"] = {
@@ -16910,6 +17647,7 @@ RP.PropEmotes = {
                 0.0
             },
             EmoteLoop = true,
+            EmoteMoving = true,
         },
     },
     ["present"] = {
@@ -16927,7 +17665,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["patrolcarl"] = {
@@ -16981,7 +17720,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["vlog"] = {
@@ -17000,6 +17740,7 @@ RP.PropEmotes = {
                 0.0
             },
             EmoteLoop = true,
+            EmoteMoving = true,
         }
     },
     ["vlog2"] = {
@@ -17018,6 +17759,7 @@ RP.PropEmotes = {
              -11.0
             },
             EmoteLoop = true,
+            EmoteMoving = true,
         }
     },
     ["skatesit"] = { -- Custom Emote By CMG Mods
@@ -17053,7 +17795,8 @@ RP.PropEmotes = {
                0.0,
                0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["skatehold"] = {
@@ -17081,7 +17824,8 @@ RP.PropEmotes = {
                -112.2983,
                 -86.1199
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["skatehold2"] = { -- Emote by Molly
@@ -17099,7 +17843,8 @@ RP.PropEmotes = {
                175.3526,
                49.7964
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["skatehold3"] = { -- Custom Emote By Chocoholic Animations
@@ -17117,7 +17862,8 @@ RP.PropEmotes = {
                 28.0000,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["skatehold4"] = {
@@ -17145,7 +17891,8 @@ RP.PropEmotes = {
                -112.2983,
                 -86.1199
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["skatehold5"] = { -- Emote by Molly
@@ -17163,7 +17910,8 @@ RP.PropEmotes = {
                175.3526,
                49.7964
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["skatehold6"] = { -- Custom Emote By Chocoholic Animations
@@ -17181,7 +17929,8 @@ RP.PropEmotes = {
                 28.0000,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["mafia"] = { -- Custom Emote By Chocoholic Animations
@@ -17209,7 +17958,8 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["kick"] = {
@@ -17251,7 +18001,8 @@ RP.PropEmotes = {
                 108.17,
                 -17.48
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["shield2"] = {
@@ -17269,7 +18020,8 @@ RP.PropEmotes = {
                 105.38,
                 -10.14
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["cofpose"] = {
@@ -17297,7 +18049,8 @@ RP.PropEmotes = {
              -179.9282,
               -39.9999
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
 	["holster6"] = {
@@ -17315,7 +18068,8 @@ RP.PropEmotes = {
                -8.6822,
                 4.9809
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["holster8"] = {
@@ -17333,7 +18087,8 @@ RP.PropEmotes = {
                0.0000,
                3.9999
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["heartprop"] = {
@@ -17351,7 +18106,8 @@ RP.PropEmotes = {
                0.0000,
               -0.0000
             },
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
 }

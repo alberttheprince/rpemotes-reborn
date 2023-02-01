@@ -2423,9 +2423,6 @@ function UIMenu.New(Title, Subtitle, X, Y, TxtDictionary, TxtName)
             },
             Down = {
                 Enabled = true,
-            },
-            Switch = {
-                Enabled = true,
             }
         },
         ParentMenu = nil,
@@ -2885,10 +2882,6 @@ function UIMenu:ProcessControl()
         self:GoBack()
     end
 
-    if self.Controls.Switch.Enabled and (IsDisabledControlJustReleased(0, 37) or IsDisabledControlJustReleased(1, 37) or IsDisabledControlJustReleased(2, 37)) then
-        self:SwitchMove()
-    end
-
     if #self.Items == 0 then
         return
     end
@@ -3175,12 +3168,6 @@ function UIMenu:GoBack()
         end
     end
     self.OnMenuClosed(self)
-end
-
-function UIMenu:SwitchMove()
-    PlaySoundFrontend(-1, self.Settings.Audio.Back, self.Settings.Audio.Library, true)
-    ToggleEmoteMovement = not ToggleEmoteMovement
-    self:Visible(true)
 end
 
 function UIMenu:BindMenuToItem(Menu, Item)
@@ -3597,24 +3584,15 @@ function UIMenu:UpdateScaleform()
         PopScaleformMovieFunction()
     end
 
-    if self.Controls.Switch.Enabled then
-        PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
-        PushScaleformMovieFunctionParameterInt(2)
-        PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 37, 0))
-        PushScaleformMovieFunctionParameterString(Config.Languages[lang]['btn_switch']..(ToggleEmoteMovement and ": <C>ON </C>" or ": <C>OFF</C>"))
-        PopScaleformMovieFunction()
-    end
-
     local count = 2
 
     for i = 1, #self.InstructionalButtons do
         if self.InstructionalButtons[i] then
-            if #self.InstructionalButtons[i] == 3 then
+            if #self.InstructionalButtons[i] == 2 then
                 PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
                 PushScaleformMovieFunctionParameterInt(count)
                 PushScaleformMovieFunctionParameterString(self.InstructionalButtons[i][1])
                 PushScaleformMovieFunctionParameterString(self.InstructionalButtons[i][2])
-                PushScaleformMovieFunctionParameterString(self.InstructionalButtons[i][3])
                 PopScaleformMovieFunction()
                 count = count + 1
             end

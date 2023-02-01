@@ -39,6 +39,7 @@ client_scripts {
     'client/Crouch.lua',
     'client/Emote.lua',
     'client/EmoteMenu.lua',
+    'client/Expressions.lua',
     'client/Keybinds.lua',
     'client/Pointing.lua',
     'client/Ragdoll.lua',

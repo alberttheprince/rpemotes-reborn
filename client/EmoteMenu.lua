@@ -449,15 +449,14 @@ end
 function AddFaceMenu(menu)
     local submenu = _menuPool:AddSubMenu(menu, Config.Languages[lang]['moods'], "", "", Menuthing, Menuthing)
 
-    facereset = NativeUI.CreateItem(Config.Languages[lang]['normalreset'], Config.Languages[lang]['resetdef'])
+    local facereset = NativeUI.CreateItem(Config.Languages[lang]['normalreset'], Config.Languages[lang]['resetdef'])
     submenu:AddItem(facereset)
     table.insert(FaceTable, "")
 
-    for a, b in pairsByKeys(RP.Expressions) do
-        x, y, z = table.unpack(b)
-        faceitem = NativeUI.CreateItem(a, "")
+    for name, data in pairsByKeys(RP.Expressions) do
+        local faceitem = NativeUI.CreateItem(data[2] or name, "")
         submenu:AddItem(faceitem)
-        table.insert(FaceTable, a)
+        table.insert(FaceTable, name)
     end
 
     submenu.OnItemSelect = function(sender, item, index)
