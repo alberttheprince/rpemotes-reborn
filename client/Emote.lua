@@ -151,7 +151,7 @@ AddEventHandler('onResourceStop', function(resource)
         DestroyAllProps()
         ClearPedTasksImmediately(ply)
         DetachEntity(ply, true, false)
-        ResetPedMovementClipset(ply)
+        ResetPedMovementClipset(ply, 0.8)
         AnimationThreadStatus = false
     end
 end)
@@ -240,7 +240,7 @@ function PtfxThis(asset)
         RequestNamedPtfxAsset(asset)
         Wait(10)
     end
-    UseParticleFxAssetNextCall(asset)
+    UseParticleFxAsset(asset)
 end
 
 function PtfxStart()
@@ -352,8 +352,6 @@ function EmoteMenuStart(args, hard, textureVariation)
     elseif etype == "emotes" then
         if RP.Emotes[name] ~= nil then
             OnEmotePlay(RP.Emotes[name])
-        else
-            if name ~= "🕺 Dance Emotes" then end
         end
     elseif etype == "expression" then
         if RP.Expressions[name] ~= nil then
@@ -477,14 +475,14 @@ end
 -----------------------------------------------------------------------------------------------------
 
 function CheckGender()
-    local hashSkinMale = joaat("mp_m_freemode_01")
-    local hashSkinFemale = joaat("mp_f_freemode_01")
+    local playerPed = PlayerPedId()
 
-    if GetEntityModel(PlayerPedId()) == hashSkinMale then
-        PlayerGender = "male"
-    elseif GetEntityModel(PlayerPedId()) == hashSkinFemale then
+    if GetEntityModel(playerPed) == joaat("mp_f_freemode_01") then
         PlayerGender = "female"
+    else
+        PlayerGender = "male"
     end
+
     DebugPrint("Set gender as = (" .. PlayerGender .. ")")
 end
 
@@ -555,8 +553,7 @@ function OnEmotePlay(EmoteName, textureVariation)
         elseif ChosenDict == "ScenarioObject" then if InVehicle then return end
             BehindPlayer = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 0 - 0.5, -0.5);
             ClearPedTasks(PlayerPedId())
-            TaskStartScenarioAtPosition(PlayerPedId(), ChosenAnimation, BehindPlayer['x'], BehindPlayer['y'],
-                BehindPlayer['z'], GetEntityHeading(PlayerPedId()), 0, 1, false)
+            TaskStartScenarioAtPosition(PlayerPedId(), ChosenAnimation, BehindPlayer['x'], BehindPlayer['y'], BehindPlayer['z'], GetEntityHeading(PlayerPedId()), 0, true, false)
             DebugPrint("Playing scenario = (" .. ChosenAnimation .. ")")
             IsInAnimation = true
             RunAnimationThread()
@@ -622,8 +619,7 @@ function OnEmotePlay(EmoteName, textureVariation)
             PtfxPrompt = true
             -- RunAnimationThread() -- ? This call should not be required, see if needed with tests
 
-            TriggerServerEvent("rpemotes:ptfx:sync", PtfxAsset, PtfxName, vector3(Ptfx1, Ptfx2, Ptfx3),
-                vector3(Ptfx4, Ptfx5, Ptfx6), PtfxBone, PtfxScale, PtfxColor)
+            TriggerServerEvent("rpemotes:ptfx:sync", PtfxAsset, PtfxName, vector3(Ptfx1, Ptfx2, Ptfx3), vector3(Ptfx4, Ptfx5, Ptfx6), PtfxBone, PtfxScale, PtfxColor)
         else
             DebugPrint("Ptfx = none")
             PtfxPrompt = false
@@ -638,29 +634,29 @@ function OnEmotePlay(EmoteName, textureVariation)
     MostRecentAnimation = ChosenAnimation
 
     if animOption and animOption.Prop then
-            PropName = animOption.Prop
-            PropBone = animOption.PropBone
-            PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6 = table.unpack(animOption.PropPlacement)
-            if animOption.SecondProp then
-                SecondPropName = animOption.SecondProp
-                SecondPropBone = animOption.SecondPropBone
+        PropName = animOption.Prop
+        PropBone = animOption.PropBone
+        PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6 = table.unpack(animOption.PropPlacement)
+        if animOption.SecondProp then
+            SecondPropName = animOption.SecondProp
+            SecondPropBone = animOption.SecondPropBone
             SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6 = table.unpack(animOption.SecondPropPlacement)
-                SecondPropEmote = true
-            else
-                SecondPropEmote = false
+            SecondPropEmote = true
+        else
+            SecondPropEmote = false
+        end
+        Wait(AttachWait)
+        if not AddPropToPlayer(PropName, PropBone, PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6, textureVariation) then return end
+        if SecondPropEmote then
+        if not AddPropToPlayer(SecondPropName, SecondPropBone, SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6, textureVariation) then
+                DestroyAllProps()
+                return
             end
-            Wait(AttachWait)
-            if not AddPropToPlayer(PropName, PropBone, PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6, textureVariation) then return end
-            if SecondPropEmote then
-            if not AddPropToPlayer(SecondPropName, SecondPropBone, SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6, textureVariation) then
-                    DestroyAllProps()
-                    return
-                end
-            end
+        end
 
-            -- Ptfx is on the prop, then we need to sync it
-            if animOption.PtfxAsset and not PtfxNoProp then
-                TriggerServerEvent("rpemotes:ptfx:syncProp", ObjToNet(prop))
+        -- Ptfx is on the prop, then we need to sync it
+        if animOption.PtfxAsset and not PtfxNoProp then
+            TriggerServerEvent("rpemotes:ptfx:syncProp", ObjToNet(prop))
         end
     end
 end
