@@ -86,6 +86,8 @@ Languages can be selected and / or added in the config.lua.
 
 - Persistent Walkstyles via client KVP 🚶‍♂️
 
+- Persisent Moods via client KVP 😜
+
 - Crouching 
 
 - Crawling 
@@ -191,6 +193,18 @@ RIGHT CONTROL. Players can move forward, back, left and right as well as turning
 /crouch
 
 /crawl
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Moods & Walkstyles 😜🚶‍♂️
+
+Moods and walkstyles can be set from the menu (/mood, /walk, /emotemenu) or via pressing F4 (default menu key)
+
+These will save to your character and reapply when exiting a vehicle, or loading back into the server as they are saved via client side KVP.
+
+To see a list of walkstyles type /walks
+
+To see a list of moods type /moods
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
