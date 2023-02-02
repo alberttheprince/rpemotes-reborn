@@ -47,23 +47,23 @@ local FavoriteEmote = ""
 
 if Config.FavKeybindEnabled then
     RegisterCommand('emotefav', function() FavKeybind() end)
-
     RegisterKeyMapping("emotefav", "Execute your favorite emote", "keyboard", Config.FavKeybind)
 
     local doingFavoriteEmote = false
-        function FavKeybind()
-            if doingFavoriteEmote == false then
-                    doingFavoriteEmote = true
-                    if not IsPedSittingInAnyVehicle(PlayerPedId()) then
-                        if FavoriteEmote ~= "" and (not CanUseFavKeyBind or CanUseFavKeyBind()) then
-                            EmoteCommandStart(nil, { FavoriteEmote, 0 })
-                            Wait(500)
-                        end
-                    end
-            else
-                EmoteCancel()
-                doingFavoriteEmote = false
+
+    function FavKeybind()
+        if doingFavoriteEmote == false then
+            doingFavoriteEmote = true
+            if not IsPedSittingInAnyVehicle(PlayerPedId()) then
+                if FavoriteEmote ~= "" and (not CanUseFavKeyBind or CanUseFavKeyBind()) then
+                    EmoteCommandStart(nil, { FavoriteEmote, 0 })
+                    Wait(500)
+                end
             end
+        else
+            EmoteCancel()
+            doingFavoriteEmote = false
+        end
     end
 end
 

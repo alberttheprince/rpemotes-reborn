@@ -2423,6 +2423,9 @@ function UIMenu.New(Title, Subtitle, X, Y, TxtDictionary, TxtName)
             },
             Down = {
                 Enabled = true,
+            },
+            Increment = {
+                Enabled = true,
             }
         },
         ParentMenu = nil,
@@ -2868,6 +2871,8 @@ function UIMenu:Visible(bool)
     end
 end
 
+local paginationValue = 1
+
 function UIMenu:ProcessControl()
     if not self._Visible then
         return
@@ -2880,6 +2885,15 @@ function UIMenu:ProcessControl()
 
     if self.Controls.Back.Enabled and (IsDisabledControlJustReleased(0, 177) or IsDisabledControlJustReleased(1, 177) or IsDisabledControlJustReleased(2, 177) or IsDisabledControlJustReleased(0, 199) or IsDisabledControlJustReleased(1, 199) or IsDisabledControlJustReleased(2, 199)) then
         self:GoBack()
+    end
+
+    if self.Controls.Increment.Enabled and (IsDisabledControlJustReleased(0, 19) or IsDisabledControlJustReleased(1, 19) or IsDisabledControlJustReleased(2, 19)) then
+        if paginationValue == 1 then
+            paginationValue = 10
+        else
+            paginationValue = 1
+        end
+        self:Visible(true)
     end
 
     if #self.Items == 0 then
@@ -2972,6 +2986,10 @@ function UIMenu:ProcessControl()
 end
 
 function UIMenu:GoUpOverflow()
+    if self:CurrentSelection() < 10 then
+        paginationValue = 1
+    end
+
     if #self.Items <= self.Pagination.Total + 1 then
         return
     end
@@ -2985,10 +3003,10 @@ function UIMenu:GoUpOverflow()
             self.ActiveItem = self.ActiveItem + (#self.Items - 1)
             self.Items[self:CurrentSelection()]:Selected(true)
         else
-            self.Pagination.Min = self.Pagination.Min - 1
-            self.Pagination.Max = self.Pagination.Max - 1
+            self.Pagination.Min = self.Pagination.Min - paginationValue
+            self.Pagination.Max = self.Pagination.Max - paginationValue
             self.Items[self:CurrentSelection()]:Selected(false)
-            self.ActiveItem = self.ActiveItem - 1
+            self.ActiveItem = self.ActiveItem - paginationValue
             self.Items[self:CurrentSelection()]:Selected(true)
         end
     else
@@ -3014,6 +3032,10 @@ function UIMenu:GoUp()
 end
 
 function UIMenu:GoDownOverflow()
+    if self:CurrentSelection() > (#self.Items - 10) then
+        paginationValue = 1
+    end
+
     if #self.Items <= self.Pagination.Total + 1 then
         return
     end
@@ -3026,10 +3048,10 @@ function UIMenu:GoDownOverflow()
             self.ActiveItem = 1000 - (1000 % #self.Items)
             self.Items[self:CurrentSelection()]:Selected(true)
         else
-            self.Pagination.Max = self.Pagination.Max + 1
+            self.Pagination.Max = self.Pagination.Max + paginationValue
             self.Pagination.Min = self.Pagination.Max - (self.Pagination.Total + 1)
             self.Items[self:CurrentSelection()]:Selected(false)
-            self.ActiveItem = self.ActiveItem + 1
+            self.ActiveItem = self.ActiveItem + paginationValue
             self.Items[self:CurrentSelection()]:Selected(true)
         end
     else
@@ -3584,15 +3606,24 @@ function UIMenu:UpdateScaleform()
         PopScaleformMovieFunction()
     end
 
-    local count = 2
+    if self.Controls.Increment.Enabled then
+        PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
+        PushScaleformMovieFunctionParameterInt(3)
+        PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 19, 0))
+        PushScaleformMovieFunctionParameterString(Config.Languages[lang]['btn_increment']..(paginationValue and ': '..paginationValue or ": "..paginationValue))
+        PopScaleformMovieFunction()
+    end
+
+    local count = 3
 
     for i = 1, #self.InstructionalButtons do
         if self.InstructionalButtons[i] then
-            if #self.InstructionalButtons[i] == 2 then
+            if #self.InstructionalButtons[i] == 3 then
                 PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
                 PushScaleformMovieFunctionParameterInt(count)
                 PushScaleformMovieFunctionParameterString(self.InstructionalButtons[i][1])
                 PushScaleformMovieFunctionParameterString(self.InstructionalButtons[i][2])
+                PushScaleformMovieFunctionParameterString(self.InstructionalButtons[i][3])
                 PopScaleformMovieFunction()
                 count = count + 1
             end

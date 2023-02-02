@@ -318,6 +318,7 @@ Config.Languages = {
         ['btn_select'] = "Select",
         ['btn_back'] = "Back",
         ['btn_switch'] = "Movement",
+        ['btn_increment'] = "Increment"
     },
     ['fi'] = { -- Finnish 🇫🇮
         ['emotes'] = 'Animaatiot 🎬',
