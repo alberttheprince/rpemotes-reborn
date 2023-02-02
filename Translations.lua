@@ -61,7 +61,8 @@ Config.Languages = {
         ['puke'] = "Pressione ~y~G~w~ para vomitar",
         ['btn_select'] = "Selecionar",
         ['btn_back'] = "Voltar",
-        ['btn_switch'] = "Movimento"
+        ['btn_switch'] = "Movimento",
+        ['btn_increment'] = "Increment"
     },
     ['cs'] = { -- Czech 🇨🇿
         ['emotes'] = 'Animace 🎬',
@@ -126,6 +127,7 @@ Config.Languages = {
         ['btn_select'] = "Vybrat",
         ['btn_back'] = "Zpět",
         ['btn_switch'] = "Pohyb",
+        ['btn_increment'] = "Increment"
     },
     ['da'] = { -- Danish 🇩🇰
         ['emotes'] = 'Animationer',
@@ -190,6 +192,7 @@ Config.Languages = {
         ['btn_select'] = "Vælg",
         ['btn_back'] = "Tilbage",
         ['btn_switch'] = "Bevægelse",
+        ['btn_increment'] = "Increment"
     },
     ['nl'] = { -- Dutch 🇳🇱
         ['emotes'] = 'Animaties 🎬',
@@ -253,7 +256,8 @@ Config.Languages = {
         ['puke'] = "Druk op ~y~G~w~ om te kotsen",
         ['btn_select'] = "Selecteren",
         ['btn_back'] = "Terug",
-        ['btn_switch'] = "Bewegen"
+        ['btn_switch'] = "Bewegen",
+        ['btn_increment'] = "Increment"
     },
     ['en'] = { -- English 🇬🇧
         ['emotes'] = 'Emotes 🎬',
@@ -383,6 +387,7 @@ Config.Languages = {
         ['btn_select'] = "Valitse",
         ['btn_back'] = "Takaisin",
         ['btn_switch'] = "Liike",
+        ['btn_increment'] = "Increment"
     },
     ['fr'] = { -- French 🇫🇷
         ['emotes'] = 'Emotes 🎬',
@@ -446,6 +451,7 @@ Config.Languages = {
         ['btn_select'] = "Sélectionner",
         ['btn_back'] = "Retour",
         ['btn_switch'] = "Mouvement",
+        ['btn_increment'] = "Increment"
     },
     ['de'] = { -- German 🇩🇪
         ['emotes'] = 'Emotes 🎬',
@@ -509,6 +515,7 @@ Config.Languages = {
         ['btn_select'] = "Auswählen",
         ['btn_back'] = "Zurück",
         ['btn_switch'] = "Bewegung",
+        ['btn_increment'] = "Increment"
     },
     ['hu'] = { -- Hungarian 🇭🇺
         ['emotes'] = 'Animációs Menü 🎬',
@@ -573,6 +580,7 @@ Config.Languages = {
         ['btn_select'] = "Kiválasztás",
         ['btn_back'] = "Vissza",
         ['btn_switch'] = "Mozgás",
+        ['btn_increment'] = "Increment"
     },
     ['it'] = { -- Italian 🇮🇹
         ['emotes'] = 'Animazioni 🎬',
@@ -637,6 +645,7 @@ Config.Languages = {
         ['btn_select'] = "Seleziona",
         ['btn_back'] = "Indietro",
         ['btn_switch'] = "Movimento",
+        ['btn_increment'] = "Increment"
     },
 	['no'] = { -- Norwegian 🇳🇴
         ['emotes'] = 'Animasjoner 🎬',
@@ -701,6 +710,7 @@ Config.Languages = {
         ['btn_select'] = "Velg",
         ['btn_back'] = "Tilbake",
         ['btn_switch'] = "Bevegelse",
+        ['btn_increment'] = "Increment"
     },
 	['fa'] = { -- persian 🇮🇷
         ['emotes'] = 'Emotes 🎬',
@@ -765,6 +775,7 @@ Config.Languages = {
         ['btn_select'] = "Select",
         ['btn_back'] = "Back",
         ['btn_switch'] = "Movement",
+        ['btn_increment'] = "Increment"
     },
     ['pl'] = { -- Polish 🇵🇱
         ['emotes'] = 'Animacje 🎬',
@@ -829,6 +840,7 @@ Config.Languages = {
         ['btn_select'] = "Wybierz",
         ['btn_back'] = "Wstecz",
         ['btn_switch'] = "Ruch",
+        ['btn_increment'] = "Increment"
     },
     ['ro'] = { -- Romanian 🇷🇴
         ['emotes'] = 'Emote-uri 🎬',
@@ -893,6 +905,7 @@ Config.Languages = {
         ['btn_select'] = "Selectare",
         ['btn_back'] = "Înapoi",
         ['btn_switch'] = "Mișcare",
+        ['btn_increment'] = "Increment"
     },
     ['ru'] = { -- Russian 🇷🇺
         ['emotes'] = 'Эмоции 🎬',
@@ -957,6 +970,7 @@ Config.Languages = {
         ['btn_select'] = "Выбрать",
         ['btn_back'] = "Назад",
         ['btn_switch'] = "Движение",
+        ['btn_increment'] = "Increment"
     },
     ['lk'] = { -- Sinhala 🇱🇰
         ['emotes'] = 'Emotes 🎬',
@@ -1021,6 +1035,7 @@ Config.Languages = {
         ['btn_select'] = "Select Karanna",
         ['btn_back'] = "Aapassata",
         ['btn_switch'] = "Movement eka",
+        ['btn_increment'] = "Increment"
     },
     ['es'] = { -- Spanish 🇪🇸
         ['emotes'] = "Animaciones 🎬",
@@ -1084,6 +1099,7 @@ Config.Languages = {
         ['btn_select'] = "Seleccionar",
         ['btn_back'] = "Atrás ",
         ['btn_switch'] = "Movimiento ",
+        ['btn_increment'] = "Increment"
     },
     ['sv'] = { -- Swedish 🇸🇪
         ['emotes'] = 'Emotes 🎬',
@@ -1147,7 +1163,8 @@ Config.Languages = {
         ['puke'] = "Tryck ~y~G~w~ För att Spy",
         ['btn_select'] = "Välj",
         ['btn_back'] = "Tillbaka",
-        ['btn_switch'] = "Rörelse"
+        ['btn_switch'] = "Rörelse",
+        ['btn_increment'] = "Increment"
     },
     ['tr'] = { -- Turkish 🇹🇷
         ['emotes'] = 'İfadeler 🎬',
@@ -1212,5 +1229,6 @@ Config.Languages = {
         ['btn_select'] = "Seç",
         ['btn_back'] = "Geri",
         ['btn_switch'] = "Hareket Et",
+        ['btn_increment'] = "Increment"
     }
 }
