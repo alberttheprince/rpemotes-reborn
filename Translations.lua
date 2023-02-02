@@ -451,7 +451,7 @@ Config.Languages = {
         ['btn_select'] = "Sélectionner",
         ['btn_back'] = "Retour",
         ['btn_switch'] = "Mouvement",
-        ['btn_increment'] = "Increment"
+        ['btn_increment'] = "Vitesse déplacement"
     },
     ['de'] = { -- German 🇩🇪
         ['emotes'] = 'Emotes 🎬',
