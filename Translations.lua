@@ -1035,7 +1035,7 @@ Config.Languages = {
         ['btn_select'] = "Select Karanna",
         ['btn_back'] = "Aapassata",
         ['btn_switch'] = "Movement eka",
-        ['btn_increment'] = "Increment"
+        ['btn_increment'] = "Wedi karanna"
     },
     ['es'] = { -- Spanish 🇪🇸
         ['emotes'] = "Animaciones 🎬",
