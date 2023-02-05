@@ -1662,6 +1662,48 @@ RP.Shared = {
 
         }
     },
+    ["kisscuteneck2"] = {
+        "genesismods_kissme@kissfemale8",
+        "kissfemale8",
+        "Kiss Cute - Neck (Female)",
+        "kisscuteneck",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            --SyncOffsetFront = 0.05,
+
+        }
+    },
+    ["kisslips"] = {
+        "chocoholic@couple13",
+        "couple13_clip",
+        "Kiss Cute Lips (Female)",
+        "kisslips2",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            bone = 0,
+            xPos = 0.1600,
+            yPos = 0.2700,
+            zPos = 0.0,
+            xRot = 0.0,
+            yRot = 0.0,
+            zRot = 130.0,
+
+        }
+    },
+    ["kisslips2"] = {
+        "chocoholic@couple14",
+        "couple14_clip",
+        "Kiss Cute Lips (Male)",
+        "kisslips",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+
+        }
+    },
     ["kisscutefh2"] = {
         "genesismods_kissme@kissfemale10",
         "kissfemale10",
@@ -6521,6 +6563,16 @@ RP.Emotes = {
         "amb@world_human_stupor@male@idle_a",
         "idle_a",
         "Sit 9",
+        AnimationOptions = {
+            EmoteLoop = true,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits"
+        }
+    },
+    ["sitfu"] = {
+        "chocoholic@single80",
+        "single80_clip",
+        "Sit Middle Finger",
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
@@ -14477,6 +14529,50 @@ RP.PropEmotes = {
             PtfxWait = 200
         }
     },
+    ["selfiesit3"] = { -- Emote by Chocoholic Animations 
+        "chocoholic@single77",
+        "single77_clip",
+        "Selfie Sitting 3",
+        AnimationOptions = {
+            Prop = 'prop_phone_taymckenzienz',
+            PropTextureVariations = {
+                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
+                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
+                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
+                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
+                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4},
+                {Name = "<font color=\"#a356fa\">Purple", Value = 5},
+                {Name = "<font color=\"#FF0099\">Pink", Value = 6},
+                {Name = "Black", Value = 7}
+            },
+            PropBone = 4185,
+            PropPlacement = {
+                0.0130,
+               -0.0190,
+                0.0320,
+                0.0,
+                0.0000,
+                0.0,
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits",
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200
+        }
+    },
     ["selfiefu"] = { -- Struggleville
         "anim@fuck_you_selfie",
         "fuck_you_selfie_clip",
@@ -15281,6 +15377,47 @@ RP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = true,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200
+        }
+    },
+    ["selfiemeh"] = { -- Custom Animation By Chocoholic Animations 
+        "chocoholic@single81",
+        "single81_clip",
+        "Selfie Meh",
+        AnimationOptions = {
+            Prop = "prop_phone_taymckenzienz",
+            PropTextureVariations = {
+                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
+                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
+                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
+                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
+                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4},
+                {Name = "<font color=\"#a356fa\">Purple", Value = 5},
+                {Name = "<font color=\"#FF0099\">Pink", Value = 6},
+                {Name = "Black", Value = 7}
+            },
+            PropBone = 58868,
+            PropPlacement = {
+                0.0450,
+                0.0310,
+                0.0280,
+                165.3005,
+               -174.8342,
+                -8.4770
+            },
+            EmoteLoop = true,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
