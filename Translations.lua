@@ -62,7 +62,7 @@ Config.Languages = {
         ['btn_select'] = "Selecionar",
         ['btn_back'] = "Voltar",
         ['btn_switch'] = "Movimento",
-        ['btn_increment'] = "Increment"
+        ['btn_increment'] = "Incremento"
     },
     ['cs'] = { -- Czech 🇨🇿
         ['emotes'] = 'Animace 🎬',
