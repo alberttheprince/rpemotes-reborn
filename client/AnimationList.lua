@@ -5156,6 +5156,14 @@ RP.Exits = {
             EmoteDuration = 2000
         }
     },
+    ["meditateup"] = {
+        "rcmcollect_paperleadinout@",
+        "meditate_getup",
+        "Meditate Get Up",
+        AnimationOptions = {
+            EmoteDuration = 2000
+        }
+    },
     ["surrender_exit"] = {
         "random@arrests",
         "kneeling_arrest_get_up",
@@ -6225,7 +6233,7 @@ RP.Emotes = {
         "Meditiate",
         AnimationOptions = {
             EmoteLoop = true,
-            ExitEmote = "getup",
+            ExitEmote = "meditateup",
             ExitEmoteType = "Exits"
         }
     },
@@ -6235,7 +6243,7 @@ RP.Emotes = {
         "Meditiate 2",
         AnimationOptions = {
             EmoteLoop = true,
-            ExitEmote = "getup",
+            ExitEmote = "meditateup",
             ExitEmoteType = "Exits"
         }
     },
@@ -6245,7 +6253,7 @@ RP.Emotes = {
         "Meditiate 3",
         AnimationOptions = {
             EmoteLoop = true,
-            ExitEmote = "getup",
+            ExitEmote = "meditateup",
             ExitEmoteType = "Exits"
         }
     },
