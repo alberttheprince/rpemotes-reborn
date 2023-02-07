@@ -77,6 +77,8 @@ data_file 'DLC_ITYP_REQUEST' 'stream/knjgh_pizzas.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/pata_christmasfood.ytyp'
 
+data_file 'DLC_ITYP_REQUEST' 'stream/pata_cake.ytyp'
+
 data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_prop_cake_love_001.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_prop_cake_birthday_001.ytyp'

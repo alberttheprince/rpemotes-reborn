@@ -9201,6 +9201,60 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
+    ["cake5"] = {
+        "anim@heists@box_carry@",
+        "idle",
+        "Unicorn Cake",
+        AnimationOptions = { -- Custom Prop By PataMods
+            Prop = 'pata_cake',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+               -0.0700,
+               -0.0400,
+               10.0000,
+                0.0000,
+                0.0000
+            },
+            EmoteMoving = true
+        }
+    },
+    ["cake6"] = {
+        "anim@heists@box_carry@",
+        "idle",
+        "Pride Cake",
+        AnimationOptions = { -- Custom Prop By PataMods
+            Prop = 'pata_cake2',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+               -0.0700,
+               -0.0400,
+               10.0000,
+                0.0000,
+                0.0000
+            },
+            EmoteMoving = true
+        }
+    },
+    ["cake7"] = { -- Custom Prop By PataMods
+        "anim@heists@box_carry@",
+        "idle",
+        "Chocolate Mud Cake",
+        AnimationOptions = {
+            Prop = 'pata_cake3',
+            PropBone = 28422,
+            PropPlacement = {
+               -0.0100,
+               -0.0390,
+               -0.0800,
+               10.0000,
+                0.0000,
+                0.0000
+            },
+            EmoteMoving = true
+        }
+    },
     ["cakew"] = {
         "anim@move_f@waitress",
         "idle",
@@ -9272,6 +9326,63 @@ RP.PropEmotes = {
                 0.0,
                 0.0,
               180.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["cakew5"] = {
+        "anim@move_f@waitress",
+        "idle",
+        "Cake Waiter - Unicorn",
+        AnimationOptions = {
+            Prop = "pata_cake",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.1100,
+                0.0,
+                0.0,
+               30.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["cakew6"] = {
+        "anim@move_f@waitress",
+        "idle",
+        "Cake Waiter - Pride",
+        AnimationOptions = {
+            Prop = "pata_cake2",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0000,
+                0.0000,
+                0.1100,
+                0.0,
+                0.0,
+               20.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["cakew7"] = { --- Custom Prop & Emote By BzZzi
+        "anim@move_f@waitress",
+        "idle",
+        "Cake Waiter - Chocolate Mud",
+        AnimationOptions = {
+            Prop = "pata_cake3",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.1100,
+                0.0,
+                0.0,
+               30.0
             },
             EmoteLoop = true,
             EmoteMoving = true
