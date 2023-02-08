@@ -369,11 +369,11 @@ RP.Walks = {
         "move_m@gangster@var_k",
         "Gangster 14"
     },
-    ["Genenric"] = {
+    ["Generic"] = {
         "move_m@generic",
         "Generic Male"
     },
-    ["Genenric2"] = {
+    ["Generic2"] = {
         "move_f@generic",
         "Generic Female"
     },
@@ -10885,7 +10885,7 @@ RP.PropEmotes = {
     ["soda4"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Soda 3 - Burger Shot Cup",
+        "Soda 4 - Burger Shot Cup",
         AnimationOptions = {
             Prop = 'prop_cs_bs_cup',
             PropBone = 28422,
@@ -10982,7 +10982,7 @@ RP.PropEmotes = {
         "idle_c",
         "Water",
         AnimationOptions = {
-            Prop = 'ba_prop_club_water_bottle',
+            Prop = 'vw_prop_casino_water_bottle_01a',
             PropBone = 28422,
             PropPlacement = {
                 0.0,
