@@ -8871,7 +8871,7 @@ RP.Emotes = {
     ["sexypose6"] = { -- Custom Emote By Little Spoon
         "littlespoon@sexy012",
         "sexy012",
-        "Sexy Pose 5",
+        "Sexy Pose 6",
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = false
