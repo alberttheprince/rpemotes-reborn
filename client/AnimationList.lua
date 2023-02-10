@@ -5210,7 +5210,6 @@ RP.Exits = {
 --- EMOTES NO PROPS ---
 
 RP.Emotes = {
-
     ["dispenser"] = {
         "mini@sprunk",
         "plyr_buy_drink_pt1",
@@ -9121,6 +9120,30 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = true,
+        }
+    },
+    ["kick"] = {
+        "missheistdockssetup1ig_13@kick_idle",
+        "guard_beatup_kickidle_guard1",
+        "Kick",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["kick2"] = {
+        "missheistdockssetup1ig_13@kick_idle",
+        "guard_beatup_kickidle_guard2",
+        "Kick 2",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["kick3"] = {
+        "melee@unarmed@streamed_core",
+        "kick_close_a",
+        "Kick 3",
+        AnimationOptions = {
+            EmoteDuration = 1750
         }
     },
 }
@@ -18475,30 +18498,6 @@ RP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = true
-        }
-    },
-    ["kick"] = {
-        "missheistdockssetup1ig_13@kick_idle",
-        "guard_beatup_kickidle_guard1",
-        "Kick",
-        AnimationOptions = {
-            EmoteLoop = true
-        }
-    },
-    ["kick2"] = {
-        "missheistdockssetup1ig_13@kick_idle",
-        "guard_beatup_kickidle_guard2",
-        "Kick 2",
-        AnimationOptions = {
-            EmoteLoop = true
-        }
-    },
-    ["kick3"] = {
-        "melee@unarmed@streamed_core",
-        "kick_close_a",
-        "Kick 3",
-        AnimationOptions = {
-            EmoteDuration = 1750
         }
     },
     ["shield"] = {
