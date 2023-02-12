@@ -16659,7 +16659,7 @@ RP.PropEmotes = {
     ["sms5"] = {
         "amb@code_human_wander_texting_fat@male@base",
         "static",
-        "SMS 6",
+        "SMS 5",
         AnimationOptions = {
             Prop = "prop_phone_taymckenzienz",
             PropTextureVariations = {
