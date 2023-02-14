@@ -9630,20 +9630,21 @@ RP.PropEmotes = {
             },
             EmoteMoving = true,
             EmoteLoop = true,
-            PtfxAsset = "core",
-            PtfxName = "exp_grd_bzgas_smoke",
+            PtfxAsset = "scr_agencyheistb",
+            PtfxName = "scr_agency3b_elec_box",
             PtfxNoProp = true,
+            PtfxBone = 31086,
             PtfxPlacement = {
-                -0.0100,
-                0.0600,
-                0.6600,
+                0.0,
+                0.170,
                 0.0,
                 0.0,
                 0.0,
-                2.0
+                0.0,
+                1.4
             },
             PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
-            PtfxWait = 0,
+            PtfxWait = 0.8,
             PtfxCanHold = true
         }
     },
@@ -9664,20 +9665,22 @@ RP.PropEmotes = {
             },
             EmoteMoving = true,
             EmoteLoop = true,
-            PtfxAsset = "core",
-            PtfxName = "exp_grd_bzgas_smoke",
+            PtfxAsset = "scr_agencyheistb",
+            PtfxName = "scr_agency3b_elec_box",
             PtfxNoProp = true,
+            PtfxNoProp = true,
+            PtfxBone = 31086,
             PtfxPlacement = {
-                -0.0100,
-                0.0600,
-                0.6600,
+                0.0,
+                0.170,
                 0.0,
                 0.0,
                 0.0,
-                2.0
+                0.0,
+                1.4
             },
             PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
-            PtfxWait = 0,
+            PtfxWait = 1.8,
             PtfxCanHold = true
         }
     },
@@ -10124,6 +10127,82 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
+    ["beer2"] = {
+        "amb@world_human_drinking@beer@male@idle_a",
+        "idle_c",
+        "Beer 2",
+        AnimationOptions = {
+            Prop = 'prop_amb_beer_bottle',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.06,
+                0.0,
+                15.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["beer3"] = {
+        "amb@world_human_drinking@beer@male@idle_a",
+        "idle_a",
+        "Beer 3",
+        AnimationOptions = {
+            Prop = 'p_cs_bottle_01',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["beer4"] = {
+        "amb@world_human_drinking@beer@male@idle_a",
+        "idle_b",
+        "Beer 4 - Pour One Out For The Homies",
+        AnimationOptions = {
+            Prop = 'p_cs_bottle_01',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = false,
+            EmoteMoving = true
+        }
+    },
+    ["beer5"] = {
+        "amb@world_human_drinking@beer@male@idle_a",
+        "idle_c",
+        "Beer 5",
+        AnimationOptions = {
+            Prop = 'p_cs_bottle_01',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
+    },
     ["whiskeyb2"] = {
         "amb@world_human_drinking@beer@male@idle_a",
         "idle_a",
@@ -10141,25 +10220,6 @@ RP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = true
-        }
-    },
-    ["beer2"] = {
-        "amb@world_human_drinking@beer@male@idle_a",
-        "idle_c",
-        "Beer 2",
-        AnimationOptions = {
-            Prop = 'prop_amb_beer_bottle',
-            PropBone = 28422,
-            PropPlacement = {
-                0.0,
-                0.0,
-                0.06,
-                0.0,
-                15.0,
-                0.0
-            },
-            EmoteLoop = true,
-            EmoteMoving = false
         }
     },
     ["whiskeyb3"] = {
@@ -10195,6 +10255,63 @@ RP.PropEmotes = {
                 15.0,
                 15.0,
                 0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["beercan"] = {
+        "amb@world_human_drinking@coffee@male@idle_a",
+        "idle_c",
+        "Beer Can",
+        AnimationOptions = {
+            Prop = 'v_res_tt_can01',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                80.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["beercan2"] = {
+        "amb@world_human_drinking@coffee@male@idle_a",
+        "idle_c",
+        "Beer Can 2",
+        AnimationOptions = {
+            Prop = 'v_res_tt_can02',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+             -150.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["beercan3"] = {
+        "amb@world_human_drinking@coffee@male@idle_a",
+        "idle_c",
+        "Beer Can 3",
+        AnimationOptions = {
+            Prop = 'h4_prop_h4_can_beer_01a',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+               -0.0700,
+                0.0,
+                0.0,
+                90.0
             },
             EmoteLoop = true,
             EmoteMoving = true
@@ -11000,23 +11117,103 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["water"] = {
+    ["soda9"] = {
         "amb@world_human_drinking@coffee@male@idle_a",
         "idle_c",
-        "Water",
+        "Soda - Orange Flavoured Can",
         AnimationOptions = {
-            Prop = 'vw_prop_casino_water_bottle_01a',
+            Prop = 'prop_orang_can_01',
             PropBone = 28422,
             PropPlacement = {
                 0.0,
                 0.0,
-                -0.090,
+                0.0,
                 0.0,
                 0.0,
                 130.0
             },
             EmoteLoop = true,
             EmoteMoving = true
+        }
+    },
+    ["edrink"] = {
+        "mp_player_intdrink",
+        "loop_bottle",
+        "Energy Drink - Bottle",
+        AnimationOptions =
+        {
+            Prop = "prop_energy_drink",
+            PropBone = 60309,
+            PropPlacement = {
+                0.0080,
+                0.0010,
+                0.0160,
+                3.5690,
+                4.6611,
+              -49.9065
+            },
+            EmoteMoving = true,
+            EmoteLoop = true
+        }
+    },
+    ["edrink2"] = {
+        "amb@world_human_drinking@coffee@male@idle_a",
+        "idle_c",
+        "Energy Drink - Can",
+        AnimationOptions =
+        {
+            Prop = "sf_prop_sf_can_01a",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+             -110.0
+            },
+            EmoteMoving = true,
+            EmoteLoop = true
+        }
+    },
+    ["edrink3"] = {
+        "amb@world_human_drinking@coffee@male@idle_a",
+        "idle_c",
+        "Energy Drink - XXL Can",
+        AnimationOptions =
+        {
+            Prop = "sf_p_sf_grass_gls_s_01a",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0000,
+                0.0000,
+               -0.1400,
+                0.0000,
+                0.0000,
+                9.0000
+            },
+            EmoteMoving = true,
+            EmoteLoop = true
+        }
+    },
+    ["water"] = {
+        "mp_player_intdrink",
+        "loop_bottle",
+        "Water Bottle",
+        AnimationOptions =
+        {
+            Prop = "vw_prop_casino_water_bottle_01a",
+            PropBone = 60309,
+            PropPlacement = {
+                0.0080,
+                0.0,
+               -0.0500,
+                0.0,
+                0.0,
+              -40.0000
+            },
+            EmoteMoving = true,
+            EmoteLoop = true
         }
     },
     ["egobar"] = {
@@ -12346,6 +12543,44 @@ RP.PropEmotes = {
         "Tablet 2",
         AnimationOptions = {
             Prop = "prop_cs_tablet",
+            PropBone = 28422,
+            PropPlacement = {
+                -0.05,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+     },
+    ["tablet3"] = {
+        "amb@world_human_tourist_map@male@base",
+        "base",
+        "Tablet",
+        AnimationOptions = {
+            Prop = "sf_prop_sf_tablet_01a",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                -0.03,
+                0.0,
+                20.0,
+                -90.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["tablet4"] = {
+        "amb@code_human_in_bus_passenger_idles@female@tablet@idle_a",
+        "idle_a",
+        "Tablet 2",
+        AnimationOptions = {
+            Prop = "sf_prop_sf_tablet_01a",
             PropBone = 28422,
             PropPlacement = {
                 -0.05,
