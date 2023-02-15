@@ -11136,6 +11136,25 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
+    ["frappe"] = {
+        "amb@code_human_wander_drinking@male@base",
+        "static",
+        "Frappe",
+        AnimationOptions = {
+            Prop = 'brum_heartfrappe',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+               -0.0150,
+               -0.0100,
+                0.0,
+               -3.9999,
+                0.0,
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["edrink"] = {
         "mp_player_intdrink",
         "loop_bottle",
@@ -11976,6 +11995,25 @@ RP.PropEmotes = {
                 -90.0,
                 -90.0,
                 0.0
+            },
+            EmoteMoving = true,
+            EmoteLoop = true
+        }
+    },
+    ["bouquet2"] = {
+        "impexp_int-0",
+        "mp_m_waremech_01_dual-0",
+        "Bouquet 2",
+        AnimationOptions = {
+            Prop = 'pata_freevalentinesday3',
+            PropBone = 28422,
+            PropPlacement = {
+               -0.0100,
+                0.0300,
+               -0.1700,
+               -6.0697,
+               60.1852,
+                3.4934
             },
             EmoteMoving = true,
             EmoteLoop = true
@@ -18243,6 +18281,42 @@ RP.PropEmotes = {
                -138.6571,
                 4.4141,
                -79.3552
+            },
+            EmoteLoop = true
+        }
+    },
+    ["propose2"] = { --- Custom Emote By ultrahacx
+        "ultra@propose",
+        "propose",
+        "Propose 2 - Valentines Day",
+        AnimationOptions = {
+            Prop = 'pata_freevalentinesday', --- Custom prop by PataMods
+            PropBone = 64064,
+            PropPlacement = {
+                0.0190,
+                0.0480,
+                0.0110,
+               -9.0350,
+                88.4373,
+                -9.8783
+            },
+            EmoteLoop = true
+        }
+    },
+    ["propose3"] = { --- Custom Emote By ultrahacx
+        "ultra@propose",
+        "propose",
+        "Propose 3",
+        AnimationOptions = {
+            Prop = 'pata_freevalentinesday2', --- Custom prop by PataMods
+            PropBone = 64064,
+            PropPlacement = {
+                0.0190,
+                0.0480,
+                0.0110,
+               -9.0350,
+                88.4373,
+                -9.8783
             },
             EmoteLoop = true
         }
