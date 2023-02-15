@@ -11004,7 +11004,7 @@ RP.PropEmotes = {
         }
    },
     ["soda3"] = {
-        "amb@code_human_wander_drinking@female@base",
+        "amb@code_human_wander_drinking@male@base",
         "static",
         "Soda 3 - P's & Q's Cup",
         AnimationOptions = {
@@ -11023,7 +11023,7 @@ RP.PropEmotes = {
         }
     },
     ["soda4"] = {
-        "amb@code_human_wander_drinking@female@base",
+        "amb@code_human_wander_drinking@male@base",
         "static",
         "Soda 4 - Burger Shot Cup",
         AnimationOptions = {
@@ -11042,7 +11042,7 @@ RP.PropEmotes = {
         }
     },
     ["soda5"] = {
-        "amb@code_human_wander_drinking@female@base",
+       "amb@code_human_wander_drinking@male@base",
         "static",
         "Soda 5 - eCola Cup",
         AnimationOptions = {
@@ -11061,7 +11061,7 @@ RP.PropEmotes = {
         }
     },
     ["soda6"] = {
-        "amb@code_human_wander_drinking@female@base",
+        "amb@code_human_wander_drinking@male@base",
         "static",
         "Soda 6 - eCola Light Cup",
         AnimationOptions = {
@@ -11080,7 +11080,7 @@ RP.PropEmotes = {
         }
     },
     ["soda7"] = {
-        "amb@code_human_wander_drinking@female@base",
+        "amb@code_human_wander_drinking@male@base",
         "static",
         "Soda 7- Sprunk Cup",
         AnimationOptions = {
@@ -11099,7 +11099,7 @@ RP.PropEmotes = {
         }
    },
     ["soda8"] = {
-        "amb@code_human_wander_drinking@female@base",
+        "amb@code_human_wander_drinking@male@base",
         "static",
         "Soda 8 - Sprunk Light Cup",
         AnimationOptions = {
