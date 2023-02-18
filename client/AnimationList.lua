@@ -6460,7 +6460,7 @@ RP.Emotes = {
     },
     ["sleep"] = {
         "timetable@tracy@sleep@",
-        "idle_c",
+        "base",
         "Sleep",
         AnimationOptions = {
             EmoteLoop = true,
