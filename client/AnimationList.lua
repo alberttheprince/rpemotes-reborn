@@ -125,9 +125,6 @@ RP.Walks = {
     ["Arrogant"] = {
         "move_f@arrogant@a"
     },
-    ["Bigfoot"] = {
-        "move_characters@orleans@core@"
-    },
     ["Butch"] = {
         "move_m@hurry_butch@a"
     },
@@ -416,18 +413,6 @@ RP.Walks = {
         "move_m@hobo@b",
         "Hobo 2"
     },
-    ["Hurry"] = {
-        "move_m@hurry@a",
-        "Hurry Male"
-    },
-    ["Hurry2"] = {
-        "move_f@hurry@a",
-        "Hurry Female"
-    },
-    ["Hurry3"] = {
-        "move_f@hurry@b",
-        "Hurry Female 2"
-    },
     ["Injured2"] = {
         "move_f@injured",
         "Injured 2 - Female"
@@ -457,9 +442,6 @@ RP.Walks = {
     ["Jog"] = {
         "move_m@jog@"
     },
-    ["Nervous"] = {
-        "move_characters@jimmy@nervous@"
-    },
     ["Lamar"] = {
         "move_characters@lamar"
     },
@@ -485,6 +467,9 @@ RP.Walks = {
     },
     ["Muscle"] = {
         "move_m@muscle@a"
+    },
+    ["Nervous"] = {
+        "move_characters@jimmy@nervous@"
     },
     ["Patricia"] = {
         "move_characters@patricia"
@@ -593,24 +578,6 @@ RP.Walks = {
     ["Wide"] = {
         "move_m@bag"
     },
-
-    -- I cant get these to work for some reason, if anyone knows a fix, let me know
-    -- ? The break menu part should be that the game can't find the anim dict and loop for it infinitely
-    -- ["Caution"] = {"move_m@caution"}, -- breaks menu
-    -- ["Chubby"] = {"anim@move_m@chubby@a"}, -- breaks menu
-    -- ["Crazy"] = {"move_m@crazy"},-- breaks menu
-    -- ["Joy"] = {"move_m@joy@a"},-- breaks menu
-    -- ["Power"] = {"move_m@power"},-- breaks menu
-    -- ["Wading"] = {"move_m@wading"} -- breaks menu
-    -- ["Depressed 3"] = {"move_m@depressed@c" }, -- breaks menu
-    -- ["Depressed 4"] = {"move_m@depressed@d" }, -- breaks menu
-    -- ["Caution"] = {"move_m@caution" },-- breaks menu
-    -- ["Crazy"] = {"move_m@crazy" }, -- breaks menu
-    -- ["Joy"] = {"move_m@joy@a" }, -- breaks menu
-    -- ["Power"] = {"move_m@power" }, -- breaks menu
-    -- ["Power Walk"] = {"move_m@powerwalk" }, -- breaks menu
-    -- ["Tired"] = {"move_m@tired" }, -- breaks menu
-    -- -- ["Wading"] = {"move_m@wading"},-- breaks menu
 }
 
 
