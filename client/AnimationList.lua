@@ -1629,18 +1629,6 @@ RP.Shared = {
 
         }
     },
-    ["kisscuteneck2"] = {
-        "genesismods_kissme@kissfemale8",
-        "kissfemale8",
-        "Kiss Cute - Neck (Female)",
-        "kisscuteneck",
-        AnimationOptions = {
-            EmoteMoving = false,
-            EmoteLoop = true,
-            --SyncOffsetFront = 0.05,
-
-        }
-    },
     ["kisslips"] = {
         "chocoholic@couple13",
         "couple13_clip",
@@ -9634,7 +9622,6 @@ RP.PropEmotes = {
             EmoteLoop = true,
             PtfxAsset = "scr_agencyheistb",
             PtfxName = "scr_agency3b_elec_box",
-            PtfxNoProp = true,
             PtfxNoProp = true,
             PtfxBone = 31086,
             PtfxPlacement = {
