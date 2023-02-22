@@ -311,7 +311,7 @@ Available output formats:
 Command usage example: emoteextract 1
 ```
 
-<img src="screenshots/emoteextract.jpg" width="250">
+<img src="screenshots/emoteextract.ppg" width="700">
 
 
 
