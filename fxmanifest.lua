@@ -3,7 +3,7 @@
 
 fx_version 'cerulean'
 game 'gta5'
-version '1.1.6'
+version '1.1.7'
 lua54 'yes'
 
 dependencies {
@@ -51,6 +51,8 @@ client_scripts {
 
 ---- Loads all ytyp files for custom props to stream ---
 
+data_file 'DLC_ITYP_REQUEST' 'stream/taymckenzienz_rpemotes.ytyp'
+
 data_file 'DLC_ITYP_REQUEST' 'badge1.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'copbadge.ytyp'
@@ -93,5 +95,4 @@ data_file 'DLC_ITYP_REQUEST' 'stream/brum_heart.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/brum_heartfrappe.ytyp'
 
-data_file 'DLC_ITYP_REQUEST' 'stream/taymckenzienz_rpemotes.ytyp'
-
+data_file 'DLC_ITYP_REQUEST' 'stream/kaykaymods_props.ytyp'

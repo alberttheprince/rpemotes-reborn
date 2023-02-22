@@ -515,7 +515,9 @@ A huge thank  you to the following people for their amazing contributions made t
 
 - Thank you to Chocoholic Animations for the custom animations
 
-- Thank you to [CrunchyCat](https://www.gta5-mods.com/users/crunchycat) for the custom animations 
+- Thank you to [CrunchyCat](https://www.gta5-mods.com/users/crunchycat) for the custom animations
+
+- Thank you [KayKayMods](https://discord.gg/5bYQVWVaxG) for the custom props
 
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 

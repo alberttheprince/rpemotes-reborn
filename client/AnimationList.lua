@@ -11109,6 +11109,25 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
+    ["frappe2"] = {
+        "amb@code_human_wander_drinking@female@base",
+        "static",
+        "Frappe 2 ",
+        AnimationOptions = {
+            Prop = 'starbuckscup',
+            PropBone = 28422,
+            PropPlacement = {
+               -0.0060,
+                0.0150,
+               -0.0780,
+                0.0,
+                0.0,
+                0.0,
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["edrink"] = {
         "mp_player_intdrink",
         "loop_bottle",
@@ -11987,6 +12006,25 @@ RP.PropEmotes = {
                 -180.0,
                 -90.0,
                 0.0
+            },
+            EmoteMoving = true,
+            EmoteLoop = true
+        }
+    },
+    ["teddy2"] = {
+        "impexp_int-0",
+        "mp_m_waremech_01_dual-0",
+        "Teddy 2 - Gremlin",
+        AnimationOptions = {
+            Prop = 'gremlin_plush',
+            PropBone = 57005,
+            PropPlacement = {
+                0.2610,
+               -0.1220,
+               -0.0290,
+              -96.2588,
+              62.8313,
+               9.2446
             },
             EmoteMoving = true,
             EmoteLoop = true
