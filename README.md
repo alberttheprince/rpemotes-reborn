@@ -293,9 +293,9 @@ Framework = false,
 
 # Prop Extractor ⬇️
 
-Many people have expressed concerns over anticheat scripts kicking or banning their community members, due to the fact RPEmotes uses props, and anticheats detecting said props being spawned.
+Many people have expressed concerns over anticheat scripts kicking or banning their community members due to the fact RPEmotes uses props and anticheats detecting said props being spawned.
 
-To make server owners' jobs a little easier, we have added a prop extractor command that you can enter into the server console, which will automated a file inside the RPEmotes resource folder appropiately named, `.prop_list,lua`.
+To make server owners' jobs a little easier, we have added a prop extractor command that you can enter into the server console which will automate a file inside the RPEmotes resource folder appropriately named, `.prop_list.lua`.
 
 ### Command:
 
