@@ -194,3 +194,70 @@ if Config.SqlKeybinding and MySQL then
 else
     print("[rp] ^3Sql Keybinding^7 is turned ^1off^7, if you want to enable /emotebind, set ^3SqlKeybinding = ^2true^7 in config.lua and uncomment oxmysql lines in fxmanifest.lua.")
 end
+
+-- Emote props extractor
+local function ExtractEmoteProps(format)
+    local format = tonumber(format)
+    local xt, c, total = '', '', 0
+    if format == 1 then
+        print("Selected format: ^2\'prop_name\',")
+        xt = '\''; c = ','
+      elseif format == 2 then
+        print("Selected format: ^2\"prop_name\",")
+        xt = '\"'; c = ','
+      elseif format == 3 then
+        print("Selected format: ^2prop_name,")
+      else
+        print("\n### RPEmotes - Props Extractor ###\n\n^3Select output format^0\nAvailable formats:\n^11^0 - ^2\'prop_name\',\n^12^0 - ^2\"prop_name\",\n^13^0 -  ^2prop_name\n\n^0Command usage example: ^5emoteextract 1^0\n")
+    end
+
+    local animationFile = LoadResourceFile(GetCurrentResourceName(), "client/AnimationList.lua")
+    if not animationFile then return nil end
+
+    local f, err = load(animationFile .. " return RP")
+    if err then return nil end
+
+    local success, res = pcall(f)
+    if not success then return nil end
+
+    local RP = res
+
+    -- table to keep track of exported values
+    local exportedValues = {}
+    local path = GetResourcePath(GetCurrentResourceName())..'/.prop_list.lua'
+    -- open file for writing
+    local file = io.open(path, 'w')
+
+    -- loop through each key-value pair in the table
+    -- tables that has props:
+    -- RP.PropEmotes
+    -- RP.Shared (most likely all props mentioned in here is used in PropEmotes, so I don't check it)
+    for _, value in pairs(RP.PropEmotes) do
+        -- check if the current value is a table and has an AnimationOptions field
+        if type(value) == 'table' and value.AnimationOptions then
+            -- extract the Prop and SecondProp values and check if they're nil and not already exported
+            local propValue = value.AnimationOptions.Prop
+            local secondPropValue = value.AnimationOptions.SecondProp
+            if propValue and not exportedValues[propValue] then
+                file:write(xt .. propValue .. xt .. c ..'\n')
+                exportedValues[propValue] = true
+                total += 1
+            end
+            if secondPropValue and not exportedValues[secondPropValue] then
+                file:write(xt .. secondPropValue .. c ..'\n')
+                exportedValues[secondPropValue] = true
+                total += 1
+            end
+        end
+    end
+
+    print('Exported props: '..total)
+
+    -- close the file
+    file:close()
+end
+
+RegisterCommand("emoteextract", function(source, args)
+    if source > 0 then return end
+    ExtractEmoteProps(args[1])
+end, true)
