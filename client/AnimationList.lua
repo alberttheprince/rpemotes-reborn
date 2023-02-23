@@ -7093,7 +7093,8 @@ RP.Emotes = {
         "idle_a",
         "Gang Sign 3",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["gangsign4"] = {
@@ -7101,7 +7102,8 @@ RP.Emotes = {
         "idle_a",
         "Gang Sign 4",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["passout"] = {
