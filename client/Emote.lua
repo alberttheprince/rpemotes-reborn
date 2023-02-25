@@ -188,7 +188,6 @@ function EmoteCancel(force)
         end
         DetachEntity(ply, true, false)
         CancelSharedEmote(ply)
-        DestroyAllProps()
 
         if ChosenAnimOptions and ChosenAnimOptions.ExitEmote then
             -- If the emote exit type is not spesifed it defaults to Emotes
@@ -212,12 +211,16 @@ function EmoteCancel(force)
                 InExitEmote = true
                 SetTimeout(animationOptions.EmoteDuration, function()
                     InExitEmote = false
+                    DestroyAllProps()
+                    ClearPedTasks(ply)
                 end)
+                return
             end
         else
             ClearPedTasks(ply)
             IsInAnimation = false
         end
+        DestroyAllProps()
     end
     AnimationThreadStatus = false
 end
@@ -533,7 +536,7 @@ function OnEmotePlay(EmoteName, textureVariation)
         end
     end
 
-    if PlayerHasProp then
+    if animOption.Prop and PlayerHasProp then
         DestroyAllProps()
     end
 
