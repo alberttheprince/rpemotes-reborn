@@ -536,7 +536,7 @@ function OnEmotePlay(EmoteName, textureVariation)
         end
     end
 
-    if animOption.Prop and PlayerHasProp then
+    if animOption and animOption.Prop and PlayerHasProp then
         DestroyAllProps()
     end
 
