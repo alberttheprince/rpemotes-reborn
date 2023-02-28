@@ -26,6 +26,10 @@ RpEmotes is a community driven FiveM emote menu allowing players to express them
 
 * Brazilian Portuguese 🇧🇷
 
+* Chinese Simplified 🇨🇳
+
+* Chinese Traditional 🇨🇳
+
 * Czech 🇨🇿
 
 * Danish 🇩🇰
@@ -61,6 +65,8 @@ RpEmotes is a community driven FiveM emote menu allowing players to express them
 * Swedish 🇸🇪
 
 * Turkish 🇹🇷
+
+* Vietnamese 🇻🇳
 
 All languages were translated or contributed by you, the community with the odd exception of using Google Translate.
 
