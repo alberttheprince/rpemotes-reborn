@@ -1,6 +1,6 @@
 -- ALL custon animations added to this repository were added with express permission from the creators and does not contain any paid content --
 -- If an emote does not work, you may be on an older gamebuild. --
--- To get a higher gamebuild, see ReadMe on github repositorty --
+-- To get a higher gamebuild, see ReadMe on github repository --
 
 
 RP = {}
@@ -9101,6 +9101,15 @@ RP.Emotes = {
         "Kick 3",
         AnimationOptions = {
             EmoteDuration = 1750
+        }
+    },
+    ["crosshands"] = {
+        "anim@amb@carmeet@checkout_car@",
+        "male_e_base",
+        "Cross hands",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
 }
