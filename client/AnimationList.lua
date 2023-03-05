@@ -6577,6 +6577,16 @@ RP.Emotes = {
             ExitEmoteType = "Exits"
         }
     },
+    ["sitsad2"] = {
+        "anim@female_sit_01",
+        "f_sit_01_clip",
+        "Sit S 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits"
+        }
+    },
     ["sitscared"] = {
         "anim@heists@ornate_bank@hostages@hit",
         "hit_loop_ped_b",
@@ -6694,6 +6704,41 @@ RP.Emotes = {
         "Sit Up",
         AnimationOptions = {
             EmoteLoop = true
+        }
+    },
+    ["smokengun"] = {
+        "smokingweapon@animation",
+        "smokingweapon_clip",
+        "Sitting Smoke & Gun",
+        AnimationOptions = {
+            Prop = "ng_proc_cigarette01a",
+            PropBone = 4185,
+            PropPlacement = {
+                0.0300,
+                0.0000,
+                0.0200,
+                1.7096,
+              -43.1362,
+              -27.9428
+            },
+            EmoteLoop = true,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits",
+            PtfxAsset = "scr_agencyheistb",
+            PtfxName = "scr_agency3b_elec_box",
+            PtfxNoProp = false,
+            PtfxPlacement = {
+               -0.0760,
+                0.0000,
+                0.0200,
+                0.0,
+                0.0,
+                0.0,
+                0.2
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxWait = 0.8,
+            PtfxCanHold = true
         }
     },
     ["clapangry"] = {
@@ -11085,7 +11130,7 @@ RP.PropEmotes = {
     ["soda9"] = {
         "amb@world_human_drinking@coffee@male@idle_a",
         "idle_c",
-        "Soda - Orange Flavoured Can",
+        "Soda 9 - Orange Flavoured Can",
         AnimationOptions = {
             Prop = 'prop_orang_can_01',
             PropBone = 28422,
@@ -11096,6 +11141,25 @@ RP.PropEmotes = {
                 0.0,
                 0.0,
                 130.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["dbsoda"] = {
+       "amb@code_human_wander_drinking@male@base",
+        "static",
+        "Soda - Dumb Bitch",
+        AnimationOptions = {
+            Prop = 'dumbbitchjuice',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0060,
+               -0.0020,
+               -0.0700,
+              180.0000,
+              180.0000,
+              -10.0000
             },
             EmoteLoop = true,
             EmoteMoving = true
@@ -11197,6 +11261,272 @@ RP.PropEmotes = {
             },
             EmoteMoving = true,
             EmoteLoop = true
+        }
+    },
+    ["mshake"] = {
+        "amb@code_human_wander_drinking@female@base",
+        "static",
+        "Milshake - Bubblegum",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_bubblegum',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0030,
+                0.0280,
+                0.0800,
+               -180.0,
+               -180.0,
+                 30.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["mshakeb"] = {
+        "amb@code_human_wander_drinking@female@base",
+        "static",
+        "Milshake - Cherry",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_cherry',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0030,
+                0.0280,
+                0.0800,
+               -180.0,
+               -180.0,
+                 30.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["mshakec"] = {
+       "amb@code_human_wander_drinking@female@base",
+        "static",
+        "Milshake - Chocolate",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_chocolate',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0030,
+                0.0280,
+                0.0800,
+               -180.0,
+               -180.0,
+                 30.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["mshaked"] = {
+        "amb@code_human_wander_drinking@female@base",
+        "static",
+        "Milshake - Coffee",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_coffee',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0030,
+                0.0280,
+                0.0800,
+               -180.0,
+               -180.0,
+                 30.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["mshakee"] = {
+        "amb@code_human_wander_drinking@female@base",
+        "static",
+        "Milshake - Double Chocolate",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_doublechocolate',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0030,
+                0.0280,
+                0.0800,
+               -180.0,
+               -180.0,
+                 30.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["mshakef"] = {
+        "amb@code_human_wander_drinking@female@base",
+        "static",
+        "Milshake - Frappe",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_frappe',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0030,
+                0.0280,
+                0.0800,
+               -180.0,
+               -180.0,
+                 30.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["mshakeg"] = {
+        "amb@code_human_wander_drinking@female@base",
+        "static",
+        "Milshake - Lemon",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_lemon',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0030,
+                0.0280,
+                0.0800,
+               -180.0,
+               -180.0,
+                 30.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["mshakeh"] = {
+        "amb@code_human_wander_drinking@female@base",
+        "static",
+        "Milshake - Mint",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_mint',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0030,
+                0.0280,
+                0.0800,
+               -180.0,
+               -180.0,
+                 30.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["mshakei"] = {
+        "amb@code_human_wander_drinking@female@base",
+        "static",
+        "Milshake - Strawberry",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_strawberry',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0030,
+                0.0280,
+                0.0800,
+               -180.0,
+               -180.0,
+                 30.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["mshakej"] = {
+        "amb@code_human_wander_drinking@female@base",
+        "static",
+        "Milshake - Raspberry",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_raspberry',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0030,
+                0.0280,
+                0.0800,
+               -180.0,
+               -180.0,
+                 30.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["mshakek"] = {
+        "amb@code_human_wander_drinking@female@base",
+        "static",
+        "Milshake - Salted",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_salted',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0030,
+                0.0280,
+                0.0800,
+               -180.0,
+               -180.0,
+                 30.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["mshakek"] = {
+        "amb@code_human_wander_drinking@female@base",
+        "static",
+        "Milshake - Vanilla",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_vanilla',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0030,
+                0.0280,
+                0.0800,
+               -180.0,
+               -180.0,
+                 30.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["sodafu"] = {
+        "anim@male_drinking_01",
+        "m_drinking_01_clip",
+        "Soda Middle Finger eCola",
+        AnimationOptions = {
+            Prop = 'prop_ecola_can',
+            PropBone = 26613,
+            PropPlacement = {
+                0.0400,
+               -0.0500,
+                0.0390,
+                0.0000,
+                0.000,
+              -69.9999
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["sodafu2"] = {
+        "anim@male_drinking_01",
+        "m_drinking_01_clip",
+        "Soda Middle Finger Sprunk",
+        AnimationOptions = {
+            Prop = 'ng_proc_sodacan_01b',
+            PropBone = 26613,
+            PropPlacement = {
+                0.0300,
+               -0.0600,
+               -0.0700,
+                0.0000,
+                0.000,
+                0.000,
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
         }
     },
     ["water"] = {
@@ -14950,6 +15280,8 @@ RP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = false,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits",
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -15250,6 +15582,48 @@ RP.PropEmotes = {
             PtfxWait = 200
         }
     },
+    ["selfiesit4"] = { -- Emote by Chocoholic Animations
+        "chocoholic@single89",
+        "single89_clip",
+        "Selfie Sitting 4",
+        AnimationOptions = {
+            Prop = 'prop_phone_taymckenzienz',
+            PropTextureVariations = {
+                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
+                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
+                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
+                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
+                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4},
+                {Name = "<font color=\"#a356fa\">Purple", Value = 5},
+                {Name = "<font color=\"#FF0099\">Pink", Value = 6},
+                {Name = "Black", Value = 7}
+            },
+            PropBone = 4169, -- Left Finger 11
+            PropPlacement = {
+                0.0100,
+               -0.0330,
+                0.000,
+               -19.7197,
+                 9.4080,
+                -3.4048
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200
+        }
+    },
     ["selfiefu"] = { -- Struggleville
         "anim@fuck_you_selfie",
         "fuck_you_selfie_clip",
@@ -15319,6 +15693,8 @@ RP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = false,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits",
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -15361,6 +15737,8 @@ RP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = false,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits",
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
@@ -15374,6 +15752,103 @@ RP.PropEmotes = {
             },
             PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
             PtfxWait = 200
+        }
+    },
+    ["selfiefloor2"] = { -- Custom Emote By Struggleville
+        "anim@female_selfie_04",
+        "f_selfie_04_clip",
+        "Selfie Floor 2",
+        AnimationOptions = {
+            Prop = "prop_phone_taymckenzienz",
+            PropTextureVariations = {
+                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
+                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
+                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
+                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
+                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4},
+                {Name = "<font color=\"#a356fa\">Purple", Value = 5},
+                {Name = "<font color=\"#FF0099\">Pink", Value = 6},
+                {Name = "Black", Value = 7}
+            },
+            PropBone = 4185,
+            PropPlacement = {
+                0.0170,
+               -0.0100,
+                0.0200,
+              -27.3580,
+               54.9374,
+               -6.1611
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits",
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200
+        }
+    },
+    ["selfiefloor3"] = { -- Custom Emote By Chocoholic Animations
+        "chocoholic@single90",
+        "single90_clip",
+        "Selfie & Wine",
+        AnimationOptions = {
+            Prop = 'p_wine_glass_s',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0800,
+                0.0170,
+                0.0810,
+               -174.2748,
+               -11.5083,
+                29.4987
+            },
+            SecondProp = 'prop_phone_taymckenzienz',
+            PropTextureVariations = {
+                { Name = "<font color=\"#00A0F4\">Blue", Value = 0 },
+                { Name = "<font color=\"#1AA20E\">Green", Value = 1 },
+                { Name = "<font color=\"#800B0B\">Dark Red", Value = 2 },
+                { Name = "<font color=\"#FF7B00\">Orange", Value = 3 },
+                { Name = "<font color=\"#5F5F5F\">Grey", Value = 4 },
+                { Name = "<font color=\"#a356fa\">Purple", Value = 5 },
+                { Name = "<font color=\"#FF0099\">Pink", Value = 6 },
+                { Name = "Black", Value = 7 },
+            },
+            SecondPropBone = 4186, -- Left Finger 22
+            SecondPropPlacement = {
+               -0.0100,
+                0.0000,
+                0.0200,
+              -80.0000,
+                0.0000,
+              -20.0000
+            },
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200,
+            EmoteLoop = true,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits"
         }
     },
     ["selfiesexy"] = { -- Custom Emote By Little Spoon, designed for a custom iFruit phone model, however I am sticking with default game props for now
@@ -16011,6 +16486,8 @@ RP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = false,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits",
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
