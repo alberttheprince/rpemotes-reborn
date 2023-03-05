@@ -11472,7 +11472,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
    },
-    ["mshakek"] = {
+    ["mshakel"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
         "Milshake - Vanilla",
