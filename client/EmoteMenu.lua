@@ -1,6 +1,11 @@
-rightPosition = { x = 1450, y = 100 }
-leftPosition = { x = 0, y = 100 }
-menuPosition = { x = 0, y = 200 }
+local rightPosition = { x = 1450, y = 100 }
+local leftPosition = { x = 0, y = 100 }
+local menuPosition = { x = 0, y = 200 }
+
+if GetAspectRatio() > 2.0 then
+    rightPosition = { x = 1200, y = 100 }
+    leftPosition = { x = -250, y = 100 }
+end
 
 if Config.MenuPosition then
     if Config.MenuPosition == "left" then
