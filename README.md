@@ -558,6 +558,8 @@ A huge thank  you to the following people for their amazing contributions made t
 
 - Thank you [KayKayMods](https://discord.gg/5bYQVWVaxG) for the custom props
 
+- Thank you to [MonkeyWhisper](https://github.com/MonkeyWhisper) and [Project Sloth](https://github.com/Project-Sloth) for the custom milkshake props
+
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
 You pay a big role in making this script what it is today and we could not do it without you 🙏
