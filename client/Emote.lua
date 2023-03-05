@@ -516,7 +516,7 @@ function OnEmotePlay(EmoteName, textureVariation)
     end
 
     if ChosenAnimOptions and ChosenAnimOptions.ExitEmote then
-        if RP.Exits[ChosenAnimOptions.ExitEmote][2] ~= EmoteName[2] then
+        if not (animOption and ChosenAnimOptions.ExitEmote == animOption.ExitEmote) and RP.Exits[ChosenAnimOptions.ExitEmote][2] ~= EmoteName[2] then
             return
         end
     end
