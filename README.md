@@ -84,6 +84,8 @@ Languages can be selected and / or added in the config.lua.
 
 - Custom Animations with **permission from the community** 🏃
 
+- Custom Props with **permission from the community** 💙
+
 - Facial Expressions 🤪
 
 - Animal Emotes 🐩
@@ -116,7 +118,7 @@ Languages can be selected and / or added in the config.lua.
 
 - Standalone exports
 
-- Props Extractor
+- Props Extractor for anticheat scripts
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -473,19 +475,25 @@ Below is an example:
 
 This project is under the GPL V3 license, however all custom props and animations were provided to RPEmotes by the community with express permission and must not be extracted from [RpEmotes](https://github.com/TayMcKenzieNZ/rpemotes), reuploaded to any websites, forums or discord servers.
 
-If you want to modify RpEmotes ***(does not apply if you want to use it for personal purposes)*** or make an agreement, you can contact TayMcKenzieNZ via Discord. Pull requests are actively reviewed and discussed with TayMcKenzieNZ and contributors, and will be accepted as long as they do not contain  animation / prop files *(we need permission before adding them)* breaking changes or suspicious code.
+If you want to modify RpEmotes ***(does not apply if you want to use it for personal purposes)*** or make an agreement, you can contact the RPEmotes via our official Discord via opening a ticket. 
+
+Pull requests are actively reviewed and discussed with TayMcKenzieNZ and the RPEmotes team, and will be accepted as long as they do not contain  animation / prop files *(we need permission before adding them)* breaking changes or suspicious and/or malicious code.
 
 
 
-✅ You are allowed to use the custom animations explicitly provided within this repository only
+✅ You are allowed to use the custom animations explicitly provided within this repository **only**
 
-✅ You are allowed to add your own custom animations to this resource and use it on your server. The entire content must remain on your server and not be reuploaded.
+✅ You are allowed to use the custom props explicitly provided within this repository **only**
 
-❌ You are not allowed to re-distribute the custom animations provided with this repository either on websites, forums, tebex store or discord.
+✅ You are allowed to add your own custom animations or props to this resource and use it on your server. The entire content must remain on your server and not be reuploaded.
 
-❌ You are not allowed to claim the custom animations provided within this resource as your own work
+❌ You are **not** allowed to re-distribute the custom animations or props provided with this repository either on websites, forums, tebex store, discord or your own scripts / maps.
 
-❌ You are not allowed to sell this script
+❌ You are **not** allowed to claim the custom animations or props provided within this resource as your own work
+
+❌ You are **not** allowed to sell this script or any of the content within it
+
+❌ You are **not** to outright copy code from this script into your own without discussing with the RPEmotes team and getting written consent from all parties
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -493,10 +501,10 @@ If you want to modify RpEmotes ***(does not apply if you want to use it for pers
 
 **All** custom animations and props were added with permissions from the creators and does **not** contain any paid or leaked work.
 
-All animation creators have ***specifically*** asked that their content remains free and that the RPEmotes team and community do not try to profit from them, claim them as their own or reupload them anywhere else but TayMcKenzieNZ's GitHub unless express permission has been arranged and granted by their respective creators, therefore you may not extract the animations and / or use them for your own menus.
+All animation creators have ***specifically*** asked that their content remains free and that the RPEmotes team and community do not try to profit from them, claim them as their own or reupload them anywhere else but TayMcKenzieNZ's GitHub unless express permission has been arranged and granted by their respective creators, therefore you may not extract the animations and props or use them for your own menus unless written permission has been granted to you by the creators.
 
 
-A huge thank  you to the following people for their amazing contributions made to the menu 🫶🏻 :
+A huge thank you to the following people for their amazing contributions made to the menu 🫶🏻 :
 
 - Thank you to [Tigerle](https://forum.cfx.re/u/tigerle_studios) for providing the additional code required to make Shared Emotes work to it's full extent
 
@@ -548,9 +556,9 @@ A huge thank  you to the following people for their amazing contributions made t
 
 - Thanks to [Copofiscool](https://forum.cfx.re/u/copofiscool/) for adding a toggle to the Favorite Keybinds
 
-- Thank you to [Mads](https://github.com/MadsLeander) for contributing to the menu and adding Exit Emotes
+- Thank you to [Mads](https://github.com/MadsLeander) for joining the team as Co-Developer 
 
-- Thank you to [iSentrie](https://forum.cfx.re/u/isentrie/) for additional code and support
+- Thank you to [iSentrie](https://forum.cfx.re/u/isentrie/) for additional code, support and joining the RPEmotes project 
 
 - Thank you to Chocoholic Animations for the custom animations
 
