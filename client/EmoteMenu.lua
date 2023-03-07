@@ -2,6 +2,8 @@ local rightPosition = { x = 1450, y = 100 }
 local leftPosition = { x = 0, y = 100 }
 local menuPosition = { x = 0, y = 200 }
 
+---- Fix NativeUI Menu Aspect Ratio For Ultra Wide Screens
+
 if GetAspectRatio() > 2.0 then
     rightPosition = { x = 1200, y = 100 }
     leftPosition = { x = -250, y = 100 }
@@ -16,12 +18,12 @@ if Config.MenuPosition then
 end
 
 if Config.CustomMenuEnabled then
-    local RuntimeTXD = CreateRuntimeTxd('Custom_Menu_Head')
-    local Object = CreateDui(Config.MenuImage, 512, 128)
+    local RuntimeTXD = CreateRuntimeTxd('RP_EmoteMenu_Head')
+    local Object = CreateDui(Config.RPEmotesMenuImage, 512, 128)
     _G.Object = Object
     local TextureThing = GetDuiHandle(Object)
-    local Texture = CreateRuntimeTextureFromDuiHandle(RuntimeTXD, 'Custom_Menu_Head', TextureThing)
-    Menuthing = "Custom_Menu_Head"
+    local Texture = CreateRuntimeTextureFromDuiHandle(RuntimeTXD, 'RP_EmoteMenu_Head', TextureThing)
+    Menuthing = "RP_EmoteMenu_Head"
 else
     Menuthing = "shopui_title_sm_hangar"
 end
