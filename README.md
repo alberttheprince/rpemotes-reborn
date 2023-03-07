@@ -182,7 +182,7 @@ Much like the menu key, `RagdollKeybind` is also using RegisterKeyMapping. It is
 
 # Finger Pointing & Hands Up 👆
 
-Once enabled, players can press `B` on the keyboard to enable standalone finger pointing, and `H` to put their hands up, without the need for unnecessary frameworks or "small resources".
+Once enabled, players can press `B` on the keyboard to enable standalone finger pointing, and `Y` to put their hands up, without the need for unnecessary frameworks or "small resources".
 
 Much like everything else in the menu, server owners can change these keybinds to their own preferences.
 
