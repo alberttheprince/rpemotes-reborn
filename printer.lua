@@ -1,1 +1,1 @@
-print("RpEmotes maintained by TayMcKenzieNZ loaded sucessfully.")
+print("RpEmotes by TayMcKenzieNZ and MadsL loaded sucessfully.")
