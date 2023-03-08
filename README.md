@@ -506,17 +506,15 @@ All animation creators have ***specifically*** asked that their content remains 
 
 A huge thank you to the following people for their amazing contributions made to the menu 🫶🏻 :
 
+- A huge thank you to [Kibook](https://github.com/kibook) for the addition of the Animal Emotes sub menu
+
+- Thank you to [AvaN0x](https://github.com/AvaN0x) for reformatting and assisting with code, additional features and figuring out shared particle effects
+
 - Thank you to [Tigerle](https://forum.cfx.re/u/tigerle_studios) for providing the additional code required to make Shared Emotes work to it's full extent
 
 - Thank you to [SMGMissy](https://forum.cfx.re/u/smgmissy/) for assisting with custom pride flags and how to stream them
 
 - Thank you to [MissSnowie](https://www.gta5-mods.com/users/MissySnowie) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord and for the motivational and overal moral support
-
-- A huge thank you to [Kibook](https://github.com/kibook) for the addition of the Animal Emotes sub menu
-
-- Thank you to [AvaN0x](https://github.com/AvaN0x) for reformatting and assisting with code, additional features and figuring out shared particle effects
-
-- Thank you to [Scullyy](https://github.com/Scullyy) for reformatting and assisting with code, rebranding of RPEmotes, providing a much more cleaner version checker, and firework RGB research
 
 - Thank you to [GeekGarage](https://github.com/geekgarage) for their knowledge, time and dedication, helping to bring new and exciting features to the menu
 
@@ -542,13 +540,15 @@ A huge thank you to the following people for their amazing contributions made to
 
 - Thank you to [Kri's Graphic House](https://discord.gg/JueRG3fCy6) for the custom banners
 
+- Thank you to !MWooM#0597 on discord for the custom banners
+
 - Thank you to [BoringNeptune](https://www.gta5-mods.com/users/BoringNeptune) for the custom dance emotes
 
 - Thank you to [CMG Mods](https://www.gta5-mods.com/users/-moses-) for the custom emotes
 
-- Thank you to [prue颜](discord.gg/lunyxmods) for being a great friend and providing us with custom animations
+- Thank you to [prue颜](discord.gg/lunyxmods) for being a great friend and providing us with exclusive custom animations
 
-- Thank you to [PataMods](https://forum.cfx.re/u/Pata_PataMods) for the custom Christmas props
+- Thank you to [PataMods](https://forum.cfx.re/u/Pata_PataMods) for the custom props
 
 - Thank you to [Crowded1337](https://www.gta5-mods.com/users/crowded1337) for the custom Gucci bag. I have removed the Gucci logo to comply with Rockstar Games & TakeTwo Interactive
 
@@ -566,7 +566,7 @@ A huge thank you to the following people for their amazing contributions made to
 
 - Thank you [KayKayMods](https://discord.gg/5bYQVWVaxG) for the custom props
 
-- Thank you to [MonkeyWhisper](https://github.com/MonkeyWhisper) and [Project Sloth](https://github.com/Project-Sloth) for the custom milkshake props
+- Thank you to [MonkeyWhisper](https://github.com/MonkeyWhisper) and [Project Sloth](https://github.com/Project-Sloth) for the custom props
 
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
