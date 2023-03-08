@@ -9567,6 +9567,25 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
+    ["balloon"] = {
+        "anim@heists@humane_labs@finale@keycards",
+        "ped_a_enter_loop",
+        "Balloon",
+        AnimationOptions = {
+            Prop = "heart_balloon",
+            PropBone = 60309,
+            PropPlacement = {
+                0.25,
+               -0.84,
+                0.53,
+             -157.2041,
+             -101.1702,
+              28.0243
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["smoke2"] = {
         "amb@world_human_aa_smoke@male@idle_a",
         "idle_c",
