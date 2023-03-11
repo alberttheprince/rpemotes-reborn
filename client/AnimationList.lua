@@ -11165,6 +11165,82 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
+    ["sipsoda"] = {
+        "smo@milkshake_idle",
+        "milkshake_idle_clip",
+        "Sip Soda Cup - Sprunk",
+        AnimationOptions = {
+            Prop = 'prop_rpemotes_soda01',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0470,
+               0.0040,
+              -0.0600,
+            -88.0263,
+            -25.0367,
+            -27.3898
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["sipsodab"] = {
+        "smo@milkshake_idle",
+        "milkshake_idle_clip",
+        "Sip Soda Cup - Sprunk Light",
+        AnimationOptions = {
+            Prop = 'prop_rpemotes_soda02',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0470,
+               0.0040,
+              -0.0600,
+            -88.0263,
+            -25.0367,
+            -27.3898
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["sipsodac"] = {
+        "smo@milkshake_idle",
+        "milkshake_idle_clip",
+        "Sip Soda Cup - eCola",
+        AnimationOptions = {
+            Prop = 'prop_rpemotes_soda03',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0470,
+               0.0040,
+              -0.0600,
+            -88.0263,
+            -25.0367,
+            -27.3898
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["sipsodad"] = {
+        "smo@milkshake_idle",
+        "milkshake_idle_clip",
+        "Sip Soda Cup - eCola Light",
+        AnimationOptions = {
+            Prop = 'prop_rpemotes_soda04',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0470,
+               0.0040,
+              -0.0600,
+            -88.0263,
+            -25.0367,
+            -27.3898
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
     ["dbsoda"] = {
        "amb@code_human_wander_drinking@male@base",
         "static",
@@ -11505,6 +11581,253 @@ RP.PropEmotes = {
                -180.0,
                -180.0,
                  30.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["sipshake"] = {
+        "smo@milkshake_idle",
+        "milkshake_idle_clip",
+        "Sip Milkshake - Bubblegum",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_raspberry',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0850,
+               0.0670,
+              -0.0350,
+            -115.0862,
+            -165.7841,
+              24.1318
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["sipshakeb"] = {
+        "smo@milkshake_idle",
+        "milkshake_idle_clip",
+        "Sip Milkshake - Cherry",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_cherry',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0850,
+               0.0670,
+              -0.0350,
+            -115.0862,
+            -165.7841,
+              24.1318
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["sipshakec"] = {
+        "smo@milkshake_idle",
+        "milkshake_idle_clip",
+        "Sip Milkshake - Chocolate",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_chocolate',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0850,
+               0.0670,
+              -0.0350,
+            -115.0862,
+            -165.7841,
+              24.1318
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["sipshaked"] = {
+        "smo@milkshake_idle",
+        "milkshake_idle_clip",
+        "Sip Milkshake - Coffee",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_coffee',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0850,
+               0.0670,
+              -0.0350,
+            -115.0862,
+            -165.7841,
+              24.1318
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["sipshakee"] = {
+        "smo@milkshake_idle",
+        "milkshake_idle_clip",
+        "Sip Milkshake - Double Chocolate",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_doublechocolate',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0850,
+               0.0670,
+              -0.0350,
+            -115.0862,
+            -165.7841,
+              24.1318
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["sipshakef"] = {
+        "smo@milkshake_idle",
+        "milkshake_idle_clip",
+        "Sip Milkshake - Frappe",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_frappe',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0850,
+               0.0670,
+              -0.0350,
+            -115.0862,
+            -165.7841,
+              24.1318
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["sipshakeg"] = {
+        "smo@milkshake_idle",
+        "milkshake_idle_clip",
+        "Sip Milkshake - Lemon",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_lemon',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0850,
+               0.0670,
+              -0.0350,
+            -115.0862,
+            -165.7841,
+              24.1318
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["sipshakeh"] = {
+        "smo@milkshake_idle",
+        "milkshake_idle_clip",
+        "Sip Milkshake - Mint",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_mint',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0850,
+               0.0670,
+              -0.0350,
+            -115.0862,
+            -165.7841,
+              24.1318
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["sipshakei"] = {
+        "smo@milkshake_idle",
+        "milkshake_idle_clip",
+        "Sip Milkshake - Strawberry",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_strawberry',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0850,
+               0.0670,
+              -0.0350,
+            -115.0862,
+            -165.7841,
+              24.1318
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["sipshakej"] = {
+        "smo@milkshake_idle",
+        "milkshake_idle_clip",
+        "Sip Milkshake - Raspberry",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_raspberry',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0850,
+               0.0670,
+              -0.0350,
+            -115.0862,
+            -165.7841,
+              24.1318
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["sipshakek"] = {
+        "smo@milkshake_idle",
+        "milkshake_idle_clip",
+        "Sip Milkshake - Salted",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_salted',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0850,
+               0.0670,
+              -0.0350,
+            -115.0862,
+            -165.7841,
+              24.1318
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+   },
+    ["sipshakel"] = {
+        "smo@milkshake_idle",
+        "milkshake_idle_clip",
+        "Sip Milkshake - Vanilla",
+        AnimationOptions = {
+            Prop = 'brum_cherryshake_vanilla',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0850,
+               0.0670,
+              -0.0350,
+            -115.0862,
+            -165.7841,
+              24.1318
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["boopbee"] = {
+        "smo@milkshake_idle",
+        "milkshake_idle_clip",
+        "Sip Milkshake - Vanilla",
+        AnimationOptions = {
+--            Prop = 'brum_cherryshake_vanilla',
+            PropBone = 28422,
+            PropPlacement = {
+               0.0850,
+               0.0670,
+              -0.0350,
+            -115.0862,
+            -165.7841,
+              24.1318
             },
             EmoteLoop = true,
             EmoteMoving = true
