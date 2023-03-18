@@ -5108,7 +5108,8 @@ RP.Exits = {
         "getup_0",
         "Get Up",
         AnimationOptions = {
-            EmoteDuration = 2000
+            EmoteDuration = 2000,
+            StartDelay = 600
         }
     },
     ["meditateup"] = {
@@ -5189,6 +5190,7 @@ RP.Emotes = {
         "Chill",
         AnimationOptions = {
             EmoteLoop = true,
+            StartDelay = 200,
             ExitEmote = "getup",
             ExitEmoteType = "Exits"
         }
@@ -5199,6 +5201,7 @@ RP.Emotes = {
         "Cloudgaze",
         AnimationOptions = {
             EmoteLoop = true,
+            StartDelay = 700,
             ExitEmote = "getup",
             ExitEmoteType = "Exits"
         }
@@ -5209,6 +5212,7 @@ RP.Emotes = {
         "Cloudgaze 2",
         AnimationOptions = {
             EmoteLoop = true,
+            StartDelay = 700,
             ExitEmote = "getup",
             ExitEmoteType = "Exits"
         }
@@ -5219,6 +5223,7 @@ RP.Emotes = {
         "Prone",
         AnimationOptions = {
             EmoteLoop = true,
+            StartDelay = 700,
             ExitEmote = "getup",
             ExitEmoteType = "Exits"
         }
@@ -6419,6 +6424,18 @@ RP.Emotes = {
         "Sleep",
         AnimationOptions = {
             EmoteLoop = true,
+            StartDelay = 700,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits"
+        }
+    },
+    ["bumsleep"] = {
+        "amb@world_human_bum_slumped@male@laying_on_left_side@idle_a",
+        "idle_b",
+        "Bum Sleep",
+        AnimationOptions = {
+            EmoteLoop = true,
+            StartDelay = 700,
             ExitEmote = "getup",
             ExitEmoteType = "Exits"
         }
@@ -6507,6 +6524,7 @@ RP.Emotes = {
         "Sit 7",
         AnimationOptions = {
             EmoteLoop = true,
+            StartDelay = 900,
             ExitEmote = "getup",
             ExitEmoteType = "Exits"
         }
@@ -6822,9 +6840,10 @@ RP.Emotes = {
     ["sunbathe"] = {
         "amb@world_human_sunbathe@male@back@base",
         "base",
-        "Sunbathe",
+        "Sunbathe - Hand On Head",
         AnimationOptions = {
             EmoteLoop = true,
+            StartDelay = 700,
             NotInVehicle = true,
             ExitEmote = "getup",
             ExitEmoteType = "Exits"
@@ -6833,15 +6852,28 @@ RP.Emotes = {
     ["sunbathe2"] = {
         "amb@world_human_sunbathe@female@back@base",
         "base",
-        "Sunbathe 2",
+        "Sunbathe 2 - Hand Over Face",
         AnimationOptions = {
             EmoteLoop = true,
+            StartDelay = 700,
             NotInVehicle = true,
             ExitEmote = "getup",
             ExitEmoteType = "Exits"
         }
     },
-    ["t"] = {
+    ["sunbathe3"] = {
+        "amb@world_human_sunbathe@female@front@base",
+        "base",
+        "Sunbathe 3 - Lay On Stomach",
+        AnimationOptions = {
+            EmoteLoop = true,
+            StartDelay = 700,
+            NotInVehicle = true,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits"
+        }
+    },
+    ["tpose"] = {
         "missfam5_yoga",
         "a2_pose",
         "T Pose",
@@ -6850,7 +6882,7 @@ RP.Emotes = {
             EmoteMoving = true
         }
     },
-    ["t2"] = {
+    ["tpose2"] = {
         "mp_sleep",
         "bind_pose_180",
         "T Pose 2",
@@ -7157,6 +7189,7 @@ RP.Emotes = {
         "Passout",
         AnimationOptions = {
             EmoteLoop = true,
+            StartDelay = 900,
             NotInVehicle = true,
             ExitEmote = "getup",
             ExitEmoteType = "Exits"
@@ -7168,6 +7201,7 @@ RP.Emotes = {
         "Passout 2",
         AnimationOptions = {
             EmoteLoop = true,
+            StartDelay = 900,
             NotInVehicle = true,
             ExitEmote = "getup",
             ExitEmoteType = "Exits"
@@ -7179,6 +7213,7 @@ RP.Emotes = {
         "Passout 3",
         AnimationOptions = {
             EmoteLoop = true,
+            StartDelay = 900,
             NotInVehicle = true,
             ExitEmote = "getup",
             ExitEmoteType = "Exits"
@@ -7190,6 +7225,7 @@ RP.Emotes = {
         "Passout 4",
         AnimationOptions = {
             EmoteLoop = true,
+            StartDelay = 900,
             NotInVehicle = true,
             ExitEmote = "getup",
             ExitEmoteType = "Exits"
@@ -7201,6 +7237,7 @@ RP.Emotes = {
         "Passout 5",
         AnimationOptions = {
             EmoteLoop = true,
+            StartDelay = 900,
             NotInVehicle = true,
             ExitEmote = "getup",
             ExitEmoteType = "Exits"
@@ -7219,7 +7256,10 @@ RP.Emotes = {
         "front_loop",
         "Crawl",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            StartDelay = 700,
+            ExitEmote = "meditateup",
+            ExitEmoteType = "Exits"
         }
     },
     ["flip2"] = {
@@ -8440,11 +8480,6 @@ RP.Emotes = {
         "PROP_HUMAN_BUM_BIN",
         "Bum Bin"
     },
-    ["bumsleep"] = {
-        "Scenario",
-        "WORLD_HUMAN_BUM_SLUMPED",
-        "Bum Sleep"
-    },
     ["cheer"] = {
         "Scenario",
         "WORLD_HUMAN_CHEERING",
@@ -8665,16 +8700,6 @@ RP.Emotes = {
         "WORLD_HUMAN_HUMAN_STATUE",
         "Statue"
     },
-    ["sunbathe3"] = {
-        "Scenario",
-        "WORLD_HUMAN_SUNBATHE",
-        "Sunbathe 3"
-    },
-    ["sunbatheback"] = {
-        "Scenario",
-        "WORLD_HUMAN_SUNBATHE_BACK",
-        "Sunbathe Back"
-    },
     ["weld"] = {
         "Scenario",
         "WORLD_HUMAN_WELDING",
@@ -8824,6 +8849,15 @@ RP.Emotes = {
             EmoteMoving = true
         }
     },
+    ["dab"] = {
+        "stand_dab@dark",
+        "stand_dab_clip",
+        "Dab",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["sexypose"] = { -- Custom Emote By Little Spoon
         "littlespoon@sexy003",
         "sexy003",
@@ -8884,6 +8918,7 @@ RP.Emotes = {
         "Laying Down Sexy",
         AnimationOptions = {
             EmoteLoop = true,
+            StartDelay = 700,
             ExitEmote = "getup",
             ExitEmoteType = "Exits"
         }
@@ -8921,6 +8956,7 @@ RP.Emotes = {
         "Lay & Cry",
         AnimationOptions = {
             EmoteLoop = true,
+            StartDelay = 700,
             ExitEmote = "getup",
             ExitEmoteType = "Exits"
         }
@@ -8931,6 +8967,7 @@ RP.Emotes = {
         "Lay & Cry 2",
         AnimationOptions = {
             EmoteLoop = true,
+            StartDelay = 700,
             ExitEmote = "getup",
             ExitEmoteType = "Exits"
         }
@@ -8941,6 +8978,7 @@ RP.Emotes = {
         "Lay & Cry 3",
         AnimationOptions = {
             EmoteLoop = true,
+            StartDelay = 700,
             ExitEmote = "getup",
             ExitEmoteType = "Exits"
         }
@@ -8951,6 +8989,7 @@ RP.Emotes = {
         "Lay & Cry 4",
         AnimationOptions = {
             EmoteLoop = true,
+            StartDelay = 700,
             ExitEmote = "getup",
             ExitEmoteType = "Exits"
         }
@@ -8961,6 +9000,7 @@ RP.Emotes = {
         "Lay & Cry 5",
         AnimationOptions = {
             EmoteLoop = true,
+            StartDelay = 700,
             ExitEmote = "getup",
             ExitEmoteType = "Exits"
         }
@@ -8971,6 +9011,7 @@ RP.Emotes = {
         "Lay & Cry 6",
         AnimationOptions = {
             EmoteLoop = true,
+            StartDelay = 700,
             ExitEmote = "getup",
             ExitEmoteType = "Exits"
         }
@@ -9049,7 +9090,11 @@ RP.Emotes = {
         "crawl_01",
         "Zombie Crawl",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            EmoteLoop = true,
+            StartDelay = 700,
+            ExitEmote = "meditateup",
+            ExitEmoteType = "Exits"
         }
     },
     ["laysexy"] = { -- Custom Emote By Amnilka
@@ -9058,6 +9103,7 @@ RP.Emotes = {
         "Lay Sexy",
         AnimationOptions = {
             EmoteLoop = true,
+            StartDelay = 700,
             ExitEmote = "getup",
             ExitEmoteType = "Exits"
         }
@@ -9727,7 +9773,25 @@ RP.PropEmotes = {
                 95.0,
                 190.0,
                 180.0
-            }
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+            PtfxAsset = "scr_agencyheistb",
+            PtfxName = "scr_agency3b_elec_box",
+            PtfxNoProp = true,
+            PtfxBone = 31086,
+            PtfxPlacement = {
+                0.0,
+                0.170,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.4
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxWait = 0.8,
+            PtfxCanHold = true
         }
     },
     ["bong2"] = {
@@ -9744,7 +9808,97 @@ RP.PropEmotes = {
                 95.0,
                 190.0,
                 180.0
-            }
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+            PtfxAsset = "scr_agencyheistb",
+            PtfxName = "scr_agency3b_elec_box",
+            PtfxNoProp = true,
+            PtfxBone = 31086,
+            PtfxPlacement = {
+                0.0,
+                0.170,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.4
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxWait = 0.8,
+            PtfxCanHold = true
+        }
+    },
+    ["bong3"] = {
+        "sit_bong@dark",
+        "sit_bong_clip",
+        "Bong 3 - Sit & Rip",
+        AnimationOptions = {
+            Prop = 'hei_heist_sh_bong_01',
+            PropBone = 60309,
+            PropPlacement = {
+                0.0490,
+               -0.2000,
+                0.0800,
+              -85.0199,
+              102.3320,
+              -15.0085
+            },
+            EmoteLoop = true,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits",
+            PtfxAsset = "scr_agencyheistb",
+            PtfxName = "scr_agency3b_elec_box",
+            PtfxNoProp = true,
+            PtfxBone = 31086,
+            PtfxPlacement = {
+                0.0,
+                0.170,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.4
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxWait = 0.8,
+            PtfxCanHold = true
+        }
+    },
+    ["bong4"] = {
+        "sit_bong@dark",
+        "sit_bong_clip",
+        "Bong 4 - Sit & Rip Purple",
+        AnimationOptions = {
+            Prop = 'xm3_prop_xm3_bong_01a',
+            PropBone = 60309,
+            PropPlacement = {
+                0.0490,
+               -0.2000,
+                0.0800,
+              -85.0199,
+              102.3320,
+              -15.0085
+            },
+            EmoteLoop = true,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits",
+            PtfxAsset = "scr_agencyheistb",
+            PtfxName = "scr_agency3b_elec_box",
+            PtfxNoProp = true,
+            PtfxBone = 31086,
+            PtfxPlacement = {
+                0.0,
+                0.170,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.4
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxWait = 0.8,
+            PtfxCanHold = true
         }
     },
     ["fishing1"] = {
