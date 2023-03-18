@@ -568,7 +568,7 @@ A huge thank you to the following people for their amazing contributions made to
 
 - Thank you to [MonkeyWhisper](https://github.com/MonkeyWhisper) and [Project Sloth](https://github.com/Project-Sloth) for the custom props
 
-- Thank you [Dark Animations]((https://www.gta5-mods.com/users/Darks%20Animations) for the partnership and custom animations. You the goat
+- Thank you [Dark Animations](https://www.gta5-mods.com/users/Darks%20Animations) for the partnership and custom animations. You the goat
 
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
