@@ -9091,7 +9091,6 @@ RP.Emotes = {
         "Zombie Crawl",
         AnimationOptions = {
             EmoteLoop = true,
-            EmoteLoop = true,
             StartDelay = 700,
             ExitEmote = "meditateup",
             ExitEmoteType = "Exits"
