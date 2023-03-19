@@ -18967,10 +18967,62 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["airportbag2"] = { -- Custom Emote By Chocoholic Animations
+    ["airportbag2"] = { -- Custom Emote By Dark Animations 
+        "suitcase_phone@dark",
+        "suitcase_phone_clip",
+        "Airport Bag 2 - Phone",
+        AnimationOptions = {
+            Prop = 'prop_suitcase_03',
+            PropBone = 60309,
+            PropPlacement = {
+                 0.4700,
+                -0.0400,
+                -0.3500,
+              -120.0000,
+              -180.0000,
+               -79.9999
+            },
+            SecondProp = 'prop_phone_taymckenzienz',
+            PropTextureVariations = {
+                { Name = "<font color=\"#00A0F4\">Blue", Value = 0 },
+                { Name = "<font color=\"#1AA20E\">Green", Value = 1 },
+                { Name = "<font color=\"#800B0B\">Dark Red", Value = 2 },
+                { Name = "<font color=\"#FF7B00\">Orange", Value = 3 },
+                { Name = "<font color=\"#5F5F5F\">Grey", Value = 4 },
+                { Name = "<font color=\"#a356fa\">Purple", Value = 5 },
+                { Name = "<font color=\"#FF0099\">Pink", Value = 6 },
+                { Name = "Black", Value = 7 },
+            },
+            SecondPropBone = 28422,
+            SecondPropPlacement = {
+                0.1040,
+                0.0320,
+               -0.0200,
+             -108.6997,
+             -150.5805,
+               46.7080
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxWait = 200
+        }
+    },
+    ["airportbag3"] = { -- Custom Emote By Chocoholic Animations
         "chocoholic@single63",
         "single63_clip",
-        "Airport Bag Pose",
+        "Airport Bag 3 - Pose",
         AnimationOptions = {
             Prop = "prop_suitcase_03",
             PropBone = 58869,
@@ -19037,6 +19089,54 @@ RP.PropEmotes = {
               -94.8944,
                -2.3093,
               -10.9030
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+	["easter"] = {
+        "anim@heists@narcotics@trash",
+        "idle",
+        "Easter Basket",
+        AnimationOptions = {
+            Prop = "bzzz_event_easter_basket_b",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0040,
+                0.0400,
+               -0.2420,
+               19.9999,
+                0.0,
+              -10.0000
+             },
+            SecondProp = 'bzzz_event_easter_egg_d',
+            SecondPropBone = 60309,
+            SecondPropPlacement = {
+                0.0790,
+                0.0090,
+                0.0190,
+             -120.0000,
+                0.0,
+               0.0,
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+	["easter2"] = {
+        "anim@heists@humane_labs@finale@keycards",
+        "ped_a_enter_loop",
+        "Easter Bunny",
+        AnimationOptions = {
+            Prop = "bzzz_event_easter_bunny_a",
+            PropBone = 60309,
+            PropPlacement = {
+               -0.0270,
+               -0.0200,
+                0.0100,
+                62.9161,
+                0.4622,
+                10.8906
             },
             EmoteLoop = true,
             EmoteMoving = true
