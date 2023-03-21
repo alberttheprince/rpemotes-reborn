@@ -20049,7 +20049,7 @@ RP.PropEmotes = {
     ["sax2"] = {
         "smo@milkshake_idle",
         "milkshake_idle_clip",
-        "Saxophone 1",
+        "Saxophone 2",
         AnimationOptions = {
             Prop = 'rpemotes_prop_saxophone02',
             PropBone = 60309,
