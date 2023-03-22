@@ -9091,6 +9091,7 @@ RP.Emotes = {
         "Zombie Crawl",
         AnimationOptions = {
             EmoteLoop = true,
+            EmoteLoop = true,
             StartDelay = 700,
             ExitEmote = "meditateup",
             ExitEmoteType = "Exits"
@@ -11126,6 +11127,35 @@ RP.PropEmotes = {
                 16.0,
                 60.0
             },
+            EmoteMoving = true
+        }
+    },
+    ["burgerpose"] = { -- Custom Emote By Dark Animations exclusive to RPEmotes exclusive to RPEmotes
+        "brugershot_dark_fixed@dark",
+        "brugershot_dark_fixed_clip",
+        "Burger - Pose",
+        AnimationOptions = {
+            Prop = 'prop_cs_burger_01',
+            PropBone = 60309,
+            PropPlacement = {
+                0.0460,
+                0.0140,
+                0.0460,
+                3.4346,
+               20.1823,
+              -10.000
+            },
+            SecondProp = 'ba_prop_battle_sports_helmet',
+            SecondPropBone = 28422,
+            SecondPropPlacement = {
+                0.0400,
+               -0.0100,
+               -0.2000,
+              176.3835,
+             -169.3724,
+               19.6834
+            },
+            EmoteLoop = true,
             EmoteMoving = true
         }
     },
@@ -18966,7 +18996,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["airportbag2"] = { -- Custom Emote By Dark Animations 
+    ["airportbag2"] = { -- Custom Emote By Dark Animations exclusive to RPEmotes 
         "suitcase_phone@dark",
         "suitcase_phone_clip",
         "Airport Bag 2 - Phone",
@@ -19299,17 +19329,57 @@ RP.PropEmotes = {
         "Gamer",
         AnimationOptions = {
             Prop = 'prop_controller_01',
-            PropBone = 24818, --- Chest bone, works fine for sitting down, not soo much with emote moving.
+            PropBone = 18905,
             PropPlacement = {
-                0.2890,
-                0.4110,
-                0.0020,
-               -44.0174,
-                88.6103,
-                -1.4385
+                0.1450,
+                0.0590,
+                0.0850,
+             -164.4546,
+              -62.9570,
+               17.5872
             },
             EmoteLoop = true,
             ExitEmote = "getup",
+            ExitEmoteType = "Exits"
+        }
+    },
+    ["gamer2"] = { --- Custom Emote By Dark Animations exclusive to RPEmotes
+        "lay_controller@dark",
+        "lay_controller_clip",
+        "Gamer Laying On Stomach",
+        AnimationOptions = {
+            Prop = 'prop_controller_01',
+            PropBone = 18905,
+            PropPlacement = {
+                0.1350,
+                0.0360,
+                0.0950,
+             -180.0000,
+              -72.9699,
+                0.0000
+            },
+            EmoteLoop = true,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits"
+        }
+    },
+    ["study"] = { --- Custom Emote By Dark Animations exclusive to RPEmotes
+        "study_pc_finally_fixed@dark",
+        "study_pc_finally_fixed_clip",
+        "Study",
+        AnimationOptions = {
+            Prop = 'xm_prop_x17_laptop_lester_01',
+            PropBone = 28422,
+            PropPlacement = {
+                0.1650,
+                0.1010,
+               -0.1470,
+             -159.2533,
+             -145.7418,
+              -79.5760,
+            },
+            EmoteLoop = true,
+             ExitEmote = "getup",
             ExitEmoteType = "Exits"
         }
     },
@@ -20049,7 +20119,7 @@ RP.PropEmotes = {
     ["sax2"] = {
         "smo@milkshake_idle",
         "milkshake_idle_clip",
-        "Saxophone 2",
+        "Saxophone 1",
         AnimationOptions = {
             Prop = 'rpemotes_prop_saxophone02',
             PropBone = 60309,
