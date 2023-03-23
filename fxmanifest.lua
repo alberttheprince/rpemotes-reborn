@@ -59,13 +59,13 @@ data_file 'DLC_ITYP_REQUEST' 'stream/brummie_props.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_props.ytyp'
 
-data_file 'DLC_ITYP_REQUEST' 'apple_1.ytyp'
+data_file 'DLC_ITYP_REQUEST' 'stream/apple_1.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/kaykaymods_props.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/knjgh_pizzas.ytyp'
 
-data_file 'DLC_ITYP_REQUEST' 'natty_props_lollipops.ytyp'
+data_file 'DLC_ITYP_REQUEST' 'stream/natty_props_lollipops.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/ultra_ringcase.ytyp'
 
