@@ -473,7 +473,9 @@ Below is an example:
 
 # 📜 LICENSE & DISCLAIMER
 
-This project is under the GPL V3 license, however all custom props and animations were provided to RPEmotes by the community with express permission and must not be extracted from [RpEmotes](https://github.com/TayMcKenzieNZ/rpemotes), reuploaded to any websites, forums or discord servers.
+This repository was created by **TayMcKenzieNZ** for strict usage with the Grand Theft Auto 5 unofficial multiplayer platforms 'FiveM', and is under the GNU General Public License v3.0 license.
+
+All custom props and animations were provided to RPEmotes by the community with express permission and must not be extracted from [RpEmotes(https://github.com/TayMcKenzieNZ/rpemotes), reuploaded to any websites, forums or discord servers.
 
 If you want to modify RpEmotes ***(does not apply if you want to use it for personal purposes)*** or make an agreement, you can contact the RPEmotes via our official Discord via opening a ticket. 
 
