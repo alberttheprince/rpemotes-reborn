@@ -18,7 +18,7 @@ RegisterNetEvent("ServerEmoteRequest", function(target, emotename, etype)
         return
     end
 
-    TriggerClientEvent("ClientEmoteRequestReceive", target, emotename, etype)
+    TriggerClientEvent("ClientEmoteRequestReceive", target, emotename, etype, source)
 end)
 
 RegisterNetEvent("ServerValidEmote", function(target, requestedemote, otheremote)
@@ -224,7 +224,7 @@ local function ExtractEmoteProps(format)
 
     -- table to keep track of exported values
     local exportedValues = {}
-    local path = GetResourcePath(GetCurrentResourceName())..'/.prop_list.lua'
+    local path = GetResourcePath(GetCurrentResourceName())..'/prop_list.lua'
     -- open file for writing
     local file = io.open(path, 'w')
 

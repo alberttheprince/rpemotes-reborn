@@ -14,9 +14,9 @@ if Config.CheckForUpdates then
             VersionLog('success', ('Current Version: %s'):format(currentVersion))
             VersionLog('success', ('Latest Version: %s'):format(text))
             if text:gsub("%s+", "") == currentVersion:gsub("%s+", "") then
-                VersionLog('success', 'You are running the latest version.')
+                VersionLog('success', 'You are running the latest version of the official RPEmotes script by TayMcKenzieNZ.')
             else
-                VersionLog('error', ('You are currently running an outdated version, please update to version %s'):format(text))
+                VersionLog('error', ('You are currently running an outdated version of RPEmotes, please update to version %s'):format(text))
             end
         end)
     end

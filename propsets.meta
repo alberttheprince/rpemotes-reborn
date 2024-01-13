@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CAmbientModelSets>
+  <ModelSets>
+    <Item type="CAmbientModelSet">
+      <Name>BARBELL</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Barbell_02</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>BEER_BOTTLE</Name>
+      <Models>
+        <Item>
+          <Name>Prop_AMB_40oz_02</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+        <Item>
+          <Name>Prop_AMB_40oz_03</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+		<Item>
+          <Name>P_Whiskey_Notop</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>BEER_BOTTLE_BROWN_BAG</Name>
+      <Models>
+        <Item>
+          <Name>P_CS_Bottle_01</Name>
+          <Variations type="NULL" />
+          <Probability value="0.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>BINOCULARS</Name>
+      <Models>
+        <Item>
+          <Name>Prop_binoc_01</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>BONGOS</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Bongos_01</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>BROOM</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Tool_Broom</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>BUM_SIGN</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Beggers_Sign_01</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+        <Item>
+          <Name>Prop_Beggers_Sign_02</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+        <Item>
+          <Name>Prop_Beggers_Sign_03</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+        <Item>
+          <Name>Prop_Beggers_Sign_04</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>CIGARETTES</Name>
+      <Models>
+        <Item>
+          <Name>Prop_CS_Ciggy_01</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+        <Item>
+          <Name>Prop_Cigar_03</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>CLIPBOARD</Name>
+      <Models>
+        <Item>
+          <Name>P_CS_Clipboard</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>COFFEECUPS</Name>
+      <Models>
+        <Item>
+          <Name>P_ING_CoffeeCup_01</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+		<Item>
+          <Name>Prop_LD_Can_01b</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+		<Item>
+          <Name>Prop_Ecola_Can</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+		<Item>
+          <Name>Prop_LD_Flow_Bottle</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+		<Item>
+          <Name>Prop_Energy_Drink</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>CONST_DRILL</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Tool_JackHam</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>CURL_BAR</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Curl_bar_01</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>DECKCHAIR_DRINKING</Name>
+      <Models>
+        <Item>
+          <Name>Prop_CS_Paper_Cup</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+		<Item>
+          <Name>Prop_Ecola_Can</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+		<Item>
+          <Name>Prop_LD_Can_01b</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+		<Item>
+          <Name>Prop_AMB_40oz_03</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+        <Item>
+          <Name>P_ING_CoffeeCup_01</Name>
+          <Variations type="NULL" />
+          <Probability value="0.300000" />
+        </Item>
+      </Models>
+    </Item>	
+	<Item type="CAmbientModelSet">
+      <Name>DLC_CREDIT_CARD</Name>
+      <Models>
+        <Item>
+          <Name>Prop_CS_Credit_Card</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+	<Item type="CAmbientModelSet">
+      <Name>DLC_SORTING_WEED</Name>
+      <Models>
+        <Item>
+          <Name>h4_Prop_h4_Weed_Bud_02b</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>DRINK_BEER</Name>
+      <Models>
+        <Item>
+          <Name>Prop_CS_Paper_Cup</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>FISHING_ROD</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Fishing_Rod_01</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>GUITAR</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Acc_Guitar_01</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>HAMMER</Name>
+      <Models>
+        <Item>
+          <Name>Prop_tool_hammer</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>HAND_FOOD</Name>
+      <Models>
+        <Item>
+          <Name>P_AMB_Bagel_01</Name>
+          <Variations type="NULL" />
+          <Probability value="0.500000" />
+        </Item>
+        <Item>
+          <Name>Prop_AMB_Donut</Name>
+          <Variations type="NULL" />
+          <Probability value="0.250000" />
+        </Item>
+        <Item>
+          <Name>Prop_Donut_02</Name>
+          <Variations type="NULL" />
+          <Probability value="0.250000" />
+        </Item>
+		<Item>
+          <Name>Prop_Taco_02</Name>
+          <Variations type="NULL" />
+          <Probability value="0.500000" />
+        </Item>
+		<Item>
+          <Name>Prop_CS_Burger_01</Name>
+          <Variations type="NULL" />
+          <Probability value="0.500000" />
+        </Item>
+		<Item>
+          <Name>Prop_CS_Hotdog_02</Name>
+          <Variations type="NULL" />
+          <Probability value="0.500000" />
+        </Item>
+		<Item>
+          <Name>Prop_Sandwich_01</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>JOINT</Name>
+      <Models>
+        <Item>
+          <Name>P_AMB_Joint_01</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>LEAF_BLOWER</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Leaf_Blower_01</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>LG_FLOAT</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Beach_LG_Float</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>MAID_RAG</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Rag_01</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>NINE_IRON</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Golf_Iron_01</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>NOTEPAD</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Notepad_02</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>PAPARAZZI_CAMERA</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Pap_Camera_01</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>PARKING_WAND</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Parking_Wand_01</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>PHONES</Name>
+      <Models>
+		<Item>
+          <Name>Prop_Phone_Taymckenzienz</Name>
+          <Variations type="NULL" />
+          <Probability value="0.500000" />
+        </Item>
+		<Item>
+          <Name>Prop_Phone_ING_02</Name>
+          <Variations type="NULL" />
+          <Probability value="0.250000" />
+        </Item>
+		<Item>
+          <Name>Prop_Phone_ING_03</Name>
+          <Variations type="NULL" />
+          <Probability value="0.250000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>PISTOLS</Name>
+      <Models>
+        <Item>
+          <Name>W_PI_PISTOL</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+        <Item>
+          <Name>W_PI_COMBATPISTOL</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+        <Item>
+          <Name>W_PI_PISTOL50</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+        <Item>
+          <Name>W_PI_APPISTOL</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+        <Item>
+          <Name>W_PI_SNS_PISTOL</Name> <!-- mpBeach -->
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+        <Item>
+          <Name>W_PI_HEAVYPISTOL</Name> <!-- mpBusiness -->
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+        <Item>
+          <Name>W_PI_VINTAGE_PISTOL</Name> <!-- mpHipster -->
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>PURSE</Name>
+      <Models>
+        <Item>
+          <Name>Prop_LD_Purse_01</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+	<Item type="CAmbientModelSet">
+      <Name>RAKE_DLC</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Tool_Rake</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>RIFLES</Name>
+      <Models>
+        <Item>
+          <Name>W_AR_ASSAULTRIFLE</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+        <Item>
+          <Name>W_AR_CARBINERIFLE</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+        <Item>
+          <Name>W_AR_HEAVYRIFLE</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+        <Item>
+          <Name>W_AR_ADVANCEDRIFLE</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+        <Item>
+          <Name>W_AR_SPECIALCARBINE</Name> <!-- mpBusiness -->
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+        <Item>
+          <Name>W_AR_BULLPUPRIFLE</Name> <!-- mpBusiness2 -->
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>SANDWICH</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Sandwich_01</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>SPACE_PISTOL</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Space_Pistol</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>SPACE_RIFLE</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Space_Rifle</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>SPATULA</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Fish_slice_01</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>TABLET</Name>
+      <Models>
+        <Item>
+          <Name>Prop_CS_Tablet</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>TENNIS_RACKET</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Tennis_Rack_01</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>TORCH</Name>
+      <Models>
+        <Item>
+          <Name>Prop_SCN_Police_Torch</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>TOURIST_MAP</Name>
+      <Models>
+        <Item>
+          <Name>P_tourist_map_01_S</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>TROWEL</Name>
+      <Models>
+        <Item>
+          <Name>Prop_CS_Trowel</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+    <Item type="CAmbientModelSet">
+      <Name>WELDING_TORCH</Name>
+      <Models>
+        <Item>
+          <Name>Prop_Weld_Torch</Name>
+          <Variations type="NULL" />
+          <Probability value="1.000000" />
+        </Item>
+      </Models>
+    </Item>
+  </ModelSets>
+</CAmbientModelSets>

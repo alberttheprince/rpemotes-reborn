@@ -1,3 +1,9 @@
+--- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
+--- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
+--- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
+
+
+
 local isRequestAnim = false
 local requestedemote = ''
 local targetPlayerId = ''
@@ -59,11 +65,13 @@ AddEventHandler("SyncPlayEmote", function(emote, player)
             end
         end
 
-        OnEmotePlay(RP.Shared[emote])
+        OnEmotePlay(RP.Shared[emote], emote)
         return
     elseif RP.Dances[emote] ~= nil then
-        OnEmotePlay(RP.Dances[emote])
+        OnEmotePlay(RP.Dances[emote], emote)
         return
+    else
+        DebugPrint("SyncPlayEmote : Emote not found")
     end
 end)
 
@@ -115,10 +123,10 @@ AddEventHandler("SyncPlayEmoteSource", function(emote, player)
     Wait(300)
     targetPlayerId = player
     if RP.Shared[emote] ~= nil then
-        OnEmotePlay(RP.Shared[emote])
+        OnEmotePlay(RP.Shared[emote], emote)
         return
     elseif RP.Dances[emote] ~= nil then
-        OnEmotePlay(RP.Dances[emote])
+        OnEmotePlay(RP.Dances[emote], emote)
         return
     end
 end)
@@ -139,7 +147,7 @@ function CancelSharedEmote(ply)
 end
 
 RegisterNetEvent("ClientEmoteRequestReceive")
-AddEventHandler("ClientEmoteRequestReceive", function(emotename, etype)
+AddEventHandler("ClientEmoteRequestReceive", function(emotename, etype, target)
     isRequestAnim = true
     requestedemote = emotename
 
@@ -151,105 +159,30 @@ AddEventHandler("ClientEmoteRequestReceive", function(emotename, etype)
 
     PlaySound(-1, "NAV", "HUD_AMMO_SHOP_SOUNDSET", 0, 0, 1)
     SimpleNotify(Config.Languages[lang]['doyouwanna'] .. remote .. "~w~)")
-end)
-
-Citizen.CreateThread(function()
-    while true do
+    -- The player has now 10 seconds to accept the request
+    local timer = 10 * 1000
+    while isRequestAnim do
         Citizen.Wait(5)
-        if IsControlJustPressed(1, 246) and isRequestAnim then
-            target, distance = GetClosestPlayer()
-            if (distance ~= -1 and distance < 3) then
-                if RP.Shared[requestedemote] ~= nil then
-                    _, _, _, otheremote = table.unpack(RP.Shared[requestedemote])
-                elseif RP.Dances[requestedemote] ~= nil then
-                    _, _, _, otheremote = table.unpack(RP.Dances[requestedemote])
-                end
-                if otheremote == nil then otheremote = requestedemote end
-                TriggerServerEvent("ServerValidEmote", GetPlayerServerId(target), requestedemote, otheremote)
-                isRequestAnim = false
-            else
-                SimpleNotify(Config.Languages[lang]['nobodyclose'])
-            end
-        elseif IsControlJustPressed(1, 182) and isRequestAnim then
-            SimpleNotify(Config.Languages[lang]['refuseemote'])
+        timer = timer - 5
+        if timer == 0 then
             isRequestAnim = false
+            SimpleNotify(Config.Languages[lang]['refuseemote'])
+        end
+
+        if IsControlJustPressed(1, 246) then
+            isRequestAnim = false
+
+            -- Check if the emote is shared or dance
+            if RP.Shared[requestedemote] ~= nil then
+                _, _, _, otheremote = table.unpack(RP.Shared[requestedemote])
+            elseif RP.Dances[requestedemote] ~= nil then
+                _, _, _, otheremote = table.unpack(RP.Dances[requestedemote])
+            end
+            if otheremote == nil then otheremote = requestedemote end
+            TriggerServerEvent("ServerValidEmote", target, requestedemote, otheremote)
+        elseif IsControlJustPressed(1, 182) then
+            isRequestAnim = false
+            SimpleNotify(Config.Languages[lang]['refuseemote'])
         end
     end
 end)
-
------------------------------------------------------------------------------------------------------
------- Functions and stuff --------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------
-
-function GetPlayerFromPed(ped)
-    for _, player in ipairs(GetActivePlayers()) do
-        if GetPlayerPed(player) == ped then
-            return player
-        end
-    end
-    return -1
-end
-
-function GetPedInFront()
-    local player = PlayerId()
-    local plyPed = GetPlayerPed(player)
-    local plyPos = GetEntityCoords(plyPed, false)
-    local plyOffset = GetOffsetFromEntityInWorldCoords(plyPed, 0.0, 1.3, 0.0)
-    local rayHandle = StartShapeTestCapsule(plyPos.x, plyPos.y, plyPos.z, plyOffset.x, plyOffset.y, plyOffset.z, 10.0, 12
-        , plyPed, 7)
-    local _, _, _, _, ped2 = GetShapeTestResult(rayHandle)
-    return ped2
-end
-
-function NearbysOnCommand(source, args, raw)
-    local NearbysCommand = ""
-    for a in pairsByKeys(RP.Shared) do
-        NearbysCommand = NearbysCommand .. "" .. a .. ", "
-    end
-    EmoteChatMessage(NearbysCommand)
-    EmoteChatMessage(Config.Languages[lang]['emotemenucmd'])
-end
-
-function SimpleNotify(message)
-    if Config.NotificationsAsChatMessage then
-        TriggerEvent("chat:addMessage", { color = { 255, 255, 255 }, args = { tostring(message) } })
-    else
-        BeginTextCommandThefeedPost("STRING")
-        AddTextComponentSubstringPlayerName(message)
-        EndTextCommandThefeedPostTicker(0, 1)
-    end
-end
-
-function GetClosestPlayer()
-    local players = GetPlayers()
-    local closestDistance = -1
-    local closestPlayer = -1
-    local ply = PlayerPedId()
-    local plyCoords = GetEntityCoords(ply, 0)
-
-    for index, value in ipairs(players) do
-        local target = GetPlayerPed(value)
-        if (target ~= ply) then
-            local targetCoords = GetEntityCoords(GetPlayerPed(value), 0)
-            local distance = GetDistanceBetweenCoords(targetCoords["x"], targetCoords["y"], targetCoords["z"],
-                plyCoords["x"], plyCoords["y"], plyCoords["z"], true)
-            if (closestDistance == -1 or closestDistance > distance) then
-                closestPlayer = value
-                closestDistance = distance
-            end
-        end
-    end
-    return closestPlayer, closestDistance
-end
-
-function GetPlayers()
-    local players = {}
-
-    for i = 0, 255 do
-        if NetworkIsPlayerActive(i) then
-            table.insert(players, i)
-        end
-    end
-
-    return players
-end

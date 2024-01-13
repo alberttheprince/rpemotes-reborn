@@ -391,6 +391,8 @@ function GetSafeZoneBounds()
     return { X = math.round(SafeSize * ((W / H) * 5.4)), Y = math.round(SafeSize * 5.4) }
 end
 
+---Returns true if the player is using a controller
+---@return boolean
 function Controller()
     return not IsInputDisabled(2)
 end
@@ -2454,7 +2456,7 @@ function UIMenu.New(Title, Subtitle, X, Y, TxtDictionary, TxtName)
             ResetCursorOnOpen = false,
             MouseControlsEnabled = false,
             MouseEdgeEnabled = false,
-            ControlDisablingEnabled = true,
+            ControlDisablingEnabled = false,
             Audio = {
                 Library = "HUD_FRONTEND_DEFAULT_SOUNDSET",
                 UpDown = "NAV_UP_DOWN",
@@ -2465,10 +2467,17 @@ function UIMenu.New(Title, Subtitle, X, Y, TxtDictionary, TxtName)
             },
             EnabledControls = {
                 Controller = {
-                    { 0, 2 }, -- Look Up and Down
-                    { 0, 1 }, -- Look Left and Right
+                    { 0, 2 },  -- Look Up and Down
+                    { 0, 1 },  -- Look Left and Right
                     { 0, 25 }, -- Aim
                     { 0, 24 }, -- Attack
+                    { 0, 71 }, -- Accelerate Vehicle
+                    { 0, 72 }, -- Vehicle Brake
+                    { 0, 30 }, -- Move Left and Right
+                    { 0, 31 }, -- Move Up and Down
+                    { 0, 59 }, -- Move Vehicle Left and Right
+                    { 0, 75 }, -- Exit Vehicle
+                    { 0, 23 }, -- Enter Vehicle
                 },
                 Keyboard = {
                     { 0, 0 }, -- Camera
@@ -2883,16 +2892,33 @@ function UIMenu:ProcessControl()
         return
     end
 
-    if self.Controls.Back.Enabled and (IsDisabledControlJustReleased(0, 177) or IsDisabledControlJustReleased(1, 177) or IsDisabledControlJustReleased(2, 177) or IsDisabledControlJustReleased(0, 199) or IsDisabledControlJustReleased(1, 199) or IsDisabledControlJustReleased(2, 199)) then
+    if self.Controls.Back.Enabled and (IsDisabledControlJustReleased(0, 177) or IsDisabledControlJustReleased(1, 177) or IsDisabledControlJustReleased(2, 177)) then
         self:GoBack()
     end
 
-    if self.Controls.Increment.Enabled and (IsDisabledControlJustReleased(0, 19) or IsDisabledControlJustReleased(1, 19) or IsDisabledControlJustReleased(2, 19)) then
+    if self.Controls.Back.Enabled and (IsDisabledControlJustReleased(0, 199) or IsDisabledControlJustReleased(1, 199) or IsDisabledControlJustReleased(2, 199)) and not tobool(Controller()) then
+        self:GoBack()
+    end
+
+    -- If player is using keyboard, the control is alt
+    if (self.Controls.Increment.Enabled and (IsDisabledControlJustReleased(0, 19) or IsDisabledControlJustReleased(1, 19) or IsDisabledControlJustReleased(2, 19))) and not tobool(Controller()) then
         if paginationValue == 1 then
             paginationValue = 10
         else
             paginationValue = 1
         end
+        PlaySoundFrontend(-1, self.Settings.Audio.UpDown, self.Settings.Audio.Library, true)
+        self:Visible(true)
+    end
+
+    -- If player is using controller, the control index is 199
+    if (self.Controls.Increment.Enabled and (IsDisabledControlJustReleased(0, 199) or IsDisabledControlJustReleased(1, 199) or IsDisabledControlJustReleased(2, 199))) and tobool(Controller()) then
+        if paginationValue == 1 then
+            paginationValue = 10
+        else
+            paginationValue = 1
+        end
+        PlaySoundFrontend(-1, self.Settings.Audio.UpDown, self.Settings.Audio.Library, true)
         self:Visible(true)
     end
 
@@ -3606,10 +3632,20 @@ function UIMenu:UpdateScaleform()
         PopScaleformMovieFunction()
     end
 
-    if self.Controls.Increment.Enabled then
+    -- If using keyboard, show alt increment button
+    if self.Controls.Increment.Enabled and not tobool(Controller()) then
         PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
         PushScaleformMovieFunctionParameterInt(3)
         PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 19, 0))
+        PushScaleformMovieFunctionParameterString(Config.Languages[lang]['btn_increment']..(paginationValue and ': '..paginationValue or ": "..paginationValue))
+        PopScaleformMovieFunction()
+    end
+
+    -- If using controller, show 199 increment button
+    if self.Controls.Increment.Enabled and tobool(Controller()) then
+        PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
+        PushScaleformMovieFunctionParameterInt(3)
+        PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 199, 0))
         PushScaleformMovieFunctionParameterString(Config.Languages[lang]['btn_increment']..(paginationValue and ': '..paginationValue or ": "..paginationValue))
         PopScaleformMovieFunction()
     end
