@@ -1,3 +1,5 @@
+# <div align="center">PLEASE NOTE: this is uploaded as a public copy of RP Emotes as of January 6, 2024. The original repo was privated, and this is uploaded as the most recent version before that event. No support, or development will be done by me or Popcorn RP on this version for the foreseeable future.</div>
+
 # <div align="center">RPEmotes 🏋️</div>
 
 
