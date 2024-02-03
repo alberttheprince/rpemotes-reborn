@@ -1,132 +1,49 @@
-# <div align="center">PLEASE NOTE: this is uploaded as a public copy of RP Emotes as of January 6, 2024. The original repo was privated, and this is uploaded as the most recent version before that event. No support, or development will be done by me or Popcorn RP on this version for the foreseeable future.</div>
-
-A partial archive of the docs can be found here: https://web.archive.org/web/20231218223552/https://docs.rpemotes.com/
-
-Unfortunately, some pages are missing.
-
-# <div align="center">RPEmotes </div>
-
-![image](https://github.com/alberttheprince/rpemotes/assets/85725579/96583a94-d899-4b7b-ab39-aa67bc06b6fc)
+![image](https://github.com/alberttheprince/rpemotes/assets/85725579/29e96601-bf93-4f05-b310-a48448dfecf3)
 
 RPEmotes is a community-driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walkstyles and props, inspired by [DullPear](https://github.com/andristum/dpemotes).
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+A partial archive of the original RP Emotes docs can be found here: https://web.archive.org/web/20231218223552/https://docs.rpemotes.com/
 
-# Available in 🌏
-
-* Albanian 🇦🇱
-
-* Brazilian Portuguese 🇧🇷
-
-* Chinese Simplified 🇨🇳
-
-* Chinese Traditional 🇨🇳
-
-* Czech 🇨🇿
-
-* Danish 🇩🇰
-
-* Dutch 🇳🇱
-
-* English 🇬🇧
-
-* Finnish 🇫🇮
-
-* French 🇫🇷
-
-* German 🇩🇪
-
-* Greek 🇬🇷
-
-* Hungarian 🇭🇺
-
-* Indonesian 🇮🇩
-
-* Italian 🇮🇹
-
-* Lithuanian 🇱🇹
-
-* Norwegian 🇳🇴
-
-* Persian 🇮🇷
-
-* Polish 🇵🇱
-
-* Romanian 🇷🇴
-
-* Russian 🇷🇺
-
-* Serbian 🇷🇸
-
-* Sinhala 🇱🇰
-
-* Slovenian 🇸🇮 
-
-* Spanish 🇪🇸
-
-* Swedish 🇸🇪
-
-* Turkish 🇹🇷
-
-* Vietnamese 🇻🇳
-
-All languages were translated or contributed by you, our amazing community with the odd exception of using Google Translate.
-
-If you happen to find any incorrect translations or would like to add more languages, please feel free to make a pull request with the correct / additional translations or join our discord.
-
-Languages can be selected and / or added in the config.lua.
+Unfortunately, some pages are missing.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Features 🛠️
 
 - Multiple Translations 🌏
-
 - Search Function 🔎
-
 - Custom Animations with **permission from the community** 🏃
-
 - Persistent Facial Expressions via client KVP 🤪
-
 - Animal Emotes 🐩
-
 - Shared Dances 🕺💃
-
 - Persistent Walkstyles via client KVP 🚶‍♂️ - Standalone, QB-Core and ESX support!
-
 - Persistent Disabling Of Idle Camera via KVP 🎥
-
 - Crouching 🐞
-
 - Crawling 🐛
-
 - Finger Pointing 👆
-
 - Ragdoll 😵
-
 - Hands up 🙌
-
 - Shared Particle Effects 💨
-
 - QB-Core Framework & SQL Keybinding Support ⚙️
-
-- Further support for shared and couple poses / animations 👫
-
+- Further support for shared and couple poses/animations 👫
 - Easily convert Menyoo to RPEmotes 🔄
-
 - Hide Adult Emotes 🔞
-
 - Hide Animal Emotes ⛔
-
 - Easy To Understand Configuration File ⚙️
-
 - Exit Emotes 😎
-
 - Working Binoculars 👀
-
 - News Camera 🎤📹
-
 - Props Extractor for anti-cheat scripts 💾
+
+**-Available in the following languages:**
+
+Albanian, Brazilian Portuguese, Chinese (Simplified), Chinese (Traditional), Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Indonesian, Italian, Lithuanian, Norwegian, Persian, Polish, Romanian, Russian, Serbian, Sinhala, Slovenian, Spanish, Swedish, Turkish, Vietnamese
+
+Languages can be selected and/or added in the config.lua.
+
+All languages were translated or contributed by you, our amazing community with the odd exception of using Google Translate.
+
+If you happen to find any incorrect translations or would like to add more languages, please feel free to make a pull request with the corrections.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -146,7 +63,7 @@ exports["rpemotes"]:IsPlayerInAnim()
 exports["rpemotes"]:toggleWalkstyle(bool, message)
 exports["rpemotes"]:toggleBinoculars()
 exports["rpemotes"]:toggleNewscam()
--- bool to allow the user to change their walkstyle in the menu or not / message to show the user (optional, default is :"You are unable to change your walking style right now.")"
+-- bool to allow the user to change their walk style in the menu or not / message to show the user (optional, default is: "You are unable to change your walking style right now.")"
 ```
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -202,7 +119,7 @@ Alternatively, players can use the `SHARE` button on an Xbox controller or `OPTI
 
 Much like the menu key, `RagdollKeybind` is also using RegisterKeyMapping. It is currently set to `U` by default *(server side)* however can be set to the player's preferred keybind in the FiveM keybinds setting found in the settings menu within the Esc Menu.
 
-* New setting: `RagdollAsToggle`, this will make either the ragdoll be a toggle or a hold key
+* New setting: `RagdollAsToggle`, this will make either the ragdoll a toggle or a hold key
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -225,11 +142,11 @@ Much like everything else in the menu, server owners can change these keybinds t
 
 **Crouching:**
 
-RIGHT CONTROL. Players can move forward, back, left and right as well as turning around. Press SPACEBAR to switch from stomach to back. Pressing RIGHT CONTROL key while running will have the player "dive into" a crouching animation.
+RIGHT CONTROL. Players can move forward, back, left, and right as well as turn around. Press SPACEBAR to switch from stomach to back. Pressing the RIGHT CONTROL key while running will have the player "dive into" a crouching animation.
 
 **Crawling:**
 
-Server owners can opt in to either overriding the stealth / action animation when pressing the LEFT CONTROL keybind or have players tap LEFT CONTROL twice to switch from stealth to crouch (when enabled in the config.lua file)
+Server owners can opt in to either overriding the stealth/action animation when pressing the LEFT CONTROL keybind or have players tap LEFT CONTROL twice to switch from stealth to crouch (when enabled in the config.lua file)
 
 # Chat Commands
 
@@ -244,7 +161,7 @@ Server owners can opt in to either overriding the stealth / action animation whe
 
 # Moods & Walkstyles 😜🚶‍♂️
 
-Moods and walkstyles can be set from the menu. These will save to your character and reapply when exiting a vehicle, or loading back into the server as they are saved via client side KVP.
+Moods and walk styles can be set from the menu. These will save to your character and reapply when exiting a vehicle, or loading back into the server as they are saved via client-side KVP.
 
 |COMMAND: | ACTION:|
 |---|---|
@@ -252,13 +169,13 @@ Moods and walkstyles can be set from the menu. These will save to your character
 | /walks | See A List Of Walkstyles In Chat |
 | /moods | See A List Of Walkstyles In Chat |
 | /reset mood | Remove preferred mood and set default |
-| /reset walk | Remove last walkstyle and set default |
+| /reset walk | Remove last walk style and set default |
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # No Idle Cam 📷
 
-No Idle Cam allows players to disable the idle camera animation on foot and in vehicle, making RP scenarios, streaming on Twitch, or just general gameplay just a little more enjoyable.
+No Idle Cam allows players to disable the idle camera animation on foot and in the vehicle, making RP scenarios, streaming on Twitch, or just general gameplay just a little more enjoyable.
 
 |COMMAND: | ACTION:|
 |---|---|
@@ -273,7 +190,7 @@ No Idle Cam allows players to disable the idle camera animation on foot and in v
 |COMMAND: | ACTION:|
 |---|---|
 | /binoculars | starts the binoculars|
-| L ALT | Toggle between night, heat and normal visions |
+| L ALT | Toggle between night, heat, and normal visions |
 | G | Show or hide the instructions |
 | BACKSPACE | Exit the binoculars |
 
@@ -305,7 +222,7 @@ No Idle Cam allows players to disable the idle camera animation on foot and in v
 
 # Favorite Emote
 
-Players can search for an emote (so long as search is enabled) and press LEFT SHIFT and CAPLOCKS on their keyboard to add it to their 'Favorites'. Pressing CAPLOCKS will toggle the emote.
+Players can search for an emote (as long as the search is enabled) and press LEFT SHIFT and CAPLOCKS on their keyboard to add it to their 'Favorites'. Pressing CAPLOCKS will toggle the emote.
 
 Alternatively, you can use the 🌟 Favorite menu to find an emote and press enter.
 
@@ -313,7 +230,7 @@ Alternatively, you can use the 🌟 Favorite menu to find an emote and press ent
 
 # Exit Emotes
 
-Exit Emotes are used to make cancelling an animation more smoother and dynamic, such as getting up off a chair or throwing a cigarette out instead of dropping it.
+Exit Emotes are used to make canceling an animation more smoother and dynamic, such as getting up off a chair or throwing a cigarette out instead of dropping it.
 
 You can add your own Exit Emotes under `AnimationListCustom.lua`'s new `CustomDP.Exits = {}` array.
 
@@ -365,7 +282,7 @@ Alternatively, you can also hide animal emotes.
 
 **QBCore integration to match their fork of dpemotes**
 
-- Config option which supports the QB Framework in their fork of the original dpemotes.
+- Config option that supports the QB Framework in their fork of the original dpemotes.
 
 If you’re using qb-core, you can now set
 
@@ -373,7 +290,7 @@ If you’re using qb-core, you can now set
 Framework = "qb-core",
 ```
 
-in the config file, otherwise leave it as
+in the config file, otherwise, leave it as
 
 ```lua
 Framework = false,
@@ -385,7 +302,7 @@ Framework = false,
 
 # Prop Extractor ⬇️
 
-Many people have expressed concerns over anticheat scripts kicking or banning their community members due to the fact RPEmotes uses props and anticheats detecting said props being spawned.
+Many people have expressed concerns over anti-cheat scripts kicking or banning their community members due to the fact RPEmotes uses props and anti-cheats detecting said props being spawned.
 
 To make server owners' jobs a little easier, we have added a prop extractor command that you can enter into the server console which will automate a file inside the RPEmotes resource folder appropriately named, `prop_list.lua`.
 
@@ -406,22 +323,8 @@ Command usage example: emoteextract 1
 <img src="screenshots/extractor.png" width="700">
 
 
-
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-
-# Screenshots 📸
-
-| | | |
-|-|-|-|
-| <img src="screenshots/001.png" width="250"> | <img src="screenshots/002.png" width="250"> | <img src="screenshots/003.png" width="250"> |
-| <img src="screenshots/004.jpeg" width="250"> | <img src="screenshots/005.jpg" width="250"> | <img src="screenshots/006.jpeg" width="250"> |
-| <img src="screenshots/007.jpeg" width="250"> | <img src="screenshots/008.png" width="250"> | <img src="screenshots/009.jpeg" width="250"> |
-| <img src="screenshots/010.png" width="250"> | <img src="screenshots/011.png" width="250"> | <img src="screenshots/012.png" width="250">|
-| <img src="screenshots/013.png" width="250"> | <img src="screenshots/014.png" width="250"> | <img src="screenshots/015.png" width="250">|
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Installation Instructions ⚙️:
 
@@ -453,13 +356,7 @@ Alternatively, you can use the keybind command that comes with FiveM without hav
 
 `bind keyboard "Yourbutton" "e youremote"`. To remove the keybind, type `"unbind keyboard "Yourbutton"`.
 
-* Type `/refresh` and `/start rpemotes` into your chat resource, or simply restart your server
-
-# Additional Instructions ⚙️
-
-- **Check out my youtube playlist below:**
-
-[![Video Preview](https://img.youtube.com/vi/Uk_ggRRlFuo/0.jpg)](https://www.youtube.com/watch?v=3uVe0hvWwPQ&list=PLzFM1zdDHFn2vKWT323wVJoEkGhWiyyeC)
+* Type `/refresh` and `/ensure rpemotes` into your chat resource, or simply restart your server
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -471,15 +368,15 @@ Emotes will work with either `SyncOffset` or `Attachto`.
 For example, if player one starts the emote `handshake` which has `SyncOffsetFront`, then player one will have the `SyncOffsetFront` but not the other player.
 
 
-- If it is with `Attachto`, then it'll either be player one's data used for attaching, or the player two's data.<br/>
-For example, if player one start the emote carry, then the other player will be attached but not the player one because Attachto is set in `carry2` and not `carry`.<br/>
+- If it is with `Attachto`, then it'll either be player one's data used for attaching or player two's data.<br/>
+For example, if player one starts the emote carry, then the other player will be attached but not the player one because Attachto is set in `carry2` and not `carry`.<br/>
 - If player one starts the emote `carry2`, then player one will be attached and not the other player.
-it's the player who start the animation who will in most cases be moved
+it's the player who starts the animation who will in most cases be moved
 
 
 *Special case, if both emote have the `Attachto` then only the player who started the emote will be attached.*
 
-You can find a list of ped bones to attach the other player here: [Ped Bones](https://wiki.rage.mp/index.php?title=Bones) or alternatively if the link is down for some reason, you can check [here](https://wiki.rage.mp/index.php?title=Bones)
+You can find a list of ped bones to attach the other player here: [Ped Bones](https://wiki.rage.mp/index.php?title=Bones) or alternatively, if the link is down for some reason, you can check [here](https://wiki.rage.mp/index.php?title=Bones)
 
 Using the websites provided above, enter the bone ID, ie `1356` and not `111`, which is the Bone Index.
 
@@ -491,7 +388,7 @@ Understandably, this can be confusing for some people. We suggest using the `Att
 
 **REQUIRES ONESYNC INFINITY**
 
-Particle effects can be found using the [DurtyFree GTA V Dump](https://github.com/DurtyFree/gta-v-data-dumps/blob/master/particleEffectsCompact.json). You will need to add the particle assest, name, and placement. Placement is done via XYZ, Pitch, Roll, Yaw, and scale.
+Particle effects can be found using the [DurtyFree GTA V Dump](https://github.com/DurtyFree/gta-v-data-dumps/blob/master/particleEffectsCompact.json). You will need to add the particle asset, name, and placement. Placement is done via XYZ, Pitch, Roll, Yaw, and scale.
 
 Onesync is required for them to work across all clients.
 
@@ -512,13 +409,13 @@ PtfxPlacement = {
 
 <img src="screenshots/pfxcoords.png" width="350">
 
-By default, the main prop will share it's coordinates with the particle effect, so just put 0.0 for the particle effects and you will be good to go.
+By default, the main prop will share its coordinates with the particle effect, so just put 0.0 for the particle effects and you will be good to go.
 
 If no prop is used in the animation or you require the particle effect to be in a different location, use `PtfxNoProp = true`, and 0.0 will 9/10 times be the human peds' stomach; you can then offset your coordinates based on that with the first 3 entries being XYZ, and the last 3 being rotation XYZ.
 
-Alternatively, you can use the `PtfxBone =` AnimationOption to attach the PTFX to the ped's bone, simiarly to how you attach props.
+Alternatively, you can use the `PtfxBone =` AnimationOption to attach the PTFX to the ped's bone, similarly to how you attach props.
 
-Using Menyoo, spawn down a tennis ball and attach it to human, by default menyoo will attach it to the SKEL_ROOT bone (stomach), so from that, what we can do is is either offset the coordinates, say, up to the human ped's mouth, or change the bone all together. Once we've got it correct, we can transfer those coordinates over to RPEmotes, and tah dah, we have our Ptfx Placement.
+Using Menyoo, spawn down a tennis ball and attach it to a human, by default menyoo will attach it to the SKEL_ROOT bone (stomach), so from that, what we can do is either offset the coordinates, say, up to the human ped's mouth, or change the bone altogether. Once we've got it correct, we can transfer those coordinates over to RPEmotes, and tah dah, we have our Ptfx Placement.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -539,144 +436,84 @@ Below is an example:
 
 # Add-Ons 🛠️
 
-* Fixed an issue with the clipboard and added textures to paper (/e clipboard)
-
-* Changed umbrella texture to black (/e umbrella)
+- Fixed an issue with the clipboard and added textures to paper (/e clipboard)
+- Changed umbrella texture to black (/e umbrella)
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Police Badge 👮
 
 - Custom LSPD police badge by [LSPDFR member Sam](https://www.lcpdfr.com/downloads/gta5mods/misc/23386-lspd-police-badge/)
-
 - LSPD reskinned badge by [GTA5Mods user Sladus_Slawonkus](https://www.gta5-mods.com/misc/lspd-police-badge-replace-sladus_slawonkus)
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # 📜 LICENSE & DISCLAIMER
 
-## Aligned with Rockstar Games' [acquisition](https://www.rockstargames.com/newswire/article/8971o8789584a4/roleplay-community-update?utm_source=twitter&utm_medium=o_social&utm_campaign=rockstar_announcement_cfxre-20230811) of Cfxre and FiveM, RPEmotes will abstain from including copyrighted material and animations tailored for child characters, as outlined in bulletpoint 4 of the [November 2023 community pulse](https://forum.cfx.re/t/community-pulse-november-2023/5185781).
+This repository was originally created by **TayMcKenzieNZ**, and then forked by Popcorn RP, and is under the GNU General Public License v3.0 license.
 
-This repository was created by **TayMcKenzieNZ** for strict usage with the Grand Theft Auto 5 unofficial multiplayer platform 'FiveM', and is under the GNU General Public License v3.0 license.
-
-All custom props and animations were provided to RPEmotes **by the community** with **express permission** and must **not** be extracted from [RpEmotes](https://github.com/TayMcKenzieNZ/rpemotes), reuploaded to any websites, forums or discord servers without permission **and** credits given.
-
-If you want to modify RPEmotes ***(does not apply if you want to use it for personal purposes)*** you are free to do so, however the RPEmotes Project Team will **not** assist you with this. All **unofficial** copies and modifications of RPEmotes void any support.
-
-Pull requests are actively reviewed and discussed with TayMcKenzieNZ and the RPEmotes Project Team, and will be accepted so long as they do not contain animation / prop files *(we need permission before adding them)* breaking changes or suspicious and / or malicious code.
-
-We also do not accept any copyrighted material. This includes but is not limited to McDonald's, Subway, Sony Playstation, Microsoft Xbox, etc.
-
+All custom props and animations were provided to RPEmotes **by the community** with **express permission** and must **not** be extracted from [RpEmotes](https://github.com/TayMcKenzieNZ/rpemotes), reuploaded to any websites, forums or discord servers without permission **and** credits are given.
 
 
 ✅ You are allowed to use the custom animations explicitly provided within **this** repository **only**
-
 ✅ You are allowed to use the custom props explicitly provided within **this** repository **only**
-
 ✅ You are allowed to add your **own custom animations or props** to **this** resource and use it on **your server**. The entire content must remain on your server and **not be reuploaded**.
-
 ❌ You are **not** allowed to re-distribute the custom animations or props provided with this repository either on websites, forums, tebex store, discord or your own scripts / maps.
-
 ❌ You are **not** allowed to claim the custom animations or props provided within this resource as your own work
-
 ❌ You are **not** allowed to sell this script or any of the content within it
-
 ❌ You are **not** to outright copy code from this script into your own resources without at least crediting everyone involved in the RPEmotes Project Team. Each and every one of them.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Credits 🤝
 
-**All** custom animations and props were added with permissions from the creators and does **not** contain any paid or leaked work.
+**All** custom animations and props were added with permission from the creators and do not** contain any paid or leaked work.
 
-All animation creators have ***specifically*** asked that their content remains free and that the RPEmotes team and community do not try to profit from them, claim them as their own or reupload them anywhere else but TayMcKenzieNZ's GitHub unless express permission has been arranged and granted by their respective creators, therefore you may not extract the animations and props or use them for your own menus unless written permission has been granted to you by the creators.
+All animation creators have ***specifically*** asked that their content remains free and that the RPEmotes team and community do not try to profit from them, claim them as their own, or reupload them anywhere else but TayMcKenzieNZ's GitHub unless express permission has been arranged and granted by their respective creators, therefore you may not extract the animations and props or use them for your menus unless written permission has been granted to you by the creators.
 
 
-A huge thank you to the following people for their amazing contributions made to the menu 🫶🏻 :
-
+**A huge thank you to the following people for their amazing contributions to the menu 🫶🏻 :**
 - A huge thank you to [Kibook](https://github.com/kibook) for the addition of the Animal Emotes sub menu
-
-- Thank you to [AvaN0x](https://github.com/AvaN0x) for reformatting and assisting with code, additional features and figuring out shared particle effects
-
+- Thank you to [AvaN0x](https://github.com/AvaN0x) for reformatting and assisting with code, additional features, and figuring out shared particle effects
 - Thank you to [Mads](https://github.com/MadsLeander) for joining the team as Co-Developer 
-
 - Thank you to [Mathu_lmn](https://github.com/Mathu-lmn) for joining the team as Co-Developer 
-
-- Thank you to [Tigerle](https://forum.cfx.re/u/tigerle_studios) for providing the additional code required to make Shared Emotes work to it's full extent
-
+- Thank you to [Tigerle](https://forum.cfx.re/u/tigerle_studios) for providing the additional code required to make Shared Emotes work to its full extent
 - Thank you to [SMGMissy](https://forum.cfx.re/u/smgmissy/) for assisting with custom pride flags and how to stream them
-
-- Thank you to [MissSnowie](https://www.gta5-mods.com/users/MissySnowie) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord and for the motivational and overal moral support
-
-- Thank you to [GeekGarage](https://github.com/geekgarage) for their knowledge, time and dedication, helping to bring new and exciting features to the menu
-
-- Thank you to [Smokey](https://www.gta5-mods.com/users/struggleville) for the Explicit Usage Rights Agreement to add free custom animations either publicly available on on their discord
-
-- Thank you to [BzZzi](https://forum.cfx.re/u/bzzzi/summary) for the Explicit Usage Rights Agreement to add free donut, croissant and fire torch props
-
+- Thank you to [MissSnowie](https://www.gta5-mods.com/users/MissySnowie) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord and for the motivational and overall moral support
+- Thank you to [GeekGarage](https://github.com/geekgarage) for their knowledge, time, and dedication, helping to bring new and exciting features to the menu
+- Thank you to [Smokey](https://www.gta5-mods.com/users/struggleville) for the Explicit Usage Rights Agreement to add free custom animations either publicly available on their discord
+- Thank you to [BzZzi](https://forum.cfx.re/u/bzzzi/summary) for the Explicit Usage Rights Agreement to add free donuts, croissants and fire torch props
 - Thank you to [Natty3d](https://forum.cfx.re/u/natty3d/summary) for the Explicit Usage Rights Agreement to add free lollipop props
-
-- Thank you to [northsqrd](https://github.com/0sqrd) for adding the search function, Animal Emotes config, mobile phone prop texture variants and general contributions
-
-- Thank you to crusopaul and Eki for discussing KVP and initializing it to the menu for persistent walkstyles
-
+- Thank you to [northsqrd](https://github.com/0sqrd) for adding the search function, Animal Emotes config, mobile phone prop texture variants, and general contributions
+- Thank you to crusopaul and Eki for discussing KVP and initializing it to the menu for persistent walk styles
 - Thank you to [Amnilka](https://www.gta5-mods.com/users/frabi) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
-
 - Thank you to [LittleSpoon](https://discord.gg/safeword) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
-
 - Thank you to [Pupppy](https://discord.gg/rsN35X4s4N) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
-
 - Thank you to [SapphireMods](https://discord.gg/Hf8F4nTyzt) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
-
 - Thank you to [QueenSisters Animations](https://discord.gg/qbPtGwQuep) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
-
 - Thank you to [Kri's Graphic House](https://discord.gg/JueRG3fCy6) for the custom banners
-
-- Thank you to !MWooM#0597 on discord for the custom banners
-
+- Thank you to !MWooM#0597 on Discord for the custom banners
 - Thank you to [BoringNeptune](https://www.gta5-mods.com/users/BoringNeptune) for the custom dance emotes
-
 - Thank you to [CMG Mods](https://www.gta5-mods.com/users/-moses-) for the custom emotes
-
 - Thank you to [prue颜](discord.gg/lunyxmods) for being a great friend and providing us with exclusive custom animations
-
 - Thank you to [PataMods](https://forum.cfx.re/u/Pata_PataMods) for the custom props
-
 - Thank you to [Crowded1337](https://www.gta5-mods.com/users/crowded1337) for the custom Gucci bag. I have removed the Gucci logo to comply with Rockstar Games & TakeTwo Interactive
-
 - Thanks to [EnchantedBrownie](https://www.gta5-mods.com/users/EnchantedBrownie) for the custom animations
-
 - Thanks to [Copofiscool](https://forum.cfx.re/u/copofiscool/) for adding a toggle to the Favorite Keybinds
-
-- Thank you to [iSentrie](https://forum.cfx.re/u/isentrie/) for additional code, support and joining the RPEmotes project 
-
+- Thank you to [iSentrie](https://forum.cfx.re/u/isentrie/) for additional code, support, and joining the RPEmotes project 
 - Thank you to Chocoholic Animations for the custom animations
-
 - Thank you to [CrunchyCat](https://www.gta5-mods.com/users/crunchycat) for the custom animations
-
 - Thank you [KayKayMods](https://discord.gg/5bYQVWVaxG) for the custom props
-
 - Thank you to [MonkeyWhisper](https://github.com/MonkeyWhisper) and [Project Sloth](https://github.com/Project-Sloth) for the custom props
-
 - Thank you to [Brummieee](https://forum.cfx.re/u/brummieee_maps/summary) for the custom props
-
 - Thank you [Dark Animations](https://www.gta5-mods.com/users/Darks%20Animations) for the partnership and custom animations. You the goat 😎
-
-- Thank you [Chico](https://forum.cfx.re/u/chico) for implementing natives to reapply persistent moods and walkstyles for ESX and QB-Core frameworks
-
+- Thank you [Chico](https://forum.cfx.re/u/chico) for implementing natives to reapply persistent moods and walk styles for ESX and QB-Core frameworks
 - Thank you [-EcLiPsE-](https://www.gta5-mods.com/users/-EcLiPsE-) for allowing me to implement [Improved Prop Sets](https://www.gta5-mods.com/misc/improved-propsets-meta) and [GTA Online Biker Idle Anims](https://www.gta5-mods.com/misc/bike-idle-animations)
-
 - Thank you [MrWitt](https://www.gta5-mods.com/users/MrWitt)for the custom animations and partnership
-
 - A huge thank you to [AdoredRose](https://forum.cfx.re/u/adoredrose/summary) for assisting with animations
-
 - Thank you [Vedere](https://discord.gg/XMywAMQ8Ef) for the custom props
-
 - Thank you to [DRX Animations](https://www.gta5-mods.com/users/DRX%2DAnimations) for the custom animations and partnership
-
 - Thank you to [VNSIanims](https://discord.gg/cTNrjYSXXG) for the custom animations and partnership
-
 - Thank you to [PNWParksFan](https://www.gta5-mods.com/users/PNWParksFan) for the custom props
-
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
-You pay a big role in making this script what it is today and we could not do it without you 🙏
+You played a big role in making this script what it is today and we could not do it without you 🙏
