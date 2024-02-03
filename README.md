@@ -1,6 +1,6 @@
 ![image](https://github.com/alberttheprince/rpemotes/assets/85725579/29e96601-bf93-4f05-b310-a48448dfecf3)
 
-RPEmotes is a community-driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walkstyles and props, inspired by [DullPear](https://github.com/andristum/dpemotes).
+RPEmotes is a community-driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walkstyles and props, inspired by [DullPear](https://github.com/andristum/dpemotes), managed by TayMcKenzieNZ, and then later forked by Popcorn RP to make some minor fixes.
 
 A partial archive of the original RP Emotes docs can be found here: https://web.archive.org/web/20231218223552/https://docs.rpemotes.com/
 
@@ -35,7 +35,7 @@ Unfortunately, some pages are missing.
 - News Camera 🎤📹
 - Props Extractor for anti-cheat scripts 💾
 
-**-Available in the following languages:**
+**Available in the following languages:**
 
 Albanian, Brazilian Portuguese, Chinese (Simplified), Chinese (Traditional), Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Indonesian, Italian, Lithuanian, Norwegian, Persian, Polish, Romanian, Russian, Serbian, Sinhala, Slovenian, Spanish, Swedish, Turkish, Vietnamese
 
@@ -81,7 +81,7 @@ The keybind uses RegisterKeyMapping. By default the configured keybind in the *i
 
 Server owners can change this in the `config.lua`.
 
-Alternatively, the player base can set their own menu keybind to open RPEmotes
+Alternatively, the player base can set their menu keybind to open RPEmotes
 
 `Esc > settings > keybinds > fivem`
 
