@@ -53,7 +53,7 @@ if Config.ExpressionsEnabled then
 
         RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
         AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
-            Citizen.Wait(5000)
+            Wait(5000)
             local expression = GetResourceKvpString("expression")
             if expression ~= nil then
                 Wait(2500) -- Delay, to ensure the player ped has loaded in
@@ -63,7 +63,7 @@ if Config.ExpressionsEnabled then
 
         RegisterNetEvent('esx:playerLoaded')
         AddEventHandler('esx:playerLoaded', function()
-            Citizen.Wait(5000)
+            Wait(5000)
             local expression = GetResourceKvpString("expression")
             if expression ~= nil then
                 Wait(2500) -- Delay, to ensure the player ped has loaded in

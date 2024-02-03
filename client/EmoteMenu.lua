@@ -631,9 +631,9 @@ end)
 
 
 -- While ped is dead, don't show menus
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
-        Citizen.Wait(500)
+        Wait(500)
         if IsEntityDead(PlayerPedId()) then
             _menuPool:CloseAllMenus()
         end

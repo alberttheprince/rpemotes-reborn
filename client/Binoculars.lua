@@ -63,13 +63,13 @@ if Config.BinocularsEnabled then
         IsUsingBinoculars = not IsUsingBinoculars
 
         if IsUsingBinoculars then
-            Citizen.CreateThread(function()
+            CreateThread(function()
 
                 DestroyAllProps()
                 ClearPedTasks(PlayerPedId())
                 RequestAnimDict("amb@world_human_binoculars@male@idle_a")
                 while not HasAnimDictLoaded("amb@world_human_binoculars@male@idle_a") do
-                    Citizen.Wait(5)
+                    Wait(5)
                 end
 
                 -- attach the prop to the player
