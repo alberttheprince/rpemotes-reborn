@@ -357,7 +357,7 @@ function EmoteCancel(force)
     }
     
     for i = 1, #scenarioObjects do
-        local deleteScenarioObject = GetClosestObjectOfType(GetEntityCoords(cache.ped), 1.0, scenarioObjects[i], false, true ,true)
+        local deleteScenarioObject = GetClosestObjectOfType(GetEntityCoords(PlayerPedId()), 1.0, scenarioObjects[i], false, true ,true)
         if DoesEntityExist(deleteScenarioObject) then
             SetEntityAsMissionEntity(deleteScenarioObject, false, false)
             DeleteObject(deleteScenarioObject)
