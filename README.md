@@ -445,28 +445,6 @@ Below is an example:
 - Custom LSPD police badge by [LSPDFR member Sam](https://www.lcpdfr.com/downloads/gta5mods/misc/23386-lspd-police-badge/)
 - LSPD reskinned badge by [GTA5Mods user Sladus_Slawonkus](https://www.gta5-mods.com/misc/lspd-police-badge-replace-sladus_slawonkus)
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-# 📜 LICENSE & DISCLAIMER
-
-This repository was originally created by **TayMcKenzieNZ**, and then forked by Popcorn RP, and is under the GNU General Public License v3.0 license.
-
-All custom props and animations were provided to RPEmotes **by the community** with **express permission** and must **not** be extracted from [RpEmotes](https://github.com/TayMcKenzieNZ/rpemotes), reuploaded to any websites, forums or discord servers without permission **and** credits are given.
-
-
-✅ You are allowed to use the custom animations explicitly provided within **this** repository **only**
-
-✅ You are allowed to use the custom props explicitly provided within **this** repository **only**
-
-✅ You are allowed to add your **own custom animations or props** to **this** resource and use it on **your server**. The entire content must remain on your server and **not be reuploaded**.
-
-❌ You are **not** allowed to re-distribute the custom animations or props provided with this repository either on websites, forums, tebex store, discord or your own scripts / maps.
-
-❌ You are **not** allowed to claim the custom animations or props provided within this resource as your own work
-
-❌ You are **not** allowed to sell this script or any of the content within it
-
-❌ You are **not** to outright copy code from this script into your own resources without at least crediting everyone involved in the RPEmotes Project Team. Each and every one of them.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
