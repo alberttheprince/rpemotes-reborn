@@ -2,7 +2,7 @@
 
 A partial archive of the docs can be found here: https://web.archive.org/web/20231218223552/https://docs.rpemotes.com/
 
-Unfortunately some pages are missing.
+Unfortunately, some pages are missing.
 
 # <div align="center">RPEmotes 🏋️</div>
 
