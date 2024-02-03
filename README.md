@@ -1,6 +1,6 @@
 ![image](https://github.com/alberttheprince/rpemotes/assets/85725579/29e96601-bf93-4f05-b310-a48448dfecf3)
 
-RPEmotes is a community-driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walkstyles and props, inspired by [DullPear](https://github.com/andristum/dpemotes), managed by TayMcKenzieNZ, and then later forked by Popcorn RP to make some minor fixes.
+RPEmotes is a community-driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walk styles, and props inspired by [DullPear](https://github.com/andristum/dpemotes), then managed by TayMcKenzieNZ, and then later forked by Popcorn RP to make some minor fixes after TayMcKenzieNZ set all his repositories to private.
 
 A partial archive of the original RP Emotes docs can be found here: https://web.archive.org/web/20231218223552/https://docs.rpemotes.com/
 
