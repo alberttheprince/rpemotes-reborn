@@ -4,7 +4,7 @@
 
 
 
-local rightPosition = { x = 1450, y = 100 }
+local rightPosition = { x = 1450, y = 200 }
 local leftPosition = { x = 0, y = 100 }
 local menuPosition = { x = 0, y = 200 }
 
