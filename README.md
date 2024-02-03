@@ -4,40 +4,11 @@ A partial archive of the docs can be found here: https://web.archive.org/web/202
 
 Unfortunately, some pages are missing.
 
-# <div align="center">RPEmotes 🏋️</div>
+# <div align="center">RPEmotes </div>
 
+![image](https://github.com/alberttheprince/rpemotes/assets/85725579/96583a94-d899-4b7b-ab39-aa67bc06b6fc)
 
-
-
-RPEmotes is a community driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walkstyles and props, inspired by [DullPear](https://github.com/andristum/dpemotes).
-
-<p align="center">
-  <img src="https://i.imgur.com/1RSxyVq.png" alt="Alt Text" width="800" height="auto">  
-</p>
-
-
-<p align="center">
-    <img src="https://img.shields.io/badge/license-GPL--3.0-blue.svg" alt="License">
-    <a href="https://github.com/TayMcKenzieNZ/rpemotes/stargazers"><img src="https://img.shields.io/github/stars/TayMcKenzieNZ/rpemotes.svg?style=social" alt="Star"></a>
-    <a href="https://github.com/TayMcKenzieNZ/rpemotes/network/members"><img src="https://img.shields.io/github/forks/TayMcKenzieNZ/rpemotes.svg?style=social&label=Forks"></a>
-    <a href="https://github.com/TayMcKenzieNZ/rpemotes/graphs/contributors"><img src="https://img.shields.io/github/contributors/TayMcKenzieNZ/rpemotes.svg?style=social&label=Contributors"></a>
-</p>
-
-
-
-# **Join Our Official Discord 💬**
-
-<a href="https://discord.gg/sw3NwDq6C8" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="sw3NwDq6C8" height="120" width="180" /></a>
-
-- Report Issues ⚠️
-
-- Report Bugs 🪲
-
-- Contribute Code 🛠️
-
-- Contribute Translations 🌎
-
-- Chat With Our Amazing Community 🗨️
+RPEmotes is a community-driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walkstyles and props, inspired by [DullPear](https://github.com/andristum/dpemotes).
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -709,9 +680,3 @@ A huge thank you to the following people for their amazing contributions made to
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
 
 You pay a big role in making this script what it is today and we could not do it without you 🙏
-
--------------------------------------------------------------------------------
-
-# Our Wiki 📜
-
-The official RPEmotes wiki docs can be accessed [here](https://docs.rpemotes.com/)
