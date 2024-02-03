@@ -1,10 +1,10 @@
 --- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
---- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
+--- Download the OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
 --- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
 
 
 
--- You probably shouldnt touch these.
+-- You probably shouldn't touch these.
 local AnimationDuration = -1
 local ChosenAnimation = ""
 local ChosenDict = ""
@@ -97,7 +97,7 @@ local function RunAnimationThread()
 end
 
 local function CheckStatusThread(dict, anim)
-    Citizen.CreateThread(function()
+    CreateThread(function()
         if CheckStatus then
             CheckStatus = false
             Wait(10)
@@ -126,7 +126,7 @@ end
 -- Commands / Events --------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
 
-Citizen.CreateThread(function()
+CreateThread(function()
     TriggerEvent('chat:addSuggestion', '/e', 'Play an emote',
         { { name = "emotename", help = "dance, camera, sit or any valid emote." },
             { name = "texturevariation", help = "(Optional) 1, 2, 3 or any number. Will change the texture of some props used in emotes, for example the color of a phone. Enter -1 to see a list of variations." } })
@@ -541,7 +541,7 @@ end
 
 function EmoteCommandStart(source, args, raw)
     if #args > 0 then
-        if IsEntityDead(PlayerPedId()) then
+        if IsEntityDead(PlayerPedId()) or IsPedRagdoll(PlayerPedId()) or IsPedGettingUp(PlayerPedId()) or IsPedInMeleeCombat(PlayerPedId()) then
             TriggerEvent('chat:addMessage', {
                 color = {255, 0, 0},
                 multiline = true,
