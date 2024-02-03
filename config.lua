@@ -6,7 +6,7 @@ Config = {
     -- Change the language of the menu here!.
     -- Thank you to those who provided translations.
     -- If you would like to provide translations or help fix them, join our Discord!
-    -- Check languages code below to change the MenuLanguage
+    -- Check languages code below to change the menu language
     MenuLanguage = 'en',
     -- Set this to true to enable some extra prints
     DebugDisplay = false,
@@ -30,7 +30,7 @@ Config = {
     -- Use a 512 x 128 image!
     -- Note this might cause an issue of the image getting stuck on peoples screens
     CustomMenuEnabled = true,
-    MenuImage = "https://i.imgur.com/osq2J0h.png", ----[Custom banner IMGUR or GIPHY URLs go here ]---
+    MenuImage = "https://i.imgur.com/FvIgTMP.png", ----[Custom banner IMGUR or GIPHY URLs go here ]---
     -- You can change the menu image by pasting a link above. It must be the same width and length
     -- You can change the name of the menu here or leave it blank to remove the text in front of the custom banners
     MenuTitle = "",
