@@ -16,7 +16,8 @@ Unfortunately, some pages are missing.
 - Persistent Facial Expressions via client KVP 🤪
 - Animal Emotes 🐩
 - Shared Dances 🕺💃
-- Persistent Walkstyles via client KVP 🚶‍♂️ - Standalone, QB-Core and ESX support!
+- Persistent Walkstyles via client KVP 🚶‍♂️
+- Standalone, QB-Core and ESX support!
 - Persistent Disabling Of Idle Camera via KVP 🎥
 - Crouching 🐞
 - Crawling 🐛
@@ -434,25 +435,11 @@ Below is an example:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Add-Ons 🛠️
-
-- Fixed an issue with the clipboard and added textures to paper (/e clipboard)
-- Changed umbrella texture to black (/e umbrella)
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Police Badge 👮
-
-- Custom LSPD police badge by [LSPDFR member Sam](https://www.lcpdfr.com/downloads/gta5mods/misc/23386-lspd-police-badge/)
-- LSPD reskinned badge by [GTA5Mods user Sladus_Slawonkus](https://www.gta5-mods.com/misc/lspd-police-badge-replace-sladus_slawonkus)
-
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 # Credits 🤝
 
-**All** custom animations and props were added with permission from the creators and do not** contain any paid or leaked work.
+**All** custom animations and props were added with permission from the creators.
 
-All animation creators have ***specifically*** asked that their content remains free and that the RPEmotes team and community do not try to profit from them, claim them as their own, or reupload them anywhere else but TayMcKenzieNZ's GitHub unless express permission has been arranged and granted by their respective creators, therefore you may not extract the animations and props or use them for your menus unless written permission has been granted to you by the creators.
+All animation creators have ***specifically*** asked that their content remains free and that the RPEmotes team and community do not try to profit from them, claim them as their own, or reupload them anywhere else.
 
 
 **A huge thank you to the following people for their amazing contributions to the menu 🫶🏻 :**
@@ -499,5 +486,10 @@ All animation creators have ***specifically*** asked that their content remains 
 - Thank you to [VNSIanims](https://discord.gg/cTNrjYSXXG) for the custom animations and partnership
 - Thank you to [PNWParksFan](https://www.gta5-mods.com/users/PNWParksFan) for the custom props
 - Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
+
+# Police Badge 👮
+
+- Custom LSPD police badge by [LSPDFR member Sam](https://www.lcpdfr.com/downloads/gta5mods/misc/23386-lspd-police-badge/)
+- LSPD reskinned badge by [GTA5Mods user Sladus_Slawonkus](https://www.gta5-mods.com/misc/lspd-police-badge-replace-sladus_slawonkus)
 
 You played a big role in making this script what it is today and we could not do it without you 🙏
