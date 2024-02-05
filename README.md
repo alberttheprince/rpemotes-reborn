@@ -443,6 +443,7 @@ All animation creators have ***specifically*** asked that their content remains 
 
 
 **A huge thank you to the following people for their amazing contributions to the menu 🫶🏻 :**
+- Thank you to [TayMcKenzieNZ](https://github.com/TayMcKenzieNZ) for maintaining and updating RP emotes and managing the RP Emotes community
 - A huge thank you to [Kibook](https://github.com/kibook) for the addition of the Animal Emotes sub menu
 - Thank you to [AvaN0x](https://github.com/AvaN0x) for reformatting and assisting with code, additional features, and figuring out shared particle effects
 - Thank you to [Mads](https://github.com/MadsLeander) for joining the team as Co-Developer 
