@@ -1,4 +1,4 @@
-![image](https://github.com/alberttheprince/rpemotes/assets/85725579/29e96601-bf93-4f05-b310-a48448dfecf3)
+![image](https://github.com/alberttheprince/rpemotes-reborn/assets/85725579/6d4a26bd-0ee1-44f0-b377-7c30511d13b2)
 
 rpemotes-reborn is a community-driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walk styles, and props inspired by [DullPear](https://github.com/andristum/dpemotes), then managed by TayMcKenzieNZ, and then later forked by Popcorn RP as "rpemotes-reborn" to make some minor fixes after TayMcKenzieNZ set all his repositories to private.
 
