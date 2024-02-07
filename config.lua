@@ -1,4 +1,4 @@
---- Formerly maintained by TayMcKenzieNZ, now updated by Popcorn RP
+-- Formerly maintained by TayMcKenzieNZ, now updated by Popcorn RP
 
 Config = {
     -- Menu Options
@@ -12,15 +12,15 @@ Config = {
     FavKeybind = 'capital', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     SqlKeybinding = false, -- If you have the SQL imported enable this to turn on keybinding.
     NotificationsAsChatMessage = false, -- If you don't like native GTA 5 notifications, you can disable them here to have messages in the chat.
-    Framework = `qb-core`, -- Used for few framework-dependent things. Accepted values: `qb-core`, false
+    Framework = 'qb-core', -- Used for few framework-dependent things. Accepted values: 'qb-core', false
     Search = true, -- Used to enable or disable the search feature in the menu.
-    CancelPreviousEmote = true,     -- If turned on, playing an emote will cancel the previous one.
+    CancelPreviousEmote = false,     -- If turned on, playing an emote will cancel the previous one.
 
     -- Menu Customization Options
-    MenuTitle = ``, -- You can change the name of the menu here or leave it blank to remove the text in front of the custom banners
-    MenuPosition = `right`, -- You can change the menu position here. Use `left` or `right`
+    MenuTitle = '', -- You can change the name of the menu here or leave it blank to remove the text in front of the custom banners
+    MenuPosition = 'right', -- You can change the menu position here. Use 'left' or 'right'
     CustomMenuEnabled = true, -- You can change the header image for the menu here, Note this might cause an issue of the image getting stuck on people's screens
-    MenuImage = `https://i.imgur.com/FvIgTMP.png`, -- You can change the menu image here, please use an image hosted on Imgur or GIPHY with the same width and length
+    MenuImage = 'https://i.imgur.com/FvIgTMP.png', -- You can change the menu image here, please use an image hosted on Imgur or GIPHY with the same width and length
     -- Use a 512 x 128 image!
     
     -- Combat Car, and Player Movement Options
@@ -64,7 +64,7 @@ Config = {
     CrouchEnabled = true, -- If crouching should be enabled.
     CrouchKeybindEnabled = true, -- If true, crouching will use keybinds.
     CrouchKeybind = 'lcontrol', -- The default crouch keybind, get the button string here: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
-    CrouchOverride = false, -- If true, you won't enter stealth mode even if the crouch key and the `duck` key are the same.
+    CrouchOverride = false, -- If true, you won't enter stealth mode even if the crouch key and the 'duck' key are the same.
     FpsMode = false, -- set this to true if you have first-person shooting to disable the ability to crouch and shoot in third-person
     
     -- Crawling Options
