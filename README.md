@@ -1,6 +1,6 @@
 ![image](https://github.com/alberttheprince/rpemotes/assets/85725579/29e96601-bf93-4f05-b310-a48448dfecf3)
 
-RPEmotes is a community-driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walk styles, and props inspired by [DullPear](https://github.com/andristum/dpemotes), then managed by TayMcKenzieNZ, and then later forked by Popcorn RP to make some minor fixes after TayMcKenzieNZ set all his repositories to private.
+rpemotes-reborn is a community-driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walk styles, and props inspired by [DullPear](https://github.com/andristum/dpemotes), then managed by TayMcKenzieNZ, and then later forked by Popcorn RP as "rpemotes-reborn" to make some minor fixes after TayMcKenzieNZ set all his repositories to private.
 
 A partial archive of the original RP Emotes docs can be found here: https://web.archive.org/web/20231218223552/https://docs.rpemotes.com/
 
@@ -82,7 +82,7 @@ The keybind uses RegisterKeyMapping. By default the configured keybind in the *i
 
 Server owners can change this in the `config.lua`.
 
-Alternatively, the player base can set their menu keybind to open RPEmotes
+Alternatively, the player base can set their menu keybind to open rpemotes-reborn
 
 `Esc > settings > keybinds > fivem`
 
@@ -303,9 +303,9 @@ Framework = false,
 
 # Prop Extractor ⬇️
 
-Many people have expressed concerns over anti-cheat scripts kicking or banning their community members due to the fact RPEmotes uses props and anti-cheats detecting said props being spawned.
+Many people have expressed concerns over anti-cheat scripts kicking or banning their community members due to the fact rpemotes-reborn uses props and anti-cheats detecting said props being spawned.
 
-To make server owners' jobs a little easier, we have added a prop extractor command that you can enter into the server console which will automate a file inside the RPEmotes resource folder appropriately named, `prop_list.lua`.
+To make server owners' jobs a little easier, we have added a prop extractor command that you can enter into the server console which will automate a file inside the rpemotes-reborn resource folder appropriately named, `prop_list.lua`.
 
 ### Command:
 
