@@ -693,6 +693,30 @@ end
 -----------------------------------------------------------------------------------------------------
 
 function OnEmotePlay(EmoteName, name, textureVariation)
+    local scenarioObjects = {
+        `prop_tool_jackham`, 
+        `prop_bongos_01`,
+        `prop_acc_guitar_01`,
+        `prop_notepad_02`,
+        `prop_tool_hammer`,
+        `prop_fish_slice_01`,
+        `prop_cs_trowel`,
+        `prop_tool_broom`,
+        `prop_cs_paper_cup`,
+        `prop_amb_phone`,
+        `prop_cigar_03`,
+        `p_cs_joint_01`,
+        `prop_weld_torch`,
+    }
+    
+    for i = 1, #scenarioObjects do
+        local deleteScenarioObject = GetClosestObjectOfType(GetEntityCoords(PlayerPedId()), 1.0, scenarioObjects[i], false, true ,true)
+        if DoesEntityExist(deleteScenarioObject) then
+            SetEntityAsMissionEntity(deleteScenarioObject, false, false)
+            DeleteObject(deleteScenarioObject)
+        end  
+    end
+
     InVehicle = IsPedInAnyVehicle(PlayerPedId(), true)
 	Pointing = false
 
