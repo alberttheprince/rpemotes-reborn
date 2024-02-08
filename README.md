@@ -2,6 +2,8 @@
 
 rpemotes-reborn is a community-driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walk styles, and props inspired by [DullPear](https://github.com/andristum/dpemotes), then managed by TayMcKenzieNZ, and then later forked by Popcorn RP as "rpemotes-reborn" to make some minor fixes after TayMcKenzieNZ set all his repositories to private.
 
+The original repository can be found [here](https://github.com/TayMcKenzieNZ/rpemotes).
+
 A partial archive of the original RP Emotes docs can be found here: https://web.archive.org/web/20231218223552/https://docs.rpemotes.com/
 
 Unfortunately, some pages are missing.
@@ -48,7 +50,7 @@ If you happen to find any incorrect translations or would like to add more langu
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Exports 
+# Exports and More
 
 When using our emote menu with other scripts, using the `TriggerEvent('animations:client:EmoteCommandStart` won't do anything because the events do not exist. These have simply been replaced with the following exports:
 
@@ -65,6 +67,12 @@ exports["rpemotes"]:toggleWalkstyle(bool, message)
 exports["rpemotes"]:toggleBinoculars()
 exports["rpemotes"]:toggleNewscam()
 -- bool to allow the user to change their walk style in the menu or not / message to show the user (optional, default is: "You are unable to change your walking style right now.")"
+```
+
+Having issues with players using emotes when/where they're not supposed to? Use the following where you needed. This would be somewhere like if you want to disable motes in jail or when someone is handcuffed/escorted:
+```lua
+LocalPlayer.state:set('canEmote', false, true) -- stops emoting
+LocalPlayer.state:set('canEmote', true, true) -- allows emoting
 ```
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
