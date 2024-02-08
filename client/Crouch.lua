@@ -63,8 +63,11 @@ local function CrouchThread()
 
             -- Disable first person
             DisableFirstPersonCamThisFrame()
-            DisablePlayerFiring(playerId, Config.FpsMode) -- added to disable crouch firing, which could be 'unbalanced' for some servers
 
+            -- added to disable crouch firing which may not fit in some servers
+            if Config.FpsMode == true then
+                DisablePlayerFiring(playerId, true)  -- the boolean here doesn't matter, false or true will disable firing
+            end
             Wait(0)
         end
 
