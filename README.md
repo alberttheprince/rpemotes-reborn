@@ -69,7 +69,8 @@ exports["rpemotes"]:toggleNewscam()
 -- bool to allow the user to change their walk style in the menu or not / message to show the user (optional, default is: "You are unable to change your walking style right now.")"
 ```
 
-Having issues with players using emotes when/where they're not supposed to? Use the following where you needed. This would be somewhere like if you want to disable motes in jail or when someone is handcuffed/escorted:
+Having issues with players using emotes when/where they're not supposed to? Use the following where you needed. This would be somewhere like if you want to disable emotes in jail or when someone is handcuffed/escorted:
+
 ```lua
 LocalPlayer.state:set('canEmote', false, true) -- stops emoting
 LocalPlayer.state:set('canEmote', true, true) -- allows emoting
