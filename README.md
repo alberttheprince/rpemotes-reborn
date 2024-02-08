@@ -443,12 +443,15 @@ Below is an example:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+# rpemotes-reborn Credits:
+
+- Thank you to [DerDevHD](https://forum.cfx.re/t/fixed-remove-prop-after-scenario-animation/5002332/8) for the insight on deleting scenario props.
+
 # Credits 🤝
 
 **All** custom animations and props were added with permission from the creators.
 
 All animation creators have ***specifically*** asked that their content remains free and that the RPEmotes team and community do not try to profit from them, claim them as their own, or reupload them anywhere else.
-
 
 **A huge thank you to the following people for their amazing contributions to the menu 🫶🏻 :**
 - Thank you to [TayMcKenzieNZ](https://github.com/TayMcKenzieNZ) for maintaining and updating RP emotes and managing the RP Emotes community
