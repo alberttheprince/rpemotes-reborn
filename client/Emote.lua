@@ -717,6 +717,7 @@ function OnEmotePlay(EmoteName, name, textureVariation)
         end  
     end
 
+    if not LocalPlayer.state.canEmote then return end -- Added by Demigod916
     InVehicle = IsPedInAnyVehicle(PlayerPedId(), true)
 	Pointing = false
 
