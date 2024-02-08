@@ -1,11 +1,7 @@
---- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
---- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
---- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
-
 fx_version 'cerulean'
 game 'gta5'
-authors { 'TayMcKenzieNZ', 'MadsL', 'Mathu_lmn', 'Community' }
-description 'RPEmotes V1.3.8'
+authors { 'PrinceAlbert - Popcorn RP', 'TayMcKenzieNZ', 'MadsL', 'Mathu_lmn', 'Community' }
+description 'rpemotes-reborn'
 version '1.3.8'
 lua54 'yes'
 
