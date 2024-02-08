@@ -1,3 +1,11 @@
+This repository serves as my fork of rpemotes, with fixes and edits done following the privatization of rpemotes in 2024. It remains up for anyone to view changes made by me, as of February 8, 2024. 
+
+RPEmotes has been made public once again, which you can find [here](https://github.com/TayMcKenzieNZ/rpemotes/), which will likely be more up-to-date in the future.
+
+The below information is left as is for you to view/read.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ![image](https://github.com/alberttheprince/rpemotes-reborn/assets/85725579/6d4a26bd-0ee1-44f0-b377-7c30511d13b2)
 
 rpemotes-reborn is a community-driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walk styles, and props inspired by [DullPear](https://github.com/andristum/dpemotes), then managed by TayMcKenzieNZ, and then later forked by Popcorn RP as "rpemotes-reborn" to make some minor fixes after TayMcKenzieNZ set all his repositories to private.
