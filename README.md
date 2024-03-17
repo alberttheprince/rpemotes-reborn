@@ -1,3 +1,7 @@
+March 16, 2024: This was once again deleted/closed. I have reopened this repository.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 This repository serves as my fork of rpemotes, with fixes and edits done following the privatization of rpemotes in 2024. It remains up for anyone to view changes made by me, as of February 8, 2024. 
 
 RPEmotes has been made public once again, which you can find [here](https://github.com/TayMcKenzieNZ/rpemotes/), which will likely be more up-to-date in the future.
