@@ -20,7 +20,7 @@ Config = {
     MenuTitle = '', -- You can change the name of the menu here or leave it blank to remove the text in front of the custom banners
     MenuPosition = 'right', -- You can change the menu position here. Use 'left' or 'right'
     CustomMenuEnabled = true, -- You can change the header image for the menu here, Note this might cause an issue of the image getting stuck on people's screens
-    MenuImage = 'https://i.imgur.com/FvIgTMP.png', -- You can change the menu image here, please use an image hosted on Imgur or GIPHY with the same width and length
+    MenuImage = 'https://i.imgur.com/vPkzd1M.png', -- You can change the menu image here, please use an image hosted on Imgur or GIPHY with the same width and length
     -- Use a 512 x 128 image!
     
     -- Combat Car, and Player Movement Options
