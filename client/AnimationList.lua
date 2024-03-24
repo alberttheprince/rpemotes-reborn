@@ -20316,7 +20316,7 @@ RP.PropEmotes = {
     ["handbag"] = { -- Custom prop by crowded1337, unbranded by TayMcKenzieNZ
         "move_weapon@jerrycan@generic",
         "idle",
-        "Gucci Bag",
+        "Hand Bag",
         AnimationOptions = {
             Prop = 'prop_amb_handbag_01',
             PropBone = 28422, -- Right Wrist
