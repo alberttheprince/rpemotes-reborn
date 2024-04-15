@@ -21780,7 +21780,7 @@ RP.PropEmotes = {
         "Surf Board",
         AnimationOptions =
         {
-            Prop = "prop_surf_board_01",
+            Prop = "prop_surf_board_ldn_02",
             PropBone = 28252,
             PropPlacement = {
                 0.1020,
