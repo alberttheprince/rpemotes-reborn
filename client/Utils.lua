@@ -1,10 +1,13 @@
-
-
+--- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
+--- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
+--- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
 
 -- You can edit this function to add support for your favorite notification system
 function SimpleNotify(message)
     if Config.NotificationsAsChatMessage then
-        TriggerEvent("chat:addMessage", { color = { 255, 255, 255 }, args = { tostring(message) } })
+        -- TriggerEvent("chat:addMessage", { color = { 255, 255, 255 }, args = { tostring(message) } })
+        TriggerEvent('esx:showNotification', tostring(message))
+
     else
         BeginTextCommandThefeedPost("STRING")
         AddTextComponentSubstringPlayerName(message)
@@ -54,8 +57,10 @@ end
 
 function EmoteChatMessage(msg, multiline)
     if msg then
-        TriggerEvent("chat:addMessage",
-            { multiline = multiline == true or false, color = { 255, 255, 255 }, args = { "^1Help^0", tostring(msg) } })
+        -- TriggerEvent("chat:addMessage",
+        --     { multiline = multiline == true or false, color = { 255, 255, 255 }, args = { "^1Help^0", tostring(msg) } })
+        TriggerEvent('esx:showNotification', tostring(msg))
+
     end
 end
 
@@ -204,4 +209,100 @@ function isInActionWithErrorMessage(ignores)
     end
 
     return false
+end
+
+
+
+-- --------------------------------------------------------------------
+
+local showPed = false
+
+ShowPedMenu = function(zoom)
+    if not showPed then
+        CreateThread(function()
+            -- clonedPed = CreatePed(26, GetEntityModel(PlayerPedId()), nil, nil, nil, 0, true, false)
+            clonedPed = CreatePed(26, GetEntityModel(PlayerPedId()), nil, nil, nil, 0, false, false)
+            ClonePedToTarget(PlayerPedId(), clonedPed)
+            
+            SetEntityCollision(clonedPed, false, false)
+            SetEntityInvincible(clonedPed, true)
+            SetEntityLocallyVisible(clonedPed)
+
+            NetworkSetEntityInvisibleToNetwork(clonedPed, true)
+            SetEntityCanBeDamaged(clonedPed, false)
+            SetBlockingOfNonTemporaryEvents(clonedPed, true)
+            SetEntityAlpha(clonedPed, 254)
+
+            showPed = true
+    
+            local positionBuffer = {}
+            local bufferSize = 5
+            
+            if not zoom then 
+                while showPed do 
+                    local world, normal =  GetWorldCoordFromScreenCoord(0.65135417461395, 0.77) --  GetWorldCoordFromScreenCoord(0.67135417461395, 0.7787036895752)
+                    local depth = 3.5
+                    local target = world + normal * depth
+                    local camRot = GetGameplayCamRot(2)
+        
+                    table.insert(positionBuffer, target)
+                    if #positionBuffer > bufferSize then
+                        table.remove(positionBuffer, 1)
+                    end
+        
+                    local averagedTarget = vector3(0, 0, 0)
+                    for _, position in ipairs(positionBuffer) do
+                        averagedTarget = averagedTarget + position
+                    end
+                    averagedTarget = averagedTarget / #positionBuffer
+                   
+                    SetEntityCoords(clonedPed, averagedTarget.x, averagedTarget.y, averagedTarget.z, false, false, false, true)
+                    SetEntityHeading(clonedPed, camRot.z + 170.0)
+                    SetEntityRotation(clonedPed, camRot.x*(-1), 0, camRot.z + 170.0, false, false)
+
+                    Wait(4)
+                end
+            else 
+                while showPed do 
+                    local world, normal = GetWorldCoordFromScreenCoord(0.6, 1.9)
+                    local depth = 2.0
+                    local target = world + normal * depth
+                    local camRot = GetGameplayCamRot(2)
+        
+                    table.insert(positionBuffer, target)
+                    if #positionBuffer > bufferSize then
+                        table.remove(positionBuffer, 1)
+                    end
+        
+                    local averagedTarget = vector3(0, 0, 0)
+                    for _, position in ipairs(positionBuffer) do
+                        averagedTarget = averagedTarget + position
+                    end
+                    averagedTarget = averagedTarget / #positionBuffer
+        
+                    SetEntityCoords(clonedPed, averagedTarget.x, averagedTarget.y, averagedTarget.z, false, false, false, true)
+                    SetEntityHeading(clonedPed, camRot.z + 170.0)
+                    SetEntityRotation(clonedPed, camRot.x*(-1), 0, camRot.z + 170.0, false, false)
+    
+                    Wait(4)
+                end
+            end
+        end)
+    
+    end
+end
+
+ClosePedMenu = function()
+    if clonedPed then
+        showPed = false
+        ClearPedTaskPreview()
+        DeleteEntity(clonedPed)
+    end
+end
+
+ClearPedTaskPreview = function()
+    if clonedPed then
+        DestroyAllProps(true)
+        ClearPedTasksImmediately(clonedPed)
+    end
 end

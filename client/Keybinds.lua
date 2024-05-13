@@ -1,5 +1,6 @@
-
-
+--- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
+--- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
+--- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
 
 
 
@@ -31,20 +32,26 @@ if Config.SqlKeybinding then
                 end
             end
 
+            
+            
             if not IsPedSittingInAnyVehicle(PlayerPedId()) then
+                DisableControlAction(0, 26, true) -- Disable Look Behing
                 for k, v in pairs(Config.KeybindKeys) do
                     if IsControlJustReleased(0, v) then
-                        if k == keyb1 then if emob1 ~= "" then EmoteCommandStart(nil, { emob1, 0 }) end end
-                        if k == keyb2 then if emob2 ~= "" then EmoteCommandStart(nil, { emob2, 0 }) end end
-                        if k == keyb3 then if emob3 ~= "" then EmoteCommandStart(nil, { emob3, 0 }) end end
-                        if k == keyb4 then if emob4 ~= "" then EmoteCommandStart(nil, { emob4, 0 }) end end
-                        if k == keyb5 then if emob5 ~= "" then EmoteCommandStart(nil, { emob5, 0 }) end end
-                        if k == keyb6 then if emob6 ~= "" then EmoteCommandStart(nil, { emob6, 0 }) end end
+                        if k == keyb1 then if emob1 ~= "" then EmoteCommandStart(nil, { emob1, 0}) end end
+                        if k == keyb2 then if emob2 ~= "" then EmoteCommandStart(nil, { emob2, 0}) end end
+                        if k == keyb3 then if emob3 ~= "" then EmoteCommandStart(nil, { emob3, 0}) end end
+                        if k == keyb4 then if emob4 ~= "" then EmoteCommandStart(nil, { emob4, 0}) end end
+                        if k == keyb5 then if emob5 ~= "" then EmoteCommandStart(nil, { emob5, 0}) end end
+                        if k == keyb6 then if emob6 ~= "" then EmoteCommandStart(nil, { emob6, 0}) end end
                         Wait(1000)
                     end
                 end
+            else 
+                Wait(500)
             end
-            Wait(1)
+            
+            Wait(4)
         end
     end)
 
@@ -76,8 +83,7 @@ if Config.SqlKeybinding then
 
     RegisterNetEvent("rp:ClientKeybindGetOne")
     AddEventHandler("rp:ClientKeybindGetOne", function(key, e)
-        SimpleNotify(Config.Languages[lang]['bound'] ..
-            "~y~" .. e .. "~w~ " .. Config.Languages[lang]['to'] .. " ~g~" .. firstToUpper(key) .. "~w~")
+        SimpleNotify(Config.Languages[lang]['bound'] .. "<b>" .. e .. "</b> " .. Config.Languages[lang]['to'] .. " <b>" .. firstToUpper(key) .. "</b>")
         if key == "num4" then emob1 = e
             keyb1 = "num4"
         elseif key == "num5" then emob2 = e
@@ -128,5 +134,22 @@ if Config.SqlKeybinding then
             print("invalid")
         end
     end
+
+    function DeleteEmote(source, args)
+        if #args > 0 then
+            local key = string.lower(args[1])
+            if (Config.KeybindKeys[key]) ~= nil then
+                TriggerServerEvent("rp:ServerKeybindDelete", key)
+                Wait(1000)
+                TriggerServerEvent("rp:ServerKeybindExist")
+
+            else
+                EmoteChatMessage("'"..key.."' "..Config.Languages[lang]['notvalidkey'])
+            end
+        else
+            print("invalid")
+        end
+    end
+
 
 end

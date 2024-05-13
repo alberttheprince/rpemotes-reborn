@@ -1,5 +1,6 @@
-
-
+--- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
+--- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
+--- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
 
 
 
@@ -25,7 +26,7 @@ RegisterCommand('idlecamon', function() -- help2 31, 167, 9
   SetResourceKvp("idleCam", "on")
 end)
 
-CreateThread(function()
+Citizen.CreateThread(function()
   TriggerEvent("chat:addSuggestion", "/idlecamon", "Re-enables the idle cam")
   TriggerEvent("chat:addSuggestion", "/idlecamoff", "Disables the idle cam")
 

@@ -1,13 +1,19 @@
-
-
+--- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
+--- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
+--- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
 
 
 IsUsingBinoculars = false
 if Config.BinocularsEnabled then
-    RegisterCommand("binoculars", function()
+    -- RegisterCommand("binoculars", function()
+    --     UseBinocular()
+    -- end)
+    -- TriggerEvent('chat:addSuggestion', '/binoculars', 'Utiliser des jumelles', {})
+    
+    RegisterNetEvent('rpemotes:client:binoculars')
+    AddEventHandler('rpemotes:client:binoculars', function()
         UseBinocular()
     end)
-    TriggerEvent('chat:addSuggestion', '/binoculars', 'Use binoculars', {})
 
 
     local fov_max = 70.0
@@ -62,13 +68,13 @@ if Config.BinocularsEnabled then
         IsUsingBinoculars = not IsUsingBinoculars
 
         if IsUsingBinoculars then
-            CreateThread(function()
+            Citizen.CreateThread(function()
 
                 DestroyAllProps()
                 ClearPedTasks(PlayerPedId())
                 RequestAnimDict("amb@world_human_binoculars@male@idle_a")
                 while not HasAnimDictLoaded("amb@world_human_binoculars@male@idle_a") do
-                    Wait(5)
+                    Citizen.Wait(5)
                 end
 
                 -- attach the prop to the player
@@ -216,6 +222,8 @@ if Config.BinocularsEnabled then
             SetCamRot(cam, new_x, 0.0, new_z, 2)
         end
     end
+
+
 
 
     function HandleZoom(cam)

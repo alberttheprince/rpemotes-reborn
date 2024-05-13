@@ -1,11 +1,11 @@
 fx_version 'cerulean'
 game 'gta5'
-authors { 'PrinceAlbert - Popcorn RP', 'TayMcKenzieNZ', 'MadsL', 'Mathu_lmn', 'Community' }
-description 'rpemotes-reborn'
-version '1.3.8'
+
 lua54 'yes'
+use_experimental_fxv2_oal 'yes'
 
 dependencies {
+    -- '/server:7290',
     '/server:6683',
     '/onesync',
 }
@@ -15,7 +15,7 @@ dependencies {
 --#region oxmysql
 
 -- dependency 'oxmysql'
--- server_script '@oxmysql/lib/MySQL.lua'
+server_script '@oxmysql/lib/MySQL.lua'
 
 --#endregion oxmysql
 
@@ -58,7 +58,6 @@ client_scripts {
     'client/Walk.lua',
     'client/frameworks/*.lua'
 }
-
 
 ---- Loads all ytyp files for custom props to stream ---
 ---- You will need to add a data_file 'DLC_ITYP_REQUEST' for your own to work in game ---

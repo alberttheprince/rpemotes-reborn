@@ -1,10 +1,16 @@
-
-
+--- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
+--- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
+--- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
 
 
 
 function SetPlayerPedExpression(expression, saveToKvp)
     SetFacialIdleAnimOverride(PlayerPedId(), expression, 0)
+    if Config.PersistentExpression and saveToKvp then SetResourceKvp("expression", expression) end
+end
+
+function SetPlayerPedExpression_Preview(expression, saveToKvp)
+    SetFacialIdleAnimOverride(clonedPed, expression, 0)
     if Config.PersistentExpression and saveToKvp then SetResourceKvp("expression", expression) end
 end
 
@@ -52,7 +58,7 @@ if Config.ExpressionsEnabled then
 
         RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
         AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
-            Wait(5000)
+            Citizen.Wait(5000)
             local expression = GetResourceKvpString("expression")
             if expression ~= nil then
                 Wait(2500) -- Delay, to ensure the player ped has loaded in
@@ -62,7 +68,7 @@ if Config.ExpressionsEnabled then
 
         RegisterNetEvent('esx:playerLoaded')
         AddEventHandler('esx:playerLoaded', function()
-            Wait(5000)
+            Citizen.Wait(5000)
             local expression = GetResourceKvpString("expression")
             if expression ~= nil then
                 Wait(2500) -- Delay, to ensure the player ped has loaded in

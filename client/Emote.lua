@@ -1,4 +1,4 @@
-
+--- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
 --- Download the OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
 --- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
 
@@ -14,6 +14,7 @@ local PlayerGender = "male"
 local PlayerHasProp = false
 local PlayerProps = {}
 local PlayerParticles = {}
+local PreviewPedProps = {}
 local SecondPropEmote = false
 local lang = Config.MenuLanguage
 local PtfxNotif = false
@@ -119,7 +120,7 @@ local function CheckStatusThread(dict, anim)
 end
 
 if Config.EnableCancelKeybind then
-    RegisterKeyMapping("emotecancel", "Cancel current emote", "keyboard", Config.CancelEmoteKey)
+    RegisterKeyMapping("emotecancel", "Annuler l'émote actuelle", "keyboard", Config.CancelEmoteKey)
 end
 
 -----------------------------------------------------------------------------------------------------
@@ -127,21 +128,22 @@ end
 -----------------------------------------------------------------------------------------------------
 
 CreateThread(function()
-    TriggerEvent('chat:addSuggestion', '/e', 'Play an emote',
-        { { name = "emotename", help = "dance, camera, sit or any valid emote." },
-            { name = "texturevariation", help = "(Optional) 1, 2, 3 or any number. Will change the texture of some props used in emotes, for example the color of a phone. Enter -1 to see a list of variations." } })
-    TriggerEvent('chat:addSuggestion', '/emote', 'Play an emote',
-        { { name = "emotename", help = "dance, camera, sit or any valid emote." },
-            { name = "texturevariation", help = "(Optional) 1, 2, 3 or any number. Will change the texture of some props used in emotes, for example the color of a phone. Enter -1 to see a list of variations." } })
+    TriggerEvent('chat:addSuggestion', '/e', 'Jouer une animation',
+        { { name = "emotename", help = "dance, camera, sit ou autres noms d'animations" },
+            { name = "texturevariation", help = "(Facultatif) 1, 2, 3 ou n'importe quel nombre. Changera la texture de certains accessoires utilisés dans les emotes, par exemple la couleur d'un téléphone. Entrez -1 pour voir une liste de variantes." } })
+    TriggerEvent('chat:addSuggestion', '/emote', 'Jouer une animation',
+        { { name = "emotename", help = "dance, camera, sit ou autres noms d'animations" },
+            { name = "texturevariation", help = "(Facultatif) 1, 2, 3 ou n'importe quel nombre. Changera la texture de certains accessoires utilisés dans les emotes, par exemple la couleur d'un téléphone. Entrez -1 pour voir une liste de variantes." } })
     if Config.SqlKeybinding then
-        TriggerEvent('chat:addSuggestion', '/emotebind', 'Bind an emote',
+        TriggerEvent('chat:addSuggestion', '/emotebind', 'Relier une émote à une touche',
             { { name = "key", help = "num4, num5, num6, num7. num8, num9. Numpad 4-9!" },
-                { name = "emotename", help = "dance, camera, sit or any valid emote." } })
-        TriggerEvent('chat:addSuggestion', '/emotebinds', 'Check your currently bound emotes.')
+                { name = "emotename", help = "dance, camera, sit ou autres noms d'animations" } })
+        TriggerEvent('chat:addSuggestion', '/emotebinds', 'Regarder vos émotes binds')
+        TriggerEvent('chat:addSuggestion', '/emotedelete', 'Supprimer une émote', {{ name="key", help="num4, num5, num6, num7. num8, num9. Numpad 4-9!"}})
     end
-    TriggerEvent('chat:addSuggestion', '/emotemenu', 'Open rpemotes menu (F4) by default. This may differ from server to server.')
-    TriggerEvent('chat:addSuggestion', '/emotes', 'List available emotes.')
-    TriggerEvent('chat:addSuggestion', '/emotecancel', 'Cancel currently playing emote.')
+    TriggerEvent('chat:addSuggestion', '/emotemenu', "Ouvrir le menu d'animation")
+    TriggerEvent('chat:addSuggestion', '/emotes', 'Voir la liste des émotes possible.')
+    TriggerEvent('chat:addSuggestion', '/emotecancel', "Annuler l'animation en cours")
 end)
 
 RegisterCommand('e', function(source, args, raw) EmoteCommandStart(source, args, raw) end, false)
@@ -149,10 +151,12 @@ RegisterCommand('emote', function(source, args, raw) EmoteCommandStart(source, a
 if Config.SqlKeybinding then
     RegisterCommand('emotebind', function(source, args, raw) EmoteBindStart(source, args, raw) end, false)
     RegisterCommand('emotebinds', function(source, args, raw) EmoteBindsStart(source, args, raw) end, false)
+    RegisterCommand('emotedelete', function(source, args) DeleteEmote(source, args, raw) end, false)
+
 end
 if Config.MenuKeybindEnabled then
     RegisterCommand('emoteui', function() OpenEmoteMenu() end, false)
-    RegisterKeyMapping("emoteui", "Open rpemotes menu", "keyboard", Config.MenuKeybind)
+    RegisterKeyMapping("emoteui", "Ouvrir le menu d'animation", "keyboard", Config.MenuKeybind)
 else
     RegisterCommand('emotemenu', function() OpenEmoteMenu() end, false)
 end
@@ -311,10 +315,10 @@ if Config.HandsupEnabled then
         end
     end
 
-    TriggerEvent('chat:addSuggestion', '/handsup', 'Put your arms up.')
+    TriggerEvent('chat:addSuggestion', '/handsup', 'Lever les mains.')
 
     if Config.HandsupKeybindEnabled then
-        RegisterKeyMapping("handsup", "Put your arms up", "keyboard", Config.HandsupKeybind)
+        RegisterKeyMapping("handsup", "Lever les mains", "keyboard", Config.HandsupKeybind)
     end
 
     local function IsPlayerInHandsUp()
@@ -327,6 +331,7 @@ end
 AddEventHandler('onResourceStop', function(resource)
     if resource == GetCurrentResourceName() then
         local ply = PlayerPedId()
+        ClosePedMenu()
         DestroyAllProps()
         ClearPedTasksImmediately(ply)
         DetachEntity(ply, true, false)
@@ -341,11 +346,12 @@ end)
 
 function EmoteCancel(force)
     local scenarioObjects = {
- 	    `p_amb_coffeecup_01`,
+		`p_amb_coffeecup_01`,
 		`p_amb_joint_01`,
 		`p_cs_ciggy_01`,
 		`p_cs_ciggy_01b_s`,
 		`p_cs_clipboard`,
+		`prop_curl_bar_01`,
 		`p_cs_joint_01`,
 		`p_cs_joint_02`,
 		`prop_acc_guitar_01`,
@@ -378,6 +384,10 @@ function EmoteCancel(force)
 		`prop_tennis_rack_01`,
 		`prop_weld_torch`,
 		`w_me_gclub`
+
+		
+
+
     }
     
     for i = 1, #scenarioObjects do
@@ -487,6 +497,7 @@ AddStateBagChangeHandler('ptfx', nil, function(bagName, key, value, _unused, rep
     if not DoesEntityExist(plyPed) then return end
 
     local stateBag = Player(plyId).state
+
     if value then
         -- Start ptfx
 
@@ -536,7 +547,7 @@ function EmotesOnCommand(source, args, raw)
     EmoteChatMessage(Config.Languages[lang]['emotemenucmd'])
 end
 
-function EmoteMenuStart(args, hard, textureVariation)
+function EmoteMenuStart(args, hard, textureVariation) -- DEV
     local name = args
     local etype = hard
 
@@ -559,6 +570,29 @@ function EmoteMenuStart(args, hard, textureVariation)
     elseif etype == "expression" then
         if RP.Expressions[name] ~= nil then
             SetPlayerPedExpression(RP.Expressions[name][1], true)
+        end
+    end
+end
+
+function EmoteMenuStartPed(args, hard, textureVariation) -- DEV
+    local name = args
+    local etype = hard
+
+    if etype == "dances" then
+        if RP.Dances[name] ~= nil then
+            OnEmotePlayPed(RP.Dances[name], name)
+        end
+    elseif etype == "props" then
+        if RP.PropEmotes[name] ~= nil then
+            OnEmotePlayPed(RP.PropEmotes[name], name, textureVariation)
+        end
+    elseif etype == "emotes" then
+        if RP.Emotes[name] ~= nil then
+            OnEmotePlayPed(RP.Emotes[name], name)
+        end
+    elseif etype == "expression" then
+        if RP.Expressions[name] ~= nil then
+            SetPlayerPedExpression_Preview(RP.Expressions[name][1], true)
         end
     end
 end
@@ -659,17 +693,29 @@ function CheckAnimalAndOnEmotePlay(EmoteName, name)
     end
 end
 
-function DestroyAllProps()
-    for _, v in pairs(PlayerProps) do
-        DeleteEntity(v)
+function DestroyAllProps(ped_preview)
+    if ped_preview then 
+        for _, v in pairs(PreviewPedProps) do
+            DeleteEntity(v)
+        end
+    else 
+        for _, v in pairs(PlayerProps) do
+            DeleteEntity(v)
+        end
+        PlayerHasProp = false
+        DebugPrint("Destroyed Props")
     end
-    PlayerHasProp = false
-    DebugPrint("Destroyed Props")
 end
 
-function AddPropToPlayer(prop1, bone, off1, off2, off3, rot1, rot2, rot3, textureVariation)
-    local Player = PlayerPedId()
-    local x, y, z = table.unpack(GetEntityCoords(Player))
+function AddPropToPlayer(prop1, bone, off1, off2, off3, rot1, rot2, rot3, textureVariation, PedPreview)
+
+    if PedPreview then 
+        Player_Props = clonedPed
+    else 
+        Player_Props = PlayerPedId()
+    end
+
+    local x, y, z = table.unpack(GetEntityCoords(Player_Props))
 
     if not IsModelValid(prop1) then
         DebugPrint(tostring(prop1).." is not a valid model!")
@@ -680,14 +726,32 @@ function AddPropToPlayer(prop1, bone, off1, off2, off3, rot1, rot2, rot3, textur
         LoadPropDict(prop1)
     end
 
-    prop = CreateObject(joaat(prop1), x, y, z + 0.2, true, true, true)
+
+    if PedPreview then 
+        prop = CreateObject(joaat(prop1), x, y, z + 0.2, false, true, true)
+    else 
+        prop = CreateObject(joaat(prop1), x, y, z + 0.2, true, true, true)
+    end
+    
     if textureVariation ~= nil then
         SetObjectTextureVariation(prop, textureVariation)
     end
-    AttachEntityToEntity(prop, Player, GetPedBoneIndex(Player, bone), off1, off2, off3, rot1, rot2, rot3, true, true,
+
+
+    if PedPreview then 
+        AttachEntityToEntity(prop, Player_Props, GetPedBoneIndex(Player_Props, bone), off1, off2, off3, rot1, rot2, rot3, true, true,
         false, true, 1, true)
-    table.insert(PlayerProps, prop)
-    PlayerHasProp = true
+        table.insert(PreviewPedProps, prop)
+    else 
+        PlayerHasProp = true
+        AttachEntityToEntity(prop, Player_Props, GetPedBoneIndex(Player_Props, bone), off1, off2, off3, rot1, rot2, rot3, true, true,
+        false, true, 1, true)
+        table.insert(PlayerProps, prop)
+    end
+
+    -- table.insert(PlayerProps, prop)
+  
+    
     SetModelAsNoLongerNeeded(prop1)
     DebugPrint("Added prop to player")
     return true
@@ -718,43 +782,19 @@ end
 
 function OnEmotePlay(EmoteName, name, textureVariation)
     local scenarioObjects = {
-        `p_amb_coffeecup_01`,
-		`p_amb_joint_01`,
-		`p_cs_ciggy_01`,
-		`p_cs_ciggy_01b_s`,
-		`p_cs_clipboard`,
-		`p_cs_joint_01`,
-		`p_cs_joint_02`,
-		`prop_acc_guitar_01`,
-		`prop_amb_ciggy_01`,
-		`prop_amb_phone`,
-		`prop_beggers_sign_01`,
-		`prop_beggers_sign_02`,
-		`prop_beggers_sign_03`,
-		`prop_beggers_sign_04`,
-		`prop_bongos_01`,
-		`prop_cigar_01`,
-		`prop_cigar_02`,
-		`prop_cigar_03`,
-		`prop_cs_beer_bot_40oz_02`,
-		`prop_cs_paper_cup`,
-		`prop_cs_trowel`,
-		`prop_fib_clipboard`,
-		`prop_fish_slice_01`,
-		`prop_fishing_rod_01`,
-		`prop_fishing_rod_02`,
-		`prop_notepad_02`,
-		`prop_parking_wand_01`,
-		`prop_rag_01`,
-		`prop_scn_police_torch`,
-		`prop_sh_cigar_01`,
-		`prop_sh_joint_01`,
-		`prop_tool_broom`,
-		`prop_tool_hammer`,
-		`prop_tool_jackham`,
-		`prop_tennis_rack_01`,
-		`prop_weld_torch`,
-		`w_me_gclub`
+        `prop_tool_jackham`, 
+        `prop_bongos_01`,
+        `prop_acc_guitar_01`,
+        `prop_notepad_02`,
+        `prop_tool_hammer`,
+        `prop_fish_slice_01`,
+        `prop_cs_trowel`,
+        `prop_tool_broom`,
+        `prop_cs_paper_cup`,
+        `prop_amb_phone`,
+        `prop_cigar_03`,
+        `p_cs_joint_01`,
+        `prop_weld_torch`,
     }
     
     for i = 1, #scenarioObjects do
@@ -912,8 +952,7 @@ function OnEmotePlay(EmoteName, name, textureVariation)
             PtfxCanHold = animOption.PtfxCanHold
             PtfxNotif = false
             PtfxPrompt = true
-            -- RunAnimationThread() -- ? This call should not be required, see if needed with tests
-
+            RunAnimationThread() -- ? This call should not be required, see if needed with tests
             TriggerServerEvent("rpemotes:ptfx:sync", PtfxAsset, PtfxName, vector3(Ptfx1, Ptfx2, Ptfx3), vector3(Ptfx4, Ptfx5, Ptfx6), PtfxBone, PtfxScale, PtfxColor)
         else
             DebugPrint("Ptfx = none")
@@ -950,9 +989,10 @@ function OnEmotePlay(EmoteName, name, textureVariation)
             SecondPropEmote = false
         end
         Wait(AttachWait)
-        if not AddPropToPlayer(PropName, PropBone, PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6, textureVariation) then return end
+
+        if not AddPropToPlayer(PropName, PropBone, PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6, textureVariation, false) then return end
         if SecondPropEmote then
-        if not AddPropToPlayer(SecondPropName, SecondPropBone, SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6, textureVariation) then
+        if not AddPropToPlayer(SecondPropName, SecondPropBone, SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6, textureVariation, false) then
                 DestroyAllProps()
                 return
             end
@@ -962,6 +1002,217 @@ function OnEmotePlay(EmoteName, name, textureVariation)
         if animOption.PtfxAsset and not PtfxNoProp then
             TriggerServerEvent("rpemotes:ptfx:syncProp", ObjToNet(prop))
         end
+    end
+end
+
+
+function OnEmotePlayPed(EmoteName, name, textureVariation)
+    local scenarioObjects = {
+        `prop_tool_jackham`, 
+        `prop_bongos_01`,
+        `prop_acc_guitar_01`,
+        `prop_notepad_02`,
+        `prop_tool_hammer`,
+        `prop_fish_slice_01`,
+        `prop_cs_trowel`,
+        `prop_tool_broom`,
+        `prop_cs_paper_cup`,
+        `prop_amb_phone`,
+        `prop_cigar_03`,
+        `p_cs_joint_01`,
+        `prop_weld_torch`,
+    }
+    
+    for i = 1, #scenarioObjects do
+        local deleteScenarioObject = GetClosestObjectOfType(GetEntityCoords(clonedPed), 1.0, scenarioObjects[i], false, true ,true)
+        if DoesEntityExist(deleteScenarioObject) then
+            SetEntityAsMissionEntity(deleteScenarioObject, false, false)
+            DeleteObject(deleteScenarioObject)
+        end  
+    end
+
+    -- InVehicle = IsPedInAnyVehicle(clonedPed, true)
+    -- Pointing = false
+
+    -- if not Config.AllowedInCars and InVehicle == 1 then
+    --     return
+    -- end
+
+    if not DoesEntityExist(clonedPed) then
+        return false
+    end
+
+    -- Don't play a new animation if we are in an exit emote
+    if InExitEmote then
+        return false
+    end
+
+    -- if Config.CancelPreviousEmote and IsInAnimation and not ExitAndPlay and not EmoteCancelPlaying then
+    if Config.CancelPreviousEmote and not ExitAndPlay and not EmoteCancelPlaying then
+        ExitAndPlay = true
+        DebugPrint("Canceling previous emote and playing next emote")
+        -- PlayExitAndEnterEmote(EmoteName, name, textureVariation) -- A remettre
+        return
+    end
+
+    local animOption = EmoteName.AnimationOptions
+
+    if ChosenAnimOptions and ChosenAnimOptions.ExitEmote and animOption and animOption.ExitEmote then
+        if not (animOption and ChosenAnimOptions.ExitEmote == animOption.ExitEmote) and RP.Exits[ChosenAnimOptions.ExitEmote][2] ~= EmoteName[2] then
+            return
+        end
+    end
+
+    if isInActionWithErrorMessage() then
+        return false
+    end
+
+    ChosenDict, ChosenAnimation, ename = table.unpack(EmoteName)
+    CurrentAnimationName = name
+    CurrentTextureVariation = textureVariation
+    ChosenAnimOptions = animOption
+    AnimationDuration = -1
+
+    if Config.DisarmPlayer then
+        if IsPedArmed(clonedPed, 7) then
+            SetCurrentPedWeapon(clonedPed, joaat('WEAPON_UNARMED'), true)
+        end
+    end
+
+    if animOption and animOption.Prop and PlayerHasProp then
+        DestroyAllProps(true)
+    end
+
+    if ChosenDict == "MaleScenario" or ChosenDict == "Scenario" or ChosenDict == "ScenarioObject" then
+        CheckGender()
+        if ChosenDict == "MaleScenario" then -- if InVehicle then return end
+            if PlayerGender == "male" then
+                ClearPedTasks(clonedPed)
+                DestroyAllProps(true)
+                TaskStartScenarioInPlace(clonedPed, ChosenAnimation, 0, true)
+                DebugPrint("Playing scenario = (" .. ChosenAnimation .. ")")
+                -- RunAnimationThread()
+            else
+                DestroyAllProps(true)
+                -- EmoteCancel()
+                EmoteChatMessage(Config.Languages[lang]['maleonly'])
+            end
+            return
+        elseif ChosenDict == "ScenarioObject" then -- if InVehicle then return end
+            BehindPlayer = GetOffsetFromEntityInWorldCoords(clonedPed, 0.0, 0 - 0.5, -0.5);
+            ClearPedTasks(clonedPed)
+            TaskStartScenarioAtPosition(clonedPed, ChosenAnimation, BehindPlayer['x'], BehindPlayer['y'], BehindPlayer['z'], GetEntityHeading(clonedPed), 0, true, false)
+            DebugPrint("Playing scenario = (" .. ChosenAnimation .. ")")
+            -- RunAnimationThread()
+            return
+        elseif ChosenDict == "Scenario" then -- if InVehicle then return end
+            ClearPedTasks(clonedPed)
+            DestroyAllProps(true)
+            TaskStartScenarioInPlace(clonedPed, ChosenAnimation, 0, true)
+            DebugPrint("Playing scenario = (" .. ChosenAnimation .. ")")
+            -- RunAnimationThread()
+            return
+        end
+    end
+
+    -- Small delay at the start
+    -- if animOption and animOption.StartDelay then
+    --     Wait(animOption.StartDelay)
+    -- end
+
+    if not LoadAnim(ChosenDict) then
+        EmoteChatMessage("'" .. ename .. "' " .. Config.Languages[lang]['notvalidemote'] .. "")
+        return
+    end
+
+    MovementType = 0 -- Default movement type
+
+    -- if InVehicle == 1 then
+    --     MovementType = 51
+    -- elseif animOption then
+    if animOption then
+        if animOption.EmoteMoving then
+            MovementType = 51
+        elseif animOption.EmoteLoop then
+            MovementType = 1
+        elseif animOption.EmoteStuck then
+            MovementType = 50
+        end
+    end
+
+    if animOption then
+        if animOption.EmoteDuration == nil then
+            animOption.EmoteDuration = -1
+            AttachWait = 0
+        else
+            AnimationDuration = animOption.EmoteDuration
+            AttachWait = animOption.EmoteDuration
+        end
+
+        -- if animOption.PtfxAsset then
+        --     PtfxAsset = animOption.PtfxAsset
+        --     PtfxName = animOption.PtfxName
+        --     if animOption.PtfxNoProp then
+        --         PtfxNoProp = animOption.PtfxNoProp
+        --     else
+        --         PtfxNoProp = false
+        --     end
+        --     Ptfx1, Ptfx2, Ptfx3, Ptfx4, Ptfx5, Ptfx6, PtfxScale = table.unpack(animOption.PtfxPlacement)
+        --     PtfxBone = animOption.PtfxBone
+        --     PtfxColor = animOption.PtfxColor
+        --     PtfxInfo = animOption.PtfxInfo
+        --     PtfxWait = animOption.PtfxWait
+        --     PtfxCanHold = animOption.PtfxCanHold
+        --     PtfxNotif = false
+        --     PtfxPrompt = true
+        --     -- RunAnimationThread() -- ? This call should not be required, see if needed with tests
+
+        --     TriggerServerEvent("rpemotes:ptfx:sync", PtfxAsset, PtfxName, vector3(Ptfx1, Ptfx2, Ptfx3), vector3(Ptfx4, Ptfx5, Ptfx6), PtfxBone, PtfxScale, PtfxColor)
+        -- else
+        --     DebugPrint("Ptfx = none")
+        --     PtfxPrompt = false
+        -- end
+    end
+
+    if IsPedUsingAnyScenario(clonedPed) or IsPedActiveInScenario(clonedPed) then
+        ClearPedTasksImmediately(clonedPed)
+    end
+
+    TaskPlayAnim(clonedPed, ChosenDict, ChosenAnimation, 5.0, 5.0, AnimationDuration, MovementType, 0, false, false, false)
+    RemoveAnimDict(ChosenDict)
+    IsInAnimation = true
+    -- RunAnimationThread()
+
+    MostRecentDict = ChosenDict
+    MostRecentAnimation = ChosenAnimation
+
+    if animOption and animOption.Prop then
+        PropName = animOption.Prop
+        PropBone = animOption.PropBone
+        PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6 = table.unpack(animOption.PropPlacement)
+        if animOption.SecondProp then
+            SecondPropName = animOption.SecondProp
+            SecondPropBone = animOption.SecondPropBone
+            SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6 = table.unpack(animOption.SecondPropPlacement)
+            SecondPropEmote = true
+        else
+            SecondPropEmote = false
+        end
+        Wait(AttachWait)
+
+
+        if not AddPropToPlayer(PropName, PropBone, PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6, textureVariation, true) then return end
+        if SecondPropEmote then
+        if not AddPropToPlayer(SecondPropName, SecondPropBone, SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6, textureVariation, true) then
+                DestroyAllProps(true)
+                return
+            end
+        end
+
+        -- Ptfx is on the prop, then we need to sync it
+        -- if animOption.PtfxAsset and not PtfxNoProp then
+        --     TriggerServerEvent("rpemotes:ptfx:syncProp", ObjToNet(prop))
+        -- end
     end
 end
 
@@ -1009,7 +1260,7 @@ function PlayExitAndEnterEmote(emoteName, name, textureVariation)
             InExitEmote = true
             SetTimeout(animationOptions.EmoteDuration, function()
                 InExitEmote = false
-                DestroyAllProps()
+                DestroyAllProps(true)
                 ClearPedTasks(ply)
                 OnEmotePlay(emoteName, name, textureVariation)
                 ExitAndPlay = false
@@ -1020,7 +1271,7 @@ function PlayExitAndEnterEmote(emoteName, name, textureVariation)
         ClearPedTasks(ply)
         IsInAnimation = false
         ExitAndPlay = false
-        DestroyAllProps()
+        DestroyAllProps(true)
         OnEmotePlay(emoteName, name, CurrentTextureVariation)
     end
 end

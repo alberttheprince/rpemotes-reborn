@@ -1,5 +1,6 @@
-
-
+--- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
+--- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
+--- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
 
 
 IsUsingNewscam = false
@@ -65,12 +66,12 @@ if Config.NewscamEnabled then
         IsUsingNewscam = not IsUsingNewscam
 
         if IsUsingNewscam then
-            CreateThread(function()
+            Citizen.CreateThread(function()
                 DestroyAllProps()
                 ClearPedTasks(PlayerPedId())
                 RequestAnimDict("missfinale_c2mcs_1")
                 while not HasAnimDictLoaded("missfinale_c2mcs_1") do
-                    Wait(5)
+                    Citizen.Wait(5)
                 end
 
                 -- attach the prop to the player

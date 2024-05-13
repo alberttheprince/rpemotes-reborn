@@ -1,5 +1,6 @@
-
-
+--- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
+--- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
+--- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
 
 
 
@@ -126,10 +127,10 @@ if Config.PointingEnabled then
     end, false)
 
     if Config.PointingKeybindEnabled then
-        RegisterKeyMapping("pointing", "Finger pointing", "keyboard", Config.PointingKeybind)
+        RegisterKeyMapping("pointing", "Pointer du doigt", "keyboard", Config.PointingKeybind)
     end
 
-    TriggerEvent('chat:addSuggestion', '/pointing', 'Finger pointing.')
+    TriggerEvent('chat:addSuggestion', '/pointing', 'Pointer du doigt.')
 end
 
 
