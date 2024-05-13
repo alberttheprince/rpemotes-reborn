@@ -31,7 +31,7 @@ local EmoteCancelPlaying = false
 IsInAnimation = false
 CurrentAnimationName = nil
 CurrentTextureVariation = nil
-inHandsup = false
+InHandsup = false
 
 -- Remove emotes if needed
 
@@ -245,7 +245,7 @@ local playerId = PlayerId()
 
 local function HandsUpLoop()
     CreateThread(function()
-        while inHandsup do
+        while InHandsup do
             if disableHandsupControls then
                 for control, state in pairs(disableHandsupControls) do
                     DisableControlAction(0, control, state)
@@ -256,7 +256,7 @@ local function HandsUpLoop()
                 ClearPedSecondaryTask(PlayerPedId())
                 CreateThread(function()
                     Wait(350)
-                    inHandsup = false
+                    InHandsup = false
                 end)
             end
 
@@ -267,7 +267,7 @@ end
 
 if Config.HandsupEnabled then
     RegisterCommand('handsup', function()
-        if IsPedInAnyVehicle(PlayerPedId(), false) and not Config.HandsupKeybindInCarEnabled and not inHandsup then
+        if IsPedInAnyVehicle(PlayerPedId(), false) and not Config.HandsupKeybindInCarEnabled and not InHandsup then
             return
         end
 
@@ -283,8 +283,8 @@ if Config.HandsupEnabled then
             return
         end
 
-        inHandsup = not inHandsup
-        if inHandsup then
+        InHandsup = not InHandsup
+        if InHandsup then
             DestroyAllProps()
             local dict = "random@mugging3"
             RequestAnimDict(dict)
@@ -322,7 +322,7 @@ if Config.HandsupEnabled then
     end
 
     local function IsPlayerInHandsUp()
-        return inHandsup
+        return InHandsup
     end
     
     exports('IsPlayerInHandsUp', IsPlayerInHandsUp)

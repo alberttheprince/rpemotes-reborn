@@ -404,7 +404,7 @@ local function CrawlKeyPressed()
         Pointing = false
     end
 
-    if inHandsup then
+    if InHandsup then
         return
     end
 
