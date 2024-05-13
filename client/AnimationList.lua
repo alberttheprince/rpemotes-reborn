@@ -20393,7 +20393,7 @@ RP.PropEmotes = {
     ["handbag"] = { -- Custom prop by crowded1337, unbranded by TayMcKenzieNZ
         "move_weapon@jerrycan@generic",
         "idle",
-        "Gucci Bag",
+        "Hand Bag",
         AnimationOptions = {
             Prop = 'prop_amb_handbag_01',
             PropBone = 28422, -- Right Wrist
@@ -21857,7 +21857,7 @@ RP.PropEmotes = {
         "Surf Board",
         AnimationOptions =
         {
-            Prop = "prop_surf_board_01",
+            Prop = "prop_surf_board_ldn_02",
             PropBone = 28252,
             PropPlacement = {
                 0.1020,
