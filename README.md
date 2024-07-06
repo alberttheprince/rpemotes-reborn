@@ -441,9 +441,6 @@ Below is an example:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# rpemotes-reborn Credits:
-
-
 # Credits 🤝
 
 **All** custom animations and props were added with permission from the creators.
@@ -465,7 +462,7 @@ All animation creators have ***specifically*** asked that their content remains 
 - [BzZzi](https://forum.cfx.re/u/bzzzi/summary) for the Explicit Usage Rights Agreement to add free donuts, croissants and fire torch props
 - [Natty3d](https://forum.cfx.re/u/natty3d/summary) for the Explicit Usage Rights Agreement to add free lollipop props
 - [northsqrd](https://github.com/0sqrd) for adding the search function, Animal Emotes config, mobile phone prop texture variants, and general contributions
-- crusopaul and Eki for discussing KVP and initializing it to the menu for persistent walk styles
+- Crusopaul and Eki for discussing KVP and initializing it to the menu for persistent walk styles
 - [Amnilka](https://www.gta5-mods.com/users/frabi) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
 - [LittleSpoon](https://discord.gg/safeword) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
 - [Pupppy](https://discord.gg/rsN35X4s4N) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
@@ -496,9 +493,6 @@ All animation creators have ***specifically*** asked that their content remains 
 - [DRX Animations](https://www.gta5-mods.com/users/DRX%2DAnimations) for the custom animations and partnership
 - [VNSIanims](https://discord.gg/cTNrjYSXXG) for the custom animations and partnership
 - [PNWParksFan](https://www.gta5-mods.com/users/PNWParksFan) for the custom props
+- [LSPDFR member Sam](https://www.lcpdfr.com/downloads/gta5mods/misc/23386-lspd-police-badge/) for their Custom LSPD police badge
+- [GTA5Mods user Sladus_Slawonkus](https://www.gta5-mods.com/misc/lspd-police-badge-replace-sladus_slawonkus) or their reskinned LSPD badge
 - [TayMcKenzieNZ](https://github.com/TayMcKenzieNZ) for their past work maintaining RP Emotes
-
-# Police Badge 👮
-
-- Custom LSPD police badge by [LSPDFR member Sam](https://www.lcpdfr.com/downloads/gta5mods/misc/23386-lspd-police-badge/)
-- LSPD reskinned badge by [GTA5Mods user Sladus_Slawonkus](https://www.gta5-mods.com/misc/lspd-police-badge-replace-sladus_slawonkus)
