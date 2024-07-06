@@ -1,5 +1,3 @@
--- Formerly maintained by TayMcKenzieNZ, now updated by Popcorn RP
-
 Config = {
     -- Menu Options
     MenuLanguage = 'en', -- Change the language of the menu here!.
@@ -78,9 +76,7 @@ Config = {
     
     -- News Camera Options
     NewscamEnabled = false, -- If set to true, the /newscam command will be enabled.
-    
-    -- Misc
-    CheckForUpdates = false, -- Please keep false, as the emote menu as this no longer checks for updates
+
 }
 
 Config.KeybindKeys = {
