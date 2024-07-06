@@ -35,7 +35,6 @@ shared_scripts {
 
 server_scripts {
     'server/Server.lua',
-    'server/Updates.lua',
     'server/frameworks/*.lua'
 }
 
