@@ -1,20 +1,7 @@
-March 16, 2024: This was once again deleted/closed. I have reopened this repository.
+![image](https://github.com/alberttheprince/rpemotes-reborn/assets/85725579/25b38001-1b50-42ff-b9c9-07046d8be0a1)
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-This repository serves as my fork of rpemotes, with fixes and edits done following the privatization of rpemotes in 2024. It remains up for anyone to view changes made by me, as of February 8, 2024. 
-
-RPEmotes has been made public once again, which you can find [here](https://github.com/TayMcKenzieNZ/rpemotes/), which will likely be more up-to-date in the future.
-
-The below information is left as is for you to view/read.
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-![image](https://github.com/alberttheprince/rpemotes-reborn/assets/85725579/6d4a26bd-0ee1-44f0-b377-7c30511d13b2)
-
-rpemotes-reborn is a community-driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walk styles, and props inspired by [DullPear](https://github.com/andristum/dpemotes), then managed by TayMcKenzieNZ, and then later forked by Popcorn RP as "rpemotes-reborn" to make some minor fixes after TayMcKenzieNZ set all his repositories to private.
-
-The original repository can be found [here](https://github.com/TayMcKenzieNZ/rpemotes).
+rpemotes-reborn is a community-driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walk styles, and props inspired by [DullPear](https://github.com/andristum/dpemotes), maintained by Popcorn RP after TayMcKenzieNZ began selling an open-source community project against the spirit of the project.
 
 A partial archive of the original RP Emotes docs can be found here: https://web.archive.org/web/20231218223552/https://docs.rpemotes.com/
 
@@ -56,7 +43,7 @@ Albanian, Brazilian Portuguese, Chinese (Simplified), Chinese (Traditional), Cze
 
 Languages can be selected and/or added in the config.lua.
 
-All languages were translated or contributed by you, our amazing community with the odd exception of using Google Translate.
+All languages were translated or contributed by the FiveM community, with the odd exception of using Google Translate.
 
 If you happen to find any incorrect translations or would like to add more languages, please feel free to make a pull request with the corrections.
 
@@ -81,7 +68,7 @@ exports["rpemotes"]:toggleNewscam()
 -- bool to allow the user to change their walk style in the menu or not / message to show the user (optional, default is: "You are unable to change your walking style right now.")"
 ```
 
-Having issues with players using emotes when/where they're not supposed to? Use the following where you needed. This would be somewhere like if you want to disable emotes in jail or when someone is handcuffed/escorted:
+Having issues with players using emotes when/where they're not supposed to? Use the following where you need. This would be somewhere like if you want to disable emotes in jail or when someone is handcuffed/escorted:
 
 ```lua
 LocalPlayer.state:set('canEmote', false, true) -- stops emoting
@@ -414,8 +401,6 @@ Particle effects can be found using the [DurtyFree GTA V Dump](https://github.co
 
 Onesync is required for them to work across all clients.
 
-Big thanks to DurtyFree for his amazing work.
-
 
 ```lua
 PtfxPlacement = {
@@ -458,7 +443,6 @@ Below is an example:
 
 # rpemotes-reborn Credits:
 
-- Thank you to [DerDevHD](https://forum.cfx.re/t/fixed-remove-prop-after-scenario-animation/5002332/8) for the insight on deleting scenario props.
 
 # Credits 🤝
 
@@ -466,55 +450,55 @@ Below is an example:
 
 All animation creators have ***specifically*** asked that their content remains free and that the RPEmotes team and community do not try to profit from them, claim them as their own, or reupload them anywhere else.
 
-**A huge thank you to the following people for their amazing contributions to the menu 🫶🏻 :**
-- Thank you to [TayMcKenzieNZ](https://github.com/TayMcKenzieNZ) for maintaining and updating RP emotes and managing the RP Emotes community
-- A huge thank you to [Kibook](https://github.com/kibook) for the addition of the Animal Emotes sub menu
-- Thank you to [AvaN0x](https://github.com/AvaN0x) for reformatting and assisting with code, additional features, and figuring out shared particle effects
-- Thank you to [Mads](https://github.com/MadsLeander) for joining the team as Co-Developer 
-- Thank you to [Mathu_lmn](https://github.com/Mathu-lmn) for joining the team as Co-Developer 
-- Thank you to [Tigerle](https://forum.cfx.re/u/tigerle_studios) for providing the additional code required to make Shared Emotes work to its full extent
-- Thank you to [SMGMissy](https://forum.cfx.re/u/smgmissy/) for assisting with custom pride flags and how to stream them
-- Thank you to [MissSnowie](https://www.gta5-mods.com/users/MissySnowie) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord and for the motivational and overall moral support
-- Thank you to [GeekGarage](https://github.com/geekgarage) for their knowledge, time, and dedication, helping to bring new and exciting features to the menu
-- Thank you to [Smokey](https://www.gta5-mods.com/users/struggleville) for the Explicit Usage Rights Agreement to add free custom animations either publicly available on their discord
-- Thank you to [BzZzi](https://forum.cfx.re/u/bzzzi/summary) for the Explicit Usage Rights Agreement to add free donuts, croissants and fire torch props
-- Thank you to [Natty3d](https://forum.cfx.re/u/natty3d/summary) for the Explicit Usage Rights Agreement to add free lollipop props
-- Thank you to [northsqrd](https://github.com/0sqrd) for adding the search function, Animal Emotes config, mobile phone prop texture variants, and general contributions
-- Thank you to crusopaul and Eki for discussing KVP and initializing it to the menu for persistent walk styles
-- Thank you to [Amnilka](https://www.gta5-mods.com/users/frabi) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
-- Thank you to [LittleSpoon](https://discord.gg/safeword) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
-- Thank you to [Pupppy](https://discord.gg/rsN35X4s4N) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
-- Thank you to [SapphireMods](https://discord.gg/Hf8F4nTyzt) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
-- Thank you to [QueenSisters Animations](https://discord.gg/qbPtGwQuep) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
-- Thank you to [Kri's Graphic House](https://discord.gg/JueRG3fCy6) for the custom banners
-- Thank you to !MWooM#0597 on Discord for the custom banners
-- Thank you to [BoringNeptune](https://www.gta5-mods.com/users/BoringNeptune) for the custom dance emotes
-- Thank you to [CMG Mods](https://www.gta5-mods.com/users/-moses-) for the custom emotes
-- Thank you to [prue颜](discord.gg/lunyxmods) for being a great friend and providing us with exclusive custom animations
-- Thank you to [PataMods](https://forum.cfx.re/u/Pata_PataMods) for the custom props
-- Thank you to [Crowded1337](https://www.gta5-mods.com/users/crowded1337) for the custom Gucci bag. I have removed the Gucci logo to comply with Rockstar Games & TakeTwo Interactive
-- Thanks to [EnchantedBrownie](https://www.gta5-mods.com/users/EnchantedBrownie) for the custom animations
-- Thanks to [Copofiscool](https://forum.cfx.re/u/copofiscool/) for adding a toggle to the Favorite Keybinds
-- Thank you to [iSentrie](https://forum.cfx.re/u/isentrie/) for additional code, support, and joining the RPEmotes project 
-- Thank you to Chocoholic Animations for the custom animations
-- Thank you to [CrunchyCat](https://www.gta5-mods.com/users/crunchycat) for the custom animations
-- Thank you [KayKayMods](https://discord.gg/5bYQVWVaxG) for the custom props
-- Thank you to [MonkeyWhisper](https://github.com/MonkeyWhisper) and [Project Sloth](https://github.com/Project-Sloth) for the custom props
-- Thank you to [Brummieee](https://forum.cfx.re/u/brummieee_maps/summary) for the custom props
-- Thank you [Dark Animations](https://www.gta5-mods.com/users/Darks%20Animations) for the partnership and custom animations. You the goat 😎
-- Thank you [Chico](https://forum.cfx.re/u/chico) for implementing natives to reapply persistent moods and walk styles for ESX and QB-Core frameworks
-- Thank you [-EcLiPsE-](https://www.gta5-mods.com/users/-EcLiPsE-) for allowing me to implement [Improved Prop Sets](https://www.gta5-mods.com/misc/improved-propsets-meta) and [GTA Online Biker Idle Anims](https://www.gta5-mods.com/misc/bike-idle-animations)
-- Thank you [MrWitt](https://www.gta5-mods.com/users/MrWitt)for the custom animations and partnership
-- A huge thank you to [AdoredRose](https://forum.cfx.re/u/adoredrose/summary) for assisting with animations
-- Thank you [Vedere](https://discord.gg/XMywAMQ8Ef) for the custom props
-- Thank you to [DRX Animations](https://www.gta5-mods.com/users/DRX%2DAnimations) for the custom animations and partnership
-- Thank you to [VNSIanims](https://discord.gg/cTNrjYSXXG) for the custom animations and partnership
-- Thank you to [PNWParksFan](https://www.gta5-mods.com/users/PNWParksFan) for the custom props
-- Thank you to you, the community for being patient, showing love and appreciation, and for providing translations.
+**A huge the following people for their amazing contributions to the menu:**
+- the community for using RP Emotes!
+- [DerDevHD](https://forum.cfx.re/t/fixed-remove-prop-after-scenario-animation/5002332/8) for the insight on deleting scenario props.
+- [Kibook](https://github.com/kibook) for the addition of the Animal Emotes sub menu
+- [AvaN0x](https://github.com/AvaN0x) for reformatting and assisting with code, additional features, and figuring out shared particle effects
+- [Mads](https://github.com/MadsLeander) for joining the team as Co-Developer 
+- [Mathu_lmn](https://github.com/Mathu-lmn) for joining the team as Co-Developer 
+- [Tigerle](https://forum.cfx.re/u/tigerle_studios) for providing the additional code required to make Shared Emotes work to its full extent
+- [SMGMissy](https://forum.cfx.re/u/smgmissy/) for assisting with custom pride flags and how to stream them
+- [MissSnowie](https://www.gta5-mods.com/users/MissySnowie) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord and for the motivational and overall moral support
+- [GeekGarage](https://github.com/geekgarage) for their knowledge, time, and dedication, helping to bring new and exciting features to the menu
+- [Smokey](https://www.gta5-mods.com/users/struggleville) for the Explicit Usage Rights Agreement to add free custom animations either publicly available on their discord
+- [BzZzi](https://forum.cfx.re/u/bzzzi/summary) for the Explicit Usage Rights Agreement to add free donuts, croissants and fire torch props
+- [Natty3d](https://forum.cfx.re/u/natty3d/summary) for the Explicit Usage Rights Agreement to add free lollipop props
+- [northsqrd](https://github.com/0sqrd) for adding the search function, Animal Emotes config, mobile phone prop texture variants, and general contributions
+- crusopaul and Eki for discussing KVP and initializing it to the menu for persistent walk styles
+- [Amnilka](https://www.gta5-mods.com/users/frabi) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
+- [LittleSpoon](https://discord.gg/safeword) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
+- [Pupppy](https://discord.gg/rsN35X4s4N) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
+- [SapphireMods](https://discord.gg/Hf8F4nTyzt) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
+- [QueenSisters Animations](https://discord.gg/qbPtGwQuep) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
+- [Kri's Graphic House](https://discord.gg/JueRG3fCy6) for the custom banners
+- !MWooM#0597 on Discord for the custom banners
+- DurtyFree for his work on particle effects and cataloging GTA related information [DurtyFree GTA V Dump](https://github.com/DurtyFree/gta-v-data-dumps/blob/master/particleEffectsCompact.json).
+- [BoringNeptune](https://www.gta5-mods.com/users/BoringNeptune) for the custom dance emotes
+- [CMG Mods](https://www.gta5-mods.com/users/-moses-) for the custom emotes
+- [prue颜](discord.gg/lunyxmods) for being a great friend and providing us with exclusive custom animations
+- [PataMods](https://forum.cfx.re/u/Pata_PataMods) for the custom props
+- [Crowded1337](https://www.gta5-mods.com/users/crowded1337) for the custom Gucci bag. I have removed the Gucci logo to comply with Rockstar Games & TakeTwo Interactive
+- [EnchantedBrownie](https://www.gta5-mods.com/users/EnchantedBrownie) for the custom animations
+- [Copofiscool](https://forum.cfx.re/u/copofiscool/) for adding a toggle to the Favorite Keybinds
+- [iSentrie](https://forum.cfx.re/u/isentrie/) for additional code, support, and joining the RPEmotes project 
+- Chocoholic Animations for the custom animations
+- [CrunchyCat](https://www.gta5-mods.com/users/crunchycat) for the custom animations
+- [KayKayMods](https://discord.gg/5bYQVWVaxG) for the custom props
+- [MonkeyWhisper](https://github.com/MonkeyWhisper) and [Project Sloth](https://github.com/Project-Sloth) for the custom props
+- [Brummieee](https://forum.cfx.re/u/brummieee_maps/summary) for the custom props
+- [Dark Animations](https://www.gta5-mods.com/users/Darks%20Animations) for the partnership and custom animations. You the goat 😎
+- [Chico](https://forum.cfx.re/u/chico) for implementing natives to reapply persistent moods and walk styles for ESX and QB-Core frameworks
+- [-EcLiPsE-](https://www.gta5-mods.com/users/-EcLiPsE-) for allowing me to implement [Improved Prop Sets](https://www.gta5-mods.com/misc/improved-propsets-meta) and [GTA Online Biker Idle Anims](https://www.gta5-mods.com/misc/bike-idle-animations)
+- [MrWitt](https://www.gta5-mods.com/users/MrWitt)for the custom animations and partnership
+- [AdoredRose](https://forum.cfx.re/u/adoredrose/summary) for assisting with animations
+- [Vedere](https://discord.gg/XMywAMQ8Ef) for the custom props
+- [DRX Animations](https://www.gta5-mods.com/users/DRX%2DAnimations) for the custom animations and partnership
+- [VNSIanims](https://discord.gg/cTNrjYSXXG) for the custom animations and partnership
+- [PNWParksFan](https://www.gta5-mods.com/users/PNWParksFan) for the custom props
+- [TayMcKenzieNZ](https://github.com/TayMcKenzieNZ) for their past work maintaining RP Emotes
 
 # Police Badge 👮
 
 - Custom LSPD police badge by [LSPDFR member Sam](https://www.lcpdfr.com/downloads/gta5mods/misc/23386-lspd-police-badge/)
 - LSPD reskinned badge by [GTA5Mods user Sladus_Slawonkus](https://www.gta5-mods.com/misc/lspd-police-badge-replace-sladus_slawonkus)
-
-You played a big role in making this script what it is today and we could not do it without you 🙏
