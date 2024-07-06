@@ -477,15 +477,8 @@ function AddInfoMenu(menu)
     --     infomenu = _menuPool:AddSubMenu(menu, Config.Languages[lang]['infoupdateav'],
     --         Config.Languages[lang]['infoupdateavtext'], "", Menuthing, Menuthing)
     -- end
- 
-    infomenu:AddItem(NativeUI.CreateItem("Join the <font color=\"#00ceff\"><b>Official Discord 💬<b></font>",
-        "Join our official discord! 💬 <font color=\"#00ceff\"><b>https://discord.gg/sw3NwDq6C8<b></font>"))
-    infomenu:AddItem(NativeUI.CreateItem("Download <font color=\"#FF25B1\"><b>RPEmotes<b></font> from 💾",
-        "Official download link: <font color=\"#00ceff\">http://rpemotes.com</font>"))
-    infomenu:AddItem(NativeUI.CreateItem("Read the <font color=\"#00ceff\"><b>Official Wiki Docs 📖<b></font>",
-        "Check out our official Wiki Docs: <font color=\"#00ceff\">https://docs.rpemotes.com/</font>"))
-    infomenu:AddItem(NativeUI.CreateItem("<font color=\"#FF25B1\"><b>TayMcKenzieNZ 🇳🇿<b></font>",
-        "<font color=\"#FF25B1\">TayMcKenzieNZ 🇳🇿</font> Project Manager for RPEmotes."))
+
+    infomenu:AddItem(NativeUI.CreateItem("<b>Thanks to the community<b>", "For supporting and using RP Emotes!")) 
     infomenu:AddItem(NativeUI.CreateItem("Thanks ~o~DullPear 🍐~s~", "~o~DullPear~s~ for the original dpemotes ❤️"))
     infomenu:AddItem(NativeUI.CreateItem("Thanks <b>Kibook 🐩</b>",
         "<b>Kibook</b> for the addition of Animal Emotes 🐩 submenu."))
@@ -531,38 +524,38 @@ function AddInfoMenu(menu)
         "<font color=\"#edae00\">-Moses-</font> for the custom emotes 🧡"))
     infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#D71196\">PataMods 🍓</font>",
         "<font color=\"#D71196\">PataMods</font> for the custom props 🍕"))
-   infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#FB7403\">Crowded1337 👜</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#FB7403\">Crowded1337 👜</font>",
         "<font color=\"#FB7403\">Crowded1337</font> for the custom Gucci bag 👜"))
-  infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#8180E5\">EnchantedBrownie 🍪</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#8180E5\">EnchantedBrownie 🍪</font>",
         "<font color=\"#8180E5\">EnchantedBrownie 🍪</font> for the custom animations 🍪"))
-  infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#eb540e\">Copofiscool 🇦🇺</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#eb540e\">Copofiscool 🇦🇺</font>",
         "<font color=\"#eb540e\">Copofiscool</font> for the Favorite Emote keybind toggle fix 🇦🇺"))
-  infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#40E0D0\">iSentrie </font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#40E0D0\">iSentrie </font>",
         "<font color=\"#40E0D0\">iSentrie</font> for assisting with code 🛠️"))
-  infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#7B3F00\">Chocoholic Animations 🍫</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#7B3F00\">Chocoholic Animations 🍫</font>",
         "<font color=\"#7B3F00\">Chocoholic Animations</font> for the custom emotes 🍫"))
-  infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#34cf5d\">CrunchyCat 🐱</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#34cf5d\">CrunchyCat 🐱</font>",
         "<font color=\"#34cf5d\">CrunchyCat 🐱</font> for the custom emotes 🐱"))
-  infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#d10870\">KayKayMods</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#d10870\">KayKayMods</font>",
         "<font color=\"#d10870\">KayKayMods</font> for the custom props 🧋"))
-  infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#de1846\">Dark Animations</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#de1846\">Dark Animations</font>",
         "<font color=\"#de1846\">Dark Animations</font> for the custom animations 🖤"))
-  infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#00FF12\">Brum 🇬🇧</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#00FF12\">Brum 🇬🇧</font>",
         "<font color=\"#00FF12\">Brum</font> for the custom props  🇬🇧"))
-  infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#017a05\">Chico 💀</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#017a05\">Chico 💀</font>",
         "<font color=\"#017a05\">Chico 💀</font> for fixing persistent walkstyles and moods for QB-Core and ESX."))
-  infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#194ce6\">-EcLiPsE- ✌🏻</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#194ce6\">-EcLiPsE- ✌🏻</font>",
         "<font color=\"#194ce6\">-EcLiPsE- ✌🏻 </font> for NPC prop sets and GTA Online biker animations"))
-  infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#3488c8\">MrWitt 🦑️</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#3488c8\">MrWitt 🦑️</font>",
         "<font color=\"#3488c8\">MrWitt 🦑</font> for the custom animations."))
-  infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#ff96b6\">AdoredRose 🌹</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#ff96b6\">AdoredRose 🌹</font>",
        "<font color=\"#ff96b6\">AdoredRose 🌹</font> for assistance with adding animations."))
     infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#ff451d\">DRX Animations 👑</font>",
         "<font color=\"#ff451d\">DRX Animations 👑</font> for the custom animations"))
-	infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#12ab0a\">Radial 🫡</font>",
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#12ab0a\">Radial 🫡</font>",
        "<font color=\"#12ab0a\">Radial</font> on discord for contributing animations code"))
-        
-  infomenu:AddItem(NativeUI.CreateItem("<b>Thanks to the community<b>", "Translations, bug reports and moral support 🌐"))
+    infomenu:AddItem(NativeUI.CreateItem("<font color=\"#FF25B1\"><b>TayMcKenzieNZ 🇳🇿<b></font>",
+        "<font color=\"#FF25B1\">TayMcKenzieNZ 🇳🇿</font> Previous maintainer of RP Emotes."))
     
 end
 
