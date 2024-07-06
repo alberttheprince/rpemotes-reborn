@@ -100,7 +100,6 @@ Config = {
         -- OFFICAL UPDATES CHECKER
         CheckForUpdates = true, -- This is set to false by default and will check for any future updates on the official RPEmotes repository by TayMcKenzieNZ, as intended.
 
-
 }
 
 Config.KeybindKeys = {
