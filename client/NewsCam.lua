@@ -66,7 +66,7 @@ if Config.NewscamEnabled then
         IsUsingNewscam = not IsUsingNewscam
 
         if IsUsingNewscam then
-            Citizen.CreateThread(function()
+            CreateThread(function()
                 DestroyAllProps()
                 ClearPedTasks(PlayerPedId())
                 RequestAnimDict("missfinale_c2mcs_1")
