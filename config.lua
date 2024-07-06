@@ -74,7 +74,7 @@ Config = {
         AllowVisionsToggling = false, -- If set to true, you'll be able to toggle between different vision modes in the binoculars
         -- News Camera Options
         NewscamEnabled = false, -- If set to true, the /newscam command will be enabled.
-
+        PreviewPed = true, -- a previsualition of the ped is about to start 
 }
 
 Config.KeybindKeys = {

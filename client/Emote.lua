@@ -1007,211 +1007,213 @@ end
 
 
 function OnEmotePlayPed(EmoteName, name, textureVariation)
-    local scenarioObjects = {
-        `prop_tool_jackham`, 
-        `prop_bongos_01`,
-        `prop_acc_guitar_01`,
-        `prop_notepad_02`,
-        `prop_tool_hammer`,
-        `prop_fish_slice_01`,
-        `prop_cs_trowel`,
-        `prop_tool_broom`,
-        `prop_cs_paper_cup`,
-        `prop_amb_phone`,
-        `prop_cigar_03`,
-        `p_cs_joint_01`,
-        `prop_weld_torch`,
-    }
-    
-    for i = 1, #scenarioObjects do
-        local deleteScenarioObject = GetClosestObjectOfType(GetEntityCoords(clonedPed), 1.0, scenarioObjects[i], false, true ,true)
-        if DoesEntityExist(deleteScenarioObject) then
-            SetEntityAsMissionEntity(deleteScenarioObject, false, false)
-            DeleteObject(deleteScenarioObject)
-        end  
-    end
+    if Config.PreviewPed then
+        local scenarioObjects = {
+            `prop_tool_jackham`, 
+            `prop_bongos_01`,
+            `prop_acc_guitar_01`,
+            `prop_notepad_02`,
+            `prop_tool_hammer`,
+            `prop_fish_slice_01`,
+            `prop_cs_trowel`,
+            `prop_tool_broom`,
+            `prop_cs_paper_cup`,
+            `prop_amb_phone`,
+            `prop_cigar_03`,
+            `p_cs_joint_01`,
+            `prop_weld_torch`,
+        }
+        
+        for i = 1, #scenarioObjects do
+            local deleteScenarioObject = GetClosestObjectOfType(GetEntityCoords(clonedPed), 1.0, scenarioObjects[i], false, true ,true)
+            if DoesEntityExist(deleteScenarioObject) then
+                SetEntityAsMissionEntity(deleteScenarioObject, false, false)
+                DeleteObject(deleteScenarioObject)
+            end  
+        end
 
-    -- InVehicle = IsPedInAnyVehicle(clonedPed, true)
-    -- Pointing = false
+        -- InVehicle = IsPedInAnyVehicle(clonedPed, true)
+        -- Pointing = false
 
-    -- if not Config.AllowedInCars and InVehicle == 1 then
-    --     return
-    -- end
+        -- if not Config.AllowedInCars and InVehicle == 1 then
+        --     return
+        -- end
 
-    if not DoesEntityExist(clonedPed) then
-        return false
-    end
+        if not DoesEntityExist(clonedPed) then
+            return false
+        end
 
-    -- Don't play a new animation if we are in an exit emote
-    if InExitEmote then
-        return false
-    end
+        -- Don't play a new animation if we are in an exit emote
+        if InExitEmote then
+            return false
+        end
 
-    -- if Config.CancelPreviousEmote and IsInAnimation and not ExitAndPlay and not EmoteCancelPlaying then
-    if Config.CancelPreviousEmote and not ExitAndPlay and not EmoteCancelPlaying then
-        ExitAndPlay = true
-        DebugPrint("Canceling previous emote and playing next emote")
-        -- PlayExitAndEnterEmote(EmoteName, name, textureVariation) -- A remettre
-        return
-    end
-
-    local animOption = EmoteName.AnimationOptions
-
-    if ChosenAnimOptions and ChosenAnimOptions.ExitEmote and animOption and animOption.ExitEmote then
-        if not (animOption and ChosenAnimOptions.ExitEmote == animOption.ExitEmote) and RP.Exits[ChosenAnimOptions.ExitEmote][2] ~= EmoteName[2] then
+        -- if Config.CancelPreviousEmote and IsInAnimation and not ExitAndPlay and not EmoteCancelPlaying then
+        if Config.CancelPreviousEmote and not ExitAndPlay and not EmoteCancelPlaying then
+            ExitAndPlay = true
+            DebugPrint("Canceling previous emote and playing next emote")
+            -- PlayExitAndEnterEmote(EmoteName, name, textureVariation) -- A remettre
             return
         end
-    end
 
-    if isInActionWithErrorMessage() then
-        return false
-    end
+        local animOption = EmoteName.AnimationOptions
 
-    ChosenDict, ChosenAnimation, ename = table.unpack(EmoteName)
-    CurrentTextureVariation = textureVariation
-    ChosenAnimOptions = animOption
-    AnimationDuration = -1
-
-    if Config.DisarmPlayer then
-        if IsPedArmed(clonedPed, 7) then
-            SetCurrentPedWeapon(clonedPed, joaat('WEAPON_UNARMED'), true)
+        if ChosenAnimOptions and ChosenAnimOptions.ExitEmote and animOption and animOption.ExitEmote then
+            if not (animOption and ChosenAnimOptions.ExitEmote == animOption.ExitEmote) and RP.Exits[ChosenAnimOptions.ExitEmote][2] ~= EmoteName[2] then
+                return
+            end
         end
-    end
 
-    if animOption and animOption.Prop and PlayerHasProp then
-        DestroyAllProps(true)
-    end
+        if isInActionWithErrorMessage() then
+            return false
+        end
 
-    if ChosenDict == "MaleScenario" or ChosenDict == "Scenario" or ChosenDict == "ScenarioObject" then
-        CheckGender()
-        if ChosenDict == "MaleScenario" then -- if InVehicle then return end
-            if PlayerGender == "male" then
+        ChosenDict, ChosenAnimation, ename = table.unpack(EmoteName)
+        CurrentTextureVariation = textureVariation
+        ChosenAnimOptions = animOption
+        AnimationDuration = -1
+
+        if Config.DisarmPlayer then
+            if IsPedArmed(clonedPed, 7) then
+                SetCurrentPedWeapon(clonedPed, joaat('WEAPON_UNARMED'), true)
+            end
+        end
+
+        if animOption and animOption.Prop and PlayerHasProp then
+            DestroyAllProps(true)
+        end
+
+        if ChosenDict == "MaleScenario" or ChosenDict == "Scenario" or ChosenDict == "ScenarioObject" then
+            CheckGender()
+            if ChosenDict == "MaleScenario" then -- if InVehicle then return end
+                if PlayerGender == "male" then
+                    ClearPedTasks(clonedPed)
+                    DestroyAllProps(true)
+                    TaskStartScenarioInPlace(clonedPed, ChosenAnimation, 0, true)
+                    DebugPrint("Playing scenario = (" .. ChosenAnimation .. ")")
+                    -- RunAnimationThread()
+                else
+                    DestroyAllProps(true)
+                    -- EmoteCancel()
+                    EmoteChatMessage(Config.Languages[lang]['maleonly'])
+                end
+                return
+            elseif ChosenDict == "ScenarioObject" then -- if InVehicle then return end
+                BehindPlayer = GetOffsetFromEntityInWorldCoords(clonedPed, 0.0, 0 - 0.5, -0.5);
+                ClearPedTasks(clonedPed)
+                TaskStartScenarioAtPosition(clonedPed, ChosenAnimation, BehindPlayer['x'], BehindPlayer['y'], BehindPlayer['z'], GetEntityHeading(clonedPed), 0, true, false)
+                DebugPrint("Playing scenario = (" .. ChosenAnimation .. ")")
+                -- RunAnimationThread()
+                return
+            elseif ChosenDict == "Scenario" then -- if InVehicle then return end
                 ClearPedTasks(clonedPed)
                 DestroyAllProps(true)
                 TaskStartScenarioInPlace(clonedPed, ChosenAnimation, 0, true)
                 DebugPrint("Playing scenario = (" .. ChosenAnimation .. ")")
                 -- RunAnimationThread()
-            else
-                DestroyAllProps(true)
-                -- EmoteCancel()
-                EmoteChatMessage(Config.Languages[lang]['maleonly'])
-            end
-            return
-        elseif ChosenDict == "ScenarioObject" then -- if InVehicle then return end
-            BehindPlayer = GetOffsetFromEntityInWorldCoords(clonedPed, 0.0, 0 - 0.5, -0.5);
-            ClearPedTasks(clonedPed)
-            TaskStartScenarioAtPosition(clonedPed, ChosenAnimation, BehindPlayer['x'], BehindPlayer['y'], BehindPlayer['z'], GetEntityHeading(clonedPed), 0, true, false)
-            DebugPrint("Playing scenario = (" .. ChosenAnimation .. ")")
-            -- RunAnimationThread()
-            return
-        elseif ChosenDict == "Scenario" then -- if InVehicle then return end
-            ClearPedTasks(clonedPed)
-            DestroyAllProps(true)
-            TaskStartScenarioInPlace(clonedPed, ChosenAnimation, 0, true)
-            DebugPrint("Playing scenario = (" .. ChosenAnimation .. ")")
-            -- RunAnimationThread()
-            return
-        end
-    end
-
-    -- Small delay at the start
-    -- if animOption and animOption.StartDelay then
-    --     Wait(animOption.StartDelay)
-    -- end
-
-    if not LoadAnim(ChosenDict) then
-        EmoteChatMessage("'" .. ename .. "' " .. Config.Languages[lang]['notvalidemote'] .. "")
-        return
-    end
-
-    MovementType = 0 -- Default movement type
-
-    -- if InVehicle == 1 then
-    --     MovementType = 51
-    -- elseif animOption then
-    if animOption then
-        if animOption.EmoteMoving then
-            MovementType = 51
-        elseif animOption.EmoteLoop then
-            MovementType = 1
-        elseif animOption.EmoteStuck then
-            MovementType = 50
-        end
-    end
-
-    if animOption then
-        if animOption.EmoteDuration == nil then
-            animOption.EmoteDuration = -1
-            AttachWait = 0
-        else
-            AnimationDuration = animOption.EmoteDuration
-            AttachWait = animOption.EmoteDuration
-        end
-
-        -- if animOption.PtfxAsset then
-        --     PtfxAsset = animOption.PtfxAsset
-        --     PtfxName = animOption.PtfxName
-        --     if animOption.PtfxNoProp then
-        --         PtfxNoProp = animOption.PtfxNoProp
-        --     else
-        --         PtfxNoProp = false
-        --     end
-        --     Ptfx1, Ptfx2, Ptfx3, Ptfx4, Ptfx5, Ptfx6, PtfxScale = table.unpack(animOption.PtfxPlacement)
-        --     PtfxBone = animOption.PtfxBone
-        --     PtfxColor = animOption.PtfxColor
-        --     PtfxInfo = animOption.PtfxInfo
-        --     PtfxWait = animOption.PtfxWait
-        --     PtfxCanHold = animOption.PtfxCanHold
-        --     PtfxNotif = false
-        --     PtfxPrompt = true
-        --     -- RunAnimationThread() -- ? This call should not be required, see if needed with tests
-
-        --     TriggerServerEvent("rpemotes:ptfx:sync", PtfxAsset, PtfxName, vector3(Ptfx1, Ptfx2, Ptfx3), vector3(Ptfx4, Ptfx5, Ptfx6), PtfxBone, PtfxScale, PtfxColor)
-        -- else
-        --     DebugPrint("Ptfx = none")
-        --     PtfxPrompt = false
-        -- end
-    end
-
-    if IsPedUsingAnyScenario(clonedPed) or IsPedActiveInScenario(clonedPed) then
-        ClearPedTasksImmediately(clonedPed)
-    end
-
-    TaskPlayAnim(clonedPed, ChosenDict, ChosenAnimation, 5.0, 5.0, AnimationDuration, MovementType, 0, false, false, false)
-    RemoveAnimDict(ChosenDict)
-    IsInAnimation = true
-    -- RunAnimationThread()
-
-    MostRecentDict = ChosenDict
-    MostRecentAnimation = ChosenAnimation
-
-    if animOption and animOption.Prop then
-        PropName = animOption.Prop
-        PropBone = animOption.PropBone
-        PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6 = table.unpack(animOption.PropPlacement)
-        if animOption.SecondProp then
-            SecondPropName = animOption.SecondProp
-            SecondPropBone = animOption.SecondPropBone
-            SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6 = table.unpack(animOption.SecondPropPlacement)
-            SecondPropEmote = true
-        else
-            SecondPropEmote = false
-        end
-        Wait(AttachWait)
-
-
-        if not AddPropToPlayer(PropName, PropBone, PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6, textureVariation, true) then return end
-        if SecondPropEmote then
-        if not AddPropToPlayer(SecondPropName, SecondPropBone, SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6, textureVariation, true) then
-                DestroyAllProps(true)
                 return
             end
         end
 
-        -- Ptfx is on the prop, then we need to sync it
-        -- if animOption.PtfxAsset and not PtfxNoProp then
-        --     TriggerServerEvent("rpemotes:ptfx:syncProp", ObjToNet(prop))
+        -- Small delay at the start
+        -- if animOption and animOption.StartDelay then
+        --     Wait(animOption.StartDelay)
         -- end
+
+        if not LoadAnim(ChosenDict) then
+            EmoteChatMessage("'" .. ename .. "' " .. Config.Languages[lang]['notvalidemote'] .. "")
+            return
+        end
+
+        MovementType = 0 -- Default movement type
+
+        -- if InVehicle == 1 then
+        --     MovementType = 51
+        -- elseif animOption then
+        if animOption then
+            if animOption.EmoteMoving then
+                MovementType = 51
+            elseif animOption.EmoteLoop then
+                MovementType = 1
+            elseif animOption.EmoteStuck then
+                MovementType = 50
+            end
+        end
+
+        if animOption then
+            if animOption.EmoteDuration == nil then
+                animOption.EmoteDuration = -1
+                AttachWait = 0
+            else
+                AnimationDuration = animOption.EmoteDuration
+                AttachWait = animOption.EmoteDuration
+            end
+
+            -- if animOption.PtfxAsset then
+            --     PtfxAsset = animOption.PtfxAsset
+            --     PtfxName = animOption.PtfxName
+            --     if animOption.PtfxNoProp then
+            --         PtfxNoProp = animOption.PtfxNoProp
+            --     else
+            --         PtfxNoProp = false
+            --     end
+            --     Ptfx1, Ptfx2, Ptfx3, Ptfx4, Ptfx5, Ptfx6, PtfxScale = table.unpack(animOption.PtfxPlacement)
+            --     PtfxBone = animOption.PtfxBone
+            --     PtfxColor = animOption.PtfxColor
+            --     PtfxInfo = animOption.PtfxInfo
+            --     PtfxWait = animOption.PtfxWait
+            --     PtfxCanHold = animOption.PtfxCanHold
+            --     PtfxNotif = false
+            --     PtfxPrompt = true
+            --     -- RunAnimationThread() -- ? This call should not be required, see if needed with tests
+
+            --     TriggerServerEvent("rpemotes:ptfx:sync", PtfxAsset, PtfxName, vector3(Ptfx1, Ptfx2, Ptfx3), vector3(Ptfx4, Ptfx5, Ptfx6), PtfxBone, PtfxScale, PtfxColor)
+            -- else
+            --     DebugPrint("Ptfx = none")
+            --     PtfxPrompt = false
+            -- end
+        end
+
+        if IsPedUsingAnyScenario(clonedPed) or IsPedActiveInScenario(clonedPed) then
+            ClearPedTasksImmediately(clonedPed)
+        end
+
+        TaskPlayAnim(clonedPed, ChosenDict, ChosenAnimation, 5.0, 5.0, AnimationDuration, MovementType, 0, false, false, false)
+        RemoveAnimDict(ChosenDict)
+        IsInAnimation = true
+        -- RunAnimationThread()
+
+        MostRecentDict = ChosenDict
+        MostRecentAnimation = ChosenAnimation
+
+        if animOption and animOption.Prop then
+            PropName = animOption.Prop
+            PropBone = animOption.PropBone
+            PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6 = table.unpack(animOption.PropPlacement)
+            if animOption.SecondProp then
+                SecondPropName = animOption.SecondProp
+                SecondPropBone = animOption.SecondPropBone
+                SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6 = table.unpack(animOption.SecondPropPlacement)
+                SecondPropEmote = true
+            else
+                SecondPropEmote = false
+            end
+            Wait(AttachWait)
+
+
+            if not AddPropToPlayer(PropName, PropBone, PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6, textureVariation, true) then return end
+            if SecondPropEmote then
+            if not AddPropToPlayer(SecondPropName, SecondPropBone, SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6, textureVariation, true) then
+                    DestroyAllProps(true)
+                    return
+                end
+            end
+
+            -- Ptfx is on the prop, then we need to sync it
+            -- if animOption.PtfxAsset and not PtfxNoProp then
+            --     TriggerServerEvent("rpemotes:ptfx:syncProp", ObjToNet(prop))
+            -- end
+        end
     end
 end
 

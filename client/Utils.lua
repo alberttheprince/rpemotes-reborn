@@ -218,91 +218,96 @@ end
 ShowPed = false
 
 ShowPedMenu = function(zoom)
-    if not ShowPed then
-        CreateThread(function()
-            -- clonedPed = CreatePed(26, GetEntityModel(PlayerPedId()), nil, nil, nil, 0, true, false)
-            clonedPed = CreatePed(26, GetEntityModel(PlayerPedId()), nil, nil, nil, 0, false, false)
-            ClonePedToTarget(PlayerPedId(), clonedPed)
+    if Config.PreviewPed then
+        if not ShowPed then
+            CreateThread(function()
+                -- clonedPed = CreatePed(26, GetEntityModel(PlayerPedId()), nil, nil, nil, 0, true, false)
+                clonedPed = CreatePed(26, GetEntityModel(PlayerPedId()), nil, nil, nil, 0, false, false)
+                ClonePedToTarget(PlayerPedId(), clonedPed)
+                
+                SetEntityCollision(clonedPed, false, false)
+                SetEntityInvincible(clonedPed, true)
+                SetEntityLocallyVisible(clonedPed)
+
+                NetworkSetEntityInvisibleToNetwork(clonedPed, true)
+                SetEntityCanBeDamaged(clonedPed, false)
+                SetBlockingOfNonTemporaryEvents(clonedPed, true)
+                SetEntityAlpha(clonedPed, 254)
+
+                ShowPed = true
+        
+                local positionBuffer = {}
+                local bufferSize = 5
+                
+                if not zoom then 
+                    while ShowPed do 
+                        local world, normal =  GetWorldCoordFromScreenCoord(0.65135417461395, 0.77) --  GetWorldCoordFromScreenCoord(0.67135417461395, 0.7787036895752)
+                        local depth = 3.5
+                        local target = world + normal * depth
+                        local camRot = GetGameplayCamRot(2)
             
-            SetEntityCollision(clonedPed, false, false)
-            SetEntityInvincible(clonedPed, true)
-            SetEntityLocallyVisible(clonedPed)
-
-            NetworkSetEntityInvisibleToNetwork(clonedPed, true)
-            SetEntityCanBeDamaged(clonedPed, false)
-            SetBlockingOfNonTemporaryEvents(clonedPed, true)
-            SetEntityAlpha(clonedPed, 254)
-
-            ShowPed = true
-    
-            local positionBuffer = {}
-            local bufferSize = 5
+                        table.insert(positionBuffer, target)
+                        if #positionBuffer > bufferSize then
+                            table.remove(positionBuffer, 1)
+                        end
             
-            if not zoom then 
-                while ShowPed do 
-                    local world, normal =  GetWorldCoordFromScreenCoord(0.65135417461395, 0.77) --  GetWorldCoordFromScreenCoord(0.67135417461395, 0.7787036895752)
-                    local depth = 3.5
-                    local target = world + normal * depth
-                    local camRot = GetGameplayCamRot(2)
-        
-                    table.insert(positionBuffer, target)
-                    if #positionBuffer > bufferSize then
-                        table.remove(positionBuffer, 1)
-                    end
-        
-                    local averagedTarget = vector3(0, 0, 0)
-                    for _, position in ipairs(positionBuffer) do
-                        averagedTarget = averagedTarget + position
-                    end
-                    averagedTarget = averagedTarget / #positionBuffer
-                   
-                    SetEntityCoords(clonedPed, averagedTarget.x, averagedTarget.y, averagedTarget.z, false, false, false, true)
-                    SetEntityHeading(clonedPed, camRot.z + 170.0)
-                    SetEntityRotation(clonedPed, camRot.x*(-1), 0, camRot.z + 170.0, false, false)
+                        local averagedTarget = vector3(0, 0, 0)
+                        for _, position in ipairs(positionBuffer) do
+                            averagedTarget = averagedTarget + position
+                        end
+                        averagedTarget = averagedTarget / #positionBuffer
+                    
+                        SetEntityCoords(clonedPed, averagedTarget.x, averagedTarget.y, averagedTarget.z, false, false, false, true)
+                        SetEntityHeading(clonedPed, camRot.z + 170.0)
+                        SetEntityRotation(clonedPed, camRot.x*(-1), 0, camRot.z + 170.0, false, false)
 
-                    Wait(4)
-                end
-            else 
-                while ShowPed do 
-                    local world, normal = GetWorldCoordFromScreenCoord(0.6, 1.9)
-                    local depth = 2.0
-                    local target = world + normal * depth
-                    local camRot = GetGameplayCamRot(2)
-        
-                    table.insert(positionBuffer, target)
-                    if #positionBuffer > bufferSize then
-                        table.remove(positionBuffer, 1)
+                        Wait(4)
                     end
+                else 
+                    while ShowPed do 
+                        local world, normal = GetWorldCoordFromScreenCoord(0.6, 1.9)
+                        local depth = 2.0
+                        local target = world + normal * depth
+                        local camRot = GetGameplayCamRot(2)
+            
+                        table.insert(positionBuffer, target)
+                        if #positionBuffer > bufferSize then
+                            table.remove(positionBuffer, 1)
+                        end
+            
+                        local averagedTarget = vector3(0, 0, 0)
+                        for _, position in ipairs(positionBuffer) do
+                            averagedTarget = averagedTarget + position
+                        end
+                        averagedTarget = averagedTarget / #positionBuffer
+            
+                        SetEntityCoords(clonedPed, averagedTarget.x, averagedTarget.y, averagedTarget.z, false, false, false, true)
+                        SetEntityHeading(clonedPed, camRot.z + 170.0)
+                        SetEntityRotation(clonedPed, camRot.x*(-1), 0, camRot.z + 170.0, false, false)
         
-                    local averagedTarget = vector3(0, 0, 0)
-                    for _, position in ipairs(positionBuffer) do
-                        averagedTarget = averagedTarget + position
+                        Wait(4)
                     end
-                    averagedTarget = averagedTarget / #positionBuffer
-        
-                    SetEntityCoords(clonedPed, averagedTarget.x, averagedTarget.y, averagedTarget.z, false, false, false, true)
-                    SetEntityHeading(clonedPed, camRot.z + 170.0)
-                    SetEntityRotation(clonedPed, camRot.x*(-1), 0, camRot.z + 170.0, false, false)
-    
-                    Wait(4)
                 end
-            end
-        end)
-    
+            end)
+        end
     end
 end
 
 ClosePedMenu = function()
-    if clonedPed then
-        ShowPed = false
-        ClearPedTaskPreview()
-        DeleteEntity(clonedPed)
+    if Config.PreviewPed then
+        if clonedPed then
+            ShowPed = false
+            ClearPedTaskPreview()
+            DeleteEntity(clonedPed)
+        end
     end
 end
 
 ClearPedTaskPreview = function()
-    if clonedPed then
-        DestroyAllProps(true)
-        ClearPedTasksImmediately(clonedPed)
+    if Config.PreviewPed then
+        if clonedPed then
+            DestroyAllProps(true)
+            ClearPedTasksImmediately(clonedPed)
+        end
     end
 end
