@@ -26,7 +26,7 @@ RegisterCommand('idlecamon', function() -- help2 31, 167, 9
   SetResourceKvp("idleCam", "on")
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
   TriggerEvent("chat:addSuggestion", "/idlecamon", "Re-enables the idle cam")
   TriggerEvent("chat:addSuggestion", "/idlecamoff", "Disables the idle cam")
 
