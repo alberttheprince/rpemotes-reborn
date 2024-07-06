@@ -1068,7 +1068,6 @@ function OnEmotePlayPed(EmoteName, name, textureVariation)
     end
 
     ChosenDict, ChosenAnimation, ename = table.unpack(EmoteName)
-    CurrentAnimationName = name
     CurrentTextureVariation = textureVariation
     ChosenAnimOptions = animOption
     AnimationDuration = -1
@@ -1295,6 +1294,10 @@ end)
 -- Door stuff
 local openingDoor = false
 AddEventHandler('CEventOpenDoor', function(entities, eventEntity, args)
+    if ShowPed then
+        return
+    end
+
     if not IsInAnimation then
         return
     end

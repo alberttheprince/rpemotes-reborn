@@ -215,10 +215,10 @@ end
 
 -- --------------------------------------------------------------------
 
-local showPed = false
+ShowPed = false
 
 ShowPedMenu = function(zoom)
-    if not showPed then
+    if not ShowPed then
         CreateThread(function()
             -- clonedPed = CreatePed(26, GetEntityModel(PlayerPedId()), nil, nil, nil, 0, true, false)
             clonedPed = CreatePed(26, GetEntityModel(PlayerPedId()), nil, nil, nil, 0, false, false)
@@ -233,13 +233,13 @@ ShowPedMenu = function(zoom)
             SetBlockingOfNonTemporaryEvents(clonedPed, true)
             SetEntityAlpha(clonedPed, 254)
 
-            showPed = true
+            ShowPed = true
     
             local positionBuffer = {}
             local bufferSize = 5
             
             if not zoom then 
-                while showPed do 
+                while ShowPed do 
                     local world, normal =  GetWorldCoordFromScreenCoord(0.65135417461395, 0.77) --  GetWorldCoordFromScreenCoord(0.67135417461395, 0.7787036895752)
                     local depth = 3.5
                     local target = world + normal * depth
@@ -263,7 +263,7 @@ ShowPedMenu = function(zoom)
                     Wait(4)
                 end
             else 
-                while showPed do 
+                while ShowPed do 
                     local world, normal = GetWorldCoordFromScreenCoord(0.6, 1.9)
                     local depth = 2.0
                     local target = world + normal * depth
@@ -294,7 +294,7 @@ end
 
 ClosePedMenu = function()
     if clonedPed then
-        showPed = false
+        ShowPed = false
         ClearPedTaskPreview()
         DeleteEntity(clonedPed)
     end
