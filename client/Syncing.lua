@@ -1,9 +1,3 @@
---- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
---- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
---- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
-
-
-
 local isRequestAnim = false
 local requestedemote = ''
 local targetPlayerId = ''
@@ -162,7 +156,7 @@ AddEventHandler("ClientEmoteRequestReceive", function(emotename, etype, target)
     -- The player has now 10 seconds to accept the request
     local timer = 10 * 1000
     while isRequestAnim do
-        Citizen.Wait(5)
+        Wait(5)
         timer = timer - 5
         if timer == 0 then
             isRequestAnim = false
