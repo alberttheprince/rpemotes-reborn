@@ -5476,7 +5476,7 @@ RP.Emotes = {
         "WORLD_HUMAN_DRUG_DEALER",
         "Smoke Weed (Male)"
     },
-    Female
+    -- Female
     ["smokeweed2"] = {
         "Scenario",
         "WORLD_HUMAN_SMOKING_POT",
