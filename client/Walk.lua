@@ -1,9 +1,3 @@
---- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
---- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
---- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
-
-
-
 local canChange = true
 local unable_message = "You are unable to change your walking style right now."
 
@@ -72,7 +66,7 @@ if Config.WalkingStylesEnabled and Config.PersistentWalk then
     end)
     -- Event for QB-Core Users.
     RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
-        Citizen.Wait(5000)
+        Wait(5000)
         local kvp = GetResourceKvpString("walkstyle")
 
         if kvp ~= nil then
@@ -82,7 +76,7 @@ if Config.WalkingStylesEnabled and Config.PersistentWalk then
     -- Event for ESX Users.
     RegisterNetEvent('esx:playerLoaded')
     AddEventHandler('esx:playerLoaded', function()
-        Citizen.Wait(5000)
+        Wait(5000)
         local kvp = GetResourceKvpString("walkstyle")
 
         if kvp ~= nil then
