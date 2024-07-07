@@ -443,7 +443,7 @@ end
 -- Commands & KeyMapping --
 if Config.CrouchEnabled then
     if Config.CrouchKeybindEnabled then
-        RegisterKeyMapping('+crouch', "S'accourpir", "keyboard", Config.CrouchKeybind)
+        RegisterKeyMapping('+crouch', "Crouch", "keyboard", Config.CrouchKeybind)
         RegisterCommand('+crouch', function() CrouchKeyPressed() end, false)
         RegisterCommand('-crouch', function() end, false) -- This needs to be here to prevent errors/warnings
     end
@@ -460,14 +460,14 @@ end
 
 if Config.CrawlEnabled then
     if Config.CrawlKeybindEnabled then
-        RegisterKeyMapping('crawl', "S'allonger / Ramper", "keyboard", Config.CrawlKeybind)
+        RegisterKeyMapping('crawl', "Crawl", "keyboard", Config.CrawlKeybind)
     end
     RegisterCommand('crawl', function() CrawlKeyPressed() end, false)
 end
 
 
 -- Exports --
--- Returns weather or not the player is crouched
+-- Returns whether or not the player is crouched
 local function IsPlayerCrouched()
 	return isCrouched
 end
