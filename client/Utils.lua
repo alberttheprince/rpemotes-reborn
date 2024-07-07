@@ -2,8 +2,6 @@
 function SimpleNotify(message)
     if Config.NotificationsAsChatMessage then
         TriggerEvent("chat:addMessage", { color = { 255, 255, 255 }, args = { tostring(message) } })
-
-
     else
         BeginTextCommandThefeedPost("STRING")
         AddTextComponentSubstringPlayerName(message)
@@ -55,8 +53,6 @@ function EmoteChatMessage(msg, multiline)
     if msg then
         TriggerEvent("chat:addMessage",
             { multiline = multiline == true or false, color = { 255, 255, 255 }, args = { "^1Help^0", tostring(msg) } })
-
-
     end
 end
 
@@ -209,7 +205,7 @@ end
 
 
 
--- --------------------------------------------------------------------
+----------------------------------------------------------------------
 
 ShowPed = false
 
