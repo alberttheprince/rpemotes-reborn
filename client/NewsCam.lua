@@ -1,8 +1,3 @@
---- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
---- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
---- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
-
-
 IsUsingNewscam = false
 
 if Config.NewscamEnabled then
@@ -71,7 +66,7 @@ if Config.NewscamEnabled then
                 ClearPedTasks(PlayerPedId())
                 RequestAnimDict("missfinale_c2mcs_1")
                 while not HasAnimDictLoaded("missfinale_c2mcs_1") do
-                    Citizen.Wait(5)
+                    Wait(5)
                 end
 
                 -- attach the prop to the player
