@@ -1,9 +1,3 @@
---- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
---- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
---- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
-
-
-
 RegisterCommand('idlecamoff', function() -- help2 31, 167, 9
   TriggerEvent('chat:addMessage', {
     color = {227,8,0},
