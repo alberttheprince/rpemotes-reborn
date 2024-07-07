@@ -32,12 +32,12 @@ if Config.SqlKeybinding then
 
                 for k, v in pairs(Config.KeybindKeys) do
                     if IsControlJustReleased(0, v) then
-                        if k == keyb1 then if emob1 ~= "" then EmoteCommandStart(nil, { emob1, 0}) end end
-                        if k == keyb2 then if emob2 ~= "" then EmoteCommandStart(nil, { emob2, 0}) end end
-                        if k == keyb3 then if emob3 ~= "" then EmoteCommandStart(nil, { emob3, 0}) end end
-                        if k == keyb4 then if emob4 ~= "" then EmoteCommandStart(nil, { emob4, 0}) end end
-                        if k == keyb5 then if emob5 ~= "" then EmoteCommandStart(nil, { emob5, 0}) end end
-                        if k == keyb6 then if emob6 ~= "" then EmoteCommandStart(nil, { emob6, 0}) end end
+                        if k == keyb1 then if emob1 ~= "" then EmoteCommandStart(nil, { emob1, 0 }) end end
+                        if k == keyb2 then if emob2 ~= "" then EmoteCommandStart(nil, { emob2, 0 }) end end
+                        if k == keyb3 then if emob3 ~= "" then EmoteCommandStart(nil, { emob3, 0 }) end end
+                        if k == keyb4 then if emob4 ~= "" then EmoteCommandStart(nil, { emob4, 0 }) end end
+                        if k == keyb5 then if emob5 ~= "" then EmoteCommandStart(nil, { emob5, 0 }) end end
+                        if k == keyb6 then if emob6 ~= "" then EmoteCommandStart(nil, { emob6, 0 }) end end
                         Wait(1000)
                     end
                 end
