@@ -1,5 +1,7 @@
 fx_version 'cerulean'
 game 'gta5'
+description 'rpemotes-reborn'	
+version '1.4.1'
 
 lua54 'yes'
 use_experimental_fxv2_oal 'yes'
@@ -15,7 +17,7 @@ dependencies {
 --#region oxmysql
 
 -- dependency 'oxmysql'
-server_script '@oxmysql/lib/MySQL.lua'
+-- server_script '@oxmysql/lib/MySQL.lua'
 
 --#endregion oxmysql
 
