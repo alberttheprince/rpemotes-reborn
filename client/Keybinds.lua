@@ -44,8 +44,7 @@ if Config.SqlKeybinding then
             else 
                 Wait(500)
             end
-            
-            Wait(4)
+            Wait(0)
         end
     end)
 
