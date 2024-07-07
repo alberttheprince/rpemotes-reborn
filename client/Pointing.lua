@@ -1,9 +1,3 @@
---- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
---- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
---- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
-
-
-
 Pointing = false
 
 local function IsPlayerAiming(player)
@@ -127,10 +121,10 @@ if Config.PointingEnabled then
     end, false)
 
     if Config.PointingKeybindEnabled then
-        RegisterKeyMapping("pointing", "Pointer du doigt", "keyboard", Config.PointingKeybind)
+        RegisterKeyMapping("pointing", "Finger pointing", "keyboard", Config.PointingKeybind)
     end
 
-    TriggerEvent('chat:addSuggestion', '/pointing', 'Pointer du doigt.')
+    TriggerEvent('chat:addSuggestion', '/pointing', 'Finger pointing.')
 end
 
 
