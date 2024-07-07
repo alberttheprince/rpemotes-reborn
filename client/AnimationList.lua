@@ -1,11 +1,6 @@
--- ALL custon animations added to this repository were added with express permission from the creators and does not contain any paid content --
--- If an emote does not work, you may be on an older gamebuild. --
+-- ALL custom animations added to this repository were added with express permission from the creators and do not contain any paid content --
+-- If an emote does not work, you may be on an older gamebuild --
 -- To get a higher gamebuild, see ReadMe on github repository --
-
---- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
---- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
---- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
-
 
 RP = {}
 
@@ -5471,22 +5466,22 @@ RP.Emotes = {
         "WORLD_HUMAN_MOBILE_FILM_SHOCKING",
         "Record"
     },
-    -- ["smoke"] = {
-    --     "Scenario",
-    --     "WORLD_HUMAN_SMOKING",
-    --     "Smoke"
-    -- },
-    -- ["smokeweed"] = {
-    --     "MaleScenario",
-    --     "WORLD_HUMAN_DRUG_DEALER",
-    --     "Smoke Weed (Male)"
-    -- },
-    --Female
-    -- ["smokeweed2"] = {
-    --     "Scenario",
-    --     "WORLD_HUMAN_SMOKING_POT",
-    --     "Smoke Weed (Female)"
-    -- },
+    ["smoke"] = {
+        "Scenario",
+        "WORLD_HUMAN_SMOKING",
+        "Smoke"
+    },
+    ["smokeweed"] = {
+        "MaleScenario",
+        "WORLD_HUMAN_DRUG_DEALER",
+        "Smoke Weed (Male)"
+    },
+    Female
+    ["smokeweed2"] = {
+        "Scenario",
+        "WORLD_HUMAN_SMOKING_POT",
+        "Smoke Weed (Female)"
+    },
     -- Female
     ["statue"] = {
         "Scenario",
@@ -7411,50 +7406,50 @@ RP.Emotes = {
             PtfxCanHold = true
         }
     },
-    -- ['smokendrink'] = { --- Custom Emote By Darks Animations
-    --     "drx@male_smoke",
-    --     "male_smoke",
-    --     "Smoke And Whiskey",
-    --     AnimationOptions = {
-    --         Prop = 'prop_drink_whisky',
-    --         PropBone = 26612,
-    --         PropPlacement = {
-    --             0.0500,
-    --            -0.0700,
-    --            -0.0500,
-    --             0.0,
-    --             0.0,
-    --             0.0
-    --         },
-    --         SecondProp = 'ng_proc_cigarette01a',
-    --         SecondPropBone = 64113,
-    --         SecondPropPlacement = {
-    --             0.0270,
-    --             0.0080,
-    --             0.0050,
-    --           -11.6920,
-    --           -78.3079,
-    --             7.9470
-    --         },
-    --         EmoteLoop = true,
-    --         EmoteMoving = true,
-    --         PtfxAsset = "scr_mp_cig",
-    --         PtfxName = "ent_anim_cig_smoke",
-    --         PtfxNoProp = false,
-    --         PtfxPlacement = {
-    --            -0.07,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             1.0
-    --         },
-    --         PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
-    --         PtfxWait = 0.8,
-    --         PtfxCanHold = true
-    --     }
-    -- },
+    ['smokendrink'] = { --- Custom Emote By Darks Animations
+        "drx@male_smoke",
+        "male_smoke",
+        "Smoke And Whiskey",
+        AnimationOptions = {
+            Prop = 'prop_drink_whisky',
+            PropBone = 26612,
+            PropPlacement = {
+                0.0500,
+               -0.0700,
+               -0.0500,
+                0.0,
+                0.0,
+                0.0
+            },
+            SecondProp = 'ng_proc_cigarette01a',
+            SecondPropBone = 64113,
+            SecondPropPlacement = {
+                0.0270,
+                0.0080,
+                0.0050,
+              -11.6920,
+              -78.3079,
+                7.9470
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+            PtfxAsset = "scr_mp_cig",
+            PtfxName = "ent_anim_cig_smoke",
+            PtfxNoProp = false,
+            PtfxPlacement = {
+               -0.07,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxWait = 0.8,
+            PtfxCanHold = true
+        }
+    },
     ["clapangry"] = {
         "anim@arena@celeb@flat@solo@no_props@",
         "angry_clap_a_player_a",
@@ -10937,388 +10932,388 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    -- ["smoke2"] = {
-    --     "amb@world_human_aa_smoke@male@idle_a",
-    --     "idle_c",
-    --     "Smoke 2",
-    --     AnimationOptions = {
-    --         Prop = 'ng_proc_cigarette01a',
-    --         PropBone = 28422,
-    --         PropPlacement = {
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0
-    --         },
-    --         EmoteLoop = true,
-    --         EmoteMoving = true,
-    --         PtfxAsset = "scr_mp_cig",
-    --         PtfxName = "ent_anim_cig_smoke",
-    --         PtfxNoProp = false,
-    --         PtfxPlacement = {
-    --            -0.07,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             1.0
-    --         },
-    --         PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
-    --         PtfxWait = 0.8,
-    --         PtfxCanHold = true
-    --     }
-    -- },
-    -- ["smoke3"] = {
-    --     "amb@world_human_aa_smoke@male@idle_a",
-    --     "idle_b",
-    --     "Smoke 3",
-    --     AnimationOptions = {
-    --         Prop = 'ng_proc_cigarette01a',
-    --         PropBone = 28422,
-    --         PropPlacement = {
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0
-    --         },
-    --         EmoteLoop = true,
-    --         EmoteMoving = true,
-    --         PtfxAsset = "scr_mp_cig",
-    --         PtfxName = "ent_anim_cig_smoke",
-    --         PtfxNoProp = false,
-    --         PtfxPlacement = {
-    --            -0.07,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             1.0
-    --         },
-    --         PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
-    --         PtfxWait = 0.8,
-    --         PtfxCanHold = true
-    --     }
-    -- },
-    -- ["smoke4"] = {
-    --     "amb@world_human_smoking@female@idle_a",
-    --     "idle_b",
-    --     "Smoke 4",
-    --     AnimationOptions = {
-    --         Prop = 'ng_proc_cigarette01a',
-    --         PropBone = 28422,
-    --         PropPlacement = {
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0
-    --         },
-    --         EmoteLoop = true,
-    --         EmoteMoving = true,
-    --         PtfxAsset = "scr_mp_cig",
-    --         PtfxName = "ent_anim_cig_smoke",
-    --         PtfxNoProp = false,
-    --         PtfxPlacement = {
-    --            -0.07,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             1.0
-    --         },
-    --         PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
-    --         PtfxWait = 0.8,
-    --         PtfxCanHold = true
-    --     }
-    -- },
-    -- ["smoke5"] = { --- Custom Emote Provided To RPEmotes By Mr Witt
-    --     "mrwitt@composed_photo_moments",
-    --     "mrwitt",
-    --     "Smoke 5",
-    --     AnimationOptions = {
-    --         Prop = 'ng_proc_cigarette01a',
-    --         PropBone = 64097,
-    --         PropPlacement = {
-    --             0.0020,
-    --             0.0010,
-    --            -0.0090,
-    --             0.0,
-    --             0.0,
-    --             50.0
-    --         },
-    --         EmoteLoop = true,
-    --         EmoteMoving = false,
-    --         PtfxAsset = "scr_mp_cig",
-    --         PtfxName = "ent_anim_cig_smoke",
-    --         PtfxNoProp = false,
-    --         PtfxPlacement = {
-    --            -0.07,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             1.0
-    --         },
-    --         PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
-    --         PtfxWait = 0.8,
-    --         PtfxCanHold = true
-    --     }
-    -- },
-    -- ["vape"] = {
-    --     "amb@world_human_smoking@male@male_b@base",
-    --     "base",
-    --     "Vape",
-    --     AnimationOptions = {
-    --         Prop = 'ba_prop_battle_vape_01',
-    --         PropBone = 28422,
-    --         PropPlacement = {
-    --             -0.0290,
-    --             0.0070,
-    --             -0.0050,
-    --             91.0,
-    --             270.0,
-    --             -360.0
-    --         },
-    --         EmoteMoving = true,
-    --         EmoteLoop = true,
-    --         PtfxAsset = "scr_agencyheistb",
-    --         PtfxName = "scr_agency3b_elec_box",
-    --         PtfxNoProp = true,
-    --         PtfxBone = 31086,
-    --         PtfxPlacement = {
-    --             0.0,
-    --             0.170,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             1.4
-    --         },
-    --         PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
-    --         PtfxWait = 0.8,
-    --         PtfxCanHold = true
-    --     }
-    -- },
-    -- ["vape2"] = {
-    --     "amb@world_human_smoking@male@male_b@base",
-    --     "base",
-    --     "Vape 2",
-    --     AnimationOptions = {
-    --         Prop = 'xm3_prop_xm3_vape_01a',
-    --         PropBone = 28422,
-    --         PropPlacement = {
-    --             -0.02,
-    --             -0.02,
-    --             0.02,
-    --             58.0,
-    --             110.0,
-    --             10.0
-    --         },
-    --         EmoteMoving = true,
-    --         EmoteLoop = true,
-    --         PtfxAsset = "scr_agencyheistb",
-    --         PtfxName = "scr_agency3b_elec_box",
-    --         PtfxNoProp = true,
-    --         PtfxBone = 31086,
-    --         PtfxPlacement = {
-    --             0.0,
-    --             0.170,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             1.4
-    --         },
-    --         PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
-    --         PtfxWait = 1.8,
-    --         PtfxCanHold = true
-    --     }
-    -- },
-    -- ["bong"] = {
-    --     "anim@safehouse@bong",
-    --     "bong_stage3",
-    --     "Bong",
-    --     AnimationOptions = {
-    --         Prop = 'hei_heist_sh_bong_01',
-    --         PropBone = 18905,
-    --         PropPlacement = {
-    --             0.10,
-    --             -0.25,
-    --             0.0,
-    --             95.0,
-    --             190.0,
-    --             180.0
-    --         },
-    --         EmoteLoop = true,
-    --         EmoteMoving = true,
-    --         PtfxAsset = "scr_agencyheistb",
-    --         PtfxName = "scr_agency3b_elec_box",
-    --         PtfxNoProp = true,
-    --         PtfxBone = 31086,
-    --         PtfxPlacement = {
-    --             0.0,
-    --             0.170,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             1.4
-    --         },
-    --         PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
-    --         PtfxWait = 0.8,
-    --         PtfxCanHold = true
-    --     }
-    -- },
-    -- ["bong2"] = {
-    --     "anim@safehouse@bong",
-    --     "bong_stage3",
-    --     "Bong 2",
-    --     AnimationOptions = {
-    --         Prop = 'xm3_prop_xm3_bong_01a',
-    --         PropBone = 18905,
-    --         PropPlacement = {
-    --             0.10,
-    --             -0.25,
-    --             0.0,
-    --             95.0,
-    --             190.0,
-    --             180.0
-    --         },
-    --         EmoteLoop = true,
-    --         EmoteMoving = true,
-    --         PtfxAsset = "scr_agencyheistb",
-    --         PtfxName = "scr_agency3b_elec_box",
-    --         PtfxNoProp = true,
-    --         PtfxBone = 31086,
-    --         PtfxPlacement = {
-    --             0.0,
-    --             0.170,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             1.4
-    --         },
-    --         PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
-    --         PtfxWait = 0.8,
-    --         PtfxCanHold = true
-    --     }
-    -- },
-    -- ["bong3"] = {
-    --     "sit_bong@dark",
-    --     "sit_bong_clip",
-    --     "Bong 3 - Sit & Rip",
-    --     AnimationOptions = {
-    --         Prop = 'hei_heist_sh_bong_01',
-    --         PropBone = 60309,
-    --         PropPlacement = {
-    --             0.0490,
-    --            -0.2000,
-    --             0.0800,
-    --           -85.0199,
-    --           102.3320,
-    --           -15.0085
-    --         },
-    --         EmoteLoop = true,
-    --         ExitEmote = "getup",
-    --         ExitEmoteType = "Exits",
-    --         PtfxAsset = "scr_agencyheistb",
-    --         PtfxName = "scr_agency3b_elec_box",
-    --         PtfxNoProp = true,
-    --         PtfxBone = 31086,
-    --         PtfxPlacement = {
-    --             0.0,
-    --             0.170,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             1.4
-    --         },
-    --         PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
-    --         PtfxWait = 0.8,
-    --         PtfxCanHold = true
-    --     }
-    -- },
-    -- ["bong4"] = {
-    --     "sit_bong@dark",
-    --     "sit_bong_clip",
-    --     "Bong 4 - Sit & Rip Purple",
-    --     AnimationOptions = {
-    --         Prop = 'xm3_prop_xm3_bong_01a',
-    --         PropBone = 60309,
-    --         PropPlacement = {
-    --             0.0490,
-    --            -0.2000,
-    --             0.0800,
-    --           -85.0199,
-    --           102.3320,
-    --           -15.0085
-    --         },
-    --         EmoteLoop = true,
-    --         ExitEmote = "getup",
-    --         ExitEmoteType = "Exits",
-    --         PtfxAsset = "scr_agencyheistb",
-    --         PtfxName = "scr_agency3b_elec_box",
-    --         PtfxNoProp = true,
-    --         PtfxBone = 31086,
-    --         PtfxPlacement = {
-    --             0.0,
-    --             0.170,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             1.4
-    --         },
-    --         PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
-    --         PtfxWait = 0.8,
-    --         PtfxCanHold = true
-    --     }
-    -- },
-    -- ["joint2"] = { --- Custom Emote Provided To RPEmotes By Sel of Darks Animations
-    --     "smoke_m@sel",
-    --     "smoke_m_clip",
-    --     "Pass The Blunt",
-    --     AnimationOptions = {
-    --         Prop = 'p_cs_joint_01',
-    --         PropBone = 26612,
-    --         PropPlacement = {
-    --             0.0540,
-    --            -0.0120,
-	-- 		    0.0480,
-    --           172.3040,
-    --          -131.4506,
-    --            45.1778
-    --         },
-    --         EmoteLoop = true,
-    --         EmoteMoving = true,
-    --         PtfxAsset = "scr_mp_cig",
-    --         PtfxName = "ent_anim_cig_smoke",
-    --         PtfxNoProp = false,
-    --         PtfxPlacement = {
-    --            -0.07,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             1.0
-    --         },
-    --         PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
-    --         PtfxWait = 0.5,
-    --         PtfxCanHold = true
-    --     }
-    -- },
+    ["smoke2"] = {
+        "amb@world_human_aa_smoke@male@idle_a",
+        "idle_c",
+        "Smoke 2",
+        AnimationOptions = {
+            Prop = 'ng_proc_cigarette01a',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+            PtfxAsset = "scr_mp_cig",
+            PtfxName = "ent_anim_cig_smoke",
+            PtfxNoProp = false,
+            PtfxPlacement = {
+               -0.07,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxWait = 0.8,
+            PtfxCanHold = true
+        }
+    },
+    ["smoke3"] = {
+        "amb@world_human_aa_smoke@male@idle_a",
+        "idle_b",
+        "Smoke 3",
+        AnimationOptions = {
+            Prop = 'ng_proc_cigarette01a',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+            PtfxAsset = "scr_mp_cig",
+            PtfxName = "ent_anim_cig_smoke",
+            PtfxNoProp = false,
+            PtfxPlacement = {
+               -0.07,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxWait = 0.8,
+            PtfxCanHold = true
+        }
+    },
+    ["smoke4"] = {
+        "amb@world_human_smoking@female@idle_a",
+        "idle_b",
+        "Smoke 4",
+        AnimationOptions = {
+            Prop = 'ng_proc_cigarette01a',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+            PtfxAsset = "scr_mp_cig",
+            PtfxName = "ent_anim_cig_smoke",
+            PtfxNoProp = false,
+            PtfxPlacement = {
+               -0.07,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxWait = 0.8,
+            PtfxCanHold = true
+        }
+    },
+    ["smoke5"] = { --- Custom Emote Provided To RPEmotes By Mr Witt
+        "mrwitt@composed_photo_moments",
+        "mrwitt",
+        "Smoke 5",
+        AnimationOptions = {
+            Prop = 'ng_proc_cigarette01a',
+            PropBone = 64097,
+            PropPlacement = {
+                0.0020,
+                0.0010,
+               -0.0090,
+                0.0,
+                0.0,
+                50.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+            PtfxAsset = "scr_mp_cig",
+            PtfxName = "ent_anim_cig_smoke",
+            PtfxNoProp = false,
+            PtfxPlacement = {
+               -0.07,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxWait = 0.8,
+            PtfxCanHold = true
+        }
+    },
+    ["vape"] = {
+        "amb@world_human_smoking@male@male_b@base",
+        "base",
+        "Vape",
+        AnimationOptions = {
+            Prop = 'ba_prop_battle_vape_01',
+            PropBone = 28422,
+            PropPlacement = {
+                -0.0290,
+                0.0070,
+                -0.0050,
+                91.0,
+                270.0,
+                -360.0
+            },
+            EmoteMoving = true,
+            EmoteLoop = true,
+            PtfxAsset = "scr_agencyheistb",
+            PtfxName = "scr_agency3b_elec_box",
+            PtfxNoProp = true,
+            PtfxBone = 31086,
+            PtfxPlacement = {
+                0.0,
+                0.170,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.4
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxWait = 0.8,
+            PtfxCanHold = true
+        }
+    },
+    ["vape2"] = {
+        "amb@world_human_smoking@male@male_b@base",
+        "base",
+        "Vape 2",
+        AnimationOptions = {
+            Prop = 'xm3_prop_xm3_vape_01a',
+            PropBone = 28422,
+            PropPlacement = {
+                -0.02,
+                -0.02,
+                0.02,
+                58.0,
+                110.0,
+                10.0
+            },
+            EmoteMoving = true,
+            EmoteLoop = true,
+            PtfxAsset = "scr_agencyheistb",
+            PtfxName = "scr_agency3b_elec_box",
+            PtfxNoProp = true,
+            PtfxBone = 31086,
+            PtfxPlacement = {
+                0.0,
+                0.170,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.4
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxWait = 1.8,
+            PtfxCanHold = true
+        }
+    },
+    ["bong"] = {
+        "anim@safehouse@bong",
+        "bong_stage3",
+        "Bong",
+        AnimationOptions = {
+            Prop = 'hei_heist_sh_bong_01',
+            PropBone = 18905,
+            PropPlacement = {
+                0.10,
+                -0.25,
+                0.0,
+                95.0,
+                190.0,
+                180.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+            PtfxAsset = "scr_agencyheistb",
+            PtfxName = "scr_agency3b_elec_box",
+            PtfxNoProp = true,
+            PtfxBone = 31086,
+            PtfxPlacement = {
+                0.0,
+                0.170,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.4
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxWait = 0.8,
+            PtfxCanHold = true
+        }
+    },
+    ["bong2"] = {
+        "anim@safehouse@bong",
+        "bong_stage3",
+        "Bong 2",
+        AnimationOptions = {
+            Prop = 'xm3_prop_xm3_bong_01a',
+            PropBone = 18905,
+            PropPlacement = {
+                0.10,
+                -0.25,
+                0.0,
+                95.0,
+                190.0,
+                180.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+            PtfxAsset = "scr_agencyheistb",
+            PtfxName = "scr_agency3b_elec_box",
+            PtfxNoProp = true,
+            PtfxBone = 31086,
+            PtfxPlacement = {
+                0.0,
+                0.170,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.4
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxWait = 0.8,
+            PtfxCanHold = true
+        }
+    },
+    ["bong3"] = {
+        "sit_bong@dark",
+        "sit_bong_clip",
+        "Bong 3 - Sit & Rip",
+        AnimationOptions = {
+            Prop = 'hei_heist_sh_bong_01',
+            PropBone = 60309,
+            PropPlacement = {
+                0.0490,
+               -0.2000,
+                0.0800,
+              -85.0199,
+              102.3320,
+              -15.0085
+            },
+            EmoteLoop = true,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits",
+            PtfxAsset = "scr_agencyheistb",
+            PtfxName = "scr_agency3b_elec_box",
+            PtfxNoProp = true,
+            PtfxBone = 31086,
+            PtfxPlacement = {
+                0.0,
+                0.170,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.4
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxWait = 0.8,
+            PtfxCanHold = true
+        }
+    },
+    ["bong4"] = {
+        "sit_bong@dark",
+        "sit_bong_clip",
+        "Bong 4 - Sit & Rip Purple",
+        AnimationOptions = {
+            Prop = 'xm3_prop_xm3_bong_01a',
+            PropBone = 60309,
+            PropPlacement = {
+                0.0490,
+               -0.2000,
+                0.0800,
+              -85.0199,
+              102.3320,
+              -15.0085
+            },
+            EmoteLoop = true,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits",
+            PtfxAsset = "scr_agencyheistb",
+            PtfxName = "scr_agency3b_elec_box",
+            PtfxNoProp = true,
+            PtfxBone = 31086,
+            PtfxPlacement = {
+                0.0,
+                0.170,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.4
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxWait = 0.8,
+            PtfxCanHold = true
+        }
+    },
+    ["joint2"] = { --- Custom Emote Provided To RPEmotes By Sel of Darks Animations
+        "smoke_m@sel",
+        "smoke_m_clip",
+        "Pass The Blunt",
+        AnimationOptions = {
+            Prop = 'p_cs_joint_01',
+            PropBone = 26612,
+            PropPlacement = {
+                0.0540,
+               -0.0120,
+			    0.0480,
+              172.3040,
+             -131.4506,
+               45.1778
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+            PtfxAsset = "scr_mp_cig",
+            PtfxName = "ent_anim_cig_smoke",
+            PtfxNoProp = false,
+            PtfxPlacement = {
+               -0.07,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxWait = 0.5,
+            PtfxCanHold = true
+        }
+    },
     ["fishing1"] = {
         "amb@world_human_stand_fishing@idle_a",
         "idle_a",
@@ -13264,7 +13259,7 @@ RP.PropEmotes = {
     ["mshake"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "milkshake - Bubblegum",
+        "Milkshake - Bubblegum",
         AnimationOptions = {
             Prop = 'brum_cherryshake_bubblegum',
             PropBone = 28422,
@@ -13283,7 +13278,7 @@ RP.PropEmotes = {
     ["mshakeb"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "milkshake - Cherry",
+        "Milkshake - Cherry",
         AnimationOptions = {
             Prop = 'brum_cherryshake_cherry',
             PropBone = 28422,
@@ -13302,7 +13297,7 @@ RP.PropEmotes = {
     ["mshakec"] = {
        "amb@code_human_wander_drinking@female@base",
         "static",
-        "milkshake - Chocolate",
+        "Milkshake - Chocolate",
         AnimationOptions = {
             Prop = 'brum_cherryshake_chocolate',
             PropBone = 28422,
@@ -13321,7 +13316,7 @@ RP.PropEmotes = {
     ["mshaked"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "milkshake - Coffee",
+        "Milkshake - Coffee",
         AnimationOptions = {
             Prop = 'brum_cherryshake_coffee',
             PropBone = 28422,
@@ -13340,7 +13335,7 @@ RP.PropEmotes = {
     ["mshakee"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "milkshake - Double Chocolate",
+        "Milkshake - Double Chocolate",
         AnimationOptions = {
             Prop = 'brum_cherryshake_doublechocolate',
             PropBone = 28422,
@@ -13359,7 +13354,7 @@ RP.PropEmotes = {
     ["mshakef"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "milkshake - Frappe",
+        "Milkshake - Frappe",
         AnimationOptions = {
             Prop = 'brum_cherryshake_frappe',
             PropBone = 28422,
@@ -13378,7 +13373,7 @@ RP.PropEmotes = {
     ["mshakeg"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "milkshake - Lemon",
+        "Milkshake - Lemon",
         AnimationOptions = {
             Prop = 'brum_cherryshake_lemon',
             PropBone = 28422,
@@ -13397,7 +13392,7 @@ RP.PropEmotes = {
     ["mshakeh"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "milkshake - Mint",
+        "Milkshake - Mint",
         AnimationOptions = {
             Prop = 'brum_cherryshake_mint',
             PropBone = 28422,
@@ -13416,7 +13411,7 @@ RP.PropEmotes = {
     ["mshakei"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "milkshake - Strawberry",
+        "Milkshake - Strawberry",
         AnimationOptions = {
             Prop = 'brum_cherryshake_strawberry',
             PropBone = 28422,
@@ -13435,7 +13430,7 @@ RP.PropEmotes = {
     ["mshakej"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "milkshake - Raspberry",
+        "Milkshake - Raspberry",
         AnimationOptions = {
             Prop = 'brum_cherryshake_raspberry',
             PropBone = 28422,
@@ -13454,7 +13449,7 @@ RP.PropEmotes = {
     ["mshakek"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "milkshake - Salted",
+        "Milkshake - Salted",
         AnimationOptions = {
             Prop = 'brum_cherryshake_salted',
             PropBone = 28422,
@@ -13473,7 +13468,7 @@ RP.PropEmotes = {
     ["mshakel"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "milkshake - Vanilla",
+        "Milkshake - Vanilla",
         AnimationOptions = {
             Prop = 'brum_cherryshake_vanilla',
             PropBone = 28422,
@@ -14234,76 +14229,76 @@ RP.PropEmotes = {
             EmoteLoop = true
         }
     },
-    -- ["cigar"] = {
-    --     "amb@world_human_smoking@male@male_a@enter",
-    --     "enter",
-    --     "Cigar",
-    --     AnimationOptions = {
-    --         Prop = 'prop_cigar_02',
-    --         PropBone = 47419,
-    --         PropPlacement = {
-    --             0.010,
-    --             0.0,
-    --             0.0,
-    --             50.0,
-    --             0.0,
-    --             -80.0
-    --         },
-    --         EmoteDuration = 2600,
-    --         EmoteLoop = true,
-    --         EmoteMoving = true,
-    --         PtfxAsset = "scr_mp_cig",
-    --         PtfxName = "ent_anim_cig_smoke",
-    --         PtfxNoProp = false,
-    --         PtfxPlacement = {
-    --             0.0750,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             1.3
-    --         },
-    --         PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
-    --         PtfxWait = 0.8,
-    --         PtfxCanHold = true
-    --     }
-    -- },
-    -- ["cigar2"] = {
-    --     "amb@world_human_smoking@male@male_a@enter",
-    --     "enter",
-    --     "Cigar 2",
-    --     AnimationOptions = {
-    --         Prop = 'prop_cigar_01',
-    --         PropBone = 47419,
-    --         PropPlacement = {
-    --             0.010,
-    --             0.0,
-    --             0.0,
-    --             50.0,
-    --             0.0,
-    --            -80.0
-    --         },
-    --         EmoteDuration = 2600,
-    --         EmoteLoop = true,
-    --         EmoteMoving = true,
-    --         PtfxAsset = "scr_mp_cig",
-    --         PtfxName = "ent_anim_cig_smoke",
-    --         PtfxNoProp = false,
-    --         PtfxPlacement = {
-    --             0.06,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             1.5
-    --         },
-    --         PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
-    --         PtfxWait = 0.8,
-    --         PtfxCanHold = true
-    --     }
-    -- },
+    ["cigar"] = {
+        "amb@world_human_smoking@male@male_a@enter",
+        "enter",
+        "Cigar",
+        AnimationOptions = {
+            Prop = 'prop_cigar_02',
+            PropBone = 47419,
+            PropPlacement = {
+                0.010,
+                0.0,
+                0.0,
+                50.0,
+                0.0,
+                -80.0
+            },
+            EmoteDuration = 2600,
+            EmoteLoop = true,
+            EmoteMoving = true,
+            PtfxAsset = "scr_mp_cig",
+            PtfxName = "ent_anim_cig_smoke",
+            PtfxNoProp = false,
+            PtfxPlacement = {
+                0.0750,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.3
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxWait = 0.8,
+            PtfxCanHold = true
+        }
+    },
+    ["cigar2"] = {
+        "amb@world_human_smoking@male@male_a@enter",
+        "enter",
+        "Cigar 2",
+        AnimationOptions = {
+            Prop = 'prop_cigar_01',
+            PropBone = 47419,
+            PropPlacement = {
+                0.010,
+                0.0,
+                0.0,
+                50.0,
+                0.0,
+               -80.0
+            },
+            EmoteDuration = 2600,
+            EmoteLoop = true,
+            EmoteMoving = true,
+            PtfxAsset = "scr_mp_cig",
+            PtfxName = "ent_anim_cig_smoke",
+            PtfxNoProp = false,
+            PtfxPlacement = {
+                0.06,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.5
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxWait = 0.8,
+            PtfxCanHold = true
+        }
+    },
     ["guitar"] = {
         "amb@world_human_musician@guitar@male@idle_a",
         "idle_b",
@@ -15463,75 +15458,75 @@ RP.PropEmotes = {
             PtfxCanHold = true
         }
     },
-    -- ["joint"] = {
-    --     "amb@world_human_smoking@male@male_a@enter",
-    --     "enter",
-    --     "Joint",
-    --     AnimationOptions = {
-    --         Prop = 'p_cs_joint_01',
-    --         PropBone = 47419,
-    --         PropPlacement = {
-    --             0.015,
-    --             -0.009,
-    --             0.003,
-    --             55.0,
-    --             0.0,
-    --             110.0
-    --         },
-    --         EmoteMoving = true,
-    --         EmoteDuration = 2600,
-    --         PtfxAsset = "scr_mp_cig",
-    --         PtfxName = "ent_anim_cig_smoke",
-    --         PtfxNoProp = false,
-    --         PtfxPlacement = {
-    --            -0.097,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             1.3
-    --         },
-    --         PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
-    --         PtfxWait = 0.8,
-    --         PtfxCanHold = true
-    --     }
-    -- },
-    -- ["cig"] = {
-    --     "amb@world_human_smoking@male@male_a@enter",
-    --     "enter",
-    --     "Cig",
-    --     AnimationOptions = {
-    --         Prop = 'ng_proc_cigarette01a',
-    --         PropBone = 47419,
-    --         PropPlacement = {
-    --             0.015,
-    --             -0.009,
-    --             0.003,
-    --             55.0,
-    --             0.0,
-    --             110.0
-    --         },
-    --         EmoteDuration = 2600,
-    --         EmoteLoop = true,
-    --         EmoteMoving = true,
-    --         PtfxAsset = "scr_mp_cig",
-    --         PtfxName = "ent_anim_cig_smoke",
-    --         PtfxNoProp = false,
-    --         PtfxPlacement = {
-    --            -0.07,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             1.0
-    --         },
-    --         PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
-    --         PtfxWait = 0.8,
-    --         PtfxCanHold = true
-    --     }
-    -- },
+    ["joint"] = {
+        "amb@world_human_smoking@male@male_a@enter",
+        "enter",
+        "Joint",
+        AnimationOptions = {
+            Prop = 'p_cs_joint_01',
+            PropBone = 47419,
+            PropPlacement = {
+                0.015,
+                -0.009,
+                0.003,
+                55.0,
+                0.0,
+                110.0
+            },
+            EmoteMoving = true,
+            EmoteDuration = 2600,
+            PtfxAsset = "scr_mp_cig",
+            PtfxName = "ent_anim_cig_smoke",
+            PtfxNoProp = false,
+            PtfxPlacement = {
+               -0.097,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.3
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxWait = 0.8,
+            PtfxCanHold = true
+        }
+    },
+    ["cig"] = {
+        "amb@world_human_smoking@male@male_a@enter",
+        "enter",
+        "Cig",
+        AnimationOptions = {
+            Prop = 'ng_proc_cigarette01a',
+            PropBone = 47419,
+            PropPlacement = {
+                0.015,
+                -0.009,
+                0.003,
+                55.0,
+                0.0,
+                110.0
+            },
+            EmoteDuration = 2600,
+            EmoteLoop = true,
+            EmoteMoving = true,
+            PtfxAsset = "scr_mp_cig",
+            PtfxName = "ent_anim_cig_smoke",
+            PtfxNoProp = false,
+            PtfxPlacement = {
+               -0.07,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxWait = 0.8,
+            PtfxCanHold = true
+        }
+    },
     ["brief"] = {
         "move_weapon@jerrycan@generic",
         "idle",
@@ -15840,44 +15835,44 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    -- ["binoculars"] = {
-    --     "amb@world_human_binoculars@male@idle_b",
-    --     "idle_f",
-    --     "Binoculars",
-    --     AnimationOptions = {
-    --         Prop = "prop_binoc_01",
-    --         PropBone = 28422,
-    --         PropPlacement = {
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0
-    --         },
-    --         EmoteLoop = true,
-    --         EmoteMoving = true
-    --     }
-    -- },
-    -- ["binoculars2"] = {
-    --     "amb@world_human_binoculars@male@idle_a",
-    --     "idle_c",
-    --     "Binoculars 2",
-    --     AnimationOptions = {
-    --         Prop = "prop_binoc_01",
-    --         PropBone = 28422,
-    --         PropPlacement = {
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0
-    --         },
-    --         EmoteLoop = true,
-    --         EmoteMoving = true
-    --     }
-    -- },
+    ["binoculars"] = {
+        "amb@world_human_binoculars@male@idle_b",
+        "idle_f",
+        "Binoculars",
+        AnimationOptions = {
+            Prop = "prop_binoc_01",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["binoculars2"] = {
+        "amb@world_human_binoculars@male@idle_a",
+        "idle_c",
+        "Binoculars 2",
+        AnimationOptions = {
+            Prop = "prop_binoc_01",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["tennisplay"] = {
         "move_weapon@jerrycan@generic",
         "idle",
@@ -16925,25 +16920,25 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    -- ["newscam"] = {
-    --     "missfinale_c2mcs_1",
-    --     "fin_c2_mcs_1_camman",
-    --     "News Camera",
-    --     AnimationOptions = {
-    --         Prop = "prop_v_cam_01",
-    --         PropBone = 28422,
-    --         PropPlacement = {
-    --             0.0,
-    --             0.0300,
-    --             0.0100,
-    --             0.0,
-    --             0.0,
-    --             0.0
-    --         },
-    --         EmoteLoop = true,
-    --         EmoteMoving = true
-    --     }
-    -- },
+    ["newscam"] = {
+        "missfinale_c2mcs_1",
+        "fin_c2_mcs_1_camman",
+        "News Camera",
+        AnimationOptions = {
+            Prop = "prop_v_cam_01",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0300,
+                0.0100,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["newsmic"] = {
         "anim@heists@humane_labs@finale@keycards",
         "ped_a_enter_loop",
