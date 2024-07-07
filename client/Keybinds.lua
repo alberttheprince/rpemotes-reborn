@@ -1,9 +1,3 @@
---- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
---- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
---- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
-
-
-
 if Config.SqlKeybinding then
     local emob1 = ""
     local emob2 = ""
@@ -35,7 +29,7 @@ if Config.SqlKeybinding then
             
             
             if not IsPedSittingInAnyVehicle(PlayerPedId()) then
-                DisableControlAction(0, 26, true) -- Disable Look Behing
+
                 for k, v in pairs(Config.KeybindKeys) do
                     if IsControlJustReleased(0, v) then
                         if k == keyb1 then if emob1 ~= "" then EmoteCommandStart(nil, { emob1, 0}) end end
