@@ -9,9 +9,11 @@ A partial archive of the original RP Emotes docs can be found here: https://web.
 
 # Features 🛠️
 
+- Emote Preview - View emotes before you use them
+
 - Changeable Banner Font
 
-- Changable Banner Colour
+- Changeable Banner Colour
 
 - Multiple Translations 🌏
 
@@ -43,7 +45,7 @@ A partial archive of the original RP Emotes docs can be found here: https://web.
 
 - QB-Core Framework & SQL Keybinding Support ⚙️
 
-- Further support for shared and couple poses / animations 👫
+- Further support for shared and couple poses/animations 👫
 
 - Easily convert Menyoo to RPEmotes 🔄
 
@@ -70,7 +72,7 @@ Languages can be selected and/or added in the config.lua.
 
 All languages were translated or contributed by the FiveM community, with the odd exception of using Google Translate.
 
-If you happen to find any incorrect translations or would like to add more languages, please feel free to make a pull request with the corrections.
+If you find any incorrect translations or would like to add more languages, please make a pull request with the corrections.
 
 ---
 
@@ -104,7 +106,7 @@ LocalPlayer.state:set('canEmote', true, true) -- allows emoting
 
 # Menu Keybind 🎛️
 
-The keybind uses RegisterKeyMapping. By default the configured keybind in the _initial_ config.lua will be the default key, however once the keybind is set for a user it'll remain and can be changed in the users settings under `Esc > settings > keybinds > fivem`.
+The keybind uses RegisterKeyMapping. By default the configured keybind in the *initial* config.lua will be the default key, however once the keybind is set for a user it'll remain and can be changed in the users settings under `Esc > settings > keybinds > fivem`.
 
 **Menu key:**
 
@@ -114,7 +116,7 @@ The keybind uses RegisterKeyMapping. By default the configured keybind in the _i
 
 Server owners can change this in the `config.lua`.
 
-Alternatively, the player base can set their own menu keybind to open RPEmotes
+Alternatively, the player base can set their menu keybind to open rpemotes-reborn
 
 `Esc > settings > keybinds > fivem`
 
@@ -140,8 +142,8 @@ Alternatively, you can use the keybind command that comes with FiveM without hav
 
 # Menu Customization
 
-In the appropiately named `config.lua` file, server owners can set the MenuTitle or simply leave it blank. Ideally, this should be 11 characters or less without any spaces.
-You can also set the font, whether or not you want an outline and the MenuPosition. The available fonts are as followed:
+In the`config.lua` file, server owners can set the MenuTitle or simply leave it blank. Ideally, this should be 11 characters or less without any spaces.
+You can also set the font and decide whether or not you want an outline and MenuPosition. The available fonts are as follows:
 
 ```lua
     -- 0 : Chalet London
@@ -151,13 +153,7 @@ You can also set the font, whether or not you want an outline and the MenuPositi
     -- 7 : Pricedown
 ```
 
-RPEmotes also supports custom banners (known as 'MenuImage') which can be defined by a simple imgur, giphy or discord URL like so:
-
-```lua
-MenuImage = 'https://i.imgur.com/osq2J0h.png',
-```
-
-You can find a banner template here - https://imgur.com/a/jRrVBog. Banners must be 512 x 128 pixels and can be either gif or png.
+Additional customizations can be found in the config. Please note due to limitations by Imgur and Discord; images can not be directly linked from either platform. You may link directly to an image from the forums, or just leave it blank.
 
 ---
 
@@ -365,7 +361,6 @@ Available output formats:
 Command usage example: emoteextract 1
 ```
 
-if you would like to visually see the props that are present in RPEmotes _(minus custom made and provided content)_, you can see them [here](https://forge.plebmasters.de/account?tab=datalists&datalist=1abf505b-23b3-493a-31a2-08dbd7a05cc3&type=Object) thanks to [DurtyFree](https://github.com/DurtyFree) and the Plebmaster's team ☺️.
 
 <img src="screenshots/extractor.png" width="700">
 
@@ -403,11 +398,29 @@ Alternatively, you can use the keybind command that comes with FiveM without hav
 
 - Type `/refresh` and `/ensure rpemotes` into your chat resource, or simply restart your server
 
-# Additional Instructions ⚙️
+---
 
-A text tutorial for Shared Emotes can be found [here](https://forum.cfx.re/t/how-to-menyoo-to-rpemotes-emote-props-shared-emotes-conversions/4775018).
+# Shared emotes 👩🏻‍❤️‍💋‍👨🏼
 
-We recommend using the updated and supported version of [Menyoo](https://github.com/itsjustcurtis/MenyooSP/releases) by ItsJustCurtis as it already supports FiveM, taking away rhe manual frustration of updating the ASI file.
+Emotes will work with either `SyncOffset` or `Attachto`.
+
+If it is with `SyncOffsetFront` or `SyncOffsetSide`, then the offset used is the one of the emote the player started.<br/>
+
+For example, if player one starts the emote `handshake` which has `SyncOffsetFront`, then player one will have the `SyncOffsetFront` but not the other player.
+
+- If it is with `Attachto`, then it'll either be player one's data used for attaching or player two's data.<br/>	
+For example, if player one starts the emote carry, then the other player will be attached but not the player one because Attachto is set in `carry2` and not `carry`.<br/>	
+- If player one starts the emote `carry2`, then player one will be attached and not the other player.	
+it's the player who starts the animation who will in most cases be moved	
+
+
+*Special case, if both emote have the `Attachto` then only the player who started the emote will be attached.*	
+
+You can find a list of ped bones to attach the other player here: [Ped Bones](https://wiki.rage.mp/index.php?title=Bones) or alternatively, if the link is down for some reason, you can check [here](https://wiki.rage.mp/index.php?title=Bones)	
+
+Using the websites provided above, enter the bone ID, ie `1356` and not `111`, which is the Bone Index.	
+
+Understandably, this can be confusing for some people. We suggest using the `Attachto` approach.
 
 ---
 
@@ -447,7 +460,7 @@ Using Menyoo, spawn down a tennis ball and attach it to a human, by default meny
 
 Because the menu gets updated frequently, the files get overwritten. To avoid this, you can add your own / downloaded animation files `(.ycd)` inside of a newly created folder, give it a name, and place it in the `rpemotes\stream\[Custom Emotes]` folder.
 
-Add your animation code to the `AnimationListCustom.lua` and make a backup of this file, call it `BackUpAnimationListCustom.lua`.
+Add your animation code to the `AnimationListCustom.lua` and make a backup of this file and call it `BackUpAnimationListCustom.lua`.
 
 Whenever an update is released, rename `BackUpAnimationListCustom.lua` to `AnimationListCustom.lua`, click yes to overwrite, and you're good to go.
 
@@ -467,7 +480,7 @@ All animation creators have ***specifically*** asked that their content remains 
 **A huge the following people for their amazing contributions to the menu:**
 - the community for using RP Emotes!
 - [DerDevHD](https://forum.cfx.re/t/fixed-remove-prop-after-scenario-animation/5002332/8) for the insight on deleting scenario props.
-- [Kibook](https://github.com/kibook) for the addition of the Animal Emotes sub menu
+- [Kibook](https://github.com/kibook) for the addition of the Animal Emotes sub-menu
 - [AvaN0x](https://github.com/AvaN0x) for reformatting and assisting with code, additional features, and figuring out shared particle effects
 - [Mads](https://github.com/MadsLeander) for joining the team as Co-Developer 
 - [Mathu_lmn](https://github.com/Mathu-lmn) for joining the team as Co-Developer 
@@ -487,7 +500,7 @@ All animation creators have ***specifically*** asked that their content remains 
 - [QueenSisters Animations](https://discord.gg/qbPtGwQuep) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
 - [Kri's Graphic House](https://discord.gg/JueRG3fCy6) for the custom banners
 - !MWooM#0597 on Discord for the custom banners
-- DurtyFree for his work on particle effects and cataloging GTA related information [DurtyFree GTA V Dump](https://github.com/DurtyFree/gta-v-data-dumps/blob/master/particleEffectsCompact.json).
+- DurtyFree for his work on particle effects and cataloging GTA-related information [DurtyFree GTA V Dump](https://github.com/DurtyFree/gta-v-data-dumps/blob/master/particleEffectsCompact.json).
 - [BoringNeptune](https://www.gta5-mods.com/users/BoringNeptune) for the custom dance emotes
 - [CMG Mods](https://www.gta5-mods.com/users/-moses-) for the custom emotes
 - [prue颜](discord.gg/lunyxmods) for being a great friend and providing us with exclusive custom animations
@@ -501,11 +514,15 @@ All animation creators have ***specifically*** asked that their content remains 
 - [KayKayMods](https://discord.gg/5bYQVWVaxG) for the custom props
 - [MonkeyWhisper](https://github.com/MonkeyWhisper) and [Project Sloth](https://github.com/Project-Sloth) for the custom props
 - [Brummieee](https://forum.cfx.re/u/brummieee_maps/summary) for the custom props
-- [Dark Animations](https://www.gta5-mods.com/users/Darks%20Animations) for the partnership and custom animations. You the goat 😎
+- [Dark Animations](https://www.gta5-mods.com/users/Darks%20Animations) for the custom animations.
 - [Chico](https://forum.cfx.re/u/chico) for implementing natives to reapply persistent moods and walk styles for ESX and QB-Core frameworks
 - [-EcLiPsE-](https://www.gta5-mods.com/users/-EcLiPsE-) for allowing me to implement [Improved Prop Sets](https://www.gta5-mods.com/misc/improved-propsets-meta) and [GTA Online Biker Idle Anims](https://www.gta5-mods.com/misc/bike-idle-animations)
-- [MrWitt](https://www.gta5-mods.com/users/MrWitt)for the custom animations and partnership
+- [MrWitt](https://www.gta5-mods.com/users/MrWitt)for the custom animations
 - [AdoredRose](https://forum.cfx.re/u/adoredrose/summary) for assisting with animations
 - [Vedere](https://discord.gg/XMywAMQ8Ef) for the custom props
-- [DRX Animations](https://www.gta5-mods.com/users/DRX%2DAnimations) for the custom animations and partnership
-- [VNSIanims](https://discord.gg/cTNrjYSXXG) for the custom animations and partnership
+- [DRX Animations](https://www.gta5-mods.com/users/DRX%2DAnimations) for the custom animations
+- [VNSIanims](https://discord.gg/cTNrjYSXXG) for the custom animations
+- [PNWParksFan](https://www.gta5-mods.com/users/PNWParksFan) for the custom props	
+- [LSPDFR member Sam](https://www.lcpdfr.com/downloads/gta5mods/misc/23386-lspd-police-badge/) for their Custom LSPD police badge	
+- [GTA5Mods user Sladus_Slawonkus](https://www.gta5-mods.com/misc/lspd-police-badge-replace-sladus_slawonkus) for their reskinned LSPD badge	
+- [TayMcKenzieNZ](https://github.com/TayMcKenzieNZ) for their past work maintaining RP Emotes
