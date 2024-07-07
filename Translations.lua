@@ -1,5 +1,4 @@
 Config.Languages = {
-Config.Languages = {
     ['sq'] = { -- Albanian
 	['emotes'] = "~h~~p~ Emotet 🎬",
 	['danceemotes'] = "~h~~p~ 🕺 Emotet e Kërcimit",
