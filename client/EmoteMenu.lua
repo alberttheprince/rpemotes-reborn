@@ -671,6 +671,7 @@ end
 if Config.ExpressionsEnabled then
     AddFaceMenu(mainMenu)
 end
+AddInfoMenu(mainMenu)
 
 _menuPool:RefreshIndex()
 
@@ -688,6 +689,7 @@ end
 RegisterNetEvent("rp:Update")
 AddEventHandler("rp:Update", function(state)
     UpdateAvailable = state
+    AddInfoMenu(mainMenu)
     _menuPool:RefreshIndex()
 end)
 
