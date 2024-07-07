@@ -1,13 +1,7 @@
---- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
---- Download OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
---- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
-
-
-
 if Config.RagdollEnabled then
     RegisterCommand('+ragdoll', function() Ragdoll() end, false)
     RegisterCommand('-ragdoll', function() StopRagdoll() end, false)
-    RegisterKeyMapping("+ragdoll", "Faire tomber votre personnage", "keyboard", Config.RagdollKeybind)
+    RegisterKeyMapping("+ragdoll", "Ragdoll your character", "keyboard", Config.RagdollKeybind)
 
     local stop = true
     function Ragdoll()
