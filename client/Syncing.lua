@@ -1,8 +1,3 @@
-
-
-
-
-
 local isRequestAnim = false
 local requestedemote = ''
 local targetPlayerId = ''

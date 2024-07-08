@@ -1,8 +1,3 @@
-
-
-
-
-
 local canChange = true
 local unable_message = "You are unable to change your walking style right now."
 

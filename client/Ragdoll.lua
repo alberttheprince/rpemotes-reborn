@@ -1,8 +1,3 @@
-
-
-
-
-
 if Config.RagdollEnabled then
     RegisterCommand('+ragdoll', function() Ragdoll() end, false)
     RegisterCommand('-ragdoll', function() StopRagdoll() end, false)

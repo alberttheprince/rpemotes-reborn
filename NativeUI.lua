@@ -2396,7 +2396,7 @@ function UIMenu.New(Title, Subtitle, X, Y, TxtDictionary, TxtName)
     local _UIMenu = {
         Logo = Sprite.New(TxtDictionary, TxtName, 0 + X, 0 + Y, 431, 107),
         Banner = nil,
-        Title = UIResText.New(Title, 215 + X, 20 + Y, 1.15, 255, 255, 255, 255, 1, 1),
+        Title = UIResText.New(Title, 215 + X, 20 + Y, 1.15, Config.TitleColour.R, Config.TitleColour.G, Config.TitleColour.B, Config.TitleColour.A, Config.MenuFont, 1, nil, Config.TitleOutline),
         Subtitle = { ExtraY = 0 },
         WidthOffset = 0,
         Position = { X = X, Y = Y },
@@ -2646,7 +2646,6 @@ function UIMenu:CurrentSelection(value)
         if #self.Items == 0 then
             self.ActiveItem = 0
         end
-
         self.Items[self:CurrentSelection()]:Selected(false)
         self.ActiveItem = 1000000 - (1000000 % #self.Items) + tonumber(value)
 
@@ -3010,6 +3009,7 @@ function UIMenu:ProcessControl()
         self:SelectItem()
     end
 end
+
 
 function UIMenu:GoUpOverflow()
     if self:CurrentSelection() < 10 then

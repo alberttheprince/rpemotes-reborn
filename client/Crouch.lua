@@ -1,15 +1,9 @@
-
-
-
-
-
 IsProne = false
 local isCrouched = false
 local isCrawling = false
 local inAction = false
 local proneType = "onfront"
 local lastKeyPress = 0
-
 
 -- Crouching --
 local function ResetCrouch()
@@ -404,7 +398,7 @@ local function CrawlKeyPressed()
         Pointing = false
     end
 
-    if inHandsup then
+    if InHandsup then
         return
     end
 
@@ -473,7 +467,7 @@ end
 
 
 -- Exports --
--- Returns weather or not the player is crouched
+-- Returns whether or not the player is crouched
 local function IsPlayerCrouched()
 	return isCrouched
 end

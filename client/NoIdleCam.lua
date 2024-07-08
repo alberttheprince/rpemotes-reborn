@@ -1,8 +1,3 @@
-
-
-
-
-
 RegisterCommand('idlecamoff', function() -- help2 31, 167, 9
   TriggerEvent('chat:addMessage', {
     color = {227,8,0},

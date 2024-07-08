@@ -1,8 +1,3 @@
-
-
-
-
-
 Pointing = false
 
 local function IsPlayerAiming(player)

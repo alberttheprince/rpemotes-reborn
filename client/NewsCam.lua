@@ -1,7 +1,3 @@
-
-
-
-
 IsUsingNewscam = false
 
 if Config.NewscamEnabled then

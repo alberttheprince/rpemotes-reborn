@@ -1,10 +1,6 @@
--- ALL custom animations added to this repository were added with express permission from the creators and does not contain any paid content --
--- If an emote does not work, you may be on an older gamebuild. --
+-- ALL custom animations added to this repository were added with express permission from the creators and do not contain any paid content --
+-- If an emote does not work, you may be on an older gamebuild --
 -- To get a higher gamebuild, see ReadMe on github repository --
-
-
-
-
 
 RP = {}
 
@@ -2948,6 +2944,15 @@ RP.Dances = {
             EmoteLoop = true
         }
     },
+    ["dancedrill"] = {
+        "sdrill@animation",
+        "sdrill_clip",
+        "Drill Dance",
+        AnimationOptions = {
+            EmoteLoop = true,
+			EmoteMoving = false
+        }
+    },
     ["dancepride"] = {
         "anim@amb@nightclub@lazlow@hi_railing@",
         "ambclub_09_mi_hi_bellydancer_laz",
@@ -5471,7 +5476,7 @@ RP.Emotes = {
         "WORLD_HUMAN_DRUG_DEALER",
         "Smoke Weed (Male)"
     },
-    --Female
+    -- Female
     ["smokeweed2"] = {
         "Scenario",
         "WORLD_HUMAN_SMOKING_POT",
@@ -11680,6 +11685,44 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
+    ["coffeecall"] = {
+        "switch@michael@coffee_w_dave",
+        "002291_02_fbi_3_coffee_w_dave_idle_dave",
+        "Coffee Phone Call",
+        AnimationOptions = {
+            Prop = 'p_ing_coffeecup_01',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+               -0.0140,
+                0.0,
+                0.0,
+			   90.0
+            },
+            SecondProp = 'prop_phone_taymckenzienz',
+			PropTextureVariations = {
+                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
+                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
+                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
+                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
+                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4},
+                {Name = "<font color=\"#a356fa\">Purple", Value = 5},
+                {Name = "<font color=\"#FF0099\">Pink", Value = 6},
+                {Name = "Black", Value = 7},
+            },
+            SecondPropBone = 60309,
+            SecondPropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["whiskey"] = {
         "amb@world_human_drinking@coffee@male@idle_a",
         "idle_c",
@@ -13216,7 +13259,7 @@ RP.PropEmotes = {
     ["mshake"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Bubblegum",
+        "Milkshake - Bubblegum",
         AnimationOptions = {
             Prop = 'brum_cherryshake_bubblegum',
             PropBone = 28422,
@@ -13235,7 +13278,7 @@ RP.PropEmotes = {
     ["mshakeb"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Cherry",
+        "Milkshake - Cherry",
         AnimationOptions = {
             Prop = 'brum_cherryshake_cherry',
             PropBone = 28422,
@@ -13254,7 +13297,7 @@ RP.PropEmotes = {
     ["mshakec"] = {
        "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Chocolate",
+        "Milkshake - Chocolate",
         AnimationOptions = {
             Prop = 'brum_cherryshake_chocolate',
             PropBone = 28422,
@@ -13273,7 +13316,7 @@ RP.PropEmotes = {
     ["mshaked"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Coffee",
+        "Milkshake - Coffee",
         AnimationOptions = {
             Prop = 'brum_cherryshake_coffee',
             PropBone = 28422,
@@ -13292,7 +13335,7 @@ RP.PropEmotes = {
     ["mshakee"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Double Chocolate",
+        "Milkshake - Double Chocolate",
         AnimationOptions = {
             Prop = 'brum_cherryshake_doublechocolate',
             PropBone = 28422,
@@ -13311,7 +13354,7 @@ RP.PropEmotes = {
     ["mshakef"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Frappe",
+        "Milkshake - Frappe",
         AnimationOptions = {
             Prop = 'brum_cherryshake_frappe',
             PropBone = 28422,
@@ -13330,7 +13373,7 @@ RP.PropEmotes = {
     ["mshakeg"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Lemon",
+        "Milkshake - Lemon",
         AnimationOptions = {
             Prop = 'brum_cherryshake_lemon',
             PropBone = 28422,
@@ -13349,7 +13392,7 @@ RP.PropEmotes = {
     ["mshakeh"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Mint",
+        "Milkshake - Mint",
         AnimationOptions = {
             Prop = 'brum_cherryshake_mint',
             PropBone = 28422,
@@ -13368,7 +13411,7 @@ RP.PropEmotes = {
     ["mshakei"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Strawberry",
+        "Milkshake - Strawberry",
         AnimationOptions = {
             Prop = 'brum_cherryshake_strawberry',
             PropBone = 28422,
@@ -13387,7 +13430,7 @@ RP.PropEmotes = {
     ["mshakej"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Raspberry",
+        "Milkshake - Raspberry",
         AnimationOptions = {
             Prop = 'brum_cherryshake_raspberry',
             PropBone = 28422,
@@ -13406,7 +13449,7 @@ RP.PropEmotes = {
     ["mshakek"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Salted",
+        "Milkshake - Salted",
         AnimationOptions = {
             Prop = 'brum_cherryshake_salted',
             PropBone = 28422,
@@ -13425,7 +13468,7 @@ RP.PropEmotes = {
     ["mshakel"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Vanilla",
+        "Milkshake - Vanilla",
         AnimationOptions = {
             Prop = 'brum_cherryshake_vanilla',
             PropBone = 28422,
@@ -15792,44 +15835,44 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    -- ["binoculars"] = {
-    --     "amb@world_human_binoculars@male@idle_b",
-    --     "idle_f",
-    --     "Binoculars",
-    --     AnimationOptions = {
-    --         Prop = "prop_binoc_01",
-    --         PropBone = 28422,
-    --         PropPlacement = {
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0
-    --         },
-    --         EmoteLoop = true,
-    --         EmoteMoving = true
-    --     }
-    -- },
-    -- ["binoculars2"] = {
-    --     "amb@world_human_binoculars@male@idle_a",
-    --     "idle_c",
-    --     "Binoculars 2",
-    --     AnimationOptions = {
-    --         Prop = "prop_binoc_01",
-    --         PropBone = 28422,
-    --         PropPlacement = {
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0
-    --         },
-    --         EmoteLoop = true,
-    --         EmoteMoving = true
-    --     }
-    -- },
+    ["binoculars"] = {
+        "amb@world_human_binoculars@male@idle_b",
+        "idle_f",
+        "Binoculars",
+        AnimationOptions = {
+            Prop = "prop_binoc_01",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["binoculars2"] = {
+        "amb@world_human_binoculars@male@idle_a",
+        "idle_c",
+        "Binoculars 2",
+        AnimationOptions = {
+            Prop = "prop_binoc_01",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["tennisplay"] = {
         "move_weapon@jerrycan@generic",
         "idle",
@@ -16600,6 +16643,35 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true
         }
+   },
+    ["mnc"] = {
+        "anim@heists@box_carry@",
+        "idle",
+        "Milk & Cookies",
+        AnimationOptions = {
+            Prop = "m23_2_prop_m32_milkncookies_01a",
+            PropBone = 57005, --- Right Wrist
+            PropPlacement = {
+                0.2150,
+                0.1140,
+                0.0240,
+              -81.9185,
+             -176.2526,
+              -28.4674
+            },
+            SecondProp = 'm23_2_prop_m32_milkncookies_01a',
+            SecondPropBone = 18905, -- Left Wrist
+            SecondPropPlacement = {
+                0.2700,
+                0.1100,
+                0.0350,
+              -90.0000,
+             -180.0000,
+               30.0000
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
     },
     ["carrypizza"] = {
         "anim@heists@box_carry@",
@@ -16848,25 +16920,25 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    -- ["newscam"] = {
-    --     "missfinale_c2mcs_1",
-    --     "fin_c2_mcs_1_camman",
-    --     "News Camera",
-    --     AnimationOptions = {
-    --         Prop = "prop_v_cam_01",
-    --         PropBone = 28422,
-    --         PropPlacement = {
-    --             0.0,
-    --             0.0300,
-    --             0.0100,
-    --             0.0,
-    --             0.0,
-    --             0.0
-    --         },
-    --         EmoteLoop = true,
-    --         EmoteMoving = true
-    --     }
-    -- },
+    ["newscam"] = {
+        "missfinale_c2mcs_1",
+        "fin_c2_mcs_1_camman",
+        "News Camera",
+        AnimationOptions = {
+            Prop = "prop_v_cam_01",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0300,
+                0.0100,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["newsmic"] = {
         "anim@heists@humane_labs@finale@keycards",
         "ped_a_enter_loop",

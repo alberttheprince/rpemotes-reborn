@@ -1,10 +1,10 @@
-
-
-
-
-
 function SetPlayerPedExpression(expression, saveToKvp)
     SetFacialIdleAnimOverride(PlayerPedId(), expression, 0)
+    if Config.PersistentExpression and saveToKvp then SetResourceKvp("expression", expression) end
+end
+
+function SetPlayerPedExpression_Preview(expression, saveToKvp)
+    SetFacialIdleAnimOverride(clonedPed, expression, 0)
     if Config.PersistentExpression and saveToKvp then SetResourceKvp("expression", expression) end
 end
 

@@ -1,7 +1,3 @@
-
-
-
-
 IsUsingBinoculars = false
 if Config.BinocularsEnabled then
     RegisterCommand("binoculars", function()
@@ -216,6 +212,8 @@ if Config.BinocularsEnabled then
             SetCamRot(cam, new_x, 0.0, new_z, 2)
         end
     end
+
+
 
 
     function HandleZoom(cam)
