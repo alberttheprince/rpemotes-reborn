@@ -479,6 +479,7 @@ All animation creators have ***specifically*** asked that their content remains 
 
 **A huge the following people for their amazing contributions to the menu:**
 - the community for using RP Emotes!
+- [enzo2991](https://github.com/enzo2991) for creating the ped preview functionality
 - [DerDevHD](https://forum.cfx.re/t/fixed-remove-prop-after-scenario-animation/5002332/8) for the insight on deleting scenario props.
 - [Kibook](https://github.com/kibook) for the addition of the Animal Emotes sub-menu
 - [AvaN0x](https://github.com/AvaN0x) for reformatting and assisting with code, additional features, and figuring out shared particle effects
