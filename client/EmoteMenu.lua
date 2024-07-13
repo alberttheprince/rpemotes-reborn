@@ -661,7 +661,6 @@ function OpenEmoteMenu()
     end
 end
 
-LoadAddonEmotes()
 AddEmoteMenu(mainMenu)
 AddCancelEmote(mainMenu)
 ShowPedPreview(mainMenu)
