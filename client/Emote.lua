@@ -120,7 +120,7 @@ local function CheckStatusThread(dict, anim)
 end
 
 if Config.EnableCancelKeybind then
-    RegisterKeyMapping("emotecancel", "Annuler l'émote actuelle", "keyboard", Config.CancelEmoteKey)
+    RegisterKeyMapping("emotecancel", Config.Languages[lang]['register_cancel_emote'], "keyboard", Config.CancelEmoteKey)
 end
 
 -----------------------------------------------------------------------------------------------------
@@ -128,30 +128,30 @@ end
 -----------------------------------------------------------------------------------------------------
 
 CreateThread(function()
-    TriggerEvent('chat:addSuggestion', '/e', 'Jouer une animation',
-        { { name = "emotename", help = "dance, camera, sit ou autres noms d'animations" },
-            { name = "texturevariation", help = "(Facultatif) 1, 2, 3 ou n'importe quel nombre. Changera la texture de certains accessoires utilisés dans les emotes, par exemple la couleur d'un téléphone. Entrez -1 pour voir une liste de variantes." } })
-    TriggerEvent('chat:addSuggestion', '/emote', 'Jouer une animation',
-        { { name = "emotename", help = "dance, camera, sit ou autres noms d'animations" },
-            { name = "texturevariation", help = "(Facultatif) 1, 2, 3 ou n'importe quel nombre. Changera la texture de certains accessoires utilisés dans les emotes, par exemple la couleur d'un téléphone. Entrez -1 pour voir une liste de variantes." } })
+    TriggerEvent('chat:addSuggestion', '/e', Config.Languages[lang]['play_emote'],
+        { { name = "emotename", help = Config.Languages[lang]['help_command'] },
+            { name = "texturevariation", help = Config.Languages[lang]['help_variation'] } })
+    TriggerEvent('chat:addSuggestion', '/emote', Config.Languages[lang]['play_emote'],
+        { { name = "emotename", help = Config.Languages[lang]['help_command'] },
+            { name = "texturevariation", help = Config.Languages[lang]['help_variation']  } })
     if Config.SqlKeybinding then
-        TriggerEvent('chat:addSuggestion', '/emotebind', 'Relier une émote à une touche',
+        TriggerEvent('chat:addSuggestion', '/emotebind', Config.Languages[lang]['link_emote_keybind'],
             { { name = "key", help = "num4, num5, num6, num7. num8, num9. Numpad 4-9!" },
-                { name = "emotename", help = "dance, camera, sit ou autres noms d'animations" } })
-        TriggerEvent('chat:addSuggestion', '/emotebinds', 'Regarder vos émotes binds')
-        TriggerEvent('chat:addSuggestion', '/emotedelete', 'Supprimer une émote', {{ name="key", help="num4, num5, num6, num7. num8, num9. Numpad 4-9!"}})
+                { name = "emotename", help = Config.Languages[lang]['help_command'] } })
+        TriggerEvent('chat:addSuggestion', '/emotebinds', Config.Languages[lang]['show_emote_keybind'])
+        TriggerEvent('chat:addSuggestion', '/emotedelete', Config.Languages[lang]['remove_emote_keybind'], {{ name="key", help="num4, num5, num6, num7. num8, num9. Numpad 4-9!"}})
     end
-    TriggerEvent('chat:addSuggestion', '/emotemenu', "Ouvrir le menu d'animation")
-    TriggerEvent('chat:addSuggestion', '/emotes', 'Voir la liste des émotes possible.')
-    TriggerEvent('chat:addSuggestion', '/emotecancel', "Annuler l'animation en cours")
+    TriggerEvent('chat:addSuggestion', '/emotemenu', Config.Languages[lang]['open_menu_emote'])
+    TriggerEvent('chat:addSuggestion', '/emotes', Config.Languages[lang]['show_list_emote'])
+    TriggerEvent('chat:addSuggestion', '/emotecancel', Config.Languages[lang]['register_cancel_emote'])
 end)
 
 RegisterCommand('e', function(source, args, raw) EmoteCommandStart(source, args, raw) end, false)
 RegisterCommand('emote', function(source, args, raw) EmoteCommandStart(source, args, raw) end, false)
 if Config.SqlKeybinding then
     RegisterCommand('emotebind', function(source, args, raw) EmoteBindStart(source, args, raw) end, false)
-    RegisterCommand('emotebinds', function(source, args, raw) EmoteBindsStart(source, args, raw) end, false)
-    RegisterCommand('emotedelete', function(source, args) DeleteEmote(source, args, raw) end, false)
+    RegisterCommand('emotebinds', function(source, args, raw) EmoteBindStart() end, false)
+    RegisterCommand('emotedelete', function(source, args) DeleteEmote(source, args) end, false)
 
 end
 if Config.MenuKeybindEnabled then
@@ -315,10 +315,10 @@ if Config.HandsupEnabled then
         end
     end
 
-    TriggerEvent('chat:addSuggestion', '/handsup', 'Lever les mains.')
+    TriggerEvent('chat:addSuggestion', '/handsup', Config.Languages[lang]['handsup'])
 
     if Config.HandsupKeybindEnabled then
-        RegisterKeyMapping("handsup", "Lever les mains", "keyboard", Config.HandsupKeybind)
+        RegisterKeyMapping("handsup", Config.Languages[lang]['handsup'], "keyboard", Config.HandsupKeybind)
     end
 
     local function IsPlayerInHandsUp()
