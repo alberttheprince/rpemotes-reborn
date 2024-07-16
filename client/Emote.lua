@@ -1,9 +1,3 @@
---- RPEmotes by TayMcKenzieNZ, Mathu_lmn and MadsL, maintained by TayMcKenzieNZ ---
---- Download the OFFICIAL version and updates ONLY at https://github.com/TayMcKenzieNZ/rpemotes ---
---- RPEmotes is FREE and ALWAYS will be. STOP PAYING SCAMMY FUCKERS FOR SOMEONE ELSE'S WORK!!! ---
-
-
-
 -- You probably shouldn't touch these.
 local AnimationDuration = -1
 local ChosenAnimation = ""
@@ -195,7 +189,7 @@ local disableHandsupControls = {
     [53] = true,  -- INPUT_WEAPON_SPECIAL
     [54] = true, --  INPUT_WEAPON_SPECIAL_TWO
     
---- We need these enabled as the weapon and radio wheel are tied together, and I want players to be able to defend themselves -- TayMcKenzieNZ --
+--- We need these enabled as the weapon and radio wheel are tied together, and I want players to be able to defend themselves
  --   [81] = true, -- INPUT_VEH_NEXT_RADIO
 --    [82] = false, -- INPUT_VEH_PREV_RADIO
 --    [83] = true, -- INPUT_VEH_NEXT_RADIO_TRACK
@@ -228,8 +222,8 @@ local disableHandsupControls = {
     [141] = true, --  INPUT_MELEE_ATTACK_HEAVY
     [142] = true, -- INPUT_MELEE_ATTACK_ALTERNATE
     
--- We disable the following, as the hands up animation on a bicycle / motorcycle looks broken and therefore meele does not work correctly. Perhaps we can fix this later? - TayMcKenzieNZ --
--- Players can however meele attack with a weapon --    
+-- We disable the following, as the hands up animation on a bicycle / motorcycle looks broken and therefore meele does not work correctly. Perhaps we can fix this later?
+-- Players can however meele attack with a weapon   
     
     [143] = true, -- INPUT_MELEE_BLOCK
     [345] = true, -- INPUT_VEH_MELEE_HOLD
