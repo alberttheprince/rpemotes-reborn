@@ -24,6 +24,7 @@ dependencies {
 files {
     'propsets.meta',
     'conditionalanims.meta',
+    'header.png',
 }
 
 data_file 'AMBIENT_PROP_MODEL_SET_FILE' 'propsets.meta'
