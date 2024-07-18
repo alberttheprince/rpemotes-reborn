@@ -20,10 +20,7 @@ end
 
 if Config.CustomMenuEnabled then
     local RuntimeTXD = CreateRuntimeTxd('Custom_Menu_Head')
-    local Object = CreateDui(Config.MenuImage, 512, 128)
-    _G.Object = Object
-    local TextureThing = GetDuiHandle(Object)
-    local Texture = CreateRuntimeTextureFromDuiHandle(RuntimeTXD, 'Custom_Menu_Head', TextureThing)
+    CreateRuntimeTextureFromImage(RuntimeTXD, 'Custom_Menu_Head', 'header.png')
     Menuthing = "Custom_Menu_Head"
 else
     Menuthing = "shopui_title_sm_hangar"
