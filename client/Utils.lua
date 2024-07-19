@@ -223,7 +223,7 @@ ShowPedMenu = function(zoom)
             NetworkSetEntityInvisibleToNetwork(clonedPed, true)
             SetEntityCanBeDamaged(clonedPed, false)
             SetBlockingOfNonTemporaryEvents(clonedPed, true)
-            SetEntityAlpha(clonedPed, 254, true)
+            SetEntityAlpha(clonedPed, 254, false)
 
             ShowPed = true
 
