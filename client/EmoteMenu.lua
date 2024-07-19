@@ -661,7 +661,9 @@ end
 LoadAddonEmotes()
 AddEmoteMenu(mainMenu)
 AddCancelEmote(mainMenu)
-ShowPedPreview(mainMenu)
+if Config.PreviewPed then
+    ShowPedPreview(mainMenu)
+end
 if Config.WalkingStylesEnabled then
     AddWalkMenu(mainMenu)
 end
