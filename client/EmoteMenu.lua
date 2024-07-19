@@ -213,7 +213,7 @@ function AddEmoteMenu(menu)
     end
 
     submenu.OnIndexChange = function(menu, newindex)
-        if newindex > 6 then 
+        if newindex > 6 then
             ClearPedTaskPreview()
             EmoteMenuStartPed(EmoteTable[newindex], "emotes")
         end
@@ -279,7 +279,7 @@ function AddEmoteMenu(menu)
     end
 
     submenu.OnMenuClosed = function(menu)
-        if not InSearch then 
+        if not InSearch then
             ClosePedMenu()
         end
     end
@@ -360,16 +360,16 @@ if Config.Search then
                     table.insert(results, 1, Config.Languages[lang]['rfavorite'])
                 end
 
-                
+
                 searchMenu.OnMenuChanged = function(menu, newmenu, forward)
                     InSearch = false
                     ShowPedMenu()
                 end
 
-                            
+
                 searchMenu.OnIndexChange = function(menu, newindex)
                     local data = results[newindex]
-                                        
+
                     ClearPedTaskPreview()
                     if data.table == "Emotes" or data.table == "Dances" then
                         EmoteMenuStartPed(data.name, string.lower(data.table))
@@ -471,10 +471,10 @@ end
 
 ShowPedPreview = function(menu)
     menu.OnItemSelect = function(sender, item, index)
-        if (index == 1) then 
+        if (index == 1) then
             InSearch = false
             ShowPedMenu()
-        elseif index == 4 then 
+        elseif index == 4 then
             ShowPedMenu(true)
         end
     end
@@ -522,7 +522,7 @@ function AddFaceMenu(menu)
         table.insert(FaceTable, name)
     end
 
-    
+
     submenu.OnMenuClosed = function(menu)
         ClosePedMenu()
     end
@@ -550,7 +550,7 @@ function AddInfoMenu(menu)
     --         Config.Languages[lang]['infoupdateavtext'], "", Menuthing, Menuthing)
     -- end
 
-    infomenu:AddItem(NativeUI.CreateItem("<b>Thanks to the community<b>", "For supporting and using RP Emotes!")) 
+    infomenu:AddItem(NativeUI.CreateItem("<b>Thanks to the community<b>", "For supporting and using RP Emotes!"))
     infomenu:AddItem(NativeUI.CreateItem("Thanks ~o~DullPear 🍐~s~", "~o~DullPear~s~ for the original dpemotes ❤️"))
     infomenu:AddItem(NativeUI.CreateItem("Thanks <b>Kibook 🐩</b>",
         "<b>Kibook</b> for the addition of Animal Emotes 🐩 submenu."))
@@ -628,7 +628,7 @@ function AddInfoMenu(menu)
        "<font color=\"#12ab0a\">Radial</font> on discord for contributing animations code"))
     infomenu:AddItem(NativeUI.CreateItem("<font color=\"#FF25B1\"><b>TayMcKenzieNZ 🇳🇿<b></font>",
         "<font color=\"#FF25B1\">TayMcKenzieNZ 🇳🇿</font> Previous maintainer of RP Emotes."))
-    
+
 end
 
 function OpenEmoteMenu()

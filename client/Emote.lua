@@ -26,6 +26,7 @@ IsInAnimation = false
 CurrentAnimationName = nil
 CurrentTextureVariation = nil
 InHandsup = false
+CurrentExportEmote = nil
 
 -- Remove emotes if needed
 
@@ -149,7 +150,7 @@ if Config.SqlKeybinding then
 end
 if Config.MenuKeybindEnabled then
     RegisterCommand('emoteui', function() OpenEmoteMenu() end, false)
-    RegisterKeyMapping("emoteui", "Ouvrir le menu d'animation", "keyboard", Config.MenuKeybind)
+    RegisterKeyMapping("emoteui", "Open animations menu", "keyboard", Config.MenuKeybind)
 else
     RegisterCommand('emotemenu', function() OpenEmoteMenu() end, false)
 end
@@ -158,12 +159,12 @@ RegisterCommand('emotecancel', function() EmoteCancel() end, false)
 
 local disableHandsupControls = {
 
---- On Foot Controls 
+--- On Foot Controls
 
     [36] = true,  -- INPUT_DUCK
     [44] = true,  -- INPUT_COVER
 
-    
+
 --- Vehicle Controls - Car
 
 
@@ -188,7 +189,7 @@ local disableHandsupControls = {
     [91] = true,  -- INPUT_VEH_PASSENGER_AIM
     [53] = true,  -- INPUT_WEAPON_SPECIAL
     [54] = true, --  INPUT_WEAPON_SPECIAL_TWO
-    
+
 --- We need these enabled as the weapon and radio wheel are tied together, and I want players to be able to defend themselves
  --   [81] = true, -- INPUT_VEH_NEXT_RADIO
 --    [82] = false, -- INPUT_VEH_PREV_RADIO
@@ -221,10 +222,10 @@ local disableHandsupControls = {
     [140] = true,  -- INPUT_MELEE_ATTACK_LIGHT
     [141] = true, --  INPUT_MELEE_ATTACK_HEAVY
     [142] = true, -- INPUT_MELEE_ATTACK_ALTERNATE
-    
+
 -- We disable the following, as the hands up animation on a bicycle / motorcycle looks broken and therefore meele does not work correctly. Perhaps we can fix this later?
--- Players can however meele attack with a weapon   
-    
+-- Players can however meele attack with a weapon
+
     [143] = true, -- INPUT_MELEE_BLOCK
     [345] = true, -- INPUT_VEH_MELEE_HOLD
     [346] = true, -- INPUT_VEH_MELEE_LEFT
@@ -243,7 +244,7 @@ local function HandsUpLoop()
                 for control, state in pairs(disableHandsupControls) do
                     DisableControlAction(0, control, state)
                 end
-            end            
+            end
 
             if IsPlayerAiming(playerId) then
                 ClearPedSecondaryTask(PlayerPedId())
@@ -278,15 +279,17 @@ if Config.HandsupEnabled then
 
         InHandsup = not InHandsup
         if InHandsup then
+            CurrentExportEmote = 'handsup'
             DestroyAllProps()
             local dict = "random@mugging3"
             RequestAnimDict(dict)
             while not HasAnimDictLoaded(dict) do
                 Wait(0)
             end
-            TaskPlayAnim(PlayerPedId(), dict, "handsup_standing_base", 2.0, 2.0, -1, 49, 0, false, IsThisModelABike(GetEntityModel(GetVehiclePedIsIn(PlayerPedId(), false))) and 4127 or false, false)
+            TaskPlayAnim(PlayerPedId(), dict, "handsup_standing_base", 3.0, 3.0, -1, 49, 0, false, IsThisModelABike(GetEntityModel(GetVehiclePedIsIn(PlayerPedId(), false))) and 4127 or false, false)
             HandsUpLoop()
         else
+            CurrentExportEmote = nil
             ClearPedSecondaryTask(PlayerPedId())
             if Config.PersistentEmoteAfterHandsup and IsInAnimation then
                 local emote = RP.Emotes[CurrentAnimationName]
@@ -317,7 +320,7 @@ if Config.HandsupEnabled then
     local function IsPlayerInHandsUp()
         return InHandsup
     end
-    
+
     exports('IsPlayerInHandsUp', IsPlayerInHandsUp)
 end
 
@@ -336,61 +339,61 @@ end)
 -----------------------------------------------------------------------------------------------------
 ------ Functions and stuff --------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
+local scenarioObjects = {
+    `p_amb_coffeecup_01`,
+    `p_amb_joint_01`,
+    `p_cs_ciggy_01`,
+    `p_cs_ciggy_01b_s`,
+    `p_cs_clipboard`,
+    `prop_curl_bar_01`,
+    `p_cs_joint_01`,
+    `p_cs_joint_02`,
+    `prop_acc_guitar_01`,
+    `prop_amb_ciggy_01`,
+    `prop_amb_phone`,
+    `prop_beggers_sign_01`,
+    `prop_beggers_sign_02`,
+    `prop_beggers_sign_03`,
+    `prop_beggers_sign_04`,
+    `prop_bongos_01`,
+    `prop_cigar_01`,
+    `prop_cigar_02`,
+    `prop_cigar_03`,
+    `prop_cs_beer_bot_40oz_02`,
+    `prop_cs_paper_cup`,
+    `prop_cs_trowel`,
+    `prop_fib_clipboard`,
+    `prop_fish_slice_01`,
+    `prop_fishing_rod_01`,
+    `prop_fishing_rod_02`,
+    `prop_notepad_02`,
+    `prop_parking_wand_01`,
+    `prop_rag_01`,
+    `prop_scn_police_torch`,
+    `prop_sh_cigar_01`,
+    `prop_sh_joint_01`,
+    `prop_tool_broom`,
+    `prop_tool_hammer`,
+    `prop_tool_jackham`,
+    `prop_tennis_rack_01`,
+    `prop_weld_torch`,
+    `w_me_gclub`,
+    `p_amb_clipboard_01`
+}
 
 function EmoteCancel(force)
-    local scenarioObjects = {
-		`p_amb_coffeecup_01`,
-		`p_amb_joint_01`,
-		`p_cs_ciggy_01`,
-		`p_cs_ciggy_01b_s`,
-		`p_cs_clipboard`,
-		`prop_curl_bar_01`,
-		`p_cs_joint_01`,
-		`p_cs_joint_02`,
-		`prop_acc_guitar_01`,
-		`prop_amb_ciggy_01`,
-		`prop_amb_phone`,
-		`prop_beggers_sign_01`,
-		`prop_beggers_sign_02`,
-		`prop_beggers_sign_03`,
-		`prop_beggers_sign_04`,
-		`prop_bongos_01`,
-		`prop_cigar_01`,
-		`prop_cigar_02`,
-		`prop_cigar_03`,
-		`prop_cs_beer_bot_40oz_02`,
-		`prop_cs_paper_cup`,
-		`prop_cs_trowel`,
-		`prop_fib_clipboard`,
-		`prop_fish_slice_01`,
-		`prop_fishing_rod_01`,
-		`prop_fishing_rod_02`,
-		`prop_notepad_02`,
-		`prop_parking_wand_01`,
-		`prop_rag_01`,
-		`prop_scn_police_torch`,
-		`prop_sh_cigar_01`,
-		`prop_sh_joint_01`,
-		`prop_tool_broom`,
-		`prop_tool_hammer`,
-		`prop_tool_jackham`,
-		`prop_tennis_rack_01`,
-		`prop_weld_torch`,
-		`w_me_gclub`
+    local playerPed = PlayerPedId()
+    local playerCoords = GetEntityCoords(playerPed)
 
-		
-
-
-    }
-    
     for i = 1, #scenarioObjects do
-        local deleteScenarioObject = GetClosestObjectOfType(GetEntityCoords(PlayerPedId()), 1.0, scenarioObjects[i], false, true ,true)
+        local deleteScenarioObject = GetClosestObjectOfType(playerCoords.x, playerCoords.y, playerCoords.z, 1.0, scenarioObjects[i], false, true ,true)
         if DoesEntityExist(deleteScenarioObject) then
             SetEntityAsMissionEntity(deleteScenarioObject, false, false)
             DeleteObject(deleteScenarioObject)
-        end  
+        end
     end
 
+    CurrentExportEmote = nil
     EmoteCancelPlaying = true
     -- Don't cancel if we are in an exit emote
     if InExitEmote then
@@ -687,11 +690,11 @@ function CheckAnimalAndOnEmotePlay(EmoteName, name)
 end
 
 function DestroyAllProps(ped_preview)
-    if ped_preview then 
+    if ped_preview then
         for _, v in pairs(PreviewPedProps) do
             DeleteEntity(v)
         end
-    else 
+    else
         for _, v in pairs(PlayerProps) do
             DeleteEntity(v)
         end
@@ -702,9 +705,9 @@ end
 
 function AddPropToPlayer(prop1, bone, off1, off2, off3, rot1, rot2, rot3, textureVariation, PedPreview)
 
-    if PedPreview then 
+    if PedPreview then
         Player_Props = clonedPed
-    else 
+    else
         Player_Props = PlayerPedId()
     end
 
@@ -720,22 +723,22 @@ function AddPropToPlayer(prop1, bone, off1, off2, off3, rot1, rot2, rot3, textur
     end
 
 
-    if PedPreview then 
+    if PedPreview then
         prop = CreateObject(joaat(prop1), x, y, z + 0.2, false, true, true)
-    else 
+    else
         prop = CreateObject(joaat(prop1), x, y, z + 0.2, true, true, true)
     end
-    
+
     if textureVariation ~= nil then
         SetObjectTextureVariation(prop, textureVariation)
     end
 
 
-    if PedPreview then 
+    if PedPreview then
         AttachEntityToEntity(prop, Player_Props, GetPedBoneIndex(Player_Props, bone), off1, off2, off3, rot1, rot2, rot3, true, true,
         false, true, 1, true)
         table.insert(PreviewPedProps, prop)
-    else 
+    else
         PlayerHasProp = true
         AttachEntityToEntity(prop, Player_Props, GetPedBoneIndex(Player_Props, bone), off1, off2, off3, rot1, rot2, rot3, true, true,
         false, true, 1, true)
@@ -743,8 +746,8 @@ function AddPropToPlayer(prop1, bone, off1, off2, off3, rot1, rot2, rot3, textur
     end
 
     -- table.insert(PlayerProps, prop)
-  
-    
+
+
     SetModelAsNoLongerNeeded(prop1)
     DebugPrint("Added prop to player")
     return true
@@ -774,28 +777,15 @@ end
 -----------------------------------------------------------------------------------------------------
 
 function OnEmotePlay(EmoteName, name, textureVariation)
-    local scenarioObjects = {
-        `prop_tool_jackham`, 
-        `prop_bongos_01`,
-        `prop_acc_guitar_01`,
-        `prop_notepad_02`,
-        `prop_tool_hammer`,
-        `prop_fish_slice_01`,
-        `prop_cs_trowel`,
-        `prop_tool_broom`,
-        `prop_cs_paper_cup`,
-        `prop_amb_phone`,
-        `prop_cigar_03`,
-        `p_cs_joint_01`,
-        `prop_weld_torch`,
-    }
-    
+    local playerPed = PlayerPedId()
+    local playerCoords = GetEntityCoords(playerPed)
+
     for i = 1, #scenarioObjects do
-        local deleteScenarioObject = GetClosestObjectOfType(GetEntityCoords(PlayerPedId()), 1.0, scenarioObjects[i], false, true ,true)
+        local deleteScenarioObject = GetClosestObjectOfType(playerCoords.x, playerCoords.y, playerCoords.z, 1.0, scenarioObjects[i], false, true ,true)
         if DoesEntityExist(deleteScenarioObject) then
             SetEntityAsMissionEntity(deleteScenarioObject, false, false)
             DeleteObject(deleteScenarioObject)
-        end  
+        end
     end
 
     InVehicle = IsPedInAnyVehicle(PlayerPedId(), true)
@@ -847,6 +837,7 @@ function OnEmotePlay(EmoteName, name, textureVariation)
 
     ChosenDict, ChosenAnimation, ename = table.unpack(EmoteName)
     CurrentAnimationName = name
+    CurrentExportEmote = CurrentAnimationName
     CurrentTextureVariation = textureVariation
     ChosenAnimOptions = animOption
     AnimationDuration = -1
@@ -999,30 +990,16 @@ function OnEmotePlay(EmoteName, name, textureVariation)
 end
 
 
-function OnEmotePlayPed(EmoteName, name, textureVariation)
-    if Config.PreviewPed then
-        local scenarioObjects = {
-            `prop_tool_jackham`, 
-            `prop_bongos_01`,
-            `prop_acc_guitar_01`,
-            `prop_notepad_02`,
-            `prop_tool_hammer`,
-            `prop_fish_slice_01`,
-            `prop_cs_trowel`,
-            `prop_tool_broom`,
-            `prop_cs_paper_cup`,
-            `prop_amb_phone`,
-            `prop_cigar_03`,
-            `p_cs_joint_01`,
-            `prop_weld_torch`,
-        }
-        
+if Config.PreviewPed then
+    function OnEmotePlayPed(EmoteName, name, textureVariation)
+        local cloneCoords = GetEntityCoords(clonedPed)
+
         for i = 1, #scenarioObjects do
-            local deleteScenarioObject = GetClosestObjectOfType(GetEntityCoords(clonedPed), 1.0, scenarioObjects[i], false, true ,true)
+            local deleteScenarioObject = GetClosestObjectOfType(cloneCoords.x, cloneCoords.y, cloneCoords.z, 1.0, scenarioObjects[i], false, false ,false)
             if DoesEntityExist(deleteScenarioObject) then
                 SetEntityAsMissionEntity(deleteScenarioObject, false, false)
                 DeleteObject(deleteScenarioObject)
-            end  
+            end
         end
 
         -- InVehicle = IsPedInAnyVehicle(clonedPed, true)
@@ -1066,11 +1043,11 @@ function OnEmotePlayPed(EmoteName, name, textureVariation)
         ChosenAnimOptions = animOption
         AnimationDuration = -1
 
-        if Config.DisarmPlayer then
-            if IsPedArmed(clonedPed, 7) then
-                SetCurrentPedWeapon(clonedPed, joaat('WEAPON_UNARMED'), true)
-            end
-        end
+        -- if Config.DisarmPlayer then
+        --     if IsPedArmed(clonedPed, 7) then
+        --         SetCurrentPedWeapon(clonedPed, joaat('WEAPON_UNARMED'), true)
+        --     end
+        -- end
 
         if animOption and animOption.Prop and PlayerHasProp then
             DestroyAllProps(true)
@@ -1088,7 +1065,7 @@ function OnEmotePlayPed(EmoteName, name, textureVariation)
                 else
                     DestroyAllProps(true)
                     -- EmoteCancel()
-                    EmoteChatMessage(Config.Languages[lang]['maleonly'])
+                    -- EmoteChatMessage(Config.Languages[lang]['maleonly'])
                 end
                 return
             elseif ChosenDict == "ScenarioObject" then -- if InVehicle then return end
@@ -1283,7 +1260,7 @@ exports("CanCancelEmote", function(State)
 		CanCancel = State == true
 end)
 exports('IsPlayerInAnim', function()
-	return IsInAnimation
+	return CurrentExportEmote
 end)
 
 -- Door stuff

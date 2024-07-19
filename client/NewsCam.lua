@@ -3,7 +3,7 @@ IsUsingNewscam = false
 if Config.NewscamEnabled then
     RegisterCommand("newscam", function()
         UseNewscam()
-    end)
+    end, false)
 
     TriggerEvent('chat:addSuggestion', '/newscam', 'Use newscam', {})
 

@@ -2,14 +2,6 @@
 -- Shared Emotes Syncing  ---------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
 
-ReturnLicensePLayer = function(id_player)
-    for k,v in ipairs(GetPlayerIdentifiers(id_player))do
-        if string.sub(v, 1, string.len("license:")) == "license:" then
-            return v
-        end
-    end
-end
-
 RegisterNetEvent("ServerEmoteRequest", function(target, emotename, etype)
     local ped = GetPlayerPed(source)
 
@@ -61,7 +53,7 @@ RegisterNetEvent("rpemotes:ptfx:sync", function(asset, name, offset, rot, bone, 
     end
 
     local srcPlayerState = Player(source).state
-    
+
     srcPlayerState:set('ptfxAsset', asset, true)
     srcPlayerState:set('ptfxName', name, true)
     srcPlayerState:set('ptfxOffset', offset, true)
@@ -178,7 +170,7 @@ local function addKeybindEventHandlers()
     RegisterServerEvent("rp:ServerKeybindDelete")
 	AddEventHandler("rp:ServerKeybindDelete", function(key)
         local src = source
-        local srcid = ReturnLicensePLayer(src)
+        local srcid = GetPlayerIdentifierByType(src, 'license')
 
         local lists_keybinds = {
             ['num4'] = 'emote1',
@@ -190,7 +182,7 @@ local function addKeybindEventHandlers()
         }
 
         for k,v in pairs(lists_keybinds) do
-            if key == k then 
+            if key == k then
                 MySQL.Async.execute("UPDATE dpkeybinds SET "..v.." = '' WHERE id=@id", {id = srcid}, function()
                     TriggerClientEvent('esx:showNotification', src, 'Suppresion de votre bind : '..key..' ')
                 end)
