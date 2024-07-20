@@ -28,7 +28,8 @@ data_file 'CONDITIONAL_ANIMS_FILE' 'conditionalanims.meta'
 
 shared_scripts{
     'config.lua',
-    'Translations.lua',
+    'locale.lua',
+    'locales/*.lua',
     'animals.lua',
 }
 
@@ -54,7 +55,7 @@ client_scripts{
     'client/Ragdoll.lua',
     'client/Syncing.lua',
     'client/Walk.lua',
-    'client/frameworks/*.lua'
+    'client/frameworks/*.lua',
 }
 
 ---- Loads all ytyp files for custom props to stream ---

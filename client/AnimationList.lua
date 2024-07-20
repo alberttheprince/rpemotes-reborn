@@ -3332,7 +3332,7 @@ RP.AnimalEmotes = {
                 180.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['poop'],
+            PtfxInfo = Translate('poop'),
             PtfxWait = 0,
             PtfxCanHold = true
         }
@@ -3383,7 +3383,7 @@ RP.AnimalEmotes = {
                 180.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
+            PtfxInfo = Translate('pee'),
             PtfxWait = 0,
             PtfxCanHold = true
         }
@@ -3406,7 +3406,7 @@ RP.AnimalEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
+            PtfxInfo = Translate('pee'),
             PtfxWait = 0,
             PtfxCanHold = true
         }
@@ -3749,7 +3749,7 @@ RP.AnimalEmotes = {
                 0.0,
                 0.6
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['firework'],
+            PtfxInfo = Translate('firework'),
             PtfxWait = 200
         }
     },
@@ -4462,7 +4462,7 @@ RP.AnimalEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['stun'],
+            PtfxInfo = Translate('stun'),
             PtfxWait = 200
         }
     },
@@ -5089,7 +5089,7 @@ RP.AnimalEmotes = {
                 140.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
+            PtfxInfo = Translate('pee'),
             PtfxWait = 0,
             PtfxCanHold = true
         }
@@ -5114,7 +5114,7 @@ RP.AnimalEmotes = {
                 0.0,
                 0.5
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['poop'],
+            PtfxInfo = Translate('poop'),
             PtfxWait = 0,
             PtfxCanHold = true
         }
@@ -5148,7 +5148,7 @@ RP.AnimalEmotes = {
                 0.0,
                 0.6
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['firework'],
+            PtfxInfo = Translate('firework'),
             PtfxWait = 200
         }
     },
@@ -7402,7 +7402,7 @@ RP.Emotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -7446,7 +7446,7 @@ RP.Emotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -8847,7 +8847,7 @@ RP.Emotes = {
                 90.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
+            PtfxInfo = Translate('pee'),
             PtfxWait = 0,
             PtfxCanHold = true,
         },
@@ -8872,7 +8872,7 @@ RP.Emotes = {
                 90.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
+            PtfxInfo = Translate('pee'),
             PtfxWait = 0,
             PtfxCanHold = true,
         },
@@ -8897,7 +8897,7 @@ RP.Emotes = {
                 90.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
+            PtfxInfo = Translate('pee'),
             PtfxWait = 0,
             PtfxCanHold = true,
         },
@@ -10537,7 +10537,7 @@ RP.PropEmotes = {
                 180.0,
                 1.1
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['cut'],
+            PtfxInfo = Translate('cut'),
             PtfxWait = 0.8,
             PtfxCanHold = false -- we set this to false, but yet it allows us to hold, which is the OPPOSITE of what it claims to do!? HUH!?? AVANOX!!
         }
@@ -10963,7 +10963,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -10997,7 +10997,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -11031,7 +11031,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -11065,7 +11065,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -11100,7 +11100,7 @@ RP.PropEmotes = {
                 0.0,
                 1.4
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxInfo = Translate('vape'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -11135,7 +11135,7 @@ RP.PropEmotes = {
                 0.0,
                 1.4
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxInfo = Translate('vape'),
             PtfxWait = 1.8,
             PtfxCanHold = true
         }
@@ -11170,7 +11170,7 @@ RP.PropEmotes = {
                 0.0,
                 1.4
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxInfo = Translate('vape'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -11205,7 +11205,7 @@ RP.PropEmotes = {
                 0.0,
                 1.4
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxInfo = Translate('vape'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -11241,7 +11241,7 @@ RP.PropEmotes = {
                 0.0,
                 1.4
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxInfo = Translate('vape'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -11277,7 +11277,7 @@ RP.PropEmotes = {
                 0.0,
                 1.4
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxInfo = Translate('vape'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -11311,7 +11311,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.5,
             PtfxCanHold = true
         }
@@ -14261,7 +14261,7 @@ RP.PropEmotes = {
                 0.0,
                 1.3
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -14296,7 +14296,7 @@ RP.PropEmotes = {
                 0.0,
                 1.5
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -15244,7 +15244,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['makeitrain'],
+            PtfxInfo = Translate('makeitrain'),
             PtfxWait = 500,
             PtfxCanHold = true
         }
@@ -15277,7 +15277,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -15309,7 +15309,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -15341,7 +15341,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -15373,7 +15373,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
      },
@@ -15405,7 +15405,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
      },
@@ -15455,7 +15455,7 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['spraychamp'],
+            PtfxInfo = Translate('spraychamp'),
             PtfxWait = 500,
             PtfxCanHold = true
         }
@@ -15489,7 +15489,7 @@ RP.PropEmotes = {
                 0.0,
                 1.3
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -15524,7 +15524,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -17197,7 +17197,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['useleafblower'],
+            PtfxInfo = Translate('useleafblower'),
             PtfxWait = 2000,
             PtfxCanHold = true
         }
@@ -17582,7 +17582,7 @@ RP.PropEmotes = {
                 0.0,
                 1.3
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['poop'],
+            PtfxInfo = Translate('poop'),
             PtfxWait = 0,
             PtfxCanHold = true
         }
@@ -17618,7 +17618,7 @@ RP.PropEmotes = {
                 0.0,
                 1.4
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['poop'],
+            PtfxInfo = Translate('poop'),
             PtfxWait = 0,
             PtfxCanHold = true
         }
@@ -17643,7 +17643,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['puke'],
+            PtfxInfo = Translate('puke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         },
@@ -17668,7 +17668,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['puke'],
+            PtfxInfo = Translate('puke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         },
@@ -17692,7 +17692,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['puke'],
+            PtfxInfo = Translate('puke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         },
@@ -17716,7 +17716,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['puke'],
+            PtfxInfo = Translate('puke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         },
@@ -17759,7 +17759,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -17801,7 +17801,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -17843,7 +17843,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -17885,7 +17885,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -17927,7 +17927,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -17969,7 +17969,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18011,7 +18011,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18053,7 +18053,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18095,7 +18095,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18137,7 +18137,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18181,7 +18181,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18223,7 +18223,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18265,7 +18265,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18307,7 +18307,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18349,7 +18349,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
 
         },
@@ -18422,7 +18422,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18466,7 +18466,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18508,7 +18508,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18552,7 +18552,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18594,7 +18594,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18638,7 +18638,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18682,7 +18682,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18726,7 +18726,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18776,7 +18776,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200,
             EmoteLoop = true,
             ExitEmote = "getup",
@@ -18821,7 +18821,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18863,7 +18863,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18905,7 +18905,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18947,7 +18947,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18989,7 +18989,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19031,7 +19031,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19073,7 +19073,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19115,7 +19115,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19157,7 +19157,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19199,7 +19199,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19241,7 +19241,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19293,7 +19293,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19335,7 +19335,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19377,7 +19377,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19431,7 +19431,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200,
         },
         AdultAnimation = true
@@ -19474,7 +19474,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19515,7 +19515,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19567,7 +19567,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19609,7 +19609,7 @@ RP.PropEmotes = {
             0.0,
             1.0
         },
-        PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+        PtfxInfo = Translate('camera'),
         PtfxWait = 200
         }
     },
@@ -19651,7 +19651,7 @@ RP.PropEmotes = {
         0.0,
         1.0
     },
-    PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+    PtfxInfo = Translate('camera'),
     PtfxWait = 200
         }
     },
@@ -19683,7 +19683,7 @@ RP.PropEmotes = {
             0.0,
             1.0
         },
-        PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+        PtfxInfo = Translate('camera'),
         PtfxWait = 200
         }
     },
@@ -19725,7 +19725,7 @@ RP.PropEmotes = {
             0.0,
             1.0
         },
-        PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+        PtfxInfo = Translate('camera'),
         PtfxWait = 200
         }
     },
@@ -19767,7 +19767,7 @@ RP.PropEmotes = {
             0.0,
             1.0
         },
-        PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+        PtfxInfo = Translate('camera'),
         PtfxWait = 200
         }
     },
@@ -19811,7 +19811,7 @@ RP.PropEmotes = {
             0.0,
             1.0
         },
-        PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+        PtfxInfo = Translate('camera'),
         PtfxWait = 200
         }
     },
@@ -19853,7 +19853,7 @@ RP.PropEmotes = {
             0.0,
             1.0
         },
-        PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+        PtfxInfo = Translate('camera'),
         PtfxWait = 200
         }
     },
@@ -19895,7 +19895,7 @@ RP.PropEmotes = {
             0.0,
             1.0
         },
-        PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+        PtfxInfo = Translate('camera'),
         PtfxWait = 200
         }
     },
@@ -20381,7 +20381,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200,
             EmoteLoop = true,
             EmoteMoving = true
@@ -20655,7 +20655,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -20699,7 +20699,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -20743,7 +20743,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -20787,7 +20787,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -20831,7 +20831,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -20875,7 +20875,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -21570,7 +21570,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200,
             EmoteLoop = true,
             EmoteMoving = true
@@ -21634,7 +21634,7 @@ RP.PropEmotes = {
                 0.0,
                 1.5
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
        }
@@ -21680,7 +21680,7 @@ RP.PropEmotes = {
                 0.0,
                 1.5
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
        }
@@ -22051,7 +22051,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -22521,7 +22521,7 @@ RP.PropEmotes = {
                 0.0,
                 0.6
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['firework'],
+            PtfxInfo = Translate('firework'),
             PtfxWait = 200
         }
     },
@@ -23066,7 +23066,7 @@ RP.PropEmotes = {
                 0.0,
                 1.5
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -23583,7 +23583,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200,
             EmoteLoop = true,
         }

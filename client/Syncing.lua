@@ -11,7 +11,7 @@ local targetPlayerId = ''
 if Config.SharedEmotesEnabled then
     RegisterCommand('nearby', function(source, args, raw)
         if IsPedInAnyVehicle(PlayerPedId(), true) then
-            return EmoteChatMessage(Config.Languages[lang]['not_in_a_vehicle'])
+            return EmoteChatMessage(Translate('not_in_a_vehicle'))
         end
 
         if #args > 0 then
@@ -21,13 +21,13 @@ if Config.SharedEmotesEnabled then
                 if RP.Shared[emotename] ~= nil then
                     dict, anim, ename = table.unpack(RP.Shared[emotename])
                     TriggerServerEvent("ServerEmoteRequest", GetPlayerServerId(target), emotename)
-                    SimpleNotify(Config.Languages[lang]['sentrequestto'] ..
+                    SimpleNotify(Translate('sentrequestto') ..
                         GetPlayerName(target) .. " ~w~(~g~" .. ename .. "~w~)")
                 else
-                    EmoteChatMessage("'" .. emotename .. "' " .. Config.Languages[lang]['notvalidsharedemote'] .. "")
+                    EmoteChatMessage("'" .. emotename .. "' " .. Translate('notvalidsharedemote') .. "")
                 end
             else
-                SimpleNotify(Config.Languages[lang]['nobodyclose'])
+                SimpleNotify(Translate('nobodyclose'))
             end
         else
             NearbysOnCommand()
@@ -42,7 +42,7 @@ AddEventHandler("SyncPlayEmote", function(emote, player)
     targetPlayerId = player
 
     if IsPedInAnyVehicle(GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer()), true) then
-        return EmoteChatMessage(Config.Languages[lang]['not_in_a_vehicle'])
+        return EmoteChatMessage(Translate('not_in_a_vehicle'))
     end
 
     -- wait a little to make sure animation shows up right on both clients after canceling any previous emote
@@ -86,7 +86,7 @@ AddEventHandler("SyncPlayEmoteSource", function(emote, player)
     local pedInFront = GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer())
 
     if IsPedInAnyVehicle(ply, true) or IsPedInAnyVehicle(pedInFront, true) then
-        return EmoteChatMessage(Config.Languages[lang]['not_in_a_vehicle'])
+        return EmoteChatMessage(Translate('not_in_a_vehicle'))
     end
 
     local SyncOffsetFront = 1.0
@@ -165,7 +165,7 @@ AddEventHandler("ClientEmoteRequestReceive", function(emotename, etype, target)
     end
 
     PlaySound(-1, "NAV", "HUD_AMMO_SHOP_SOUNDSET", 0, 0, 1)
-    SimpleNotify(Config.Languages[lang]['doyouwanna'] .. remote .. "~w~)")
+    SimpleNotify(Translate('doyouwanna') .. remote .. "~w~)")
     -- The player has now 10 seconds to accept the request
     local timer = 10 * 1000
     while isRequestAnim do
@@ -173,7 +173,7 @@ AddEventHandler("ClientEmoteRequestReceive", function(emotename, etype, target)
         timer = timer - 5
         if timer == 0 then
             isRequestAnim = false
-            SimpleNotify(Config.Languages[lang]['refuseemote'])
+            SimpleNotify(Translate('refuseemote'))
         end
 
         if IsControlJustPressed(1, 246) then
@@ -189,7 +189,7 @@ AddEventHandler("ClientEmoteRequestReceive", function(emotename, etype, target)
             TriggerServerEvent("ServerValidEmote", target, requestedemote, otheremote)
         elseif IsControlJustPressed(1, 182) then
             isRequestAnim = false
-            SimpleNotify(Config.Languages[lang]['refuseemote'])
+            SimpleNotify(Translate('refuseemote'))
         end
     end
 end)

@@ -35,7 +35,7 @@ if Config.BinocularsEnabled then
             PushScaleformMovieFunctionParameterInt(i - 1)
             ScaleformMovieMethodAddParamPlayerNameString(GetControlInstructionalButton(0, btn.key, true))
             BeginTextCommandScaleformString("STRING")
-            AddTextComponentScaleform(Config.Languages[lang][btn.text])
+            AddTextComponentScaleform(Translate(btn.text))
             EndTextCommandScaleformString()
             PopScaleformMovieFunctionVoid()
         end
