@@ -5,6 +5,7 @@ local ChosenDict = ""
 local ChosenAnimOptions = false
 local MovementType = 0
 local PlayerGender = "male"
+local PedHasProp = false
 local PlayerHasProp = false
 local PlayerProps = {}
 local PlayerParticles = {}
@@ -694,6 +695,7 @@ function DestroyAllProps(ped_preview)
         for _, v in pairs(PreviewPedProps) do
             DeleteEntity(v)
         end
+        PedHasProp = false
     else
         for _, v in pairs(PlayerProps) do
             DeleteEntity(v)
@@ -735,6 +737,7 @@ function AddPropToPlayer(prop1, bone, off1, off2, off3, rot1, rot2, rot3, textur
 
 
     if PedPreview then
+        PedHasProp = true
         AttachEntityToEntity(prop, Player_Props, GetPedBoneIndex(Player_Props, bone), off1, off2, off3, rot1, rot2, rot3, true, true,
         false, true, 1, true)
         table.insert(PreviewPedProps, prop)
@@ -1050,7 +1053,7 @@ function OnEmotePlayPed(EmoteName, name, textureVariation)
     --     end
     -- end
 
-    if animOption and animOption.Prop and PlayerHasProp then
+    if animOption and animOption.Prop and PedHasProp then
         DestroyAllProps(true)
     end
 
