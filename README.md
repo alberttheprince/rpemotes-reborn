@@ -1,6 +1,5 @@
 ![image](https://github.com/alberttheprince/rpemotes-reborn/assets/85725579/25b38001-1b50-42ff-b9c9-07046d8be0a1)
 
-
 rpemotes-reborn is a community-driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walk styles, and props inspired by [DullPear](https://github.com/andristum/dpemotes), maintained by Popcorn RP after TayMcKenzieNZ began selling an open-source community project against the spirit of the project.
 
 A partial archive of the original RP Emotes docs can be found [here](https://web.archive.org/web/20231218223552/https://docs.rpemotes.com/)
@@ -8,8 +7,6 @@ A partial archive of the original RP Emotes docs can be found [here](https://web
 Rpemotes-reborn is free, **and will always be free**: accept no substitutes or reproductions from scummy people reselling other's hard work against agreements made with creators. We're committed to the open-source community and the dozens of contributors who put hard work into rpemotes to provide the community with free emotes and props.
 
 Want to help support them? Check out our credits section at the bottom of the Readme and support those creators!
-
-
 
 # Features 🛠️
 
@@ -67,7 +64,6 @@ Want to help support them? Check out our credits section at the bottom of the Re
 
 - Props Extractor for anti-cheat scripts 💾
 
-
 **Available in the following languages:**
 
 Albanian, Brazilian Portuguese, Chinese (Simplified), Chinese (Traditional), Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Indonesian, Italian, Lithuanian, Norwegian, Persian, Polish, Romanian, Russian, Serbian, Sinhala, Slovenian, Spanish, Swedish, Turkish, Vietnamese
@@ -77,8 +73,6 @@ Languages can be selected and/or added in the config.lua.
 All languages were translated or contributed by the FiveM community, with the odd exception of using Google Translate.
 
 If you find any incorrect translations or would like to add more languages, please make a pull request with the corrections.
-
-
 
 # Header
 
@@ -90,8 +84,6 @@ Example Banner:
 ![image](https://github.com/user-attachments/assets/dac5b7e5-4b63-4d10-8d59-3e8502d9913c)
 
 **Note for users of older versions of rpemotes:** Previously, the banner was hosted through a web link on an image hosting website. Due to various image hosting sites dealing with large amounts of traffic from FiveM, they cut off access to FiveM.
-
-
 
 # Exports and More
 
@@ -119,11 +111,9 @@ LocalPlayer.state:set('canEmote', false, true) -- stops emoting
 LocalPlayer.state:set('canEmote', true, true) -- allows emoting
 ```
 
-
-
 # Menu Keybind 🎛️
 
-The keybind uses RegisterKeyMapping. By default the configured keybind in the *initial* config.lua will be the default key, however once the keybind is set for a user it'll remain and can be changed in the users settings under `Esc > settings > keybinds > fivem`.
+The keybind uses RegisterKeyMapping. By default the configured keybind in the _initial_ config.lua will be the default key, however once the keybind is set for a user it'll remain and can be changed in the users settings under `Esc > settings > keybinds > fivem`.
 
 **Menu key:**
 
@@ -139,8 +129,6 @@ Alternatively, the player base can set their menu keybind to open rpemotes-rebor
 
 - More keybinds are now using key mappings which means that they are now available in your FiveM settings to change (`FavKeybind` and `RagdollKeybind`)
 
-
-
 # Keybinds and SQL 🎛️
 
 To use the SQL features, install the latest version of the [oxmysql](https://github.com/overextended/oxmysql) resource and enable the setting in `config.lua`
@@ -154,8 +142,6 @@ If you do not want to use the SQL features keep the `oxmysql` region in fxmanife
 Alternatively, you can use the keybind command that comes with FiveM without having to use SQL, by entering the following into F8:
 
 `bind keyboard "Yourbutton" "e youremote"`. To remove the keybind, type `"unbind keyboard "Yourbutton"`.
-
-
 
 # Menu Customization
 
@@ -172,15 +158,11 @@ You can also set the font and decide whether or not you want an outline and Menu
 
 Additional customizations can be found in the config. Please note due to limitations by Imgur and Discord; images can not be directly linked from either platform. You may link directly to an image from the forums, or just leave it blank.
 
-
-
 # Increments
 
 Pressing 'LEFT ALT' on the keyboard allows players to scroll through the menu one by one, or by 10.
 
 Alternatively, players can use the `SHARE` button on an Xbox controller or `OPTIONS` button on a Playstation controller.
-
-
 
 # Ragdoll 🥴
 
@@ -189,8 +171,6 @@ Alternatively, players can use the `SHARE` button on an Xbox controller or `OPTI
 - Much like the menu key, `RagdollKeybind` is also using RegisterKeyMapping. It is currently set to `U` by default _(server side)_ however can be set to the player's preferred keybind in the FiveM keybinds setting found in the settings menu within the Esc Menu.
 
 - New setting: `RagdollAsToggle`, this will make either the ragdoll be a toggle or a hold key
-
-
 
 # Finger Pointing & Hands Up 👆
 
@@ -204,8 +184,6 @@ Much like everything else in the menu, server owners can change these keybinds t
 | Y         | Toggle Hands Up        |
 | /pointing | Toggle Finger Pointing |
 | /handsup  | Toggle Hands Up        |
-
-
 
 # Crouching & Crawling
 
@@ -240,8 +218,6 @@ Moods and walk styles can be set from the menu. These will save to your characte
 | /reset mood | Remove preferred mood and set default |
 | /reset walk | Remove last walkstyle and set default |
 
-
-
 # No Idle Cam 📷
 
 No Idle Cam allows players to disable the idle camera animation on foot and in vehicle, making RP scenarios, streaming on Twitch, or just general gameplay just a little more enjoyable.
@@ -250,8 +226,6 @@ No Idle Cam allows players to disable the idle camera animation on foot and in v
 | ----------- | ---------------------- |
 | /Idlecamon  | deactivates the native |
 | /idlecamoff | enables the native     |
-
-
 
 # Binoculars 👀
 
@@ -263,8 +237,6 @@ No Idle Cam allows players to disable the idle camera animation on foot and in v
 | BACKSPACE   | Exit the binoculars                           |
 
 <img src="https://forum.cfx.re/uploads/default/original/4X/2/6/3/263b6f2afe148191193fca8c8cc0b9bc666da9e8.jpeg" width="600" height="auto">
-
-
 
 # News Camera
 
@@ -278,15 +250,11 @@ No Idle Cam allows players to disable the idle camera animation on foot and in v
 
 <img src="https://forum.cfx.re/uploads/default/optimized/4X/5/4/e/54e47db5ae45f5afa4b84c2ae4858bc9ab0a8187_2_690x388.jpeg" width="600" height="auto">
 
-
-
 # Favorite Emote
 
 Players can search for an emote (so long as search is enabled) and press LEFT SHIFT and CAPLOCKS on their keyboard to add it to their 'Favorites'. Pressing CAPLOCKS will toggle the emote.
 
 Alternatively, you can use the 🌟 Favorite menu to find an emote and press enter.
-
-
 
 # Exit Emotes
 
@@ -324,13 +292,11 @@ The ExitEmote calls for the 'getup' emote, which is noted as the following:
 }
 ```
 
-
-
 # Adult Emotes 🔞
 
 Adult Emotes can be hidden from the menu by setting `AdultEmotesDisabled` to `true` in the config.lua file.
 
-This will completely conceal the emotes from the lists *(Emotes, Shared Emotes, etc)* at startup making them unusable.
+This will completely conceal the emotes from the lists _(Emotes, Shared Emotes, etc)_ at startup making them unusable.
 
 The emotes that are concealed, are the ones flagged in the animation list with `AdultAnimation`. You can see how it is done with `fspose`.
 
@@ -354,9 +320,7 @@ in the config file, otherwise, leave it as
 Framework = false,
 ```
 
-*You may need to alter some code within qb-core to work with RPEmotes.*
-
-
+_You may need to alter some code within qb-core to work with RPEmotes._
 
 # Prop Extractor ↔️
 
@@ -378,10 +342,7 @@ Available output formats:
 Command usage example: emoteextract 1
 ```
 
-
 <img src="screenshots/extractor.png" width="700">
-
-
 
 # Installation Instructions ⚙️:
 
@@ -415,8 +376,6 @@ Alternatively, you can use the keybind command that comes with FiveM without hav
 
 - Type `/refresh` and `/ensure rpemotes` into your chat resource, or simply restart your server
 
-
-
 # Shared emotes 👩🏻‍❤️‍💋‍👨🏼
 
 Emotes will work with either `SyncOffset` or `Attachto`.
@@ -426,20 +385,17 @@ If it is with `SyncOffsetFront` or `SyncOffsetSide`, then the offset used is the
 For example, if player one starts the emote `handshake` which has `SyncOffsetFront`, then player one will have the `SyncOffsetFront` but not the other player.
 
 - If it is with `Attachto`, then it'll either be player one's data used for attaching or player two's data.<br/>
-For example, if player one starts the emote carry, then the other player will be attached but not the player one because Attachto is set in `carry2` and not `carry`.<br/>
+  For example, if player one starts the emote carry, then the other player will be attached but not the player one because Attachto is set in `carry2` and not `carry`.<br/>
 - If player one starts the emote `carry2`, then player one will be attached and not the other player.
-it's the player who starts the animation who will in most cases be moved
+  it's the player who starts the animation who will in most cases be moved
 
-
-*Special case, if both emote have the `Attachto` then only the player who started the emote will be attached.*
+_Special case, if both emote have the `Attachto` then only the player who started the emote will be attached._
 
 You can find a list of ped bones to attach the other player here: [Ped Bones](https://wiki.rage.mp/index.php?title=Bones) or alternatively, if the link is down for some reason, you can check [here](https://wiki.rage.mp/index.php?title=Bones)
 
 Using the websites provided above, enter the bone ID, ie `1356` and not `111`, which is the Bone Index.
 
 Understandably, this can be confusing for some people. We suggest using the `Attachto` approach.
-
-
 
 # Particle Effects 💨
 
@@ -471,8 +427,6 @@ Alternatively, you can use the `PtfxBone =` AnimationOption to attach the PTFX t
 
 Using Menyoo, spawn down a tennis ball and attach it to a human, by default menyoo will attach it to the SKEL_ROOT bone (stomach), so from that, what we can do is either offset the coordinates, say, up to the human ped's mouth, or change the bone altogether. Once we've got it correct, we can transfer those coordinates over to RPEmotes, and tah dah, we have our Ptfx Placement.
 
-
-
 # Adding Your Own Animations ⚙️
 
 Because the menu gets updated frequently, the files get overwritten. To avoid this, you can add your own / downloaded animation files `(.ycd)` inside of a newly created folder, give it a name, and place it in the `rpemotes\stream\[Custom Emotes]` folder.
@@ -488,14 +442,14 @@ Below is an example:
 
 <img src="screenshots/customanims.png" width="550">
 
-
 # Credits 🤝
 
 **All** custom animations and props were added with permission from the creators.
 
-All animation creators have ***specifically*** asked that their content remain free and that the RPEmotes team and community do not try to profit from them, claim them as their own, or reupload them anywhere else.
+All animation creators have **_specifically_** asked that their content remain free and that the RPEmotes team and community do not try to profit from them, claim them as their own, or reupload them anywhere else.
 
 **A huge thank you the following people for their amazing contributions to the menu:**
+
 - the FiveM community for using RP Emotes!
 - [enzo2991](https://github.com/enzo2991) for creating the ped preview functionality
 - [The Popcorn RP community](https://discord.gg/popcornroleplay) for putting up with all my emote menu testing and troubleshooting issues with me
@@ -523,7 +477,7 @@ All animation creators have ***specifically*** asked that their content remain f
 - DurtyFree for his work on particle effects and cataloging GTA-related information [DurtyFree GTA V Dump](https://github.com/DurtyFree/gta-v-data-dumps/blob/master/particleEffectsCompact.json).
 - [BoringNeptune](https://www.gta5-mods.com/users/BoringNeptune) for the custom dance emotes
 - [CMG Mods](https://www.gta5-mods.com/users/-moses-) for the custom emotes
-- [prue颜](discord.gg/lunyxmods) for being a great friend and providing us with exclusive custom animations
+- [prue 颜](discord.gg/lunyxmods) for being a great friend and providing us with exclusive custom animations
 - [PataMods](https://forum.cfx.re/u/Pata_PataMods) for the custom props
 - [Crowded1337](https://www.gta5-mods.com/users/crowded1337) for the custom Gucci bag. I have removed the Gucci logo to comply with Rockstar Games & TakeTwo Interactive
 - [EnchantedBrownie](https://www.gta5-mods.com/users/EnchantedBrownie) for the custom animations
@@ -546,3 +500,4 @@ All animation creators have ***specifically*** asked that their content remain f
 - [LSPDFR member Sam](https://www.lcpdfr.com/downloads/gta5mods/misc/23386-lspd-police-badge/) for their Custom LSPD police badge
 - [GTA5Mods user Sladus_Slawonkus](https://www.gta5-mods.com/misc/lspd-police-badge-replace-sladus_slawonkus) for their reskinned LSPD badge
 - [TayMcKenzieNZ](https://github.com/TayMcKenzieNZ) for their past work maintaining RP Emotes
+- [ESX](https://github.com/esx-framework) for the creation of the translation system
