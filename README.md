@@ -89,7 +89,7 @@ Do not change the name of the image file.
 Example Banner:
 ![image](https://github.com/user-attachments/assets/dac5b7e5-4b63-4d10-8d59-3e8502d9913c)
 
-**Note for users of older versions of rpemotes:** Previously, the banner was hosted through a web link on an image hosting website. Due to various image hosting sites dealing with large amounts of traffic from FiveM, they cut off access to FiveM. 
+**Note for users of older versions of rpemotes:** Previously, the banner was hosted through a web link on an image hosting website. Due to various image hosting sites dealing with large amounts of traffic from FiveM, they cut off access to FiveM.
 
 
 
@@ -105,7 +105,7 @@ exports["rpemotes"]:IsPlayerCrouched()
 exports["rpemotes"]:IsPlayerProne()
 exports["rpemotes"]:IsPlayerCrawling()
 exports["rpemotes"]:IsPlayerPointing()
-exports["rpemotes"]:IsPlayerInAnim()
+exports["rpemotes"]:IsPlayerInAnim() -- returns current animation name or nil
 exports["rpemotes"]:IsPlayerInHandsUp()
 exports["rpemotes"]:toggleWalkstyle(bool, message) -- bool to allow the user to change their walkstyle in the menu or not / message to show the user (optional, default is :"You are unable to change your walking style right now.")"
 exports["rpemotes"]:toggleBinoculars()
@@ -425,17 +425,17 @@ If it is with `SyncOffsetFront` or `SyncOffsetSide`, then the offset used is the
 
 For example, if player one starts the emote `handshake` which has `SyncOffsetFront`, then player one will have the `SyncOffsetFront` but not the other player.
 
-- If it is with `Attachto`, then it'll either be player one's data used for attaching or player two's data.<br/>	
-For example, if player one starts the emote carry, then the other player will be attached but not the player one because Attachto is set in `carry2` and not `carry`.<br/>	
-- If player one starts the emote `carry2`, then player one will be attached and not the other player.	
-it's the player who starts the animation who will in most cases be moved	
+- If it is with `Attachto`, then it'll either be player one's data used for attaching or player two's data.<br/>
+For example, if player one starts the emote carry, then the other player will be attached but not the player one because Attachto is set in `carry2` and not `carry`.<br/>
+- If player one starts the emote `carry2`, then player one will be attached and not the other player.
+it's the player who starts the animation who will in most cases be moved
 
 
-*Special case, if both emote have the `Attachto` then only the player who started the emote will be attached.*	
+*Special case, if both emote have the `Attachto` then only the player who started the emote will be attached.*
 
-You can find a list of ped bones to attach the other player here: [Ped Bones](https://wiki.rage.mp/index.php?title=Bones) or alternatively, if the link is down for some reason, you can check [here](https://wiki.rage.mp/index.php?title=Bones)	
+You can find a list of ped bones to attach the other player here: [Ped Bones](https://wiki.rage.mp/index.php?title=Bones) or alternatively, if the link is down for some reason, you can check [here](https://wiki.rage.mp/index.php?title=Bones)
 
-Using the websites provided above, enter the bone ID, ie `1356` and not `111`, which is the Bone Index.	
+Using the websites provided above, enter the bone ID, ie `1356` and not `111`, which is the Bone Index.
 
 Understandably, this can be confusing for some people. We suggest using the `Attachto` approach.
 
@@ -502,8 +502,8 @@ All animation creators have ***specifically*** asked that their content remain f
 - [DerDevHD](https://forum.cfx.re/t/fixed-remove-prop-after-scenario-animation/5002332/8) for the insight on deleting scenario props.
 - [Kibook](https://github.com/kibook) for the addition of the Animal Emotes sub-menu
 - [AvaN0x](https://github.com/AvaN0x) for reformatting and assisting with code, additional features, and figuring out shared particle effects
-- [Mads](https://github.com/MadsLeander) for joining the team as Co-Developer 
-- [Mathu_lmn](https://github.com/Mathu-lmn) for joining the team as Co-Developer 
+- [Mads](https://github.com/MadsLeander) for joining the team as Co-Developer
+- [Mathu_lmn](https://github.com/Mathu-lmn) for joining the team as Co-Developer
 - [Tigerle](https://forum.cfx.re/u/tigerle_studios) for providing the additional code required to make Shared Emotes work to its full extent
 - [SMGMissy](https://forum.cfx.re/u/smgmissy/) for assisting with custom pride flags and how to stream them
 - [MissSnowie](https://www.gta5-mods.com/users/MissySnowie) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord and for the motivational and overall moral support
@@ -528,7 +528,7 @@ All animation creators have ***specifically*** asked that their content remain f
 - [Crowded1337](https://www.gta5-mods.com/users/crowded1337) for the custom Gucci bag. I have removed the Gucci logo to comply with Rockstar Games & TakeTwo Interactive
 - [EnchantedBrownie](https://www.gta5-mods.com/users/EnchantedBrownie) for the custom animations
 - [Copofiscool](https://forum.cfx.re/u/copofiscool/) for adding a toggle to the Favorite Keybinds
-- [iSentrie](https://forum.cfx.re/u/isentrie/) for additional code, support, and joining the RPEmotes project 
+- [iSentrie](https://forum.cfx.re/u/isentrie/) for additional code, support, and joining the RPEmotes project
 - Chocoholic Animations for the custom animations
 - [CrunchyCat](https://www.gta5-mods.com/users/crunchycat) for the custom animations
 - [KayKayMods](https://discord.gg/5bYQVWVaxG) for the custom props
@@ -542,7 +542,7 @@ All animation creators have ***specifically*** asked that their content remain f
 - [Vedere](https://discord.gg/XMywAMQ8Ef) for the custom props
 - [DRX Animations](https://www.gta5-mods.com/users/DRX%2DAnimations) for the custom animations
 - [VNSIanims](https://discord.gg/cTNrjYSXXG) for the custom animations
-- [PNWParksFan](https://www.gta5-mods.com/users/PNWParksFan) for the custom props	
-- [LSPDFR member Sam](https://www.lcpdfr.com/downloads/gta5mods/misc/23386-lspd-police-badge/) for their Custom LSPD police badge	
-- [GTA5Mods user Sladus_Slawonkus](https://www.gta5-mods.com/misc/lspd-police-badge-replace-sladus_slawonkus) for their reskinned LSPD badge	
+- [PNWParksFan](https://www.gta5-mods.com/users/PNWParksFan) for the custom props
+- [LSPDFR member Sam](https://www.lcpdfr.com/downloads/gta5mods/misc/23386-lspd-police-badge/) for their Custom LSPD police badge
+- [GTA5Mods user Sladus_Slawonkus](https://www.gta5-mods.com/misc/lspd-police-badge-replace-sladus_slawonkus) for their reskinned LSPD badge
 - [TayMcKenzieNZ](https://github.com/TayMcKenzieNZ) for their past work maintaining RP Emotes

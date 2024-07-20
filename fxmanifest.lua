@@ -1,7 +1,7 @@
 fx_version 'cerulean'
 game 'gta5'
-description 'rpemotes-reborn'	
-version '1.5.0'
+description 'rpemotes-reborn'
+version '1.5.3'
 
 lua54 'yes'
 use_experimental_fxv2_oal 'yes'
@@ -70,7 +70,7 @@ data_file 'DLC_ITYP_REQUEST' 'stream/brummie_props.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_props.ytyp'
 
-data_file 'DLC_ITYP_REQUEST' 'bzzz_camp_props.ytyp'
+data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_camp_props.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/apple_1.ytyp'
 
