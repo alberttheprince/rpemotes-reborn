@@ -460,11 +460,9 @@ end
 function AddCancelEmote(menu)
     local newitem = NativeUI.CreateItem(Config.Languages[lang]['cancelemote'], Config.Languages[lang]['cancelemoteinfo'])
     menu:AddItem(newitem)
-    menu.OnItemSelect = function(sender, item, checked_)
-        if item == newitem then
-            EmoteCancel()
-            DestroyAllProps()
-        end
+    newitem.Activated = function()
+        EmoteCancel()
+        DestroyAllProps()
     end
 end
 
