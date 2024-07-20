@@ -10,6 +10,10 @@ local targetPlayerId = ''
 -----------------------------------------------------------------------------------------------------
 if Config.SharedEmotesEnabled then
     RegisterCommand('nearby', function(source, args, raw)
+        if IsPedInAnyVehicle(PlayerPedId(), true) then
+            return EmoteChatMessage(Config.Languages[lang]['not_in_a_vehicle'])
+        end
+
         if #args > 0 then
             local emotename = string.lower(args[1])
             target, distance = GetClosestPlayer()
@@ -36,6 +40,11 @@ AddEventHandler("SyncPlayEmote", function(emote, player)
     EmoteCancel()
     Wait(300)
     targetPlayerId = player
+
+    if IsPedInAnyVehicle(GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer()), true) then
+        return EmoteChatMessage(Config.Languages[lang]['not_in_a_vehicle'])
+    end
+
     -- wait a little to make sure animation shows up right on both clients after canceling any previous emote
     if RP.Shared[emote] ~= nil then
         if RP.Shared[emote].AnimationOptions and RP.Shared[emote].AnimationOptions.Attachto then
@@ -75,6 +84,10 @@ AddEventHandler("SyncPlayEmoteSource", function(emote, player)
     local ply = PlayerPedId()
     local plyServerId = GetPlayerFromServerId(player)
     local pedInFront = GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer())
+
+    if IsPedInAnyVehicle(ply, true) or IsPedInAnyVehicle(pedInFront, true) then
+        return EmoteChatMessage(Config.Languages[lang]['not_in_a_vehicle'])
+    end
 
     local SyncOffsetFront = 1.0
     local SyncOffsetSide = 0.0

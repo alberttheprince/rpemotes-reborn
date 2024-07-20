@@ -2456,7 +2456,7 @@ function UIMenu.New(Title, Subtitle, X, Y, TxtDictionary, TxtName)
             ResetCursorOnOpen = false,
             MouseControlsEnabled = false,
             MouseEdgeEnabled = false,
-            ControlDisablingEnabled = false,
+            ControlDisablingEnabled = Config.DisableControls,
             Audio = {
                 Library = "HUD_FRONTEND_DEFAULT_SOUNDSET",
                 UpDown = "NAV_UP_DOWN",
@@ -2494,7 +2494,7 @@ function UIMenu.New(Title, Subtitle, X, Y, TxtDictionary, TxtName)
                     { 0, 30 }, -- Move Left and Right
                     { 0, 31 }, -- Move Up and Down
                     { 0, 47 }, -- G
-                    { 0, 59 }, -- Move Vehicle Left and Right
+                    -- { 0, 59 }, -- Move Vehicle Left and Right
                     { 0, 71 }, -- Accelerate Vehicle
                     { 0, 72 }, -- Vehicle Brake
                     { 0, 73 }, -- X

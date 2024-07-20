@@ -13,6 +13,7 @@ Config = {
     Framework = 'qb-core', -- Used for few framework-dependent things. Accepted values: 'qb-core', false
     Search = true, -- Used to enable or disable the search feature in the menu.
     CancelPreviousEmote = false,     -- If turned on, playing an emote will cancel the previous one.
+    DisableControls = false, -- Disable specific controls when menu is open, can be configured in NativeUI.lua:2452 (approximately)
 
     -- Menu Customization Options
     MenuTitle = '', -- You can change the name of the menu here or leave it blank to remove the text in front of the custom banners
@@ -34,37 +35,37 @@ Config = {
     RagdollKeybind = 'u', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- You can enable or disable Ragdoll as Toggle here. Only works if RagdollEnabled is set to true.
     RagdollAsToggle = true,
-    
+
     -- Expressions, Walks, and More Menu Options
-    ExpressionsEnabled = true, -- You can disable the Facial Expressions menu here. 
+    ExpressionsEnabled = true, -- You can disable the Facial Expressions menu here.
     PersistentExpression = true, -- Saves expression style to client and applies them on joining
     WalkingStylesEnabled = true, -- You can disable the Walking Styles menu here.
     PersistentWalk = true, -- Saves walk styles to client and applies them on joining
     SharedEmotesEnabled = true, -- You can disable the Shared Emotes here.
     AdultEmotesDisabled = false, -- You can disable the Adult Emotes here.
     AnimalEmotesEnabled = true, -- You can disable the Animal Emotes here.
-    
-    -- Hands Up Options 
+
+    -- Hands Up Options
     HandsupEnabled = false, -- You can disable the handsup here / change the keybind. It is currently set to Y
     HandsupKeybind = 'Y', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     HandsupKeybindEnabled = false,
     HandsupKeybindInCarEnabled = false,
     PersistentEmoteAfterHandsup = true, -- If true, you will play the emote you were playing previously after you stop handsup.
-    
+
     -- Pointing Options
     PointingEnabled = true, -- You can disable the finger pointing here / change the keybind. It is currently set to B
     PointingKeybindEnabled = true,
     PointingKeybind = 'B', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     PointingKeybindInCarEnabled = false,
     PersistentEmoteAfterPointing = true, -- If true, you will play the emote you were playing previously after you stop pointing.
-    
+
     -- Crouching Options
     CrouchEnabled = true, -- If crouching should be enabled.
     CrouchKeybindEnabled = true, -- If true, crouching will use keybinds.
     CrouchKeybind = 'lcontrol', -- The default crouch keybind, get the button string here: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     CrouchOverride = false, -- If true, you won't enter stealth mode even if the crouch key and the 'duck' key are the same.
     FpsMode = false, -- set this to true if you have first-person shooting to disable the ability to crouch and shoot in third-person
-    
+
     -- Crawling Options
     CrawlEnabled = true, -- If crawling should be enabled.
     CrawlKeybindEnabled = true, -- If true, crawling will use keybinds.
@@ -73,10 +74,10 @@ Config = {
     -- Binocular Options
     BinocularsEnabled = false, -- If set to true, the /binoculars command will be enabled.
     AllowVisionsToggling = false, -- If set to true, you'll be able to toggle between different vision modes in the binoculars
-    
+
     -- News Camera Options
     NewscamEnabled = false, -- If set to true, the /newscam command will be enabled.
-        
+
     -- Preview Ped Options
     PreviewPed = true, -- Shows a preview of the emote on the player's ped next to the emote menu. Note that resmon will increase when this when emotes are being previewed.
 

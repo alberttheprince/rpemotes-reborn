@@ -26,8 +26,6 @@ if Config.SqlKeybinding then
                 end
             end
 
-            
-            
             if not IsPedSittingInAnyVehicle(PlayerPedId()) then
 
                 for k, v in pairs(Config.KeybindKeys) do
@@ -41,7 +39,7 @@ if Config.SqlKeybinding then
                         Wait(1000)
                     end
                 end
-            else 
+            else
                 Wait(500)
             end
             Wait(0)
@@ -143,6 +141,5 @@ if Config.SqlKeybinding then
             print("invalid")
         end
     end
-
 
 end
