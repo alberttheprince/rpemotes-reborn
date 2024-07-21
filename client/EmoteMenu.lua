@@ -317,7 +317,7 @@ if Config.Search then
             if #results > 0 then
                 InSearch = true
 
-                local searchMenu = _menuPool:AddSubMenu(lastMenu, string.format(Translate('searchmenudesc'), #results, input), "", true, Menuthing, Menuthing)
+                local searchMenu = _menuPool:AddSubMenu(lastMenu, string.format('%s'..Translate('searchmenudesc')..' ~r~%s~w~', #results, input), "", true, Menuthing, Menuthing)
                 local sharedDanceMenu
                 if favEnabled then
                     local rFavorite = NativeUI.CreateItem(Translate('rfavorite'), Translate('rfavorite'))
@@ -451,7 +451,7 @@ if Config.Search then
                 _menuPool:CloseAllMenus()
                 searchMenu:Visible(true)
             else
-                SimpleNotify(string.format(Translate('searchnoresult'), input))
+                SimpleNotify(string.format(Translate('searchnoresult')..' ~r~%s~w~', input))
             end
         end
     end
