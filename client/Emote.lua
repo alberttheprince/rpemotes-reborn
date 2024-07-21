@@ -5,6 +5,7 @@ local ChosenDict = ""
 local ChosenAnimOptions = false
 local MovementType = 0
 local PlayerGender = "male"
+local PedHasProp = false
 local PlayerHasProp = false
 local PlayerProps = {}
 local PlayerParticles = {}
@@ -115,7 +116,7 @@ local function CheckStatusThread(dict, anim)
 end
 
 if Config.EnableCancelKeybind then
-    RegisterKeyMapping("emotecancel", Config.Languages[lang]['register_cancel_emote'], "keyboard", Config.CancelEmoteKey)
+    RegisterKeyMapping("emotecancel", Translate('register_cancel_emote'), "keyboard", Config.CancelEmoteKey)
 end
 
 -----------------------------------------------------------------------------------------------------
@@ -123,22 +124,22 @@ end
 -----------------------------------------------------------------------------------------------------
 
 CreateThread(function()
-    TriggerEvent('chat:addSuggestion', '/e', Config.Languages[lang]['play_emote'],
-        { { name = "emotename", help = Config.Languages[lang]['help_command'] },
-            { name = "texturevariation", help = Config.Languages[lang]['help_variation'] } })
-    TriggerEvent('chat:addSuggestion', '/emote', Config.Languages[lang]['play_emote'],
-        { { name = "emotename", help = Config.Languages[lang]['help_command'] },
-            { name = "texturevariation", help = Config.Languages[lang]['help_variation']  } })
+    TriggerEvent('chat:addSuggestion', '/e', Translate('play_emote'),
+        { { name = "emotename", help = Translate('help_command') },
+            { name = "texturevariation", help = Translate('help_variation') } })
+    TriggerEvent('chat:addSuggestion', '/emote', Translate('play_emote'),
+        { { name = "emotename", help = Translate('help_command') },
+            { name = "texturevariation", help = Translate('help_variation')  } })
     if Config.SqlKeybinding then
-        TriggerEvent('chat:addSuggestion', '/emotebind', Config.Languages[lang]['link_emote_keybind'],
+        TriggerEvent('chat:addSuggestion', '/emotebind', Translate('link_emote_keybind'),
             { { name = "key", help = "num4, num5, num6, num7. num8, num9. Numpad 4-9!" },
-                { name = "emotename", help = Config.Languages[lang]['help_command'] } })
-        TriggerEvent('chat:addSuggestion', '/emotebinds', Config.Languages[lang]['show_emote_keybind'])
-        TriggerEvent('chat:addSuggestion', '/emotedelete', Config.Languages[lang]['remove_emote_keybind'], {{ name="key", help="num4, num5, num6, num7. num8, num9. Numpad 4-9!"}})
+                { name = "emotename", help = Translate('help_command') } })
+        TriggerEvent('chat:addSuggestion', '/emotebinds', Translate('show_emote_keybind'))
+        TriggerEvent('chat:addSuggestion', '/emotedelete', Translate('remove_emote_keybind'), {{ name="key", help="num4, num5, num6, num7. num8, num9. Numpad 4-9!"}})
     end
-    TriggerEvent('chat:addSuggestion', '/emotemenu', Config.Languages[lang]['open_menu_emote'])
-    TriggerEvent('chat:addSuggestion', '/emotes', Config.Languages[lang]['show_list_emote'])
-    TriggerEvent('chat:addSuggestion', '/emotecancel', Config.Languages[lang]['register_cancel_emote'])
+    TriggerEvent('chat:addSuggestion', '/emotemenu', Translate('open_menu_emote'))
+    TriggerEvent('chat:addSuggestion', '/emotes', Translate('show_list_emote'))
+    TriggerEvent('chat:addSuggestion', '/emotecancel', Translate('register_cancel_emote'))
 end)
 
 RegisterCommand('e', function(source, args, raw) EmoteCommandStart(source, args, raw) end, false)
@@ -311,10 +312,10 @@ if Config.HandsupEnabled then
         end
     end
 
-    TriggerEvent('chat:addSuggestion', '/handsup', Config.Languages[lang]['handsup'])
+    TriggerEvent('chat:addSuggestion', '/handsup', Translate('handsup'))
 
     if Config.HandsupKeybindEnabled then
-        RegisterKeyMapping("handsup", Config.Languages[lang]['handsup'], "keyboard", Config.HandsupKeybind)
+        RegisterKeyMapping("handsup", Translate('handsup'), "keyboard", Config.HandsupKeybind)
     end
 
     local function IsPlayerInHandsUp()
@@ -540,7 +541,7 @@ function EmotesOnCommand(source, args, raw)
         EmotesCommand = EmotesCommand .. "" .. a .. ", "
     end
     EmoteChatMessage(EmotesCommand)
-    EmoteChatMessage(Config.Languages[lang]['emotemenucmd'])
+    EmoteChatMessage(Translate('emotemenucmd'))
 end
 
 function EmoteMenuStart(args, hard, textureVariation) -- DEV
@@ -599,7 +600,7 @@ function EmoteCommandStart(source, args, raw)
             TriggerEvent('chat:addMessage', {
                 color = {255, 0, 0},
                 multiline = true,
-                args = {"RPEmotes", Config.Languages[lang]['dead']}
+                args = {"RPEmotes", Translate('dead')}
             })
             return
         end
@@ -607,7 +608,7 @@ function EmoteCommandStart(source, args, raw)
             TriggerEvent('chat:addMessage', {
                 color = {255, 0, 0},
                 multiline = true,
-                args = {"RPEmotes", Config.Languages[lang]['swimming']}
+                args = {"RPEmotes", Translate('swimming')}
             })
             return
         end
@@ -616,7 +617,7 @@ function EmoteCommandStart(source, args, raw)
             if IsInAnimation then
                 EmoteCancel()
             else
-                EmoteChatMessage(Config.Languages[lang]['nocancel'])
+                EmoteChatMessage(Translate('nocancel'))
             end
             return
         elseif name == "help" then
@@ -635,7 +636,7 @@ function EmoteCommandStart(source, args, raw)
                 CheckAnimalAndOnEmotePlay(RP.AnimalEmotes[name], name)
                 return
             else
-                EmoteChatMessage(Config.Languages[lang]['animaldisabled'])
+                EmoteChatMessage(Translate('animaldisabled'))
                 return
             end
         elseif RP.Exits[name] ~= nil then
@@ -654,7 +655,7 @@ function EmoteCommandStart(source, args, raw)
                             str = str .. string.format("\n(%s) - %s", k, v.Name)
                         end
 
-                        EmoteChatMessage(string.format(Config.Languages[lang]['invalidvariation'], str), true)
+                        EmoteChatMessage(string.format(Translate('invalidvariation'), str), true)
                         OnEmotePlay(RP.PropEmotes[name], name, 0)
                         return
                     end
@@ -663,7 +664,7 @@ function EmoteCommandStart(source, args, raw)
             OnEmotePlay(RP.PropEmotes[name], name)
             return
         else
-            EmoteChatMessage("'" .. name .. "' " .. Config.Languages[lang]['notvalidemote'] .. "")
+            EmoteChatMessage("'" .. name .. "' " .. Translate('notvalidemote') .. "")
         end
     end
 end
@@ -677,7 +678,7 @@ function CheckAnimalAndOnEmotePlay(EmoteName, name)
                 return
             end
         end
-        EmoteChatMessage(Config.Languages[lang]['notvalidpet'])
+        EmoteChatMessage(Translate('notvalidpet'))
     elseif string.sub(name, 1, 4) == "sdog" then
         for i = 1, #SmallDogs do
             if IsPedModel(PlayerPedId(), GetHashKey(SmallDogs[i])) then
@@ -685,7 +686,7 @@ function CheckAnimalAndOnEmotePlay(EmoteName, name)
                 return
             end
         end
-        EmoteChatMessage(Config.Languages[lang]['notvalidpet'])
+        EmoteChatMessage(Translate('notvalidpet'))
     end
 end
 
@@ -694,6 +695,7 @@ function DestroyAllProps(ped_preview)
         for _, v in pairs(PreviewPedProps) do
             DeleteEntity(v)
         end
+        PedHasProp = false
     else
         for _, v in pairs(PlayerProps) do
             DeleteEntity(v)
@@ -735,6 +737,7 @@ function AddPropToPlayer(prop1, bone, off1, off2, off3, rot1, rot2, rot3, textur
 
 
     if PedPreview then
+        PedHasProp = true
         AttachEntityToEntity(prop, Player_Props, GetPedBoneIndex(Player_Props, bone), off1, off2, off3, rot1, rot2, rot3, true, true,
         false, true, 1, true)
         table.insert(PreviewPedProps, prop)
@@ -800,7 +803,7 @@ function OnEmotePlay(EmoteName, name, textureVariation)
     end
 
     if Config.AdultEmotesDisabled and EmoteName.AdultAnimation then
-        return EmoteChatMessage(Config.Languages[lang]['adultemotedisabled'])
+        return EmoteChatMessage(Translate('adultemotedisabled'))
     end
 
     -- Don't play a new animation if we are in an exit emote
@@ -819,10 +822,10 @@ function OnEmotePlay(EmoteName, name, textureVariation)
     local animOption = EmoteName.AnimationOptions
     if InVehicle then
         if animOption and animOption.NotInVehicle then
-            return EmoteChatMessage(Config.Languages[lang]['not_in_a_vehicle'])
+            return EmoteChatMessage(Translate('not_in_a_vehicle'))
         end
     elseif animOption and animOption.onlyInVehicle then
-        return EmoteChatMessage(Config.Languages[lang]['in_a_vehicle'])
+        return EmoteChatMessage(Translate('in_a_vehicle'))
     end
 
     if ChosenAnimOptions and ChosenAnimOptions.ExitEmote and animOption and animOption.ExitEmote then
@@ -865,7 +868,7 @@ function OnEmotePlay(EmoteName, name, textureVariation)
             else
                 DestroyAllProps()
                 EmoteCancel()
-                EmoteChatMessage(Config.Languages[lang]['maleonly'])
+                EmoteChatMessage(Translate('maleonly'))
             end
             return
         elseif ChosenDict == "ScenarioObject" then if InVehicle then return end
@@ -893,7 +896,7 @@ function OnEmotePlay(EmoteName, name, textureVariation)
     end
 
     if not LoadAnim(ChosenDict) then
-        EmoteChatMessage("'" .. ename .. "' " .. Config.Languages[lang]['notvalidemote'] .. "")
+        EmoteChatMessage("'" .. ename .. "' " .. Translate('notvalidemote') .. "")
         return
     end
 
@@ -1050,7 +1053,7 @@ function OnEmotePlayPed(EmoteName, name, textureVariation)
     --     end
     -- end
 
-    if animOption and animOption.Prop and PlayerHasProp then
+    if animOption and animOption.Prop and PedHasProp then
         DestroyAllProps(true)
     end
 
@@ -1066,7 +1069,7 @@ function OnEmotePlayPed(EmoteName, name, textureVariation)
             else
                 DestroyAllProps(true)
                 -- EmoteCancel()
-                -- EmoteChatMessage(Config.Languages[lang]['maleonly'])
+                -- EmoteChatMessage(Translate('maleonly'))
             end
             return
         elseif ChosenDict == "ScenarioObject" then -- if InVehicle then return end
@@ -1092,7 +1095,7 @@ function OnEmotePlayPed(EmoteName, name, textureVariation)
     -- end
 
     if not LoadAnim(ChosenDict) then
-        EmoteChatMessage("'" .. ename .. "' " .. Config.Languages[lang]['notvalidemote'] .. "")
+        EmoteChatMessage("'" .. ename .. "' " .. Translate('notvalidemote') .. "")
         return
     end
 

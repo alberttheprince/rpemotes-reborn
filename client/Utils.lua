@@ -139,7 +139,7 @@ function NearbysOnCommand(source, args, raw)
         NearbysCommand = NearbysCommand .. "" .. a .. ", "
     end
     EmoteChatMessage(NearbysCommand)
-    EmoteChatMessage(Config.Languages[lang]['emotemenucmd'])
+    EmoteChatMessage(Translate('emotemenucmd'))
 end
 
 function GetClosestPlayer()
@@ -186,17 +186,17 @@ function isInActionWithErrorMessage(ignores)
     if (ignores == nil) then ignores = {} end
 
     if not ignores['IsProne'] and IsProne then
-        EmoteChatMessage(Config.Languages[lang]['no_anim_crawling'])
+        EmoteChatMessage(Translate('no_anim_crawling'))
         return true
     end
     if not ignores['IsUsingNewscam'] and IsUsingNewscam then
         -- TODO: use specific error message
-        EmoteChatMessage(Config.Languages[lang]['no_anim_right_now'])
+        EmoteChatMessage(Translate('no_anim_right_now'))
         return true
     end
     if not ignores['IsUsingBinoculars'] and IsUsingBinoculars then
         -- TODO: use specific error message
-        EmoteChatMessage(Config.Languages[lang]['no_anim_right_now'])
+        EmoteChatMessage(Translate('no_anim_right_now'))
         return true
     end
 

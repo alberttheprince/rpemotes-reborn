@@ -3621,14 +3621,14 @@ function UIMenu:UpdateScaleform()
     PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
     PushScaleformMovieFunctionParameterInt(0)
     PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 176, 0))
-    PushScaleformMovieFunctionParameterString(Config.Languages[lang]['btn_select'])
+    PushScaleformMovieFunctionParameterString(Translate('btn_select'))
     PopScaleformMovieFunction()
 
     if self.Controls.Back.Enabled then
         PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
         PushScaleformMovieFunctionParameterInt(1)
         PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 177, 0))
-        PushScaleformMovieFunctionParameterString(Config.Languages[lang]['btn_back'])
+        PushScaleformMovieFunctionParameterString(Translate('btn_back'))
         PopScaleformMovieFunction()
     end
 
@@ -3637,7 +3637,7 @@ function UIMenu:UpdateScaleform()
         PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
         PushScaleformMovieFunctionParameterInt(3)
         PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 19, 0))
-        PushScaleformMovieFunctionParameterString(Config.Languages[lang]['btn_increment']..(paginationValue and ': '..paginationValue or ": "..paginationValue))
+        PushScaleformMovieFunctionParameterString(Translate('btn_increment')..(paginationValue and ': '..paginationValue or ": "..paginationValue))
         PopScaleformMovieFunction()
     end
 
@@ -3646,7 +3646,7 @@ function UIMenu:UpdateScaleform()
         PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
         PushScaleformMovieFunctionParameterInt(3)
         PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 199, 0))
-        PushScaleformMovieFunctionParameterString(Config.Languages[lang]['btn_increment']..(paginationValue and ': '..paginationValue or ": "..paginationValue))
+        PushScaleformMovieFunctionParameterString(Translate('btn_increment')..(paginationValue and ': '..paginationValue or ": "..paginationValue))
         PopScaleformMovieFunction()
     end
 

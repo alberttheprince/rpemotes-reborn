@@ -1,27 +1,23 @@
 fx_version 'cerulean'
 game 'gta5'
 description 'rpemotes-reborn'
-version '1.5.4'
+version '1.5.5'
 
 lua54 'yes'
 use_experimental_fxv2_oal 'yes'
 
-dependencies {
+dependencies{
     -- '/server:7290',
     '/server:6683',
     '/onesync',
 }
 
 -- Remove the following lines if you would like to use the SQL keybinds. Requires oxmysql.
-
 --#region oxmysql
-
 -- dependency 'oxmysql'
 -- server_script '@oxmysql/lib/MySQL.lua'
-
 --#endregion oxmysql
-
-files {
+files{
     'propsets.meta',
     'conditionalanims.meta',
     'header.png',
@@ -30,18 +26,19 @@ files {
 data_file 'AMBIENT_PROP_MODEL_SET_FILE' 'propsets.meta'
 data_file 'CONDITIONAL_ANIMS_FILE' 'conditionalanims.meta'
 
-shared_scripts {
+shared_scripts{
     'config.lua',
-    'Translations.lua',
+    'locale.lua',
+    'locales/*.lua',
     'animals.lua',
 }
 
-server_scripts {
+server_scripts{
     'server/Server.lua',
     'server/frameworks/*.lua'
 }
 
-client_scripts {
+client_scripts{
     'NativeUI.lua',
     'client/Utils.lua',
     'client/AnimationList.lua',
@@ -58,12 +55,11 @@ client_scripts {
     'client/Ragdoll.lua',
     'client/Syncing.lua',
     'client/Walk.lua',
-    'client/frameworks/*.lua'
+    'client/frameworks/*.lua',
 }
 
 ---- Loads all ytyp files for custom props to stream ---
 ---- You will need to add a data_file 'DLC_ITYP_REQUEST' for your own to work in game ---
-
 data_file 'DLC_ITYP_REQUEST' 'stream/taymckenzienz_rpemotes.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/brummie_props.ytyp'
