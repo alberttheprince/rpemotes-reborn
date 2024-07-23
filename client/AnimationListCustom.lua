@@ -3,7 +3,7 @@
 -- Don't change 'CustomDP' it is local to this file!
 
 -- Remove the } from the = {} then enter your own animation code ---
--- Don't forget to close the tables. See https://docs.rpemotes.com/for-developers/important-note/custom-emotes-and-props
+-- Don't forget to close the tables.
 
 local CustomDP = {}
 
@@ -27,8 +27,6 @@ function LoadAddonEmotes()
                 RP[arrayName][emoteName] = emoteData
             end
         end
-        -- Free memory
-        CustomDP[arrayName] = nil
     end
     -- Free memory
     CustomDP = nil

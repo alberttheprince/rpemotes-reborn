@@ -1856,10 +1856,6 @@ end
     Panels
 --]]
 
-UIMenuGridPanel = setmetatable({}, UIMenuGridPanel)
-UIMenuGridPanel.__index = UIMenuGridPanel
-UIMenuGridPanel.__call = function() return "UIMenuPanel", "UIMenuGridPanel" end
-
 function UIMenuGridPanel.New(TopText, LeftText, RightText, BottomText)
     _UIMenuGridPanel = {
         Data = {
@@ -2005,10 +2001,6 @@ end
     UIMenuColourPanel.lua
     Panels
 --]]
-
-UIMenuColourPanel = setmetatable({}, UIMenuColourPanel)
-UIMenuColourPanel.__index = UIMenuColourPanel
-UIMenuColourPanel.__call = function() return "UIMenuPanel", "UIMenuColourPanel" end
 
 function UIMenuColourPanel.New(Title, Colours)
     _UIMenuColourPanel = {
@@ -2239,10 +2231,6 @@ end
     UIMenuPercentagePanel.lua
     Panels
 --]]
-
-UIMenuPercentagePanel = setmetatable({}, UIMenuPercentagePanel)
-UIMenuPercentagePanel.__index = UIMenuPercentagePanel
-UIMenuPercentagePanel.__call = function() return "UIMenuPanel", "UIMenuPercentagePanel" end
 
 function UIMenuPercentagePanel.New(MinText, MaxText)
     _UIMenuPercentagePanel = {

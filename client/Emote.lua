@@ -210,7 +210,6 @@ local disableHandsupControls = {
     [342] = true, --  INPUT_VEH_HYDRAULICS_CONTROL_UD
     [343] = true, --  INPUT_VEH_HYDRAULICS_CONTROL_LR
     [351] = true, --  INPUT_VEH_ROCKET_BOOST
-    [351] = true, --  INPUT_VEH_ROCKET_BOOST
     [354] = true, -- INPUT_VEH_BIKE_WINGS
     [357] = true, -- INPUT_VEH_TRANSFORM
 
@@ -515,7 +514,7 @@ AddStateBagChangeHandler('ptfx', nil, function(bagName, key, value, _unused, rep
             end
         end
         PtfxThis(asset)
-        PlayerParticles[plyId] = StartNetworkedParticleFxLoopedOnEntityBone(name, entityTarget, offset.x, offset.y, offset.z, rot.x, rot.y, rot.z, boneIndex, scale + 0.0, 0, 0, 0, 1065353216, 1065353216, 1065353216, 0)
+        PlayerParticles[plyId] = StartNetworkedParticleFxLoopedOnEntityBone(name, entityTarget, offset.x, offset.y, offset.z, rot.x, rot.y, rot.z, boneIndex, scale + 0.0, 0, 0, 0)
         if color then
             if color[1] and type(color[1]) == 'table' then
                 local randomIndex = math.random(1, #color)
@@ -690,6 +689,7 @@ function CheckAnimalAndOnEmotePlay(EmoteName, name)
     end
 end
 
+---@param ped_preview boolean | nil
 function DestroyAllProps(ped_preview)
     if ped_preview then
         for _, v in pairs(PreviewPedProps) do
