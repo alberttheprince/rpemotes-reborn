@@ -27,8 +27,6 @@ function LoadAddonEmotes()
                 RP[arrayName][emoteName] = emoteData
             end
         end
-        -- Free memory
-        CustomDP[arrayName] = nil
     end
     -- Free memory
     CustomDP = nil
