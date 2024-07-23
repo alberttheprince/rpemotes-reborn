@@ -210,7 +210,6 @@ local disableHandsupControls = {
     [342] = true, --  INPUT_VEH_HYDRAULICS_CONTROL_UD
     [343] = true, --  INPUT_VEH_HYDRAULICS_CONTROL_LR
     [351] = true, --  INPUT_VEH_ROCKET_BOOST
-    [351] = true, --  INPUT_VEH_ROCKET_BOOST
     [354] = true, -- INPUT_VEH_BIKE_WINGS
     [357] = true, -- INPUT_VEH_TRANSFORM
 
