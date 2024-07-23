@@ -65,26 +65,25 @@ end
 lang = Config.MenuLanguage
 
 function AddEmoteMenu(menu)
-    local submenu = _menuPool:AddSubMenu(menu, Translate('emotes'), "", "", Menuthing, Menuthing)
+    local submenu = _menuPool:AddSubMenu(menu, Translate('emotes'), "", true, true)
     if Config.Search then
         submenu:AddItem(NativeUI.CreateItem(Translate('searchemotes'), ""))
         table.insert(EmoteTable, Translate('searchemotes'))
     end
-    local dancemenu = _menuPool:AddSubMenu(submenu, Translate('danceemotes'), "", "", Menuthing, Menuthing)
+    local dancemenu = _menuPool:AddSubMenu(submenu, Translate('danceemotes'), "", true, true)
     local animalmenu
     if Config.AnimalEmotesEnabled then
-        animalmenu = _menuPool:AddSubMenu(submenu, Translate('animalemotes'), "", "", Menuthing, Menuthing)
+        animalmenu = _menuPool:AddSubMenu(submenu, Translate('animalemotes'), "", true, true)
         table.insert(EmoteTable, Translate('animalemotes'))
     end
-    local propmenu = _menuPool:AddSubMenu(submenu, Translate('propemotes'), "", "", Menuthing, Menuthing)
+    local propmenu = _menuPool:AddSubMenu(submenu, Translate('propemotes'), "", true, true)
     table.insert(EmoteTable, Translate('danceemotes'))
     table.insert(EmoteTable, Translate('danceemotes'))
 
     if Config.SharedEmotesEnabled then
         sharemenu = _menuPool:AddSubMenu(submenu, Translate('shareemotes'),
-            Translate('shareemotesinfo'), "", Menuthing, Menuthing)
-        shareddancemenu = _menuPool:AddSubMenu(sharemenu, Translate('sharedanceemotes'), "", "", Menuthing,
-            Menuthing)
+            Translate('shareemotesinfo'), true, true)
+        shareddancemenu = _menuPool:AddSubMenu(sharemenu, Translate('sharedanceemotes'), "", true, true)
         table.insert(ShareTable, 'none')
         table.insert(EmoteTable, Translate('shareemotes'))
     end
@@ -95,7 +94,7 @@ function AddEmoteMenu(menu)
         unbind2item = NativeUI.CreateItem(Translate('rfavorite'), Translate('rfavorite'))
         unbinditem = NativeUI.CreateItem(Translate('prop2info'), "")
         favmenu = _menuPool:AddSubMenu(submenu, Translate('favoriteemotes'),
-            Translate('favoriteinfo'), "", Menuthing, Menuthing)
+            Translate('favoriteinfo'), true, true)
         favmenu:AddItem(unbinditem)
         favmenu:AddItem(unbind2item)
         -- Add two elements as offset
@@ -317,7 +316,7 @@ if Config.Search then
             if #results > 0 then
                 InSearch = true
 
-                local searchMenu = _menuPool:AddSubMenu(lastMenu, string.format('%s'..Translate('searchmenudesc')..' ~r~%s~w~', #results, input), "", true, Menuthing, Menuthing)
+                local searchMenu = _menuPool:AddSubMenu(lastMenu, string.format('%s'..Translate('searchmenudesc')..' ~r~%s~w~', #results, input), "", true, true)
                 local sharedDanceMenu
                 if favEnabled then
                     local rFavorite = NativeUI.CreateItem(Translate('rfavorite'), Translate('rfavorite'))
@@ -325,7 +324,7 @@ if Config.Search then
                 end
 
                 if Config.SharedEmotesEnabled then
-                    sharedDanceMenu = _menuPool:AddSubMenu(searchMenu, Translate('sharedanceemotes'), "", true, Menuthing, Menuthing)
+                    sharedDanceMenu = _menuPool:AddSubMenu(searchMenu, Translate('sharedanceemotes'), "", true, true)
                 end
 
                 table.sort(results, function(a, b) return a.name < b.name end)
@@ -479,7 +478,7 @@ ShowPedPreview = function(menu)
 end
 
 function AddWalkMenu(menu)
-    local submenu = _menuPool:AddSubMenu(menu, Translate('walkingstyles'), "", "", Menuthing, Menuthing)
+    local submenu = _menuPool:AddSubMenu(menu, Translate('walkingstyles'), "", true, true)
 
     walkreset = NativeUI.CreateItem(Translate('normalreset'), Translate('resetdef'))
     submenu:AddItem(walkreset)
@@ -508,7 +507,7 @@ function AddWalkMenu(menu)
 end
 
 function AddFaceMenu(menu)
-    local submenu = _menuPool:AddSubMenu(menu, Translate('moods'), "", "", Menuthing, Menuthing)
+    local submenu = _menuPool:AddSubMenu(menu, Translate('moods'), "", true, true)
 
     local facereset = NativeUI.CreateItem(Translate('normalreset'), Translate('resetdef'))
     submenu:AddItem(facereset)
@@ -539,8 +538,7 @@ function AddFaceMenu(menu)
 end
 
 function AddInfoMenu(menu)
-    infomenu = _menuPool:AddSubMenu(menu, Translate('infoupdate'), "~h~~y~The RPEmotes Team & Collaborators~h~~y~", "",
-        Menuthing, Menuthing)
+    infomenu = _menuPool:AddSubMenu(menu, Translate('infoupdate'), "~h~~y~The RPEmotes Team & Collaborators~h~~y~", true, true)
 
     for _,v in ipairs(Config.Credits) do
         local item = NativeUI.CreateItem(v.title,v.subtitle or "")
@@ -602,15 +600,13 @@ function ProcessMenu()
     isMenuProcessing = false
 end
 
-RegisterNetEvent("rp:Update")
-AddEventHandler("rp:Update", function(state)
+RegisterNetEvent("rp:Update", function(state)
     UpdateAvailable = state
     AddInfoMenu(mainMenu)
     _menuPool:RefreshIndex()
 end)
 
-RegisterNetEvent("rp:RecieveMenu") -- For opening the emote menu from another resource.
-AddEventHandler("rp:RecieveMenu", function()
+RegisterNetEvent("rp:RecieveMenu", function()
     OpenEmoteMenu()
 end)
 
