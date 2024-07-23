@@ -690,6 +690,7 @@ function CheckAnimalAndOnEmotePlay(EmoteName, name)
     end
 end
 
+---@param ped_preview boolean | nil
 function DestroyAllProps(ped_preview)
     if ped_preview then
         for _, v in pairs(PreviewPedProps) do
