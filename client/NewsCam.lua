@@ -81,7 +81,7 @@ if Config.NewscamEnabled then
 
                 TaskPlayAnim(PlayerPedId(), "missfinale_c2mcs_1", "fin_c2_mcs_1_camman", 5.0, 5.0, -1, 51, 0, 0, 0, 0)
                 PlayAmbientSpeech1(PlayerPedId(), "GENERIC_CURSE_MED", "SPEECH_PARAMS_FORCE")
-                SetCurrentPedWeapon(GetPlayerPed(-1), GetHashKey("WEAPON_UNARMED"), true)
+                SetCurrentPedWeapon(PlayerPedId(), GetHashKey("WEAPON_UNARMED"), true)
 
                 RemoveAnimDict("missfinale_c2mcs_1")
                 SetModelAsNoLongerNeeded("prop_v_cam_01")

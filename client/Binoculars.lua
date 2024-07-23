@@ -78,7 +78,7 @@ if Config.BinocularsEnabled then
 
                 TaskPlayAnim(PlayerPedId(), "amb@world_human_binoculars@male@idle_a", "idle_c", 5.0, 5.0, -1, 51, 0, 0, 0, 0)
                 PlayAmbientSpeech1(PlayerPedId(), "GENERIC_CURSE_MED", "SPEECH_PARAMS_FORCE")
-                SetCurrentPedWeapon(GetPlayerPed(-1), GetHashKey("WEAPON_UNARMED"), true)
+                SetCurrentPedWeapon(PlayerPedId(), GetHashKey("WEAPON_UNARMED"), true)
 
                 RemoveAnimDict("amb@world_human_binoculars@male@idle_a")
                 SetModelAsNoLongerNeeded("prop_binoc_01")
