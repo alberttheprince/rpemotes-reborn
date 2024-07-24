@@ -11373,6 +11373,54 @@ RP.PropEmotes = {
             EmoteMoving = false
         }
     },
+    ["icefishing"] = { -- Custom Emote By EP
+        "timetable@ron@ig_3_couch",
+        "base",
+        "Ice Fishing",
+        AnimationOptions = {
+            Prop = 'pprp_icefishing_box_02',
+            PropBone = 0,
+            PropPlacement = {
+                -0.05,
+                0.0,
+                -0.63,
+                7.0,
+                0.0,
+                180.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
+    },
+    ["icefishing2"] = { -- Custom Emote By EP
+        "move_weapon@jerrycan@generic",
+        "idle",
+        "Ice Fishing 2",
+        AnimationOptions = {
+            Prop = 'pprp_icefishing_box_01',
+            PropBone = 28422,
+            PropPlacement = {
+                -0.8,
+                0.03,
+                0.04,
+                0.0,
+                -90.0,
+                100.0
+            },
+            SecondProp = 'pprp_icefishing_augur',
+            SecondPropBone = 24818,
+            SecondPropPlacement = {
+                -0.8,
+                -0.2,
+                0.0,
+                0.0,
+                90.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
+    },
     ["suitcase"] = {
         "move_weapon@jerrycan@generic",
         "idle",
