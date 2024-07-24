@@ -15619,7 +15619,7 @@ RP.PropEmotes = {
                 0.0,
                 0.0,
                 0.0,
-                0.0,
+                -90.0,
                 0.0
             },
             EmoteLoop = true,
