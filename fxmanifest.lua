@@ -83,3 +83,5 @@ data_file 'DLC_ITYP_REQUEST' 'stream/pata_props.ytyp'
 data_file 'DLC_ITYP_REQUEST' 'stream/vedere_props.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/pnwsigns.ytyp'
+
+data_file 'DLC_ITYP_REQUEST' 'stream/pprp_icefishing.ytyp'
