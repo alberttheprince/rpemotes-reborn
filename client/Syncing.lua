@@ -35,8 +35,7 @@ if Config.SharedEmotesEnabled then
     end, false)
 end
 
-RegisterNetEvent("SyncPlayEmote")
-AddEventHandler("SyncPlayEmote", function(emote, player)
+RegisterNetEvent("SyncPlayEmote", function(emote, player)
     EmoteCancel()
     Wait(300)
     targetPlayerId = player
@@ -78,8 +77,7 @@ AddEventHandler("SyncPlayEmote", function(emote, player)
     end
 end)
 
-RegisterNetEvent("SyncPlayEmoteSource")
-AddEventHandler("SyncPlayEmoteSource", function(emote, player)
+RegisterNetEvent("SyncPlayEmoteSource", function(emote, player)
     -- Thx to Poggu for this part!
     local ply = PlayerPedId()
     local plyServerId = GetPlayerFromServerId(player)
@@ -138,8 +136,7 @@ AddEventHandler("SyncPlayEmoteSource", function(emote, player)
     end
 end)
 
-RegisterNetEvent("SyncCancelEmote")
-AddEventHandler("SyncCancelEmote", function(player)
+RegisterNetEvent("SyncCancelEmote", function(player)
     if targetPlayerId and targetPlayerId == player then
         targetPlayerId = nil
         EmoteCancel()
@@ -153,8 +150,7 @@ function CancelSharedEmote(ply)
     end
 end
 
-RegisterNetEvent("ClientEmoteRequestReceive")
-AddEventHandler("ClientEmoteRequestReceive", function(emotename, etype, target)
+RegisterNetEvent("ClientEmoteRequestReceive", function(emotename, etype, target)
     isRequestAnim = true
     requestedemote = emotename
 
@@ -171,7 +167,7 @@ AddEventHandler("ClientEmoteRequestReceive", function(emotename, etype, target)
     while isRequestAnim do
         Wait(5)
         timer = timer - 5
-        if timer == 0 then
+        if timer <= 0 then
             isRequestAnim = false
             SimpleNotify(Translate('refuseemote'))
         end
