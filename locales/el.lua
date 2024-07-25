@@ -52,7 +52,7 @@ Locales['el'] = {
         ['keybindsinfo'] = "Χρήση",
         ['searchemotes'] = "~h~~y~ 🔍 Αναζήτηση Κινήσεων",
         ['searchinputtitle'] = "Αναζήτηση:",
-        ['searchmenudesc'] = "%s αποτέλεσμα(ατα) για",
+        ['searchmenudesc'] = "αποτέλεσμα(ατα) για",
         ['searchnoresult'] = "Κανένα απότέλεσμα για την αναζήτηση",
         ['searchshifttofav'] = "Κράτησε L-Shift και πάτησε enter για να το αποθηκεύσεις ως αγαπημένο.",
         ['searchcantsetfav'] = "Οι κινήσεις που μοιράζοντε με παίκτες δεν μπορούν να μπούν στα αγαπημένα.",
@@ -80,5 +80,5 @@ Locales['el'] = {
         ['in_a_vehicle'] = "Μπορείς να κάνεις αυτή τη κίνηση μόνο ενώ είσαι σε όχημα 🚷",
         ['no_anim_crawling'] = "Δεν μπορείς να κάνεις κάποια κίνηση ενώ σέρνεσαι",
         ['no_anim_right_now'] = "You can't play an animation right now",
-    
+
 }
