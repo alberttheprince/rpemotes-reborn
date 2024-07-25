@@ -151,7 +151,7 @@ if Config.SqlKeybinding then
 end
 if Config.MenuKeybindEnabled then
     RegisterCommand('emoteui', function() OpenEmoteMenu() end, false)
-    RegisterKeyMapping("emoteui", "Open animations menu", "keyboard", Config.MenuKeybind)
+    RegisterKeyMapping("emoteui", Translate("register_open_menu"), "keyboard", Config.MenuKeybind)
 else
     RegisterCommand('emotemenu', function() OpenEmoteMenu() end, false)
 end
