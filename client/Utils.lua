@@ -208,7 +208,7 @@ end
 ----------------------------------------------------------------------
 ShowPed = false
 
-ShowPedMenu = function(zoom)
+function ShowPedMenu(zoom)
     if not Config.PreviewPed then return end
 
     if not ShowPed then
@@ -283,7 +283,7 @@ ShowPedMenu = function(zoom)
     end
 end
 
-ClosePedMenu = function()
+function ClosePedMenu()
     if not Config.PreviewPed then return end
 
     if clonedPed then
@@ -293,7 +293,7 @@ ClosePedMenu = function()
     end
 end
 
-ClearPedTaskPreview = function()
+function ClearPedTaskPreview()
     if not Config.PreviewPed then return end
 
     if clonedPed then
