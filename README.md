@@ -499,5 +499,7 @@ All animation creators have **_specifically_** asked that their content remain f
 - [PNWParksFan](https://www.gta5-mods.com/users/PNWParksFan) for the custom props
 - [LSPDFR member Sam](https://www.lcpdfr.com/downloads/gta5mods/misc/23386-lspd-police-badge/) for their Custom LSPD police badge
 - [GTA5Mods user Sladus_Slawonkus](https://www.gta5-mods.com/misc/lspd-police-badge-replace-sladus_slawonkus) for their reskinned LSPD badge
+- [Scully](https://github.com/Scullyy/) For their past work on rpemotes
+- [EP](https://github.com/EpKouhia) for their ice fishing props and emotes, originally used in scully_emotemenu
 - [TayMcKenzieNZ](https://github.com/TayMcKenzieNZ) for their past work maintaining RP Emotes
 - [ESX](https://github.com/esx-framework) for the creation of the translation system

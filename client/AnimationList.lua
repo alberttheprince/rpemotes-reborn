@@ -11373,6 +11373,54 @@ RP.PropEmotes = {
             EmoteMoving = false
         }
     },
+    ["icefishing"] = { -- Custom Emote By EP
+        "timetable@ron@ig_3_couch",
+        "base",
+        "Ice Fishing",
+        AnimationOptions = {
+            Prop = 'pprp_icefishing_box_02',
+            PropBone = 0,
+            PropPlacement = {
+                -0.05,
+                0.0,
+                -0.63,
+                7.0,
+                0.0,
+                180.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
+    },
+    ["icefishing2"] = { -- Custom Emote By EP
+        "move_weapon@jerrycan@generic",
+        "idle",
+        "Ice Fishing 2",
+        AnimationOptions = {
+            Prop = 'pprp_icefishing_box_01',
+            PropBone = 28422,
+            PropPlacement = {
+                -0.8,
+                0.03,
+                0.04,
+                0.0,
+                -90.0,
+                100.0
+            },
+            SecondProp = 'pprp_icefishing_augur',
+            SecondPropBone = 24818,
+            SecondPropPlacement = {
+                -0.8,
+                -0.2,
+                0.0,
+                0.0,
+                90.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
+    },
     ["suitcase"] = {
         "move_weapon@jerrycan@generic",
         "idle",
@@ -13003,6 +13051,63 @@ RP.PropEmotes = {
                 0.0,
                 0.0,
                 130.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["boba"] = {
+        "amb@world_human_drinking@coffee@male@idle_a",
+        "idle_c",
+        "Boba",
+        AnimationOptions = {
+            Prop = 'scully_boba',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["boba2"] = {
+        "amb@world_human_drinking@coffee@male@idle_a",
+        "idle_c",
+        "Boba 2",
+        AnimationOptions = {
+            Prop = 'scully_boba2',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["boba3"] = {
+        "amb@world_human_drinking@coffee@male@idle_a",
+        "idle_c",
+        "Boba 3",
+        AnimationOptions = {
+            Prop = 'scully_boba3',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
             },
             EmoteLoop = true,
             EmoteMoving = true
@@ -15619,7 +15724,7 @@ RP.PropEmotes = {
                 0.0,
                 0.0,
                 0.0,
-                0.0,
+                -90.0,
                 0.0
             },
             EmoteLoop = true,
@@ -15832,6 +15937,25 @@ RP.PropEmotes = {
                 -69.3774235,
                 5.9142048,
                 -13.9572354
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["protest3"] = {
+        "rcmnigel1d",
+        "base_club_shoulder",
+        "Protest 3 - BLM",
+        AnimationOptions = {
+            Prop = "scully_blm",
+            PropBone = 57005,
+            PropPlacement = {
+                0.1820,
+                0.2400,
+                0.0600,
+                -69.3774235,
+                5.914205,
+                -13.957235
             },
             EmoteLoop = true,
             EmoteMoving = true
@@ -16881,6 +17005,35 @@ RP.PropEmotes = {
                 0.0
             },
             SecondProp = 'h4_prop_h4_caviar_spoon_01a',
+            SecondPropBone = 28422,
+            SecondPropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["pho"] = {
+        "anim@scripted@island@special_peds@pavel@hs4_pavel_ig5_caviar_p1",
+        "base_idle",
+        "Pho",
+        AnimationOptions = {
+            Prop = "scully_pho",
+            PropBone = 60309,
+            PropPlacement = {
+                0.0,
+                0.0300,
+                0.0100,
+                0.0,
+                0.0,
+                0.0
+            },
+            SecondProp = 'scully_spoon_pho',
             SecondPropBone = 28422,
             SecondPropPlacement = {
                 0.0,
