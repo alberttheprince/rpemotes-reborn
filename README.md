@@ -1,8 +1,6 @@
 ![image](https://github.com/alberttheprince/rpemotes-reborn/assets/85725579/25b38001-1b50-42ff-b9c9-07046d8be0a1)
 
-rpemotes-reborn is a community-driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walk styles, and props inspired by [DullPear](https://github.com/andristum/dpemotes), maintained by Popcorn RP after TayMcKenzieNZ began selling an open-source community project against the spirit of the project.
-
-A partial archive of the original RP Emotes docs can be found [here](https://web.archive.org/web/20231218223552/https://docs.rpemotes.com/)
+Rpemotes-reborn is a community-driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walk styles, and props.
 
 Rpemotes-reborn is free, **and will always be free**: accept no substitutes or reproductions from scummy people reselling other's hard work against agreements made with creators. We're committed to the open-source community and the dozens of contributors who put hard work into rpemotes to provide the community with free emotes and props.
 
@@ -85,7 +83,9 @@ Example Banner:
 
 **Note for users of older versions of rpemotes:** Previously, the banner was hosted through a web link on an image hosting website. Due to various image hosting sites dealing with large amounts of traffic from FiveM, they cut off access to FiveM.
 
-# Exports and More
+# Exports and Documentation
+
+A partial archive of the original RP Emotes docs can be found [here](https://web.archive.org/web/20231218223552/https://docs.rpemotes.com/)
 
 When using our emote menu with other scripts, using the `TriggerEvent('animations:client:EmoteCommandStart` won't do anything because the events do not exist. These have simply been replaced with the following exports:
 
