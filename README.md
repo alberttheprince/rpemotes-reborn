@@ -219,7 +219,7 @@ Moods and walk styles can be set from the menu. These will save to your characte
 | /reset mood | Remove preferred mood and set default |
 | /reset walk | Remove last walkstyle and set default |
 
-Having problems with users "abusing" certain walk styles? rpemotes-reborn checks if a user has an "abusable" walk style from another saved and clears it when they join. Additionally, you can use a resource like [rpemotes-punishment](https://github.com/alberttheprince/rpemotes-punishment/) to trip players abusing these emotes. 
+Having problems with users "abusing" certain walk styles? rpemotes-reborn checks if a user has an "abusable" walk style saved and clears it when a player joins. Alternatively, you can use a resource like [rpemotes-punishment](https://github.com/alberttheprince/rpemotes-punishment/) to trip players abusing these emotes. 
 
 Just want to remove them? Delete the following walk styles from Animationlist.lua:
 
