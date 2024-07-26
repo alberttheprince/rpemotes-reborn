@@ -100,3 +100,7 @@ function toggleWalkstyle(bool, message)
 end
 
 exports('toggleWalkstyle', toggleWalkstyle)
+
+exports('getWalkstyle', function()
+    return GetResourceKvpString("walkstyle")
+end)
