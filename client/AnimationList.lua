@@ -11400,7 +11400,7 @@ RP.PropEmotes = {
             Prop = 'pprp_icefishing_box_01',
             PropBone = 28422,
             PropPlacement = {
-                -0.8,
+                0.8,
                 0.03,
                 0.04,
                 0.0,
