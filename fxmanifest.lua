@@ -6,6 +6,8 @@ version '1.6.0'
 lua54 'yes'
 use_experimental_fxv2_oal 'yes'
 
+provide "rpemotes"
+
 dependencies{
     -- '/server:7290',
     '/server:6683',
