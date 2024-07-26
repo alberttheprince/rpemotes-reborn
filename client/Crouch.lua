@@ -443,7 +443,7 @@ end
 -- Commands & KeyMapping --
 if Config.CrouchEnabled then
     if Config.CrouchKeybindEnabled then
-        RegisterKeyMapping('+crouch', Translate('crouch'), "keyboard", Config.CrouchKeybind)
+        RegisterKeyMapping('+crouch', Translate('register_crouch'), "keyboard", Config.CrouchKeybind)
         RegisterCommand('+crouch', function() CrouchKeyPressed() end, false)
         RegisterCommand('-crouch', function() end, false) -- This needs to be here to prevent errors/warnings
     end
@@ -455,12 +455,12 @@ if Config.CrouchEnabled then
 
         AttemptCrouch(PlayerPedId())
     end, false)
-    TriggerEvent('chat:addSuggestion', '/crouch', 'Crouch')
+    TriggerEvent('chat:addSuggestion', '/crouch', Translate('crouch'))
 end
 
 if Config.CrawlEnabled then
     if Config.CrawlKeybindEnabled then
-        RegisterKeyMapping('crawl', Translate('crawl'), "keyboard", Config.CrawlKeybind)
+        RegisterKeyMapping('crawl', Translate('register_crawl'), "keyboard", Config.CrawlKeybind)
     end
     RegisterCommand('crawl', function() CrawlKeyPressed() end, false)
 end

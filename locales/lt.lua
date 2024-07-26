@@ -88,5 +88,18 @@ Locales['lt'] = {
     ['in_a_vehicle'] = "Sia animacija galite leisti tik budami transporto priemoneje 🚷",
     ['no_anim_crawling'] = "Narsydami negalite leisti animacijos",
     ['no_anim_right_now'] = "You can't play an animation right now",
+    -- Key maps
     ['register_cancel_emote'] = "Atšaukti animaciją",
+    ['register_handsup'] = "Pakelti rankas",
+    ['register_open_menu'] = "Animacijų meniu",
+    ['register_fav_anim'] = "Paleisti mėgstamiausia animaciją",
+    ['register_crouch'] = "Pritūpti",
+    ['register_crawl'] = "Šliaužti",
+    ['register_pointing'] = "Rodyti pirštu",
+    ['register_ragdoll'] = "Ragdoll perjungimas",
+    -- Commands descriptions
+    ['cancel_emote'] = "Atšaukti animaciją",
+    ['crouch'] = "Pritūpti",
+    ['crawl'] = "Šliaužti",
+    ['pointing'] = "Rodyti pirštu"
 }

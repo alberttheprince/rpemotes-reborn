@@ -121,10 +121,10 @@ if Config.PointingEnabled then
     end, false)
 
     if Config.PointingKeybindEnabled then
-        RegisterKeyMapping("pointing", Translate('pointing'), "keyboard", Config.PointingKeybind)
+        RegisterKeyMapping("pointing", Translate('register_pointing'), "keyboard", Config.PointingKeybind)
     end
 
-    TriggerEvent('chat:addSuggestion', '/pointing', 'Finger pointing.')
+    TriggerEvent('chat:addSuggestion', '/pointing', Translate('pointing'))
 end
 
 
