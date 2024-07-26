@@ -1,7 +1,7 @@
 fx_version 'cerulean'
 game 'gta5'
 description 'rpemotes-reborn'
-version '1.5.6'
+version '1.6.0'
 
 lua54 'yes'
 use_experimental_fxv2_oal 'yes'
@@ -35,6 +35,7 @@ shared_scripts{
 
 server_scripts{
     'server/Server.lua',
+    'server/Updates.lua',
     'server/frameworks/*.lua'
 }
 

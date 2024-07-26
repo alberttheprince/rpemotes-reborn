@@ -41,8 +41,8 @@ local ShareTable = {}
 local FavoriteEmote = ""
 
 if Config.FavKeybindEnabled then
-    RegisterCommand('emotefav', function() FavKeybind() end)
-    RegisterKeyMapping("emotefav", "Execute your favorite emote", "keyboard", Config.FavKeybind)
+    RegisterCommand('emotefav', function() FavKeybind() end, false)
+    RegisterKeyMapping("emotefav", Translate("register_fav_anim"), "keyboard", Config.FavKeybind)
 
     local doingFavoriteEmote = false
 
@@ -316,7 +316,7 @@ if Config.Search then
             if #results > 0 then
                 InSearch = true
 
-                local searchMenu = _menuPool:AddSubMenu(lastMenu, string.format('%s'..Translate('searchmenudesc')..' ~r~%s~w~', #results, input), "", true, true)
+                local searchMenu = _menuPool:AddSubMenu(lastMenu, string.format('%s '..Translate('searchmenudesc')..' ~r~%s~w~', #results, input), "", true, true)
                 local sharedDanceMenu
                 if favEnabled then
                     local rFavorite = NativeUI.CreateItem(Translate('rfavorite'), Translate('rfavorite'))

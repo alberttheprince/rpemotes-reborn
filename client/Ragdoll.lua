@@ -17,7 +17,10 @@ if Config.RagdollEnabled then
         end
 
         while not stop do
-            SetPedToRagdoll(ped, 1000, 1000, 0, false, false, false)
+            SetPedRagdollForceFall(PlayerPedId())
+            ResetPedRagdollTimer(PlayerPedId())
+            SetPedToRagdoll(PlayerPedId(), 1000, 1000, 3, 0, 0, 0)
+            ResetPedRagdollTimer(PlayerPedId())
             Wait(0)
         end
     end

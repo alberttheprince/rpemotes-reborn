@@ -74,7 +74,7 @@ if Config.SqlKeybinding then
 
     RegisterNetEvent("rp:ClientKeybindGetOne")
     AddEventHandler("rp:ClientKeybindGetOne", function(key, e)
-        SimpleNotify(Translate('bound') .. "<b>" .. e .. "</b> " .. Translate('to') .. " <b>" .. firstToUpper(key) .. "</b>")
+        SimpleNotify(Translate('boundto', e, firstToUpper(key)))
         if key == "num4" then emob1 = e
             keyb1 = "num4"
         elseif key == "num5" then emob2 = e

@@ -208,7 +208,7 @@ end
 ----------------------------------------------------------------------
 ShowPed = false
 
-ShowPedMenu = function(zoom)
+function ShowPedMenu(zoom)
     if not Config.PreviewPed then return end
 
     if not ShowPed then
@@ -232,7 +232,11 @@ ShowPedMenu = function(zoom)
 
             if not zoom then
                 while ShowPed do
-                    local world, normal =  GetWorldCoordFromScreenCoord(0.65135417461395, 0.77) --  GetWorldCoordFromScreenCoord(0.67135417461395, 0.7787036895752)
+                    local screencoordsX, screencoordsY = 0.65135417461395, 0.77
+                    if Config.MenuPosition == "left" then
+                        screencoordsX = 1.0 - screencoordsX
+                    end
+                    local world, normal =  GetWorldCoordFromScreenCoord(screencoordsX, screencoordsY) --  GetWorldCoordFromScreenCoord(0.67135417461395, 0.7787036895752)
                     local depth = 3.5
                     local target = world + normal * depth
                     local camRot = GetGameplayCamRot(2)
@@ -249,13 +253,18 @@ ShowPedMenu = function(zoom)
                     averagedTarget = averagedTarget / #positionBuffer
 
                     SetEntityCoords(clonedPed, averagedTarget.x, averagedTarget.y, averagedTarget.z, false, false, false, true)
-                    SetEntityHeading(clonedPed, camRot.z + 170.0)
+                    local heading_offset = Config.MenuPosition == "left" and 170.0 or 190.0
+                    SetEntityHeading(clonedPed, camRot.z + heading_offset)
                     SetEntityRotation(clonedPed, camRot.x*(-1), 0, camRot.z + 170.0, 2, false)
 
                     Wait(4)
                 end
             else
                 while ShowPed do
+                    local screencoordsX, screencoordsY = 0.6, 1.9
+                    if Config.MenuPosition == "left" then
+                        screencoordsX = 1.0 - screencoordsX
+                    end
                     local world, normal = GetWorldCoordFromScreenCoord(0.6, 1.9)
                     local depth = 2.0
                     local target = world + normal * depth
@@ -273,7 +282,8 @@ ShowPedMenu = function(zoom)
                     averagedTarget = averagedTarget / #positionBuffer
 
                     SetEntityCoords(clonedPed, averagedTarget.x, averagedTarget.y, averagedTarget.z, false, false, false, true)
-                    SetEntityHeading(clonedPed, camRot.z + 170.0)
+                    local heading_offset = Config.MenuPosition == "left" and 170.0 or 190.0
+                    SetEntityHeading(clonedPed, camRot.z + heading_offset)
                     SetEntityRotation(clonedPed, camRot.x*(-1), 0, camRot.z + 170.0, 2, false)
 
                     Wait(4)
@@ -283,7 +293,7 @@ ShowPedMenu = function(zoom)
     end
 end
 
-ClosePedMenu = function()
+function ClosePedMenu()
     if not Config.PreviewPed then return end
 
     if clonedPed then
@@ -293,7 +303,7 @@ ClosePedMenu = function()
     end
 end
 
-ClearPedTaskPreview = function()
+function ClearPedTaskPreview()
     if not Config.PreviewPed then return end
 
     if clonedPed then
