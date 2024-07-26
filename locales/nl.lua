@@ -88,10 +88,15 @@ Locales['nl'] = {
         ['no_anim_crawling'] = "Je kan deze animatie niet gebruiken tijdens het kruipen",
         ['no_anim_right_now'] = "Je kan nu geen animaties starten",
         ['register_cancel_emote'] = "Huidige animatie stoppen",
+        ['register_handsup'] = "Handen omhoog",
         ['register_open_menu'] = "Animatiemenu openen",
         ['register_fav_anim'] = "Start je favoriete animatie",
+        ['register_crouch'] = "Hurken",
+        ['register_crawl'] = "Kruipen",
+        ['register_pointing'] = "Wijzen",
+        ['register_ragdoll'] = "Ragdoll",
+        ['cancel_emote'] = "Huidige animatie stoppen",
         ['crouch'] = "Hurken",
         ['crawl'] = "Kruipen",
         ['pointing'] = "Wijzen",
-    
 }
