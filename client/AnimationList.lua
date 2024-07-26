@@ -11433,7 +11433,7 @@ RP.PropEmotes = {
                 0.0
             },
             EmoteLoop = true,
-            EmoteMoving = false
+            EmoteMoving = true
         }
     },
     ["suitcase"] = {
