@@ -293,6 +293,7 @@ if Config.Search then
     }
 
     function EmoteMenuSearch(lastMenu)
+        ClosePedMenu()
         local favEnabled = not Config.SqlKeybinding and Config.FavKeybindEnabled
         AddTextEntry("PM_NAME_CHALL", Translate('searchinputtitle'))
         DisplayOnscreenKeyboard(1, "PM_NAME_CHALL", "", "", "", "", "", 30)
@@ -449,6 +450,7 @@ if Config.Search then
                 _menuPool:RefreshIndex()
                 _menuPool:CloseAllMenus()
                 searchMenu:Visible(true)
+                ShowPedMenu()
             else
                 SimpleNotify(string.format(Translate('searchnoresult')..' ~r~%s~w~', input))
             end

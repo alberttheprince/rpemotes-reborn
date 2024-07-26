@@ -1,7 +1,7 @@
 fx_version 'cerulean'
 game 'gta5'
 description 'rpemotes-reborn'
-version '1.6.0'
+version '1.6.1'
 
 lua54 'yes'
 use_experimental_fxv2_oal 'yes'
@@ -11,7 +11,7 @@ provide "rpemotes"
 dependencies{
     -- '/server:7290',
     '/server:6683',
-    '/onesync',
+    '/onesync'
 }
 
 -- Remove the following lines if you would like to use the SQL keybinds. Requires oxmysql.
@@ -22,7 +22,7 @@ dependencies{
 files{
     'propsets.meta',
     'conditionalanims.meta',
-    'header.png',
+    'header.png'
 }
 
 data_file 'AMBIENT_PROP_MODEL_SET_FILE' 'propsets.meta'
@@ -32,7 +32,7 @@ shared_scripts{
     'config.lua',
     'locale.lua',
     'locales/*.lua',
-    'animals.lua',
+    'animals.lua'
 }
 
 server_scripts{
@@ -58,7 +58,7 @@ client_scripts{
     'client/Ragdoll.lua',
     'client/Syncing.lua',
     'client/Walk.lua',
-    'client/frameworks/*.lua',
+    'client/frameworks/*.lua'
 }
 
 ---- Loads all ytyp files for custom props to stream ---
