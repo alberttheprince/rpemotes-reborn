@@ -102,6 +102,7 @@ exports["rpemotes"]:IsPlayerInHandsUp()
 exports["rpemotes"]:toggleWalkstyle(bool, message) -- bool to allow the user to change their walkstyle in the menu or not / message to show the user (optional, default is :"You are unable to change your walking style right now.")"
 exports["rpemotes"]:toggleBinoculars()
 exports["rpemotes"]:toggleNewscam()
+exports["rpemotes"]:getWalkstyle() -- Gets walk style of player, used to detect certain walk. useful for applying effects while doing certain walks like tripping or other "funny" effects.
 ```
 
 Having issues with players using emotes when/where they're not supposed to? Use the following where you need. This would be somewhere like if you want to disable emotes in jail or when someone is handcuffed/escorted:
