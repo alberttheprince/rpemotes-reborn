@@ -2,7 +2,7 @@ IsUsingBinoculars = false
 if Config.BinocularsEnabled then
     RegisterCommand("binoculars", function()
         UseBinocular()
-    end)
+    end, false)
     TriggerEvent('chat:addSuggestion', '/binoculars', 'Use binoculars', {})
 
 

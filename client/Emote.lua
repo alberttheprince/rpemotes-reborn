@@ -139,7 +139,7 @@ CreateThread(function()
     end
     TriggerEvent('chat:addSuggestion', '/emotemenu', Translate('open_menu_emote'))
     TriggerEvent('chat:addSuggestion', '/emotes', Translate('show_list_emote'))
-    TriggerEvent('chat:addSuggestion', '/emotecancel', Translate('register_cancel_emote'))
+    TriggerEvent('chat:addSuggestion', '/emotecancel', Translate('cancel_emote'))
 end)
 
 RegisterCommand('e', function(source, args, raw) EmoteCommandStart(source, args, raw) end, false)
@@ -151,7 +151,7 @@ if Config.SqlKeybinding then
 end
 if Config.MenuKeybindEnabled then
     RegisterCommand('emoteui', function() OpenEmoteMenu() end, false)
-    RegisterKeyMapping("emoteui", Translate("register_open_menu"), "keyboard", Config.MenuKeybind)
+    RegisterKeyMapping("emoteui", Translate('register_open_menu'), "keyboard", Config.MenuKeybind)
 else
     RegisterCommand('emotemenu', function() OpenEmoteMenu() end, false)
 end
@@ -314,7 +314,7 @@ if Config.HandsupEnabled then
     TriggerEvent('chat:addSuggestion', '/handsup', Translate('handsup'))
 
     if Config.HandsupKeybindEnabled then
-        RegisterKeyMapping("handsup", Translate('handsup'), "keyboard", Config.HandsupKeybind)
+        RegisterKeyMapping("handsup", Translate('register_handsup'), "keyboard", Config.HandsupKeybind)
     end
 
     local function IsPlayerInHandsUp()

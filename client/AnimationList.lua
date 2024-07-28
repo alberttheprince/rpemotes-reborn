@@ -135,6 +135,9 @@ RP.Walks = {
         "move_m@hurry_butch@c",
         "Butch 3"
     },
+    ["Bigfoot"] = {
+        "move_characters@orleans@core@"
+    },
     ["Buzzed"] = {
         "move_m@buzzed"
     },
@@ -411,6 +414,18 @@ RP.Walks = {
     ["Hobo2"] = {
         "move_m@hobo@b",
         "Hobo 2"
+    },
+    ["Hurry"] = {
+        "move_m@hurry@a",
+        "Hurry Male"
+    },
+    ["Hurry2"] = {
+        "move_f@hurry@a",
+        "Hurry Female"
+    },
+    ["Hurry3"] = {
+        "move_f@hurry@b",
+        "Hurry Female 2"
     },
     ["Injured2"] = {
         "move_f@injured",
@@ -11418,7 +11433,7 @@ RP.PropEmotes = {
                 0.0
             },
             EmoteLoop = true,
-            EmoteMoving = false
+            EmoteMoving = true
         }
     },
     ["suitcase"] = {

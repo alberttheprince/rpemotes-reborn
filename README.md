@@ -1,8 +1,6 @@
 ![image](https://github.com/alberttheprince/rpemotes-reborn/assets/85725579/25b38001-1b50-42ff-b9c9-07046d8be0a1)
 
-rpemotes-reborn is a community-driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walk styles, and props inspired by [DullPear](https://github.com/andristum/dpemotes), maintained by Popcorn RP after TayMcKenzieNZ began selling an open-source community project against the spirit of the project.
-
-A partial archive of the original RP Emotes docs can be found [here](https://web.archive.org/web/20231218223552/https://docs.rpemotes.com/)
+Rpemotes-reborn is a community-driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walk styles, and props.
 
 Rpemotes-reborn is free, **and will always be free**: accept no substitutes or reproductions from scummy people reselling other's hard work against agreements made with creators. We're committed to the open-source community and the dozens of contributors who put hard work into rpemotes to provide the community with free emotes and props.
 
@@ -85,7 +83,9 @@ Example Banner:
 
 **Note for users of older versions of rpemotes:** Previously, the banner was hosted through a web link on an image hosting website. Due to various image hosting sites dealing with large amounts of traffic from FiveM, they cut off access to FiveM.
 
-# Exports and More
+# Exports and Documentation
+
+A partial archive of the original RP Emotes docs can be found [here](https://web.archive.org/web/20231218223552/https://docs.rpemotes.com/)
 
 When using our emote menu with other scripts, using the `TriggerEvent('animations:client:EmoteCommandStart` won't do anything because the events do not exist. These have simply been replaced with the following exports:
 
@@ -102,6 +102,7 @@ exports["rpemotes"]:IsPlayerInHandsUp()
 exports["rpemotes"]:toggleWalkstyle(bool, message) -- bool to allow the user to change their walkstyle in the menu or not / message to show the user (optional, default is :"You are unable to change your walking style right now.")"
 exports["rpemotes"]:toggleBinoculars()
 exports["rpemotes"]:toggleNewscam()
+exports["rpemotes"]:getWalkstyle() -- Gets walk style of player, used to detect certain walk. useful for applying effects while doing certain walks like tripping or other "funny" effects.
 ```
 
 Having issues with players using emotes when/where they're not supposed to? Use the following where you need. This would be somewhere like if you want to disable emotes in jail or when someone is handcuffed/escorted:
@@ -217,6 +218,12 @@ Moods and walk styles can be set from the menu. These will save to your characte
 | /moods      | See A List Of Walkstyles In Chat      |
 | /reset mood | Remove preferred mood and set default |
 | /reset walk | Remove last walkstyle and set default |
+
+Having problems with users "abusing" certain walk styles? rpemotes-reborn checks if a user has an "abusable" walk style saved and clears it when a player joins. Alternatively, you can use a resource like [rpemotes-punishment](https://github.com/alberttheprince/rpemotes-punishment/) to trip players abusing these emotes. 
+
+Just want to remove them? Delete the following walk styles from Animationlist.lua:
+
+Bigfoot, Hurry, Hurry2, Hurry3, Flee, Flee2, Flee3, Flee4, and Flee5
 
 # No Idle Cam 📷
 
