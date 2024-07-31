@@ -153,20 +153,6 @@ local function CrouchKeyPressed()
         if crouchKey == lookBehindKey then
             DisableControlUntilReleased(0, 26) -- INPUT_LOOK_BEHIND
         end
-
-        -- If they are the same and we aren't prone, then check if we are in stealth mode and how long ago the last button press was.
-        if crouchKey == duckKey and not IsProne then
-            local timer = GetGameTimer()
-
-            -- If we are in stealth mode and we have already pressed the button in the last second
-            if GetPedStealthMovement(playerPed) == 1 and timer - lastKeyPress < 1000 then
-                DisableControlAction(0, 36, true) -- Disable INPUT_DUCK this frame
-                lastKeyPress = 0
-            else
-                lastKeyPress = timer
-                return
-            end
-        end
     end
 
     -- Start to crouch
