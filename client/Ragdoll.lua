@@ -17,6 +17,7 @@ if Config.RagdollEnabled then
         end
 
         while not stop do
+            ped = PlayerPedId()
             SetPedRagdollForceFall(ped)
             ResetPedRagdollTimer(ped)
             SetPedToRagdoll(ped, 1000, 1000, 3, false, false, false)
