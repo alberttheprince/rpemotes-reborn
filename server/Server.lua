@@ -3,6 +3,9 @@
 -----------------------------------------------------------------------------------------------------
 
 RegisterNetEvent("ServerEmoteRequest", function(target, emotename, etype)
+
+    if not Player(source).state.canEmote then return end
+
     local ped = GetPlayerPed(source)
 
     if target == -1 then
