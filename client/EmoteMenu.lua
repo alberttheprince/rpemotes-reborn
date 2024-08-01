@@ -424,6 +424,8 @@ if Config.Search then
                     if #sharedDanceMenu.Items > 0 then
                         table.insert(results, (favEnabled and 2 or 1), Translate('sharedanceemotes'))
                         sharedDanceMenu.OnItemSelect = function(sender, item, index)
+                            if not LocalPlayer.state.canEmote then return end 
+
                             local data = results[index]
                             target, distance = GetClosestPlayer()
                             if (distance ~= -1 and distance < 3) then
