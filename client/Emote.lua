@@ -780,6 +780,9 @@ end
 -----------------------------------------------------------------------------------------------------
 
 function OnEmotePlay(EmoteName, name, textureVariation)
+
+if not LocalPlayer.state.canEmote then return end
+
     local playerPed = PlayerPedId()
     local playerCoords = GetEntityCoords(playerPed)
 
