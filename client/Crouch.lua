@@ -114,6 +114,8 @@ end
 
 -- Called when the crouch key is pressed
 local function CrouchKeyPressed()
+    if not LocalPlayer.state.canEmote then return end
+
     -- If we already are doing something, then don't continue
     if inAction then
         return
@@ -154,7 +156,7 @@ local function CrouchKeyPressed()
             DisableControlUntilReleased(0, 26) -- INPUT_LOOK_BEHIND
         end
 
-     -- If they are the same and we aren't prone, then check if we are in stealth mode and how long ago the last button press was.
+        -- If they are the same and we aren't prone, then check if we are in stealth mode and how long ago the last button press was.
         if crouchKey == duckKey and not IsProne then
             local timer = GetGameTimer()
 
@@ -358,6 +360,8 @@ local function CrawlThread()
 end
 
 local function CrawlKeyPressed()
+    if not LocalPlayer.state.canEmote then return end
+
     -- If we already are doing something, then don't continue
     if inAction then
         return
@@ -448,6 +452,8 @@ if Config.CrouchEnabled then
         RegisterCommand('-crouch', function() end, false) -- This needs to be here to prevent errors/warnings
     end
     RegisterCommand('crouch', function()
+        if not LocalPlayer.state.canEmote then return end
+
         if isCrouched then
             isCrouched = false
             return
