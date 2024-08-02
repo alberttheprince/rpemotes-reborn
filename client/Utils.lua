@@ -1,3 +1,5 @@
+LocalPlayer.state:set('canEmote', true, true) -- Allow emotes to be played by default
+
 -- You can edit this function to add support for your favorite notification system
 function SimpleNotify(message)
     if Config.NotificationsAsChatMessage then
