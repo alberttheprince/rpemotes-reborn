@@ -154,7 +154,7 @@ local function CrouchKeyPressed()
             DisableControlUntilReleased(0, 26) -- INPUT_LOOK_BEHIND
         end
 
-        -- If they are the same and we aren't prone, then check if we are in stealth mode and how long ago the last button press was.
+     -- If they are the same and we aren't prone, then check if we are in stealth mode and how long ago the last button press was.
         if crouchKey == duckKey and not IsProne then
             local timer = GetGameTimer()
 

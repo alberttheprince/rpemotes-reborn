@@ -10,6 +10,7 @@ local targetPlayerId = ''
 -----------------------------------------------------------------------------------------------------
 if Config.SharedEmotesEnabled then
     RegisterCommand('nearby', function(source, args, raw)
+        if not LocalPlayer.state.canEmote then return end
         if IsPedInAnyVehicle(PlayerPedId(), true) then
             return EmoteChatMessage(Translate('not_in_a_vehicle'))
         end
