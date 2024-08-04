@@ -16985,6 +16985,25 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
+    ["tag7"] = {
+        "anim@scripted@freemode@tagcoll_ig_postertag@heeled@",
+        "postertag",
+        "Tagging 7",
+        AnimationOptions = {
+            Prop = "m24_1_prop_m41_spraycan_01a",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0700,
+                0.0017365,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["tag6"] = {
         "anim@scripted@freemode@postertag@graffiti_spray@heeled@",
         "spray_can_var_02_female",
@@ -20551,6 +20570,44 @@ RP.PropEmotes = {
             },
             PtfxInfo = Translate('camera'),
             PtfxWait = 200,
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["summon"] = {
+        "anim@scripted@surv@ig3_plague_summon@male@"
+        "summon_a",
+        "Summon",
+        AnimationOptions = {
+            Prop = "m24_1_prop_m41_zombiestaff_01a",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["summon2"] = {
+        "anim@scripted@surv@ig3_plague_summon@male@"
+        "summon_b",
+        "Summon2",
+        AnimationOptions = {
+            Prop = "m24_1_prop_m41_zombiestaff_01a",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
             EmoteLoop = true,
             EmoteMoving = true
         }
