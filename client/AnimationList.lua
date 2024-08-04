@@ -20575,7 +20575,7 @@ RP.PropEmotes = {
         }
     },
     ["summon"] = {
-        "anim@scripted@surv@ig3_plague_summon@male@"
+        "anim@scripted@surv@ig3_plague_summon@male@",
         "summon_a",
         "Summon",
         AnimationOptions = {
@@ -20594,7 +20594,7 @@ RP.PropEmotes = {
         }
     },
     ["summon2"] = {
-        "anim@scripted@surv@ig3_plague_summon@male@"
+        "anim@scripted@surv@ig3_plague_summon@male@",
         "summon_b",
         "Summon2",
         AnimationOptions = {
