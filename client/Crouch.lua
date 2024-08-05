@@ -247,6 +247,8 @@ local function Crawl(playerPed, type, direction)
     end)
 end
 
+---Flips the player when crawling
+---@param playerPed number
 local function CrawlFlip(playerPed)
     inAction = true
     local heading = GetEntityHeading(playerPed)
