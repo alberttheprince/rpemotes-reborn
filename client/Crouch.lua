@@ -6,6 +6,8 @@ local proneType = "onfront"
 local lastKeyPress = 0
 
 -- Crouching --
+
+---Resets the crouch effect (clipsets etc.)
 local function ResetCrouch()
     local playerPed = PlayerPedId()
 
