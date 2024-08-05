@@ -376,6 +376,7 @@ local function CrawlThread()
     end)
 end
 
+---Gets called when the crawl key is pressed
 local function CrawlKeyPressed()
     if not LocalPlayer.state.canEmote then return end
 
