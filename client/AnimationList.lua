@@ -1,10 +1,10 @@
--- ALL custom animations added to this repository were added with express permission from the creators and do not contain any paid content --
--- If an emote does not work, you may be on an older gamebuild --
--- To get a higher gamebuild, see ReadMe on github repository --
+ -- ALL custom animations added to this repository were added with express permission from the creators and do not contain any paid content --
+ -- If an emote does not work, you may be on an older gamebuild --
+ -- To get a higher gamebuild, see ReadMe on github repository --
 
 RP = {}
 
--- EXPRESSIONS --
+ -- EXPRESSIONS --
 
 RP.Expressions = { ---- MOODS ----
     ["Aiming"] = {
@@ -5189,11 +5189,11 @@ RP.AnimalEmotes = {
 }
 
 
---- EXIT EMOTES ---
+ -- EXIT EMOTES ---
 
 RP.Exits = {
 
------- HUMAN EXIT EMOTES  ------
+ ----- HUMAN EXIT EMOTES  ------
 
     ["getup"] = {
         "get_up@sat_on_floor@to_stand",
@@ -5277,7 +5277,7 @@ RP.Exits = {
             EmoteMoving = true
         }
     },
------- ANIMAL EXIT EMOTES  ------
+ ----- ANIMAL EXIT EMOTES  ------
     ["sdogup"] = {
         "creatures@pug@amb@world_dog_sitting@exit",
         "exit",
@@ -5305,8 +5305,8 @@ RP.Exits = {
 }
 
 
---- SCENARIOS ---
---- EMOTES NO PROPS ---
+ -- SCENARIOS ---
+ -- EMOTES NO PROPS ---
 
 RP.Emotes = {
 
@@ -5519,7 +5519,7 @@ RP.Emotes = {
         "Yoga"
     },
 
----------- END OF SCENARIOS --------------
+ --------- END OF SCENARIOS --------------
 
     ["dispenser"] = {
         "mini@sprunk",
@@ -10108,89 +10108,89 @@ RP.Emotes = {
    EmoteLoop = true,
    EmoteMoving = false
        }
-},
-["maleposeb"] = { --- Custom Emote By DRX Animations
-    "drx@singlemale2",
-    "drx",
-    "Male Pose B",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
-        }
- },
- ["maleposec"] = { --- Custom Emote By DRX Animations
-    "drx@singlemalestand1",
-    "drx",
-    "Male Pose C",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
-        }
- },
- ["maleposed"] = { --- Custom Emote By DRX Animations
-    "drx@singlemalestand2",
-    "drx",
-    "Male Pose D",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
-        }
- },
- ["maleposee"] = { --- Custom Emote By DRX Animations
-    "drx@m_doublehands",
-    "drx",
-    "Male Pose E",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
-        }
- },
- ["maleposef"] = { --- Custom Emote By DRX Animations
-    "drx@m_standhide",
-    "drx",
-    "Male Pose F",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
-        }
- },
- ["maleposee1"] = { --- Custom Emote By DRX Animations
-    "drx@malestand2",
-    "xrd",
-    "Male Pose E1",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
-        }
- },
- ["maleposef1"] = { --- Custom Emote By DRX Animations
-    "drx@malestand3c",
-    "xrd",
-    "Male Pose F1",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
-        }
- },
- ["maleposeg"] = { --- Custom Emote By DRX Animations
-    "drx@pose_male",
-    "pose_male",
-    "Male Pose G",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
-        }
- },
- ["maleposeh"] = { --- Custom Emote By MrWitt
-    "mrwitt@gentleman_style_male",
-    "mrwitt",
-    "Male Pose H",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
-        }
- },
- ["maleposei"] = { --- Custom Emote By MrWitt
+    },
+    ["maleposeb"] = { --- Custom Emote By DRX Animations
+        "drx@singlemale2",
+        "drx",
+        "Male Pose B",
+        AnimationOptions = {
+        EmoteLoop = true,
+        EmoteMoving = false
+            }
+    },
+    ["maleposec"] = { --- Custom Emote By DRX Animations
+        "drx@singlemalestand1",
+        "drx",
+        "Male Pose C",
+        AnimationOptions = {
+        EmoteLoop = true,
+        EmoteMoving = false
+            }
+    },
+    ["maleposed"] = { --- Custom Emote By DRX Animations
+        "drx@singlemalestand2",
+        "drx",
+        "Male Pose D",
+        AnimationOptions = {
+        EmoteLoop = true,
+        EmoteMoving = false
+            }
+    },
+    ["maleposee"] = { --- Custom Emote By DRX Animations
+        "drx@m_doublehands",
+        "drx",
+        "Male Pose E",
+        AnimationOptions = {
+        EmoteLoop = true,
+        EmoteMoving = false
+            }
+    },
+    ["maleposef"] = { --- Custom Emote By DRX Animations
+        "drx@m_standhide",
+        "drx",
+        "Male Pose F",
+        AnimationOptions = {
+        EmoteLoop = true,
+        EmoteMoving = false
+            }
+    },
+    ["maleposee1"] = { --- Custom Emote By DRX Animations
+        "drx@malestand2",
+        "xrd",
+        "Male Pose E1",
+        AnimationOptions = {
+        EmoteLoop = true,
+        EmoteMoving = false
+            }
+    },
+    ["maleposef1"] = { --- Custom Emote By DRX Animations
+        "drx@malestand3c",
+        "xrd",
+        "Male Pose F1",
+        AnimationOptions = {
+        EmoteLoop = true,
+        EmoteMoving = false
+            }
+    },
+    ["maleposeg"] = { --- Custom Emote By DRX Animations
+        "drx@pose_male",
+        "pose_male",
+        "Male Pose G",
+        AnimationOptions = {
+        EmoteLoop = true,
+        EmoteMoving = false
+            }
+    },
+    ["maleposeh"] = { --- Custom Emote By MrWitt
+        "mrwitt@gentleman_style_male",
+        "mrwitt",
+        "Male Pose H",
+        AnimationOptions = {
+        EmoteLoop = true,
+        EmoteMoving = false
+            }
+    },
+    ["maleposei"] = { --- Custom Emote By MrWitt
     "mrwitt@thoughtful_man_m",
     "mrwitt",
     "Male Pose I",
@@ -10342,8 +10342,7 @@ RP.Emotes = {
         EmoteLoop = true,
         EmoteMoving = true,
         }
-    },
-
+    }
 
 }
 
