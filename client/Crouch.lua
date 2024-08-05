@@ -93,6 +93,8 @@ local function StartCrouch()
     CrouchThread()
 end
 
+---@param playerPed number
+---@return boolean success
 local function AttemptCrouch(playerPed)
     if CanPlayerCrouchCrawl(playerPed) and IsPedHuman(playerPed) then
         StartCrouch()
