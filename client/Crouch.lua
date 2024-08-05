@@ -198,6 +198,9 @@ local function ShouldPlayerDiveToCrawl(playerPed)
     return false
 end
 
+---@param playerPed number
+---@param heading number|nil
+---@param blendInSpeed number|nil
 local function PlayIdleCrawlAnim(playerPed, heading, blendInSpeed)
     local playerCoords = GetEntityCoords(playerPed)
     TaskPlayAnimAdvanced(playerPed, "move_crawl", proneType.."_fwd", playerCoords.x, playerCoords.y, playerCoords.z, 0.0, 0.0, heading or GetEntityHeading(playerPed), blendInSpeed or 2.0, 2.0, -1, 2, 1.0, false, false)
