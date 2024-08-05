@@ -71,6 +71,7 @@ local function CrouchThread()
     end)
 end
 
+---Starts crouching
 local function StartCrouch()
     isCrouched = true
     RequestWalking("move_ped_crouched")
