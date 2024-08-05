@@ -191,6 +191,8 @@ end
 
 
 -- Crawling --
+---@param playerPed number
+---@return boolean
 local function ShouldPlayerDiveToCrawl(playerPed)
     if IsPedRunning(playerPed) or IsPedSprinting(playerPed) then
         return true
