@@ -9847,500 +9847,500 @@ RP.Emotes = {
         }
     },
     ["femaleposea"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@femalepose_10",
-    "mrwitt",
-    "Female Pose A",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@femalepose_10",
+        "mrwitt",
+        "Female Pose A",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleadorable1"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@adorable_style",
-    "mrwitt",
-    "Female Adorable 1",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@adorable_style",
+        "mrwitt",
+        "Female Adorable 1",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleadorable2"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@adorable",
-    "mrwitt",
-    "Female Adorable 2",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
-         }
+        "mrwitt@adorable",
+        "mrwitt",
+        "Female Adorable 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
     },
     ["femaleposeb"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@characterful_poses",
-    "mrwitt",
-    "Female Pose B",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@characterful_poses",
+        "mrwitt",
+        "Female Pose B",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposec"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@elegant_floor_hock",
-    "mrwitt",
-    "Female Pose C",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@elegant_floor_hock",
+        "mrwitt",
+        "Female Pose C",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposed"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@femalepose_03",
-    "mrwitt",
-    "Female Pose D",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
-         }
+        "mrwitt@femalepose_03",
+        "mrwitt",
+        "Female Pose D",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
     },
     ["femaleposee"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@femalepose_04",
-    "mrwitt",
-    "Female Pose E",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@femalepose_04",
+        "mrwitt",
+        "Female Pose E",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposef"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@femalepose_05",
-    "mrwitt",
-    "Female Pose F",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@femalepose_05",
+        "mrwitt",
+        "Female Pose F",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposeg"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@femalepose_06",
-    "mrwitt",
-    "Female Pose G",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@femalepose_06",
+        "mrwitt",
+        "Female Pose G",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposeh"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@femalepose_07",
-    "mrwitt",
-    "Female Pose H",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
-         }
+        "mrwitt@femalepose_07",
+        "mrwitt",
+        "Female Pose H",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
     },
     ["femaleposei"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@femalepose_09",
-    "mrwitt",
-    "Female Pose I",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@femalepose_09",
+        "mrwitt",
+        "Female Pose I",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposej"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@femalepose_10",
-    "mrwitt",
-    "Female Pose J",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@femalepose_10",
+        "mrwitt",
+        "Female Pose J",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposek"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@femalepose_11",
-    "mrwitt",
-    "Female Pose K",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@femalepose_11",
+        "mrwitt",
+        "Female Pose K",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposel"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@finger_gun_pose",
-    "mrwitt",
-    "Female Pose L",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@finger_gun_pose",
+        "mrwitt",
+        "Female Pose L",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposem"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@models_in_action",
-    "mrwitt",
-    "Female Pose M",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@models_in_action",
+        "mrwitt",
+        "Female Pose M",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposen"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@photo_session_posing",
-    "mrwitt",
-    "Female Pose N",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@photo_session_posing",
+        "mrwitt",
+        "Female Pose N",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposeo"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@school_uniform_expression",
-    "mrwitt",
-    "Female Pose O",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@school_uniform_expression",
+        "mrwitt",
+        "Female Pose O",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposep"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@urban_posing",
-    "mrwitt",
-    "Female Pose P",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@urban_posing",
+        "mrwitt",
+        "Female Pose P",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
 	["femaleposeq"] = { --- Custom Emote By DRX Animations
-    "drx@femalestand13",
-    "xrd",
-    "Female Pose Q",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false
-         }
+        "drx@femalestand13",
+        "xrd",
+        "Female Pose Q",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
     },
     ["femaleposer"] = { --- Custom Emote By DRX Animations
-    "drx@femalestand14",
-    "xrd",
-    "Female Pose R",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false
+        "drx@femalestand14",
+        "xrd",
+        "Female Pose R",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["femaleposes"] = { --- Custom Emote By DRX Animations
-    "drx@femalestand15",
-    "xrd",
-    "Female Pose S",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false
+        "drx@femalestand15",
+        "xrd",
+        "Female Pose S",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["femaleposet"] = { --- Custom Emote By DRX Animations
-    "drx@femalestand16",
-    "xrd",
-    "Female Pose T",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false
+        "drx@femalestand16",
+        "xrd",
+        "Female Pose T",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["femaleposeu"] = { --- Custom Emote By DRX Animations
-    "drx@f_sitcool",
-    "drx",
-    "Female Pose U",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
-        ExitEmote = "getup",
-        ExitEmoteType = "Exits"
+        "drx@f_sitcool",
+        "drx",
+        "Female Pose U",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits"
         }
     },
     ["femaleposev"] = { --- Custom Emote By DRX Animations
-    "drx@f_standcasual1",
-    "drx",
-    "Female Pose V",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false
+        "drx@f_standcasual1",
+        "drx",
+        "Female Pose V",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["femaleposew"] = { --- Custom Emote By DRX Animations
-    "drx@f_standcasual2",
-    "drx",
-    "Female Pose W",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
-         }
+        "drx@f_standcasual2",
+        "drx",
+        "Female Pose W",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
     },
     ["femaleposex"] = { --- Custom Emote By DRX Animations
-   "drx@femalestand7",
-   "xrd",
-   "Female Pose X",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    "drx@femalestand7",
+    "xrd",
+    "Female Pose X",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["femaleposey"] = { --- Custom Emote By DRX Animations
-   "drx@femalestand8",
-   "xrd",
-   "Female Pose Y",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    "drx@femalestand8",
+    "xrd",
+    "Female Pose Y",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["femaleposez"] = { --- Custom Emote By DRX Animations
-    "drx@femalestand9",
-    "xrd",
-    "Female Pose Z",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
-         }
+        "drx@femalestand9",
+        "xrd",
+        "Female Pose Z",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
     },
 	["maleposea"] = { --- Custom Emote By DRX Animations
-   "drx@singlemale1",
-   "drx",
-   "Male Pose A",
-   AnimationOptions = {
-   EmoteLoop = true,
-   EmoteMoving = false
+        "drx@singlemale1",
+        "drx",
+        "Male Pose A",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
        }
-},
-["maleposeb"] = { --- Custom Emote By DRX Animations
-    "drx@singlemale2",
-    "drx",
-    "Male Pose B",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    },
+    ["maleposeb"] = { --- Custom Emote By DRX Animations
+        "drx@singlemale2",
+        "drx",
+        "Male Pose B",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
- },
- ["maleposec"] = { --- Custom Emote By DRX Animations
-    "drx@singlemalestand1",
-    "drx",
-    "Male Pose C",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    },
+    ["maleposec"] = { --- Custom Emote By DRX Animations
+        "drx@singlemalestand1",
+        "drx",
+        "Male Pose C",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
- },
- ["maleposed"] = { --- Custom Emote By DRX Animations
-    "drx@singlemalestand2",
-    "drx",
-    "Male Pose D",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    },
+    ["maleposed"] = { --- Custom Emote By DRX Animations
+        "drx@singlemalestand2",
+        "drx",
+        "Male Pose D",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
- },
- ["maleposee"] = { --- Custom Emote By DRX Animations
-    "drx@m_doublehands",
-    "drx",
-    "Male Pose E",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    },
+    ["maleposee"] = { --- Custom Emote By DRX Animations
+        "drx@m_doublehands",
+        "drx",
+        "Male Pose E",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
- },
- ["maleposef"] = { --- Custom Emote By DRX Animations
-    "drx@m_standhide",
-    "drx",
-    "Male Pose F",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    },
+    ["maleposef"] = { --- Custom Emote By DRX Animations
+        "drx@m_standhide",
+        "drx",
+        "Male Pose F",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
- },
- ["maleposee1"] = { --- Custom Emote By DRX Animations
-    "drx@malestand2",
-    "xrd",
-    "Male Pose E1",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    },
+    ["maleposee1"] = { --- Custom Emote By DRX Animations
+        "drx@malestand2",
+        "xrd",
+        "Male Pose E1",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
- },
- ["maleposef1"] = { --- Custom Emote By DRX Animations
-    "drx@malestand3c",
-    "xrd",
-    "Male Pose F1",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    },
+    ["maleposef1"] = { --- Custom Emote By DRX Animations
+        "drx@malestand3c",
+        "xrd",
+        "Male Pose F1",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
- },
- ["maleposeg"] = { --- Custom Emote By DRX Animations
-    "drx@pose_male",
-    "pose_male",
-    "Male Pose G",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    },
+    ["maleposeg"] = { --- Custom Emote By DRX Animations
+        "drx@pose_male",
+        "pose_male",
+        "Male Pose G",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
- },
- ["maleposeh"] = { --- Custom Emote By MrWitt
-    "mrwitt@gentleman_style_male",
-    "mrwitt",
-    "Male Pose H",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    },
+    ["maleposeh"] = { --- Custom Emote By MrWitt
+        "mrwitt@gentleman_style_male",
+        "mrwitt",
+        "Male Pose H",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
- },
- ["maleposei"] = { --- Custom Emote By MrWitt
-    "mrwitt@thoughtful_man_m",
-    "mrwitt",
-    "Male Pose I",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    },
+    ["maleposei"] = { --- Custom Emote By MrWitt
+        "mrwitt@thoughtful_man_m",
+        "mrwitt",
+        "Male Pose I",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["maleposetie"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@tie_perfection_in_suit_male",
-    "mrwitt",
-    "Male Pose Tie",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@tie_perfection_in_suit_male",
+        "mrwitt",
+        "Male Pose Tie",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["malecrossarms"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "cross_arms@dark",
-    "cross_arms_clip",
-    "Male Cross Arms",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "cross_arms@dark",
+        "cross_arms_clip",
+        "Male Cross Arms",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["malemiddlefinger"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "stand_middlefinger@dark",
-    "stand_middlefinger_clip",
-    "Male Middle Finger",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "stand_middlefinger@dark",
+        "stand_middlefinger_clip",
+        "Male Middle Finger",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["malefistface"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "fist_face@darksj",
-    "fist_face_clip",
-    "Male Fist Face",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "fist_face@darksj",
+        "fist_face_clip",
+        "Male Fist Face",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["malepose4"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "fuckm@nxsty",
-    "fuckm_clip",
-    "Male Pose 4",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "fuckm@nxsty",
+        "fuckm_clip",
+        "Male Pose 4",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["malegunpose1"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "gun_ink@darksj",
-    "gun_ink_clip",
-    "Male Gun Pose 1",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "gun_ink@darksj",
+        "gun_ink_clip",
+        "Male Gun Pose 1",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["malepose5"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "koko_male@darksj",
-    "koko_male_clip",
-    "Male Pose 5",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "koko_male@darksj",
+        "koko_male_clip",
+        "Male Pose 5",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["malepose3"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "male_solo_1@darksj",
-    "male_solo_1_clip",
-    "Male Pose 3",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "male_solo_1@darksj",
+        "male_solo_1_clip",
+        "Male Pose 3",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["malepose2"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "male_solo_3@darksj",
-    "male_solo_3_clip",
-    "Male Pose 2",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "male_solo_3@darksj",
+        "male_solo_3_clip",
+        "Male Pose 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["malepose1"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "male_solo_4@darksj",
-    "male_solo_4_clip",
-    "Male Pose 1",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "male_solo_4@darksj",
+        "male_solo_4_clip",
+        "Male Pose 1",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["maleshoecheck"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "side_shoe_check@darksj",
-    "side_shoe_check_clip",
-    "Male Shoe Check Pose",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "side_shoe_check@darksj",
+        "side_shoe_check_clip",
+        "Male Shoe Check Pose",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["malegangpose"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "westside_cap@darksj",
-    "westside_cap_clip",
-    "Male Gang Pose",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "westside_cap@darksj",
+        "westside_cap_clip",
+        "Male Gang Pose",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["illuminati"] = { -- Custom Emote By EnchantedBrwny
-    "ebrwny_illum",
-    "ebrwny_illum003",
-    "Illuminati Hand Sign",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = true,
+        "ebrwny_illum",
+        "ebrwny_illum003",
+        "Illuminati Hand Sign",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
         }
     },
     ["illuminati2"] = { -- Custom Emote By EnchantedBrwny
-    "ebrwny_illum",
-    "ebrwny_illum001",
-    "Illuminati Hand Sign 2",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = true,
+        "ebrwny_illum",
+        "ebrwny_illum001",
+        "Illuminati Hand Sign 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
         }
     },
     ["illuminati3"] = { -- Custom Emote By EnchantedBrwny
-    "ebrwny_illum",
-    "ebrwny_illum002",
-    "Illuminati Hand Sign 3",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = true,
+        "ebrwny_illum",
+        "ebrwny_illum002",
+        "Illuminati Hand Sign 3",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
         }
     },
     ["gunpoint"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Darks Animations
-       "male_gun@vanessssi",
-       "male_gun_clip",
+        "male_gun@vanessssi",
+        "male_gun_clip",
         "Gun Point - Robbery",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = true,
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
         }
     },
 
