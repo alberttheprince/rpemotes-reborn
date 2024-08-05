@@ -235,6 +235,10 @@ local function PlayExitCrawlAnims(forceEnd)
     end
 end
 
+---Crawls one "step" forward/backward
+---@param playerPed number
+---@param type string
+---@param direction string
 local function Crawl(playerPed, type, direction)
     isCrawling = true
 
