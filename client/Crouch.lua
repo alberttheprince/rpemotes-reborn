@@ -143,7 +143,7 @@ local function CrouchKeyPressed()
     -- Get the player ped
     local playerPed = PlayerPedId()
 
-    -- Check if we can actually crouch and check if we are an animal
+    -- Check if we can actually crouch and check if the player ped is humanoid
     if not CanPlayerCrouchCrawl(playerPed) or not IsPedHuman(playerPed) then
         return
     end
