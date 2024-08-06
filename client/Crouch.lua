@@ -60,6 +60,11 @@ local function CrouchLoop()
         -- Disable first person
         DisableFirstPersonCamThisFrame()
 
+        -- added to disable crouch firing which may not fit in some servers
+        if Config.FpsMode == true then
+            DisablePlayerFiring(playerId, true)  -- the boolean here doesn't matter, false or true will disable firing
+        end
+
         Wait(0)
     end
 
