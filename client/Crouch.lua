@@ -4,6 +4,7 @@ local isCrawling = false
 local inAction = false
 local proneType = 'onfront'
 local lastKeyPress = 0
+local forceEndProne = false
 
 -- Crouching --
 
@@ -204,6 +205,13 @@ local function ShouldPlayerDiveToCrawl(playerPed)
     end
 
     return false
+end
+
+---Stops the player from being prone
+---@param force boolean If forced then no exit anim is played
+local function stopPlayerProne(force)
+    IsProne = false
+    forceEndProne = force
 end
 
 ---@param playerPed number
@@ -496,31 +504,33 @@ end
 
 
 -- Exports --
--- Returns whether or not the player is crouched
+---Returns if the player is crouched
 ---@return boolean
 local function IsPlayerCrouched()
 	return isCrouched
 end
+exports('IsPlayerCrouched', IsPlayerCrouched)
 
--- Returns if the player is prone (both when laying still and when moving)
+---Returns if the player is prone (both when laying still and when moving)
 ---@return boolean
 local function IsPlayerProne()
 	return IsProne
 end
+exports('IsPlayerProne', IsPlayerProne)
 
--- Returns if the player is crawling (only when moving forward/backwards)
+---Returns if the player is crawling (only when moving forward/backward)
 ---@return boolean
 local function IsPlayerCrawling()
 	return isCrawling
 end
+exports('IsPlayerCrawling', IsPlayerCrawling)
 
----Returns either "onfront" or "onback", this can be used to check if the player is on his back or on his stomach. NOTE: This will still return a string even if the player is not pone. Use IsPlayerProne() to check if the player is prone.
+---Returns either "onfront" or "onback", this can be used to check if the player is on his back or on his stomach. NOTE: This will still return a string even if the player is not prone. Use IsPlayerProne() to check if the player is prone.
 ---@return string
 local function GetPlayerProneType()
 	return proneType
 end
-
-exports('IsPlayerCrouched', IsPlayerCrouched)
-exports('IsPlayerProne', IsPlayerProne)
-exports('IsPlayerCrawling', IsPlayerCrawling)
 exports('GetPlayerProneType', GetPlayerProneType)
+
+-- Usefull to call if hte player gets handcuffed etc.
+exports('StopPlayerProne', stopPlayerProne)
