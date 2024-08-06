@@ -117,12 +117,17 @@ local function DisableControlUntilReleased(padIndex, control)
     end)
 end
 
--- Called when the crouch key is pressed
+---Called when the crouch key is pressed
 local function CrouchKeyPressed()
     if not LocalPlayer.state.canEmote then return end
 
     -- If we already are doing something, then don't continue
     if inAction then
+        return
+    end
+
+    -- Don't start/stop crouching if we are in the pause menu or the NUI is in focus
+    if IsPauseMenuActive() or IsNuiFocused() then
         return
     end
 
@@ -385,8 +390,8 @@ local function CrawlKeyPressed()
         return
     end
 
-    -- Don't start/stop to crawl if we are in the pause menu
-    if IsPauseMenuActive() then
+    -- Don't start/stop to crawl if we are in the pause menu or the NUI is in focus
+    if IsPauseMenuActive() or IsNuiFocused() then
         return
     end
 
