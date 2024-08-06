@@ -63,7 +63,7 @@ Config = {
     CrouchEnabled = true, -- If crouching should be enabled.
     CrouchKeybindEnabled = true, -- If true, crouching will use keybinds.
     CrouchKeybind = 'lcontrol', -- The default crouch keybind, get the button string here: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
-    CrouchOverride = false, -- If true, you won't enter stealth mode even if the crouch key and the 'duck' key are the same.
+    CrouchOverrideStealthMode = false, -- If true, you won't enter stealth mode even if the crouch key and the 'duck' key are the same.
     FpsMode = false, -- set this to true if you have first-person shooting to disable the ability to crouch and shoot in third-person
 
     -- Crawling Options
