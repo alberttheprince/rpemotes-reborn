@@ -479,7 +479,7 @@ end
 -- Commands & KeyMapping --
 if Config.CrouchEnabled then
     if Config.CrouchKeybindEnabled then
-        RegisterKeyMapping('+crouch', Translate('register_crouch'), 'keyboard', Config.CrouchKeybind)
+        RegisterKeyMapping('+crouch', Translate('crouch'), 'keyboard', Config.CrouchKeybind)
         RegisterCommand('+crouch', function() CrouchKeyPressed() end, false)
         RegisterCommand('-crouch', function() end, false) -- This needs to be here to prevent warnings in chat
     end
@@ -498,7 +498,7 @@ end
 
 if Config.CrawlEnabled then
     if Config.CrawlKeybindEnabled then
-        RegisterKeyMapping('+crawl', Translate('register_crawl'), 'keyboard', Config.CrawlKeybind)
+        RegisterKeyMapping('+crawl', Translate('crawl'), 'keyboard', Config.CrawlKeybind)
         RegisterCommand('+crawl', function() CrawlKeyPressed() end, false)
         RegisterCommand('-crawl', function() end, false) -- This needs to be here to prevent warnings in chat
     end
