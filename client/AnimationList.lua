@@ -10343,8 +10343,33 @@ RP.Emotes = {
             EmoteMoving = true,
         }
     },
-
-
+    ["baddiepeace"] = { -- Custom Emote provided by 41anims
+    "41animpeacebaddie@animation",
+    "41animpeacebaddie_clip",
+    "Baddie Peace Pose",
+    AnimationOptions = {
+        EmoteLoop = true,
+        EmoteMoving = false,
+        }
+    },
+    ["baddiebendova"] = { -- Custom Emote provided by 41anims
+    "bendova@animation",
+    "bendova_clip",
+    "Baddie Bendova Pose",
+    AnimationOptions = {
+        EmoteLoop = true,
+        EmoteMoving = false,
+        }
+    },
+    ["baddienailpose"] = { -- Custom Emote provided by 41anims
+    "nailpose@animation",
+    "nailpose_clip",
+    "Baddie Nail Pose",
+    AnimationOptions = {
+        EmoteLoop = true,
+        EmoteMoving = false,
+        }
+    },
 }
 
 --- PROP EMOTES GO HERE. CURRENTLY SUPPORTS UP TO ONE OR TWO PROPS  ---
@@ -23477,7 +23502,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
    },
-    ["poolcue"] = {
+   ["poolcue"] = {
        "pool_pack_1@dark",
        "pool_pack_1_clip",
         "Play Pool",
@@ -23496,7 +23521,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
    },
-    ["poolcue2"] = {
+   ["poolcue2"] = {
        "pool_pack_2@dark",
        "pool_pack_2_clip",
         "Play Pool 2 (Pose)",
@@ -23515,7 +23540,7 @@ RP.PropEmotes = {
             EmoteMoving = false
         }
    },
-    ["poolcue3"] = {
+   ["poolcue3"] = {
        "pool_pack_3@dark",
        "pool_pack_3_clip",
         "Play Pool 3 (Pose)",
@@ -23534,7 +23559,7 @@ RP.PropEmotes = {
             EmoteMoving = false
         }
    },
-    ["poolcue4"] = {
+   ["poolcue4"] = {
        "pool_pack_4@dark",
        "pool_pack_4_clip",
         "Play Pool 4 (Pose)",
@@ -23553,7 +23578,7 @@ RP.PropEmotes = {
             EmoteMoving = false
         }
    },
-    ["poolcue5"] = {
+   ["poolcue5"] = {
        "pool_pack_5@dark",
        "pool_pack_5_clip",
         "Play Pool 5",
@@ -23572,7 +23597,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
    },
-    ["basket"] = {
+   ["basket"] = {
        "missfbi4prepp1",
        "idle",
         "Basket",
@@ -23591,7 +23616,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
    },
-    ["basket2"] = {
+   ["basket2"] = {
        "missfbi4prepp1",
        "idle",
         "Basket 2",
@@ -23610,7 +23635,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
    },
-    ["power"] = {
+   ["power"] = {
        "move_weapon@jerrycan@generic",
        "idle",
         "Power House",
@@ -23629,7 +23654,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
    },
-    ["wlight"] = {
+   ["wlight"] = {
        "missfbi4prepp1",
        "idle",
         "Weed Light",
@@ -23648,7 +23673,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
    },
-    ["businessbag"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
+   ["businessbag"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
        "mrwitt@dark_appearance_with_bag_male",
        "mrwitt",
         "Business Bag",
@@ -23667,7 +23692,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
    },
-    ["businessbag2"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
+   ["businessbag2"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
        "mrwitt@dark_appearance_with_bag_male",
        "mrwitt",
         "Business Bag - Pose",
@@ -23686,7 +23711,7 @@ RP.PropEmotes = {
             EmoteMoving = false
         }
    },
-    ["squatcash"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
+   ["squatcash"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
        "mrwitt@checked_shirt_squat_male",
        "mrwitt",
         "Squat Cash - Pose",
@@ -23704,7 +23729,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = false
         }
-  },
+    },
     ["squatmask"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
         "mrwitt@selfie02_male",
         "mrwitt",
@@ -23724,7 +23749,7 @@ RP.PropEmotes = {
             EmoteMoving = false
         }
    },
-    ["squatmask1"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
+   ["squatmask1"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
         "mrwitt@selfie02_male",
         "mrwitt",
         "Squat Mask White - Pose",
@@ -23743,7 +23768,7 @@ RP.PropEmotes = {
             EmoteMoving = false
         }
    },
-    ["squatmask2"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
+   ["squatmask2"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
         "mrwitt@selfie02_male",
         "mrwitt",
         "Squat Mask Black - Pose",
@@ -23762,7 +23787,7 @@ RP.PropEmotes = {
             EmoteMoving = false
         }
    },
-    ["selfiesquat"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
+   ["selfiesquat"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
         "mrwitt@selfie02_male",
         "mrwitt",
         "Selfie Squat Male",
@@ -23813,7 +23838,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
         }
    },
-    ["femscaremask"] = { -- Animation by MrWitt
+   ["femscaremask"] = { -- Animation by MrWitt
         "mrwitt@helloween4_f",
         "mrwitt",
         "Female Scary Mask Red - Pose",
@@ -23832,7 +23857,7 @@ RP.PropEmotes = {
             EmoteMoving = true
             }
    },
-    ["femscaremask2"] = { -- Animation by MrWitt
+   ["femscaremask2"] = { -- Animation by MrWitt
     "mrwitt@helloween4_f",
     "mrwitt",
     "Female Scary Mask Black - Pose",
@@ -23851,7 +23876,7 @@ RP.PropEmotes = {
         EmoteMoving = true
         }
    },
-    ["femscaremask3"] = { -- Animation by MrWitt
+   ["femscaremask3"] = { -- Animation by MrWitt
     "mrwitt@helloween4_f",
     "mrwitt",
     "Female Scary Mask White - Pose",
@@ -23870,7 +23895,7 @@ RP.PropEmotes = {
         EmoteMoving = true
         },
    },
-    ["raiseglass"] = { -- Custom Animation by Chocoholic Animations
+   ["raiseglass"] = { -- Custom Animation by Chocoholic Animations
     "chocoholic@duo32",
     "duo32_clip",
     "Raise Your Glass",
@@ -23944,7 +23969,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true
         }
-  },
+    },
     ["rap3"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Darks Animations
        "mic_pose_2@darksj",
        "mic_pose_2_clip",
@@ -23963,7 +23988,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true
         }
-  },
+    },
     ["rap4"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Darks Animations
        "mic_pose_3@darksj",
        "mic_pose_3_clip",
@@ -23982,7 +24007,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = false
         }
-  },
+    },
     ["rap5"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Darks Animations
        "mic_pose_4@darksj",
        "mic_pose_4_clip",
@@ -24003,7 +24028,7 @@ RP.PropEmotes = {
 			ExitEmote = "getup",
             ExitEmoteType = "Exits"
         }
-  },
+    },
     ["rap6"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Darks Animations
        "mic_pose_5_a@darksj",
        "mic_pose_5_a_clip",
@@ -24022,7 +24047,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true,
         }
-  },
+    },
     ["bbat"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Darks Animations
        "bat@sel",
        "bat_clip",
@@ -24041,7 +24066,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = false,
         }
-  },
+    },
     ["stopsign"] = { --- Custom Prop By PNWParksFan
        "amb@world_human_janitor@male@base",
        "base",
@@ -24060,7 +24085,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true,
         }
-  },
+    },
     ["stopsign2"] = { --- Custom Prop By PNWParksFan
        "amb@world_human_janitor@male@base",
        "base",
@@ -24079,7 +24104,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true,
         }
-  },
+    },
     ["stopsign3"] = { --- Custom Prop By PNWParksFan
        "special_ped@griff@base",
        "base",
@@ -24098,7 +24123,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true,
         }
-  },
+    },
     ["stopsign4"] = { --- Custom Prop By PNWParksFan
        "special_ped@griff@base",
        "base",
@@ -24117,6 +24142,54 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true,
         }
-  }
+    },
+    ["stonerbabepose"] = { -- Custom Emote provided by 41anims
+    "stonerbabe@animation",
+    "stonerbabe_clip",
+    "Stoner Babe Pose",
+        AnimationOptions = {
+            Prop = 'p_cs_joint_01',
+            PropBone = 57005,
+            PropPlacement = {
+                0.15,
+                0.03,
+                -0.04,
+                -1.0,
+                170.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+    ["baddiegyat"] = { -- Custom Emote provided by 41anims
+    "baddiegyat",
+    "baddiegyat_clip",
+    "Baddie Gyat Selfie",
+        AnimationOptions = {
+            Prop = "prop_phone_taymckenzienz",
+            PropTextureVariations = {
+                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
+                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
+                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
+                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
+                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4},
+                {Name = "<font color=\"#a356fa\">Purple", Value = 5},
+                {Name = "<font color=\"#FF0099\">Pink", Value = 6},
+                {Name = "Black", Value = 7}
+            },
+            PropBone = 4169,
+            PropPlacement = {
+                0.0300,
+                -0.0200,
+                0.0200,
+                -5.0,
+                3.367247,
+                0.0711684
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
 
 }
