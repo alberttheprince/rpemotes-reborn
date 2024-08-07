@@ -16985,12 +16985,12 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["tag7"] = {
-        "anim@scripted@freemode@tagcoll_ig_postertag@heeled@",
-        "postertag",
-        "Tagging 7",
+    ["tag6"] = {
+        "anim@scripted@freemode@postertag@graffiti_spray@heeled@",
+        "spray_can_var_02_female",
+        "Tagging Female 2",
         AnimationOptions = {
-            Prop = "m24_1_prop_m41_spraycan_01a",
+            Prop = "prop_cs_spray_can",
             PropBone = 28422,
             PropPlacement = {
                 0.0,
@@ -17004,12 +17004,12 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["tag6"] = {
-        "anim@scripted@freemode@postertag@graffiti_spray@heeled@",
-        "spray_can_var_02_female",
-        "Tagging Female 2",
+    ["tag7"] = {
+        "anim@scripted@freemode@tagcoll_ig_postertag@heeled@",
+        "postertag",
+        "Tagging 7",
         AnimationOptions = {
-            Prop = "prop_cs_spray_can",
+            Prop = "m24_1_prop_m41_spraycan_01a",
             PropBone = 28422,
             PropPlacement = {
                 0.0,
