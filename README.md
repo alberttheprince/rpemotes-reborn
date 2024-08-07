@@ -457,7 +457,8 @@ All animation creators have **_specifically_** asked that their content remain f
 
 **A huge thank you the following people for their amazing contributions to the menu:**
 
-- the FiveM community for using RP Emotes!
+- the FiveM community for using RP and updating rpemotes-reborn!
+- [41anims](https://www.gta5-mods.com/users/41anims) For allowing us to use their custom emotes in the menu
 - [enzo2991](https://github.com/enzo2991) for creating the ped preview functionality
 - [The Popcorn RP community](https://discord.gg/popcornroleplay) for putting up with all my emote menu testing and troubleshooting issues with me
 - [DerDevHD](https://forum.cfx.re/t/fixed-remove-prop-after-scenario-animation/5002332/8) for the insight on deleting scenario props.
