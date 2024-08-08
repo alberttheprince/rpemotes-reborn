@@ -9607,7 +9607,7 @@ RP.Emotes = {
         }
     },
     ["army1"] = {
-        "bzzz@animation@army1", -- Custom Emote By BzZzi
+        "bzzz@animation@army1", -- Custom Emote By BzZz
         "bz_army1", 
         "Army 1", 
         AnimationOptions = {
@@ -9616,7 +9616,7 @@ RP.Emotes = {
         }
     },
     ["army1l"] = {
-        "bzzz@animation@army1_left", -- Custom Emote By BzZzi
+        "bzzz@animation@army1_left", -- Custom Emote By BzZz
         "bz_army1_left",
         "Army 1 Left",
         AnimationOptions = {
@@ -9625,7 +9625,7 @@ RP.Emotes = {
         }
     },
     ["army1p"] = {
-        "bzzz@animation@army1_right", -- Custom Emote By BzZzi
+        "bzzz@animation@army1_right", -- Custom Emote By BzZz
         "bz_army1_right",
         "Army 1 Rigth",
         AnimationOptions = {
@@ -9634,7 +9634,7 @@ RP.Emotes = {
         }
     },
     ["army2"] = {
-        "bzzz@animation@army2", -- Custom Emote By BzZzi
+        "bzzz@animation@army2", -- Custom Emote By BzZz
         "bz_army2",
         "Army 2",
         AnimationOptions = {
@@ -9643,7 +9643,7 @@ RP.Emotes = {
         }
     },
     ["army2l"] = {
-        "bzzz@animation@army2_left", -- Custom Emote By BzZzi
+        "bzzz@animation@army2_left", -- Custom Emote By BzZz
         "bz_army2_left",
         "Army 2 Left",
         AnimationOptions = {
@@ -9652,7 +9652,7 @@ RP.Emotes = {
         }
     },
     ["army2p"] = {
-        "bzzz@animation@army2_right", -- Custom Emote By BzZzi
+        "bzzz@animation@army2_right", -- Custom Emote By BzZz
         "bz_army2_right",
         "Army 2 Rigth",
         AnimationOptions = {
@@ -10691,7 +10691,7 @@ RP.PropEmotes = {
 			EmoteMoving = true
         }
     },
-    ["cake"] = { --- Custom Prop & Emote By BzZzi
+    ["cake"] = { -- Custom Prop & Emote By BzZz
         "anim@heists@box_carry@",
         "idle",
         "Birthday Cake",
@@ -10709,7 +10709,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["cake2"] = { --- Custom Prop & Emote By BzZzi
+    ["cake2"] = { -- Custom Prop & Emote By BzZz
         "anim@heists@box_carry@",
         "idle",
         "Baby Cake",
@@ -10727,7 +10727,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["cake3"] = { --- Custom Prop & Emote By BzZzi
+    ["cake3"] = { -- Custom Prop & Emote By BzZz
         "anim@heists@box_carry@",
         "idle",
         "Casino Cake",
@@ -10745,7 +10745,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["cake4"] = { --- Custom Prop & Emote By BzZzi
+    ["cake4"] = { -- Custom Prop & Emote By BzZz
         "anim@heists@box_carry@",
         "idle",
         "Love Cake",
@@ -10836,7 +10836,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["cakew2"] = { --- Custom Prop & Emote By BzZzi
+    ["cakew2"] = { -- Custom Prop & Emote By BzZz
         "anim@move_f@waitress",
         "idle",
         "Cake Waiter - Baby",
@@ -10855,7 +10855,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["cakew3"] = { --- Custom Prop & Emote By BzZzi
+    ["cakew3"] = { -- Custom Prop & Emote By BzZz
         "anim@move_f@waitress",
         "idle",
         "Cake Waiter - Casino",
@@ -10874,7 +10874,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["cakew4"] = { --- Custom Prop & Emote By BzZzi
+    ["cakew4"] = { -- Custom Prop & Emote By BzZz
         "anim@move_f@waitress",
         "idle",
         "Cake Waiter - Love",
@@ -10931,7 +10931,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["cakew7"] = { --- Custom Prop & Emote By BzZzi
+    ["cakew7"] = { -- Custom Prop & Emote By BzZz
         "anim@move_f@waitress",
         "idle",
         "Cake Waiter - Chocolate Mud",
@@ -12282,7 +12282,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["donut2"] = { --- Custom Prop by Bzzzi
+    ["donut2"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Donut Chocolate",
@@ -12300,7 +12300,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["donut3"] = { --- Custom Prop by Bzzzi
+    ["donut3"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Donut Raspberry",
@@ -12318,7 +12318,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["desert"] = { --- Custom Prop by Bzzzi
+    ["desert"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Eat dessert",
@@ -12336,7 +12336,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["croissant"] = { --- Custom Prop by Bzzzi
+    ["croissant"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Croissant",
@@ -12354,7 +12354,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["gingerbread"] = { --- Custom Prop by Bzzzi
+    ["gingerbread"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Xmas Gingerbread Man",
@@ -12372,7 +12372,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["candycane"] = { --- Custom Prop by Bzzzi
+    ["candycane"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Xmas Candy Cane - Red",
@@ -12390,7 +12390,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["candycaneb"] = { --- Custom Prop by Bzzzi
+    ["candycaneb"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Xmas Candy Cane - Green",
@@ -12408,7 +12408,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["candycanec"] = { --- Custom Prop by Bzzzi
+    ["candycanec"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Xmas Candy Cane - Purple",
@@ -12426,7 +12426,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["candycaned"] = { --- Custom Prop by Bzzzi
+    ["candycaned"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Xmas Candy Cane - Yellow",
@@ -12444,7 +12444,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["candycanee"] = { --- Custom Prop by Bzzzi
+    ["candycanee"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Xmas Candy Cane - Blue",
@@ -12614,7 +12614,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["macaroon"] = { --- Custom Prop by Bzzzi
+    ["macaroon"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Macaroon",
@@ -12632,7 +12632,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["xmasmug"] = { --- Custom Prop by Bzzzi
+    ["xmasmug"] = { -- Custom Prop by BzZz
         "mp_player_intdrink",
         "loop_bottle",
         "Xmas Mug - Tea",
@@ -12650,7 +12650,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["xmasmug2"] = { --- Custom Prop by Bzzzi
+    ["xmasmug2"] = { -- Custom Prop by BzZz
         "mp_player_intdrink",
         "loop_bottle",
         "Xmas Mug - Coffee",
@@ -12668,7 +12668,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["xmaswine"] = { --- Custom Prop by Bzzzi
+    ["xmaswine"] = { -- Custom Prop by BzZz
         "mp_player_intdrink",
         "loop_bottle",
         "Xmas Mulled Wine",
@@ -21898,7 +21898,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true
         }
-   },
+    },
     ['lighter'] = {
         'ebrwny_pack000',
         'ebrwny_spark',
@@ -21942,7 +21942,7 @@ RP.PropEmotes = {
             PtfxWait = 0.8,
             PtfxCanHold = true
        }
-  },
+    },
     ['lighter2'] = {
         'ebrwny_pack000',
         'ebrwny_spark',
@@ -21988,7 +21988,26 @@ RP.PropEmotes = {
             PtfxWait = 0.8,
             PtfxCanHold = true
        }
-   },
+    },
+    ["party_lighter"] = { -- Custom Prop & Emote By BzZz
+        "samnick@lighter@wave",
+        "waving_lighter",
+        "Party lighter",
+        AnimationOptions = {
+            Prop = 'samnick_prop_lighter01',
+            PropBone = 18905,
+            PropPlacement = {
+                0.11,
+                0.01,
+                0.02,
+                -85.0,
+                188.0,
+                10.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ['digiscan'] = {
         'weapons@misc@digi_scanner',
         'aim_med_loop',
@@ -22562,7 +22581,7 @@ RP.PropEmotes = {
         "ped_a_enter_loop",
         "Fire Torch",
         AnimationOptions = {
-            Prop = "bzzz_prop_torch_fire001", -- Custom Prop By Bzzzz Used With Permission
+            Prop = "bzzz_prop_torch_fire001", -- Custom Prop by BzZz Used With Permission
             PropBone = 18905,
             PropPlacement = {
                 0.14,
@@ -22581,7 +22600,7 @@ RP.PropEmotes = {
         'base',
         'Fire Torch 2',
         AnimationOptions = {
-            Prop = "bzzz_prop_torch_fire001", -- Custom Prop By Bzzzz Used With Permission
+            Prop = "bzzz_prop_torch_fire001", -- Custom Prop by BzZz Used With Permission
             PropBone = 28422,
             PropPlacement = {
                 0.0100,
@@ -24186,21 +24205,21 @@ RP.PropEmotes = {
             Prop = 'prop_flagger_sign_02',
             PropBone = 28422,
             PropPlacement = {
-               0.0200,
-               0.0200,
-              -0.2600,
-             10.0000,
-              0.0000,
-            -59.9999
+                0.0200,
+                0.0200,
+                -0.2600,
+                10.0000,
+                0.0000,
+                -59.9999
             },
             EmoteLoop = true,
             EmoteMoving = true,
         }
     },
     ["stonerbabepose"] = { -- Custom Emote provided by 41anims
-    "stonerbabe@animation",
-    "stonerbabe_clip",
-    "Stoner Babe Pose",
+        "stonerbabe@animation",
+        "stonerbabe_clip",
+        "Stoner Babe Pose",
         AnimationOptions = {
             Prop = 'p_cs_joint_01',
             PropBone = 57005,
@@ -24217,9 +24236,9 @@ RP.PropEmotes = {
         }
     },
     ["baddiegyat"] = { -- Custom Emote provided by 41anims
-    "baddiegyat",
-    "baddiegyat_clip",
-    "Baddie Gyat Selfie",
+        "baddiegyat",
+        "baddiegyat_clip",
+        "Baddie Gyat Selfie",
         AnimationOptions = {
             Prop = "prop_phone_taymckenzienz",
             PropTextureVariations = {
@@ -24245,5 +24264,91 @@ RP.PropEmotes = {
             EmoteMoving = false,
         }
     },
-
+    ["murder1"] = {
+        "dead",
+        "dead_e",
+        "Murder Axe",
+        AnimationOptions = {
+            Prop = "bzzz_murder_axe001",
+            PropBone = 18905,
+            PropPlacement = {
+                -0.22,
+                0.34,
+                -0.3,
+                -56.0,
+                98.0,
+                34.0
+            },
+            SecondProp = 'p_bloodsplat_s',
+            SecondPropBone = 57005,
+            SecondPropPlacement = {
+                0.28,
+                0.17,
+                -0.12,
+                -98.0,
+                -51.0,
+                237.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+    ["murder2"] = {
+        "dead",
+        "dead_a",
+        "Murder Pistol",
+        AnimationOptions = {
+            Prop = "w_pi_heavypistol",
+            PropBone = 18905,
+            PropPlacement = {
+                0.27,
+                0.35,
+                0.05,
+                -98.0,
+                2.0,
+                183.0
+            },
+            SecondProp = 'p_bloodsplat_s',
+            SecondPropBone = 57005,
+            SecondPropPlacement = {
+                -0.8,
+                0.41,
+                0.0,
+                -98.0,
+                -7.0,
+                237.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+    ["murder3"] = {
+        "dead",
+        "dead_b",
+        "Murder Machete",
+        AnimationOptions = {
+            Prop = "bzzz_murder_machete001",
+            PropBone = 18905,
+            PropPlacement = {
+                -0.22,
+                0.18,
+                -0.67,
+                196.0,
+                157.0,
+                -35.0
+            },
+            SecondProp = 'p_bloodsplat_s',
+            SecondPropBone = 57005,
+            SecondPropPlacement = {
+                -0.28,
+                -0.15,
+                0.00,
+                266.2,
+                182.3,
+                -10.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
 }

@@ -89,4 +89,8 @@ data_file 'DLC_ITYP_REQUEST' 'stream/pnwsigns.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/pprp_icefishing.ytyp'
 
-data_file 'DLC_ITYP_REQUEST' 'scully_props.ytyp'
+data_file 'DLC_ITYP_REQUEST' 'stream/scully_props.ytyp'
+
+data_file 'DLC_ITYP_REQUEST' 'stream/samnick_prop_lighter01.ytyp'
+
+data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_murderpack.ytyp'
