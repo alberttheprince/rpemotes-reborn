@@ -541,5 +541,5 @@ local function GetPlayerProneType()
 end
 exports('GetPlayerProneType', GetPlayerProneType)
 
--- Usefull to call if hte player gets handcuffed etc.
+-- Useful to call if the player gets handcuffed etc.
 exports('StopPlayerProne', stopPlayerProne)
