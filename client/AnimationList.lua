@@ -9606,6 +9606,60 @@ RP.Emotes = {
             ExitEmoteType = "Exits"
         }
     },
+    ["army1"] = {
+        "bzzz@animation@army1", -- Custom Emote By BzZzi
+        "bz_army1", 
+        "Army 1", 
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+    ["army1l"] = {
+        "bzzz@animation@army1_left", -- Custom Emote By BzZzi
+        "bz_army1_left",
+        "Army 1 Left",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+    ["army1p"] = {
+        "bzzz@animation@army1_right", -- Custom Emote By BzZzi
+        "bz_army1_right",
+        "Army 1 Rigth",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+    ["army2"] = {
+        "bzzz@animation@army2", -- Custom Emote By BzZzi
+        "bz_army2",
+        "Army 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+    ["army2l"] = {
+        "bzzz@animation@army2_left", -- Custom Emote By BzZzi
+        "bz_army2_left",
+        "Army 2 Left",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+    ["army2p"] = {
+        "bzzz@animation@army2_right", -- Custom Emote By BzZzi
+        "bz_army2_right",
+        "Army 2 Rigth",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
     ["airforce01"] = { -- MissSnowie
         "airforce@at_ease",
         "base",
