@@ -9627,7 +9627,7 @@ RP.Emotes = {
     ["army1p"] = {
         "bzzz@animation@army1_right", -- Custom Emote By BzZz
         "bz_army1_right",
-        "Army 1 right",
+        "Army 1 Right",
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = false,
@@ -9654,7 +9654,7 @@ RP.Emotes = {
     ["army2p"] = {
         "bzzz@animation@army2_right", -- Custom Emote By BzZz
         "bz_army2_right",
-        "Army 2 right",
+        "Army 2 Right",
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = false,
