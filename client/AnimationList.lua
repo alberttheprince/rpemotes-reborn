@@ -8553,7 +8553,7 @@ RP.Emotes = {
     ["tighten"] = {
         "timetable@denice@ig_1",
         "idle_b",
-        "Tigten (Yoga)",
+        "Tighten (Yoga)",
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
