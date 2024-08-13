@@ -10424,6 +10424,34 @@ RP.Emotes = {
         EmoteMoving = false,
         }
     },
+    ["aphroditepose"] = { -- Custom Emote provided by corbs
+    "aphrodite1@corbs",
+    "aphrodite1_clip",
+    "Aphrodite Pose",
+    AnimationOptions = {
+        EmoteLoop = true,
+        EmoteMoving = false,
+        }
+    },
+    ["aphroditepose2"] = { -- Custom Emote provided by corbs
+    "aphrodite2@corbs",
+    "aphrodite2_clip",
+    "Aphrodite Pose 2",
+    AnimationOptions = {
+        EmoteLoop = true,
+        EmoteMoving = false,
+        }
+    },
+    ["aphroditepose3"] = { -- Custom Emote provided by corbs
+    "aphrodite3@corbs",
+    "aphrodite3_clip",
+    "Aphrodite Pose 3",
+    AnimationOptions = {
+        EmoteLoop = true,
+        EmoteMoving = false,
+        }
+    },
+
 }
 
 --- PROP EMOTES GO HERE. CURRENTLY SUPPORTS UP TO ONE OR TWO PROPS  ---
