@@ -2417,6 +2417,22 @@ RP.Dances = {
             EmoteLoop = true
         }
     },
+    ["dancesilly10"] = {
+        "anim@amb@nightclub@lazlow@hi_podium@",
+        "danceidle_hi_17_spiderman_laz",
+        "Dance Silly 10",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["dancesilly11"] = {
+        "anim@amb@nightclub@lazlow@hi_podium@",
+        "danceidle_mi_11_pointthrust_laz",
+        "Dance Silly 11",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
     ["danceold"] = {
         "anim@mp_player_intupperuncle_disco",
         "idle_a",
@@ -5521,6 +5537,15 @@ RP.Emotes = {
 
 ---------- END OF SCENARIOS --------------
 
+    ["annoyed"] = {
+        "missdocksshowoffcar@idle_a",
+        "idle_b_5",
+        "Annoyed",
+        AnimationOptions =
+        {
+            EmoteLoop = true
+        }
+    },
     ["dispenser"] = {
         "mini@sprunk",
         "plyr_buy_drink_pt1",
@@ -5868,6 +5893,70 @@ RP.Emotes = {
             EmoteLoop = true
         }
     },
+    ["idle12"] = {
+        "mp_corona_idles@female_b@base",
+        "base",
+        "Idle 12",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["idle13"] = {
+        "mp_corona_idles@female_c@base",
+        "base",
+        "Idle 13",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["idle14"] = {
+        "random@countrysiderobbery",
+        "idle_a",
+        "Idle 14",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["idle15"] = {
+        "anim_heist@arcade_combined@",
+        "female_hold_arm@_base_base",
+        "Idle 15",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["idle16"] = {
+        "anim_heist@arcade_combined@",
+        "ped_female@_stand@_02a@_base_base",
+        "Idle 16",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["idle17"] = {
+        "anim_heist@arcade_combined@",
+        "amb_world_human_hang_out_street_female_hold_arm_idle_b",
+        "Idle 17",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["idle18"] = {
+        "mp_move@prostitute@m@hooker",
+        "idle",
+        "Idle 18",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["idle19"] = {
+        "issdocksshowoffcar@base",
+        "base_4",
+        "Idle 19",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
     ["idle2"] = {
         "anim@heists@heist_corona@team_idles@female_a",
         "idle",
@@ -5936,6 +6025,14 @@ RP.Emotes = {
         "missarmenian2",
         "standing_idle_loop_drunk",
         "Idle Drunk 3",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["impatient2"] = {
+        "oddjobs@taxi@gyn@cc@intro",
+        "f_impatient_b",
+        "impatient 2",
         AnimationOptions = {
             EmoteLoop = true
         }
@@ -6110,19 +6207,28 @@ RP.Emotes = {
             EmoteMoving = true
         }
     },
-    ["foldarms2"] = {
-        "anim@amb@nightclub@peds@",
-        "rcmme_amanda1_stand_loop_cop",
-        "Fold Arms 2",
+    ["crossarms6"] = {
+        "random@shop_gunstore",
+        "_idle",
+        "Crossarms 6",
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = true
         }
     },
-    ["crossarms6"] = {
-        "random@shop_gunstore",
-        "_idle",
-        "Crossarms 6",
+    ["crossarms7"] = {
+        "anim_heist@arcade_combined@",
+        "female_arms_crossed@_base_base",
+        "Crossarms 7",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["crossarms8"] = {
+        "anim_heist@arcade_combined@",
+        "ped_female@_stand@_03b@_base_base",
+        "Crossarms 8",
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = true
@@ -6137,10 +6243,28 @@ RP.Emotes = {
             EmoteMoving = true
         }
     },
+    ["foldarms2"] = {
+        "anim@amb@nightclub@peds@",
+        "rcmme_amanda1_stand_loop_cop",
+        "Fold Arms 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["crossarmsside"] = {
         "rcmnigel1a_band_groupies",
         "base_m2",
         "Crossarms Side",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["crossarmsside2"] = {
+        "amb@world_human_hang_out_street@female_arms_crossed@base",
+        "base",
+        "Crossarms Side 2",
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = true
@@ -6298,6 +6422,15 @@ RP.Emotes = {
         "mp_sleep",
         "sleep_loop",
         "Fall Asleep",
+        AnimationOptions = {
+            EmoteMoving = true,
+            EmoteLoop = true
+        }
+    },
+    ["fallasleep2"] = {
+        "mp_sleep",
+        "sleep_loopfemale",
+        "Fall Asleep 2",
         AnimationOptions = {
             EmoteMoving = true,
             EmoteLoop = true
@@ -7812,6 +7945,15 @@ RP.Emotes = {
             EmoteMoving = true
         }
     },
+    ["yoga2"] = {
+        "timetable@amanda@ig_4",
+        "ig_4_idle",
+        "Yoga 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
+    },
     ["lift"] = {
         "random@hitch_lift",
         "idle_f",
@@ -8230,6 +8372,15 @@ RP.Emotes = {
         "timetable@gardener@smoking_joint",
         "idle_cough",
         "Cough",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["confused"] = {
+        "amb@world_human_aa_smoke@male@idle_a",
+        "idle_c",
+        "Confused",
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = true
