@@ -12780,9 +12780,6 @@ RP.PropEmotes = {
             EmoteMoving = false
         }
     },
-
-    "anim@scripted@freemode_npc@fix_dre_studio_entourage_b@",
-    "stand_drink_cup_female_a_base",
     ["wine3"] = {
         "amb@world_human_drinking@beer@female@idle_a",
         "idle_e",
