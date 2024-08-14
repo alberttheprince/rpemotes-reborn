@@ -17146,6 +17146,44 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
+    ["stire"] = {
+        "anim@heists@box_carry@",
+        "idle",
+        "Steal Tire 1",
+        AnimationOptions = {
+            Prop = "prop_wheel_01",
+            PropBone = 18905,
+            PropPlacement = {
+                0.02,
+                0.2,
+                0.31,
+                130.0,
+                -80.0,
+                0.0,
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["stire2"] = {
+        "anim@heists@box_carry@",
+        "idle",
+        "Steal Tire 2",
+        AnimationOptions = {
+            Prop = "prop_wheel_02",
+            PropBone = 18905,
+            PropPlacement = {
+                0.02,
+                0.2,
+                0.31,
+                130.0,
+                -80.0,
+                0.0,
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["conehead"] = {
         "move_m@drunk@verydrunk_idles@",
         "fidget_07",
