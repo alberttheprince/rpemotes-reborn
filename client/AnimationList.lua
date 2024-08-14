@@ -6262,7 +6262,7 @@ RP.Emotes = {
         }
     },
     ["crossarmsside2"] = {
-        "amb@world_human_hang_out_street@female_arms_crossed@base",
+        "amb@world_human_hang_out_street@female_hold_arm@base",
         "base",
         "Crossarms Side 2",
         AnimationOptions = {
