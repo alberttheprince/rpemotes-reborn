@@ -9817,6 +9817,15 @@ RP.Emotes = {
             EmoteMoving = false
         }
     },
+    ["taichi2"] = {
+        "switch@trevor@rand_temple",
+        "tai_chi_trevor",
+        "Tai chi - Awkward",
+        AnimationOptions = {
+            EmoteLoop = false,
+            EmoteMoving = false
+        }
+    },
     ["think4"] = {
         "anim@amb@casino@hangout@ped_male@stand@02b@idles",
         "idle_a",
