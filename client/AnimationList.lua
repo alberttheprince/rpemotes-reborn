@@ -57,8 +57,16 @@ RP.Expressions = { ---- MOODS ----
     ["Joyful"] = {
         "mood_dancing_low_1"
     },
+    ["Joyful2"] = {
+        "mood_dancing_low_2",
+        "Joyful 2"
+    },
     ["Mouthbreather"] = {
         "smoking_hold_1"
+    },
+    ["Mouthbreather2"] = {
+        "smoking_inhale_1",
+        "Mouthbreather 2"
     },
     ["Neverblink"] = {
         "pose_normal_1",
@@ -67,6 +75,9 @@ RP.Expressions = { ---- MOODS ----
     ["Oneeye"] = {
         "pose_aiming_1",
         "One Eye"
+    },
+    ["Scheme"] = {
+        "mood_dancing_high_2"
     },
     ["Shocked"] = {
         "shocked_1"
@@ -104,6 +115,10 @@ RP.Expressions = { ---- MOODS ----
     ["Weird2"] = {
         "effort_3",
         "Weird 2"
+    },
+    ["Weird3"] = {
+        "melee_effort_1",
+        "Weird 3"
     },
 }
 
