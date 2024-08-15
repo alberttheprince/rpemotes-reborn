@@ -2119,6 +2119,14 @@ RP.Dances = {
             EmoteLoop = true
         }
     },
+    ["danceclubq"] = {
+        "fix_stu_ext-25",
+        "a_f_y_studioparty_01_dual-25",
+        "Dance Club 17",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
     ["dancedrink"] = {
         "anim@amb@nightclub_island@dancers@beachdanceprop@",
         "mi_idle_c_m01",
@@ -2413,6 +2421,22 @@ RP.Dances = {
         "anim@mp_player_intcelebrationfemale@the_woogie",
         "the_woogie",
         "Dance Silly 9",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["dancesilly10"] = {
+        "anim@amb@nightclub@lazlow@hi_podium@",
+        "danceidle_hi_17_spiderman_laz",
+        "Dance Silly 10",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["dancesilly11"] = {
+        "anim@amb@nightclub@lazlow@hi_podium@",
+        "danceidle_mi_11_pointthrust_laz",
+        "Dance Silly 11",
         AnimationOptions = {
             EmoteLoop = true
         }
@@ -5204,6 +5228,14 @@ RP.Exits = {
             StartDelay = 600
         }
     },
+    ["getup2"] = {
+        "anim@scripted@aoa@ship_climb@male@",
+        "getup_a",
+        "Get Up 2",
+        AnimationOptions = {
+            StartDelay = 600
+        }
+    },
     ["standup"] = {
         "get_up@directional@movement@from_knees@injured",
         "getup_l_0",
@@ -5521,6 +5553,15 @@ RP.Emotes = {
 
 ---------- END OF SCENARIOS --------------
 
+    ["annoyed"] = {
+        "missdocksshowoffcar@idle_a",
+        "idle_b_5",
+        "Annoyed",
+        AnimationOptions =
+        {
+            EmoteLoop = true
+        }
+    },
     ["dispenser"] = {
         "mini@sprunk",
         "plyr_buy_drink_pt1",
@@ -5550,6 +5591,15 @@ RP.Emotes = {
         EmoteMoving = true,
         ExitEmote = "breakfreeback",
         ExitEmoteType = "Exits"
+        }
+    },
+    ["dead2"] = {
+        "anim@scripted@data_leak@fixf_fin_ig2_johnnyguns_wounded@",
+        "enter",
+        "Play Dead Act",
+        AnimationOptions =
+        {
+            EmoteLoop = false
         }
     },
     ["femalestandcute"] = {
@@ -5723,6 +5773,24 @@ RP.Emotes = {
             ExitEmoteType = "Exits"
         }
     },
+    ["crouchreach"] = {
+        "anim@veh@van@mule5@rds",
+        "lean_back_idle",
+        "Crouch & Reach",
+        AnimationOptions = {
+            EmoteLoop = true,
+            StartDelay = 700,
+        }
+    },
+    ["crouchreach2"] = {
+        "anim@scripted@npc@mission@pln_ig4_cargo@",
+        "line_5_dax",
+        "Crouch & Reach 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            StartDelay = 700,
+        }
+    },
     ["daydream"] = { --- Custom Emote By Darks Animations
         "girl_groupe_d@darksj",
         "girl_groupe_d_clip",
@@ -5868,6 +5936,70 @@ RP.Emotes = {
             EmoteLoop = true
         }
     },
+    ["idle12"] = {
+        "mp_corona_idles@female_b@base",
+        "base",
+        "Idle 12",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["idle13"] = {
+        "mp_corona_idles@female_c@base",
+        "base",
+        "Idle 13",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["idle14"] = {
+        "random@countrysiderobbery",
+        "idle_a",
+        "Idle 14",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["idle15"] = {
+        "anim_heist@arcade_combined@",
+        "female_hold_arm@_base_base",
+        "Idle 15",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["idle16"] = {
+        "anim_heist@arcade_combined@",
+        "ped_female@_stand@_02a@_base_base",
+        "Idle 16",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["idle17"] = {
+        "anim_heist@arcade_combined@",
+        "amb_world_human_hang_out_street_female_hold_arm_idle_b",
+        "Idle 17",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["idle18"] = {
+        "mp_move@prostitute@m@hooker",
+        "idle",
+        "Idle 18",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["idle19"] = {
+        "missdocksshowoffcar@base",
+        "base_4",
+        "Idle 19",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
     ["idle2"] = {
         "anim@heists@heist_corona@team_idles@female_a",
         "idle",
@@ -5936,6 +6068,14 @@ RP.Emotes = {
         "missarmenian2",
         "standing_idle_loop_drunk",
         "Idle Drunk 3",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["impatient2"] = {
+        "oddjobs@taxi@gyn@cc@intro",
+        "f_impatient_b",
+        "impatient 2",
         AnimationOptions = {
             EmoteLoop = true
         }
@@ -6110,15 +6250,6 @@ RP.Emotes = {
             EmoteMoving = true
         }
     },
-    ["foldarms2"] = {
-        "anim@amb@nightclub@peds@",
-        "rcmme_amanda1_stand_loop_cop",
-        "Fold Arms 2",
-        AnimationOptions = {
-            EmoteLoop = true,
-            EmoteMoving = true
-        }
-    },
     ["crossarms6"] = {
         "random@shop_gunstore",
         "_idle",
@@ -6126,6 +6257,33 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = true
+        }
+    },
+    ["crossarms7"] = {
+        "anim_heist@arcade_combined@",
+        "female_arms_crossed@_base_base",
+        "Crossarms 7",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["crossarms8"] = {
+        "anim_heist@arcade_combined@",
+        "ped_female@_stand@_03b@_base_base",
+        "Crossarms 8",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["crossarms9"] = {
+        "fix_trip3_ext-4",
+        "a_f_y_vinewood_02_dual-4",
+        "Crossarms 9",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["foldarms"] = {
@@ -6137,10 +6295,28 @@ RP.Emotes = {
             EmoteMoving = true
         }
     },
+    ["foldarms2"] = {
+        "anim@amb@nightclub@peds@",
+        "rcmme_amanda1_stand_loop_cop",
+        "Fold Arms 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["crossarmsside"] = {
         "rcmnigel1a_band_groupies",
         "base_m2",
         "Crossarms Side",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["crossarmsside2"] = {
+        "amb@world_human_hang_out_street@female_hold_arm@base",
+        "base",
+        "Crossarms Side 2",
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = true
@@ -6171,6 +6347,14 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteMoving = true,
             EmoteDuration = 1000
+        }
+    },
+    ["pointpose"] = {
+        "tun_meet_int-47",
+        "a_m_y_carclub_01^3_dual-47",
+        "Point Down",
+        AnimationOptions = {
+            EmoteLoop = true,
         }
     },
     ["surrender"] = {
@@ -6227,6 +6411,16 @@ RP.Emotes = {
         "rcmbarry",
         "m_cower_01",
         "Surrender 6",
+        AnimationOptions = {
+            EmoteLoop = true,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits"
+        }
+    },
+    ["surrender7"] = {
+        "anim@scripted@bty4@ig2_bounty_kneel@male@",
+        "on_knee_idle_a",
+        "Surrender 7",
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
@@ -6298,6 +6492,15 @@ RP.Emotes = {
         "mp_sleep",
         "sleep_loop",
         "Fall Asleep",
+        AnimationOptions = {
+            EmoteMoving = true,
+            EmoteLoop = true
+        }
+    },
+    ["fallasleep2"] = {
+        "mp_sleep",
+        "sleep_loopfemale",
+        "Fall Asleep 2",
         AnimationOptions = {
             EmoteMoving = true,
             EmoteLoop = true
@@ -6490,6 +6693,16 @@ RP.Emotes = {
         "idle_e",
         "Inspect"
     },
+    ["inspect2"] = {
+        "anim@amb@carmeet@checkout_engine@",
+        "female_c_idle_d",
+        "Inspect 2"
+    },
+    ["inspect3"] = {
+        "anim@amb@carmeet@checkout_car@",
+        "female_b_idle_d",
+        "Inspect 3"
+    },
     ["jazzhands"] = {
         "anim@mp_player_intcelebrationfemale@jazz_hands",
         "jazz_hands",
@@ -6555,6 +6768,30 @@ RP.Emotes = {
         "amb@world_human_bum_wash@male@low@idle_a",
         "idle_a",
         "Kneel 3",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["kneel4"] = {
+        "anim@scripted@cbr5@ig3_drill_box@pattern_03@lockbox_03@male@",
+        "rest",
+        "Kneel 4",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["kneel5"] = {
+        "anim@scripted@cbr5@ig3_drill_box@pattern_01@lockbox_02@male@",
+        "rest",
+        "Kneel 5",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["kneelhide"] = {
+        "anim@scripted@bty2@ig1_hiding_target@male@",
+        "hiding_kneel",
+        "Kneel Hide",
         AnimationOptions = {
             EmoteLoop = true
         }
@@ -6680,6 +6917,14 @@ RP.Emotes = {
         "amb@world_human_leaning@male@wall@back@hands_together@idle_b",
         "idle_e",
         "Lean 5",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["lean6"] = {
+        "anim@scripted@freemode_npc@fix_agy_ig4_lamar@",
+        "lean_wall_idle_03_lamar",
+        "Lean 6",
         AnimationOptions = {
             EmoteLoop = true
         }
@@ -7052,6 +7297,15 @@ RP.Emotes = {
             EmoteMoving = true
         }
     },
+    ["scared3"] = {
+        "xm3_drg2_cook_int-5",
+        "csb_labrat_dual-5",
+        "Scared 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["screwyou"] = {
         "misscommon@response",
         "screw_you",
@@ -7211,6 +7465,16 @@ RP.Emotes = {
             ExitEmoteType = "Exits"
         }
     },
+    ["sit10"] = {
+        "anim@scripted@bty2@ig1_hiding_target@male@",
+        "hiding_sit",
+        "Sit 10",
+        AnimationOptions = {
+            EmoteLoop = true,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits"
+        }
+    },
     ["sitfu"] = {
         "chocoholic@single80",
         "single80_clip",
@@ -7242,6 +7506,26 @@ RP.Emotes = {
         "timetable@tracy@ig_14@",
         "ig_14_base_tracy",
         "Sit Lean",
+        AnimationOptions = {
+            EmoteLoop = true,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits"
+        }
+    },
+    ["sitlean2"] = {
+        "anim@scripted@player@fix_astu_ig8_weed_smoke_v1@male@",
+        "male_pos_a_p2_base",
+        "Sit Lean 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            ExitEmote = "offchair",
+            ExitEmoteType = "Exits"
+        }
+    },
+    ["sitlean3"] = {
+        "anim@scripted@freemode@ig7_office_cell_floor@heeled@",
+        "base_pose_01",
+        "Sit Lean 3",
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
@@ -7362,6 +7646,46 @@ RP.Emotes = {
         "timetable@maid@couch@",
         "base",
         "Sit Chair Lean Back",
+        AnimationOptions = {
+            EmoteLoop = true,
+            ExitEmote = "offchair",
+            ExitEmoteType = "Exits"
+        }
+    },
+    ["sitchair7"] = {
+        "anim@scripted@freemode_npc@fix_astu_ig3_pooh_jimmy@jimmy@",
+        "sit_base_jimmy",
+        "Sit Chair Attentive",
+        AnimationOptions = {
+            EmoteLoop = true,
+            ExitEmote = "offchair",
+            ExitEmoteType = "Exits"
+        }
+    },
+    ["sitchair8"] = {
+        "anim@scripted@freemode_npc@fix_dre_studio_entourage@",
+        "lonely_ballas",
+        "Sit Chair Lonely",
+        AnimationOptions = {
+            EmoteLoop = true,
+            ExitEmote = "offchair",
+            ExitEmoteType = "Exits"
+        }
+    },
+    ["sittoilet"] = {
+        "anim@scripted@freemode@ig5_office_cell_seat@heeled@",
+        "base_pose_01",
+        "Sit toilet",
+        AnimationOptions = {
+            EmoteLoop = true,
+            ExitEmote = "offchair",
+            ExitEmoteType = "Exits"
+        }
+    },
+    ["sittoilet2"] = {
+        "anim@scripted@cbr5@ig3_drill_box@pattern_01@lockbox_04@male@",
+        "idle",
+        "Sit Toilet 2",
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "offchair",
@@ -7695,6 +8019,14 @@ RP.Emotes = {
             EmoteLoop = true
         }
     },
+    ["type5"] = {
+        "anim@scripted@freemode@ig12_use_computer@male@",
+        "loop",
+        "Type 5 - Stare",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
     ["warmth"] = {
         "amb@world_human_stand_fire@male@idle_a",
         "idle_a",
@@ -7810,6 +8142,24 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = true
+        }
+    },
+    ["yeah2"] = {
+        "sum24_office_int-37",
+        "csb_jenettee_dual-37",
+        "Yeah Yeah",
+        AnimationOptions = {
+            EmoteLoop = false,
+            EmoteMoving = false
+        }
+    },
+    ["yoga2"] = {
+        "timetable@amanda@ig_4",
+        "ig_4_idle",
+        "Yoga 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["lift"] = {
@@ -7942,6 +8292,42 @@ RP.Emotes = {
         "random@mugging4",
         "flee_backward_loop_shopkeeper",
         "Passout 5",
+        AnimationOptions = {
+            EmoteLoop = true,
+            StartDelay = 900,
+            NotInVehicle = true,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits"
+        }
+    },
+    ["passout6"] = {
+        "anim@scripted@data_leak@fix_bil_ig2_chopper_crawl@",
+        "fix_bil_ig2_chopper_crawl_loop_ped",
+        "Passout 6",
+        AnimationOptions = {
+            EmoteLoop = true,
+            StartDelay = 900,
+            NotInVehicle = true,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits"
+        }
+    },
+    ["passout7"] = {
+        "anim@scripted@data_leak@fix_bil_ig2_chopper_crawl@",
+        "fix_bil_ig2_chopper_crawl_dead_loop_ped",
+        "Passout 7",
+        AnimationOptions = {
+            EmoteLoop = true,
+            StartDelay = 900,
+            NotInVehicle = true,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits"
+        }
+    },
+    ["passout8"] = {
+        "anim@scripted@data_leak@fix_bil_ig2_chopper_crawl@",
+        "fix_bil_ig2_chopper_crawl_dead_loop_ped",
+        "Passout 8",
         AnimationOptions = {
             EmoteLoop = true,
             StartDelay = 900,
@@ -8235,6 +8621,15 @@ RP.Emotes = {
             EmoteMoving = true
         }
     },
+    ["confused"] = {
+        "amb@world_human_aa_smoke@male@idle_a",
+        "idle_c",
+        "Confused",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["stretch"] = {
         "mini@triathlon",
         "idle_e",
@@ -8282,6 +8677,15 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = true
+        }
+    },
+    ["punching2"] = {
+        "anim@scripted@bty2@ig2_beat_target@male@",
+        "standing_punch_v1_golfer",
+        "Punching 2",
+        AnimationOptions = {
+            EmoteLoop = false,
+            EmoteMoving = false
         }
     },
     ["superhero"] = {
@@ -8382,19 +8786,35 @@ RP.Emotes = {
             EmoteLoop = true
         }
     },
-    ["nervous2"] = {
-        "mp_missheist_countrybank@nervous",
-        "nervous_idle",
-        "Nervous 2",
+    ["tryclothes4"] = {
+        "anim@scripted@ulp_missions@change_clothes@female@",
+        "change_highroller",
+        "Try Clothes 4",
         AnimationOptions = {
-            EmoteLoop = true,
-            EmoteMoving = true
+            EmoteLoop = false
+        }
+    },
+    ["tryclothes5"] = {
+        "anim@scripted@ulp_missions@change_clothes@",
+        "change_highroller_male",
+        "Try Clothes 5",
+        AnimationOptions = {
+            EmoteLoop = false
         }
     },
     ["nervous"] = {
         "amb@world_human_bum_standing@twitchy@idle_a",
         "idle_c",
         "Nervous",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["nervous2"] = {
+        "mp_missheist_countrybank@nervous",
+        "nervous_idle",
+        "Nervous 2",
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = true
@@ -8407,6 +8827,15 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = true
+        }
+    },
+    ["nervous4"] = {
+        "fix_trip3_mcs1-9",
+        "cs_marnie_dual-9",
+        "Nervous 4",
+        AnimationOptions = {
+            EmoteLoop = false,
+            EmoteMoving = false
         }
     },
     ["namaste"] = {
@@ -8523,6 +8952,24 @@ RP.Emotes = {
             EmoteLoop = true
         }
     },
+    ['handsup4'] = {
+        'anim@scripted@bty2@ig2_beat_target@male@',
+        'leaning_idle_bounty',
+        'Hands Up 4',
+        AnimationOptions = {
+            EmoteMoving = true,
+            EmoteLoop = true
+        }
+    },
+    ['handsup5'] = {
+        'anim@scripted@bty2@ig2_beat_target@male@',
+        'standing_idle_bounty',
+        'Hands Up 5',
+        AnimationOptions = {
+            EmoteMoving = true,
+            EmoteLoop = true
+        }
+    },
     ["valet"] = {
         "anim@amb@casino@valet_scenario@pose_a@",
         "base_a_m_y_vinewood_01",
@@ -8553,7 +9000,7 @@ RP.Emotes = {
     ["tighten"] = {
         "timetable@denice@ig_1",
         "idle_b",
-        "Tigten (Yoga)",
+        "Tighten (Yoga)",
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
@@ -9361,6 +9808,15 @@ RP.Emotes = {
             EmoteLoop = true
         }
     },
+    ["taichi"] = {
+        "anim@veh@van@mule5@rps",
+        "lean_forward_idle",
+        "Tai chi",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
+    },
     ["think4"] = {
         "anim@amb@casino@hangout@ped_male@stand@02b@idles",
         "idle_a",
@@ -9606,6 +10062,82 @@ RP.Emotes = {
             ExitEmoteType = "Exits"
         }
     },
+    ["layncry7"] = {
+        "anim@scripted@data_leak@fixf_fin_ig2_johnnyguns_wounded@",
+        "base",
+        "Lay & Cry 7",
+        AnimationOptions = {
+            EmoteLoop = true,
+            StartDelay = 700,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits"
+        }
+    },
+    ["layncry8"] = {
+        "anim@scripted@data_leak@fix_golf_ig2_golfclub_intimidation@",
+        "stage_3_base_golfer",
+        "Lay & Cry 8",
+        AnimationOptions = {
+            EmoteLoop = true,
+            StartDelay = 700,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits"
+        }
+    },
+    ["army1"] = {
+        "bzzz@animation@army1", -- Custom Emote By BzZz
+        "bz_army1",
+        "Army 1",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+    ["army1l"] = {
+        "bzzz@animation@army1_left", -- Custom Emote By BzZz
+        "bz_army1_left",
+        "Army 1 Left",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+    ["army1p"] = {
+        "bzzz@animation@army1_right", -- Custom Emote By BzZz
+        "bz_army1_right",
+        "Army 1 Right",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+    ["army2"] = {
+        "bzzz@animation@army2", -- Custom Emote By BzZz
+        "bz_army2",
+        "Army 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+    ["army2l"] = {
+        "bzzz@animation@army2_left", -- Custom Emote By BzZz
+        "bz_army2_left",
+        "Army 2 Left",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+    ["army2p"] = {
+        "bzzz@animation@army2_right", -- Custom Emote By BzZz
+        "bz_army2_right",
+        "Army 2 Right",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
     ["airforce01"] = { -- MissSnowie
         "airforce@at_ease",
         "base",
@@ -9659,6 +10191,22 @@ RP.Emotes = {
             EmoteLoop = true
         }
     },
+    ["zombiewalk3"] = {
+        "anim@ingame@move_m@zombie@core",
+        "walk_up",
+        "Zombie Walk 3",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["zombiewalk4"] = {
+        "anim@ingame@move_m@zombie@core",
+        "run_turn_r3",
+        "Zombie Run - Circle",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
     ["zombieagony"] = { -- Custom Emote By BoringNeptune
         "zombies_animations",
         "agony",
@@ -9684,6 +10232,30 @@ RP.Emotes = {
             StartDelay = 700,
             ExitEmote = "meditateup",
             ExitEmoteType = "Exits"
+        }
+    },
+    ["zombieswipe"] = {
+        "anim@ingame@melee@unarmed@streamed_core_zombie",
+        "short_-180_punch",
+        "Zombie Swipe",
+        AnimationOptions = {
+            EmoteLoop = false
+        }
+    },
+    ["zombieswipe2"] = {
+        "anim@ingame@melee@unarmed@streamed_variations_zombie",
+        "heavy_punch_b_var_2",
+        "Zombie Swipe 2",
+        AnimationOptions = {
+            EmoteLoop = false
+        }
+    },
+    ["zombieswipe3"] = {
+        "anim@ingame@melee@unarmed@streamed_core_zombie",
+        "short_90_punch",
+        "Zombie Swipe 3",
+        AnimationOptions = {
+            EmoteLoop = false
         }
     },
     ["laysexy"] = { -- Custom Emote By Amnilka
@@ -9847,503 +10419,556 @@ RP.Emotes = {
         }
     },
     ["femaleposea"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@femalepose_10",
-    "mrwitt",
-    "Female Pose A",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@femalepose_10",
+        "mrwitt",
+        "Female Pose A",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleadorable1"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@adorable_style",
-    "mrwitt",
-    "Female Adorable 1",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@adorable_style",
+        "mrwitt",
+        "Female Adorable 1",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleadorable2"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@adorable",
-    "mrwitt",
-    "Female Adorable 2",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
-         }
+        "mrwitt@adorable",
+        "mrwitt",
+        "Female Adorable 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
     },
     ["femaleposeb"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@characterful_poses",
-    "mrwitt",
-    "Female Pose B",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@characterful_poses",
+        "mrwitt",
+        "Female Pose B",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposec"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@elegant_floor_hock",
-    "mrwitt",
-    "Female Pose C",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@elegant_floor_hock",
+        "mrwitt",
+        "Female Pose C",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposed"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@femalepose_03",
-    "mrwitt",
-    "Female Pose D",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
-         }
+        "mrwitt@femalepose_03",
+        "mrwitt",
+        "Female Pose D",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
     },
     ["femaleposee"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@femalepose_04",
-    "mrwitt",
-    "Female Pose E",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@femalepose_04",
+        "mrwitt",
+        "Female Pose E",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposef"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@femalepose_05",
-    "mrwitt",
-    "Female Pose F",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@femalepose_05",
+        "mrwitt",
+        "Female Pose F",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposeg"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@femalepose_06",
-    "mrwitt",
-    "Female Pose G",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@femalepose_06",
+        "mrwitt",
+        "Female Pose G",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposeh"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@femalepose_07",
-    "mrwitt",
-    "Female Pose H",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
-         }
+        "mrwitt@femalepose_07",
+        "mrwitt",
+        "Female Pose H",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
     },
     ["femaleposei"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@femalepose_09",
-    "mrwitt",
-    "Female Pose I",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@femalepose_09",
+        "mrwitt",
+        "Female Pose I",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposej"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@femalepose_10",
-    "mrwitt",
-    "Female Pose J",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@femalepose_10",
+        "mrwitt",
+        "Female Pose J",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposek"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@femalepose_11",
-    "mrwitt",
-    "Female Pose K",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@femalepose_11",
+        "mrwitt",
+        "Female Pose K",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposel"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@finger_gun_pose",
-    "mrwitt",
-    "Female Pose L",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@finger_gun_pose",
+        "mrwitt",
+        "Female Pose L",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposem"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@models_in_action",
-    "mrwitt",
-    "Female Pose M",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@models_in_action",
+        "mrwitt",
+        "Female Pose M",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposen"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@photo_session_posing",
-    "mrwitt",
-    "Female Pose N",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@photo_session_posing",
+        "mrwitt",
+        "Female Pose N",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposeo"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@school_uniform_expression",
-    "mrwitt",
-    "Female Pose O",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@school_uniform_expression",
+        "mrwitt",
+        "Female Pose O",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["femaleposep"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@urban_posing",
-    "mrwitt",
-    "Female Pose P",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@urban_posing",
+        "mrwitt",
+        "Female Pose P",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
 	["femaleposeq"] = { --- Custom Emote By DRX Animations
-    "drx@femalestand13",
-    "xrd",
-    "Female Pose Q",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false
-         }
+        "drx@femalestand13",
+        "xrd",
+        "Female Pose Q",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
     },
     ["femaleposer"] = { --- Custom Emote By DRX Animations
-    "drx@femalestand14",
-    "xrd",
-    "Female Pose R",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false
+        "drx@femalestand14",
+        "xrd",
+        "Female Pose R",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["femaleposes"] = { --- Custom Emote By DRX Animations
-    "drx@femalestand15",
-    "xrd",
-    "Female Pose S",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false
+        "drx@femalestand15",
+        "xrd",
+        "Female Pose S",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["femaleposet"] = { --- Custom Emote By DRX Animations
-    "drx@femalestand16",
-    "xrd",
-    "Female Pose T",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false
+        "drx@femalestand16",
+        "xrd",
+        "Female Pose T",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["femaleposeu"] = { --- Custom Emote By DRX Animations
-    "drx@f_sitcool",
-    "drx",
-    "Female Pose U",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
-        ExitEmote = "getup",
-        ExitEmoteType = "Exits"
+        "drx@f_sitcool",
+        "drx",
+        "Female Pose U",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits"
         }
     },
     ["femaleposev"] = { --- Custom Emote By DRX Animations
-    "drx@f_standcasual1",
-    "drx",
-    "Female Pose V",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false
+        "drx@f_standcasual1",
+        "drx",
+        "Female Pose V",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["femaleposew"] = { --- Custom Emote By DRX Animations
-    "drx@f_standcasual2",
-    "drx",
-    "Female Pose W",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
-         }
+        "drx@f_standcasual2",
+        "drx",
+        "Female Pose W",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
     },
     ["femaleposex"] = { --- Custom Emote By DRX Animations
-   "drx@femalestand7",
-   "xrd",
-   "Female Pose X",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    "drx@femalestand7",
+    "xrd",
+    "Female Pose X",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["femaleposey"] = { --- Custom Emote By DRX Animations
-   "drx@femalestand8",
-   "xrd",
-   "Female Pose Y",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    "drx@femalestand8",
+    "xrd",
+    "Female Pose Y",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["femaleposez"] = { --- Custom Emote By DRX Animations
-    "drx@femalestand9",
-    "xrd",
-    "Female Pose Z",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
-         }
+        "drx@femalestand9",
+        "xrd",
+        "Female Pose Z",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
     },
 	["maleposea"] = { --- Custom Emote By DRX Animations
-   "drx@singlemale1",
-   "drx",
-   "Male Pose A",
-   AnimationOptions = {
-   EmoteLoop = true,
-   EmoteMoving = false
+        "drx@singlemale1",
+        "drx",
+        "Male Pose A",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
        }
-},
-["maleposeb"] = { --- Custom Emote By DRX Animations
-    "drx@singlemale2",
-    "drx",
-    "Male Pose B",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    },
+    ["maleposeb"] = { --- Custom Emote By DRX Animations
+        "drx@singlemale2",
+        "drx",
+        "Male Pose B",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
- },
- ["maleposec"] = { --- Custom Emote By DRX Animations
-    "drx@singlemalestand1",
-    "drx",
-    "Male Pose C",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    },
+    ["maleposec"] = { --- Custom Emote By DRX Animations
+        "drx@singlemalestand1",
+        "drx",
+        "Male Pose C",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
- },
- ["maleposed"] = { --- Custom Emote By DRX Animations
-    "drx@singlemalestand2",
-    "drx",
-    "Male Pose D",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    },
+    ["maleposed"] = { --- Custom Emote By DRX Animations
+        "drx@singlemalestand2",
+        "drx",
+        "Male Pose D",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
- },
- ["maleposee"] = { --- Custom Emote By DRX Animations
-    "drx@m_doublehands",
-    "drx",
-    "Male Pose E",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    },
+    ["maleposee"] = { --- Custom Emote By DRX Animations
+        "drx@m_doublehands",
+        "drx",
+        "Male Pose E",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
- },
- ["maleposef"] = { --- Custom Emote By DRX Animations
-    "drx@m_standhide",
-    "drx",
-    "Male Pose F",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    },
+    ["maleposef"] = { --- Custom Emote By DRX Animations
+        "drx@m_standhide",
+        "drx",
+        "Male Pose F",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
- },
- ["maleposee1"] = { --- Custom Emote By DRX Animations
-    "drx@malestand2",
-    "xrd",
-    "Male Pose E1",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    },
+    ["maleposee1"] = { --- Custom Emote By DRX Animations
+        "drx@malestand2",
+        "xrd",
+        "Male Pose E1",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
- },
- ["maleposef1"] = { --- Custom Emote By DRX Animations
-    "drx@malestand3c",
-    "xrd",
-    "Male Pose F1",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    },
+    ["maleposef1"] = { --- Custom Emote By DRX Animations
+        "drx@malestand3c",
+        "xrd",
+        "Male Pose F1",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
- },
- ["maleposeg"] = { --- Custom Emote By DRX Animations
-    "drx@pose_male",
-    "pose_male",
-    "Male Pose G",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    },
+    ["maleposeg"] = { --- Custom Emote By DRX Animations
+        "drx@pose_male",
+        "pose_male",
+        "Male Pose G",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
- },
- ["maleposeh"] = { --- Custom Emote By MrWitt
-    "mrwitt@gentleman_style_male",
-    "mrwitt",
-    "Male Pose H",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    },
+    ["maleposeh"] = { --- Custom Emote By MrWitt
+        "mrwitt@gentleman_style_male",
+        "mrwitt",
+        "Male Pose H",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
- },
- ["maleposei"] = { --- Custom Emote By MrWitt
-    "mrwitt@thoughtful_man_m",
-    "mrwitt",
-    "Male Pose I",
-    AnimationOptions = {
-    EmoteLoop = true,
-    EmoteMoving = false
+    },
+    ["maleposei"] = { --- Custom Emote By MrWitt
+        "mrwitt@thoughtful_man_m",
+        "mrwitt",
+        "Male Pose I",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["maleposetie"] = { -- Custom Emotes By MrWhitt Provided To RPEmotes 01/08/2023
-    "mrwitt@tie_perfection_in_suit_male",
-    "mrwitt",
-    "Male Pose Tie",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "mrwitt@tie_perfection_in_suit_male",
+        "mrwitt",
+        "Male Pose Tie",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["malecrossarms"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "cross_arms@dark",
-    "cross_arms_clip",
-    "Male Cross Arms",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "cross_arms@dark",
+        "cross_arms_clip",
+        "Male Cross Arms",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["malemiddlefinger"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "stand_middlefinger@dark",
-    "stand_middlefinger_clip",
-    "Male Middle Finger",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "stand_middlefinger@dark",
+        "stand_middlefinger_clip",
+        "Male Middle Finger",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["malefistface"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "fist_face@darksj",
-    "fist_face_clip",
-    "Male Fist Face",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "fist_face@darksj",
+        "fist_face_clip",
+        "Male Fist Face",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["malepose4"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "fuckm@nxsty",
-    "fuckm_clip",
-    "Male Pose 4",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "fuckm@nxsty",
+        "fuckm_clip",
+        "Male Pose 4",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["malegunpose1"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "gun_ink@darksj",
-    "gun_ink_clip",
-    "Male Gun Pose 1",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "gun_ink@darksj",
+        "gun_ink_clip",
+        "Male Gun Pose 1",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["malepose5"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "koko_male@darksj",
-    "koko_male_clip",
-    "Male Pose 5",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "koko_male@darksj",
+        "koko_male_clip",
+        "Male Pose 5",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["malepose3"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "male_solo_1@darksj",
-    "male_solo_1_clip",
-    "Male Pose 3",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "male_solo_1@darksj",
+        "male_solo_1_clip",
+        "Male Pose 3",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["malepose2"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "male_solo_3@darksj",
-    "male_solo_3_clip",
-    "Male Pose 2",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "male_solo_3@darksj",
+        "male_solo_3_clip",
+        "Male Pose 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["malepose1"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "male_solo_4@darksj",
-    "male_solo_4_clip",
-    "Male Pose 1",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "male_solo_4@darksj",
+        "male_solo_4_clip",
+        "Male Pose 1",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["maleshoecheck"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "side_shoe_check@darksj",
-    "side_shoe_check_clip",
-    "Male Shoe Check Pose",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "side_shoe_check@darksj",
+        "side_shoe_check_clip",
+        "Male Shoe Check Pose",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["malegangpose"] = { -- Custom Emotes By Darks Animations Provided To RPEmotes 01/08/2023
-    "westside_cap@darksj",
-    "westside_cap_clip",
-    "Male Gang Pose",
+        "westside_cap@darksj",
+        "westside_cap_clip",
+        "Male Gang Pose",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+    ["illuminati"] = { -- Custom Emote By EnchantedBrwny
+        "ebrwny_illum",
+        "ebrwny_illum003",
+        "Illuminati Hand Sign",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["illuminati2"] = { -- Custom Emote By EnchantedBrwny
+        "ebrwny_illum",
+        "ebrwny_illum001",
+        "Illuminati Hand Sign 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["illuminati3"] = { -- Custom Emote By EnchantedBrwny
+        "ebrwny_illum",
+        "ebrwny_illum002",
+        "Illuminati Hand Sign 3",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["gunpoint"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Darks Animations
+        "male_gun@vanessssi",
+        "male_gun_clip",
+        "Gun Point - Robbery",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["baddiepeace"] = { -- Custom Emote provided by 41anims
+    "41animpeacebaddie@animation",
+    "41animpeacebaddie_clip",
+    "Baddie Peace Pose",
     AnimationOptions = {
         EmoteLoop = true,
         EmoteMoving = false,
         }
     },
-    ["illuminati"] = { -- Custom Emote By EnchantedBrwny
-    "ebrwny_illum",
-    "ebrwny_illum003",
-    "Illuminati Hand Sign",
+    ["baddiebendova"] = { -- Custom Emote provided by 41anims
+    "bendova@animation",
+    "bendova_clip",
+    "Baddie Bendova Pose",
     AnimationOptions = {
         EmoteLoop = true,
-        EmoteMoving = true,
+        EmoteMoving = false,
         }
     },
-    ["illuminati2"] = { -- Custom Emote By EnchantedBrwny
-    "ebrwny_illum",
-    "ebrwny_illum001",
-    "Illuminati Hand Sign 2",
+    ["baddienailpose"] = { -- Custom Emote provided by 41anims
+    "nailpose@animation",
+    "nailpose_clip",
+    "Baddie Nail Pose",
     AnimationOptions = {
         EmoteLoop = true,
-        EmoteMoving = true,
+        EmoteMoving = false,
         }
     },
-    ["illuminati3"] = { -- Custom Emote By EnchantedBrwny
-    "ebrwny_illum",
-    "ebrwny_illum002",
-    "Illuminati Hand Sign 3",
+    ["aphroditepose"] = { -- Custom Emote provided by corbs
+    "aphrodite1@corbs",
+    "aphrodite1_clip",
+    "Aphrodite Pose",
     AnimationOptions = {
         EmoteLoop = true,
-        EmoteMoving = true,
+        EmoteMoving = false,
         }
     },
-    ["gunpoint"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Darks Animations
-       "male_gun@vanessssi",
-       "male_gun_clip",
-        "Gun Point - Robbery",
+    ["aphroditepose2"] = { -- Custom Emote provided by corbs
+    "aphrodite2@corbs",
+    "aphrodite2_clip",
+    "Aphrodite Pose 2",
     AnimationOptions = {
         EmoteLoop = true,
-        EmoteMoving = true,
+        EmoteMoving = false,
         }
     },
-
+    ["aphroditepose3"] = { -- Custom Emote provided by corbs
+    "aphrodite3@corbs",
+    "aphrodite3_clip",
+    "Aphrodite Pose 3",
+    AnimationOptions = {
+        EmoteLoop = true,
+        EmoteMoving = false,
+        }
+    },
 
 }
 
@@ -10594,6 +11219,14 @@ RP.PropEmotes = {
 			EmoteMoving = true,
         }
     },
+    ["masktakeoff"] = {
+        "anim@scripted@bty5@ig1_intimidate_actor@female_heeled@",
+        "mask_action_b",
+        "Take Off Mask",
+        AnimationOptions = {
+			EmoteMoving = true,
+        }
+    },
 	["adjustbag"] = {
         "amb@world_human_hiker_standing@male@idle_a",
         "idle_b",
@@ -10612,7 +11245,7 @@ RP.PropEmotes = {
 			EmoteMoving = true
         }
     },
-    ["cake"] = { --- Custom Prop & Emote By BzZzi
+    ["cake"] = { -- Custom Prop & Emote By BzZz
         "anim@heists@box_carry@",
         "idle",
         "Birthday Cake",
@@ -10630,7 +11263,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["cake2"] = { --- Custom Prop & Emote By BzZzi
+    ["cake2"] = { -- Custom Prop & Emote By BzZz
         "anim@heists@box_carry@",
         "idle",
         "Baby Cake",
@@ -10648,7 +11281,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["cake3"] = { --- Custom Prop & Emote By BzZzi
+    ["cake3"] = { -- Custom Prop & Emote By BzZz
         "anim@heists@box_carry@",
         "idle",
         "Casino Cake",
@@ -10666,7 +11299,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["cake4"] = { --- Custom Prop & Emote By BzZzi
+    ["cake4"] = { -- Custom Prop & Emote By BzZz
         "anim@heists@box_carry@",
         "idle",
         "Love Cake",
@@ -10757,7 +11390,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["cakew2"] = { --- Custom Prop & Emote By BzZzi
+    ["cakew2"] = { -- Custom Prop & Emote By BzZz
         "anim@move_f@waitress",
         "idle",
         "Cake Waiter - Baby",
@@ -10776,7 +11409,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["cakew3"] = { --- Custom Prop & Emote By BzZzi
+    ["cakew3"] = { -- Custom Prop & Emote By BzZz
         "anim@move_f@waitress",
         "idle",
         "Cake Waiter - Casino",
@@ -10795,7 +11428,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["cakew4"] = { --- Custom Prop & Emote By BzZzi
+    ["cakew4"] = { -- Custom Prop & Emote By BzZz
         "anim@move_f@waitress",
         "idle",
         "Cake Waiter - Love",
@@ -10852,7 +11485,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["cakew7"] = { --- Custom Prop & Emote By BzZzi
+    ["cakew7"] = { -- Custom Prop & Emote By BzZz
         "anim@move_f@waitress",
         "idle",
         "Cake Waiter - Chocolate Mud",
@@ -11068,6 +11701,40 @@ RP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = false,
+            PtfxAsset = "scr_mp_cig",
+            PtfxName = "ent_anim_cig_smoke",
+            PtfxNoProp = false,
+            PtfxPlacement = {
+               -0.07,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Translate('smoke'),
+            PtfxWait = 0.8,
+            PtfxCanHold = true
+        }
+    },
+    ["smoke6"] = {
+        "anim@amb@carmeet@checkout_car@",
+        "smoke_male_a_idle_b",
+        "Smoke 6",
+        AnimationOptions = {
+            Prop = 'ng_proc_cigarette01a',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
             PtfxAsset = "scr_mp_cig",
             PtfxName = "ent_anim_cig_smoke",
             PtfxNoProp = false,
@@ -12075,6 +12742,44 @@ RP.PropEmotes = {
             EmoteMoving = false
         }
     },
+    ["beerf4"] = {
+        "fix_stu_ext-1",
+        "a_f_y_studioparty_01^1_dual-1",
+        "Beer Female 4",
+        AnimationOptions = {
+            Prop = 'prop_amb_beer_bottle',
+            PropBone = 28422,
+            PropPlacement = {
+                0.1,
+                0.1,
+                0.0,
+                -0.60,
+                30.0,
+                0.0,
+            },
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
+    },
+    ["beerf5"] = {
+        "anim@scripted@freemode_npc@fix_dre_studio_entourage_b@",
+        "stand_drink_cup_female_a_base",
+        "Beer Female 5",
+        AnimationOptions = {
+            Prop = 'prop_amb_beer_bottle',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                -0.0,
+                0.05,
+                15.0,
+                15.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
+    },
     ["wine3"] = {
         "amb@world_human_drinking@beer@female@idle_a",
         "idle_e",
@@ -12203,7 +12908,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["donut2"] = { --- Custom Prop by Bzzzi
+    ["donut2"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Donut Chocolate",
@@ -12221,7 +12926,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["donut3"] = { --- Custom Prop by Bzzzi
+    ["donut3"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Donut Raspberry",
@@ -12239,7 +12944,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["desert"] = { --- Custom Prop by Bzzzi
+    ["desert"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Eat dessert",
@@ -12257,7 +12962,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["croissant"] = { --- Custom Prop by Bzzzi
+    ["croissant"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Croissant",
@@ -12275,7 +12980,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["gingerbread"] = { --- Custom Prop by Bzzzi
+    ["gingerbread"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Xmas Gingerbread Man",
@@ -12293,7 +12998,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["candycane"] = { --- Custom Prop by Bzzzi
+    ["candycane"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Xmas Candy Cane - Red",
@@ -12311,7 +13016,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["candycaneb"] = { --- Custom Prop by Bzzzi
+    ["candycaneb"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Xmas Candy Cane - Green",
@@ -12329,7 +13034,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["candycanec"] = { --- Custom Prop by Bzzzi
+    ["candycanec"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Xmas Candy Cane - Purple",
@@ -12347,7 +13052,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["candycaned"] = { --- Custom Prop by Bzzzi
+    ["candycaned"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Xmas Candy Cane - Yellow",
@@ -12365,7 +13070,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["candycanee"] = { --- Custom Prop by Bzzzi
+    ["candycanee"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Xmas Candy Cane - Blue",
@@ -12535,7 +13240,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["macaroon"] = { --- Custom Prop by Bzzzi
+    ["macaroon"] = { -- Custom Prop by BzZz
         "mp_player_inteat@burger",
         "mp_player_int_eat_burger",
         "Macaroon",
@@ -12553,7 +13258,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["xmasmug"] = { --- Custom Prop by Bzzzi
+    ["xmasmug"] = { -- Custom Prop by BzZz
         "mp_player_intdrink",
         "loop_bottle",
         "Xmas Mug - Tea",
@@ -12571,7 +13276,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["xmasmug2"] = { --- Custom Prop by Bzzzi
+    ["xmasmug2"] = { -- Custom Prop by BzZz
         "mp_player_intdrink",
         "loop_bottle",
         "Xmas Mug - Coffee",
@@ -12589,7 +13294,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["xmaswine"] = { --- Custom Prop by Bzzzi
+    ["xmaswine"] = { -- Custom Prop by BzZz
         "mp_player_intdrink",
         "loop_bottle",
         "Xmas Mulled Wine",
@@ -16441,6 +17146,44 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
+    ["stire"] = {
+        "anim@heists@box_carry@",
+        "idle",
+        "Steal Tire 1",
+        AnimationOptions = {
+            Prop = "prop_wheel_01",
+            PropBone = 18905,
+            PropPlacement = {
+                0.02,
+                0.2,
+                0.31,
+                130.0,
+                -80.0,
+                0.0,
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["stire2"] = {
+        "anim@heists@box_carry@",
+        "idle",
+        "Steal Tire 2",
+        AnimationOptions = {
+            Prop = "prop_wheel_02",
+            PropBone = 18905,
+            PropPlacement = {
+                0.02,
+                0.2,
+                0.31,
+                130.0,
+                -80.0,
+                0.0,
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["conehead"] = {
         "move_m@drunk@verydrunk_idles@",
         "fidget_07",
@@ -16991,6 +17734,25 @@ RP.PropEmotes = {
         "Tagging Female 2",
         AnimationOptions = {
             Prop = "prop_cs_spray_can",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0700,
+                0.0017365,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["tag7"] = {
+        "anim@scripted@freemode@tagcoll_ig_postertag@heeled@",
+        "postertag",
+        "Tagging 7",
+        AnimationOptions = {
+            Prop = "m24_1_prop_m41_spraycan_01a",
             PropBone = 28422,
             PropPlacement = {
                 0.0,
@@ -18145,6 +18907,90 @@ RP.PropEmotes = {
         "cellphone@self@franklin@",
         "chest_bump",
         "Selfie 7 - Chest Bump",
+        AnimationOptions = {
+            Prop = "prop_phone_taymckenzienz",
+            PropTextureVariations = {
+                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
+                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
+                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
+                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
+                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4},
+                {Name = "<font color=\"#a356fa\">Purple", Value = 5},
+                {Name = "<font color=\"#FF0099\">Pink", Value = 6},
+                {Name = "Black", Value = 7}
+            },
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Translate('camera'),
+            PtfxWait = 200
+        }
+    },
+    ["selfie8"] = {
+        "anim@amb@carmeet@take_photos@",
+        "female_b_idle_d",
+        "Selfie 8 - Bumper Pics",
+        AnimationOptions = {
+            Prop = "prop_phone_taymckenzienz",
+            PropTextureVariations = {
+                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
+                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
+                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
+                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
+                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4},
+                {Name = "<font color=\"#a356fa\">Purple", Value = 5},
+                {Name = "<font color=\"#FF0099\">Pink", Value = 6},
+                {Name = "Black", Value = 7}
+            },
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+            PtfxAsset = "scr_tn_meet",
+            PtfxName = "scr_tn_meet_phone_camera_flash",
+            PtfxPlacement = {
+                -0.015,
+                0.0,
+                0.041,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            },
+            PtfxInfo = Translate('camera'),
+            PtfxWait = 200
+        }
+    },
+    ["selfie9"] = {
+        "anim@amb@carmeet@take_photos@",
+        "female_b_idle_b",
+        "Selfie 9 - Selfie Ceck",
         AnimationOptions = {
             Prop = "prop_phone_taymckenzienz",
             PropTextureVariations = {
@@ -20555,6 +21401,44 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
+    ["summon"] = {
+        "anim@scripted@surv@ig3_plague_summon@male@",
+        "summon_a",
+        "Summon",
+        AnimationOptions = {
+            Prop = "m24_1_prop_m41_zombiestaff_01a",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["summon2"] = {
+        "anim@scripted@surv@ig3_plague_summon@male@",
+        "summon_b",
+        "Summon2",
+        AnimationOptions = {
+            Prop = "m24_1_prop_m41_zombiestaff_01a",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["handbag"] = { -- Custom prop by crowded1337, unbranded by TayMcKenzieNZ
         "move_weapon@jerrycan@generic",
         "idle",
@@ -21762,7 +22646,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true
         }
-   },
+    },
     ['lighter'] = {
         'ebrwny_pack000',
         'ebrwny_spark',
@@ -21806,7 +22690,7 @@ RP.PropEmotes = {
             PtfxWait = 0.8,
             PtfxCanHold = true
        }
-  },
+    },
     ['lighter2'] = {
         'ebrwny_pack000',
         'ebrwny_spark',
@@ -21852,7 +22736,26 @@ RP.PropEmotes = {
             PtfxWait = 0.8,
             PtfxCanHold = true
        }
-   },
+    },
+    ["party_lighter"] = { -- Custom Prop & Emote By BzZz
+        "samnick@lighter@wave",
+        "waving_lighter",
+        "Party lighter",
+        AnimationOptions = {
+            Prop = 'samnick_prop_lighter01',
+            PropBone = 18905,
+            PropPlacement = {
+                0.11,
+                0.01,
+                0.02,
+                -85.0,
+                188.0,
+                10.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ['digiscan'] = {
         'weapons@misc@digi_scanner',
         'aim_med_loop',
@@ -22426,7 +23329,7 @@ RP.PropEmotes = {
         "ped_a_enter_loop",
         "Fire Torch",
         AnimationOptions = {
-            Prop = "bzzz_prop_torch_fire001", -- Custom Prop By Bzzzz Used With Permission
+            Prop = "bzzz_prop_torch_fire001", -- Custom Prop by BzZz Used With Permission
             PropBone = 18905,
             PropPlacement = {
                 0.14,
@@ -22445,7 +23348,7 @@ RP.PropEmotes = {
         'base',
         'Fire Torch 2',
         AnimationOptions = {
-            Prop = "bzzz_prop_torch_fire001", -- Custom Prop By Bzzzz Used With Permission
+            Prop = "bzzz_prop_torch_fire001", -- Custom Prop by BzZz Used With Permission
             PropBone = 28422,
             PropPlacement = {
                 0.0100,
@@ -23420,7 +24323,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
    },
-    ["poolcue"] = {
+   ["poolcue"] = {
        "pool_pack_1@dark",
        "pool_pack_1_clip",
         "Play Pool",
@@ -23439,7 +24342,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
    },
-    ["poolcue2"] = {
+   ["poolcue2"] = {
        "pool_pack_2@dark",
        "pool_pack_2_clip",
         "Play Pool 2 (Pose)",
@@ -23458,7 +24361,7 @@ RP.PropEmotes = {
             EmoteMoving = false
         }
    },
-    ["poolcue3"] = {
+   ["poolcue3"] = {
        "pool_pack_3@dark",
        "pool_pack_3_clip",
         "Play Pool 3 (Pose)",
@@ -23477,7 +24380,7 @@ RP.PropEmotes = {
             EmoteMoving = false
         }
    },
-    ["poolcue4"] = {
+   ["poolcue4"] = {
        "pool_pack_4@dark",
        "pool_pack_4_clip",
         "Play Pool 4 (Pose)",
@@ -23496,7 +24399,7 @@ RP.PropEmotes = {
             EmoteMoving = false
         }
    },
-    ["poolcue5"] = {
+   ["poolcue5"] = {
        "pool_pack_5@dark",
        "pool_pack_5_clip",
         "Play Pool 5",
@@ -23515,7 +24418,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
    },
-    ["basket"] = {
+   ["basket"] = {
        "missfbi4prepp1",
        "idle",
         "Basket",
@@ -23534,7 +24437,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
    },
-    ["basket2"] = {
+   ["basket2"] = {
        "missfbi4prepp1",
        "idle",
         "Basket 2",
@@ -23553,7 +24456,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
    },
-    ["power"] = {
+   ["power"] = {
        "move_weapon@jerrycan@generic",
        "idle",
         "Power House",
@@ -23572,7 +24475,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
    },
-    ["wlight"] = {
+   ["wlight"] = {
        "missfbi4prepp1",
        "idle",
         "Weed Light",
@@ -23591,7 +24494,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
    },
-    ["businessbag"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
+   ["businessbag"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
        "mrwitt@dark_appearance_with_bag_male",
        "mrwitt",
         "Business Bag",
@@ -23610,7 +24513,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
    },
-    ["businessbag2"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
+   ["businessbag2"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
        "mrwitt@dark_appearance_with_bag_male",
        "mrwitt",
         "Business Bag - Pose",
@@ -23629,7 +24532,7 @@ RP.PropEmotes = {
             EmoteMoving = false
         }
    },
-    ["squatcash"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
+   ["squatcash"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
        "mrwitt@checked_shirt_squat_male",
        "mrwitt",
         "Squat Cash - Pose",
@@ -23647,7 +24550,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = false
         }
-  },
+    },
     ["squatmask"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
         "mrwitt@selfie02_male",
         "mrwitt",
@@ -23667,7 +24570,7 @@ RP.PropEmotes = {
             EmoteMoving = false
         }
    },
-    ["squatmask1"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
+   ["squatmask1"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
         "mrwitt@selfie02_male",
         "mrwitt",
         "Squat Mask White - Pose",
@@ -23686,7 +24589,7 @@ RP.PropEmotes = {
             EmoteMoving = false
         }
    },
-    ["squatmask2"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
+   ["squatmask2"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
         "mrwitt@selfie02_male",
         "mrwitt",
         "Squat Mask Black - Pose",
@@ -23705,7 +24608,7 @@ RP.PropEmotes = {
             EmoteMoving = false
         }
    },
-    ["selfiesquat"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
+   ["selfiesquat"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Mr Witt
         "mrwitt@selfie02_male",
         "mrwitt",
         "Selfie Squat Male",
@@ -23756,7 +24659,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
         }
    },
-    ["femscaremask"] = { -- Animation by MrWitt
+   ["femscaremask"] = { -- Animation by MrWitt
         "mrwitt@helloween4_f",
         "mrwitt",
         "Female Scary Mask Red - Pose",
@@ -23775,7 +24678,7 @@ RP.PropEmotes = {
             EmoteMoving = true
             }
    },
-    ["femscaremask2"] = { -- Animation by MrWitt
+   ["femscaremask2"] = { -- Animation by MrWitt
     "mrwitt@helloween4_f",
     "mrwitt",
     "Female Scary Mask Black - Pose",
@@ -23794,7 +24697,7 @@ RP.PropEmotes = {
         EmoteMoving = true
         }
    },
-    ["femscaremask3"] = { -- Animation by MrWitt
+   ["femscaremask3"] = { -- Animation by MrWitt
     "mrwitt@helloween4_f",
     "mrwitt",
     "Female Scary Mask White - Pose",
@@ -23813,7 +24716,7 @@ RP.PropEmotes = {
         EmoteMoving = true
         },
    },
-    ["raiseglass"] = { -- Custom Animation by Chocoholic Animations
+   ["raiseglass"] = { -- Custom Animation by Chocoholic Animations
     "chocoholic@duo32",
     "duo32_clip",
     "Raise Your Glass",
@@ -23887,7 +24790,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true
         }
-  },
+    },
     ["rap3"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Darks Animations
        "mic_pose_2@darksj",
        "mic_pose_2_clip",
@@ -23906,7 +24809,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true
         }
-  },
+    },
     ["rap4"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Darks Animations
        "mic_pose_3@darksj",
        "mic_pose_3_clip",
@@ -23925,7 +24828,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = false
         }
-  },
+    },
     ["rap5"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Darks Animations
        "mic_pose_4@darksj",
        "mic_pose_4_clip",
@@ -23946,7 +24849,7 @@ RP.PropEmotes = {
 			ExitEmote = "getup",
             ExitEmoteType = "Exits"
         }
-  },
+    },
     ["rap6"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Darks Animations
        "mic_pose_5_a@darksj",
        "mic_pose_5_a_clip",
@@ -23965,7 +24868,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true,
         }
-  },
+    },
     ["bbat"] = { --- Custom Emote Provided To RPEmotes Courtesy Of Darks Animations
        "bat@sel",
        "bat_clip",
@@ -23984,7 +24887,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = false,
         }
-  },
+    },
     ["stopsign"] = { --- Custom Prop By PNWParksFan
        "amb@world_human_janitor@male@base",
        "base",
@@ -24003,7 +24906,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true,
         }
-  },
+    },
     ["stopsign2"] = { --- Custom Prop By PNWParksFan
        "amb@world_human_janitor@male@base",
        "base",
@@ -24022,7 +24925,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true,
         }
-  },
+    },
     ["stopsign3"] = { --- Custom Prop By PNWParksFan
        "special_ped@griff@base",
        "base",
@@ -24041,7 +24944,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true,
         }
-  },
+    },
     ["stopsign4"] = { --- Custom Prop By PNWParksFan
        "special_ped@griff@base",
        "base",
@@ -24050,16 +24953,150 @@ RP.PropEmotes = {
             Prop = 'prop_flagger_sign_02',
             PropBone = 28422,
             PropPlacement = {
-               0.0200,
-               0.0200,
-              -0.2600,
-             10.0000,
-              0.0000,
-            -59.9999
+                0.0200,
+                0.0200,
+                -0.2600,
+                10.0000,
+                0.0000,
+                -59.9999
             },
             EmoteLoop = true,
             EmoteMoving = true,
         }
-  }
-
+    },
+    ["stonerbabepose"] = { -- Custom Emote provided by 41anims
+        "stonerbabe@animation",
+        "stonerbabe_clip",
+        "Stoner Babe Pose",
+        AnimationOptions = {
+            Prop = 'p_cs_joint_01',
+            PropBone = 57005,
+            PropPlacement = {
+                0.15,
+                0.03,
+                -0.04,
+                -1.0,
+                170.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+    ["baddiegyat"] = { -- Custom Emote provided by 41anims
+        "baddiegyat",
+        "baddiegyat_clip",
+        "Baddie Gyat Selfie",
+        AnimationOptions = {
+            Prop = "prop_phone_taymckenzienz",
+            PropTextureVariations = {
+                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
+                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
+                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
+                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
+                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4},
+                {Name = "<font color=\"#a356fa\">Purple", Value = 5},
+                {Name = "<font color=\"#FF0099\">Pink", Value = 6},
+                {Name = "Black", Value = 7}
+            },
+            PropBone = 4169,
+            PropPlacement = {
+                0.0300,
+                -0.0200,
+                0.0200,
+                -5.0,
+                3.367247,
+                0.0711684
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+    ["murder1"] = {
+        "dead",
+        "dead_e",
+        "Murder Axe",
+        AnimationOptions = {
+            Prop = "bzzz_murder_axe001",
+            PropBone = 18905,
+            PropPlacement = {
+                -0.22,
+                0.34,
+                -0.3,
+                -56.0,
+                98.0,
+                34.0
+            },
+            SecondProp = 'p_bloodsplat_s',
+            SecondPropBone = 57005,
+            SecondPropPlacement = {
+                0.28,
+                0.17,
+                -0.12,
+                -98.0,
+                -51.0,
+                237.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+    ["murder2"] = {
+        "dead",
+        "dead_a",
+        "Murder Pistol",
+        AnimationOptions = {
+            Prop = "w_pi_heavypistol",
+            PropBone = 18905,
+            PropPlacement = {
+                0.27,
+                0.35,
+                0.05,
+                -98.0,
+                2.0,
+                183.0
+            },
+            SecondProp = 'p_bloodsplat_s',
+            SecondPropBone = 57005,
+            SecondPropPlacement = {
+                -0.8,
+                0.41,
+                0.0,
+                -98.0,
+                -7.0,
+                237.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
+    ["murder3"] = {
+        "dead",
+        "dead_b",
+        "Murder Machete",
+        AnimationOptions = {
+            Prop = "bzzz_murder_machete001",
+            PropBone = 18905,
+            PropPlacement = {
+                -0.22,
+                0.18,
+                -0.67,
+                196.0,
+                157.0,
+                -35.0
+            },
+            SecondProp = 'p_bloodsplat_s',
+            SecondPropBone = 57005,
+            SecondPropPlacement = {
+                -0.28,
+                -0.15,
+                0.00,
+                266.2,
+                182.3,
+                -10.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = false,
+        }
+    },
 }
