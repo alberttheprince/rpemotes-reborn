@@ -5884,14 +5884,13 @@ RP.Emotes = {
     ["bend"] = {
         "ebrwny_pack000",
         "ebrwny_bend",
-        "Bent over",
+        "Bend over",
         AnimationOptions = {
 			StartDelay = 600,
             EmoteLoop = true,
             EmoteMoving = true,
             NotInVehicle = true
-        },
-    AdultAnimation = true
+        }
     },
     ["prone"] = {
         "missfbi3_sniping",
