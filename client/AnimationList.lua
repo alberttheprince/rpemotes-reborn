@@ -5251,6 +5251,14 @@ RP.Exits = {
             StartDelay = 600
         }
     },
+    ["meditateup"] = {
+        "rcmcollect_paperleadinout@",
+        "meditate_getup",
+        "Meditate Get Up",
+        AnimationOptions = {
+            EmoteDuration = 2000
+        }
+    },
     ["standup"] = {
         "get_up@directional@movement@from_knees@injured",
         "getup_l_0",
@@ -5587,164 +5595,163 @@ RP.Emotes = {
         }
     },
     ["cuffedfront"] = {
-    "anim@move_m@prisoner_cuffed",
-    "idle",
-    "Handcuffed - Front",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = true,
-        ExitEmote = "breakfreefont",
-        ExitEmoteType = "Exits"
+        "anim@move_m@prisoner_cuffed",
+        "idle",
+        "Handcuffed - Front",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
+            ExitEmote = "breakfreefont",
+            ExitEmoteType = "Exits"
         }
     },
     ["cuffedback"] = {
-    "mp_arresting",
-    "idle",
-    "Handcuffed - Back",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = true,
-        ExitEmote = "breakfreeback",
-        ExitEmoteType = "Exits"
+        "mp_arresting",
+        "idle",
+        "Handcuffed - Back",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true,
+            ExitEmote = "breakfreeback",
+            ExitEmoteType = "Exits"
         }
     },
     ["dead2"] = {
         "anim@scripted@data_leak@fixf_fin_ig2_johnnyguns_wounded@",
         "enter",
         "Play Dead Act",
-        AnimationOptions =
-        {
+        AnimationOptions = {
             EmoteLoop = false
         }
     },
     ["femalestandcute"] = {
-    "stand_cute_6@dark",
-    "stand_cute_6_clip",
-    "Female Stand Cute Pose",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false
+        "stand_cute_6@dark",
+        "stand_cute_6_clip",
+        "Female Stand Cute Pose",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["femalestandcute1"] = {
-    "stand_fem_1@darksj",
-    "stand_fem_1_clip",
-    "Female Stand Cute Pose 1",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false
-         }
+        "stand_fem_1@darksj",
+        "stand_fem_1_clip",
+        "Female Stand Cute Pose 1",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
     },
     ["femalestandcute2"] = {
-    "feet_stand_w@darksj",
-    "feet_stand_w_clip",
-    "Female Stand Cute Pose 2",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false
-         }
+        "feet_stand_w@darksj",
+        "feet_stand_w_clip",
+        "Female Stand Cute Pose 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
     },
     ["femalestandcute3"] = {
-    "anim@female_model_14",
-    "f_model_14_clip",
-    "Female Stand Cute Pose 3",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false
-         }
+        "anim@female_model_14",
+        "f_model_14_clip",
+        "Female Stand Cute Pose 3",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
     },
     ["femalestandcutefinger"] = {
-    "anim@female_model_15",
-    "f_model_15_clip",
-    "Female Stand Cute Pose Finger",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false
+        "anim@female_model_15",
+        "f_model_15_clip",
+        "Female Stand Cute Pose Finger",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["femalestandcute4"] = {
-    "anim@female_model_17",
-    "f_model_17_clip",
-    "Female Stand Cute Pose 4",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false
-         }
+        "anim@female_model_17",
+        "f_model_17_clip",
+        "Female Stand Cute Pose 4",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
     },
     ["malestandpose"] = {
-    "anim@male_model_11",
-    "m_model_11_clip",
-    "Male Stand Pose",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false
+        "anim@male_model_11",
+        "m_model_11_clip",
+        "Male Stand Pose",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false
         }
     },
     ["femalesitcute"] = {
-    "sit_cute_1@dark",
-    "sit_cute_1_clip",
-    "Female Sit Cute",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
-        ExitEmote = "getup",
-        ExitEmoteType = "Exits"
+        "sit_cute_1@dark",
+        "sit_cute_1_clip",
+        "Female Sit Cute",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits"
         }
     },
     ["femalesitcute1"] = {
-    "mrwitt@chin_support_on_floor",
-    "mrwitt",
-    "Female Sit Cute 1",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
-        ExitEmote = "getup",
-        ExitEmoteType = "Exits"
-         }
+        "mrwitt@chin_support_on_floor",
+        "mrwitt",
+        "Female Sit Cute 1",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits"
+        }
     },
     ["femalesitcute2"] = {
-    "beach_1@janina234",
-    "beach_1_clip",
-    "Female Sit Cute 2",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
-        ExitEmote = "getup",
-        ExitEmoteType = "Exits"
+        "beach_1@janina234",
+        "beach_1_clip",
+        "Female Sit Cute 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits"
         }
     },
     ["femaleonknees"] = {
-    "beach_4@janina234",
-    "beach_4_clip",
-    "Female On Knees Pose",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
-        ExitEmote = "standup",
-        ExitEmoteType = "Exits"
+        "beach_4@janina234",
+        "beach_4_clip",
+        "Female On Knees Pose",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+            ExitEmote = "standup",
+            ExitEmoteType = "Exits"
         }
     },
     ["femaleonknees1"] = {
-    "on_the_knees@darksj",
-    "on_the_knees_clip",
-    "Female On Knees Pose 1",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
-        ExitEmote = "standup",
-        ExitEmoteType = "Exits"
-         }
+        "on_the_knees@darksj",
+        "on_the_knees_clip",
+        "Female On Knees Pose 1",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+            ExitEmote = "standup",
+            ExitEmoteType = "Exits"
+        }
     },
     ["femaleonknees2"] = {
-    "anim@female_model_21",
-    "f_model_21_clip",
-    "Female On Knees Pose 2",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
-        ExitEmote = "getup",
-        ExitEmoteType = "Exits"
-         }
+        "anim@female_model_21",
+        "f_model_21_clip",
+        "Female On Knees Pose 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
+            ExitEmote = "getup",
+            ExitEmoteType = "Exits"
+        }
     },
     ["beast"] = {
         "anim@mp_fm_event@intro",
@@ -7115,7 +7122,7 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             StartDelay = 300,
-            ExitEmote = "standup",
+            ExitEmote = "meditateup",
             ExitEmoteType = "Exits"
         }
     },
@@ -7126,7 +7133,7 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             StartDelay = 300,
-            ExitEmote = "standup",
+            ExitEmote = "meditateup",
             ExitEmoteType = "Exits"
         }
     },
@@ -7137,7 +7144,7 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             StartDelay = 300,
-            ExitEmote = "standup",
+            ExitEmote = "meditateup",
             ExitEmoteType = "Exits"
         }
     },
@@ -7356,7 +7363,8 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 700,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
+            ExitEmoteType = "Exits",
+            NotInVehicle = true
         }
     },
     ["bumsleep"] = {
@@ -7367,7 +7375,8 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 700,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
+            ExitEmoteType = "Exits",
+            NotInVehicle = true
         }
     },
     ["shrug"] = {
@@ -8635,15 +8644,6 @@ RP.Emotes = {
             EmoteMoving = true
         }
     },
-    ["confused"] = {
-        "amb@world_human_aa_smoke@male@idle_a",
-        "idle_c",
-        "Confused",
-        AnimationOptions = {
-            EmoteLoop = true,
-            EmoteMoving = true
-        }
-    },
     ["stretch"] = {
         "mini@triathlon",
         "idle_e",
@@ -9716,7 +9716,8 @@ RP.Emotes = {
         "pose_sport_001",
         "Gym Pose",
         AnimationOptions = {
-            EmoteLoop = true
+            EmoteLoop = true,
+            NotInVehicle = true
         }
     },
     ["gympose2"] = { -- Custom Emote By Amnilka
@@ -9727,7 +9728,8 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 550,
             ExitEmote = "standup",
-            ExitEmoteType = "Exits"
+            ExitEmoteType = "Exits",
+            NotInVehicle = true
         }
     },
     ["gympose3"] = { -- Custom Female Emote By Frabi
@@ -9738,7 +9740,8 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 550,
             ExitEmote = "standup",
-            ExitEmoteType = "Exits"
+            ExitEmoteType = "Exits",
+            NotInVehicle = true
         }
     },
     ["gympose4"] = { -- Custom Female Emote By Frabi
@@ -9749,7 +9752,8 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 510,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
+            ExitEmoteType = "Exits",
+            NotInVehicle = true
         }
     },
 
@@ -10939,57 +10943,57 @@ RP.Emotes = {
         }
     },
     ["baddiepeace"] = { -- Custom Emote provided by 41anims
-    "41animpeacebaddie@animation",
-    "41animpeacebaddie_clip",
-    "Baddie Peace Pose",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "41animpeacebaddie@animation",
+        "41animpeacebaddie_clip",
+        "Baddie Peace Pose",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["baddiebendova"] = { -- Custom Emote provided by 41anims
-    "bendova@animation",
-    "bendova_clip",
-    "Baddie Bendova Pose",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "bendova@animation",
+        "bendova_clip",
+        "Baddie Bendova Pose",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["baddienailpose"] = { -- Custom Emote provided by 41anims
-    "nailpose@animation",
-    "nailpose_clip",
-    "Baddie Nail Pose",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "nailpose@animation",
+        "nailpose_clip",
+        "Baddie Nail Pose",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["aphroditepose"] = { -- Custom Emote provided by corbs
-    "aphrodite1@corbs",
-    "aphrodite1_clip",
-    "Aphrodite Pose",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "aphrodite1@corbs",
+        "aphrodite1_clip",
+        "Aphrodite Pose",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["aphroditepose2"] = { -- Custom Emote provided by corbs
-    "aphrodite2@corbs",
-    "aphrodite2_clip",
-    "Aphrodite Pose 2",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "aphrodite2@corbs",
+        "aphrodite2_clip",
+        "Aphrodite Pose 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
     ["aphroditepose3"] = { -- Custom Emote provided by corbs
-    "aphrodite3@corbs",
-    "aphrodite3_clip",
-    "Aphrodite Pose 3",
-    AnimationOptions = {
-        EmoteLoop = true,
-        EmoteMoving = false,
+        "aphrodite3@corbs",
+        "aphrodite3_clip",
+        "Aphrodite Pose 3",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = false,
         }
     },
 
@@ -16416,6 +16420,26 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
+    ["brushteeth"] = {  
+        "mp_player_inteat@pnq",
+        "loop_fp",
+        "Brush Teeth",
+        AnimationOptions =
+        {
+            Prop = "prop_toothbrush_01",
+            PropBone = 18905,
+            PropPlacement = {
+                0.14,
+                0.04,
+                -0.02,
+                -93.0,
+                -159.0,
+                26.0
+            },
+            EmoteMoving = true,
+            EmoteLoop = true
+        }
+    },
     ["guncase"] = {
         "move_weapon@jerrycan@generic",
         "idle",
@@ -19036,7 +19060,7 @@ RP.PropEmotes = {
                 0.0
             },
             EmoteLoop = true,
-            EmoteMoving = true,
+            EmoteMoving = false,
             PtfxAsset = "scr_tn_meet",
             PtfxName = "scr_tn_meet_phone_camera_flash",
             PtfxPlacement = {
