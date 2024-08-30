@@ -16420,6 +16420,26 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
+    ["brushteeth"] = {  
+        "mp_player_inteat@pnq",
+        "loop_fp",
+        "Brush Teeth",
+        AnimationOptions =
+        {
+            Prop = "prop_toothbrush_01",
+            PropBone = 18905,
+            PropPlacement = {
+                0.14,
+                0.04,
+                -0.02,
+                -93.0,
+                -159.0,
+                26.0
+            },
+            EmoteMoving = true,
+            EmoteLoop = true
+        }
+    },
     ["guncase"] = {
         "move_weapon@jerrycan@generic",
         "idle",
