@@ -2294,6 +2294,25 @@ RP.Dances = {
             EmoteMoving = false
         }
     },
+    ["dancedrink9"] = {
+        "anim@amb@nightclub@mini@dance@dance_solo@techno_karate@ ",
+        "med_right_down",
+        "Dance Drink 9 (Beer)",
+        AnimationOptions = {
+            Prop = 'prop_beer_logopen',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0090,
+                0.0010,
+                -0.0310,
+                180.0,
+                180.0,
+                -69.99
+            },
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
+    },
     ["danceslow2"] = {
         "anim@amb@nightclub@mini@dance@dance_solo@female@var_a@",
         "low_center",
@@ -3266,6 +3285,38 @@ RP.Dances = {
             },
             EmoteLoop = true,
             EmoteMoving = false
+        }
+    },
+    ["technodance"] = {
+        "anim@amb@nightclub_island@dancers@beachdance@",
+        "high_left_up",
+        "Techno Dance",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["technodance2"] = {
+        "anim@amb@nightclub_island@dancers@beachdance@",
+        "med_center_up",
+        "Techno Dance 2",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["technodance3"] = {
+        "anim@amb@nightclub_island@dancers@beachdance@",
+        "high_left",
+        "Techno Dance 3",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["technodance4"] = {
+        "anim@amb@nightclub_island@dancers@beachdance@",
+        "high_right_up",
+        "Techno Dance 4",
+        AnimationOptions = {
+            EmoteLoop = true
         }
     },
 }
@@ -9815,6 +9866,22 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteMoving = true,
             EmoteDuration = 4000
+        }
+    },
+    ["capoeira"] = {
+        "anim@amb@nightclub@mini@dance@dance_solo@techno_karate@",
+        "med_right",
+        "Capoeira",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["capoeira2"] = {
+        "anim@amb@nightclub@mini@dance@dance_solo@techno_karate@",
+        "high_right_down",
+        "Capoeira 2",
+        AnimationOptions = {
+            EmoteLoop = true
         }
     },
     ["stink"] = {
