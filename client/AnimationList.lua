@@ -2299,15 +2299,15 @@ RP.Dances = {
         "med_right_down",
         "Dance Drink 9 (Beer)",
         AnimationOptions = {
-            Prop = 'prop_beer_logopen',
+            Prop = 'prop_beer_amopen',
             PropBone = 28422,
             PropPlacement = {
-                0.0090,
-                0.0010,
-                -0.0310,
-                180.0,
-                180.0,
-                -69.99
+                0.0,
+                0.00,
+                0.0,
+                0.0,
+                0.0,
+                20.00
             },
             EmoteLoop = true,
             EmoteMoving = false
