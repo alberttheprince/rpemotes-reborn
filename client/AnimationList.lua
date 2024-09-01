@@ -23446,6 +23446,25 @@ RP.PropEmotes = {
             EmoteLoop = true
         }
     },
+    ["bball5"] = {
+        "cover@weapon@grenade",
+        "hi_r_cook",
+        "Basketball Drive Pose",
+        AnimationOptions = {
+            Prop = "prop_bskball_01",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0400,
+                0.0200,
+               -0.1400,
+                90.0000,
+               -99.9999,
+                79.9999
+            },
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
+    },
     ["ftorch"] = {
         "anim@heists@humane_labs@finale@keycards",
         "ped_a_enter_loop",
