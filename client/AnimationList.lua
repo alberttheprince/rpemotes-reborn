@@ -2295,7 +2295,7 @@ RP.Dances = {
         }
     },
     ["dancedrink9"] = {
-        "anim@amb@nightclub@mini@dance@dance_solo@techno_karate@ ",
+        "anim@amb@nightclub@mini@dance@dance_solo@techno_karate@",
         "med_right_down",
         "Dance Drink 9 (Beer)",
         AnimationOptions = {
