@@ -9868,6 +9868,14 @@ RP.Emotes = {
             EmoteDuration = 4000
         }
     },
+    ["boxing3"] = {
+        "melee@unarmed@streamed_core_fps", 
+        "idle",
+        "Boxing 3",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
     ["capoeira"] = {
         "anim@amb@nightclub@mini@dance@dance_solo@techno_karate@",
         "med_right",
