@@ -3288,7 +3288,7 @@ RP.Dances = {
         }
     },
     ["technodance"] = {
-        "anim@amb@nightclub_island@dancers@beachdance@",
+        "anim@amb@nightclub@mini@dance@dance_solo@techno_karate@",
         "high_left_up",
         "Techno Dance",
         AnimationOptions = {
@@ -3296,7 +3296,7 @@ RP.Dances = {
         }
     },
     ["technodance2"] = {
-        "anim@amb@nightclub_island@dancers@beachdance@",
+        "anim@amb@nightclub@mini@dance@dance_solo@techno_karate@",
         "med_center_up",
         "Techno Dance 2",
         AnimationOptions = {
@@ -3304,7 +3304,7 @@ RP.Dances = {
         }
     },
     ["technodance3"] = {
-        "anim@amb@nightclub_island@dancers@beachdance@",
+        "anim@amb@nightclub@mini@dance@dance_solo@techno_karate@",
         "high_left",
         "Techno Dance 3",
         AnimationOptions = {
@@ -3312,7 +3312,7 @@ RP.Dances = {
         }
     },
     ["technodance4"] = {
-        "anim@amb@nightclub_island@dancers@beachdance@",
+        "anim@amb@nightclub@mini@dance@dance_solo@techno_karate@",
         "high_right_up",
         "Techno Dance 4",
         AnimationOptions = {
