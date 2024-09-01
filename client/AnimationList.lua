@@ -12534,7 +12534,7 @@ RP.PropEmotes = {
                 0.0,
 			   90.0
             },
-            SecondProp = 'prop_phone_taymckenzienz',
+            SecondProp = 'prop_phone_ing',
 			PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -16578,7 +16578,7 @@ RP.PropEmotes = {
         "cellphone_call_listen_base",
         "Phone Call",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -16607,7 +16607,7 @@ RP.PropEmotes = {
         "ig_1_girl_on_phone_loop",
         "Phone Call 2",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -18778,7 +18778,7 @@ RP.PropEmotes = {
         "idle_a",
         "Selfie",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -18820,7 +18820,7 @@ RP.PropEmotes = {
         "peace",
         "Selfie 2",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -18862,7 +18862,7 @@ RP.PropEmotes = {
         "west_coast",
         "Selfie 3 - West Side",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -18904,7 +18904,7 @@ RP.PropEmotes = {
         "aggressive_finger",
         "Selfie 4 - Finger",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -18946,7 +18946,7 @@ RP.PropEmotes = {
         "proud_finger",
         "Selfie 5 - Finger 2",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -18988,7 +18988,7 @@ RP.PropEmotes = {
         "throat_slit",
         "Selfie 6 - Throat Slit",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -19030,7 +19030,7 @@ RP.PropEmotes = {
         "chest_bump",
         "Selfie 7 - Chest Bump",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -19072,7 +19072,7 @@ RP.PropEmotes = {
         "female_b_idle_d",
         "Selfie 8 - Bumper Pics",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -19114,7 +19114,7 @@ RP.PropEmotes = {
         "female_b_idle_b",
         "Selfie 9 - Selfie Ceck",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -19156,7 +19156,7 @@ RP.PropEmotes = {
         "girl_groupe_b_clip",
         "Selfie High",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -19198,7 +19198,7 @@ RP.PropEmotes = {
         "base",
         "Selfie Peace",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -19240,7 +19240,7 @@ RP.PropEmotes = {
         "base",
         "Selfie Crouching",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -19282,7 +19282,7 @@ RP.PropEmotes = {
         "girl",
         "Selfie Crouching 2",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -19326,7 +19326,7 @@ RP.PropEmotes = {
         "insta_selfie_clip",
         "Selfie Crouching 3",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -19368,7 +19368,7 @@ RP.PropEmotes = {
         "selfie_risque_clip",
         "Selfie Crouching 4",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -19410,7 +19410,7 @@ RP.PropEmotes = {
         "cute_selfie_clip",
         "Selfie E Girl",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -19452,7 +19452,7 @@ RP.PropEmotes = {
         "slutarch_selfie_clip",
         "Selfie Slut Pose",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -19496,7 +19496,7 @@ RP.PropEmotes = {
         "female_sitting_selfie_clip",
         "Selfie Sitting",
         AnimationOptions = {
-            Prop = 'prop_phone_taymckenzienz',
+            Prop = 'prop_phone_ing',
             PropBone = 57005,
             PropPlacement = {
                 0.1380,
@@ -19525,7 +19525,7 @@ RP.PropEmotes = {
         "boy",
         "Selfie Sitting 2",
         AnimationOptions = {
-            Prop = 'prop_phone_taymckenzienz',
+            Prop = 'prop_phone_ing',
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -19567,7 +19567,7 @@ RP.PropEmotes = {
         "single77_clip",
         "Selfie Sitting 3",
         AnimationOptions = {
-            Prop = 'prop_phone_taymckenzienz',
+            Prop = 'prop_phone_ing',
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -19611,7 +19611,7 @@ RP.PropEmotes = {
         "single89_clip",
         "Selfie Sitting 4",
         AnimationOptions = {
-            Prop = 'prop_phone_taymckenzienz',
+            Prop = 'prop_phone_ing',
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -19653,7 +19653,7 @@ RP.PropEmotes = {
         "single83_clip",
         "Selfie Sitting 5",
         AnimationOptions = {
-            Prop = 'prop_phone_taymckenzienz',
+            Prop = 'prop_phone_ing',
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -19697,7 +19697,7 @@ RP.PropEmotes = {
         "fuck_you_selfie_clip",
         "Selfie Middle Finger",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -19739,7 +19739,7 @@ RP.PropEmotes = {
         "sitting_thot_clip",
         "Selfie Thot Instagram",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -19783,7 +19783,7 @@ RP.PropEmotes = {
         "floor_cute_clip",
         "Selfie Floor Instagram",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -19827,7 +19827,7 @@ RP.PropEmotes = {
         "f_selfie_04_clip",
         "Selfie Floor 2",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -19881,7 +19881,7 @@ RP.PropEmotes = {
                -11.5083,
                 29.4987
             },
-            SecondProp = 'prop_phone_taymckenzienz',
+            SecondProp = 'prop_phone_ing',
             PropTextureVariations = {
                 { Name = "<font color=\"#00A0F4\">Blue", Value = 0 },
                 { Name = "<font color=\"#1AA20E\">Green", Value = 1 },
@@ -19924,7 +19924,7 @@ RP.PropEmotes = {
         "selfie001",
         "Selfie Sexy",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -19966,7 +19966,7 @@ RP.PropEmotes = {
         "selfie002",
         "Selfie Sexy 2",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20008,7 +20008,7 @@ RP.PropEmotes = {
         "selfie003",
         "Selfie Sexy 3 - Squat",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20050,7 +20050,7 @@ RP.PropEmotes = {
         "selfie004",
         "Selfie Sexy 4",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20092,7 +20092,7 @@ RP.PropEmotes = {
         "selfie005",
         "Selfie Sexy 5",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20134,7 +20134,7 @@ RP.PropEmotes = {
         "freeselfie01",
         "Selfie Cute",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20176,7 +20176,7 @@ RP.PropEmotes = {
         "freeselfie02",
         "Selfie Cute 2",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20218,7 +20218,7 @@ RP.PropEmotes = {
         "freeselfie03",
         "Selfie Cute 3",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20260,7 +20260,7 @@ RP.PropEmotes = {
         "1foot_selfie_clip",
         "Selfie Cute 4",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20302,7 +20302,7 @@ RP.PropEmotes = {
         "girl",
         "Selfie Cute 5",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20344,7 +20344,7 @@ RP.PropEmotes = {
         "booty_selfie_clip",
         "Selfie Beach Bum",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20396,7 +20396,7 @@ RP.PropEmotes = {
                 -178.3549,
                 69.1794
             },
-            SecondProp = 'prop_phone_taymckenzienz',-- Cell Phone Left Finger 21
+            SecondProp = 'prop_phone_ing',-- Cell Phone Left Finger 21
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20438,7 +20438,7 @@ RP.PropEmotes = {
         "heartselfie_clip",
         "Selfie Heart Hands",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20480,7 +20480,7 @@ RP.PropEmotes = {
         "mirrorselfie_clip",
         "Selfie Middle Finger 2",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20532,7 +20532,7 @@ RP.PropEmotes = {
                 1.3049,
                -2.8863
             },
-            SecondProp = "prop_phone_taymckenzienz",
+            SecondProp = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20577,7 +20577,7 @@ RP.PropEmotes = {
         "boy",
         "Selfie Male Pose",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20619,7 +20619,7 @@ RP.PropEmotes = {
         "single81_clip",
         "Selfie Meh",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20670,7 +20670,7 @@ RP.PropEmotes = {
                  1.2898,
                 -19.9222
             },
-            SecondProp = 'prop_phone_taymckenzienz',
+            SecondProp = 'prop_phone_ing',
             PropTextureVariations = {
                 { Name = "<font color=\"#00A0F4\">Blue", Value = 0 },
                 { Name = "<font color=\"#1AA20E\">Green", Value = 1 },
@@ -20712,7 +20712,7 @@ RP.PropEmotes = {
     "mirror_selfie_1_clip",
     "Female Mirror Selfie",
     AnimationOptions = { -- Custom emote by Janina234
-        Prop = "prop_phone_taymckenzienz",
+        Prop = "prop_phone_ing",
         PropTextureVariations = {
             {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
             {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20754,7 +20754,7 @@ RP.PropEmotes = {
     "mirror_selfie_8_clip",
     "Female Mirror Selfie 1",
     AnimationOptions = { -- Custom emote by Dark
-    Prop = "prop_phone_taymckenzienz",
+    Prop = "prop_phone_ing",
     PropTextureVariations = {
         {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
         {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20828,7 +20828,7 @@ RP.PropEmotes = {
     "m_model_08_clip",
     "Male Mirror Selfie",
     AnimationOptions = {
-        Prop = 'prop_phone_taymckenzienz',
+        Prop = 'prop_phone_ing',
         PropTextureVariations = {
             {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
             {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20870,7 +20870,7 @@ RP.PropEmotes = {
     "m_selfie_08_clip",
     "Male Mirror Selfie 1",
     AnimationOptions = {
-        Prop = 'prop_phone_taymckenzienz',
+        Prop = 'prop_phone_ing',
         PropTextureVariations = {
             {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
             {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20912,7 +20912,7 @@ RP.PropEmotes = {
     "m_selfie_06_clip",
     "Male Mirror Selfie 2",
     AnimationOptions = {
-        Prop = 'prop_phone_taymckenzienz',
+        Prop = 'prop_phone_ing',
         PropTextureVariations = {
             {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
             {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20956,7 +20956,7 @@ RP.PropEmotes = {
     "m_model_03_clip",
     "Male Mirror Selfie 4",
     AnimationOptions = {
-        Prop = 'prop_phone_taymckenzienz',
+        Prop = 'prop_phone_ing',
         PropTextureVariations = {
             {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
             {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -20998,7 +20998,7 @@ RP.PropEmotes = {
     "m_selfie_09_clip",
     "Male Mirror Selfie 3",
     AnimationOptions = {
-        Prop = 'prop_phone_taymckenzienz',
+        Prop = 'prop_phone_ing',
         PropTextureVariations = {
             {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
             {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -21486,7 +21486,7 @@ RP.PropEmotes = {
                -53.8020,
                -34.4621
             },
-            SecondProp = 'prop_phone_taymckenzienz',
+            SecondProp = 'prop_phone_ing',
             PropTextureVariations = {
                 { Name = "<font color=\"#00A0F4\">Blue", Value = 0 },
                 { Name = "<font color=\"#1AA20E\">Green", Value = 1 },
@@ -21765,7 +21765,7 @@ RP.PropEmotes = {
         "cellphone_text_read_base",
         "Phone",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -21794,7 +21794,7 @@ RP.PropEmotes = {
         "cellphone_text_read_base",
         "SMS",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -21838,7 +21838,7 @@ RP.PropEmotes = {
         "cellphone_text_read_base",
         "SMS 2",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -21882,7 +21882,7 @@ RP.PropEmotes = {
         "cellphone_email_read_base",
         "SMS 3",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -21926,7 +21926,7 @@ RP.PropEmotes = {
         "cellphone_text_read_base_cover_low",
         "SMS 4",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -21970,7 +21970,7 @@ RP.PropEmotes = {
         "static",
         "SMS 5",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -22014,7 +22014,7 @@ RP.PropEmotes = {
         "mrwitt",
         "SMS Sit",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -22713,7 +22713,7 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            SecondProp = 'prop_phone_taymckenzienz',
+            SecondProp = 'prop_phone_ing',
             PropTextureVariations = {
                 { Name = "<font color=\"#00A0F4\">Blue", Value = 0 },
                 { Name = "<font color=\"#1AA20E\">Green", Value = 1 },
@@ -22980,7 +22980,7 @@ RP.PropEmotes = {
         AnimationOptions = {
             EmoteMoving = false,
             EmoteLoop = true,
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
@@ -23211,7 +23211,7 @@ RP.PropEmotes = {
               -180.0000,
                -79.9999
             },
-            SecondProp = 'prop_phone_taymckenzienz',
+            SecondProp = 'prop_phone_ing',
             PropTextureVariations = {
                 { Name = "<font color=\"#00A0F4\">Blue", Value = 0 },
                 { Name = "<font color=\"#1AA20E\">Green", Value = 1 },
@@ -24764,7 +24764,7 @@ RP.PropEmotes = {
              -180.0000,
                 6.9999
             },
-            SecondProp = 'prop_phone_taymckenzienz',
+            SecondProp = 'prop_phone_ing',
             PropTextureVariations = {
                 { Name = "<font color=\"#00A0F4\">Blue", Value = 0 },
                 { Name = "<font color=\"#1AA20E\">Green", Value = 1 },
@@ -25129,7 +25129,7 @@ RP.PropEmotes = {
         "baddiegyat_clip",
         "Baddie Gyat Selfie",
         AnimationOptions = {
-            Prop = "prop_phone_taymckenzienz",
+            Prop = "prop_phone_ing",
             PropTextureVariations = {
                 {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
                 {Name = "<font color=\"#1AA20E\">Green", Value = 1},
