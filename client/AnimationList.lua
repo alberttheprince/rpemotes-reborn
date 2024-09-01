@@ -13786,9 +13786,9 @@ RP.PropEmotes = {
     ["soda5"] = {
        "amb@code_human_wander_drinking@male@base",
         "static",
-        "Soda 5 - eCola Cup",
+        "Soda 5 - Cluckin Bell",
         AnimationOptions = {
-            Prop = 'v_62_ecolacup002',
+            Prop = 'ng_proc_sodacup_01b',
             PropBone = 28422,
             PropPlacement = {
                 0.0060,
@@ -13805,9 +13805,9 @@ RP.PropEmotes = {
     ["soda6"] = {
         "amb@code_human_wander_drinking@male@base",
         "static",
-        "Soda 6 - eCola Light Cup",
+        "Soda 6 - Up-n-Atom Cup",
         AnimationOptions = {
-            Prop = 'v_62_ecolacup01',
+            Prop = 'ng_proc_sodacup_01c',
             PropBone = 28422,
             PropPlacement = {
                 0.0060,
@@ -13976,9 +13976,9 @@ RP.PropEmotes = {
     ["sipsodac"] = {
         "smo@milkshake_idle",
         "milkshake_idle_clip",
-        "Sip Soda Cup - eCola",
+        "Sip Soda Cup - Cluckin Bell",
         AnimationOptions = {
-            Prop = 'v_62_ecolacup002',
+            Prop = 'ng_proc_sodacup_01b',
             PropBone = 28422,
             PropPlacement = {
                0.0470,
@@ -13995,9 +13995,9 @@ RP.PropEmotes = {
     ["sipsodad"] = {
         "smo@milkshake_idle",
         "milkshake_idle_clip",
-        "Sip Soda Cup - eCola Light",
+        "Sip Soda Cup - Up-n-Atom",
         AnimationOptions = {
-            Prop = 'v_62_ecolacup01',
+            Prop = 'ng_proc_sodacup_01c',
             PropBone = 28422,
             PropPlacement = {
                0.0470,
