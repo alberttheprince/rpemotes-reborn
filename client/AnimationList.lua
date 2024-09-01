@@ -13788,7 +13788,7 @@ RP.PropEmotes = {
         "static",
         "Soda 5 - eCola Cup",
         AnimationOptions = {
-            Prop = 'prop_rpemotes_soda03',
+            Prop = 'v_62_ecolacup002',
             PropBone = 28422,
             PropPlacement = {
                 0.0060,
@@ -13978,7 +13978,7 @@ RP.PropEmotes = {
         "milkshake_idle_clip",
         "Sip Soda Cup - eCola",
         AnimationOptions = {
-            Prop = 'prop_rpemotes_soda03',
+            Prop = 'v_62_ecolacup002',
             PropBone = 28422,
             PropPlacement = {
                0.0470,
