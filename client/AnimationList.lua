@@ -24431,7 +24431,7 @@ RP.PropEmotes = {
         "play_saxophone_clip",
         "Saxophone 1",
         AnimationOptions = {
-            Prop = 'rpemotes_prop_saxophone01',
+            Prop = 'p_ld_sax',
             PropBone = 57005,
             PropPlacement = {
                0.0700,
@@ -24450,7 +24450,7 @@ RP.PropEmotes = {
        "play_saxophone_clip",
         "Saxophone 2",
         AnimationOptions = {
-            Prop = 'rpemotes_prop_saxophone02',
+            Prop = 'p_ld_sax',
             PropBone = 57005,
             PropPlacement = {
                0.0700,
