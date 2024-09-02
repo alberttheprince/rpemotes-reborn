@@ -1195,7 +1195,7 @@ end
 
 function PlayExitAndEnterEmote(emoteName, name, textureVariation)
     local ply = PlayerPedId()
-    if not CanCancel and force ~= true then return end
+    if not CanCancel then return end
     if ChosenDict == "MaleScenario" and IsInAnimation then
         ClearPedTasksImmediately(ply)
         IsInAnimation = false
