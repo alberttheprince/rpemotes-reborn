@@ -24445,25 +24445,6 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
    },
-    ["sax2"] = {
-       "play_saxophone@dark",
-       "play_saxophone_clip",
-        "Saxophone 2",
-        AnimationOptions = {
-            Prop = 'p_ld_sax',
-            PropBone = 57005,
-            PropPlacement = {
-               0.0700,
-               0.0400,
-               0.0300,
-             -71.2242,
-              29.3364,
-               5.9514
-            },
-            EmoteLoop = true,
-            EmoteMoving = true
-        }
-   },
    ["poolcue"] = {
        "pool_pack_1@dark",
        "pool_pack_1_clip",
