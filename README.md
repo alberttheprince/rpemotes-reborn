@@ -466,7 +466,7 @@ All animation creators have **_specifically_** asked that their content remain f
 - [Mads](https://github.com/MadsLeander) for joining the team as Co-Developer
 - [Mathu_lmn](https://github.com/Mathu-lmn) for joining the team as Co-Developer
 - [Tigerle](https://forum.cfx.re/u/tigerle_studios) for providing the additional code required to make Shared Emotes work to its full extent
-- [SMGMissy](https://forum.cfx.re/u/smgmissy/) for assisting with custom pride flags and how to stream them
+- [SMGMissy](https://jenscreations.tebex.io/) for creating the pride flag props
 - [MissSnowie](https://www.gta5-mods.com/users/MissySnowie) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord and for the motivational and overall moral support
 - [GeekGarage](https://github.com/geekgarage) for their knowledge, time, and dedication, helping to bring new and exciting features to the menu
 - [Smokey](https://www.gta5-mods.com/users/struggleville) for the Explicit Usage Rights Agreement to add free custom animations either publicly available on their discord
@@ -506,10 +506,10 @@ All animation creators have **_specifically_** asked that their content remain f
 - [PNWParksFan](https://www.gta5-mods.com/users/PNWParksFan) for the custom props
 - [LSPDFR member Sam](https://www.lcpdfr.com/downloads/gta5mods/misc/23386-lspd-police-badge/) for their Custom LSPD police badge
 - [GTA5Mods user Sladus_Slawonkus](https://www.gta5-mods.com/misc/lspd-police-badge-replace-sladus_slawonkus) for their reskinned LSPD badge
-- [Scully](https://github.com/Scullyy/) For their past work on rpemotes
+- [Scully](https://github.com/Scullyy/) for their past work on rpemotes
 - [EP](https://github.com/EpKouhia) for their ice fishing props and emotes, originally used in scully_emotemenu
 - [TayMcKenzieNZ](https://github.com/TayMcKenzieNZ) for their past work maintaining RP Emotes
 - [ESX](https://github.com/esx-framework) for the creation of the translation system
-- [41anims](https://www.gta5-mods.com/users/41anims) For allowing us to use their custom emotes in rpemotes-reborn
-- [corbs](https://www.gta5-mods.com/users/corbs) For allow us to use their custom emotes and poses in rpemotes-reborn
-- [jaysigx](https://www.gta5-mods.com/misc/improved-umbrella) For allowing us to use their improved umbrella prop
+- [41anims](https://www.gta5-mods.com/users/41anims) for allowing us to use their custom emotes in rpemotes-reborn
+- [corbs](https://www.gta5-mods.com/users/corbs) for allowing us to use their custom emotes and poses in rpemotes-reborn
+- [jaysigx](https://www.gta5-mods.com/misc/improved-umbrella) for allowing us to use their improved umbrella prop
