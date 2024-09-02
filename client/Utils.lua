@@ -147,7 +147,7 @@ end
 function GetClosestPlayer()
     local players = GetPlayers()
     local closestDistance = -1
-    local closestPlayer = -1
+    local closestPlayer
     local ply = PlayerPedId()
     local plyCoords = GetEntityCoords(ply, 0)
 
@@ -179,7 +179,7 @@ function GetPlayers()
 end
 
 ---Function that'll check if player is already proning, using news cam or else
----@param ignores? array|nil key string is the ignored value
+---@param ignores? table | nil key string is the ignored value
 function isInActionWithErrorMessage(ignores)
     DebugPrint(ignores)
     DebugPrint('IsProne', IsProne)
