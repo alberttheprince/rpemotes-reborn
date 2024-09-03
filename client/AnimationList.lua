@@ -11281,7 +11281,7 @@ RP.PropEmotes = {
             },
             PtfxInfo = Translate('cut'),
             PtfxWait = 0.8,
-            PtfxCanHold = false -- we set this to false, but yet it allows us to hold, which is the OPPOSITE of what it claims to do!? HUH!?? AVANOX!!
+            PtfxCanHold = false -- we set this to false, but yet it allows us to hold
         }
     },
 	["carryextinguisher"] = {

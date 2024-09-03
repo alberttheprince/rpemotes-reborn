@@ -44,6 +44,7 @@ Locales['cs'] = {
         ['stun'] = "Stiskni ~y~G~w~ pro použití paralyzéru.",
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Stiskni ~y~G~w~ pro použití vapky.",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['boundto'] = "Bound (%s) to %s",
         ['currentlyboundemotes'] = "Momentálně nastavené animace:",
         ['notvalidkey'] = "Není platná klávesa.",

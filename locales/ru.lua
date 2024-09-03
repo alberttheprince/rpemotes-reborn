@@ -52,6 +52,7 @@ Locales['ru'] = {
         ['stun'] = "Нажмите ~y~G~w~ ,чтобы 'использовать' шокер.",
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Нажмите ~y~G~w~ чтобы вейпить.",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['boundto'] = "Связать (~y~%s~w~) для ~g~%s~w~",
         ['currentlyboundemotes'] = " Текущие привязанные эмоции:",
         ['notvalidkey'] = "недопустимая клавиша.",

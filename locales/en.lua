@@ -52,6 +52,7 @@ Locales['en'] = {
     ['stun'] = "Press ~y~G~w~ to 'use' stun gun.",
     ['smoke'] = "Press ~y~G~w~ to smoke.",
     ['vape'] = "Press ~y~G~w~ to vape.",
+    ['candle'] = "press ~y~G~w~ to light candle.",
     ['boundto'] = "Bound (~y~%s~w~) to ~g~%s~w~",
     ['handsup'] = "Hands up",
     ['currentlyboundemotes'] = "Currently bound emotes:",

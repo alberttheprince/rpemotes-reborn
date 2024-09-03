@@ -52,6 +52,7 @@ Locales['zhcn'] = {
         ['stun'] = "按 ~y~G~w~ '使用'电击枪。",
         ['smoke'] = "按 ~y~G~w~ 吸烟。",
         ['vape'] = "按 ~y~G~w~ 吸电子烟。",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['boundto'] = "绑定 (~y~%s~w~) 到 ~g~%s~w~",
         ['handsup'] = "举手",
         ['currentlyboundemotes'] = "当前绑定的动作:",

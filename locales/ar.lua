@@ -44,6 +44,7 @@ Locales['ar'] = {
         ['stun'] = "اضغط ~y~G~w~ لاستخدام بندقية حصرية",
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "اضغط ~y~G~w~ لتدخين الفيب.",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['boundto'] = "%s مرتبط إلى (%s)",
         ['currentlyboundemotes'] = " الحركات المشغلة حاليا:",
         ['notvalidkey'] = "كبسة غير صالحة",

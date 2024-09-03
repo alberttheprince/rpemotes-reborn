@@ -44,6 +44,7 @@ Locales['zhtw'] = {
         ['stun'] = "按 ~y~G~w~ '使用' 麻醉槍。",
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "按 ~y~G~w~ 使用電子煙。",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['boundto'] = "綁定 (~y~%s~w~) 到 ~g~%s~w~",
         ['currentlyboundemotes'] = " 當前綁定的動作:",
         ['notvalidkey'] = "不是有效的按鍵。",

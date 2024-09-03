@@ -44,6 +44,7 @@ Locales['da'] = {
         ['stun'] = "Tryk på ~y~G~w~ for at bruge elektrisk pistol.",
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Press ~y~G~w~ to vape.",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['boundto'] = "Bound (%s) to %s",
         ['currentlyboundemotes'] = " Keybind animationer:",
         ['notvalidkey'] = "er ikke en gyldigt nøgle.",

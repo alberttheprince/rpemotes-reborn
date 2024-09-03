@@ -43,6 +43,7 @@ Locales['es'] = {
         ['spraychamp'] = "Mantén la ~y~G~w~ para rociar champán.",
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Presione ~y~G~w~ para vapear.",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['boundto'] = "Unida (%s) a %s", 
         ['currentlyboundemotes'] = " Emotes vinculados actualmente:",
         ['notvalidkey'] = "no es una clave válida.",

@@ -44,6 +44,7 @@ Locales['lk'] = {
         ['stun'] = "Stun karanna ~y~G~w~ press karanna.",
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Vape ekata ~y~G~w~ press karanna.",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['boundto'] = "Bound karanna (~y~%s~w~) ta ~g~%s~w~",
         ['currentlyboundemotes'] = " Denata bound karapu emotes:",
         ['notvalidkey'] = "kiyanne weradi key ekak.",

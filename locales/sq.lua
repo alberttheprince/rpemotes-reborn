@@ -44,6 +44,7 @@ Locales['sq'] = {
 		['stun'] = "Shtyp ~y~G~w~ për të 'përdorur' armën qetësuese.",
         ['smoke'] = "Press ~y~G~w~ to smoke.",
 		['vape'] = "Shtyp ~y~G~w~ për të vape.",
+		['candle'] = "press ~y~G~w~ to light candle.",
 		['boundto'] = "I lidhur (~y~%s~w~) me ~g~%s~w~",
 		['currentlyboundemotes'] = " Emotet momentalisht të lidhura:",
 		['notvalidkey'] = "nuk është një çelës i vlefshëm.",

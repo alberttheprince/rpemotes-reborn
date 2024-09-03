@@ -52,6 +52,7 @@ Locales['tr'] = {
        ['stun'] = "Şok tabancasını kullanmak için ~y~G~w~ tuşuna basın",
        ['smoke'] = "Sigara içmek için ~y~G~w~ tuşuna basın",
        ['vape'] = "Puff çekmek için ~y~G~w~ tuşuna basın",
+       ['candle'] = "press ~y~G~w~ to light candle.",
        ['boundto'] = "(~y~%s~w~) animasyonu ~g~%s~w~ animasyonuna bağlandı",
        ['handsup'] = "Ellerini kaldır",
        ['currentlyboundemotes'] = "Bağlı animasyonlar:",

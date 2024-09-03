@@ -44,6 +44,7 @@ Locales['fa'] = {
         ['stun'] = "Press ~y~G~w~ baray 'use' tofang bihoshi.",
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "entekhab ~y~G~w~ to vape.",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['boundto'] = "Bound (%s) baray %s",
         ['currentlyboundemotes'] = " emote mahdod ast:",
         ['notvalidkey'] = "vojod nadarad.",

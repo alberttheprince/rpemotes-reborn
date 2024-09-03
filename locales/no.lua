@@ -44,6 +44,7 @@ Locales['no'] = {
         ['stun'] = "Trykk ~y~G~w~ for å 'bruke' elektrosjokkvåpenet.",
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Trykk ~y~G~w~ for å vape.",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['boundto'] = "Du har bundet (~y~%s~w~) til ~g~%s~w~",
         ['currentlyboundemotes'] = " Dine bundne animasjoner:",
         ['notvalidkey'] = "er ikke en gyldig tast.",

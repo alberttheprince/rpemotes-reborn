@@ -45,6 +45,7 @@ Locales['it'] = {
         ['boundto'] = "Bound (~y~%s~w~) to ~g~%s~w~",
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Press ~y~G~w~ to vape.",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['currentlyboundemotes'] = " Animazioni correnti:",
         ['notvalidkey'] = "non è una chiave valida.",
         ['keybinds'] = "🔢 Tasti",
