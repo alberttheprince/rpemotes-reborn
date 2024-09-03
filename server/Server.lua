@@ -123,6 +123,7 @@ local function ExtractEmoteProps(format)
     -- open file for writing
     local file = io.open(path, 'w')
 
+    assert(file, 'Failed to open file for writing: '..path)
     -- loop through each key-value pair in the table
     -- tables that has props:
     -- RP.PropEmotes

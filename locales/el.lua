@@ -44,6 +44,7 @@ Locales['el'] = {
         ['stun'] = "Πάτησε ~y~G~w~ για να 'χρησιμοποιήσεις' πιστόλι ακινητοποίησης.",
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Πάτησε ~y~G~w~ για να ατμίσεις.",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['bound'] = "Σύνδεση  (%s) στο  %s",
         ['currentlyboundemotes'] = " Τωρινές συντομεύσεις κινήσεων:",
         ['notvalidkey'] = "δεν είναι σωστό κουμπί.",

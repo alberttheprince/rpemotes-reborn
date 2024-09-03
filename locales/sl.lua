@@ -44,6 +44,7 @@ Locales['sl'] = {
 		['stun'] = "Pritisnite ~y~G~w~, da 'uporabite' električni šoker.",
 		['smoke'] = "Pritisnite ~y~G~w~, da kadite.",
 		['vape'] = "Pritisnite ~y~G~w~, da vape-ate.",
+		['candle'] = "press ~y~G~w~ to light candle.",
 		['boundto'] = "Vezan (~y~%s~w~) na ~g~%s~w~",
 		['currentlyboundemotes'] = "Trenutno vezani emote:",
 		['notvalidkey'] = "ni veljavna tipka.",

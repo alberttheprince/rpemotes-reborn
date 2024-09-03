@@ -44,6 +44,7 @@ Locales['hu'] = {
         ['stun'] = "Nyomj ~y~G~w~ gombot hogy 'használd' a sokkolót.",
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Nyomj ~y~G~w~ gombot a vapeeléshez.",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['boundto'] = "Rögzített (%s) ehhez %s",
         ['currentlyboundemotes'] = " Jelenleg rögzített animációk:",
         ['notvalidkey'] = "nem érvényes gombkiosztás.",

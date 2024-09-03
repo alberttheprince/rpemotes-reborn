@@ -44,6 +44,7 @@ Locales['pl'] = {
         ['stun'] = "Wciśnij ~y~G~w~ by 'użyć' tazera.",
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Press ~y~G~w~ to vape.",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['boundto'] = "Przypisz (~y~%s~w~) do ~g~%s~w~",
         ['currentlyboundemotes'] = " Aktualnie przypisane animacje:",
         ['notvalidkey'] = "nie jest poprawnym klawiszem.",

@@ -43,6 +43,7 @@ Locales['de'] = {
         ['spraychamp'] = "Halte ~y~G~w~ um Champagner zu sprühen",
         ['smoke'] = "Halte ~y~G~w~ um zu rauchen.",
         ['vape'] = "Halte ~y~G~w~ um zu vapen.",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['boundto'] = "Bound (%s) to %s",
         ['currentlyboundemotes'] = " Derzeit gebundene Emotes:",
         ['notvalidkey'] = "ist kein gültiger Schlüssel.",

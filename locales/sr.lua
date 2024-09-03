@@ -43,6 +43,7 @@ Locales['sr'] = {
         ['spraychamp'] = "Drži ~y~G~w~ da pršćeš šampanjac",
         ['stun'] = "Pritisni ~y~G~w~ da 'koristiš' tejzer.",
         ['vape'] = "Pritisni ~y~G~w~ da vejpuješ.",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['boundto'] = "Bound-ano (~y~%s~w~) na ~g~%s~w~",
         ['currentlyboundemotes'] = " Trenutne bound-ane animacije:",
         ['notvalidkey'] = "nije validan ključ.",

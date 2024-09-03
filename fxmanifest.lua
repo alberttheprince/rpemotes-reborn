@@ -20,7 +20,6 @@ dependencies{
 -- server_script '@oxmysql/lib/MySQL.lua'
 --#endregion oxmysql
 files{
-    'propsets.meta',
     'conditionalanims.meta',
     'header.png'
 }
@@ -63,7 +62,7 @@ client_scripts{
 
 ---- Loads all ytyp files for custom props to stream ---
 ---- You will need to add a data_file 'DLC_ITYP_REQUEST' for your own to work in game ---
-data_file 'DLC_ITYP_REQUEST' 'stream/taymckenzienz_rpemotes.ytyp'
+data_file 'DLC_ITYP_REQUEST' 'stream/rpemotesreborn_props.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/brummie_props.ytyp'
 

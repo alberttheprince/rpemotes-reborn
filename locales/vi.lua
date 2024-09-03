@@ -44,6 +44,7 @@ Locales['vi'] = {
         ['stun'] = "Nhấn ~y~G~w~ Để 'sử dụng' súng gây choáng.",
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Nhấn ~y~G~w~ để sử dụng thuốc lá điện tử.",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['boundto'] = "Đặt (~y~%s~w~) thành ~g~%s~w~",
         ['currentlyboundemotes'] = "Hành động đã gắn: ",
         ['notvalidkey'] = "không khả dụng.",

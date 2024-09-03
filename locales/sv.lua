@@ -43,6 +43,7 @@ Locales['sv'] = {
         ['spraychamp'] = "Håll ~y~G~w~ för att spraya champagne.",
         ['stun'] = "Tryck ~y~G~w~ för att \"änvända\" elpistol",
         ['vape'] = "Tryck ~y~G~w~ för att puffa på din vape.",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['boundto'] = "Bunden (~y~%s~w~) till ~g~%s~w~",
         ['currentlyboundemotes'] = " För närvarande bundna emotes:",

@@ -386,7 +386,7 @@
       <Name>PHONES</Name>
       <Models>
 		<Item>
-          <Name>Prop_Phone_Taymckenzienz</Name>
+          <Name>prop_phone_ING</Name>
           <Variations type="NULL" />
           <Probability value="0.500000" />
         </Item>

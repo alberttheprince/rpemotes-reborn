@@ -44,6 +44,7 @@ Locales['fi'] = {
         ['stun'] = "Paina ~y~G~w~ 'käyttääksesi' etälamautinta.",
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Paina ~y~G~w~ käyttääksesi vapea.",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['boundto'] = "Bindata (%s) näppäimeen %s",
         ['currentlyboundemotes'] = "Bindatut animaatiot:",
         ['notvalidkey'] = "ei ole käytettävä näppäin.",

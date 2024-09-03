@@ -52,6 +52,7 @@ Locales['lt'] = {
     ['stun'] = "Paspauskite ~y~G~w~, kad 'naudotumete' apsvaiginimo pistoleta.",
     ['smoke'] = "Press ~y~G~w~ to smoke.",
     ['vape'] = "Paspauskite ~y~G~w~, kad garuotumete",
+    ['candle'] = "press ~y~G~w~ to light candle.",
     ['boundto'] = "Suristi (~y~%s~w~) I ~g~%s~w~",
     ['handsup'] = "pakelti rankas",
     ['currentlyboundemotes'] = " Siuo metu susietos animacijos:",

@@ -43,6 +43,7 @@ Locales['fr'] = {
         ['spraychamp'] = "Appuyez sur <b>G</b> pour vaporiser du champagne.",
         ['smoke'] = "Appuyez sur <b>G</b> pour fumer.",
         ['vape'] = "Appuyez sur <b>G</b> pour vapoter.",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['boundto'] = "Liée (%s) à %s",
         ['currentlyboundemotes'] = " Emotes actuellement liées:",
         ['notvalidkey'] = "n'est pas une clé valide.",

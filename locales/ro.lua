@@ -44,6 +44,7 @@ Locales['ro'] = {
         ['stun'] = "Apasa ~y~G~w~ pentru a 'folosi' electrosocul.",
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Press ~y~G~w~ to vape.",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['boundto'] = "Binduite (~y~%s~w~) la ~g~%s~w~",
         ['currentlyboundemotes'] = " Emote-uri prezent binduite:",
         ['notvalidkey'] = "nu este o tasta valida.",

@@ -11281,7 +11281,7 @@ RP.PropEmotes = {
             },
             PtfxInfo = Translate('cut'),
             PtfxWait = 0.8,
-            PtfxCanHold = false -- we set this to false, but yet it allows us to hold, which is the OPPOSITE of what it claims to do!? HUH!?? AVANOX!!
+            PtfxCanHold = false -- we set this to false, but yet it allows us to hold
         }
     },
 	["carryextinguisher"] = {
@@ -13786,9 +13786,9 @@ RP.PropEmotes = {
     ["soda5"] = {
        "amb@code_human_wander_drinking@male@base",
         "static",
-        "Soda 5 - eCola Cup",
+        "Soda 5 - Hercules Power Fuel Cup",
         AnimationOptions = {
-            Prop = 'v_62_ecolacup002',
+            Prop = 'rpemotesreborn_soda03',
             PropBone = 28422,
             PropPlacement = {
                 0.0060,
@@ -13805,9 +13805,9 @@ RP.PropEmotes = {
     ["soda6"] = {
         "amb@code_human_wander_drinking@male@base",
         "static",
-        "Soda 6 - eCola Light Cup",
+        "Soda 6 - Orang-O-Tang Cup",
         AnimationOptions = {
-            Prop = 'v_62_ecolacup01',
+            Prop = 'rpemotesreborn_soda04',
             PropBone = 28422,
             PropPlacement = {
                 0.0060,
@@ -13824,9 +13824,9 @@ RP.PropEmotes = {
     ["soda7"] = {
         "amb@code_human_wander_drinking@male@base",
         "static",
-        "Soda 7- Sprunk Cup",
+        "Soda 7- Junk Cup",
         AnimationOptions = {
-            Prop = 'prop_rpemotes_soda01',
+            Prop = 'rpemotesreborn_soda01',
             PropBone = 28422,
             PropPlacement = {
                 0.0060,
@@ -13843,9 +13843,9 @@ RP.PropEmotes = {
     ["soda8"] = {
         "amb@code_human_wander_drinking@male@base",
         "static",
-        "Soda 8 - Sprunk Light Cup",
+        "Soda 8 - Junk Cup",
         AnimationOptions = {
-            Prop = 'prop_rpemotes_soda02',
+            Prop = 'rpemotesreborn_soda02',
             PropBone = 28422,
             PropPlacement = {
                 0.0060,
@@ -13938,9 +13938,9 @@ RP.PropEmotes = {
     ["sipsoda"] = {
         "smo@milkshake_idle",
         "milkshake_idle_clip",
-        "Sip Soda Cup - Sprunk",
+        "Sip Soda Cup - Junk",
         AnimationOptions = {
-            Prop = 'prop_rpemotes_soda01',
+            Prop = 'rpemotesreborn_soda01',
             PropBone = 28422,
             PropPlacement = {
                0.0470,
@@ -13953,13 +13953,13 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true
         }
-   },
+    },
     ["sipsodab"] = {
         "smo@milkshake_idle",
         "milkshake_idle_clip",
-        "Sip Soda Cup - Sprunk Light",
+        "Sip Soda Cup - Sprunk",
         AnimationOptions = {
-            Prop = 'prop_rpemotes_soda02',
+            Prop = 'rpemotesreborn_soda02',
             PropBone = 28422,
             PropPlacement = {
                0.0470,
@@ -13972,13 +13972,13 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true
         }
-   },
+    },
     ["sipsodac"] = {
         "smo@milkshake_idle",
         "milkshake_idle_clip",
-        "Sip Soda Cup - eCola",
+        "Sip Soda Cup - Hercules Power Fuel",
         AnimationOptions = {
-            Prop = 'v_62_ecolacup002',
+            Prop = 'rpemotesreborn_soda03',
             PropBone = 28422,
             PropPlacement = {
                0.0470,
@@ -13991,13 +13991,13 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true
         }
-   },
+    },
     ["sipsodad"] = {
         "smo@milkshake_idle",
         "milkshake_idle_clip",
-        "Sip Soda Cup - eCola Light",
+        "Sip Soda Cup - Orang-O-Tang",
         AnimationOptions = {
-            Prop = 'v_62_ecolacup01',
+            Prop = 'rpemotesreborn_soda04',
             PropBone = 28422,
             PropPlacement = {
                0.0470,
@@ -14010,7 +14010,7 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true
         }
-   },
+    },
     ["dbsoda"] = {
        "amb@code_human_wander_drinking@male@base",
         "static",
@@ -15271,7 +15271,7 @@ RP.PropEmotes = {
         "idle_b",
         "Guitar 3 - Pink",
         AnimationOptions = {
-            Prop = 'prop_tay_guitar_001',
+            Prop = 'prop_rpemotesreborn_guitar_001',
             PropBone = 24818,
             PropPlacement = {
                 -0.1,
@@ -15290,7 +15290,7 @@ RP.PropEmotes = {
         "001370_02_trvs_8_guitar_beatdown_idle_busker",
         "Guitar 4 - Pink",
         AnimationOptions = {
-            Prop = 'prop_tay_guitar_001',
+            Prop = 'prop_rpemotesreborn_guitar_001',
             PropBone = 24818,
             PropPlacement = {
                 -0.05,
@@ -15309,7 +15309,7 @@ RP.PropEmotes = {
         "idle_b",
         "Guitar - Pride",
         AnimationOptions = {
-            Prop = 'prop_tay_guitar_002',
+            Prop = 'prop_rpemotesreborn_guitar_002',
             PropBone = 24818,
             PropPlacement = {
                 -0.1,
@@ -15328,7 +15328,7 @@ RP.PropEmotes = {
         "001370_02_trvs_8_guitar_beatdown_idle_busker",
         "Guitar - Pride 2",
         AnimationOptions = {
-            Prop = 'prop_tay_guitar_002',
+            Prop = 'prop_rpemotesreborn_guitar_002',
             PropBone = 24818,
             PropPlacement = {
                 -0.05,
@@ -15423,7 +15423,7 @@ RP.PropEmotes = {
         "idle",
         "Guitar Carry Accoustic - Pink",
         AnimationOptions = {
-            Prop = "prop_tay_guitar_001",
+            Prop = "prop_rpemotesreborn_guitar_001",
             PropBone = 28422,
             PropPlacement = {
                 0.1500,
@@ -15442,7 +15442,7 @@ RP.PropEmotes = {
         "idle",
         "Guitar Carry Accoustic - Pride",
         AnimationOptions = {
-            Prop = "prop_tay_guitar_002",
+            Prop = "prop_rpemotesreborn_guitar_002",
             PropBone = 28422,
             PropPlacement = {
                 0.1100,
@@ -15576,7 +15576,7 @@ RP.PropEmotes = {
         "base",
         "Guitar Sit And Play 2 - Pink",
         AnimationOptions = {
-            Prop = "prop_tay_guitar_001",
+            Prop = "prop_rpemotesreborn_guitar_001",
             PropBone = 24818,
             PropPlacement = {
                 -0.0510,
@@ -15596,7 +15596,7 @@ RP.PropEmotes = {
         "base",
         "Guitar Sit And Play 2 - Pride",
         AnimationOptions = {
-            Prop = "prop_tay_guitar_002",
+            Prop = "prop_rpemotesreborn_guitar_002",
             PropBone = 24818,
             PropPlacement = {
                 -0.0510,
@@ -20381,7 +20381,7 @@ RP.PropEmotes = {
             PtfxWait = 200
         }
     },
-    ['selfiehb'] = { -- Custom prop by crowded1337, unbranded by TayMcKenzieNZ
+    ['selfiehb'] = { -- Custom prop by crowded1337
         'anim@female_selfie_cute',
         'selfie_cute_clip',
         'Selfie Hand Bag',
@@ -21561,7 +21561,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["handbag"] = { -- Custom prop by crowded1337, unbranded by TayMcKenzieNZ
+    ["handbag"] = { -- Custom prop by crowded1337
         "move_weapon@jerrycan@generic",
         "idle",
         "Hand Bag",
@@ -22750,7 +22750,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ['old2'] = { -- Custom Animation By Darks Animations, Added To And Requested By TayMcKenzieNZ Exclusively For RPEmotes and is not to be extracted or added to another scripts and / or menus
+    ['old2'] = { -- Custom Animation By Darks Animations
         'zimmerframe_walk@dark',
         'zimmerframe_walk_clip',
         'Old Man Zimmerframe',
@@ -23508,7 +23508,7 @@ RP.PropEmotes = {
         'base',
         'Candle',
         AnimationOptions = {
-            Prop = "prop_candle",
+            Prop = "v_res_fa_candle04",
             PropBone = 28422,
             PropPlacement = {
                 0.0200,
@@ -23518,8 +23518,23 @@ RP.PropEmotes = {
                10.0000,
                 0.0000,
             },
-            EmoteLoop = true,
             EmoteMoving = true,
+            EmoteLoop = true,
+            PtfxAsset = "core",
+            PtfxName = "ent_amb_candle_flame",
+            PtfxNoProp = true,
+            PtfxBone = 28422,
+            PtfxPlacement = {
+                0.0200,
+                0.0100,
+                0.0600,
+                0.0000,
+               10.0000,
+                0.0000,
+            },
+            PtfxInfo = Translate('candle'),
+            PtfxWait = 30000, -- ptfxwait is in ms, so 30000 = 30 seconds. This allows the effect to linger for 30 seconds.
+            PtfxCanHold = true
         }
     },
     ["watchstripper2"] = {
@@ -23997,7 +24012,7 @@ RP.PropEmotes = {
         "skateboardposecmg_clip",
         "Skateboard - Sit",
         AnimationOptions = {
-            Prop = 'taymckenzienz_skateboard01',
+            Prop = 'rpemotesreborn_skateboard01',
             PropBone = 0,
             PropPlacement = {
                0.0,
@@ -24015,7 +24030,7 @@ RP.PropEmotes = {
         "skate2_clip",
         "Skateboard - Sit 2",
         AnimationOptions = {
-            Prop = "taymckenzienz_skateboard02",
+            Prop = "rpemotesreborn_skateboard02",
             PropBone = 0,
             PropPlacement = {
                 0.0,
@@ -24034,7 +24049,7 @@ RP.PropEmotes = {
         "drx",
         "Skateboard Kneeling - Male",
         AnimationOptions = {
-            Prop = "taymckenzienz_skateboard02",
+            Prop = "rpemotesreborn_skateboard02",
             PropBone = 64064,
             PropPlacement = {
                 0.2000,
@@ -24053,7 +24068,7 @@ RP.PropEmotes = {
         "drx",
         "Skateboard Kneeling 2 - Female",
         AnimationOptions = {
-            Prop = "taymckenzienz_skateboard01",
+            Prop = "rpemotesreborn_skateboard01",
             PropBone = 64064,
             PropPlacement = {
                 0.2000,
@@ -24082,7 +24097,7 @@ RP.PropEmotes = {
                 -88.7288,
                 -0.6197
             },
-            SecondProp = 'taymckenzienz_skateboard01',
+            SecondProp = 'rpemotesreborn_skateboard01',
             SecondPropBone = 60309,
             SecondPropPlacement = {
                -0.0050,
@@ -24101,7 +24116,7 @@ RP.PropEmotes = {
         "beachanim_surf_clip",
         "Skateboard - Hold Female 2",
         AnimationOptions = {
-            Prop = "taymckenzienz_skateboard01",
+            Prop = "rpemotesreborn_skateboard01",
             PropBone = 28422,
             PropPlacement = {
                -0.1020,
@@ -24120,7 +24135,7 @@ RP.PropEmotes = {
         "skate4_clip",
         "Skateboard - Hold Female 3",
         AnimationOptions = {
-            Prop = "taymckenzienz_skateboard01",
+            Prop = "rpemotesreborn_skateboard01",
             PropBone = 28422,
             PropPlacement = {
                 0.2780,
@@ -24149,7 +24164,7 @@ RP.PropEmotes = {
                 -88.7288,
                 -0.6197
             },
-            SecondProp = 'taymckenzienz_skateboard02',
+            SecondProp = 'rpemotesreborn_skateboard02',
             SecondPropBone = 60309,
             SecondPropPlacement = {
                -0.0050,
@@ -24168,7 +24183,7 @@ RP.PropEmotes = {
         "beachanim_surf_clip",
         "Skateboard - Hold Male 2",
         AnimationOptions = {
-            Prop = "taymckenzienz_skateboard02",
+            Prop = "rpemotesreborn_skateboard02",
             PropBone = 28422,
             PropPlacement = {
                -0.1020,
@@ -24187,7 +24202,7 @@ RP.PropEmotes = {
         "skate4_clip",
         "Skateboard - Hold Male 3",
         AnimationOptions = {
-            Prop = "taymckenzienz_skateboard02",
+            Prop = "rpemotesreborn_skateboard02",
             PropBone = 28422,
             PropPlacement = {
                 0.2780,
@@ -24206,7 +24221,7 @@ RP.PropEmotes = {
         "drx",
         "Skateboard - Hold Male DRX",
         AnimationOptions = {
-            Prop = "taymckenzienz_skateboard02",
+            Prop = "rpemotesreborn_skateboard02",
             PropBone = 64080,
             PropPlacement = {
                 0.2670,
@@ -24225,7 +24240,7 @@ RP.PropEmotes = {
         "drx",
         "Skateboard - Hold Female DRX",
         AnimationOptions = {
-            Prop = "taymckenzienz_skateboard01",
+            Prop = "rpemotesreborn_skateboard01",
             PropBone = 64080,
             PropPlacement = {
                 0.2670,
@@ -24412,7 +24427,7 @@ RP.PropEmotes = {
         "static",
         "Popcorn",
         AnimationOptions = {
-            Prop = 'prop_taymckenzienz_popcorn',
+            Prop = 'xs_prop_trinket_cup_01a',
             PropBone = 28422,
             PropPlacement = {
                -0.0200,
@@ -24430,25 +24445,6 @@ RP.PropEmotes = {
         "play_saxophone@dark",
         "play_saxophone_clip",
         "Saxophone 1",
-        AnimationOptions = {
-            Prop = 'p_ld_sax',
-            PropBone = 57005,
-            PropPlacement = {
-               0.0700,
-               0.0400,
-               0.0300,
-             -71.2242,
-              29.3364,
-               5.9514
-            },
-            EmoteLoop = true,
-            EmoteMoving = true
-        }
-   },
-    ["sax2"] = {
-       "play_saxophone@dark",
-       "play_saxophone_clip",
-        "Saxophone 2",
         AnimationOptions = {
             Prop = 'p_ld_sax',
             PropBone = 57005,

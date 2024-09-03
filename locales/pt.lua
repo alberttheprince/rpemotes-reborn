@@ -44,6 +44,7 @@ Locales['pt'] = {
         ['stun'] = "Pressione ~y~G~w~ para 'usar' stun gun.",
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Pressione ~y~G~w~ para vape.",
+        ['candle'] = "press ~y~G~w~ to light candle.",
         ['boundto'] = "Vinculado (~y~%s~w~) para ~g~%s~w~",
         ['currentlyboundemotes'] = "Emotes atualmente vinculados: ",
         ['notvalidkey'] = "isto não é uma chave válida",
