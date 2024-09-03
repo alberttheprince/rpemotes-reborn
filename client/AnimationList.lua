@@ -23508,7 +23508,7 @@ RP.PropEmotes = {
         'base',
         'Candle',
         AnimationOptions = {
-            Prop = "prop_candle",
+            Prop = "v_res_fa_candle04",
             PropBone = 28422,
             PropPlacement = {
                 0.0200,
@@ -23518,8 +23518,23 @@ RP.PropEmotes = {
                10.0000,
                 0.0000,
             },
-            EmoteLoop = true,
             EmoteMoving = true,
+            EmoteLoop = true,
+            PtfxAsset = "core",
+            PtfxName = "ent_amb_candle_flame",
+            PtfxNoProp = true,
+            PtfxBone = 28422,
+            PtfxPlacement = {
+                0.0200,
+                0.0100,
+                0.0600,
+                0.0000,
+               10.0000,
+                0.0000,
+            },
+            PtfxInfo = Translate('candle'),
+            PtfxWait = 30000, -- ptfxwait is in ms, so 30000 = 30 seconds. This allows the effect to linger for 30 seconds.
+            PtfxCanHold = true
         }
     },
     ["watchstripper2"] = {
