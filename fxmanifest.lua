@@ -65,6 +65,8 @@ client_scripts{
 ---- You will need to add a data_file 'DLC_ITYP_REQUEST' for your own to work in game ---
 data_file 'DLC_ITYP_REQUEST' 'stream/taymckenzienz_rpemotes.ytyp'
 
+data_file 'DLC_ITYP_REQUEST' 'stream/rpemotesreborn_props.ytyp'
+
 data_file 'DLC_ITYP_REQUEST' 'stream/brummie_props.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_props.ytyp'
