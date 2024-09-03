@@ -15,7 +15,8 @@ if Config.BinocularsEnabled then
     local index = 0
     prop_binoc = nil
     local instructions = true
-
+    local scaleform_bin
+    local scaleform_instructions
     -- INSTRUCTIONAL BUTTONS
 
     function SetupButtons(button)
@@ -87,7 +88,7 @@ if Config.BinocularsEnabled then
             Wait(200)
             SetTimecycleModifier("default")
             SetTimecycleModifierStrength(0.3)
-            local scaleform_bin = RequestScaleformMovie("BINOCULARS")
+            scaleform_bin = RequestScaleformMovie("BINOCULARS")
             while not HasScaleformMovieLoaded(scaleform_bin) do
                 Wait(10)
             end
@@ -115,7 +116,7 @@ if Config.BinocularsEnabled then
                     { key = 47,  text = 'toggle_instructions' }
                 }
             end
-            local scaleform_instructions = SetupButtons(keyList)
+            scaleform_instructions = SetupButtons(keyList)
             -- MAIN LOOP
             while IsUsingBinoculars and not IsEntityDead(PlayerPedId()) and not IsPedSittingInAnyVehicle(PlayerPedId()) do
                 if IsControlJustPressed(0, 177) then
@@ -179,7 +180,8 @@ if Config.BinocularsEnabled then
         ClearTimecycleModifier()
         fov = (fov_max + fov_min) * 0.5
         RenderScriptCams(false, false, 0, 1, 0)
-        SetScaleformMovieAsNoLongerNeeded(scaleform)
+        SetScaleformMovieAsNoLongerNeeded(scaleform_bin)
+        SetScaleformMovieAsNoLongerNeeded(scaleform_instructions)
         DestroyCam(cam, false)
         DeleteEntity(prop_binoc)
         SetNightvision(false)
