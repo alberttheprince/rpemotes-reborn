@@ -91,20 +91,22 @@ A partial archive of the original RP Emotes docs can be found [here](https://web
 
 When using our emote menu with other scripts, using the `TriggerEvent('animations:client:EmoteCommandStart` won't do anything because the events do not exist. These have simply been replaced with the following exports:
 
+**Note for legacy use of rpemotes:** if you have resources dependent on or currently using exports from rpemotes, rename rpemotes-reborn's folder to rpemotes to maintain functionality. Or, rename all exports from exports["rpemotes"] to exports["rpemotes-reborn"]
+
 ```lua
-exports["rpemotes"]:EmoteCommandStart(emoteName, textureVariation)
-exports["rpemotes"]:EmoteCancel(forceCancel) – forceCancel is optional
-exports["rpemotes"]:CanCancelEmote(state)
-exports["rpemotes"]:IsPlayerCrouched()
-exports["rpemotes"]:IsPlayerProne()
-exports["rpemotes"]:IsPlayerCrawling()
-exports["rpemotes"]:IsPlayerPointing()
-exports["rpemotes"]:IsPlayerInAnim() -- returns current animation name or nil
-exports["rpemotes"]:IsPlayerInHandsUp()
-exports["rpemotes"]:toggleWalkstyle(bool, message) -- bool to allow the user to change their walkstyle in the menu or not / message to show the user (optional, default is :"You are unable to change your walking style right now.")"
-exports["rpemotes"]:toggleBinoculars()
-exports["rpemotes"]:toggleNewscam()
-exports["rpemotes"]:getWalkstyle() -- Gets walk style of player, used to detect certain walk. useful for applying effects while doing certain walks like tripping or other "funny" effects.
+exports["rpemotes-reborn"]:EmoteCommandStart(emoteName, textureVariation)
+exports["rpemotes-reborn"]:EmoteCancel(forceCancel) – forceCancel is optional
+exports["rpemotes-reborn"]:CanCancelEmote(state)
+exports["rpemotes-reborn"]:IsPlayerCrouched()
+exports["rpemotes-reborn"]:IsPlayerProne()
+exports["rpemotes-reborn"]:IsPlayerCrawling()
+exports["rpemotes-reborn"]:IsPlayerPointing()
+exports["rpemotes-reborn"]:IsPlayerInAnim() -- returns current animation name or nil
+exports["rpemotes-reborn"]:IsPlayerInHandsUp()
+exports["rpemotes-reborn"]:toggleWalkstyle(bool, message) -- bool to allow the user to change their walkstyle in the menu or not / message to show the user (optional, default is :"You are unable to change your walking style right now.")"
+exports["rpemotes-reborn"]:toggleBinoculars()
+exports["rpemotes-reborn"]:toggleNewscam()
+exports["rpemotes-reborn"]:getWalkstyle() -- Gets walk style of player, used to detect certain walk. useful for applying effects while doing certain walks like tripping or other "funny" effects.
 ```
 
 Having issues with players using emotes when/where they're not supposed to? Use the following where you need. This would be somewhere like if you want to disable emotes in jail or when someone is handcuffed/escorted:
