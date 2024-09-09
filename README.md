@@ -4,7 +4,9 @@ Rpemotes-reborn is a community-driven FiveM emote menu allowing players to expre
 
 Rpemotes-reborn is free, **and will always be free**: accept no substitutes or reproductions from scummy people reselling other's hard work against agreements made with creators. We're committed to the open-source community and the dozens of contributors who put hard work into rpemotes to provide the community with free emotes and props.
 
-Want to help support them? Check out our credits section at the bottom of the Readme and support those creators!
+Want to help support them? Check out our credits section at the bottom of the Readme and support those creators! 
+
+Interested in joining our community? You can find our Discord [here](https://discord.gg/UJ72w8rgar).
 
 # Features 🛠️
 
