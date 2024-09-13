@@ -24,7 +24,6 @@ files{
     'header.png'
 }
 
-data_file 'AMBIENT_PROP_MODEL_SET_FILE' 'propsets.meta'
 data_file 'CONDITIONAL_ANIMS_FILE' 'conditionalanims.meta'
 
 shared_scripts{
