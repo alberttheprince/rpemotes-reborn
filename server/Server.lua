@@ -253,11 +253,9 @@ local function ExtractEmoteProps(format)
 
     -- table to keep track of exported values
     local exportedValues = {}
-    local path = GetResourcePath(GetCurrentResourceName())..'/prop_list.lua'
     -- open file for writing
-    local file = io.open(path, 'w')
+    local file = assert(io.open(GetResourcePath(GetCurrentResourceName())..'/prop_list.lua', 'w'))
 
-    assert(file, 'Failed to open file for writing: '..path)
     -- loop through each key-value pair in the table
     -- tables that has props:
     -- RP.PropEmotes
