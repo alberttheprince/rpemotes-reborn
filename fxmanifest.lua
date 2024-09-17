@@ -14,11 +14,12 @@ dependencies{
     '/onesync'
 }
 
--- Remove the following lines if you would like to use the SQL keybinds. Requires oxmysql.
+-- uncomment the below four lines if you would like to use the SQL keybinds. Requires oxmysql.
 --#region oxmysql
 -- dependency 'oxmysql'
 -- server_script '@oxmysql/lib/MySQL.lua'
 --#endregion oxmysql
+
 files{
     'conditionalanims.meta',
     'header.png'
