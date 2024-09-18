@@ -7559,6 +7559,14 @@ RP.Emotes = {
             ExitEmoteType = "Exits"
         }
     },
+    ["welcomeback"] = {
+        "anim@scripted@island@special_peds@dave@hs4_dave_stage2_ig6",
+        "you're_back",
+        "Welcome Back",
+        AnimationOptions = {
+            EmoteLoop = false,
+        }
+    },
     ["elbow"] = {
         "anim@veh@lowrider@std@ds@arm@base",
         "sit_low_lowdoor",
@@ -8259,6 +8267,14 @@ RP.Emotes = {
         "LOL 2",
         AnimationOptions = {
             EmoteLoop = true
+        }
+    },
+    ["lostconfused"] = {
+        "anim@scripted@island@special_peds@dave@hs4_dave_stage2_ig6",
+        "i_lost_it",    
+        "Lost & Confused",
+        AnimationOptions = {
+            EmoteLoop = false
         }
     },
     ["statue2"] = {
@@ -8988,6 +9004,15 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteMoving = true,
             EmoteDuration = 4000
+        }
+    },
+    ["addict"] = {
+        "anim@scripted@island@special_peds@dave@hs4_dave_stage3_ig7",
+        "base",
+        "Addict",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true
         }
     },
     ["handsup"] = {

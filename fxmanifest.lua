@@ -1,7 +1,7 @@
 fx_version 'cerulean'
 game 'gta5'
 description 'rpemotes-reborn'
-version '1.7.1'
+version '1.7.2'
 
 lua54 'yes'
 use_experimental_fxv2_oal 'yes'
@@ -14,17 +14,17 @@ dependencies{
     '/onesync'
 }
 
--- Remove the following lines if you would like to use the SQL keybinds. Requires oxmysql.
+-- uncomment the below four lines if you would like to use the SQL keybinds. Requires oxmysql.
 --#region oxmysql
 -- dependency 'oxmysql'
 -- server_script '@oxmysql/lib/MySQL.lua'
 --#endregion oxmysql
+
 files{
     'conditionalanims.meta',
     'header.png'
 }
 
-data_file 'AMBIENT_PROP_MODEL_SET_FILE' 'propsets.meta'
 data_file 'CONDITIONAL_ANIMS_FILE' 'conditionalanims.meta'
 
 shared_scripts{
