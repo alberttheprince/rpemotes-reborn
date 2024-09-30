@@ -46,8 +46,7 @@ if Config.SqlKeybinding then
         end
     end)
 
-    RegisterNetEvent("rp:ClientKeybindExist")
-    AddEventHandler("rp:ClientKeybindExist", function(does)
+    RegisterNetEvent("rp:ClientKeybindExist", function(does)
         if does then
             TriggerServerEvent("rp:ServerKeybindGrab")
         else
@@ -55,8 +54,7 @@ if Config.SqlKeybinding then
         end
     end)
 
-    RegisterNetEvent("rp:ClientKeybindGet")
-    AddEventHandler("rp:ClientKeybindGet", function(k1, e1, k2, e2, k3, e3, k4, e4, k5, e5, k6, e6)
+    RegisterNetEvent("rp:ClientKeybindGet", function(k1, e1, k2, e2, k3, e3, k4, e4, k5, e5, k6, e6)
         keyb1 = k1
         emob1 = e1
         keyb2 = k2
@@ -72,8 +70,7 @@ if Config.SqlKeybinding then
         Initialized = true
     end)
 
-    RegisterNetEvent("rp:ClientKeybindGetOne")
-    AddEventHandler("rp:ClientKeybindGetOne", function(key, e)
+    RegisterNetEvent("rp:ClientKeybindGetOne", function(key, e)
         SimpleNotify(Translate('boundto', e, firstToUpper(key)))
         if key == "num4" then emob1 = e
             keyb1 = "num4"
