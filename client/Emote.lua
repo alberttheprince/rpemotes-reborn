@@ -797,7 +797,7 @@ if not LocalPlayer.state.canEmote then return end
     InVehicle = IsPedInAnyVehicle(PlayerPedId(), true)
 	Pointing = false
 
-    if not Config.AllowedInCars and InVehicle == 1 then
+    if not Config.AllowedInCars and InVehicle then
         return
     end
 
@@ -905,7 +905,7 @@ if not LocalPlayer.state.canEmote then return end
 
     MovementType = 0 -- Default movement type
 
-    if InVehicle == 1 then
+    if InVehicle then
         MovementType = 51
     elseif animOption then
         if animOption.EmoteMoving then
