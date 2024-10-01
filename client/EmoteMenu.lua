@@ -536,6 +536,7 @@ function AddFaceMenu(menu)
         if item ~= facereset then
             EmoteMenuStart(FaceTable[index], "expression")
         else
+            DeleteResourceKvp("expression")
             ClearFacialIdleAnimOverride(PlayerPedId())
         end
     end
