@@ -1349,6 +1349,7 @@ AddEventHandler("CEventPlayerCollisionWithPed", function()
 
     isBumpingPed = false
     ClearPedTasks(PlayerPedId())
+    Wait(125)
     DestroyAllProps()
     OnEmotePlay(emote, emote.name, CurrentTextureVariation )
 end)
