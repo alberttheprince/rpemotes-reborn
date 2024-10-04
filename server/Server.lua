@@ -57,15 +57,15 @@ RegisterNetEvent("rpemotes:ptfx:sync", function(asset, name, offset, rot, bone, 
 
     local srcPlayerState = Player(source).state
 
-    srcPlayerState:set('ptfxAsset', asset, true)
-    srcPlayerState:set('ptfxName', name, true)
-    srcPlayerState:set('ptfxOffset', offset, true)
-    srcPlayerState:set('ptfxRot', rot, true)
-    srcPlayerState:set('ptfxBone', bone, true)
-    srcPlayerState:set('ptfxScale', scale, true)
-    srcPlayerState:set('ptfxColor', color, true)
-    srcPlayerState:set('ptfxPropNet', false, true)
-    srcPlayerState:set('ptfx', false, true)
+    srcPlayerState:set("ptfxAsset", asset, true)
+    srcPlayerState:set("ptfxName", name, true)
+    srcPlayerState:set("ptfxOffset", offset, true)
+    srcPlayerState:set("ptfxRot", rot, true)
+    srcPlayerState:set("ptfxBone", bone, true)
+    srcPlayerState:set("ptfxScale", scale, true)
+    srcPlayerState:set("ptfxColor", color, true)
+    srcPlayerState:set("ptfxPropNet", false, true)
+    srcPlayerState:set("ptfx", false, true)
 end)
 
 RegisterNetEvent("rpemotes:ptfx:syncProp", function(propNet)
@@ -80,12 +80,12 @@ RegisterNetEvent("rpemotes:ptfx:syncProp", function(propNet)
 
         -- If below 100 then we could find the loaded entity
         if waitForEntityToExistCount < 100 then
-            srcPlayerState:set('ptfxPropNet', propNet, true)
+            srcPlayerState:set("ptfxPropNet", propNet, true)
             return
         end
     end
-    -- If we reach this point then we couldn't find the entity
-    srcPlayerState:set('ptfxPropNet', false, true)
+    -- If we reach this point then we couldn"t find the entity
+    srcPlayerState:set("ptfxPropNet", false, true)
 end)
 --#endregion ptfx
 
@@ -97,7 +97,7 @@ local function addKeybindEventHandlers()
     RegisterNetEvent("rp:ServerKeybindExist", function()
         local src = source
         local srcid = GetPlayerIdentifier(src)
-        MySQL.query('SELECT * FROM dpkeybinds WHERE `id`=@id;', { id = srcid }, function(dpkeybinds)
+        MySQL.query("SELECT * FROM dpkeybinds WHERE `id`=@id;", { id = srcid }, function(dpkeybinds)
             if dpkeybinds[1] then
                 TriggerClientEvent("rp:ClientKeybindExist", src, true)
             else
@@ -112,7 +112,7 @@ local function addKeybindEventHandlers()
     RegisterNetEvent("rp:ServerKeybindCreate", function()
         local src = source
         local srcid = GetPlayerIdentifier(src)
-        MySQL.insert('INSERT INTO dpkeybinds (`id`, `keybind1`, `emote1`, `keybind2`, `emote2`, `keybind3`, `emote3`, `keybind4`, `emote4`, `keybind5`, `emote5`, `keybind6`, `emote6`) VALUES (@id, @keybind1, @emote1, @keybind2, @emote2, @keybind3, @emote3, @keybind4, @emote4, @keybind5, @emote5, @keybind6, @emote6);'
+        MySQL.insert("INSERT INTO dpkeybinds (`id`, `keybind1`, `emote1`, `keybind2`, `emote2`, `keybind3`, `emote3`, `keybind4`, `emote4`, `keybind5`, `emote5`, `keybind6`, `emote6`) VALUES (@id, @keybind1, @emote1, @keybind2, @emote2, @keybind3, @emote3, @keybind4, @emote4, @keybind5, @emote5, @keybind6, @emote6);"
             ,
             { id = srcid, keybind1 = "num4", emote1 = "", keybind2 = "num5", emote2 = "", keybind3 = "num6", emote3 = "",
                 keybind4 = "num7", emote4 = "", keybind5 = "num8", emote5 = "", keybind6 = "num9", emote6 = "" },
@@ -125,9 +125,9 @@ local function addKeybindEventHandlers()
     RegisterNetEvent("rp:ServerKeybindGrab", function()
         local src = source
         local srcid = GetPlayerIdentifier(src)
-        MySQL.query('SELECT keybind1, emote1, keybind2, emote2, keybind3, emote3, keybind4, emote4, keybind5, emote5, keybind6, emote6 FROM `dpkeybinds` WHERE `id` = @id'
+        MySQL.query("SELECT keybind1, emote1, keybind2, emote2, keybind3, emote3, keybind4, emote4, keybind5, emote5, keybind6, emote6 FROM `dpkeybinds` WHERE `id` = @id"
             ,
-            { ['@id'] = srcid }, function(kb)
+            { ["@id"] = srcid }, function(kb)
             if kb[1].keybind1 ~= nil then
                 TriggerClientEvent("rp:ClientKeybindGet", src, kb[1].keybind1, kb[1].emote1, kb[1].keybind2, kb[1].emote2
                     , kb[1].keybind3, kb[1].emote3, kb[1].keybind4, kb[1].emote4, kb[1].keybind5, kb[1].emote5,
@@ -173,21 +173,21 @@ local function addKeybindEventHandlers()
     RegisterServerEvent("rp:ServerKeybindDelete")
 	AddEventHandler("rp:ServerKeybindDelete", function(key)
         local src = source
-        local srcid = GetPlayerIdentifierByType(src, 'license')
+        local srcid = GetPlayerIdentifierByType(src, "license")
 
         local lists_keybinds = {
-            ['num4'] = 'emote1',
-            ['num5'] = 'emote2',
-            ['num6'] = 'emote3',
-            ['num7'] = 'emote4',
-            ['num8'] = 'emote5',
-            ['num9'] = 'emote6',
+            ["num4"] = "emote1",
+            ["num5"] = "emote2",
+            ["num6"] = "emote3",
+            ["num7"] = "emote4",
+            ["num8"] = "emote5",
+            ["num9"] = "emote6",
         }
 
         for k,v in pairs(lists_keybinds) do
             if key == k then
-                MySQL.Async.execute("UPDATE dpkeybinds SET "..v.." = '' WHERE id=@id", {id = srcid}, function()
-                    TriggerClientEvent('esx:showNotification', src, 'Suppresion de votre bind : '..key..' ')
+                MySQL.Async.execute("UPDATE dpkeybinds SET "..v.." = "" WHERE id=@id", {id = srcid}, function()
+                    TriggerClientEvent("esx:showNotification", src, "Suppresion de votre bind : "..key.." ")
                 end)
             end
         end
@@ -227,17 +227,20 @@ end
 -- Emote props extractor
 local function ExtractEmoteProps(format)
     local format = tonumber(format)
-    local xt, c, total = '', '', 0
+    local xt, c, total = "", "", 0
     if format == 1 then
-        print("Selected format: ^2\'prop_name\',")
-        xt = '\''; c = ','
-      elseif format == 2 then
         print("Selected format: ^2\"prop_name\",")
-        xt = '\"'; c = ','
-      elseif format == 3 then
+        xt = "\""; c = ","
+    elseif format == 2 then
+        print("Selected format: ^2\"prop_name\",")
+        xt = "\""; c = ","
+    elseif format == 3 then
         print("Selected format: ^2prop_name,")
-      else
-        print("\n### RPEmotes - Props Extractor ###\n\n^3Select output format^0\nAvailable formats:\n^11^0 - ^2\'prop_name\',\n^12^0 - ^2\"prop_name\",\n^13^0 -  ^2prop_name\n\n^0Command usage example: ^5emoteextract 1^0\n")
+    elseif format == 4 then
+        print("Selected to calculate ^2total amount of emotes^0.")
+    else
+        print("\n### RPEmotes - Props Extractor ###\n\n^3Select output format^0\nAvailable formats:\n^11^0 - ^2\"prop_name\",\n^12^0 - ^2\"prop_name\",\n^13^0 -  ^2prop_name\n^14^0 -  ^2calculate total emotes\n\n^0Command usage example: ^5emoteextract 1^0\n")
+        return
     end
 
     local animationFile = LoadResourceFile(GetCurrentResourceName(), "client/AnimationList.lua")
@@ -251,38 +254,58 @@ local function ExtractEmoteProps(format)
 
     local RP = res
 
-    -- table to keep track of exported values
-    local exportedValues = {}
-    -- open file for writing
-    local file = assert(io.open(GetResourcePath(GetCurrentResourceName())..'/prop_list.lua', 'w'))
+    if format == 4 then
+        local emoteTypes = {"Shared", "Dances", "AnimalEmotes", "Emotes", "PropEmotes", "Expressions", "Walks"}
+        local countEmotesWith = 0
+        local countEmotes = 0
 
-    -- loop through each key-value pair in the table
-    -- tables that has props:
-    -- RP.PropEmotes
-    -- RP.Shared (most likely all props mentioned in here is used in PropEmotes, so I don't check it)
-    for _, value in pairs(RP.PropEmotes) do
-        -- check if the current value is a table and has an AnimationOptions field
-        if type(value) == 'table' and value.AnimationOptions then
-            -- extract the Prop and SecondProp values and check if they're nil and not already exported
-            local propValue = value.AnimationOptions.Prop
-            local secondPropValue = value.AnimationOptions.SecondProp
-            if propValue and not exportedValues[propValue] then
-                file:write(xt .. propValue .. xt .. c ..'\n')
-                exportedValues[propValue] = true
-                total += 1
-            end
-            if secondPropValue and not exportedValues[secondPropValue] then
-                file:write(xt .. secondPropValue .. c ..'\n')
-                exportedValues[secondPropValue] = true
-                total += 1
+        for i = 1, #emoteTypes do
+            local emoteType = emoteTypes[i]
+            for _, _ in pairs(RP[emoteType]) do
+                if emoteType == "Expressions" or emoteType == "Walks" then
+                    countEmotesWith += 1
+                else
+                    countEmotes += 1
+                end
             end
         end
+
+        local totalEmotes = countEmotesWith + countEmotes
+
+        print("Total Expressions and Walks: ^3"..countEmotesWith.."^0")
+        print("Total Emotes without Expressions and Walks: ^3"..countEmotes.."^0")
+        print("Total Emotes: ^3" .. totalEmotes.."^0")
+    else
+        -- table to keep track of exported values
+        local exportedValues = {}
+        -- open file for writing
+        local file = assert(io.open(GetResourcePath(GetCurrentResourceName()).."/prop_list.lua", "w"))
+
+        -- tables that has props:
+        -- RP.PropEmotes
+        -- RP.Shared (most likely all props mentioned in here is used in PropEmotes, so I don"t check it)
+        for _, value in pairs(RP.PropEmotes) do
+            -- check if the current value is a table and has an AnimationOptions field
+            if type(value) == "table" and value.AnimationOptions then
+                -- extract the Prop and SecondProp values and check if they"re nil and not already exported
+                local propValue = value.AnimationOptions.Prop
+                local secondPropValue = value.AnimationOptions.SecondProp
+                if propValue and not exportedValues[propValue] then
+                    file:write(xt .. propValue .. xt .. c .."\n")
+                    exportedValues[propValue] = true
+                    total += 1
+                end
+                if secondPropValue and not exportedValues[secondPropValue] then
+                    file:write(xt .. secondPropValue .. c .."\n")
+                    exportedValues[secondPropValue] = true
+                    total += 1
+                end
+            end
+        end
+
+        print("Exported props: "..total)
+        file:close()
     end
-
-    print('Exported props: '..total)
-
-    -- close the file
-    file:close()
 end
 
 RegisterCommand("emoteextract", function(source, args)
