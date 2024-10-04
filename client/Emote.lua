@@ -260,13 +260,21 @@ local function HandsUpLoop()
 end
 
 if Config.HandsupEnabled then
-    RegisterCommand('handsup', function()
-        if IsPedInAnyVehicle(PlayerPedId(), false) and not Config.HandsupKeybindInCarEnabled and not InHandsup then
-            return
-        end
+    local function ToggleHandsUp(commandType)
+        RegisterCommand(commandType, function()
+            if IsPedInAnyVehicle(PlayerPedId(), false) and not Config.HandsupKeybindInCarEnabled and not InHandsup then
+                return
+            end
+            Handsup()
+        end, false)
+    end
 
-        Handsup()
-    end, false)
+    if Config.HoldToHandsUp then
+        ToggleHandsUp('+handsup')
+        ToggleHandsUp('-handsup')
+    else
+        ToggleHandsUp('handsup')
+    end
 
     function Handsup()
         local playerPed = PlayerPedId()

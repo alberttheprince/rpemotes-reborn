@@ -51,6 +51,7 @@ Config = {
     HandsupKeybindEnabled = false,
     HandsupKeybindInCarEnabled = false,
     PersistentEmoteAfterHandsup = true, -- If true, you will play the emote you were playing previously after you stop handsup.
+    HoldToHandsUp = false, -- Hands-up action occurs only while holding the button down
 
     -- Pointing Options
     PointingEnabled = true, -- You can disable the finger pointing here / change the keybind. It is currently set to B
