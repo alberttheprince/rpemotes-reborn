@@ -116,7 +116,7 @@ local function addKeybindEventHandlers()
             ,
             { id = srcid, keybind1 = "num4", emote1 = "", keybind2 = "num5", emote2 = "", keybind3 = "num6", emote3 = "",
                 keybind4 = "num7", emote4 = "", keybind5 = "num8", emote5 = "", keybind6 = "num9", emote6 = "" },
-            function(created) print("[rp] ^2" .. GetPlayerName(src) .. "^7 got created!")
+            function(created) print("[rp] ^2" .. GetPlayerName(src) .. "^0 got created!")
                 TriggerClientEvent("rp:ClientKeybindGet"
                     , src, "num4", "", "num5", "", "num6", "", "num7", "", "num8", "", "num8", "")
             end)
@@ -200,28 +200,28 @@ if Config.SqlKeybinding then -- and MySQL then
         [[
 		CREATE TABLE IF NOT EXISTS `dpkeybinds` (
 		  `id` varchar(50) NULL DEFAULT NULL,
-		  `keybind1` varchar(50) NULL DEFAULT "num4",
-		  `emote1` varchar(255) NULL DEFAULT "",
-		  `keybind2` varchar(50) NULL DEFAULT "num5",
-		  `emote2` varchar(255) NULL DEFAULT "",
-		  `keybind3` varchar(50) NULL DEFAULT "num6",
-		  `emote3` varchar(255) NULL DEFAULT "",
-		  `keybind4` varchar(50) NULL DEFAULT "num7",
-		  `emote4` varchar(255) NULL DEFAULT "",
-		  `keybind5` varchar(50) NULL DEFAULT "num8",
-		  `emote5` varchar(255) NULL DEFAULT "",
-		  `keybind6` varchar(50) NULL DEFAULT "num9",
-		  `emote6` varchar(255) NULL DEFAULT ""
+		  `keybind1` varchar(50) NULL DEFAULT 'num4',
+		  `emote1` varchar(255) NULL DEFAULT '',
+		  `keybind2` varchar(50) NULL DEFAULT 'num5',
+		  `emote2` varchar(255) NULL DEFAULT '',
+		  `keybind3` varchar(50) NULL DEFAULT 'num6',
+		  `emote3` varchar(255) NULL DEFAULT '',
+		  `keybind4` varchar(50) NULL DEFAULT 'num7',
+		  `emote4` varchar(255) NULL DEFAULT '',
+		  `keybind5` varchar(50) NULL DEFAULT 'num8',
+		  `emote5` varchar(255) NULL DEFAULT '',
+		  `keybind6` varchar(50) NULL DEFAULT 'num9',
+		  `emote6` varchar(255) NULL DEFAULT ''
 		) ENGINE=InnoDB COLLATE=latin1_swedish_ci;
-		]]     , {}, function(success)
+		]], {}, function(success)
         if success then
             addKeybindEventHandlers()
         else
-            print("[rp] ^3Error connecting to DB^7")
+            print("^3Error connecting to DB^0")
         end
     end)
 else
-    print("[rp] ^3Sql Keybinding^7 is turned ^1off^7, if you want to enable /emotebind, set ^3SqlKeybinding = ^2true^7 in config.lua and uncomment oxmysql lines in fxmanifest.lua.")
+    print("^3Sql Keybinding^0 is turned ^1off^0, if you want to enable /emotebind, set ^3SqlKeybinding = ^2true^0 in config.lua and uncomment oxmysql lines in fxmanifest.lua.")
 end
 
 -- Emote props extractor
