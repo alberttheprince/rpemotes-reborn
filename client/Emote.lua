@@ -455,7 +455,6 @@ function EmoteCancel(force)
                     DestroyAllProps()
                     ClearPedTasks(ply)
                     EmoteCancelPlaying = false
-                    LocalPlayer.state.emote = nil
                 end)
                 return
             end
@@ -463,7 +462,6 @@ function EmoteCancel(force)
             IsInAnimation = false
             ClearPedTasks(ply)
             EmoteCancelPlaying = false
-            LocalPlayer.state.emote = nil
         end
         DestroyAllProps()
     end
