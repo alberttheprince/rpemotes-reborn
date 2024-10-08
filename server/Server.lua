@@ -186,7 +186,7 @@ local function addKeybindEventHandlers()
 
         for k,v in pairs(lists_keybinds) do
             if key == k then
-                MySQL.Async.execute("UPDATE dpkeybinds SET "..v.." = '' WHERE id=@id", {id = srcid}, function()
+                   MySQL.Async.execute("UPDATE dpkeybinds SET "..v.." =  WHERE id=@id", {id = srcid}, function()
                     TriggerClientEvent("esx:showNotification", src, "Suppresion de votre bind : "..key.." ")
                 end)
             end
