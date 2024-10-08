@@ -23,6 +23,7 @@ local CanCancel = true
 local InExitEmote = false
 local ExitAndPlay = false
 local EmoteCancelPlaying = false
+local currentEmote = {}
 IsInAnimation = false
 CurrentAnimationName = nil
 CurrentTextureVariation = nil
@@ -974,6 +975,17 @@ if not LocalPlayer.state.canEmote then return end
     MostRecentDict = ChosenDict
     MostRecentAnimation = ChosenAnimation
 
+    local currentEmoteTable = EmoteName
+    for _, tabledata in pairs(RP) do
+        for command, emotedata in pairs(tabledata) do
+            if emotedata == EmoteName then
+                table.insert(currentEmoteTable, command)
+                break
+            end
+        end
+    end
+    currentEmote = currentEmoteTable
+
     if animOption and animOption.Prop then
         PropName = animOption.Prop
         PropBone = animOption.PropBone
@@ -1267,14 +1279,17 @@ end
 -----------------------------------------------------------------------------------------------------
 
 exports("EmoteCommandStart", function(emoteName, textureVariation)
-        EmoteCommandStart(nil, {emoteName, textureVariation}, nil)
+    EmoteCommandStart(nil, {emoteName, textureVariation}, nil)
 end)
 exports("EmoteCancel", EmoteCancel)
 exports("CanCancelEmote", function(State)
-		CanCancel = State == true
+    CanCancel = State == true
 end)
 exports('IsPlayerInAnim', function()
-	return CurrentExportEmote
+    return CurrentExportEmote
+end)
+exports('getCurrentEmote', function()
+    return currentEmote
 end)
 
 -- Door stuff
