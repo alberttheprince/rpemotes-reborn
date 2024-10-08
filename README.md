@@ -349,11 +349,11 @@ Available output formats:
 1 - 'prop_name',
 2 - "prop_name",
 3 - prop_name
+4 - calculate total emotes
 
 Command usage example: emoteextract 1
 ```
-
-<img src="screenshots/extractor.png" width="700">
+![image](https://github.com/user-attachments/assets/6ec6e042-00b7-4be2-8086-1805eb87196c)
 
 # Installation Instructions ⚙️:
 

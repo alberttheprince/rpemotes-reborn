@@ -12877,11 +12877,11 @@ RP.PropEmotes = {
             Prop = 'prop_amb_beer_bottle',
             PropBone = 28422,
             PropPlacement = {
-                0.1,
-                0.1,
+                0.08,
+                0.11,
                 0.0,
-                -0.60,
-                30.0,
+                -74.0,
+                0.0,
                 0.0,
             },
             EmoteLoop = true,
@@ -17675,35 +17675,35 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
    },
-    ["mnc"] = {
-        "anim@heists@box_carry@",
-        "idle",
-        "Milk & Cookies",
-        AnimationOptions = {
-            Prop = "m23_2_prop_m32_milkncookies_01a",
-            PropBone = 57005, --- Right Wrist
-            PropPlacement = {
-                0.2150,
-                0.1140,
-                0.0240,
-              -81.9185,
-             -176.2526,
-              -28.4674
-            },
-            SecondProp = 'm23_2_prop_m32_milkncookies_01a',
-            SecondPropBone = 18905, -- Left Wrist
-            SecondPropPlacement = {
-                0.2700,
-                0.1100,
-                0.0350,
-              -90.0000,
-             -180.0000,
-               30.0000
-            },
-            EmoteLoop = true,
-            EmoteMoving = true
-        }
-    },
+   ["mnc"] = {
+    "anim@heists@box_carry@",
+    "idle",
+    "Milk & Cookies",
+    AnimationOptions = {
+        Prop = "m23_2_prop_m32_milkncookies_01a",
+        PropBone = 57005, --- Right Wrist
+        PropPlacement = {
+            0.2150,
+            0.1140,
+            0.0240,
+          -81.9185,
+         -176.2526,
+          -28.4674
+        },
+        SecondProp = 'm23_2_prop_m32_milkncookies_01a',
+        SecondPropBone = 18905, -- Left Wrist
+        SecondPropPlacement = {
+            0.2150,
+            0.1140,
+            0.0240,
+          -95.9185,
+         -176.2526,
+          -28.4674
+        },
+        EmoteLoop = true,
+        EmoteMoving = true
+    }
+},
     ["carrypizza"] = {
         "anim@heists@box_carry@",
         "idle",
