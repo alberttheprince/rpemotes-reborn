@@ -196,6 +196,10 @@ local function addKeybindEventHandlers()
 end
 
 if Config.SqlKeybinding then -- and MySQL then
+    if GetResourceMetadata(GetCurrentResourceName(), 'server_script', 0) ~= '@oxmysql/lib/MySQL.lua' then
+        return print("^3Error! You're using Config.SqlKeybinding without oxmysql, you need to uncomment it in fxmanifest.lua^0")
+    end
+
     MySQL.update(
         [[
 		CREATE TABLE IF NOT EXISTS `dpkeybinds` (
