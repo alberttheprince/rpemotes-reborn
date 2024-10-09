@@ -4,7 +4,7 @@ Rpemotes-reborn is a community-driven FiveM emote menu allowing players to expre
 
 Rpemotes-reborn is free, **and will always be free**: accept no substitutes or reproductions from scummy people reselling other's hard work against agreements made with creators. We're committed to the open-source community and the dozens of contributors who put hard work into rpemotes to provide the community with free emotes and props.
 
-Want to help support them? Check out our credits section at the bottom of the Readme and support those creators! 
+Want to help support them? Check out our credits section at the bottom of the Readme and support those creators!
 
 Interested in joining our community? You can find our Discord [here](https://discord.gg/UJ72w8rgar).
 
@@ -107,6 +107,7 @@ exports["rpemotes-reborn"]:toggleWalkstyle(bool, message) -- bool to allow the u
 exports["rpemotes-reborn"]:toggleBinoculars()
 exports["rpemotes-reborn"]:toggleNewscam()
 exports["rpemotes-reborn"]:getWalkstyle() -- Gets walk style of player, used to detect certain walk. useful for applying effects while doing certain walks like tripping or other "funny" effects.
+exports["rpemotes-reborn"]:setWalkstyle() -- Lets you set a walk style, useful for scripts like retrieving a style before drinking and restoring it after sobering up.
 ```
 
 Having issues with players using emotes when/where they're not supposed to? Use the following where you need. This would be somewhere like if you want to disable emotes in jail or when someone is handcuffed/escorted:
