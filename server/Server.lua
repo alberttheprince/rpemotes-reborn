@@ -89,6 +89,7 @@ RegisterNetEvent("rpemotes:ptfx:syncProp", function(propNet)
 end)
 --#endregion ptfx
 
+
 -----------------------------------------------------------------------------------------------------
 -- Keybinding  --------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
@@ -227,6 +228,7 @@ if Config.SqlKeybinding then -- and MySQL then
 else
     print("^3Sql Keybinding^0 is turned ^1off^0, if you want to enable /emotebind, set ^3SqlKeybinding = ^2true^0 in config.lua and uncomment oxmysql lines in fxmanifest.lua.")
 end
+
 
 -- Emote props extractor
 local function ExtractEmoteProps(format)

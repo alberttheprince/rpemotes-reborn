@@ -86,12 +86,12 @@ Config = {
 }
 
 Config.KeybindKeys = {
-    ['num4'] = 108,
-    ['num5'] = 110,
-    ['num6'] = 109,
-    ['num7'] = 117,
-    ['num8'] = 111,
-    ['num9'] = 118
+    108, -- num4
+    110, -- num5
+    109, -- num6
+    117, -- num7
+    111, -- num8
+    118 -- num9
 }
 
 Config.Credits = {
