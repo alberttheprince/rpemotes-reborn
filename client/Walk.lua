@@ -1,8 +1,8 @@
 local canChange = true
 local unable_message = "You are unable to change your walking style right now."
 
-function WalkMenuStart(name)
-    if not canChange then
+function WalkMenuStart(name, force)
+    if not canChange and not force then
         EmoteChatMessage(unable_message)
         return
     end
@@ -106,3 +106,5 @@ exports('toggleWalkstyle', toggleWalkstyle)
 exports('getWalkstyle', function()
     return GetResourceKvpString("walkstyle")
 end)
+
+exports('setWalkstyle', WalkMenuStart)

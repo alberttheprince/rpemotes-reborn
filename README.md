@@ -4,7 +4,7 @@ Rpemotes-reborn is a community-driven FiveM emote menu allowing players to expre
 
 Rpemotes-reborn is free, **and will always be free**: accept no substitutes or reproductions from scummy people reselling other's hard work against agreements made with creators. We're committed to the open-source community and the dozens of contributors who put hard work into rpemotes to provide the community with free emotes and props.
 
-Want to help support them? Check out our credits section at the bottom of the Readme and support those creators! 
+Want to help support them? Check out our credits section at the bottom of the Readme and support those creators!
 
 Interested in joining our community? You can find our Discord [here](https://discord.gg/UJ72w8rgar).
 
@@ -107,6 +107,7 @@ exports["rpemotes-reborn"]:toggleWalkstyle(bool, message) -- bool to allow the u
 exports["rpemotes-reborn"]:toggleBinoculars()
 exports["rpemotes-reborn"]:toggleNewscam()
 exports["rpemotes-reborn"]:getWalkstyle() -- Gets walk style of player, used to detect certain walk. useful for applying effects while doing certain walks like tripping or other "funny" effects.
+exports["rpemotes-reborn"]:setWalkstyle(name, force) -- name = "move_m@alien" or any other, force = optional bool. Lets you set or force a walk style, useful for scripts like retrieving a style before drinking and restoring it after sobering up.
 ```
 
 Having issues with players using emotes when/where they're not supposed to? Use the following where you need. This would be somewhere like if you want to disable emotes in jail or when someone is handcuffed/escorted:
@@ -445,6 +446,8 @@ Note that `ptfxwait = ` is in ms, so if you'd like a particle to last for 30 sec
 Because the menu gets updated frequently, the files get overwritten. To avoid this, you can add your own / downloaded animation files `(.ycd)` inside of a newly created folder, give it a name, and place it in the `rpemotes\stream\[Custom Emotes]` folder.
 
 Add your animation code to the `AnimationListCustom.lua` and make a backup of this file and call it `BackUpAnimationListCustom.lua`.
+
+**Note on animal emotes:** For the addition of custom emotes for animal peds, you must add use the `sdog` or `bdog` tags. For example if you want to add an emote of `laydownflat` it must be either `sdoglaydownflat` or `bdoglaydownflat`. You must also add any custom addon peds to the `animals.lua` file in either category for these animations to be played on those models.
 
 Whenever an update is released, rename `BackUpAnimationListCustom.lua` to `AnimationListCustom.lua`, click yes to overwrite, and you're good to go.
 
