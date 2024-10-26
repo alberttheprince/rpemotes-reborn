@@ -7572,7 +7572,7 @@ RP.Emotes = {
         "pose",
         "Wall Pose",
         AnimationOptions = {
-            EmoteLoop = false,
+            EmoteLoop = true,
         }
     },
     ["wallpose2"] = { -- Credit to LadyyShamrockk for this custom emote
