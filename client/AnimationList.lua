@@ -7580,7 +7580,7 @@ RP.Emotes = {
         "pose",
         "Wall Pose 2",
         AnimationOptions = {
-            EmoteLoop = false,
+            EmoteLoop = true,
         }
     },
     ["wallpose3"] = { -- Credit to LadyyShamrockk for this custom emote
@@ -7588,7 +7588,7 @@ RP.Emotes = {
         "pose",
         "Wall Pose 3",
         AnimationOptions = {
-            EmoteLoop = false,
+            EmoteLoop = true,
         }
     },
     ["wallpose4"] = { -- Credit to LadyyShamrockk for this custom emote
@@ -7596,7 +7596,7 @@ RP.Emotes = {
         "pose",
         "Wall Pose 4",
         AnimationOptions = {
-            EmoteLoop = false,
+            EmoteLoop = true,
         }
     },
     ["wallpose5"] = { -- Credit to LadyyShamrockk for this custom emote
@@ -7604,7 +7604,7 @@ RP.Emotes = {
         "pose",
         "Wall Pose 5",
         AnimationOptions = {
-            EmoteLoop = false,
+            EmoteLoop = true,
         }
     },
     ["elbow"] = {
