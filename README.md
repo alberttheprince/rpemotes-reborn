@@ -485,6 +485,7 @@ All animation creators have **_specifically_** asked that their content remain f
 - Crusopaul and Eki for discussing KVP and initializing it to the menu for persistent walk styles
 - [Amnilka](https://www.gta5-mods.com/users/frabi) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
 - [LittleSpoon](https://discord.gg/safeword) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
+- [LadyyShamrockk](https://www.gta5-mods.com/users/LadyyShamrockk) For allowing us to include their emotes in rpemotes-reborn
 - [Pupppy](https://discord.gg/rsN35X4s4N) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
 - [SapphireMods](https://discord.gg/Hf8F4nTyzt) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord
 - [QueenSisters Animations](https://discord.gg/qbPtGwQuep) for the Explicit Usage Rights Agreement to add free custom animations either publicly available or on their discord

@@ -7567,6 +7567,46 @@ RP.Emotes = {
             EmoteLoop = false,
         }
     },
+    ["wallpose"] = { -- Credit to LadyyShamrockk for this custom emote
+        "shamrock@wallpose1",
+        "pose",
+        "Wall Pose",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
+    ["wallpose2"] = { -- Credit to LadyyShamrockk for this custom emote
+        "shamrock@wallpose2",
+        "pose",
+        "Wall Pose 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
+    ["wallpose3"] = { -- Credit to LadyyShamrockk for this custom emote
+        "shamrock@wallpose3",
+        "pose",
+        "Wall Pose 3",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
+    ["wallpose4"] = { -- Credit to LadyyShamrockk for this custom emote
+        "shamrock@wallpose4",
+        "pose",
+        "Wall Pose 4",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
+    ["wallpose5"] = { -- Credit to LadyyShamrockk for this custom emote
+        "shamrock@wallpose5",
+        "pose",
+        "Wall Pose 5",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
     ["elbow"] = {
         "anim@veh@lowrider@std@ds@arm@base",
         "sit_low_lowdoor",
@@ -10536,9 +10576,9 @@ RP.Emotes = {
             EmoteDuration = 1480
         }
     },
-    ["hidegun"] = { -- CREDIT TO DARKS ANIMATIONS FOR THIS EXCLUSIVE RPEMOTES ANIMATION
-        "pistol_b_b@dark", -- CREDIT TO DARKS ANIMATIONS FOR THIS EXCLUSIVE RPEMOTES ANIMATION
-        "pistol_b_b_clip", -- CREDIT TO DARKS ANIMATIONS FOR THIS EXCLUSIVE RPEMOTES ANIMATION
+    ["hidegun"] = { -- Credit to Darks Animations for this exclusive rpemotes animation
+        "pistol_b_b@dark",
+        "pistol_b_b_clip",
         "Hide a gun",
         AnimationOptions = {
             EmoteMoving = true,
