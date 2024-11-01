@@ -87,7 +87,7 @@ Example Banner:
 
 # Exports and Documentation
 
-A partial archive of the original RP Emotes docs can be found [here](https://web.archive.org/web/20231218223552/https://docs.rpemotes.com/)
+Find our documentation [here](https://rpemotes-reborn.gitbook.io/guide)
 
 When using our emote menu with other scripts, using the `TriggerEvent('animations:client:EmoteCommandStart` won't do anything because the events do not exist. These have simply been replaced with the following exports:
 
