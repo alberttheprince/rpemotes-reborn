@@ -5667,6 +5667,62 @@ RP.Emotes = {
             ExitEmoteType = "Exits"
         }
     },
+    ["dazzle1"] = { -- Custom Emote Provided To RpEmotes By Prue颜
+        "lunyx@dazzleme",
+        "pose1_clip",
+        "Dazzle Me Pose 1",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+	["dazzle2"] = { -- Custom Emote Provided To RpEmotes By Prue颜
+        "lunyx@dazzleme",
+        "pose2_clip",
+        "Dazzle Me Pose 2",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+	["dazzle3"] = { -- Custom Emote Provided To RpEmotes By Prue颜
+        "lunyx@dazzleme",
+        "pose3_clip",
+        "Dazzle Me Pose 3",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+	["dazzle4"] = { -- Custom Emote Provided To RpEmotes By Prue颜
+        "lunyx@dazzleme",
+        "pose4_clip",
+        "Dazzle Me Pose 4",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+	["dazzle5"] = { -- Custom Emote Provided To RpEmotes By Prue颜
+        "lunyx@dazzleme",
+        "pose5_clip",
+        "Dazzle Me Pose 5",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+	["dazzle6"] = { -- Custom Emote Provided To RpEmotes By Prue颜
+        "lunyx@dazzleme",
+        "pose6_clip",
+        "Dazzle Me Pose 6",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+	["dazzle7"] = { -- Custom Emote Provided To RpEmotes By Prue颜
+        "lunyx@dazzleme",
+        "pose7_clip",
+        "Dazzle Me Pose 7",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
     ["dead2"] = {
         "anim@scripted@data_leak@fixf_fin_ig2_johnnyguns_wounded@",
         "enter",
