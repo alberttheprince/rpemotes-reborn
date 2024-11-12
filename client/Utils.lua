@@ -178,7 +178,8 @@ function GetPlayers()
     return players
 end
 
----Function that'll check if player is already proning, using news cam or else
+-- Function that'll check if player is already proning, using news cam or else
+
 ---@param ignores? table | nil key string is the ignored value
 function isInActionWithErrorMessage(ignores)
     DebugPrint(ignores)
@@ -205,9 +206,8 @@ function isInActionWithErrorMessage(ignores)
     return false
 end
 
-
-
 ----------------------------------------------------------------------
+
 ShowPed = false
 
 function ShowPedMenu(zoom)

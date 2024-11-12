@@ -8,7 +8,7 @@ local forceEndProne = false
 
 -- Crouching --
 
----Resets the crouch effect (clipsets etc.)
+-- Resets the crouch effect (clipsets etc.)
 local function ResetCrouch()
     local playerPed = PlayerPedId()
 
@@ -30,7 +30,7 @@ local function ResetCrouch()
     RemoveAnimSet('move_ped_crouched')
 end
 
----Starts the crouch loop
+-- Starts the crouch loop
 local function CrouchLoop()
     local playerId = PlayerId()
 
@@ -74,7 +74,7 @@ local function CrouchLoop()
     ResetCrouch()
 end
 
----Starts crouching
+-- Starts crouching
 local function StartCrouch()
     isCrouched = true
     RequestWalking('move_ped_crouched')
@@ -123,7 +123,7 @@ local function DisableControlUntilReleased(padIndex, control)
     end)
 end
 
----Called when the crouch key is pressed
+-- Called when the crouch key is pressed
 local function CrouchKeyPressed()
     if not LocalPlayer.state.canEmote then return end
 
@@ -254,7 +254,7 @@ local function PlayExitCrawlAnims(forceEnd)
     end
 end
 
----Crawls one "step" forward/backward
+-- Crawls one "step" forward/backward
 ---@param playerPed number
 ---@param type string
 ---@param direction string
@@ -279,7 +279,7 @@ local function Crawl(playerPed, type, direction)
     end)
 end
 
----Flips the player when crawling
+-- Flips the player when crawling
 ---@param playerPed number
 local function CrawlFlip(playerPed)
     inAction = true
@@ -302,7 +302,7 @@ local function CrawlFlip(playerPed)
     inAction = false
 end
 
----The crawl loop
+-- The crawl loop
 local function CrawlLoop()
     Wait(400)
 
@@ -394,7 +394,7 @@ local function CrawlLoop()
     RemoveAnimDict('move_crawlprone2crawlfront')
 end
 
----Gets called when the crawl key is pressed
+-- Gets called when the crawl key is pressed
 local function CrawlKeyPressed()
     if not LocalPlayer.state.canEmote then return end
 

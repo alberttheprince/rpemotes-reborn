@@ -52,8 +52,7 @@ function WalkCommandStart(name)
     end
 end
 
---- Persistent Walkstyles are stored to KVP. Once the player has spawned, the walkstyle is applied. ---
---- I've added QBCore and ESX support so hopefully people quit crying about it. derchico  ---
+-- Persistent Walkstyles are stored to KVP. Once the player has spawned, the walkstyle is applied.
 
 if Config.WalkingStylesEnabled and Config.PersistentWalk then
     -- Function to check if walkstyle is available to prevent exploiting

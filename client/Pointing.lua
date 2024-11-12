@@ -4,7 +4,7 @@ local function IsPlayerAiming(player)
     return IsPlayerFreeAiming(player) or IsAimCamActive() or IsAimCamThirdPersonActive()
 end
 
---- Enabled pointing in a car, however hands up and pointing on a bike is broken until someone can give enough of a fuck to chime in and fix it. ---
+-- Enabled pointing in a car, however hands up and pointing on a bike is broken until someone can give enough of a fuck to chime in and fix it.
 
 local function CanPlayerPoint(playerId, playerPed)
     if not DoesEntityExist(playerPed) or IsPedOnAnyBike(playerPed) or IsPlayerAiming(playerId) or IsPedFalling(playerPed) or IsPedInjured(playerPed) or IsPedInMeleeCombat(playerPed) or IsPedRagdoll(playerPed) or not IsPedHuman(playerPed) then
