@@ -5860,6 +5860,82 @@ RP.Emotes = {
             ExitEmoteType = "Exits"
         }
     },
+    ["fashionpose1"] = { -- Custom Emote Provided To RpEmotes By Prue颜
+        "lunyxco@dresstoimpress",
+        "chic",
+        "Fashion Pose Pose 1",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+	["fashionpose2"] = { -- Custom Emote Provided To RpEmotes By Prue颜
+        "lunyxco@dresstoimpress",
+        "deathdrop",
+        "Fashion Pose Pose 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+            ExitEmote = "standup",
+            ExitEmoteType = "Exits"
+        }
+    },
+	["fashionpose3"] = { -- Custom Emote Provided To RpEmotes By Prue颜
+        "lunyxco@dresstoimpress",
+        "magica",
+        "Fashion Pose Pose 3",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+	["fashionpose4"] = { -- Custom Emote Provided To RpEmotes By Prue颜
+        "lunyxco@dresstoimpress",
+        "pose5",
+        "Fashion Pose Pose 4",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+	["fashionpose5"] = { -- Custom Emote Provided To RpEmotes By Prue颜
+        "lunyxco@dresstoimpress",
+        "pose8",
+        "Fashion Pose Pose 5",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+	["fashionpose6"] = { -- Custom Emote Provided To RpEmotes By Prue颜
+        "lunyxco@dresstoimpress",
+        "pose20",
+        "Fashion Pose Pose 6",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+	["fashionpose7"] = { -- Custom Emote Provided To RpEmotes By Prue颜
+        "lunyxco@dresstoimpress",
+        "pose28",
+        "Fashion Pose Pose 7",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+	["fashionpose8"] = { -- Custom Emote Provided To RpEmotes By Prue颜
+        "lunyxco@dresstoimpress",
+        "runoutofposes",
+        "Fashion Pose Pose 8",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+	["fashionpose9"] = { -- Custom Emote Provided To RpEmotes By Prue颜
+        "lunyxco@dresstoimpress",
+        "split",
+        "Fashion Pose Pose 9",
+        AnimationOptions = {
+            EmoteLoop = true,
+            ExitEmote = "standup",
+            ExitEmoteType = "Exits"
+        }
+    },
     ["beast"] = {
         "anim@mp_fm_event@intro",
         "beast_transform",
@@ -18152,7 +18228,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["microck"] = { --- Custom Emote Provided To RpEmotes By Prue颜
+    ["microck"] = { -- Custom Emote Provided To RpEmotes By Prue颜
         "lunyx@mic@p1",
         "mic@p1",
         "Microphone Rock",
@@ -18171,7 +18247,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["microckb"] = { --- Custom Emote Provided To RpEmotes By Prue颜
+    ["microckb"] = { -- Custom Emote Provided To RpEmotes By Prue颜
         "lunyx@mic@p2",
         "mic@p2",
         "Microphone Rock 2",
@@ -18190,7 +18266,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["microckc"] = { --- Custom Emote Provided To RpEmotes By Prue颜
+    ["microckc"] = { -- Custom Emote Provided To RpEmotes By Prue颜
         "lunyx@mic@p3",
         "mic@p3",
         "Microphone Rock 3",
@@ -18209,7 +18285,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["microckd"] = { --- Custom Emote Provided To RpEmotes By Prue颜
+    ["microckd"] = { -- Custom Emote Provided To RpEmotes By Prue颜
         "lunyx@mic@p4",
         "mic@p4",
         "Microphone Rock 4",
@@ -18228,7 +18304,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["microcke"] = { --- Custom Emote Provided To RpEmotes By Prue颜
+    ["microcke"] = { -- Custom Emote Provided To RpEmotes By Prue颜
         "lunyx@mic@p5",
         "mic@p5",
         "Microphone Rock 5",
@@ -18247,7 +18323,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["microckf"] = { --- Custom Emote Provided To RpEmotes By Prue颜
+    ["microckf"] = { -- Custom Emote Provided To RpEmotes By Prue颜
         "lunyx@mic@p6",
         "mic@p6",
         "Microphone Rock 6",
@@ -18266,7 +18342,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["microckg"] = { --- Custom Emote Provided To RpEmotes By Prue颜
+    ["microckg"] = { -- Custom Emote Provided To RpEmotes By Prue颜
         "lunyx@mic@p7",
         "mic@p7",
         "Microphone Rock 7",
@@ -18285,7 +18361,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["microckh"] = { --- Custom Emote Provided To RpEmotes By Prue颜
+    ["microckh"] = { -- Custom Emote Provided To RpEmotes By Prue颜
         "lunyx@mic@p8",
         "mic@p8",
         "Microphone Rock 8",
@@ -18304,7 +18380,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["microcki"] = { --- Custom Emote Provided To RpEmotes By Prue颜
+    ["microcki"] = { -- Custom Emote Provided To RpEmotes By Prue颜
         "lunyx@mic@p9",
         "mic@p9",
         "Microphone Rock 9",
@@ -18323,7 +18399,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["microckj"] = { --- Custom Emote Provided To RpEmotes By Prue颜
+    ["microckj"] = { -- Custom Emote Provided To RpEmotes By Prue颜
         "lunyx@mic@p10",
         "mic@p10",
         "Microphone Rock 10",
