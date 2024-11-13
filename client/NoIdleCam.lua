@@ -5,7 +5,7 @@ RegisterCommand('idlecamoff', function() -- help2 31, 167, 9
         args = {'[RPEmotes]', 'Idle Cam Is Now Off'}
     })
     DisableIdleCamera(true)
-    SetPedCanPlayAmbientAnims(playerPed, false)
+    SetPedCanPlayAmbientAnims(PlayerPedId(), false)
     SetResourceKvp("idleCam", "off")
 end, false)
 
@@ -16,7 +16,7 @@ RegisterCommand('idlecamon', function() -- help2 31, 167, 9
         args = {'[RPEmotes]', 'Idle Cam Is Now On'}
     })
     DisableIdleCamera(false)
-    SetPedCanPlayAmbientAnims(playerPed, true)
+    SetPedCanPlayAmbientAnims(PlayerPedId(), true)
     SetResourceKvp("idleCam", "on")
 end, false)
 
