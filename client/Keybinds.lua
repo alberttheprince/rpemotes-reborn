@@ -27,7 +27,6 @@ if Config.SqlKeybinding then
             end
 
             if not IsPedSittingInAnyVehicle(PlayerPedId()) then
-
                 for k, v in pairs(Config.KeybindKeys) do
                     if IsControlJustReleased(0, v) then
                         if k == keyb1 then if emob1 ~= "" then EmoteCommandStart(nil, { emob1, 0 }) end end
@@ -71,18 +70,24 @@ if Config.SqlKeybinding then
     end)
 
     RegisterNetEvent("rp:ClientKeybindGetOne", function(key, e)
-        SimpleNotify(Translate('boundto', e, firstToUpper(key)))
-        if key == "num4" then emob1 = e
+        SimpleNotify(Translate('boundto', e, FirstToUpper(key)))
+        if key == "num4" then
+            emob1 = e
             keyb1 = "num4"
-        elseif key == "num5" then emob2 = e
+        elseif key == "num5" then
+            emob2 = e
             keyb2 = "num5"
-        elseif key == "num6" then emob3 = e
+        elseif key == "num6" then
+            emob3 = e
             keyb3 = "num6"
-        elseif key == "num7" then emob4 = e
+        elseif key == "num7" then
+            emob4 = e
             keyb4 = "num7"
-        elseif key == "num8" then emob5 = e
+        elseif key == "num8" then
+            emob5 = e
             keyb5 = "num8"
-        elseif key == "num9" then emob6 = e
+        elseif key == "num9" then
+            emob6 = e
             keyb6 = "num9"
         end
     end)
@@ -93,12 +98,12 @@ if Config.SqlKeybinding then
 
     function EmoteBindsStart()
         EmoteChatMessage(Translate('currentlyboundemotes') .. "\n"
-            .. firstToUpper(keyb1) .. " = '^2" .. emob1 .. "^7'\n"
-            .. firstToUpper(keyb2) .. " = '^2" .. emob2 .. "^7'\n"
-            .. firstToUpper(keyb3) .. " = '^2" .. emob3 .. "^7'\n"
-            .. firstToUpper(keyb4) .. " = '^2" .. emob4 .. "^7'\n"
-            .. firstToUpper(keyb5) .. " = '^2" .. emob5 .. "^7'\n"
-            .. firstToUpper(keyb6) .. " = '^2" .. emob6 .. "^7'\n")
+            .. FirstToUpper(keyb1) .. " = '^2" .. emob1 .. "^7'\n"
+            .. FirstToUpper(keyb2) .. " = '^2" .. emob2 .. "^7'\n"
+            .. FirstToUpper(keyb3) .. " = '^2" .. emob3 .. "^7'\n"
+            .. FirstToUpper(keyb4) .. " = '^2" .. emob4 .. "^7'\n"
+            .. FirstToUpper(keyb5) .. " = '^2" .. emob5 .. "^7'\n"
+            .. FirstToUpper(keyb6) .. " = '^2" .. emob6 .. "^7'\n")
     end
 
     function EmoteBindStart(source, args, raw)
@@ -130,13 +135,11 @@ if Config.SqlKeybinding then
                 TriggerServerEvent("rp:ServerKeybindDelete", key)
                 Wait(1000)
                 TriggerServerEvent("rp:ServerKeybindExist")
-
             else
-                EmoteChatMessage("'"..key.."' "..Translate('notvalidkey'))
+                EmoteChatMessage("'" .. key .. "' " .. Translate('notvalidkey'))
             end
         else
             print("invalid")
         end
     end
-
 end
