@@ -163,8 +163,8 @@ RegisterNetEvent("ClientEmoteRequestReceive", function(emotename, etype, target)
         if IsControlJustPressed(1, 246) then
             isRequestAnim = false
 
-            local otheremote = RP.Shared[requestedemote] and RP.Shared[requestedemote][4] or RP.Dances[requestedemote] and RP.Dances[requestedemote][4] or requestedemote
-            TriggerServerEvent("ServerValidEmote", target, requestedemote, otheremote)
+            local otheremote = RP.Shared[emotename] and RP.Shared[emotename][4] or RP.Dances[emotename] and RP.Dances[emotename][4] or emotename
+            TriggerServerEvent("ServerValidEmote", target, emotename, otheremote)
         elseif IsControlJustPressed(1, 182) then
             isRequestAnim = false
             SimpleNotify(Translate('refuseemote'))
