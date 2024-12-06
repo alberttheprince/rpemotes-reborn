@@ -1061,7 +1061,8 @@ end)
 
 -- Door stuff
 local openingDoor = false
-AddEventHandler('CEventOpenDoor', function(entities, eventEntity, args)
+AddEventHandler('CEventOpenDoor', function(unk1)
+    if unk1[1] ~= PlayerPedId() then return end
     if ShowPed then
         return
     end
@@ -1097,7 +1098,8 @@ end)
 local isBumpingPed = false
 local timeout = 500
 
-AddEventHandler("CEventPlayerCollisionWithPed", function()
+AddEventHandler("CEventPlayerCollisionWithPed", function(unk1)
+    if unk1[1] ~= PlayerPedId() then return end
     if not IsInAnimation then
         return
     end
