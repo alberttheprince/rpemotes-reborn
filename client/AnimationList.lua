@@ -12126,7 +12126,7 @@ RP.PropEmotes = {
         "bong_stage3",
         "Bong",
         AnimationOptions = {
-            Prop = 'hei_heist_sh_bong_01',
+            Prop = 'prop_bong_01',
             PropBone = 18905,
             PropPlacement = {
                 0.10,
@@ -12196,7 +12196,7 @@ RP.PropEmotes = {
         "sit_bong_clip",
         "Bong 3 - Sit & Rip",
         AnimationOptions = {
-            Prop = 'hei_heist_sh_bong_01',
+            Prop = 'prop_bong_01',
             PropBone = 60309,
             PropPlacement = {
                 0.0490,
