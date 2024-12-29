@@ -819,7 +819,7 @@ function OnEmotePlay(emoteData, name, textureVariation)
     end
 
     if not LoadAnim(ChosenDict) then
-        EmoteChatMessage("'" .. name .. "' " .. Translate('notvalidemote') .. "")  -- Fix: Replace ename with name parameter
+        EmoteChatMessage("'" .. name .. "' " .. Translate('notvalidemote') .. "")
         return
     end
 
