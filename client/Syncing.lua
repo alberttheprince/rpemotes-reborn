@@ -88,7 +88,7 @@ RegisterNetEvent("SyncPlayEmoteSource", function(emote, player)
         return EmoteChatMessage(Translate('not_in_a_vehicle'))
     end
 
-    local options = RP.Shared[emote] and RP.Shared[emote].AnimationOptions
+    local options = RP.Shared[emote] and RP.Shared[emote].AnimationOptions or RP.Dances[emote] and RP.Dances[emote].AnimationOptions
     if options then
 
         if (options.Attachto) then
