@@ -172,8 +172,8 @@ local function addKeybindEventHandlers()
         local emoteColumn = keybindMap[key]
         if emoteColumn then
             MySQL.update("UPDATE dpkeybinds SET " .. emoteColumn .. "=@emote WHERE id=@id", { id = myid, emote = emote },
-            function() 
-                TriggerClientEvent("rp:ClientKeybindGetOne", src, key, emote) 
+            function()
+                TriggerClientEvent("rp:ClientKeybindGetOne", src, key, emote)
             end)
         end
     end)
@@ -226,12 +226,12 @@ if Config.SqlKeybinding then -- and MySQL then
 		  `emote6` varchar(255) NULL DEFAULT ''
 		) ENGINE=InnoDB COLLATE=latin1_swedish_ci;
 		]], {}, function(success)
-            if success then
-                addKeybindEventHandlers()
-            else
-                print("^3Error connecting to DB^0")
-            end
-        end)
+        if success then
+            addKeybindEventHandlers()
+        else
+            print("^3Error connecting to DB^0")
+        end
+    end)
 else
     print(
     "^3Sql Keybinding^0 is turned ^1off^0, if you want to enable /emotebind, set ^3SqlKeybinding = ^2true^0 in config.lua and uncomment oxmysql lines in fxmanifest.lua.")

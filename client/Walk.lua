@@ -6,6 +6,12 @@ function WalkMenuStart(name, force)
         EmoteChatMessage(unable_message)
         return
     end
+
+    if not name or name == "" then
+        ResetWalk()
+        return
+    end
+
     if Config.PersistentWalk then SetResourceKvp("walkstyle", name) end
     RequestWalking(name)
     SetPedMovementClipset(PlayerPedId(), name, 0.2)
