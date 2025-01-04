@@ -841,6 +841,8 @@ function OnEmotePlay(emoteData, name, textureVariation)
         end
     end
 
+    DebugPrint("Animation flag = (" .. movementType .. ")")
+
     if animOption then
         if animOption.PtfxAsset then
             Ptfx1, Ptfx2, Ptfx3, Ptfx4, Ptfx5, Ptfx6, PtfxScale = table.unpack(animOption.PtfxPlacement)
