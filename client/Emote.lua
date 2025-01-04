@@ -826,7 +826,11 @@ function OnEmotePlay(emoteData, name, textureVariation)
     local movementType = 0 -- Default movement type
 
     if InVehicle then
-        movementType = 51
+        if animOption and animOption.FullBody then
+            movementType = 35
+        else
+            movementType = 51
+        end
     elseif animOption then
         if animOption.EmoteMoving then
             movementType = 51

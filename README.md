@@ -447,6 +447,8 @@ Because the menu gets updated frequently, the files get overwritten. To avoid th
 
 Add your animation code to the `AnimationListCustom.lua` and make a backup of this file and call it `BackUpAnimationListCustom.lua`.
 
+**Note on vehicle emotes:** If you want your emote to play in a vehicle with the full body, you must add the FullBody tag to the emote options.
+
 **Note on animal emotes:** For the addition of custom emotes for animal peds, you must add use the `sdog` or `bdog` tags. For example if you want to add an emote of `laydownflat` it must be either `sdoglaydownflat` or `bdoglaydownflat`. You must also add any custom addon peds to the `animals.lua` file in either category for these animations to be played on those models.
 
 Whenever an update is released, rename `BackUpAnimationListCustom.lua` to `AnimationListCustom.lua`, click yes to overwrite, and you're good to go.
