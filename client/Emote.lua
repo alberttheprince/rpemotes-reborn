@@ -362,8 +362,6 @@ local function cleanScenarioObjects(isClone)
 end
 
 function EmoteCancel(force)
-    cleanScenarioObjects(false)
-
     LocalPlayer.state:set('currentEmote', nil, true)
     EmoteCancelPlaying = true
     -- Don't cancel if we are in an exit emote
@@ -428,6 +426,7 @@ function EmoteCancel(force)
         end
         DestroyAllProps()
     end
+    cleanScenarioObjects(false)
     AnimationThreadStatus = false
     CheckStatus = false
 end
