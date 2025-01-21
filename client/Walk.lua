@@ -12,7 +12,10 @@ function WalkMenuStart(name, force)
         return
     end
 
-    if Config.PersistentWalk then SetResourceKvp("walkstyle", name) end
+    if Config.PersistentWalk then
+        SetResourceKvp("walkstyle", name) -- Save the walkstyle
+    end
+
     RequestWalking(name)
     SetPedMovementClipset(PlayerPedId(), name, 0.2)
     RemoveAnimSet(name)
@@ -29,7 +32,7 @@ end
 function WalksOnCommand()
     local WalksCommand = ""
     for a in PairsByKeys(RP.Walks) do
-        WalksCommand = WalksCommand .. "" .. string.lower(a) .. ", "
+        WalksCommand = WalksCommand .. string.lower(a) .. ", "
     end
     EmoteChatMessage(WalksCommand)
     EmoteChatMessage("To reset do /walk reset")
@@ -54,12 +57,11 @@ function WalkCommandStart(name)
     elseif name == "Injured" then
         WalkMenuStart("move_m@injured")
     else
-        EmoteChatMessage("'" .. name .. "' is not a valid walk")
+        EmoteChatMessage("'" .. name .. "' is not a valid walk.")
     end
 end
 
--- Persistent Walkstyles are stored to KVP. Once the player has spawned, the walkstyle is applied.
-
+ -- Persistent Walkstyles are stored to KVP. Once the player has spawned, the walkstyle is applied.
 if Config.WalkingStylesEnabled and Config.PersistentWalk then
     -- Function to check if walkstyle is available to prevent exploiting
     local function walkstyleExists(kvp)
@@ -71,12 +73,13 @@ if Config.WalkingStylesEnabled and Config.PersistentWalk then
         return false
     end
 
+    -- Apply saved walking style
     local function handleWalkstyle()
         local kvp = GetResourceKvpString("walkstyle")
 
-        if kvp ~= nil then
+        if kvp ~= nil and kvp ~= "" then
             if walkstyleExists(kvp) then
-                WalkMenuStart(kvp)
+                WalkMenuStart(kvp, true) -- Apply style
             else
                 ResetPedMovementClipset(PlayerPedId(), 0.0)
                 DeleteResourceKvp("walkstyle")
@@ -84,7 +87,11 @@ if Config.WalkingStylesEnabled and Config.PersistentWalk then
         end
     end
 
-    AddEventHandler('playerSpawned', handleWalkstyle)
+    -- Apply after spawn
+    AddEventHandler('playerSpawned', function()
+        Wait(3000) -- Waiting to ensure everything is loaded
+        handleWalkstyle()
+    end)
     RegisterNetEvent('QBCore:Client:OnPlayerLoaded', handleWalkstyle)
     RegisterNetEvent('esx:playerLoaded', handleWalkstyle)
 end

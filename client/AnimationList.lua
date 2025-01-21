@@ -446,6 +446,10 @@ RP.Walks = {
         "move_f@injured",
         "Injured 2 - Female"
     },
+    ["Injured"] = {
+        "move_m@injured",
+        "Injured - Male"
+    },
     ["Intimidation"] = {
         "move_m@intimidation@1h",
         "Intimidation"
