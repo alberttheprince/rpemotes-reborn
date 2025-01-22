@@ -21532,11 +21532,11 @@ RP.PropEmotes = {
             PropBone = 57005,
             PropPlacement = {
                 0.08,
-                -0.4,
-                -0.10,
-                80.0,
+                -0.1,
+                -0.04,
+                78.0,
                 -20.0,
-                175.0,
+                175.0
             },
             EmoteLoop = true,
             EmoteMoving = false
