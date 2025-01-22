@@ -23,21 +23,35 @@ InHandsup = false
 -- Remove emotes if needed
 
 local emoteTypes = {
-    "Shared",
-    "Dances",
-    "AnimalEmotes",
-    "Emotes",
-    "PropEmotes",
+    Shared = '🤼 ',
+    Dances = '',
+    AnimalEmotes = '🐶 ',
+    Emotes = '',
+    PropEmotes = '📦 '
 }
 
-for i = 1, #emoteTypes do
-    local emoteType = emoteTypes[i]
+for emoteType, prefix in pairs(emoteTypes) do
     for emoteName, emoteData in pairs(RP[emoteType]) do
+        if prefix ~= '' then
+            emoteData[3] = prefix..emoteData[3]
+        end
+
         local shouldRemove = false
-        if Config.AdultEmotesDisabled and emoteData.AdultAnimation then shouldRemove = true end
-        if emoteData[1] and not ((emoteData[1] == 'Scenario') or (emoteData[1] == 'ScenarioObject') or (emoteData[1] == 'MaleScenario')) and not DoesAnimDictExist(emoteData[1]) then shouldRemove = true end
-        if shouldRemove then RP[emoteType][emoteName] = nil end
+
+        if Config.AdultEmotesDisabled and emoteData.AdultAnimation then
+            shouldRemove = true
+        elseif emoteData[1] and not ((emoteData[1] == 'Scenario') or (emoteData[1] == 'ScenarioObject') or (emoteData[1] == 'MaleScenario')) and not DoesAnimDictExist(emoteData[1]) then
+            shouldRemove = true
+        end
+
+        if shouldRemove then
+            RP[emoteType][emoteName] = nil
+        end
     end
+end
+
+if not Config.AnimalEmotesEnabled then
+    RP.AnimalEmotes = {}
 end
 
 local function RunAnimationThread()
@@ -758,7 +772,7 @@ function OnEmotePlay(emoteData, name, textureVariation)
         return EmoteChatMessage(Translate('in_a_vehicle'))
     end
 
-    if ChosenAnimOptions and ChosenAnimOptions.ExitEmote and animOption and animOption.ExitEmote then
+    if ChosenAnimOptions?.ExitEmote and animOption and animOption.ExitEmote then
         if not (animOption and ChosenAnimOptions.ExitEmote == animOption.ExitEmote) and RP.Exits[ChosenAnimOptions.ExitEmote][2] ~= emoteData[2] then
             return
         end
@@ -859,7 +873,7 @@ function OnEmotePlay(emoteData, name, textureVariation)
         ClearPedTasksImmediately(PlayerPedId())
     end
 
-    TaskPlayAnim(PlayerPedId(), ChosenDict, anim, 5.0, 5.0, animOption and animOption.EmoteDuration or -1, movementType, 0, false, false,
+    TaskPlayAnim(PlayerPedId(), ChosenDict, anim, animOption?.BlendInSpeed or 5.0, animOption?.BlendOutSpeed or 5.0, animOption?.EmoteDuration or -1, movementType, 0, false, false,
         false)
     RemoveAnimDict(ChosenDict)
 
@@ -1013,7 +1027,7 @@ function PlayExitAndEnterEmote(emoteName, name, textureVariation)
     DetachEntity(ped, true, false)
     CancelSharedEmote()
 
-    if ChosenAnimOptions and ChosenAnimOptions.ExitEmote then
+    if ChosenAnimOptions?.ExitEmote then
         -- If the emote exit type is not spesifed it defaults to Emotes
         local options = ChosenAnimOptions
         local ExitEmoteType = options.ExitEmoteType or "Emotes"

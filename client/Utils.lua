@@ -310,85 +310,58 @@ function ShowPedMenu(zoom)
 
     if not ShowPed then
         CreateThread(function()
-            local coords = GetEntityCoords(PlayerPedId()) - vector3(0.0, 0.0, 10.0)
-            ClonedPed = CreatePed(26, GetEntityModel(PlayerPedId()), coords.x, coords.y, coords.z, 0, false, false)
-            ClonePedToTarget(PlayerPedId(), ClonedPed)
+            local playerPed = PlayerPedId()
+            local coords = GetEntityCoords(playerPed) - vector3(0.0, 0.0, 10.0)
+            ClonedPed = CreatePed(26, GetEntityModel(playerPed), coords.x, coords.y, coords.z, 0, false, false)
+            ClonePedToTarget(playerPed, ClonedPed)
 
-            SetEntityCollision(ClonedPed, false, false)
             SetEntityInvincible(ClonedPed, true)
             SetEntityLocallyVisible(ClonedPed)
-
             NetworkSetEntityInvisibleToNetwork(ClonedPed, true)
             SetEntityCanBeDamaged(ClonedPed, false)
             SetBlockingOfNonTemporaryEvents(ClonedPed, true)
             SetEntityAlpha(ClonedPed, 254, false)
+            SetEntityCollision(ClonedPed, false, false)
 
             ShowPed = true
 
             local positionBuffer = {}
             local bufferSize = 5
 
-            if not zoom then
-                while ShowPed do
-                    local screencoordsX, screencoordsY = 0.65135417461395, 0.77
-                    if Config.MenuPosition == "left" then
-                        screencoordsX = 1.0 - screencoordsX
-                    end
-                    local world, normal = GetWorldCoordFromScreenCoord(screencoordsX, screencoordsY)  --  GetWorldCoordFromScreenCoord(0.67135417461395, 0.7787036895752)
-                    local depth = 3.5
-                    local target = world + normal * depth
-                    local camRot = GetGameplayCamRot(2)
+            while ShowPed do
+                local screencoordsX = zoom and 0.6 or 0.65135417461395
+                local screencoordsY = zoom and 1.9 or 0.77
 
-                    table.insert(positionBuffer, target)
-                    if #positionBuffer > bufferSize then
-                        table.remove(positionBuffer, 1)
-                    end
-
-                    local averagedTarget = vector3(0, 0, 0)
-                    for _, position in ipairs(positionBuffer) do
-                        averagedTarget = averagedTarget + position
-                    end
-                    averagedTarget = averagedTarget / #positionBuffer
-
-                    SetEntityCoords(ClonedPed, averagedTarget.x, averagedTarget.y, averagedTarget.z, false, false, false,
-                        true)
-                    local heading_offset = Config.MenuPosition == "left" and 170.0 or 190.0
-                    SetEntityHeading(ClonedPed, camRot.z + heading_offset)
-                    SetEntityRotation(ClonedPed, camRot.x * (-1), 0, camRot.z + 170.0, 2, false)
-
-                    Wait(4)
+                if Config.MenuPosition == "left" then
+                    screencoordsX = 1.0 - screencoordsX
                 end
-            else
-                while ShowPed do
-                    local screencoordsX, screencoordsY = 0.6, 1.9
-                    if Config.MenuPosition == "left" then
-                        screencoordsX = 1.0 - screencoordsX
-                    end
-                    local world, normal = GetWorldCoordFromScreenCoord(0.6, 1.9)
-                    local depth = 2.0
-                    local target = world + normal * depth
-                    local camRot = GetGameplayCamRot(2)
 
-                    table.insert(positionBuffer, target)
-                    if #positionBuffer > bufferSize then
-                        table.remove(positionBuffer, 1)
-                    end
+                local world, normal = GetWorldCoordFromScreenCoord(screencoordsX, screencoordsY)
+                local depth = zoom and 2.0 or 3.5
+                local target = world + normal * depth
+                local camRot = GetGameplayCamRot(2)
 
-                    local averagedTarget = vector3(0, 0, 0)
-                    for _, position in ipairs(positionBuffer) do
-                        averagedTarget = averagedTarget + position
-                    end
-                    averagedTarget = averagedTarget / #positionBuffer
-
-                    SetEntityCoords(ClonedPed, averagedTarget.x, averagedTarget.y, averagedTarget.z, false, false, false,
-                        true)
-                    local heading_offset = Config.MenuPosition == "left" and 170.0 or 190.0
-                    SetEntityHeading(ClonedPed, camRot.z + heading_offset)
-                    SetEntityRotation(ClonedPed, camRot.x * (-1), 0, camRot.z + 170.0, 2, false)
-
-                    Wait(4)
+                table.insert(positionBuffer, target)
+                if #positionBuffer > bufferSize then
+                    table.remove(positionBuffer, 1)
                 end
+
+                local averagedTarget = vector3(0, 0, 0)
+                for _, position in ipairs(positionBuffer) do
+                    averagedTarget = averagedTarget + position
+                end
+                averagedTarget = averagedTarget / #positionBuffer
+
+                SetEntityCoords(ClonedPed, averagedTarget.x, averagedTarget.y, averagedTarget.z, false, false, false, true)
+                local heading_offset = Config.MenuPosition == "left" and 170.0 or 190.0
+                SetEntityHeading(ClonedPed, camRot.z + heading_offset)
+                SetEntityRotation(ClonedPed, camRot.x * (-1), 0.0, camRot.z + 170.0, 2, false)
+
+                Wait(4)
             end
+
+            DeleteEntity(ClonedPed)
+            ClonedPed = nil
         end)
     end
 end

@@ -143,7 +143,7 @@ function AddEmoteMenu(menu)
 
     for a, b in PairsByKeys(RP.PropEmotes) do
         local x, y, z = table.unpack(b)
-        local propitem = b.AnimationOptions.PropTextureVariations and 
+        local propitem = b.AnimationOptions.PropTextureVariations and
             NativeUI.CreateListItem(z, b.AnimationOptions.PropTextureVariations, 1, "/e (" .. a .. ")") or
             NativeUI.CreateItem(z, "/e (" .. a .. ")")
 
@@ -438,7 +438,6 @@ function AddCancelEmote(menu)
     end
 end
 
-
 ShowPedPreview = function(menu)
     menu.OnItemSelect = function(sender, item, index)
         if (index == 1) then
@@ -457,22 +456,27 @@ function AddWalkMenu(menu)
     submenu:AddItem(walkreset)
     table.insert(WalkTable, Translate('resetdef'))
 
-    -- This one is added here to be at the top of the list.
-    submenu:AddItem(NativeUI.CreateItem("Injured", "/walk (injured)"))
-    table.insert(WalkTable, "move_m@injured")
-
+    local sortedWalks = {}
     for a, b in PairsByKeys(RP.Walks) do
         local x, label = table.unpack(b)
-        submenu:AddItem(NativeUI.CreateItem(label or a, "/walk (" .. string.lower(a) .. ")"))
-        table.insert(WalkTable, x)
+        if x == "move_m@injured" then
+            table.insert(sortedWalks, 1, {label = label or a, anim = x})
+        else
+            table.insert(sortedWalks, {label = label or a, anim = x})
+        end
+    end
+
+    for _, walk in ipairs(sortedWalks) do
+        submenu:AddItem(NativeUI.CreateItem(walk.label, "/walk (" .. string.lower(walk.label) .. ")"))
+        table.insert(WalkTable, walk.anim)
     end
 
     submenu.OnItemSelect = function(sender, item, index)
-        if item ~= walkreset then
-            WalkMenuStart(WalkTable[index])
-        else
+        if item == walkreset then
             ResetWalk()
             DeleteResourceKvp("walkstyle")
+        else
+            WalkMenuStart(WalkTable[index])
         end
     end
 end

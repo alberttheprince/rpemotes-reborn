@@ -21,9 +21,19 @@ CustomDP.PropEmotes = {}
 -----------------------------------------------------------------------------------------
 
 function LoadAddonEmotes()
+    local prefixes = {
+        Shared = '🤼 ',
+        AnimalEmotes = '🐶 ',
+        PropEmotes = '📦 '
+    }
+
     for arrayName, array in pairs(CustomDP) do
         if RP[arrayName] then
+            local prefix = prefixes[arrayName]
             for emoteName, emoteData in pairs(array) do
+                if prefix then
+                    emoteData[3] = prefix .. emoteData[3]
+                end
                 RP[arrayName][emoteName] = emoteData
             end
         end

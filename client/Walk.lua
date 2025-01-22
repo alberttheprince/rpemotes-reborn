@@ -51,8 +51,6 @@ function WalkCommandStart(name)
     if TableHasKey(RP.Walks, name) then
         local name2 = table.unpack(RP.Walks[name])
         WalkMenuStart(name2)
-    elseif name == "Injured" then
-        WalkMenuStart("move_m@injured")
     else
         EmoteChatMessage("'" .. name .. "' is not a valid walk")
     end
@@ -74,9 +72,9 @@ if Config.WalkingStylesEnabled and Config.PersistentWalk then
     local function handleWalkstyle()
         local kvp = GetResourceKvpString("walkstyle")
 
-        if kvp ~= nil then
+        if kvp then
             if walkstyleExists(kvp) then
-                WalkMenuStart(kvp)
+                WalkMenuStart(kvp, true)
             else
                 ResetPedMovementClipset(PlayerPedId(), 0.0)
                 DeleteResourceKvp("walkstyle")
@@ -84,9 +82,18 @@ if Config.WalkingStylesEnabled and Config.PersistentWalk then
         end
     end
 
-    AddEventHandler('playerSpawned', handleWalkstyle)
+    AddEventHandler('playerSpawned', function()
+        Wait(3000)
+        handleWalkstyle()
+    end)
     RegisterNetEvent('QBCore:Client:OnPlayerLoaded', handleWalkstyle)
     RegisterNetEvent('esx:playerLoaded', handleWalkstyle)
+
+    AddEventHandler('onResourceStart', function(resource)
+        if resource == GetCurrentResourceName() then
+            handleWalkstyle()
+        end
+    end)
 end
 
 if Config.WalkingStylesEnabled then

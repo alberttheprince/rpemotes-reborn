@@ -442,6 +442,10 @@ RP.Walks = {
         "move_f@hurry@b",
         "Hurry Female 2"
     },
+    ["Injured"] = {
+        "move_m@injured",
+        "Injured"
+    },
     ["Injured2"] = {
         "move_f@injured",
         "Injured 2 - Female"
@@ -7813,7 +7817,8 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
+            ExitEmoteType = "Exits",
+            NotInVehicle = true
         }
     },
     ["sitscared2"] = {
@@ -7823,7 +7828,8 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
+            ExitEmoteType = "Exits",
+            NotInVehicle = true
         }
     },
     ["sitscared3"] = {
@@ -7833,7 +7839,8 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
+            ExitEmoteType = "Exits",
+            NotInVehicle = true
         }
     },
     ["sitdrunk"] = {
@@ -8443,7 +8450,7 @@ RP.Emotes = {
     },
     ["lostconfused"] = {
         "anim@scripted@island@special_peds@dave@hs4_dave_stage2_ig6",
-        "i_lost_it",    
+        "i_lost_it",
         "Lost & Confused",
         AnimationOptions = {
             EmoteLoop = false
@@ -9742,7 +9749,7 @@ RP.Emotes = {
         "Hug Dog",
         AnimationOptions = {
             EmoteLoop = true,
-			EmoteMoving = false,
+			EmoteMoving = false
         }
     },
     ["snot"] = {
@@ -9751,7 +9758,7 @@ RP.Emotes = {
         "Blow Snot",
         AnimationOptions = {
             EmoteMoving = true,
-            EmoteDuration = 4500,
+            EmoteDuration = 4500
         }
     },
     ["scratch"] = {
@@ -9760,7 +9767,7 @@ RP.Emotes = {
         "Scratch Balls",
         AnimationOptions = {
             EmoteMoving = false,
-            EmoteDuration = 4000,
+            EmoteDuration = 4000
         },
         AdultAnimation = true
     },
@@ -9771,7 +9778,7 @@ RP.Emotes = {
         AnimationOptions = {
             onlyInVehicle = true,
 			EmoteMoving = false,
-            EmoteDuration = 2000,
+            EmoteDuration = 2000
         }
     },
 	["cartauntb"] = {
@@ -9781,7 +9788,7 @@ RP.Emotes = {
         AnimationOptions = {
             onlyInVehicle = true,
 			EmoteMoving = false,
-            EmoteDuration = 2000,
+            EmoteDuration = 2000
         }
     },
 	["cartauntc"] = {
@@ -9791,7 +9798,7 @@ RP.Emotes = {
         AnimationOptions = {
             onlyInVehicle = true,
 			EmoteMoving = false,
-            EmoteDuration = 2000,
+            EmoteDuration = 2000
         }
     },
 	["cartauntd"] = {
@@ -9801,7 +9808,7 @@ RP.Emotes = {
         AnimationOptions = {
             onlyInVehicle = true,
 			EmoteMoving = false,
-            EmoteDuration = 2000,
+            EmoteDuration = 2000
         }
     },
 	["cartaunte"] = {
@@ -9811,7 +9818,7 @@ RP.Emotes = {
         AnimationOptions = {
             onlyInVehicle = true,
 			EmoteMoving = false,
-            EmoteDuration = 3000,
+            EmoteDuration = 3000
         }
     },
 	["cartauntf"] = {
@@ -9821,7 +9828,7 @@ RP.Emotes = {
         AnimationOptions = {
             onlyInVehicle = true,
 			EmoteMoving = false,
-            EmoteDuration = 3000,
+            EmoteDuration = 3000
         }
     },
 	["cartauntg"] = {
@@ -9831,7 +9838,7 @@ RP.Emotes = {
         AnimationOptions = {
             onlyInVehicle = true,
 			EmoteMoving = false,
-            EmoteDuration = 2000,
+            EmoteDuration = 2000
         }
     },
 	["cartaunth"] = {
@@ -9841,7 +9848,7 @@ RP.Emotes = {
         AnimationOptions = {
             onlyInVehicle = true,
 			EmoteMoving = false,
-            EmoteDuration = 2000,
+            EmoteDuration = 2000
         }
     },
 	["cartaunti"] = {
@@ -9851,7 +9858,7 @@ RP.Emotes = {
         AnimationOptions = {
             onlyInVehicle = true,
 			EmoteMoving = false,
-            EmoteDuration = 3000,
+            EmoteDuration = 3000
         }
     },
 	["cartauntj"] = {
@@ -9861,7 +9868,7 @@ RP.Emotes = {
         AnimationOptions = {
             onlyInVehicle = true,
 			EmoteMoving = false,
-            EmoteDuration = 2000,
+            EmoteDuration = 2000
         }
     },
 	["cartauntk"] = {
@@ -9871,7 +9878,7 @@ RP.Emotes = {
         AnimationOptions = {
             onlyInVehicle = true,
 			EmoteMoving = false,
-            EmoteDuration = 2000,
+            EmoteDuration = 2000
         }
     },
 	["cartauntl"] = {
@@ -9881,7 +9888,7 @@ RP.Emotes = {
         AnimationOptions = {
             onlyInVehicle = true,
 			EmoteMoving = false,
-            EmoteDuration = 2000,
+            EmoteDuration = 2000
         }
     },
 	["cartauntm"] = {
@@ -9891,7 +9898,7 @@ RP.Emotes = {
         AnimationOptions = {
             onlyInVehicle = true,
 			EmoteMoving = false,
-            EmoteDuration = 5000,
+            EmoteDuration = 5000
         }
     },
 	["cartauntn"] = {
@@ -9901,7 +9908,7 @@ RP.Emotes = {
         AnimationOptions = {
             onlyInVehicle = true,
 			EmoteMoving = false,
-            EmoteDuration = 5000,
+            EmoteDuration = 5000
         }
     },
     ["flex2"] = { -- Custom Emote By Amnilka
@@ -9910,7 +9917,7 @@ RP.Emotes = {
         "Flex 2",
         AnimationOptions = {
             EmoteLoop = true,
-            EmoteMoving = true, -- Allows us to flex while performing another animation
+            EmoteMoving = true -- Allows us to flex while performing another animation
         }
     },
     ["gym"] = { -- Custom Female Emote By Souris
@@ -9918,7 +9925,7 @@ RP.Emotes = {
         "air_squat_clip",
         "Gym - Squats",
         AnimationOptions = {
-            EmoteLoop = true,
+            EmoteLoop = true
         }
     },
     ["gym2"] = { -- Custom Female Emote By Souris
@@ -9937,7 +9944,7 @@ RP.Emotes = {
         "jump_exc_clip",
         "Gym - Jumping",
         AnimationOptions = {
-            EmoteLoop = true,
+            EmoteLoop = true
         }
     },
     ["gym4"] = { -- Custom Female Emote By Souris
@@ -9945,7 +9952,7 @@ RP.Emotes = {
         "jump_jack_clip",
         "Gym - Jumping Jacks",
         AnimationOptions = {
-            EmoteLoop = true,
+            EmoteLoop = true
         }
     },
     ["gym5"] = { -- Custom Female Emote By Souris
@@ -10066,7 +10073,7 @@ RP.Emotes = {
         }
     },
     ["boxing3"] = {
-        "melee@unarmed@streamed_core_fps", 
+        "melee@unarmed@streamed_core_fps",
         "idle",
         "Boxing 3",
         AnimationOptions = {
@@ -16692,7 +16699,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["brushteeth"] = {  
+    ["brushteeth"] = {
         "mp_player_inteat@pnq",
         "loop_fp",
         "Brush Teeth",
@@ -17846,36 +17853,36 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true
         }
-   },
-   ["mnc"] = {
-    "anim@heists@box_carry@",
-    "idle",
-    "Milk & Cookies",
-    AnimationOptions = {
-        Prop = "m23_2_prop_m32_milkncookies_01a",
-        PropBone = 57005, -- Right Wrist
-        PropPlacement = {
-            0.2150,
-            0.1140,
-            0.0240,
-          -81.9185,
-         -176.2526,
-          -28.4674
-        },
-        SecondProp = 'm23_2_prop_m32_milkncookies_01a',
-        SecondPropBone = 18905, -- Left Wrist
-        SecondPropPlacement = {
-            0.2150,
-            0.1140,
-            0.0240,
-          -95.9185,
-         -176.2526,
-          -28.4674
-        },
-        EmoteLoop = true,
-        EmoteMoving = true
-    }
-},
+    },
+    ["mnc"] = {
+        "anim@heists@box_carry@",
+        "idle",
+        "Milk & Cookies",
+        AnimationOptions = {
+            Prop = "m23_2_prop_m32_milkncookies_01a",
+            PropBone = 57005, -- Right Wrist
+            PropPlacement = {
+                0.2150,
+                0.1140,
+                0.0240,
+              -81.9185,
+             -176.2526,
+              -28.4674
+            },
+            SecondProp = 'm23_2_prop_m32_milkncookies_01a',
+            SecondPropBone = 18905, -- Left Wrist
+            SecondPropPlacement = {
+                0.2150,
+                0.1140,
+                0.0240,
+              -95.9185,
+             -176.2526,
+              -28.4674
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["carrypizza"] = {
         "anim@heists@box_carry@",
         "idle",
