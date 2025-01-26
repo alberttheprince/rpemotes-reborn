@@ -8,7 +8,7 @@ RegisterCommand('idlecamoff', function() -- help2 31, 167, 9
     })
     DisableIdleCamera(true)
     SetPedCanPlayAmbientAnims(PlayerPedId(), false)
-    SetResourceKvpInt("idleCam", 1)
+    SetResourceKvpInt("idleCamToggle", 1)
 end, false)
 
 RegisterCommand('idlecamon', function() -- help2 31, 167, 9
@@ -19,14 +19,14 @@ RegisterCommand('idlecamon', function() -- help2 31, 167, 9
     })
     DisableIdleCamera(false)
     SetPedCanPlayAmbientAnims(PlayerPedId(), true)
-    SetResourceKvpInt("idleCam", 2)
+    SetResourceKvpInt("idleCamToggle", 2)
 end, false)
 
 CreateThread(function()
     TriggerEvent("chat:addSuggestion", "/idlecamon", "Re-enables the idle cam")
     TriggerEvent("chat:addSuggestion", "/idlecamoff", "Disables the idle cam")
 
-    local idleCamKvp = GetResourceKvpInt("idleCam")
+    local idleCamKvp = GetResourceKvpInt("idleCamToggle")
     if idleCamKvp == 0 then
         return
     end
