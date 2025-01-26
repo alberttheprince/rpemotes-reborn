@@ -1,3 +1,5 @@
+if not Config.NoIdleCam then return end
+
 RegisterCommand('idlecamoff', function() -- help2 31, 167, 9
     TriggerEvent('chat:addMessage', {
         color = {227,8,0},
@@ -6,7 +8,7 @@ RegisterCommand('idlecamoff', function() -- help2 31, 167, 9
     })
     DisableIdleCamera(true)
     SetPedCanPlayAmbientAnims(PlayerPedId(), false)
-    SetResourceKvpInt("idleCam", 0)
+    SetResourceKvpInt("idleCam", 1)
 end, false)
 
 RegisterCommand('idlecamon', function() -- help2 31, 167, 9
@@ -17,7 +19,7 @@ RegisterCommand('idlecamon', function() -- help2 31, 167, 9
     })
     DisableIdleCamera(false)
     SetPedCanPlayAmbientAnims(PlayerPedId(), true)
-    SetResourceKvpInt("idleCam", 1)
+    SetResourceKvpInt("idleCam", 2)
 end, false)
 
 CreateThread(function()
@@ -25,10 +27,9 @@ CreateThread(function()
     TriggerEvent("chat:addSuggestion", "/idlecamoff", "Disables the idle cam")
 
     local idleCamKvp = GetResourceKvpInt("idleCam")
-    if idleCamKvp ~= 0 and idleCamKvp ~= 1 then
+    if idleCamKvp == 0 then
         return
     end
 
-    local idleCamDisabled = idleCamKvp == 0
-    DisableIdleCamera(idleCamDisabled)
+    DisableIdleCamera(idleCamKvp == 1)
 end)
