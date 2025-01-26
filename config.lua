@@ -79,6 +79,8 @@ Config = {
     -- News Camera Options
     NewscamEnabled = false, -- If set to true, the /newscam command will be enabled.
 
+    NoIdleCam = true, -- Controls wether the idle cam can be disabled by players or not
+
     -- Preview Ped Options
     PreviewPed = true, -- Shows a preview of the emote on the player's ped next to the emote menu. Note that resmon will increase when this when emotes are being previewed.
 
