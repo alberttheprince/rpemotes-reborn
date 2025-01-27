@@ -25116,7 +25116,7 @@ RP.PropEmotes = {
     ["rap2"] = { -- Custom Emote Provided To RPEmotes Courtesy Of Darks Animations
        "mic_pose_1@darksj",
        "mic_pose_1_clip",
-        "Rap / Sing 2 - Microhpone",
+        "Rap / Sing 2 - Microphone",
         AnimationOptions = {
             Prop = 'sf_prop_sf_mic_01a',
             PropBone = 28422,
@@ -25135,7 +25135,7 @@ RP.PropEmotes = {
     ["rap3"] = { -- Custom Emote Provided To RPEmotes Courtesy Of Darks Animations
        "mic_pose_2@darksj",
        "mic_pose_2_clip",
-        "Rap / Sing 3 - Microhpone Rock Hand Sign",
+        "Rap / Sing 3 - Microphone Rock Hand Sign",
         AnimationOptions = {
             Prop = 'sf_prop_sf_mic_01a',
             PropBone = 28422,
@@ -25154,7 +25154,7 @@ RP.PropEmotes = {
     ["rap4"] = { -- Custom Emote Provided To RPEmotes Courtesy Of Darks Animations
        "mic_pose_3@darksj",
        "mic_pose_3_clip",
-        "Rap / Sing 4 - Microhpone Bend Back",
+        "Rap / Sing 4 - Microphone Bend Back",
         AnimationOptions = {
             Prop = 'sf_prop_sf_mic_01a',
             PropBone = 28422,
@@ -25173,7 +25173,7 @@ RP.PropEmotes = {
     ["rap5"] = { -- Custom Emote Provided To RPEmotes Courtesy Of Darks Animations
        "mic_pose_4@darksj",
        "mic_pose_4_clip",
-        "Rap / Sing 5 - Microhpone Kneel",
+        "Rap / Sing 5 - Microphone Kneel",
         AnimationOptions = {
             Prop = 'sf_prop_sf_mic_01a',
             PropBone = 28422,
@@ -25194,7 +25194,7 @@ RP.PropEmotes = {
     ["rap6"] = { -- Custom Emote Provided To RPEmotes Courtesy Of Darks Animations
        "mic_pose_5_a@darksj",
        "mic_pose_5_a_clip",
-        "Rap / Sing 6 - Microhpone",
+        "Rap / Sing 6 - Microphone",
         AnimationOptions = {
             Prop = 'sf_prop_sf_mic_01a',
             PropBone = 28422,
