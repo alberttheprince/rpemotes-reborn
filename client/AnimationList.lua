@@ -819,54 +819,6 @@ RP.Shared = {
         "Slapped 2",
         "slap2"
     },
-    ["receiveblowjob"] = {
-        "misscarsteal2pimpsex",
-        "pimpsex_punter",
-        "Receive Blowjob",
-        "giveblowjob",
-        AnimationOptions = {
-            EmoteMoving = false,
-            EmoteDuration = 30000,
-            SyncOffsetFront = 0.63
-        },
-        AdultAnimation = true
-    },
-    ["giveblowjob"] = {
-        "misscarsteal2pimpsex",
-        "pimpsex_hooker",
-        "Give Blowjob",
-        "receiveblowjob",
-        AnimationOptions = {
-            EmoteMoving = false,
-            EmoteDuration = 30000,
-            SyncOffsetFront = 0.63
-        },
-        AdultAnimation = true
-    },
-    ["streetsexmale"] = {
-        "misscarsteal2pimpsex",
-        "shagloop_pimp",
-        "Street Sex Male",
-        "streetsexfemale",
-        AnimationOptions = {
-            EmoteMoving = false,
-            EmoteLoop = true,
-            SyncOffsetFront = 0.50
-        },
-        AdultAnimation = true
-    },
-    ["streetsexfemale"] = {
-        "misscarsteal2pimpsex",
-        "shagloop_hooker",
-        "Street Sex Female",
-        "streetsexmale",
-        AnimationOptions = {
-            EmoteMoving = false,
-            EmoteLoop = true,
-            SyncOffsetFront = 0.50
-        },
-        AdultAnimation = true
-    },
     ["carry"] = {
         "missfinale_c2mcs_1",
         "fin_c2_mcs_1_camman",
@@ -1854,36 +1806,6 @@ RP.Shared = {
             yRot = 0.0,
             zRot = 0.0
         },
-    },
-    ["bdoghumping"] = {
-        "creatures@rottweiler@amb@",
-        "hump_loop_chop",
-        "Dogs Humping (Male)",
-        "bdoghumping2",
-        AnimationOptions = {
-            EmoteMoving = false,
-            EmoteLoop = true,
-            SyncOffsetFront = 0.0,
-            SyncOffsetSide = -0.028,
-            SyncOffsetHeading = 0.0
-        },
-        AdultAnimation = true,
-        AnimalEmote = true
-    },
-    ["bdoghumping2"] = {
-        "creatures@rottweiler@amb@",
-        "hump_loop_ladydog",
-        "Dogs Humping (Female)",
-        "bdoghumping",
-        AnimationOptions = {
-            EmoteMoving = false,
-            EmoteLoop = true,
-            SyncOffsetFront = 0.0,
-            SyncOffsetSide = -0.028,
-            SyncOffsetHeading = 0.0
-        },
-        AdultAnimation = true,
-        AnimalEmote = true
     }
 }
 
