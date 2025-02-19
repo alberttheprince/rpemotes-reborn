@@ -7,7 +7,9 @@ if Config.Keybinding then
     local cmd = string.format('emoteSelect%s', i)
     RegisterCommand(cmd, function()
         local emote = GetResourceKvpString(string.format('%s_emob%s', Config.keybindKVP, i))
-        EmoteCommandStart(nil, { emote, 0 })
+        if emote and emote ~= "" then
+            EmoteCommandStart(nil, { emote, 0 })
+        end
     end, false)
     RegisterKeyMapping(cmd, string.format('Emote bind %s', i), 'keyboard', Config.KeybindKeys[i])
   end
