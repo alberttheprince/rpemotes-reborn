@@ -14,6 +14,15 @@ if Config.Keybinding then
 
   RegisterCommand('emotebind', function(source, args, raw) EmoteBindStart(source, args, raw) end, false)
   RegisterCommand('emotedelete', function(source, args) DeleteEmote(source, args) end, false)
+
+  CreateThread(function()
+    TriggerEvent('chat:addSuggestion', '/emotebind', Translate('link_emote_keybind'),
+            { { name = "number",     help = "1,2,3,4,5,6" },
+                { name = "emotename", help = Translate('help_command') } })
+        TriggerEvent('chat:addSuggestion', '/emotebinds', Translate('show_emote_keybind'))
+        TriggerEvent('chat:addSuggestion', '/emotedelete', Translate('remove_emote_keybind'),
+            { { name = "key", help = "1,2,3,4,5,6" } })
+  end)
     -----------------------------------------------------------------------------------------------------
     ------ Functions and stuff --------------------------------------------------------------------------
     -----------------------------------------------------------------------------------------------------
