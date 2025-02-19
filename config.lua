@@ -8,7 +8,8 @@ Config = {
     MenuKeybind = 'f4', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     FavKeybindEnabled = true, -- You can disable the Favorite emote keybinding here.
     FavKeybind = 'capital', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
-    SqlKeybinding = false, -- If you have the SQL imported enable this to turn on keybinding.
+    Keybinding = false, -- If you have the SQL imported enable this to turn on keybinding.
+    keybindKvp = 'rpemotes-reborn',
     NotificationsAsChatMessage = false, -- If you don't like native GTA 5 notifications, you can disable them here to have messages in the chat.
     Framework = 'qb-core', -- Used for few framework-dependent things. Accepted values: 'qb-core', false
     Search = true, -- Used to enable or disable the search feature in the menu.
@@ -88,12 +89,12 @@ Config = {
 }
 
 Config.KeybindKeys = {
-    108, -- num4
-    110, -- num5
-    109, -- num6
-    117, -- num7
-    111, -- num8
-    118 -- num9
+    'NUMPAD4', -- num4
+    'NUMPAD5', -- num5
+    'NUMPAD6', -- num6
+    'NUMPAD7', -- num7
+    'NUMPAD8', -- num8
+    'NUMPAD9' -- num9
 }
 
 Config.Credits = {
