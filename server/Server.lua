@@ -3,7 +3,6 @@
 -----------------------------------------------------------------------------------------------------
 
 RegisterNetEvent("ServerEmoteRequest", function(target, emotename, etype)
-
     if not Player(source).state.canEmote then return end
 
     local ped = GetPlayerPed(source)
@@ -113,66 +112,74 @@ local function addKeybindEventHandlers()
     RegisterNetEvent("rp:ServerKeybindCreate", function()
         local src = source
         local srcid = GetPlayerIdentifier(src)
-        MySQL.insert("INSERT INTO dpkeybinds (`id`, `keybind1`, `emote1`, `keybind2`, `emote2`, `keybind3`, `emote3`, `keybind4`, `emote4`, `keybind5`, `emote5`, `keybind6`, `emote6`) VALUES (@id, @keybind1, @emote1, @keybind2, @emote2, @keybind3, @emote3, @keybind4, @emote4, @keybind5, @emote5, @keybind6, @emote6);"
+        MySQL.insert(
+            "INSERT INTO dpkeybinds (`id`, `keybind1`, `emote1`, `keybind2`, `emote2`, `keybind3`, `emote3`, `keybind4`, `emote4`, `keybind5`, `emote5`, `keybind6`, `emote6`) VALUES (@id, @keybind1, @emote1, @keybind2, @emote2, @keybind3, @emote3, @keybind4, @emote4, @keybind5, @emote5, @keybind6, @emote6);"
             ,
-            { id = srcid, keybind1 = "num4", emote1 = "", keybind2 = "num5", emote2 = "", keybind3 = "num6", emote3 = "",
-                keybind4 = "num7", emote4 = "", keybind5 = "num8", emote5 = "", keybind6 = "num9", emote6 = "" },
-            function(created) print("[rp] ^2" .. GetPlayerName(src) .. "^0 got created!")
+            {
+                id = srcid,
+                keybind1 = "num4",
+                emote1 = "",
+                keybind2 = "num5",
+                emote2 = "",
+                keybind3 = "num6",
+                emote3 = "",
+                keybind4 = "num7",
+                emote4 = "",
+                keybind5 = "num8",
+                emote5 = "",
+                keybind6 = "num9",
+                emote6 = ""
+            },
+            function(created)
+                print("[rp] ^2" .. GetPlayerName(src) .. "^0 got created!")
                 TriggerClientEvent("rp:ClientKeybindGet"
-                    , src, "num4", "", "num5", "", "num6", "", "num7", "", "num8", "", "num8", "")
+                , src, "num4", "", "num5", "", "num6", "", "num7", "", "num8", "", "num8", "")
             end)
     end)
 
     RegisterNetEvent("rp:ServerKeybindGrab", function()
         local src = source
         local srcid = GetPlayerIdentifier(src)
-        MySQL.query("SELECT keybind1, emote1, keybind2, emote2, keybind3, emote3, keybind4, emote4, keybind5, emote5, keybind6, emote6 FROM `dpkeybinds` WHERE `id` = @id"
+        MySQL.query(
+            "SELECT keybind1, emote1, keybind2, emote2, keybind3, emote3, keybind4, emote4, keybind5, emote5, keybind6, emote6 FROM `dpkeybinds` WHERE `id` = @id"
             ,
             { ["@id"] = srcid }, function(kb)
-            if kb[1].keybind1 ~= nil then
-                TriggerClientEvent("rp:ClientKeybindGet", src, kb[1].keybind1, kb[1].emote1, kb[1].keybind2, kb[1].emote2
-                    , kb[1].keybind3, kb[1].emote3, kb[1].keybind4, kb[1].emote4, kb[1].keybind5, kb[1].emote5,
-                    kb[1].keybind6, kb[1].emote6)
-            else
-                TriggerClientEvent("rp:ClientKeybindGet", src, "num4", "", "num5", "", "num6", "", "num7", "", "num8", ""
-                    , "num8", "")
-            end
-        end)
+                if kb[1].keybind1 ~= nil then
+                    TriggerClientEvent("rp:ClientKeybindGet", src, kb[1].keybind1, kb[1].emote1, kb[1].keybind2,
+                        kb[1].emote2
+                        , kb[1].keybind3, kb[1].emote3, kb[1].keybind4, kb[1].emote4, kb[1].keybind5, kb[1].emote5,
+                        kb[1].keybind6, kb[1].emote6)
+                else
+                    TriggerClientEvent("rp:ClientKeybindGet", src, "num4", "", "num5", "", "num6", "", "num7", "", "num8",
+                        ""
+                        , "num8", "")
+                end
+            end)
     end)
 
     RegisterNetEvent("rp:ServerKeybindUpdate", function(key, emote)
         local src = source
         local myid = GetPlayerIdentifier(source)
-        if key == "num4" then chosenk = "keybind1"
-        elseif key == "num5" then chosenk = "keybind2"
-        elseif key == "num6" then chosenk = "keybind3"
-        elseif key == "num7" then chosenk = "keybind4"
-        elseif key == "num8" then chosenk = "keybind5"
-        elseif key == "num9" then chosenk = "keybind6"
-        end
-        if chosenk == "keybind1" then
-            MySQL.update("UPDATE dpkeybinds SET emote1=@emote WHERE id=@id", { id = myid, emote = emote },
-                function() TriggerClientEvent("rp:ClientKeybindGetOne", src, key, emote) end)
-        elseif chosenk == "keybind2" then
-            MySQL.update("UPDATE dpkeybinds SET emote2=@emote WHERE id=@id", { id = myid, emote = emote },
-                function() TriggerClientEvent("rp:ClientKeybindGetOne", src, key, emote) end)
-        elseif chosenk == "keybind3" then
-            MySQL.update("UPDATE dpkeybinds SET emote3=@emote WHERE id=@id", { id = myid, emote = emote },
-                function() TriggerClientEvent("rp:ClientKeybindGetOne", src, key, emote) end)
-        elseif chosenk == "keybind4" then
-            MySQL.update("UPDATE dpkeybinds SET emote4=@emote WHERE id=@id", { id = myid, emote = emote },
-                function() TriggerClientEvent("rp:ClientKeybindGetOne", src, key, emote) end)
-        elseif chosenk == "keybind5" then
-            MySQL.update("UPDATE dpkeybinds SET emote5=@emote WHERE id=@id", { id = myid, emote = emote },
-                function() TriggerClientEvent("rp:ClientKeybindGetOne", src, key, emote) end)
-        elseif chosenk == "keybind6" then
-            MySQL.update("UPDATE dpkeybinds SET emote6=@emote WHERE id=@id", { id = myid, emote = emote },
-                function() TriggerClientEvent("rp:ClientKeybindGetOne", src, key, emote) end)
+        local keybindMap = {
+            num4 = "emote1",
+            num5 = "emote2",
+            num6 = "emote3",
+            num7 = "emote4",
+            num8 = "emote5",
+            num9 = "emote6"
+        }
+
+        local emoteColumn = keybindMap[key]
+        if emoteColumn then
+            MySQL.update("UPDATE dpkeybinds SET " .. emoteColumn .. "=@emote WHERE id=@id", { id = myid, emote = emote },
+            function()
+                TriggerClientEvent("rp:ClientKeybindGetOne", src, key, emote)
+            end)
         end
     end)
 
     RegisterServerEvent("rp:ServerKeybindDelete")
-	AddEventHandler("rp:ServerKeybindDelete", function(key)
+    AddEventHandler("rp:ServerKeybindDelete", function(key)
         local src = source
         local srcid = GetPlayerIdentifierByType(src, "license")
 
@@ -185,20 +192,20 @@ local function addKeybindEventHandlers()
             ["num9"] = "emote6",
         }
 
-        for k,v in pairs(lists_keybinds) do
+        for k, v in pairs(lists_keybinds) do
             if key == k then
-                MySQL.Async.execute("UPDATE dpkeybinds SET "..v.." = '' WHERE id=@id", {id = srcid}, function()
-                    TriggerClientEvent("esx:showNotification", src, "Deleting your bind: "..key.." ")
+                MySQL.Async.execute("UPDATE dpkeybinds SET " .. v .. " = '' WHERE id=@id", { id = srcid }, function()
+                    TriggerClientEvent("esx:showNotification", src, "Deleting your bind: " .. key .. " ")
                 end)
             end
         end
-
     end)
 end
 
 if Config.SqlKeybinding then -- and MySQL then
     if GetResourceMetadata(GetCurrentResourceName(), 'server_script', 0) ~= '@oxmysql/lib/MySQL.lua' then
-        return print("^3Error! You're using Config.SqlKeybinding without oxmysql, you need to uncomment it in fxmanifest.lua^0")
+        return print(
+        "^3Error! You're using Config.SqlKeybinding without oxmysql, you need to uncomment it in fxmanifest.lua^0")
     end
 
     MySQL.update(
@@ -226,7 +233,8 @@ if Config.SqlKeybinding then -- and MySQL then
         end
     end)
 else
-    print("^3Sql Keybinding^0 is turned ^1off^0, if you want to enable /emotebind, set ^3SqlKeybinding = ^2true^0 in config.lua and uncomment oxmysql lines in fxmanifest.lua.")
+    print(
+    "^3Sql Keybinding^0 is turned ^1off^0, if you want to enable /emotebind, set ^3SqlKeybinding = ^2true^0 in config.lua and uncomment oxmysql lines in fxmanifest.lua.")
 end
 
 
@@ -245,7 +253,8 @@ local function ExtractEmoteProps(format)
     elseif format == 4 then
         print("Selected to calculate ^2total amount of emotes^0.")
     else
-        print("\n### RPEmotes - Props Extractor ###\n\n^3Select output format^0\nAvailable formats:\n^11^0 - ^2\"prop_name\",\n^12^0 - ^2\"prop_name\",\n^13^0 -  ^2prop_name\n^14^0 -  ^2calculate total emotes\n\n^0Command usage example: ^5emoteextract 1^0\n")
+        print(
+        "\n### RPEmotes - Props Extractor ###\n\n^3Select output format^0\nAvailable formats:\n^11^0 - ^2\"prop_name\",\n^12^0 - ^2\"prop_name\",\n^13^0 -  ^2prop_name\n^14^0 -  ^2calculate total emotes\n\n^0Command usage example: ^5emoteextract 1^0\n")
         return
     end
 
@@ -258,16 +267,14 @@ local function ExtractEmoteProps(format)
     local success, res = pcall(f)
     if not success then return nil end
 
-    local RP = res
-
     if format == 4 then
-        local emoteTypes = {"Shared", "Dances", "AnimalEmotes", "Emotes", "PropEmotes", "Expressions", "Walks"}
+        local emoteTypes = { "Shared", "Dances", "AnimalEmotes", "Emotes", "PropEmotes", "Expressions", "Walks" }
         local countEmotesWith = 0
         local countEmotes = 0
 
         for i = 1, #emoteTypes do
             local emoteType = emoteTypes[i]
-            for _, _ in pairs(RP[emoteType]) do
+            for _, _ in pairs(res[emoteType]) do
                 if emoteType == "Expressions" or emoteType == "Walks" then
                     countEmotesWith += 1
                 else
@@ -278,38 +285,38 @@ local function ExtractEmoteProps(format)
 
         local totalEmotes = countEmotesWith + countEmotes
 
-        print("Total Expressions and Walks: ^3"..countEmotesWith.."^0")
-        print("Total Emotes without Expressions and Walks: ^3"..countEmotes.."^0")
-        print("Total Emotes: ^3" .. totalEmotes.."^0")
+        print("Total Expressions and Walks: ^3" .. countEmotesWith .. "^0")
+        print("Total Emotes without Expressions and Walks: ^3" .. countEmotes .. "^0")
+        print("Total Emotes: ^3" .. totalEmotes .. "^0")
     else
         -- table to keep track of exported values
         local exportedValues = {}
         -- open file for writing
-        local file = assert(io.open(GetResourcePath(GetCurrentResourceName()).."/prop_list.lua", "w"))
+        local file = assert(io.open(GetResourcePath(GetCurrentResourceName()) .. "/prop_list.lua", "w"))
 
         -- tables that has props:
         -- RP.PropEmotes
         -- RP.Shared (most likely all props mentioned in here is used in PropEmotes, so I don"t check it)
-        for _, value in pairs(RP.PropEmotes) do
+        for _, value in pairs(res.PropEmotes) do
             -- check if the current value is a table and has an AnimationOptions field
             if type(value) == "table" and value.AnimationOptions then
                 -- extract the Prop and SecondProp values and check if they"re nil and not already exported
                 local propValue = value.AnimationOptions.Prop
                 local secondPropValue = value.AnimationOptions.SecondProp
                 if propValue and not exportedValues[propValue] then
-                    file:write(xt .. propValue .. xt .. c .."\n")
+                    file:write(xt .. propValue .. xt .. c .. "\n")
                     exportedValues[propValue] = true
                     total += 1
                 end
                 if secondPropValue and not exportedValues[secondPropValue] then
-                    file:write(xt .. secondPropValue .. c .."\n")
+                    file:write(xt .. secondPropValue .. c .. "\n")
                     exportedValues[secondPropValue] = true
                     total += 1
                 end
             end
         end
 
-        print("Exported props: "..total)
+        print("Exported props: " .. total)
         file:close()
     end
 end

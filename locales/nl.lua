@@ -17,7 +17,7 @@ Locales['nl'] = {
     ['resetdef'] = "~h~~y~ Reset naar standaard.",
     ['normalreset'] = "~h~~r~ Normaal (Reset)",
     ['moods'] = "Stemmingen 😒",
-    ['infoupdate'] = "Credits🤝🏻",
+    ['infoupdate'] = "Credits 🤝🏻",
     ['remove_emote_keybind'] = 'Verwijder een gebonden animatie van een toets',
     ['show_emote_keybind'] = 'Zie een lijst met gebonden animaties',
     ['play_emote'] = 'Start een animatie',
@@ -52,7 +52,7 @@ Locales['nl'] = {
     ['stun'] = "Druk op ~y~G~w~ om de taser te gebruiken",
     ['smoke'] = "Druk op ~y~G~w~ om te roken",
     ['vape'] = "Druk op ~y~G~w~ om te vapen",
-    ['candle'] = "press ~y~G~w~ to light candle.",
+    ['candle'] = "Druk op ~y~G~w~ om kaars aan te steken.",
     ['boundto'] = "(~y~%s~w~) gebonden aan ~g~%s~w~",
     ['handsup'] = "Handen omhoog",
     ['currentlyboundemotes'] = "Gebonden animaties:",
@@ -88,6 +88,7 @@ Locales['nl'] = {
     ['in_a_vehicle'] = "Je kan deze animatie alleen in een voertuig gebruiken 🚷",
     ['no_anim_crawling'] = "Je kan deze animatie niet gebruiken tijdens het kruipen",
     ['no_anim_right_now'] = "Je kan nu geen animaties starten",
+    -- Key maps
     ['register_cancel_emote'] = "Huidige animatie stoppen",
     ['register_open_menu'] = "Animatiemenu openen",
     ['register_fav_anim'] = "Start je favoriete animatie",
@@ -96,8 +97,9 @@ Locales['nl'] = {
     ['register_crawl'] = "Kruipen",
     ['register_pointing'] = "Wijzen",
     ['register_ragdoll'] = "Ragdoll",
+    -- Commands descriptions
     ['cancel_emote'] = "Huidige animatie stoppen",
     ['crouch'] = "Hurken",
     ['crawl'] = "Kruipen",
-    ['pointing'] = "Wijzen",
+    ['pointing'] = "Wijzen"
 }

@@ -6,6 +6,12 @@ function WalkMenuStart(name, force)
         EmoteChatMessage(unable_message)
         return
     end
+
+    if not name or name == "" then
+        ResetWalk()
+        return
+    end
+
     if Config.PersistentWalk then SetResourceKvp("walkstyle", name) end
     RequestWalking(name)
     SetPedMovementClipset(PlayerPedId(), name, 0.2)
@@ -17,12 +23,12 @@ function ResetWalk()
         EmoteChatMessage(unable_message)
         return
     end
-    ResetPedMovementClipset(PlayerPedId())
+    ResetPedMovementClipset(PlayerPedId(), 0.0)
 end
 
 function WalksOnCommand()
     local WalksCommand = ""
-    for a in pairsByKeys(RP.Walks) do
+    for a in PairsByKeys(RP.Walks) do
         WalksCommand = WalksCommand .. "" .. string.lower(a) .. ", "
     end
     EmoteChatMessage(WalksCommand)
@@ -34,26 +40,23 @@ function WalkCommandStart(name)
         EmoteChatMessage(unable_message)
         return
     end
-    name = firstToUpper(string.lower(name))
+    name = FirstToUpper(string.lower(name))
 
     if name == "Reset" then
-        ResetPedMovementClipset(PlayerPedId())
+        ResetPedMovementClipset(PlayerPedId(), 0.0)
         DeleteResourceKvp("walkstyle")
         return
     end
 
-    if tableHasKey(RP.Walks, name) then
+    if TableHasKey(RP.Walks, name) then
         local name2 = table.unpack(RP.Walks[name])
         WalkMenuStart(name2)
-    elseif name == "Injured" then
-        WalkMenuStart("move_m@injured")
     else
         EmoteChatMessage("'" .. name .. "' is not a valid walk")
     end
 end
 
---- Persistent Walkstyles are stored to KVP. Once the player has spawned, the walkstyle is applied. ---
---- I've added QBCore and ESX support so hopefully people quit crying about it. derchico  ---
+-- Persistent Walkstyles are stored to KVP. Once the player has spawned, the walkstyle is applied.
 
 if Config.WalkingStylesEnabled and Config.PersistentWalk then
     -- Function to check if walkstyle is available to prevent exploiting
@@ -69,9 +72,9 @@ if Config.WalkingStylesEnabled and Config.PersistentWalk then
     local function handleWalkstyle()
         local kvp = GetResourceKvpString("walkstyle")
 
-        if kvp ~= nil then
+        if kvp then
             if walkstyleExists(kvp) then
-                WalkMenuStart(kvp)
+                WalkMenuStart(kvp, true)
             else
                 ResetPedMovementClipset(PlayerPedId(), 0.0)
                 DeleteResourceKvp("walkstyle")
@@ -79,12 +82,18 @@ if Config.WalkingStylesEnabled and Config.PersistentWalk then
         end
     end
 
-    -- Basic Event for Standalone
-    AddEventHandler('playerSpawned', handleWalkstyle)
-    -- Event for QB-Core Users.
+    AddEventHandler('playerSpawned', function()
+        Wait(3000)
+        handleWalkstyle()
+    end)
     RegisterNetEvent('QBCore:Client:OnPlayerLoaded', handleWalkstyle)
-    -- Event for ESX Users.
     RegisterNetEvent('esx:playerLoaded', handleWalkstyle)
+
+    AddEventHandler('onResourceStart', function(resource)
+        if resource == GetCurrentResourceName() then
+            handleWalkstyle()
+        end
+    end)
 end
 
 if Config.WalkingStylesEnabled then
@@ -94,14 +103,12 @@ if Config.WalkingStylesEnabled then
     TriggerEvent('chat:addSuggestion', '/walks', 'List available walking styles.')
 end
 
-function toggleWalkstyle(bool, message)
+exports('toggleWalkstyle', function(bool, message)
     canChange = bool
     if message then
         unable_message = message
     end
-end
-
-exports('toggleWalkstyle', toggleWalkstyle)
+end)
 
 exports('getWalkstyle', function()
     return GetResourceKvpString("walkstyle")
