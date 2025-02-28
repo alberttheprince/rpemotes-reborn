@@ -47,10 +47,7 @@ if Config.ExpressionsEnabled then
 
     if Config.PersistentExpression then
         AddEventHandler('playerSpawned', LoadPersistentExpression)
-        if Config.Framework == 'qb-core' then
-            RegisterNetEvent('QBCore:Client:OnPlayerLoaded', LoadPersistentExpression)
-        elseif Config.Framework == 'es_extended' then
-            RegisterNetEvent('esx:playerLoaded', LoadPersistentExpression)
-        end
+        RegisterNetEvent('QBCore:Client:OnPlayerLoaded', LoadPersistentExpression)
+        RegisterNetEvent('esx:playerLoaded', LoadPersistentExpression)
     end
 end
