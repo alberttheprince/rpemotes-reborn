@@ -86,8 +86,12 @@ if Config.WalkingStylesEnabled and Config.PersistentWalk then
         Wait(3000)
         handleWalkstyle()
     end)
-    RegisterNetEvent('QBCore:Client:OnPlayerLoaded', handleWalkstyle)
-    RegisterNetEvent('esx:playerLoaded', handleWalkstyle)
+
+    if Config.Framework == 'qb-core' then
+        RegisterNetEvent('QBCore:Client:OnPlayerLoaded', handleWalkstyle)
+    elseif Config.Framework == 'es_extended' then
+        RegisterNetEvent('esx:playerLoaded', handleWalkstyle)
+    end
 
     AddEventHandler('onResourceStart', function(resource)
         if resource == GetCurrentResourceName() then
