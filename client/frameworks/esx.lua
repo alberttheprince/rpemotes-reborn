@@ -10,7 +10,7 @@ end
 
 ESX, PlayerData, isLoggedIn = nil, nil, false
 
--- QB core parts
+-- ESX core parts
 ESX = exports[framework]:getSharedObject()
 PlayerData = ESX.GetPlayerData()
 isLoggedIn = false
