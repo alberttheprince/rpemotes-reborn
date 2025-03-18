@@ -44,7 +44,7 @@ end)
 if Config.Keybinding then
     RegisterNetEvent('animations:client:BindEmote', function(args)
         if not ESX.PlayerData.dead then
-            EmoteBindStart(source, args)
+            EmoteBindStart(nil, args)
         end
     end)
 
@@ -56,7 +56,7 @@ if Config.Keybinding then
 
     RegisterNetEvent('animations:client:EmoteDelete', function(args)
         if not ESX.PlayerData.dead then
-            DeleteEmote(source, args)
+            DeleteEmote(args)
         end
     end)
 end

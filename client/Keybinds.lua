@@ -44,12 +44,12 @@ if Config.Keybinding then
         for i = 1, #Config.KeybindKeys do
             local emote = GetResourceKvpString(string.format('%s_emob%s', Config.keybindKVP, i))
             if emote then
-                print(string.format('Emote %s : %s',i, emote))
+                EmoteChatMessage(string.format('Emote %s : %s',i, emote))
             end
         end
     end
 
-    function DeleteEmote(_, args)
+    function DeleteEmote(args)
         if #args > 0 then
             local numkey = tonumber(args[1])
             if type(numkey) == "number"  then

@@ -53,7 +53,7 @@ end)
 if Config.Keybinding then
     RegisterNetEvent('animations:client:BindEmote', function(args)
         if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
-            EmoteBindStart(source, args)
+            EmoteBindStart(nil, args)
         end
     end)
 
@@ -65,7 +65,7 @@ if Config.Keybinding then
 
     RegisterNetEvent('animations:client:EmoteDelete', function(args)
         if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
-            DeleteEmote(source, args)
+            DeleteEmote(args)
         end
     end)
 end
