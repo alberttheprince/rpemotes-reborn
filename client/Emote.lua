@@ -128,19 +128,6 @@ end
 -- Commands / Events --------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
 
--- CreateThread(function()
---     TriggerEvent('chat:addSuggestion', '/e', Translate('play_emote'),
---         { { name = "emotename",      help = Translate('help_command') },
---             { name = "texturevariation", help = Translate('help_variation') } })
---     TriggerEvent('chat:addSuggestion', '/emote', Translate('play_emote'),
---         { { name = "emotename",      help = Translate('help_command') },
---             { name = "texturevariation", help = Translate('help_variation') } })
---     TriggerEvent('chat:addSuggestion', '/emotemenu', Translate('open_menu_emote'))
---     TriggerEvent('chat:addSuggestion', '/emotes', Translate('show_list_emote'))
---     TriggerEvent('chat:addSuggestion', '/emotecancel', Translate('cancel_emote'))
--- end)
-
-
 if Config.MenuKeybindEnabled then
     RegisterCommand('emoteui', function() OpenEmoteMenu() end, false)
     RegisterKeyMapping("emoteui", Translate('register_open_menu'), "keyboard", Config.MenuKeybind)
