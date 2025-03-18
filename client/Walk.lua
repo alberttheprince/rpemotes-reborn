@@ -86,6 +86,7 @@ if Config.WalkingStylesEnabled and Config.PersistentWalk then
         Wait(3000)
         handleWalkstyle()
     end)
+
     RegisterNetEvent('QBCore:Client:OnPlayerLoaded', handleWalkstyle)
     RegisterNetEvent('esx:playerLoaded', handleWalkstyle)
 
