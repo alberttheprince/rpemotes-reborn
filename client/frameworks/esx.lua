@@ -77,7 +77,7 @@ end)
 
 RegisterNetEvent('animations:client:Walk', function(args)
     if not ESX.PlayerData.dead then
-        WalkCommandStart(source, args)
+        WalkCommandStart(args)
     end
 end)
 
