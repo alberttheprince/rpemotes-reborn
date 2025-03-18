@@ -3,7 +3,7 @@ if Config.Keybinding then
     -- Commands / Events --------------------------------------------------------------------------------
     -----------------------------------------------------------------------------------------------------
 
-  for i= 1, #Config.KeybindKeys do
+  for i = 1, #Config.KeybindKeys do
     local cmd = string.format('emoteSelect%s', i)
     RegisterCommand(cmd, function()
         local emote = GetResourceKvpString(string.format('%s_emob%s', Config.keybindKVP, i))
@@ -13,18 +13,7 @@ if Config.Keybinding then
     end, false)
     RegisterKeyMapping(cmd, string.format('Emote bind %s', i), 'keyboard', Config.KeybindKeys[i])
   end
-
-  RegisterCommand('emotebind', function(source, args, raw) EmoteBindStart(source, args, raw) end, false)
-  RegisterCommand('emotedelete', function(source, args) DeleteEmote(source, args) end, false)
-
-  CreateThread(function()
-    TriggerEvent('chat:addSuggestion', '/emotebind', Translate('link_emote_keybind'),
-            { { name = "number",     help = "1,2,3,4,5,6" },
-                { name = "emotename", help = Translate('help_command') } })
-        TriggerEvent('chat:addSuggestion', '/emotebinds', Translate('show_emote_keybind'))
-        TriggerEvent('chat:addSuggestion', '/emotedelete', Translate('remove_emote_keybind'),
-            { { name = "key", help = "1,2,3,4,5,6" } })
-  end)
+  
     -----------------------------------------------------------------------------------------------------
     ------ Functions and stuff --------------------------------------------------------------------------
     -----------------------------------------------------------------------------------------------------
@@ -51,11 +40,20 @@ if Config.Keybinding then
         end
     end
 
+    function EmoteBindsStart(_, _,_)
+        for i = 1, #Config.KeybindKeys do
+            local emote = GetResourceKvpString(string.format('%s_emob%s', Config.keybindKVP, i))
+            if emote then
+                print(string.format('Emote %s : %s',i, emote))
+            end
+        end
+    end
+
     function DeleteEmote(_, args)
         if #args > 0 then
             local numkey = tonumber(args[1])
             if type(numkey) == "number"  then
-                SetResourceKvp(string.format('%s_emob%s', Config.keybindKVP, numkey),"")
+                DeleteResourceKvp(string.format('%s_emob%s', Config.keybindKVP, numkey))
             else
                 EmoteChatMessage("'" .. numkey .. "' " .. Translate('notvalidkey'))
             end

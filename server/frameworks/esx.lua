@@ -1,6 +1,6 @@
 if Config.Framework ~= 'esx' then return end
 
-local framework = 'esx'
+local framework = 'es_extended'
 local state = GetResourceState(framework)
 
 if state == 'missing' or state == "unknown" then
@@ -8,46 +8,52 @@ if state == 'missing' or state == "unknown" then
     return
 end
 
-local ESX = exports['es_extended']:getSharedObject()
+local ESX = exports[framework]:getSharedObject()
 
-ESX.RegisterCommand('e', 'Play an emote', {{ name="emotename", help="dance, camera, sit or any valid emote."}}, true, function(source, args)
-    TriggerClientEvent('animations:client:PlayEmote', source, args)
-end)
+ESX.RegisterCommand({'e','emote'}, 'user', function(xPlayer, args)
+    local arg = {args.emotename}
+    xPlayer.triggerEvent('animations:client:PlayEmote', arg)
+end, false, {help = Translate('play_emote'), arguments = {{name = "emotename", help = "dance, camera, sit or any valid emote.", type = 'string'}}})
 
-ESX.RegisterCommand('emote', 'Play an emote', {{ name="emotename", help="dance, camera, sit or any valid emote."}}, true, function(source, args)
-    TriggerClientEvent('animations:client:PlayEmote', source, args)
-end)
+if Config.Keybinding then
+    ESX.RegisterCommand('emotebind', 'user', function(xPlayer, args)
+        local arg = {args.key, args.emotename}
+        xPlayer.triggerEvent('animations:client:BindEmote', arg)
+    end, false, {help = Translate('link_emote_keybind'), arguments= {{name = "key", help= "1, 2, 3, 4, 5, 6", type='number'}, {name="emotename", help="dance, camera, sit or any valid emote.", type='string'}}})
 
-if Config.SqlKeybinding then
-    ESX.RegisterCommand('emotebind', 'Bind an emote', {{ name="key", help="num4, num5, num6, num7. num8, num9. Numpad 4-9!"}, { name="emotename", help="dance, camera, sit or any valid emote."}}, true, function(source, args)
-        TriggerClientEvent('animations:client:BindEmote', source, args)
-    end)
+    ESX.RegisterCommand('emotebinds', 'user', function(xPlayer)
+        xPlayer.triggerEvent('animations:client:EmoteBinds')
+    end, false, {help = Translate('show_emote_keybind')})
 
-    ESX.RegisterCommand('emotebinds', 'Check your currently bound emotes.', {}, false, function(source)
-        TriggerClientEvent('animations:client:EmoteBinds', source)
-    end)
+    ESX.RegisterCommand('emotedelete', 'user', function(xPlayer, args)
+        local arg = {args.key}
+        xPlayer.triggerEvent('animations:client:EmoteDelete', arg)
+    end, false, {help = Translate('remove_emote_keybind'), arguments={{name = "key", help= "1, 2, 3, 4, 5, 6", type='number'}}})
 end
 
-ESX.RegisterCommand('emotemenu', 'Open rpemotes menu (F3) by default.', {}, false, function(source)
-    TriggerClientEvent('animations:client:EmoteMenu', source)
-end)
+ESX.RegisterCommand({'emotemenu','em'}, 'user',function(xPlayer)
+    xPlayer.triggerEvent('animations:client:EmoteMenu')
+end, false, {help=Translate('open_menu_emote')})
 
-ESX.RegisterCommand('em', 'Open rpemotes menu (F3) by default.', {}, false, function(source)
-    TriggerClientEvent('animations:client:EmoteMenu', source)
-end)
 
-ESX.RegisterCommand('emotes', 'List available emotes.', {}, false, function(source)
-    TriggerClientEvent('animations:client:ListEmotes', source)
-end)
+ESX.RegisterCommand('emotes', 'user', function(xPlayer)
+    xPlayer.triggerEvent('animations:client:ListEmotes')
+end, false, {help=Translate('show_list_emote')})
 
-ESX.RegisterCommand('walk', 'Set your walkingstyle.', {{ name="style", help="/walks for a list of valid styles"}}, true, function(source, args)
-    TriggerClientEvent('animations:client:Walk', source, args)
-end)
+ESX.RegisterCommand('walk', 'user', function(xPlayer, args)
+    local arg = {args.walkname}
+    xPlayer.triggerEvent('animations:client:Walk',arg)
+end, false, {help=Translate('play_walk'), arguments={{name="walkname", help="any valid walk.", type='string'}}})
 
-ESX.RegisterCommand('walks', 'List available walking styles.', {}, false, function(source)
-    TriggerClientEvent('animations:client:ListWalks', source)
-end)
+ESX.RegisterCommand('walks', 'user', function(xPlayer)
+    xPlayer.triggerEvent('animations:client:ListWalks')
+end, false, {help=Translate('show_list_walk')})
 
-ESX.RegisterCommand('nearby', 'Share emote with a nearby player.', {{ name="emotename", help="hug, handshake, bro or any valid shared emote."}}, true, function(source, args)
+ESX.RegisterCommand('nearby', 'Share emote with a nearby player.', function(source, args)
     TriggerClientEvent('animations:client:Nearby', source, args)
-end)
+end, false, {{ name="emotename", help="hug, handshake, bro or any valid shared emote."}})
+
+ESX.RegisterCommand('nearby', 'user', function(xPlayer, args)
+    local arg = {args.emotename}
+    xPlayer.triggerEvent('animations:client:Nearby', arg)
+end, false, {help=Translate('shareemotesinfo'), arguments={{ name="emotename", help="hug, handshake, bro or any valid shared emote.", type='string'}}})

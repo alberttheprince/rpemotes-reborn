@@ -41,16 +41,22 @@ RegisterNetEvent('animations:client:PlayEmote', function(args)
     end
 end)
 
-if Config.SqlKeybinding then
+if Config.Keybinding then
     RegisterNetEvent('animations:client:BindEmote', function(args)
         if not ESX.PlayerData.dead then
             EmoteBindStart(source, args)
         end
     end)
 
-    RegisterNetEvent('animations:client:EmoteBinds', function()
+    RegisterNetEvent('animations:client:EmoteBinds', function(_)
         if not ESX.PlayerData.dead then
             EmoteBindsStart()
+        end
+    end)
+
+    RegisterNetEvent('animations:client:EmoteDelete', function(args)
+        if not ESX.PlayerData.dead then
+            DeleteEmote(source, args)
         end
     end)
 end

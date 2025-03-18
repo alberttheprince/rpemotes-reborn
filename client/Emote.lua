@@ -128,20 +128,18 @@ end
 -- Commands / Events --------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
 
-CreateThread(function()
-    TriggerEvent('chat:addSuggestion', '/e', Translate('play_emote'),
-        { { name = "emotename",      help = Translate('help_command') },
-            { name = "texturevariation", help = Translate('help_variation') } })
-    TriggerEvent('chat:addSuggestion', '/emote', Translate('play_emote'),
-        { { name = "emotename",      help = Translate('help_command') },
-            { name = "texturevariation", help = Translate('help_variation') } })
-    TriggerEvent('chat:addSuggestion', '/emotemenu', Translate('open_menu_emote'))
-    TriggerEvent('chat:addSuggestion', '/emotes', Translate('show_list_emote'))
-    TriggerEvent('chat:addSuggestion', '/emotecancel', Translate('cancel_emote'))
-end)
+-- CreateThread(function()
+--     TriggerEvent('chat:addSuggestion', '/e', Translate('play_emote'),
+--         { { name = "emotename",      help = Translate('help_command') },
+--             { name = "texturevariation", help = Translate('help_variation') } })
+--     TriggerEvent('chat:addSuggestion', '/emote', Translate('play_emote'),
+--         { { name = "emotename",      help = Translate('help_command') },
+--             { name = "texturevariation", help = Translate('help_variation') } })
+--     TriggerEvent('chat:addSuggestion', '/emotemenu', Translate('open_menu_emote'))
+--     TriggerEvent('chat:addSuggestion', '/emotes', Translate('show_list_emote'))
+--     TriggerEvent('chat:addSuggestion', '/emotecancel', Translate('cancel_emote'))
+-- end)
 
-RegisterCommand('e', function(source, args, raw) EmoteCommandStart(source, args, raw) end, false)
-RegisterCommand('emote', function(source, args, raw) EmoteCommandStart(source, args, raw) end, false)
 
 if Config.MenuKeybindEnabled then
     RegisterCommand('emoteui', function() OpenEmoteMenu() end, false)
