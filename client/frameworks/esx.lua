@@ -8,26 +8,28 @@ if state == 'missing' or state == "unknown" then
     return
 end
 
-ESX, PlayerData, isLoggedIn = nil, nil, false
-
 -- ESX core parts
 ESX = exports[framework]:getSharedObject()
-PlayerData = ESX.GetPlayerData()
-isLoggedIn = false
 
-RegisterNetEvent('esx:playerLoaded', function()
-    PlayerData = ESX.GetPlayerData()
-    isLoggedIn = true
+RegisterNetEvent('esx:playerLoaded', function(xPlayer)
+    ESX.PlayerData = xPlayer
+    ESX.PlayerLoaded = true
 end)
 
 -- This is here to get the player data when the resource is restarted instead of having to log out and back in each time
 -- This won't set the player data too early as this only triggers when the server side is started and not the client side
 AddEventHandler('onResourceStart', function(resource)
-    if resource == GetCurrentResourceName() then
-        Wait(200)
-        PlayerData = ESX.GetPlayerData()
-        isLoggedIn = true
-    end
+    CreateThread(function()
+        while true do
+            local IsLoaded = ESX.IsPlayerLoaded()
+            if IsLoaded then
+                ESX.PlayerData = ESX.GetPlayerData()
+                ESX.PlayerLoaded = true
+                break
+            end
+            Wait(100)
+        end
+    end)
 end)
 
 function CanUseFavKeyBind()
