@@ -15,7 +15,7 @@ ESX = exports[framework]:getSharedObject()
 PlayerData = ESX.GetPlayerData()
 isLoggedIn = false
 
-RegisterNetEvent('esx:onPlayerSpawn', function()
+RegisterNetEvent('esx:playerLoaded', function()
     PlayerData = ESX.GetPlayerData()
     isLoggedIn = true
 end)
