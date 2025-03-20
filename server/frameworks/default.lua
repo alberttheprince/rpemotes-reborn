@@ -4,5 +4,5 @@ RegisterCommand('emote', function(source, args, raw) TriggerClientEvent('animati
 if Config.Keybinding then
     RegisterCommand('emotebind', function(source, args, raw) TriggerClientEvent('animations:client:BindEmote', source, args) end, false)
     RegisterCommand('emotebinds', function(source, args, raw) TriggerClientEvent('animations:client:EmoteBinds', source) end, false)
-    RegisterCommand('emotedelete', function(source, args) TriggerClientEvent('animations:client:EmoteDelete', source, args) end, false)
+    RegisterCommand('emotedelete', function(source, args) DeleteEmote(args) end, false)
 end
