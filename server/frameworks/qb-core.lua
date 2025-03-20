@@ -27,10 +27,6 @@ if Config.SqlKeybinding then
     QBCore.Commands.Add('emotebinds', 'Check your currently bound emotes.', {}, false, function(source)
         TriggerClientEvent('animations:client:EmoteBinds', source)
     end)
-
-    QBCore.Commands.Add('emotedelete', Translate('remove_emote_keybind'), {}, false, function(source, args)
-        TriggerClientEvent('animations:client:EmoteDelete', source, args)
-    end)
 end
 
 QBCore.Commands.Add('emotemenu', 'Open rpemotes menu (F3) by default.', {}, false, function(source)
