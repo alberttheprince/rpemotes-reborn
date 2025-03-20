@@ -14,9 +14,6 @@ dependencies {
     '/onesync'
 }
 
--- Uncomment the below line if you would like to use the SQL keybinds. Requires oxmysql.
--- server_script '@oxmysql/lib/MySQL.lua'
-
 files {
     'conditionalanims.meta',
     'header.png'

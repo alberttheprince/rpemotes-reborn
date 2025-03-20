@@ -134,6 +134,7 @@ if Config.MenuKeybindEnabled then
 else
     RegisterCommand('emotemenu', function() OpenEmoteMenu() end, false)
 end
+
 RegisterCommand('emotes', function() EmotesOnCommand() end, false)
 RegisterCommand('emotecancel', function() EmoteCancel() end, false)
 
