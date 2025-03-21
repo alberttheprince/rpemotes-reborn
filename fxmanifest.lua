@@ -40,6 +40,7 @@ client_scripts {
     'client/AnimationList.lua',
     'client/AnimationListCustom.lua',
     'client/Binoculars.lua',
+    'client/Crawl.lua',
     'client/Crouch.lua',
     'client/Emote.lua',
     'client/EmoteMenu.lua',
