@@ -1,3 +1,5 @@
+if not Config.WalkingStylesEnabled then return end
+
 local canChange = true
 local unable_message = "You are unable to change your walking style right now."
 
@@ -58,7 +60,7 @@ end
 
 -- Persistent Walkstyles are stored to KVP. Once the player has spawned, the walkstyle is applied.
 
-if Config.WalkingStylesEnabled and Config.PersistentWalk then
+if Config.PersistentWalk then
     -- Function to check if walkstyle is available to prevent exploiting
     local function walkstyleExists(kvp)
         for _, v in pairs(RP.Walks) do

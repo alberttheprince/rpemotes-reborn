@@ -137,10 +137,10 @@ Alternatively, the player base can set their menu keybind to open rpemotes-rebor
 
 # Keybinds and SQL 🎛️
 
-To use the SQL features, install the latest version of the [oxmysql](https://github.com/overextended/oxmysql) resource and enable the setting in `config.lua`
+To use the features, enable the setting in `config.lua`
 
 ```lua
-SqlKeybinding = false,
+Keybinding = false,
 ```
 
 If you do not want to use the SQL features keep the `oxmysql` region in fxmanifest.lua commented out.
@@ -354,6 +354,7 @@ Available output formats:
 
 Command usage example: emoteextract 1
 ```
+
 ![image](https://github.com/user-attachments/assets/6ec6e042-00b7-4be2-8086-1805eb87196c)
 
 # Installation Instructions ⚙️:

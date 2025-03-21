@@ -94,6 +94,24 @@ RegisterNetEvent('animations:client:ListWalks', function()
     end
 end)
 
+RegisterNetEvent('animations:client:ListWalks', function()
+    if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
+        WalksOnCommand()
+    end
+end)
+
+RegisterNetEvent('animations:client:EmoteCancel', function()
+    if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
+        EmoteCancel()
+    end
+end)
+
+RegisterNetEvent('animations:client:EmoteFav', function()
+    if not ESX.PlayerData.dead then
+        FavKeybind()
+    end
+end)
+
 -- Added by https://github.dev/qbcore-framework/dpemotes/
 
 CanDoEmote = true

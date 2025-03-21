@@ -40,7 +40,6 @@ local ShareTable = {}
 local FavoriteEmote = ""
 
 if Config.FavKeybindEnabled then
-    RegisterCommand('emotefav', function() FavKeybind() end, false)
     RegisterKeyMapping("emotefav", Translate("register_fav_anim"), "keyboard", Config.FavKeybind)
 
     local doingFavoriteEmote = false
@@ -87,7 +86,7 @@ function AddEmoteMenu(menu)
 
     -- Temp var to be able to sort every emotes in the fav list
     local favEmotes = {}
-    if not Config.SqlKeybinding then
+    if not Config.Keybinding then
         favmenu = _menuPool:AddSubMenu(submenu, Translate('favoriteemotes'), Translate('favoriteinfo'), true, true)
         favmenu:AddItem(NativeUI.CreateItem(Translate('prop2info'), ""))
         favmenu:AddItem(NativeUI.CreateItem(Translate('rfavorite'), Translate('rfavorite')))
@@ -104,7 +103,7 @@ function AddEmoteMenu(menu)
         local x, y, z = table.unpack(b)
         submenu:AddItem(NativeUI.CreateItem(z, "/e (" .. a .. ")"))
         table.insert(EmoteTable, a)
-        if not Config.SqlKeybinding then
+        if not Config.Keybinding then
             favEmotes[a] = z
         end
     end
@@ -116,7 +115,7 @@ function AddEmoteMenu(menu)
             shareddancemenu:AddItem(NativeUI.CreateItem(z, "/nearby (" .. a .. ")"))
         end
         table.insert(DanceTable, a)
-        if not Config.SqlKeybinding then
+        if not Config.Keybinding then
             favEmotes[a] = z
         end
     end
@@ -126,7 +125,7 @@ function AddEmoteMenu(menu)
             local x, y, z = table.unpack(b)
             animalmenu:AddItem(NativeUI.CreateItem(z, "/e (" .. a .. ")"))
             table.insert(AnimalTable, a)
-            if not Config.SqlKeybinding then
+            if not Config.Keybinding then
                 favEmotes[a] = z
             end
         end
@@ -150,12 +149,12 @@ function AddEmoteMenu(menu)
         propmenu:AddItem(propitem)
 
         table.insert(PropETable, a)
-        if not Config.SqlKeybinding then
+        if not Config.Keybinding then
             favEmotes[a] = z
         end
     end
 
-    if not Config.SqlKeybinding then
+    if not Config.Keybinding then
         -- Add the emotes to the fav menu
         for emoteName, emoteLabel in PairsByKeys(favEmotes) do
             favmenu:AddItem(NativeUI.CreateItem(emoteLabel, Translate('set') .. emoteLabel .. Translate('setboundemote')))
@@ -269,7 +268,7 @@ if Config.Search then
 
     function EmoteMenuSearch(lastMenu)
         ClosePedMenu()
-        local favEnabled = not Config.SqlKeybinding and Config.FavKeybindEnabled
+        local favEnabled = not Config.Keybinding and Config.FavKeybindEnabled
         AddTextEntry("PM_NAME_CHALL", Translate('searchinputtitle'))
         DisplayOnscreenKeyboard(1, "PM_NAME_CHALL", "", "", "", "", "", 30)
         while UpdateOnscreenKeyboard() == 0 do

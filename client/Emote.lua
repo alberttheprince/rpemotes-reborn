@@ -15,6 +15,8 @@ local ExitAndPlay = false
 local EmoteCancelPlaying = false
 local currentEmote = {}
 local attachedProp
+IsProne = false
+InAction = false
 IsInAnimation = false
 CurrentAnimationName = nil
 CurrentTextureVariation = nil
@@ -120,23 +122,15 @@ local function CheckStatusThread(dict, anim)
     end)
 end
 
-if Config.EnableCancelKeybind then
-    RegisterKeyMapping("emotecancel", Translate('register_cancel_emote'), "keyboard", Config.CancelEmoteKey)
-end
+
 
 -----------------------------------------------------------------------------------------------------
 -- Commands / Events --------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
 
 if Config.MenuKeybindEnabled then
-    RegisterCommand('emoteui', function() OpenEmoteMenu() end, false)
-    RegisterKeyMapping("emoteui", Translate('register_open_menu'), "keyboard", Config.MenuKeybind)
-else
-    RegisterCommand('emotemenu', function() OpenEmoteMenu() end, false)
+    RegisterKeyMapping("emotemenu", Translate('register_open_menu'), "keyboard", Config.MenuKeybind)
 end
-
-RegisterCommand('emotes', function() EmotesOnCommand() end, false)
-RegisterCommand('emotecancel', function() EmoteCancel() end, false)
 
 local disableHandsupControls = {
     [36] = true, -- INPUT_DUCK
@@ -289,6 +283,13 @@ AddEventHandler('onResourceStop', function(resource)
         ResetPedMovementClipset(ped, 0.8)
     end
 end)
+
+---Returns if the player is prone (both when laying still and when moving)
+---@return boolean
+function IsPlayerProne()
+	return IsProne
+end
+exports('IsPlayerProne', IsPlayerProne)
 
 -----------------------------------------------------------------------------------------------------
 ------ Functions and stuff --------------------------------------------------------------------------

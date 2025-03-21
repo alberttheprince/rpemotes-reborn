@@ -1,34 +1,7 @@
+if not Config.SharedEmotesEnabled then return end
+
 local isRequestAnim = false
-local requestedemote = ''
 local targetPlayerId
-
-if Config.SharedEmotesEnabled then
-    RegisterCommand('nearby', function(source, args, raw)
-        if not LocalPlayer.state.canEmote then return end
-        if IsPedInAnyVehicle(PlayerPedId(), true) then
-            return EmoteChatMessage(Translate('not_in_a_vehicle'))
-        end
-
-        if #args > 0 then
-            local emotename = string.lower(args[1])
-            local target, distance = GetClosestPlayer()
-            if (distance ~= -1 and distance < 3) then
-                if RP.Shared[emotename] ~= nil then
-                    local _, _, ename = table.unpack(RP.Shared[emotename])
-                    TriggerServerEvent("ServerEmoteRequest", GetPlayerServerId(target), emotename)
-                    SimpleNotify(Translate('sentrequestto') ..
-                        GetPlayerName(target) .. " ~w~(~g~" .. ename .. "~w~)")
-                else
-                    EmoteChatMessage("'" .. emotename .. "' " .. Translate('notvalidsharedemote') .. "")
-                end
-            else
-                SimpleNotify(Translate('nobodyclose'))
-            end
-        else
-            NearbysOnCommand()
-        end
-    end, false)
-end
 
 RegisterNetEvent("SyncPlayEmote", function(emote, player)
     EmoteCancel()
@@ -171,3 +144,29 @@ RegisterNetEvent("ClientEmoteRequestReceive", function(emotename, etype, target)
         end
     end
 end)
+
+function Nearby(args)
+    if not LocalPlayer.state.canEmote then return end
+    if IsPedInAnyVehicle(PlayerPedId(), true) then
+        return EmoteChatMessage(Translate('not_in_a_vehicle'))
+    end
+
+    if #args > 0 then
+        local emotename = string.lower(args[1])
+        local target, distance = GetClosestPlayer()
+        if (distance ~= -1 and distance < 3) then
+            if RP.Shared[emotename] ~= nil then
+                local _, _, ename = table.unpack(RP.Shared[emotename])
+                TriggerServerEvent("ServerEmoteRequest", GetPlayerServerId(target), emotename)
+                SimpleNotify(Translate('sentrequestto') ..
+                    GetPlayerName(target) .. " ~w~(~g~" .. ename .. "~w~)")
+            else
+                EmoteChatMessage("'" .. emotename .. "' " .. Translate('notvalidsharedemote') .. "")
+            end
+        else
+            SimpleNotify(Translate('nobodyclose'))
+        end
+    else
+        NearbysOnCommand()
+    end
+end

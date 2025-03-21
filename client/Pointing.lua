@@ -1,3 +1,5 @@
+if not Config.PointingEnabled then return end
+
 Pointing = false
 
 local function IsPlayerAiming(player)
@@ -100,20 +102,17 @@ local function StartPointing()
 end
 
 
--- Commands & KeyMapping --
-if Config.PointingEnabled then
-    RegisterCommand('pointing', function()
-        if IsPedInAnyVehicle(PlayerPedId(), false) and not Config.PointingKeybindInCarEnabled then
-            return
-        end
-        StartPointing()
-    end, false)
-
-    if Config.PointingKeybindEnabled then
-        RegisterKeyMapping("pointing", Translate('register_pointing'), "keyboard", Config.PointingKeybind)
+function UsePointing()
+    if IsPedInAnyVehicle(PlayerPedId(), false) and not Config.PointingKeybindInCarEnabled then
+        return
     end
+    StartPointing()
+end
 
-    TriggerEvent('chat:addSuggestion', '/pointing', Translate('pointing'))
+-- KeyMapping --
+
+if Config.PointingKeybindEnabled then
+    RegisterKeyMapping("pointing", Translate('register_pointing'), "keyboard", Config.PointingKeybind)
 end
 
 

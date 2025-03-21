@@ -81,9 +81,15 @@ RegisterNetEvent('animations:client:Walk', function(args)
     end
 end)
 
-RegisterNetEvent('animations:client:ListWalks', function()
+RegisterNetEvent('animations:client:EmoteCancel', function()
     if not ESX.PlayerData.dead then
-        WalksOnCommand()
+        EmoteCancel()
+    end
+end)
+
+RegisterNetEvent('animations:client:EmoteFav', function()
+    if not ESX.PlayerData.dead then
+        FavKeybind()
     end
 end)
 
