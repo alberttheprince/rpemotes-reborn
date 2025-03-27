@@ -51,7 +51,7 @@ end
 
 if Config.BinocularsEnabled then
     RegisterCommand("binoculars", function() UseBinocular() end, false)
-    TriggerEvent('chat:addSuggestion', '/binoculars', 'Use binoculars', {})
+    TriggerEvent('chat:addSuggestion', '/binoculars', Translate('use_binoculars'), {})
 end
 
 if Config.CrawlEnabled then
@@ -66,15 +66,15 @@ end
 
 if Config.NoIdleCam then
     RegisterCommand('idlecamoff', function() Idlecam(true) end, false)
-    TriggerEvent("chat:addSuggestion", "/idlecamoff", "Disables the idle cam")
+    TriggerEvent("chat:addSuggestion", "/idlecamoff", Translate('idlecamoff'))
 
     RegisterCommand('idlecamon', function() Idlecam(false) end, false)
-    TriggerEvent("chat:addSuggestion", "/idlecamon", "Re-enables the idle cam")
+    TriggerEvent("chat:addSuggestion", "/idlecamon", Translate('idlecamon'))
 end
 
 if Config.NewscamEnabled then
     RegisterCommand("newscam", function() UseNewscam() end, false)
-    TriggerEvent('chat:addSuggestion', '/newscam', 'Use newscam', {})
+    TriggerEvent('chat:addSuggestion', '/newscam', Translate('use_newcams'), {})
 end
 
 if Config.PointingEnabled then
@@ -84,15 +84,13 @@ end
 
 if Config.ExpressionsEnabled then
     RegisterCommand('mood', function(_source, args, _raw) SetMood(args) end, false)
-    TriggerEvent('chat:addSuggestion', '/mood', 'Set your current mood/expression.',
+    TriggerEvent('chat:addSuggestion', '/mood', Translate('setmood'),
         { { name = "expression", help = "/moods for a list of valid moods" } })
 
     RegisterCommand('moods', function() DisplayExpressions() end, false)
-    TriggerEvent('chat:addSuggestion', '/moods', 'List available walking moods/expressions.')
+    TriggerEvent('chat:addSuggestion', '/moods', Translate('list_mood'))
 end
 
 if Config.SharedEmotesEnabled then
     RegisterCommand('nearby', function(source, args, raw) Nearby(args) end, false)
 end
-
-

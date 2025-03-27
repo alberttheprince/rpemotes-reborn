@@ -105,3 +105,59 @@ RegisterNetEvent('animations:client:EmoteCommandStart', function(args)
         EmoteCommandStart(source, args)
     end
 end)
+
+RegisterNetEvent('animations:client:ragdoll',function()
+    if not ESX.PlayerData.dead then
+        Ragdoll()
+    end
+end)
+
+RegisterNetEvent('animations:client:binoculars',function()
+    if not ESX.PlayerData.dead then
+        UseBinocular()
+    end
+end)
+
+RegisterNetEvent('animations:client:crawl',function()
+    if not ESX.PlayerData.dead then
+        CrawlKeyPressed()
+    end
+end)
+
+RegisterNetEvent('animations:client:crouch',function()
+    if not ESX.PlayerData.dead then
+        CrouchKeyPressed()
+    end
+end)
+
+RegisterNetEvent('animations:client:idlecam',function(value)
+    Idlecam(value)
+end)
+
+RegisterNetEvent('animations:client:newscam',function()
+    if not ESX.PlayerData.dead then
+        UseNewscam()
+    end
+end)
+
+RegisterNetEvent('animations:client:pointing',function()
+    if not ESX.PlayerData.dead then
+        UsePointing()
+    end
+end)
+
+RegisterNetEvent('animations:client:setMood',function(arg)
+    if not ESX.PlayerData.dead then
+        SetMood(arg)
+    end
+end)
+
+RegisterNetEvent('animations:client:moods',function()
+    DisplayExpressions()
+end)
+
+RegisterNetEvent('animations:client:nearby',function(arg)
+    if not ESX.PlayerData.dead then
+        Nearby(arg)
+    end
+end)

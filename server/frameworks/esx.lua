@@ -64,3 +64,66 @@ if Config.FavKeybindEnabled then
     end, false, {help = Translate("register_fav_anim")})
 end
 
+if Config.RagdollEnabled then
+    ESX.RegisterCommand('ragdoll', 'user', function (xPlayer)
+        xPlayer.triggerEvent('animations:client:ragdoll')
+    end, false)
+end
+
+if Config.BinocularsEnabled then
+    ESX.RegisterCommand('binoculars', 'user', function (xPlayer)
+        xPlayer.triggerEvent('animations:client:binoculars')
+    end, false, {help = Translate('use_binoculars')})
+end
+
+if Config.CrawlEnabled then
+    ESX.RegisterCommand('crawl', 'user', function (xPlayer)
+        xPlayer.triggerEvent('animations:client:crawl')
+    end, false, {help = Translate('crawl')})
+end
+
+if Config.CrouchEnabled then
+    ESX.RegisterCommand('crouch', 'user', function (xPlayer)
+        xPlayer.triggerEvent('animations:client:crouch')
+    end, false, {help = Translate('crouch')})
+end
+
+if Config.NoIdleCam then
+    ESX.RegisterCommand('idlecamoff', 'user', function (xPlayer)
+        xPlayer.triggerEvent('animations:client:idlecam', true)
+    end, false, {help = Translate('idlecamoff')})
+
+    ESX.RegisterCommand('idlecamon', 'user', function (xPlayer)
+        xPlayer.triggerEvent('animations:client:idlecam', false)
+    end, false, {help = Translate('idlecamon')})
+end
+
+if Config.NewscamEnabled then
+    ESX.RegisterCommand('newscam', 'user', function (xPlayer)
+        xPlayer.triggerEvent('animations:client:newscam', false)
+    end, false, {help = Translate('use_newcams')})
+end
+
+if Config.PointingEnabled then
+    ESX.RegisterCommand('pointing', 'user', function (xPlayer)
+        xPlayer.triggerEvent('animations:client:pointing')
+    end, false, {help = Translate('pointing')})
+end
+
+if Config.ExpressionsEnabled then
+    ESX.RegisterCommand('mood', 'user', function(xPlayer, args)
+        local arg = {args.expression}
+        xPlayer.triggerEvent('animations:client:setMood',arg)
+    end, false, {help= Translate('setmood'), arguments={{name="expression", help="/moods for a list of valid moods", type='string'}}})
+
+    ESX.RegisterCommand('moods', 'user', function (xPlayer)
+        xPlayer.triggerEvent('animations:client:moods')
+    end, false, {help = Translate('list_mood')})
+end
+
+if Config.SharedEmotesEnabled then
+    ESX.RegisterCommand('nearby', 'user', function(xPlayer, args)
+        local arg = {args.emote}
+        xPlayer.triggerEvent('animations:client:nearby', arg)
+    end, false, {arguments={{name="emote", type='string'}}})
+end
