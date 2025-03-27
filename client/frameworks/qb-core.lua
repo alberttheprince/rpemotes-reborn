@@ -107,7 +107,7 @@ RegisterNetEvent('animations:client:EmoteCancel', function()
 end)
 
 RegisterNetEvent('animations:client:EmoteFav', function()
-    if not ESX.PlayerData.dead then
+    if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
         FavKeybind()
     end
 end)
@@ -122,5 +122,61 @@ end)
 RegisterNetEvent('animations:client:EmoteCommandStart', function(args)
     if CanDoEmote then
         EmoteCommandStart(source, args)
+    end
+end)
+
+RegisterNetEvent('animations:client:ragdoll',function()
+    if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
+        Ragdoll()
+    end
+end)
+
+RegisterNetEvent('animations:client:binoculars',function()
+    if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
+        UseBinocular()
+    end
+end)
+
+RegisterNetEvent('animations:client:crawl',function()
+    if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
+        CrawlKeyPressed()
+    end
+end)
+
+RegisterNetEvent('animations:client:crouch',function()
+    if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
+        CrouchKeyPressed()
+    end
+end)
+
+RegisterNetEvent('animations:client:idlecam',function(value)
+    Idlecam(value)
+end)
+
+RegisterNetEvent('animations:client:newscam',function()
+    if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
+        UseNewscam()
+    end
+end)
+
+RegisterNetEvent('animations:client:pointing',function()
+    if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
+        UsePointing()
+    end
+end)
+
+RegisterNetEvent('animations:client:setMood',function(arg)
+    if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
+        SetMood(arg)
+    end
+end)
+
+RegisterNetEvent('animations:client:moods',function()
+    DisplayExpressions()
+end)
+
+RegisterNetEvent('animations:client:nearby',function(arg)
+    if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
+        Nearby(arg)
     end
 end)

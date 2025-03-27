@@ -69,3 +69,64 @@ if Config.FavKeybindEnabled then
     end)
 end
 
+if Config.RagdollEnabled then
+    QBCore.Commands.Add('ragdoll', '', {}, false, function(source)
+        TriggerClientEvent('animations:client:ragdoll', source)
+    end)
+end
+
+if Config.BinocularsEnabled then
+    QBCore.Commands.Add('binoculars', Translate('use_binoculars'), {}, false, function(source)
+        TriggerClientEvent('animations:client:binoculars', source)
+    end)
+end
+
+if Config.CrawlEnabled then
+    QBCore.Commands.Add('crawl', Translate('crawl'), {}, false, function(source)
+        TriggerClientEvent('animations:client:crawl', source)
+    end)
+end
+
+if Config.CrouchEnabled then
+    QBCore.Commands.Add('crouch', Translate('crouch'), {}, false, function(source)
+        TriggerClientEvent('animations:client:crouch', source)
+    end)
+end
+
+if Config.NoIdleCam then
+    QBCore.Commands.Add('idlecamoff', Translate('idlecamoff'), {}, false, function(source)
+        TriggerClientEvent('animations:client:idlecam', source, true)
+    end)
+
+    QBCore.Commands.Add('idlecamon', Translate('idlecamon'), {}, false, function(source)
+        TriggerClientEvent('animations:client:idlecam', source, false)
+    end)
+end
+
+if Config.NewscamEnabled then
+    QBCore.Commands.Add('newscam', Translate('use_newcams'), {}, false, function(source)
+        TriggerClientEvent('animations:client:newscam', source)
+    end)
+end
+
+if Config.PointingEnabled then
+    QBCore.Commands.Add('pointing', Translate('pointing'), {}, false, function(source)
+        TriggerClientEvent('animations:client:pointing', source)
+    end)
+end
+
+if Config.ExpressionsEnabled then
+    QBCore.Commands.Add('mood', Translate('setmood'), {{ name="expression", help="/moods for a list of valid moods"}}, true, function(source, args)
+        TriggerClientEvent('animations:client:setMood', source, args)
+    end)
+
+    QBCore.Commands.Add('moods', Translate('list_mood'), {}, false, function(source)
+        TriggerClientEvent('animations:client:moods', source)
+    end)
+end
+
+if Config.SharedEmotesEnabled then
+    QBCore.Commands.Add('nearby', '', {{name="emote"}}, true, function(source, arg)
+        TriggerClientEvent('animations:client:nearby', source, arg)
+    end)
+end

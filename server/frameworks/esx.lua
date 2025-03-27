@@ -100,7 +100,7 @@ end
 
 if Config.NewscamEnabled then
     ESX.RegisterCommand('newscam', 'user', function (xPlayer)
-        xPlayer.triggerEvent('animations:client:newscam', false)
+        xPlayer.triggerEvent('animations:client:newscam')
     end, false, {help = Translate('use_newcams')})
 end
 
