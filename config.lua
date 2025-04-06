@@ -99,6 +99,7 @@ Config.KeybindKeys = {
 Config.Credits = {
     {title = "<b>Thanks to the community<b>", subtitle = "For supporting and using RP Emotes!"},
     {title = "Thanks <font color=\"#ff451d\">Enzo2991 🇧🇪 </font>", subtitle = "<font color=\"#ff451d\">Enzo2991 🇧🇪 </font> for creating the ped preview functionality"},
+    {title = "Thanks <font color=\"#ff451d\">Quravat 🇫🇷 </font>", subtitle = "<font color=\"#ff451d\">Quravat 🇫🇷 </font> for creating some locales/emotes"},
     {title = "Thanks ~o~DullPear 🍐~s~", subtitle = "~o~DullPear~s~ for the original dpemotes ❤️"},
     {title = "Thanks <b>Kibook 🐩</b>", subtitle = "<b>Kibook</b> for the addition of Animal Emotes 🐩 submenu."},
     {title = "Thanks ~y~AvaN0x 🇫🇷~s~", subtitle = "~y~AvaN0x~s~ 🇫🇷 for reformatting and assisting with code and additional features 🙏"},
