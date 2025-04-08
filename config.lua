@@ -8,7 +8,7 @@ Config = {
     MenuKeybind = 'f4', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     FavKeybindEnabled = true, -- You can disable the Favorite emote keybinding here.
     FavKeybind = 'capital', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
-    SqlKeybinding = false, -- If you have the SQL imported enable this to turn on keybinding.
+    Keybinding = false, -- enable this to turn on keybinding.
     NotificationsAsChatMessage = false, -- If you don't like native GTA 5 notifications, you can disable them here to have messages in the chat.
     Framework = 'qb-core', -- Used for few framework-dependent things. Accepted values: 'qb-core', 'esx' or false
     Search = true, -- Used to enable or disable the search feature in the menu.
@@ -98,7 +98,7 @@ Config.KeybindKeys = {
 
 Config.Credits = {
     {title = "<b>Thanks to the community<b>", subtitle = "For supporting and using RP Emotes!"},
-    {title = "Thanks <font color=\"#ff451d\">Enzo2991 🇧🇪 </font>", subtitle = "<font color=\"#ff451d\">Enzo2991 🇧🇪 </font> for creating the ped preview functionality"},
+    {title = "Thanks <font color=\"#ff451d\">Enzo2991 🇧🇪 </font>", subtitle = "<font color=\"#ff451d\">Enzo2991 🇧🇪 </font> for creating the ped preview functionality and keybind with kvp"},
     {title = "Thanks ~o~DullPear 🍐~s~", subtitle = "~o~DullPear~s~ for the original dpemotes ❤️"},
     {title = "Thanks <b>Kibook 🐩</b>", subtitle = "<b>Kibook</b> for the addition of Animal Emotes 🐩 submenu."},
     {title = "Thanks ~y~AvaN0x 🇫🇷~s~", subtitle = "~y~AvaN0x~s~ 🇫🇷 for reformatting and assisting with code and additional features 🙏"},

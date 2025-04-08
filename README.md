@@ -44,7 +44,7 @@ Interested in joining our community? You can find our Discord [here](https://dis
 
 - Shared Particle Effects 💨
 
-- QB-Core Framework & SQL Keybinding Support ⚙️
+- QB-Core Framework & KVP Keybinding Support ⚙️
 
 - Further support for shared and couple poses/animations 👫
 
@@ -135,15 +135,13 @@ Alternatively, the player base can set their menu keybind to open rpemotes-rebor
 
 - More keybinds are now using key mappings which means that they are now available in your FiveM settings to change (`FavKeybind` and `RagdollKeybind`)
 
-# Keybinds and SQL 🎛️
+# Keybinds 🎛️
 
-To use the SQL features, install the latest version of the [oxmysql](https://github.com/overextended/oxmysql) resource and enable the setting in `config.lua`
+To use the features, enable the setting in `config.lua`
 
 ```lua
-SqlKeybinding = false,
+Keybinding = false,
 ```
-
-If you do not want to use the SQL features keep the `oxmysql` region in fxmanifest.lua commented out.
 
 Alternatively, you can use the keybind command that comes with FiveM without having to use SQL, by entering the following into F8:
 
@@ -354,6 +352,7 @@ Available output formats:
 
 Command usage example: emoteextract 1
 ```
+
 ![image](https://github.com/user-attachments/assets/6ec6e042-00b7-4be2-8086-1805eb87196c)
 
 # Installation Instructions ⚙️:
