@@ -20,7 +20,7 @@ end
 ------ Functions and stuff --------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
 
-function EmoteBindStart(_, args, _)
+function EmoteBindStart(source, args, raw)
     if #args > 0 then
         local numkey = tonumber(args[1])
         local emote = string.lower(args[2])
@@ -38,11 +38,11 @@ function EmoteBindStart(_, args, _)
             EmoteChatMessage("'" .. numkey .. "' " .. Translate('notvalidkey'))
         end
     else
-        print("invalid")
+        DebugPrint("invalid")
     end
 end
 
-function EmoteBindsStart(_, _,_)
+function EmoteBindsStart()
     for i = 1, #Config.KeybindKeys do
         local emote = GetResourceKvpString(string.format('%s_emob%s', Config.keybindKVP, i))
         if emote then
@@ -60,6 +60,6 @@ function DeleteEmote(args)
             EmoteChatMessage("'" .. numkey .. "' " .. Translate('notvalidkey'))
         end
     else
-        print("invalid")
+        DebugPrint("invalid")
     end
 end

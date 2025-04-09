@@ -48,7 +48,7 @@ if Config.Keybinding then
         end
     end)
 
-    RegisterNetEvent('animations:client:EmoteBinds', function(_)
+    RegisterNetEvent('animations:client:EmoteBinds', function()
         if not ESX.PlayerData.dead then
             EmoteBindsStart()
         end
