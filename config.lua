@@ -9,6 +9,7 @@ Config = {
     FavKeybindEnabled = true, -- You can disable the Favorite emote keybinding here.
     FavKeybind = 'capital', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     Keybinding = false, -- enable this to turn on keybinding.
+    keybindKVP = "rpemotes", -- The keybind KVP name
     NotificationsAsChatMessage = false, -- If you don't like native GTA 5 notifications, you can disable them here to have messages in the chat.
     Framework = 'qb-core', -- Used for few framework-dependent things. Accepted values: 'qb-core', 'esx' or false
     Search = true, -- Used to enable or disable the search feature in the menu.
