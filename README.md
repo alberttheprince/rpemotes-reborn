@@ -44,7 +44,7 @@ Interested in joining our community? You can find our Discord [here](https://dis
 
 - Shared Particle Effects 💨
 
-- QB-Core Framework & SQL Keybinding Support ⚙️
+- QB-Core Framework & KVP Keybinding Support ⚙️
 
 - Further support for shared and couple poses/animations 👫
 
@@ -135,15 +135,13 @@ Alternatively, the player base can set their menu keybind to open rpemotes-rebor
 
 - More keybinds are now using key mappings which means that they are now available in your FiveM settings to change (`FavKeybind` and `RagdollKeybind`)
 
-# Keybinds and SQL 🎛️
+# Keybinds 🎛️
 
-To use the SQL features, install the latest version of the [oxmysql](https://github.com/overextended/oxmysql) resource and enable the setting in `config.lua`
+To use the features, enable the setting in `config.lua`
 
 ```lua
-SqlKeybinding = false,
+Keybinding = false,
 ```
-
-If you do not want to use the SQL features keep the `oxmysql` region in fxmanifest.lua commented out.
 
 Alternatively, you can use the keybind command that comes with FiveM without having to use SQL, by entering the following into F8:
 
@@ -354,6 +352,7 @@ Available output formats:
 
 Command usage example: emoteextract 1
 ```
+
 ![image](https://github.com/user-attachments/assets/6ec6e042-00b7-4be2-8086-1805eb87196c)
 
 # Installation Instructions ⚙️:
@@ -380,9 +379,7 @@ You can put this before your gamebuild enforcement, aka `+set sv_enforceGameBuil
 
 - Qb-Core server owners, set `Framework = 'qb-core'` in the config file, otherwise leave it as false.
 
-- To use the SQL features, install the [oxmysql](https://github.com/overextended/oxmysql) resource then open `keybinds.lua` in RPEmotes. If you do not want to use the SQL features, comment out the `oxmysql` region in fxmanifest.lua.
-
-Alternatively, you can use the keybind command that comes with FiveM without having the SQL, by entering the following into F8:
+- If you do not want to use the Kvp features, you can use the keybind command that comes with FiveM, by entering the following into F8:
 
 `bind keyboard "Yourbutton" "e youremote"`. To remove the keybind, type `"unbind keyboard "Yourbutton"`.
 
@@ -469,8 +466,8 @@ All animation creators have **_specifically_** asked that their content remain f
 **A huge thank you the following people for their amazing contributions to the menu:**
 
 - the FiveM community for using RP and updating rpemotes-reborn!
-- [enzo2991](https://github.com/enzo2991) for creating the ped preview functionality
 - [The Popcorn RP community](https://discord.gg/popcornroleplay) for putting up with all my emote menu testing and troubleshooting issues with me
+- [enzo2991](https://github.com/enzo2991) for creating the ped preview functionality, keybind with kvp
 - [DerDevHD](https://forum.cfx.re/t/fixed-remove-prop-after-scenario-animation/5002332/8) for the insight on deleting scenario props.
 - [Kibook](https://github.com/kibook) for the addition of the Animal Emotes sub-menu
 - [AvaN0x](https://github.com/AvaN0x) for reformatting and assisting with code, additional features, and figuring out shared particle effects

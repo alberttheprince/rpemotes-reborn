@@ -19,13 +19,17 @@ QBCore.Commands.Add('emote', 'Play an emote', {{ name="emotename", help="dance, 
     TriggerClientEvent('animations:client:PlayEmote', source, args)
 end)
 
-if Config.SqlKeybinding then
+if Config.Keybinding then
     QBCore.Commands.Add('emotebind', 'Bind an emote', {{ name="key", help="num4, num5, num6, num7. num8, num9. Numpad 4-9!"}, { name="emotename", help="dance, camera, sit or any valid emote."}}, true, function(source, args)
         TriggerClientEvent('animations:client:BindEmote', source, args)
     end)
 
     QBCore.Commands.Add('emotebinds', 'Check your currently bound emotes.', {}, false, function(source)
         TriggerClientEvent('animations:client:EmoteBinds', source)
+    end)
+
+    QBCore.Commands.Add('emotedelete', Translate('remove_emote_keybind'), {}, false, function(source, args)
+        TriggerClientEvent('animations:client:EmoteDelete', source, args)
     end)
 end
 

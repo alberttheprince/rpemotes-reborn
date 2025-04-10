@@ -135,7 +135,7 @@ CreateThread(function()
     TriggerEvent('chat:addSuggestion', '/emote', Translate('play_emote'),
         { { name = "emotename",      help = Translate('help_command') },
             { name = "texturevariation", help = Translate('help_variation') } })
-    if Config.SqlKeybinding then
+    if Config.Keybinding then
         TriggerEvent('chat:addSuggestion', '/emotebind', Translate('link_emote_keybind'),
             { { name = "key",     help = "num4, num5, num6, num7. num8, num9. Numpad 4-9!" },
                 { name = "emotename", help = Translate('help_command') } })
@@ -150,10 +150,10 @@ end)
 
 RegisterCommand('e', function(source, args, raw) EmoteCommandStart(source, args, raw) end, false)
 RegisterCommand('emote', function(source, args, raw) EmoteCommandStart(source, args, raw) end, false)
-if Config.SqlKeybinding then
+if Config.Keybinding then
     RegisterCommand('emotebind', function(source, args, raw) EmoteBindStart(source, args, raw) end, false)
     RegisterCommand('emotebinds', function(source, args, raw) EmoteBindsStart() end, false)
-    RegisterCommand('emotedelete', function(source, args) DeleteEmote(source, args) end, false)
+    RegisterCommand('emotedelete', function(source, args) DeleteEmote(args) end, false)
 end
 if Config.MenuKeybindEnabled then
     RegisterCommand('emoteui', function() OpenEmoteMenu() end, false)

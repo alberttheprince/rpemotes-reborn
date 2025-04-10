@@ -8,16 +8,16 @@ if state == 'missing' or state == "unknown" then
     return
 end
 
-ESX, PlayerData, isLoggedIn = nil, nil, false
+ESX, PlayerData, IsLoggedIn = nil, nil, false
 
 -- ESX core parts
 ESX = exports[framework]:getSharedObject()
 PlayerData = ESX.GetPlayerData()
-isLoggedIn = false
+IsLoggedIn = false
 
 RegisterNetEvent('esx:onPlayerSpawn', function()
     PlayerData = ESX.GetPlayerData()
-    isLoggedIn = true
+    IsLoggedIn = true
 end)
 
 -- This is here to get the player data when the resource is restarted instead of having to log out and back in each time
@@ -26,7 +26,7 @@ AddEventHandler('onResourceStart', function(resource)
     if resource == GetCurrentResourceName() then
         Wait(200)
         PlayerData = ESX.GetPlayerData()
-        isLoggedIn = true
+        IsLoggedIn = true
     end
 end)
 
@@ -41,19 +41,26 @@ RegisterNetEvent('animations:client:PlayEmote', function(args)
     end
 end)
 
-if Config.SqlKeybinding then
+if Config.Keybinding then
     RegisterNetEvent('animations:client:BindEmote', function(args)
         if not ESX.PlayerData.dead then
-            EmoteBindStart(source, args)
+            EmoteBindStart(nil, args)
         end
     end)
 
     RegisterNetEvent('animations:client:EmoteBinds', function()
         if not ESX.PlayerData.dead then
-            EmoteBindsStart()
+            ListKeybinds()
+        end
+    end)
+
+    RegisterNetEvent('animations:client:EmoteDelete', function(args)
+        if not ESX.PlayerData.dead then
+            DeleteEmote(args)
         end
     end)
 end
+
 
 RegisterNetEvent('animations:client:EmoteMenu', function()
     if not ESX.PlayerData.dead then
@@ -69,7 +76,7 @@ end)
 
 RegisterNetEvent('animations:client:Walk', function(args)
     if not ESX.PlayerData.dead then
-        WalkCommandStart(source, args)
+        WalkCommandStart(args)
     end
 end)
 
