@@ -59,7 +59,7 @@ if Config.Keybinding then
 
     RegisterNetEvent('animations:client:EmoteBinds', function()
         if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
-            EmoteBindsStart()
+            ListKeybinds()
         end
     end)
 

@@ -38,11 +38,11 @@ function EmoteBindStart(source, args, raw)
             EmoteChatMessage("'" .. numkey .. "' " .. Translate('notvalidkey'))
         end
     else
-        DebugPrint("invalid")
+        DebugPrint('Invalid number of arguments to \'EmoteBindStart\'')
     end
 end
 
-function EmoteBindsStart()
+function ListKeybinds()
     for i = 1, #Config.KeybindKeys do
         local emote = GetResourceKvpString(string.format('%s_emob%s', Config.keybindKVP, i))
         if emote then
