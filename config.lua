@@ -89,17 +89,17 @@ Config = {
 }
 
 Config.KeybindKeys = {
-    'NUMPAD4', -- num4
-    'NUMPAD5', -- num5
-    'NUMPAD6', -- num6
-    'NUMPAD7', -- num7
-    'NUMPAD8', -- num8
-    'NUMPAD9' -- num9
+    'NUMPAD4',
+    'NUMPAD5',
+    'NUMPAD6',
+    'NUMPAD7',
+    'NUMPAD8',
+    'NUMPAD9'
 }
 
 Config.Credits = {
     {title = "<b>Thanks to the community<b>", subtitle = "For supporting and using RP Emotes!"},
-    {title = "Thanks <font color=\"#ff451d\">Enzo2991 🇧🇪 </font>", subtitle = "<font color=\"#ff451d\">Enzo2991 🇧🇪 </font> for creating the ped preview functionality and keybind with kvp"},
+    {title = "Thanks <font color=\"#ff451d\">Enzo2991 🇧🇪 </font>", subtitle = "<font color=\"#ff451d\">Enzo2991 🇧🇪 </font> for creating the ped preview functionality, keybind with kvp"},
     {title = "Thanks ~o~DullPear 🍐~s~", subtitle = "~o~DullPear~s~ for the original dpemotes ❤️"},
     {title = "Thanks <b>Kibook 🐩</b>", subtitle = "<b>Kibook</b> for the addition of Animal Emotes 🐩 submenu."},
     {title = "Thanks ~y~AvaN0x 🇫🇷~s~", subtitle = "~y~AvaN0x~s~ 🇫🇷 for reformatting and assisting with code and additional features 🙏"},
