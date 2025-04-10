@@ -152,7 +152,7 @@ RegisterCommand('e', function(source, args, raw) EmoteCommandStart(source, args,
 RegisterCommand('emote', function(source, args, raw) EmoteCommandStart(source, args, raw) end, false)
 if Config.Keybinding then
     RegisterCommand('emotebind', function(source, args, raw) EmoteBindStart(source, args, raw) end, false)
-    RegisterCommand('emotebinds', function(source, args, raw) EmoteBindsStart() end, false)
+    RegisterCommand('emotebinds', function(source, args, raw) ListKeybinds() end, false)
     RegisterCommand('emotedelete', function(source, args) DeleteEmote(args) end, false)
 end
 if Config.MenuKeybindEnabled then
