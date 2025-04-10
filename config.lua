@@ -89,12 +89,12 @@ Config = {
 }
 
 Config.KeybindKeys = {
-    108, -- num4
-    110, -- num5
-    109, -- num6
-    117, -- num7
-    111, -- num8
-    118 -- num9
+    'NUMPAD4', -- num4
+    'NUMPAD5', -- num5
+    'NUMPAD6', -- num6
+    'NUMPAD7', -- num7
+    'NUMPAD8', -- num8
+    'NUMPAD9' -- num9
 }
 
 Config.Credits = {
