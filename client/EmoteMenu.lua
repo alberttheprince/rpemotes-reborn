@@ -513,7 +513,7 @@ function AddFaceMenu(menu)
 end
 
 function AddInfoMenu(menu)
-    infomenu = _menuPool:AddSubMenu(menu, Translate('infoupdate'), "~h~~y~The RPEmotes Team & Collaborators~h~~y~", true, true)
+    infomenu = _menuPool:AddSubMenu(menu, Translate('infoupdate'), "~h~~y~The RPEmotes Developers~h~~y~", true, true)
 
     for _,v in ipairs(Config.Credits) do
         local item = NativeUI.CreateItem(v.title,v.subtitle or "")
