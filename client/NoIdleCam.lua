@@ -1,4 +1,4 @@
-if not Config.NoIdleCam then return end
+if not Config.DisableIdleCam then return end
 
 RegisterCommand('idlecamoff', function() -- help2 31, 167, 9
     TriggerEvent('chat:addMessage', {

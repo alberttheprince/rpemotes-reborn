@@ -1,7 +1,7 @@
 fx_version 'cerulean'
 game 'gta5'
 description 'rpemotes-reborn'
-version '1.8.5'
+version '1.9.0'
 
 lua54 'yes'
 use_experimental_fxv2_oal 'yes'
@@ -9,7 +9,6 @@ use_experimental_fxv2_oal 'yes'
 provide "rpemotes"
 
 dependencies {
-    -- '/server:7290',
     '/server:6683',
     '/onesync'
 }
@@ -31,12 +30,12 @@ shared_scripts {
 server_scripts {
     'server/Server.lua',
     'server/Updates.lua',
-    'server/frameworks/*.lua'
 }
 
 client_scripts {
     'NativeUI.lua',
     'client/Utils.lua',
+    'client/Bridge.lua',
     'client/AnimationList.lua',
     'client/AnimationListCustom.lua',
     'client/Binoculars.lua',
@@ -44,14 +43,15 @@ client_scripts {
     'client/Emote.lua',
     'client/EmoteMenu.lua',
     'client/Expressions.lua',
+    'client/Handsup.lua',
     'client/Keybinds.lua',
     'client/NewsCam.lua',
     'client/NoIdleCam.lua',
     'client/Pointing.lua',
+    'client/PTFX.lua',
     'client/Ragdoll.lua',
     'client/Syncing.lua',
     'client/Walk.lua',
-    'client/frameworks/*.lua'
 }
 
 

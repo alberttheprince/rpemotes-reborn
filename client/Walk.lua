@@ -12,10 +12,10 @@ function WalkMenuStart(name, force)
         return
     end
 
-    if Config.PersistentWalk then SetResourceKvp("walkstyle", name) end
     RequestWalking(name)
     SetPedMovementClipset(PlayerPedId(), name, 0.2)
     RemoveAnimSet(name)
+    if Config.PersistentWalk then SetResourceKvp("walkstyle", name) end
 end
 
 function ResetWalk()
@@ -55,8 +55,6 @@ function WalkCommandStart(name)
         EmoteChatMessage("'" .. name .. "' is not a valid walk")
     end
 end
-
--- Persistent Walkstyles are stored to KVP. Once the player has spawned, the walkstyle is applied.
 
 if Config.WalkingStylesEnabled and Config.PersistentWalk then
     -- Function to check if walkstyle is available to prevent exploiting

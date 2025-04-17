@@ -49,7 +49,7 @@ if Config.FavKeybindEnabled then
         if doingFavoriteEmote == false then
             doingFavoriteEmote = true
             if not IsPedSittingInAnyVehicle(PlayerPedId()) then
-                if FavoriteEmote ~= "" and (not CanUseFavKeyBind or CanUseFavKeyBind()) then
+                if FavoriteEmote ~= "" and (not CanDoAction or CanDoAction()) then
                     EmoteCommandStart(nil, { FavoriteEmote, 0 })
                     Wait(500)
                 end
@@ -162,7 +162,7 @@ function AddEmoteMenu(menu)
             table.insert(FavEmoteTable, emoteName)
         end
 
-        favmenu.OnItemSelect = function(sender, item, index)
+        favmenu.OnItemSelect = function(_, _, index)
             if FavEmoteTable[index] == Translate('rfavorite') then
                 FavoriteEmote = ""
                 SimpleNotify(Translate('rfavorite'))
@@ -178,46 +178,43 @@ function AddEmoteMenu(menu)
 
     -- Ped Emote on Change Index
 
-    dancemenu.OnIndexChange = function(menu, newindex)
+    dancemenu.OnIndexChange = function(_, newindex)
         ClearPedTaskPreview()
         EmoteMenuStartClone(DanceTable[newindex], "dances")
     end
 
-    propmenu.OnIndexChange = function(menu, newindex)
+    propmenu.OnIndexChange = function(_, newindex)
         ClearPedTaskPreview()
         EmoteMenuStartClone(PropETable[newindex], "props")
     end
 
-    submenu.OnIndexChange = function(menu, newindex)
+    submenu.OnIndexChange = function(_, newindex)
         if newindex > 6 then
             ClearPedTaskPreview()
             EmoteMenuStartClone(EmoteTable[newindex], "emotes")
         end
     end
 
-    dancemenu.OnMenuClosed = function(menu)
+    dancemenu.OnMenuClosed = function()
         ClearPedTaskPreview()
     end
 
-    --------
-
-
-    dancemenu.OnItemSelect = function(sender, item, index)
+    dancemenu.OnItemSelect = function(_, _, index)
         EmoteMenuStart(DanceTable[index], "dances")
     end
 
     if Config.AnimalEmotesEnabled then
-        animalmenu.OnItemSelect = function(sender, item, index)
+        animalmenu.OnItemSelect = function(_, _, index)
             EmoteMenuStart(AnimalTable[index], "animals")
         end
     end
 
     if Config.SharedEmotesEnabled then
-        sharemenu.OnItemSelect = function(sender, item, index)
+        sharemenu.OnItemSelect = function(_, _, index)
             if ShareTable[index] ~= 'none' then
                 local target, distance = GetClosestPlayer()
                 if (distance ~= -1 and distance < 3) then
-                    TriggerServerEvent("ServerEmoteRequest", GetPlayerServerId(target), ShareTable[index])
+                    TriggerServerEvent("rpemotes:server:requestEmote", GetPlayerServerId(target), ShareTable[index])
                     SimpleNotify(Translate('sentrequestto') .. GetPlayerName(target))
                 else
                     SimpleNotify(Translate('nobodyclose'))
@@ -225,10 +222,10 @@ function AddEmoteMenu(menu)
             end
         end
 
-        shareddancemenu.OnItemSelect = function(sender, item, index)
+        shareddancemenu.OnItemSelect = function(_, _, index)
             local target, distance = GetClosestPlayer()
             if (distance ~= -1 and distance < 3) then
-                TriggerServerEvent("ServerEmoteRequest", GetPlayerServerId(target), DanceTable[index], 'Dances')
+                TriggerServerEvent("rpemotes:server:requestEmote", GetPlayerServerId(target), DanceTable[index], 'Dances')
                 SimpleNotify(Translate('sentrequestto') .. GetPlayerName(target))
             else
                 SimpleNotify(Translate('nobodyclose'))
@@ -236,15 +233,15 @@ function AddEmoteMenu(menu)
         end
     end
 
-    propmenu.OnItemSelect = function(sender, item, index)
+    propmenu.OnItemSelect = function(_, _, index)
         EmoteMenuStart(PropETable[index], "props")
     end
 
-   propmenu.OnListSelect = function(menu, item, itemIndex, listIndex)
+   propmenu.OnListSelect = function(_, item, itemIndex, listIndex)
         EmoteMenuStart(PropETable[itemIndex], "props", item:IndexToItem(listIndex).Value)
     end
 
-    submenu.OnItemSelect = function(sender, item, index)
+    submenu.OnItemSelect = function(_, _, index)
         if Config.Search and EmoteTable[index] == Translate('searchemotes') then
             EmoteMenuSearch(submenu)
         elseif EmoteTable[index] ~= Translate('favoriteemotes') then
@@ -252,7 +249,7 @@ function AddEmoteMenu(menu)
         end
     end
 
-    submenu.OnMenuClosed = function(menu)
+    submenu.OnMenuClosed = function()
         if not isSearching then
             ClosePedMenu()
         end
@@ -332,13 +329,13 @@ if Config.Search then
                 end
 
 
-                searchMenu.OnMenuChanged = function(menu, newmenu, forward)
+                searchMenu.OnMenuChanged = function()
                     isSearching = false
                     ShowPedMenu()
                 end
 
 
-                searchMenu.OnIndexChange = function(menu, newindex)
+                searchMenu.OnIndexChange = function(_, newindex)
                     local data = results[newindex]
 
                     ClearPedTaskPreview()
@@ -352,7 +349,7 @@ if Config.Search then
                 end
 
 
-                searchMenu.OnItemSelect = function(sender, item, index)
+                searchMenu.OnItemSelect = function(_, _, index)
                     local data = results[index]
 
                     if data == Translate('sharedanceemotes') then return end
@@ -378,7 +375,7 @@ if Config.Search then
                     elseif data.table == "Shared" then
                         local target, distance = GetClosestPlayer()
                         if (distance ~= -1 and distance < 3) then
-                            TriggerServerEvent("ServerEmoteRequest", GetPlayerServerId(target), data.name)
+                            TriggerServerEvent("rpemotes:server:requestEmote", GetPlayerServerId(target), data.name)
                             SimpleNotify(Translate('sentrequestto') .. GetPlayerName(target))
                         else
                             SimpleNotify(Translate('nobodyclose'))
@@ -386,20 +383,20 @@ if Config.Search then
                     end
                 end
 
-                searchMenu.OnListSelect = function(menu, item, itemIndex, listIndex)
+                searchMenu.OnListSelect = function(_, item, itemIndex, listIndex)
                     EmoteMenuStart(results[itemIndex].name, "props", item:IndexToItem(listIndex).Value)
                 end
 
                 if Config.SharedEmotesEnabled then
                     if #sharedDanceMenu.Items > 0 then
                         table.insert(results, (favEnabled and 2 or 1), Translate('sharedanceemotes'))
-                        sharedDanceMenu.OnItemSelect = function(sender, item, index)
+                        sharedDanceMenu.OnItemSelect = function(_, _, index)
                             if not LocalPlayer.state.canEmote then return end
 
                             local data = results[index]
                             local target, distance = GetClosestPlayer()
                             if (distance ~= -1 and distance < 3) then
-                                TriggerServerEvent("ServerEmoteRequest", GetPlayerServerId(target), data.name, 'Dances')
+                                TriggerServerEvent("rpemotes:server:requestEmote", GetPlayerServerId(target), data.name, 'Dances')
                                 SimpleNotify(Translate('sentrequestto') .. GetPlayerName(target))
                             else
                                 SimpleNotify(Translate('nobodyclose'))
@@ -439,8 +436,8 @@ function AddCancelEmote(menu)
 end
 
 ShowPedPreview = function(menu)
-    menu.OnItemSelect = function(sender, item, index)
-        if (index == 1) then
+    menu.OnItemSelect = function(_, _, index)
+        if index == 1 then
             isSearching = false
             ShowPedMenu()
         elseif index == 4 then
@@ -471,13 +468,15 @@ function AddWalkMenu(menu)
         table.insert(WalkTable, walk.anim)
     end
 
-    submenu.OnItemSelect = function(sender, item, index)
-        if item == walkreset then
-            ResetWalk()
-            DeleteResourceKvp("walkstyle")
-        else
-            WalkMenuStart(WalkTable[index])
-        end
+    submenu.OnItemSelect = function(_, item, index)
+        CreateThread(function()
+            if item == walkreset then
+                ResetWalk()
+                DeleteResourceKvp("walkstyle")
+            else
+                WalkMenuStart(WalkTable[index])
+            end
+        end)
     end
 end
 
@@ -495,15 +494,15 @@ function AddFaceMenu(menu)
     end
 
 
-    submenu.OnMenuClosed = function(menu)
+    submenu.OnMenuClosed = function()
         ClosePedMenu()
     end
 
-    submenu.OnIndexChange = function(menu, newindex)
+    submenu.OnIndexChange = function(_, newindex)
         EmoteMenuStartClone(FaceTable[newindex], "expression")
     end
 
-    submenu.OnItemSelect = function(sender, item, index)
+    submenu.OnItemSelect = function(_, item, index)
         if item ~= facereset then
             EmoteMenuStart(FaceTable[index], "expression")
         else
@@ -575,17 +574,6 @@ function ProcessMenu()
     end
     isMenuProcessing = false
 end
-
-RegisterNetEvent("rp:Update", function(state)
-    UpdateAvailable = state
-    AddInfoMenu(mainMenu)
-    _menuPool:RefreshIndex()
-end)
-
-RegisterNetEvent("rp:RecieveMenu", function()
-    OpenEmoteMenu()
-end)
-
 
 -- While ped is dead, don't show menus
 CreateThread(function()

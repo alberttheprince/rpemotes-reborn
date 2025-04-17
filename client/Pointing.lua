@@ -23,7 +23,7 @@ local function PointingStopped()
         ClearPedSecondaryTask(playerPed)
     end
     RemoveAnimDict("anim@mp_point")
-    if Config.PersistentEmoteAfterPointing and IsInAnimation then
+    if Config.ReplayEmoteAfterPointing and IsInAnimation then
         local emote = RP.Emotes[CurrentAnimationName] or RP.PropEmotes[CurrentAnimationName] or RP.Dances[CurrentAnimationName] or RP.AnimalEmotes[CurrentAnimationName]
         if not emote then
             return
@@ -103,7 +103,7 @@ end
 -- Commands & KeyMapping --
 if Config.PointingEnabled then
     RegisterCommand('pointing', function()
-        if IsPedInAnyVehicle(PlayerPedId(), false) and not Config.PointingKeybindInCarEnabled then
+        if IsPedInAnyVehicle(PlayerPedId(), false) and not Config.PointingInCar then
             return
         end
         StartPointing()

@@ -1,9 +1,9 @@
 Locales = {}
 
-function Translate(str, ...) -- Translate string
+function Translate(str, ...)
     if not str then
         print(("[^1ERROR^7] Resource ^5%s^7 You did not specify a parameter for the Translate function or the value is nil!"):format(GetInvokingResource() or GetCurrentResourceName()))
-        return "Given translate function parameter is nil!"
+        return "Unknown"
     end
     if Locales[Config.MenuLanguage] then
         if Locales[Config.MenuLanguage][str] then
@@ -20,10 +20,9 @@ function Translate(str, ...) -- Translate string
     end
 end
 
-function TranslateCap(str, ...) -- Translate string first char uppercase
+function TranslateCap(str, ...)
     return _(str, ...):gsub("^%l", string.upper)
 end
 
 _ = Translate
--- luacheck: ignore _U
 _U = TranslateCap

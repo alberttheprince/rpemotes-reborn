@@ -1,100 +1,90 @@
------------------------------------------------------------------------------------------------------
--- Shared Emotes Syncing  ---------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------
-
-RegisterNetEvent("ServerEmoteRequest", function(target, emotename, etype)
+RegisterNetEvent("rpemotes:server:requestEmote", function(target, emotename, etype)
+    local source = source
     if not Player(source).state.canEmote then return end
 
-    local ped = GetPlayerPed(source)
-
     if target == -1 then
         return
     end
-    local tped = GetPlayerPed(target)
-    local pedcoord = GetEntityCoords(ped)
-    local targetcoord = GetEntityCoords(tped)
 
-    local distance = #(pedcoord - targetcoord)
+    local distance = #(GetEntityCoords(GetPlayerPed(source)) - GetEntityCoords(GetPlayerPed(target)))
 
     if distance > 3 then
         return
     end
 
-    TriggerClientEvent("ClientEmoteRequestReceive", target, emotename, etype, source)
+    TriggerClientEvent("rpemotes:client:requestEmote", target, emotename, etype, source)
 end)
 
-RegisterNetEvent("ServerValidEmote", function(target, requestedemote, otheremote)
-    local ped = GetPlayerPed(source)
+RegisterNetEvent("rpemotes:server:confirmEmote", function(target, requestedemote, otheremote)
+    local source = source
 
     if target == -1 then
         return
     end
-    local tped = GetPlayerPed(target)
-    local pedcoord = GetEntityCoords(ped)
-    local targetcoord = GetEntityCoords(tped)
 
-    local distance = #(pedcoord - targetcoord)
+    local distance = #(GetEntityCoords(GetPlayerPed(source)) - GetEntityCoords(GetPlayerPed(target)))
 
     if distance > 3 then
         return
     end
 
-    TriggerClientEvent("SyncPlayEmote", source, otheremote, target)
-    TriggerClientEvent("SyncPlayEmoteSource", target, requestedemote, source)
+    TriggerClientEvent("rpemotes:client:syncEmote", source, otheremote, target)
+    TriggerClientEvent("rpemotes:client:syncEmoteSource", target, requestedemote, source)
 end)
 
-RegisterNetEvent("ServerEmoteCancel", function(target)
-    TriggerClientEvent("SyncCancelEmote", target, source)
+RegisterNetEvent("rpemotes:server:cancelEmote", function(target)
+    TriggerClientEvent("rpemotes:client:cancelEmote", target, source)
 end)
 
---#region ptfx
 RegisterNetEvent("rpemotes:ptfx:sync", function(asset, name, offset, rot, bone, scale, color)
-    if type(asset) ~= "string" or type(name) ~= "string" or type(offset) ~= "vector3" or type(rot) ~= "vector3" then
-        print("[rpemotes] ptfx:sync: invalid arguments for source:", source)
-        return
-    end
+    assert(type(asset) == "string", "[rpemotes] ptfx:sync: invalid asset for source: " .. tostring(source))
+    assert(type(name) == "string", "[rpemotes] ptfx:sync: invalid name for source: " .. tostring(source))
+    assert(type(offset) == "vector3", "[rpemotes] ptfx:sync: invalid offset for source: " .. tostring(source))
+    assert(type(rot) == "vector3", "[rpemotes] ptfx:sync: invalid rot for source: " .. tostring(source))
 
-    local srcPlayerState = Player(source).state
+    local state = Player(source).state
 
-    srcPlayerState:set("ptfxAsset", asset, true)
-    srcPlayerState:set("ptfxName", name, true)
-    srcPlayerState:set("ptfxOffset", offset, true)
-    srcPlayerState:set("ptfxRot", rot, true)
-    srcPlayerState:set("ptfxBone", bone, true)
-    srcPlayerState:set("ptfxScale", scale, true)
-    srcPlayerState:set("ptfxColor", color, true)
-    srcPlayerState:set("ptfxPropNet", false, true)
-    srcPlayerState:set("ptfx", false, true)
+    state:set("ptfxAsset", asset, true)
+    state:set("ptfxName", name, true)
+    state:set("ptfxOffset", offset, true)
+    state:set("ptfxRot", rot, true)
+    state:set("ptfxBone", bone, true)
+    state:set("ptfxScale", scale, true)
+    state:set("ptfxColor", color, true)
+    state:set("ptfxPropNet", nil, true)
+    state:set("ptfx", nil, true)
 end)
 
 RegisterNetEvent("rpemotes:ptfx:syncProp", function(propNet)
-    local srcPlayerState = Player(source).state
+    local state = Player(source).state
     if propNet then
-        -- Prevent infinite loop to get entity
-        local waitForEntityToExistCount = 0
-        while waitForEntityToExistCount <= 100 and not DoesEntityExist(NetworkGetEntityFromNetworkId(propNet)) do
+        local entity
+        local maxAttempts = 100
+        local attempt = 0
+
+        repeat
+            entity = NetworkGetEntityFromNetworkId(propNet)
+            if entity and DoesEntityExist(entity) then
+                state:set("ptfxPropNet", propNet, true)
+                return
+            end
+            attempt = attempt + 1
             Wait(10)
-            waitForEntityToExistCount = waitForEntityToExistCount + 1
-        end
+        until attempt >= maxAttempts
 
-        -- If below 100 then we could find the loaded entity
-        if waitForEntityToExistCount < 100 then
-            srcPlayerState:set("ptfxPropNet", propNet, true)
-            return
-        end
+        print(("[rpemotes] Warning: Failed to find entity for propNet %s after %d attempts (source: %s)"):format(tostring(propNet), maxAttempts, tostring(source)))
     end
-    -- If we reach this point then we couldn"t find the entity
-    srcPlayerState:set("ptfxPropNet", false, true)
-end)
---#endregion ptfx
 
--- Emote props extractor
+    state:set("ptfxPropNet", nil, true)
+end)
+
+
 local function ExtractEmoteProps(format)
-    local format = tonumber(format)
-    local xt, c, total = "", "", 0
+    format = tonumber(format)
+    local xt, c, total = '', '', 0
     if format == 1 then
-        print("Selected format: ^2\"prop_name\",")
-        xt = "\""; c = ","
+        print("Selected format: ^2'prop_name',")
+        xt = "'"; c = ","
     elseif format == 2 then
         print("Selected format: ^2\"prop_name\",")
         xt = "\""; c = ","
@@ -104,7 +94,7 @@ local function ExtractEmoteProps(format)
         print("Selected to calculate ^2total amount of emotes^0.")
     else
         print(
-        "\n### RPEmotes - Props Extractor ###\n\n^3Select output format^0\nAvailable formats:\n^11^0 - ^2\"prop_name\",\n^12^0 - ^2\"prop_name\",\n^13^0 -  ^2prop_name\n^14^0 -  ^2calculate total emotes\n\n^0Command usage example: ^5emoteextract 1^0\n")
+        "\n### RPEmotes - Props Extractor ###\n\n^3Select output format^0\nAvailable formats:\n^11^0 - ^2'prop_name',\n^12^0 - ^2\"prop_name\",\n^13^0 -  ^2prop_name\n^14^0 -  ^2calculate total emotes\n\n^0Command usage example: ^5emoteextract 1^0\n")
         return
     end
 
@@ -119,55 +109,52 @@ local function ExtractEmoteProps(format)
 
     if format == 4 then
         local emoteTypes = { "Shared", "Dances", "AnimalEmotes", "Emotes", "PropEmotes", "Expressions", "Walks" }
-        local countEmotesWith = 0
-        local countEmotes = 0
+        local expressionAndWalkCount = 0
+        local otherEmotesCount = 0
 
-        for i = 1, #emoteTypes do
-            local emoteType = emoteTypes[i]
-            for _, _ in pairs(res[emoteType]) do
-                if emoteType == "Expressions" or emoteType == "Walks" then
-                    countEmotesWith += 1
-                else
-                    countEmotes += 1
-                end
+        for _, emoteType in ipairs(emoteTypes) do
+            local count = 0
+            for _ in pairs(res[emoteType]) do
+                count = count + 1
+            end
+            if emoteType == "Expressions" or emoteType == "Walks" then
+                expressionAndWalkCount = expressionAndWalkCount + count
+            else
+                otherEmotesCount = otherEmotesCount + count
             end
         end
 
-        local totalEmotes = countEmotesWith + countEmotes
+        local totalEmotes = expressionAndWalkCount + otherEmotesCount
 
-        print("Total Expressions and Walks: ^3" .. countEmotesWith .. "^0")
-        print("Total Emotes without Expressions and Walks: ^3" .. countEmotes .. "^0")
+        print("Total Expressions and Walks: ^3" .. expressionAndWalkCount .. "^0")
+        print("Total Emotes without Expressions and Walks: ^3" .. otherEmotesCount .. "^0")
         print("Total Emotes: ^3" .. totalEmotes .. "^0")
     else
-        -- table to keep track of exported values
-        local exportedValues = {}
-        -- open file for writing
-        local file = assert(io.open(GetResourcePath(GetCurrentResourceName()) .. "/prop_list.lua", "w"))
+        local file = io.open(GetResourcePath(GetCurrentResourceName()) .. "/prop_list.lua", "w+")
+        if not file then
+            print("Failed to open file for writing.")
+            return
+        end
 
-        -- tables that has props:
-        -- RP.PropEmotes
-        -- RP.Shared (most likely all props mentioned in here is used in PropEmotes, so I don"t check it)
+        local uniqueProps = {}
+
         for _, value in pairs(res.PropEmotes) do
-            -- check if the current value is a table and has an AnimationOptions field
             if type(value) == "table" and value.AnimationOptions then
-                -- extract the Prop and SecondProp values and check if they"re nil and not already exported
-                local propValue = value.AnimationOptions.Prop
-                local secondPropValue = value.AnimationOptions.SecondProp
-                if propValue and not exportedValues[propValue] then
-                    file:write(xt .. propValue .. xt .. c .. "\n")
-                    exportedValues[propValue] = true
-                    total += 1
-                end
-                if secondPropValue and not exportedValues[secondPropValue] then
-                    file:write(xt .. secondPropValue .. c .. "\n")
-                    exportedValues[secondPropValue] = true
-                    total += 1
-                end
+            local prop = value.AnimationOptions.Prop
+            local secondProp = value.AnimationOptions.SecondProp
+            if prop then uniqueProps[prop] = true end
+            if secondProp then uniqueProps[secondProp] = true end
             end
         end
 
-        print("Exported props: " .. total)
+        -- Write all unique props to file
+        for propName in pairs(uniqueProps) do
+            file:write(xt .. propName .. xt .. c .. "\n")
+            total = total + 1
+        end
+
         file:close()
+        print("Exported " .. total .. " props to ^2prop_list.lua^0")
     end
 end
 

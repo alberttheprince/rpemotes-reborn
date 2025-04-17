@@ -477,14 +477,14 @@ function GetByteCount(str)
     local bytes = 0
 
     for c in str:gmatch("[%z\1-\127\194-\244][\128-\191]*") do
-        local a, b, c, d = c:byte(1, -1)
+        local a, b, cc, d = c:byte(1, -1)
         if a ~= nil then
             bytes = bytes + 1
         end
         if b ~= nil then
             bytes = bytes + 1
         end
-        if c ~= nil then
+        if cc ~= nil then
             bytes = bytes + 1
         end
         if d ~= nil then
@@ -2376,7 +2376,7 @@ end
 --]]
 
 function UIMenu.New(Title, Subtitle, X, Y, TxtDictionary, TxtName)
-    local X, Y = tonumber(X) or 0, tonumber(Y) or 0
+    X, Y = tonumber(X) or 0, tonumber(Y) or 0
     if Title ~= nil then Title = tostring(Title) or "" else Title = "" end
     if Subtitle ~= nil then Subtitle = tostring(Subtitle) or "" else Subtitle = "" end
     if TxtDictionary ~= nil then TxtDictionary = tostring(TxtDictionary) or "commonmenu" else TxtDictionary = "commonmenu" end
@@ -2444,7 +2444,7 @@ function UIMenu.New(Title, Subtitle, X, Y, TxtDictionary, TxtName)
             ResetCursorOnOpen = false,
             MouseControlsEnabled = false,
             MouseEdgeEnabled = false,
-            ControlDisablingEnabled = Config.DisableControls,
+            ControlDisablingEnabled = Config.DisableControlsInMenu,
             Audio = {
                 Library = "HUD_FRONTEND_DEFAULT_SOUNDSET",
                 UpDown = "NAV_UP_DOWN",

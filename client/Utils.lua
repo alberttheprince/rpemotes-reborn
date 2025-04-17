@@ -1,5 +1,3 @@
-LocalPlayer.state:set('canEmote', true, true) -- Allow emotes to be played by default
-
 -- You can edit this function to add support for your favorite notification system
 function SimpleNotify(message)
     if Config.NotificationsAsChatMessage then
@@ -100,11 +98,10 @@ function LoadAnim(dict)
 end
 
 function LoadPropDict(model)
-    -- load the model if it's not loaded and wait until it's loaded or timeout
-    if not HasModelLoaded(joaat(model)) then
-        RequestModel(joaat(model))
+    if not HasModelLoaded(GetHashKey(model)) then
+        RequestModel(GetHashKey(model))
         local timeout = 2000
-        while not HasModelLoaded(joaat(model)) and timeout > 0 do
+        while not HasModelLoaded(GetHashKey(model)) and timeout > 0 do
             Wait(5)
             timeout = timeout - 5
         end

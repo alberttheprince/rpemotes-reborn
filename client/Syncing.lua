@@ -1,5 +1,4 @@
 local isRequestAnim = false
-local requestedemote = ''
 local targetPlayerId
 
 if Config.SharedEmotesEnabled then
@@ -15,7 +14,7 @@ if Config.SharedEmotesEnabled then
             if (distance ~= -1 and distance < 3) then
                 if RP.Shared[emotename] ~= nil then
                     local _, _, ename = table.unpack(RP.Shared[emotename])
-                    TriggerServerEvent("ServerEmoteRequest", GetPlayerServerId(target), emotename)
+                    TriggerServerEvent("rpemotes:server:requestEmote", GetPlayerServerId(target), emotename)
                     SimpleNotify(Translate('sentrequestto') ..
                         GetPlayerName(target) .. " ~w~(~g~" .. ename .. "~w~)")
                 else
@@ -30,7 +29,7 @@ if Config.SharedEmotesEnabled then
     end, false)
 end
 
-RegisterNetEvent("SyncPlayEmote", function(emote, player)
+RegisterNetEvent("rpemotes:client:syncEmote", function(emote, player)
     EmoteCancel()
     Wait(300)
     targetPlayerId = player
@@ -75,11 +74,11 @@ RegisterNetEvent("SyncPlayEmote", function(emote, player)
         OnEmotePlay(RP.Dances[emote], emote)
         return
     else
-        DebugPrint("SyncPlayEmote : Emote not found")
+        DebugPrint("rpemotes:client:syncEmote : Emote not found")
     end
 end)
 
-RegisterNetEvent("SyncPlayEmoteSource", function(emote, player)
+RegisterNetEvent("rpemotes:client:syncEmoteSource", function(emote, player)
     local ped = PlayerPedId()
     local plyServerId = GetPlayerFromServerId(player)
     local pedInFront = GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer())
@@ -129,7 +128,7 @@ RegisterNetEvent("SyncPlayEmoteSource", function(emote, player)
     end
 end)
 
-RegisterNetEvent("SyncCancelEmote", function(player)
+RegisterNetEvent("rpemotes:client:cancelEmote", function(player)
     if targetPlayerId and targetPlayerId == player then
         targetPlayerId = nil
         EmoteCancel()
@@ -138,12 +137,12 @@ end)
 
 function CancelSharedEmote()
     if targetPlayerId then
-        TriggerServerEvent("ServerEmoteCancel", targetPlayerId)
+        TriggerServerEvent("rpemotes:server:cancelEmote", targetPlayerId)
         targetPlayerId = nil
     end
 end
 
-RegisterNetEvent("ClientEmoteRequestReceive", function(emotename, etype, target)
+RegisterNetEvent("rpemotes:client:requestEmote", function(emotename, etype, target)
     isRequestAnim = true
 
     local displayed = (etype == 'Dances') and select(3, table.unpack(RP.Dances[emotename])) or select(3, table.unpack(RP.Shared[emotename]))
@@ -164,7 +163,7 @@ RegisterNetEvent("ClientEmoteRequestReceive", function(emotename, etype, target)
             isRequestAnim = false
 
             local otheremote = RP.Shared[emotename] and RP.Shared[emotename][4] or RP.Dances[emotename] and RP.Dances[emotename][4] or emotename
-            TriggerServerEvent("ServerValidEmote", target, emotename, otheremote)
+            TriggerServerEvent("rpemotes:server:confirmEmote", target, emotename, otheremote)
         elseif IsControlJustPressed(1, 182) then
             isRequestAnim = false
             SimpleNotify(Translate('refuseemote'))
