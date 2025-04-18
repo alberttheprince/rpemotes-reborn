@@ -133,7 +133,7 @@ Alternatively, the player base can set their menu keybind to open rpemotes-rebor
 
 `Esc > settings > keybinds > fivem`
 
-- More keybinds are now using key mappings which means that they are now available in your FiveM settings to change (`FavKeybind` and `RagdollKeybind`)
+- More keybinds are now using key mappings which means that they are now available in your FiveM settings to change (`RagdollKeybind`)
 
 # Keybinds 🎛️
 
@@ -259,12 +259,6 @@ No Idle Cam allows players to disable the idle camera animation on foot and in v
 | BACKSPACE | Exit News Camera              |
 
 <img src="https://forum.cfx.re/uploads/default/optimized/4X/5/4/e/54e47db5ae45f5afa4b84c2ae4858bc9ab0a8187_2_690x388.jpeg" width="600" height="auto">
-
-# Favorite Emote
-
-Players can search for an emote (so long as search is enabled) and press LEFT SHIFT and CAPLOCKS on their keyboard to add it to their 'Favorites'. Pressing CAPLOCKS will toggle the emote.
-
-Alternatively, you can use the 🌟 Favorite menu to find an emote and press enter.
 
 # Exit Emotes
 

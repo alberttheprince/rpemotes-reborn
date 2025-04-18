@@ -18,8 +18,8 @@ CreateThread(function()
     TriggerEvent('chat:addSuggestion', '/emotecancel', Translate('cancel_emote'))
 end)
 
-RegisterCommand('e', function(source, args, raw) EmoteCommandStart(source, args, raw) end, false)
-RegisterCommand('emote', function(source, args, raw) EmoteCommandStart(source, args, raw) end, false)
+RegisterCommand('e', function(source, args, raw) EmoteCommandStart(args) end, false)
+RegisterCommand('emote', function(source, args, raw) EmoteCommandStart(args) end, false)
 RegisterCommand('emotecancel', function() EmoteCancel() end, false)
 
 if Config.MenuKeybindEnabled then
@@ -44,7 +44,7 @@ if Config.Keybinding then
     RegisterCommand(cmd, function()
         local emote = GetResourceKvpString(string.format('%s_emob%s', Config.keybindKVP, i))
         if emote and emote ~= "" then
-            EmoteCommandStart(nil, { emote, 0 })
+            EmoteCommandStart({ emote, 0 })
         end
     end, false)
     RegisterKeyMapping(cmd, string.format('Emote bind %s', i), 'keyboard', Config.KeybindKeys[i])

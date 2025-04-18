@@ -246,26 +246,26 @@ RP.Walks = {
     ["Dreyfuss"] = {
         "move_dreyfuss"
     },
-    ["Drunk"] = {
+    ["DrunkWalk"] = {
         "move_m@drunk@a"
     },
-    ["Drunk2"] = {
+    ["DrunkWalk2"] = {
         "move_m@buzzed",
         "Drunk 2 - Buzzed"
     },
-    ["Drunk3"] = {
+    ["DrunkWalk3"] = {
         "move_m@drunk@moderatedrunk",
         "Drunk 3 - Moderate"
     },
-    ["Drunk4"] = {
+    ["DrunkWalk4"] = {
         "move_m@drunk@moderatedrunk_head_up",
         "Drunk 4 - Moderate 2"
     },
-    ["Drunk5"] = {
+    ["DrunkWalk5"] = {
         "move_m@drunk@slightlydrunk",
         "Drunk 5 - Slightly Drunk"
     },
-    ["Drunk6"] = {
+    ["DrunkWalk6"] = {
         "move_m@drunk@verydrunk",
         "Drunk 6 - Very Drunk"
     },
@@ -442,11 +442,11 @@ RP.Walks = {
         "move_f@hurry@b",
         "Hurry Female 2"
     },
-    ["Injured"] = {
+    ["InjuredWalk"] = {
         "move_m@injured",
         "Injured"
     },
-    ["Injured2"] = {
+    ["InjuredWalk2"] = {
         "move_f@injured",
         "Injured 2 - Female"
     },
@@ -6664,7 +6664,7 @@ RP.Emotes = {
             EmoteMoving = true
         }
     },
-    ["handshake"] = {
+    ["solo_handshake"] = {
         "mp_ped_interaction",
         "handshake_guy_a",
         "Handshake",
@@ -6673,7 +6673,7 @@ RP.Emotes = {
             EmoteDuration = 3000
         }
     },
-    ["handshake2"] = {
+    ["solo_handshake2"] = {
         "mp_ped_interaction",
         "handshake_guy_b",
         "Handshake 2",
@@ -8026,7 +8026,7 @@ RP.Emotes = {
             EmoteMoving = true
         }
     },
-    ["stickup"] = {
+    ["solo_stickup"] = {
         "random@countryside_gang_fight",
         "biker_02_stickup_loop",
         "Stick Up",
@@ -8665,7 +8665,7 @@ RP.Emotes = {
             EmoteMoving = true,
         }
     },
-    ["slap"] = {
+    ["solo_slap"] = {
         "melee@unarmed@streamed_variations",
         "plyr_takedown_front_slap",
         "Slap",
@@ -8675,7 +8675,7 @@ RP.Emotes = {
             EmoteDuration = 2000
         }
     },
-    ["headbutt"] = {
+    ["solo_headbutt"] = {
         "melee@unarmed@streamed_variations",
         "plyr_takedown_front_headbutt",
         "Headbutt"

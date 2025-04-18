@@ -63,7 +63,7 @@ InitializeFramework()
 
 RegisterNetEvent('animations:client:PlayEmote', function(args)
     if CanDoAction() then
-        EmoteCommandStart(source, args)
+        EmoteCommandStart(args)
     end
 end)
 

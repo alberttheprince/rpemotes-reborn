@@ -9,9 +9,6 @@ Config = {
     MenuKeybindEnabled = true,
     MenuKeybind = 'F4',
 
-    FavKeybindEnabled = true,
-    FavKeybind = 'CAPITAL',
-
     Keybinding = false,
     keybindKVP = "rpemotes",
     NotificationsAsChatMessage = false,
@@ -87,7 +84,7 @@ Config = {
     PreviewPed = true,
 
     CheckForUpdates = true,
-    DebugDisplay = false,
+    DebugDisplay = true,
 }
 
 Config.KeybindKeys = {
