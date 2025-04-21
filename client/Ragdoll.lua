@@ -16,7 +16,7 @@ if Config.RagdollEnabled then
             isRagdolling = true
         end
 
-        while not isRagdolling do
+        while isRagdolling do
             ped = PlayerPedId()
             SetPedRagdollForceFall(ped)
             ResetPedRagdollTimer(ped)
