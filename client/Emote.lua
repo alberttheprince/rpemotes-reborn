@@ -662,7 +662,7 @@ function OnEmotePlayClone(name)
     end
 
     if not LoadAnim(dict) then
-        EmoteChatMessage("'" .. ename .. "' " .. Translate('notvalidemote') .. "")
+        EmoteChatMessage("'" .. name .. "' " .. Translate('notvalidemote') .. "")
         return
     end
 
