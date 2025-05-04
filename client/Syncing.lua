@@ -12,8 +12,8 @@ if Config.SharedEmotesEnabled then
             local emotename = string.lower(args[1])
             local target, distance = GetClosestPlayer()
             if (distance ~= -1 and distance < 3) then
-                if RP.Shared[emotename] ~= nil then
-                    local _, _, ename = table.unpack(RP.Shared[emotename])
+                if RP[emotename] ~= nil and RP[emotename].category == "Shared" then
+                    local _, _, ename = table.unpack(RP[emotename])
                     TriggerServerEvent("rpemotes:server:requestEmote", GetPlayerServerId(target), emotename)
                     SimpleNotify(Translate('sentrequestto') ..
                         GetPlayerName(target) .. " ~w~(~g~" .. ename .. "~w~)")
@@ -39,12 +39,11 @@ RegisterNetEvent("rpemotes:client:syncEmote", function(emote, player)
         return EmoteChatMessage(Translate('not_in_a_vehicle'))
     end
 
-    -- wait a little to make sure animation shows up right on both clients after canceling any previous emote
-    if RP.Shared[emote] then
-        local options = RP.Shared[emote].AnimationOptions
+    if RP[emote] then
+        local options = RP[emote].AnimationOptions
         if options and options.Attachto then
-            local targetEmote = RP.Shared[emote][4]
-            if not targetEmote or not RP.Shared[targetEmote] or not RP.Shared[targetEmote].AnimationOptions or not RP.Shared[targetEmote].AnimationOptions.Attachto then
+            local targetEmote = RP[emote][4]
+            if not targetEmote or not RP[targetEmote] or not RP[targetEmote].AnimationOptions or not RP[targetEmote].AnimationOptions.Attachto then
                 local ped = PlayerPedId()
                 local pedInFront = GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer())
 
@@ -68,10 +67,7 @@ RegisterNetEvent("rpemotes:client:syncEmote", function(emote, player)
             end
         end
 
-        OnEmotePlay(RP.Shared[emote], emote)
-        return
-    elseif RP.Dances[emote] then
-        OnEmotePlay(RP.Dances[emote], emote)
+        OnEmotePlay(emote)
         return
     else
         DebugPrint("rpemotes:client:syncEmote : Emote not found")
@@ -87,9 +83,8 @@ RegisterNetEvent("rpemotes:client:syncEmoteSource", function(emote, player)
         return EmoteChatMessage(Translate('not_in_a_vehicle'))
     end
 
-    local options = RP.Shared[emote] and RP.Shared[emote].AnimationOptions or RP.Dances[emote] and RP.Dances[emote].AnimationOptions
+    local options = RP[emote] and RP[emote].AnimationOptions
     if options then
-
         if (options.Attachto) then
             AttachEntityToEntity(
                 ped,
@@ -111,19 +106,16 @@ RegisterNetEvent("rpemotes:client:syncEmoteSource", function(emote, player)
         end
     end
 
-    local coords = GetOffsetFromEntityInWorldCoords(pedInFront, (options?.SyncOffsetSide or 0) + 0.0, (options?.SyncOffsetFront or 1) + 0.0, (options?.SyncOffsetHeight or 0) + 0.0)
+    local coords = GetOffsetFromEntityInWorldCoords(pedInFront, (options and options.SyncOffsetSide or 0) + 0.0, (options and options.SyncOffsetFront or 1) + 0.0, (options and options.SyncOffsetHeight or 0) + 0.0)
     local heading = GetEntityHeading(pedInFront)
-    SetEntityHeading(ped, heading - (options?.SyncOffsetHeading or 180) + 0.0)
+    SetEntityHeading(ped, heading - (options and options.SyncOffsetHeading or 180) + 0.0)
     SetEntityCoordsNoOffset(ped, coords.x, coords.y, coords.z)
     EmoteCancel()
     Wait(300)
 
     targetPlayerId = player
-    if RP.Shared[emote] ~= nil then
-        OnEmotePlay(RP.Shared[emote], emote)
-        return
-    elseif RP.Dances[emote] ~= nil then
-        OnEmotePlay(RP.Dances[emote], emote)
+    if RP[emote] ~= nil then
+        OnEmotePlay(emote)
         return
     end
 end)
@@ -145,7 +137,7 @@ end
 RegisterNetEvent("rpemotes:client:requestEmote", function(emotename, etype, target)
     isRequestAnim = true
 
-    local displayed = (etype == 'Dances') and select(3, table.unpack(RP.Dances[emotename])) or select(3, table.unpack(RP.Shared[emotename]))
+    local displayed = RP[emotename] and select(3, table.unpack(RP[emotename]))
 
     PlaySound(-1, "NAV", "HUD_AMMO_SHOP_SOUNDSET", false, 0, true)
     SimpleNotify(Translate('doyouwanna') .. displayed .. "~w~)")
@@ -162,7 +154,7 @@ RegisterNetEvent("rpemotes:client:requestEmote", function(emotename, etype, targ
         if IsControlJustPressed(1, 246) then
             isRequestAnim = false
 
-            local otheremote = RP.Shared[emotename] and RP.Shared[emotename][4] or RP.Dances[emotename] and RP.Dances[emotename][4] or emotename
+            local otheremote = RP[emotename] and RP[emotename][4] or emotename
             TriggerServerEvent("rpemotes:server:confirmEmote", target, emotename, otheremote)
         elseif IsControlJustPressed(1, 182) then
             isRequestAnim = false

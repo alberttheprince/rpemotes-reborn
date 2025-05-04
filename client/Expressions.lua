@@ -41,4 +41,10 @@ if Config.ExpressionsEnabled then
         RegisterNetEvent('QBCore:Client:OnPlayerLoaded', LoadPersistentExpression)
         RegisterNetEvent('esx:playerLoaded', LoadPersistentExpression)
     end
+
+    AddEventHandler('onResourceStart', function(resource)
+        if resource == GetCurrentResourceName() then
+            LoadPersistentExpression()
+        end
+    end)
 end

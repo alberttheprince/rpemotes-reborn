@@ -11,10 +11,11 @@ function WalkMenuStart(name, force)
         ResetWalk()
         return
     end
+    local walk = RP[name][1]
+    RequestWalking(walk)
+    SetPedMovementClipset(PlayerPedId(), walk, 0.2)
+    RemoveAnimSet(walk)
 
-    RequestWalking(name)
-    SetPedMovementClipset(PlayerPedId(), name, 0.2)
-    RemoveAnimSet(name)
     if Config.PersistentWalk then SetResourceKvp("walkstyle", name) end
 end
 
@@ -28,8 +29,10 @@ end
 
 function WalksOnCommand()
     local WalksCommand = ""
-    for a in PairsByKeys(RP.Walks) do
-        WalksCommand = WalksCommand .. "" .. string.lower(a) .. ", "
+    for name, data in PairsByKeys(RP) do
+        if type(data) == "table" and data.category == "Walks" then
+            WalksCommand = WalksCommand .. string.lower(name) .. ", "
+        end
     end
     EmoteChatMessage(WalksCommand)
     EmoteChatMessage("To reset do /walk reset")
@@ -48,21 +51,27 @@ function WalkCommandStart(name)
         return
     end
 
-    if TableHasKey(RP.Walks, name) then
-        local name2 = table.unpack(RP.Walks[name])
-        WalkMenuStart(name2)
-    else
+    local data = RP[name]
+    if not data or type(data) ~= "table" or data.category ~= "Walks" then
         EmoteChatMessage("'" .. name .. "' is not a valid walk")
+        return
     end
+
+    WalkMenuStart(name, true)
 end
 
 if Config.WalkingStylesEnabled and Config.PersistentWalk then
-    -- Function to check if walkstyle is available to prevent exploiting
     local function walkstyleExists(kvp)
-        for _, v in pairs(RP.Walks) do
-            if v[1] == kvp then
-                return true
-            end
+        while not CONVERTED do
+            Wait(0)
+        end
+        if not kvp or kvp == "" then
+            return false
+        end
+
+        local walkstyle = RP[kvp]
+        if walkstyle and type(walkstyle) == "table" and walkstyle.category == "Walks" then
+            return true
         end
         return false
     end

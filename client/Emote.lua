@@ -3,7 +3,7 @@ IsInAnimation = false
 CurrentAnimationName = nil
 CurrentTextureVariation = nil
 InHandsup = false
-
+CONVERTED = false
 
 local ChosenDict = ""
 local CurrentAnimOptions = false

@@ -55,11 +55,7 @@ if Config.Keybinding then
             local numkey = tonumber(args[1])
             local emote = string.lower(args[2])
             if type(numkey) == "number" then
-                if RP.Emotes[emote] ~= nil
-                    or RP.Dances[emote] ~= nil
-                    or RP.PropEmotes[emote] ~= nil
-                    or RP.AnimalEmotes[emote] ~= nil
-                then
+                if RP[emote] then
                     SetResourceKvp(string.format('%s_emob%s', Config.keybindKVP, numkey), emote)
                 else
                     EmoteChatMessage("'" .. emote .. "' " .. Translate('notvalidemote') .. "")

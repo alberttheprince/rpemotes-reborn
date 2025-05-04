@@ -482,12 +482,14 @@ CreateThread(function()
                 end
                 newRP[emoteName].category = emoteType
             else
-                newRP[emoteName] = emoteData
+                newRP[emoteName] = { emoteData }
+                newRP[emoteName].category = emoteType
             end
         end
         newRP[emoteType] = nil
     end
     RP = newRP
+    CONVERTED = true
 end)
 
 local isMenuProcessing = false

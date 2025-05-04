@@ -137,8 +137,10 @@ end
 
 function NearbysOnCommand(source, args, raw)
     local NearbysCommand = ""
-    for a in PairsByKeys(RP.Shared) do
-        NearbysCommand = NearbysCommand .. "" .. a .. ", "
+    for a, b in PairsByKeys(RP) do
+        if type(b) == "table" and b.category == "Shared" then
+            NearbysCommand = NearbysCommand .. a .. ", "
+        end
     end
     EmoteChatMessage(NearbysCommand)
     EmoteChatMessage(Translate('emotemenucmd'))
@@ -182,7 +184,7 @@ end
 
 ---@param ignores? table | nil key string is the ignored value
 function IsInActionWithErrorMessage(ignores)
-    DebugPrint(ignores)
+    if ignores then DebugPrint(ignores) end
     DebugPrint('IsProne', IsProne)
     DebugPrint('IsUsingNewscam', IsUsingNewscam)
     DebugPrint('IsUsingBinoculars', IsUsingBinoculars)
