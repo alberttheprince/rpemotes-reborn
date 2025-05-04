@@ -84,7 +84,7 @@ Config = {
     PreviewPed = true,
 
     CheckForUpdates = true,
-    DebugDisplay = true,
+    DebugDisplay = false,
 }
 
 Config.KeybindKeys = {
