@@ -54,6 +54,10 @@ if Config.Keybinding then
         if #args > 0 then
             local numkey = tonumber(args[1])
             local emote = string.lower(args[2])
+            if not (numkey and emote) then
+                DebugPrint('Invalid arguments to EmoteBindStart')
+                return
+            end
             if type(numkey) == "number" then
                 if RP[emote] then
                     SetResourceKvp(string.format('%s_emob%s', Config.keybindKVP, numkey), emote)
@@ -64,7 +68,7 @@ if Config.Keybinding then
                 EmoteChatMessage("'" .. numkey .. "' " .. Translate('notvalidkey'))
             end
         else
-            DebugPrint('Invalid number of arguments to \'EmoteBindStart\'')
+            DebugPrint('Invalid number of arguments to EmoteBindStart')
         end
     end
 
