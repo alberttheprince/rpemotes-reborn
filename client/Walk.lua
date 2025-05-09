@@ -11,6 +11,9 @@ function WalkMenuStart(name, force)
         ResetWalk()
         return
     end
+    if not RP[name] then
+        EmoteChatMessage("'" .. tostring(name) .. "' is not a valid walk")
+    end
     local walk = RP[name][1]
     RequestWalking(walk)
     SetPedMovementClipset(PlayerPedId(), walk, 0.2)
