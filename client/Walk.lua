@@ -13,6 +13,7 @@ function WalkMenuStart(name, force)
     end
     if not RP[name] then
         EmoteChatMessage("'" .. tostring(name) .. "' is not a valid walk")
+        return
     end
     local walk = RP[name][1]
     RequestWalking(walk)
