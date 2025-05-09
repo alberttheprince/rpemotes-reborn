@@ -365,7 +365,7 @@ function AddWalkMenu(menu)
 
     for _, walk in ipairs(sortedWalks) do
         submenu:AddItem(NativeUI.CreateItem(walk.label, "/walk (" .. string.lower(walk.label) .. ")"))
-        table.insert(WalkTable, walk.anim)
+        table.insert(WalkTable, walk.label)
     end
 
     submenu.OnItemSelect = function(_, item, index)

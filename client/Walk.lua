@@ -11,10 +11,11 @@ function WalkMenuStart(name, force)
         ResetWalk()
         return
     end
-    if not RP[name] then
+    if not RP[name] or type(RP[name]) ~= "table" or RP[name].category ~= "Walks" then
         EmoteChatMessage("'" .. tostring(name) .. "' is not a valid walk")
         return
     end
+
     local walk = RP[name][1]
     RequestWalking(walk)
     SetPedMovementClipset(PlayerPedId(), walk, 0.2)
@@ -52,12 +53,6 @@ function WalkCommandStart(name)
     if name == "Reset" then
         ResetPedMovementClipset(PlayerPedId(), 0.0)
         DeleteResourceKvp("walkstyle")
-        return
-    end
-
-    local data = RP[name]
-    if not data or type(data) ~= "table" or data.category ~= "Walks" then
-        EmoteChatMessage("'" .. name .. "' is not a valid walk")
         return
     end
 
