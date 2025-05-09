@@ -10,14 +10,13 @@ function SimpleNotify(message)
 end
 
 -- Don't touch after this line if you don't know what you're doing
-_exports = exports
-exports = function(name, func)
+CreateExport = function(name, func)
     AddEventHandler('__cfx_export_rpemotes_'..name, function(setCb)
         setCb(function(...)
             return func(...)
         end)
     end)
-    _exports(name, func)
+    exports(name, func)
 end
 
 function DebugPrint(...)

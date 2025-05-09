@@ -114,15 +114,15 @@ if Config.WalkingStylesEnabled then
     TriggerEvent('chat:addSuggestion', '/walks', 'List available walking styles.')
 end
 
-exports('toggleWalkstyle', function(bool, message)
+CreateExport('toggleWalkstyle', function(bool, message)
     canChange = bool
     if message then
         unable_message = message
     end
 end)
 
-exports('getWalkstyle', function()
+CreateExport('getWalkstyle', function()
     return GetResourceKvpString("walkstyle")
 end)
 
-exports('setWalkstyle', WalkMenuStart)
+CreateExport('setWalkstyle', WalkMenuStart)

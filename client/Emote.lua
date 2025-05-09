@@ -763,17 +763,17 @@ RegisterNetEvent('animations:client:EmoteCommandStart', function(args)
     EmoteCommandStart(args)
 end)
 
-exports("EmoteCommandStart", function(emoteName, textureVariation)
+CreateExport("EmoteCommandStart", function(emoteName, textureVariation)
     EmoteCommandStart({ emoteName, textureVariation })
 end)
-exports("EmoteCancel", EmoteCancel)
-exports("CanCancelEmote", function(State)
+CreateExport("EmoteCancel", EmoteCancel)
+CreateExport("CanCancelEmote", function(State)
     CanCancel = State == true
 end)
-exports('IsPlayerInAnim', function()
+CreateExport('IsPlayerInAnim', function()
     return LocalPlayer.state.currentEmote
 end)
-exports('getCurrentEmote', function()
+CreateExport('getCurrentEmote', function()
     return currentEmote
 end)
 

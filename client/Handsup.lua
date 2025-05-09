@@ -80,7 +80,7 @@ if Config.HandsupEnabled then
         RegisterKeyMapping("handsup", Translate('register_handsup'), "keyboard", Config.HandsupKeybind)
     end
 
-    exports('IsPlayerInHandsUp', function()
+    CreateExport('IsPlayerInHandsUp', function()
         return InHandsup
     end)
 end

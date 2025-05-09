@@ -117,11 +117,8 @@ if Config.PointingEnabled then
 end
 
 
--- Exports --
-
 ---@return boolean
 local function IsPlayerPointing()
     return Pointing
 end
-
-exports('IsPlayerPointing', IsPlayerPointing)
+CreateExport('IsPlayerPointing', IsPlayerPointing)

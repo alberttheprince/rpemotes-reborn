@@ -162,7 +162,7 @@ if Config.BinocularsEnabled then
         end
     end)
 
-    exports('toggleBinoculars', function()
+    CreateExport('toggleBinoculars', function()
         UseBinocular()
     end)
 end

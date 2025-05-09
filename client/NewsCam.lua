@@ -239,7 +239,7 @@ if Config.NewscamEnabled then
         end
     end)
 
-    exports('toggleNewscam', function()
+    CreateExport('toggleNewscam', function()
         UseNewscam()
     end)
 end

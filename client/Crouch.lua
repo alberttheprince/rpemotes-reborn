@@ -462,36 +462,33 @@ if Config.CrawlEnabled then
     TriggerEvent('chat:addSuggestion', '/crawl', Translate('crawl'))
 end
 
-
--- Exports --
-
 ---Returns if the player is crouched
 ---@return boolean
 local function IsPlayerCrouched()
 	return isCrouched
 end
-exports('IsPlayerCrouched', IsPlayerCrouched)
+CreateExport('IsPlayerCrouched', IsPlayerCrouched)
 
 ---Returns if the player is prone (both when laying still and when moving)
 ---@return boolean
 local function IsPlayerProne()
 	return IsProne
 end
-exports('IsPlayerProne', IsPlayerProne)
+CreateExport('IsPlayerProne', IsPlayerProne)
 
 ---Returns if the player is crawling (only when moving forward/backward)
 ---@return boolean
 local function IsPlayerCrawling()
 	return isCrawling
 end
-exports('IsPlayerCrawling', IsPlayerCrawling)
+CreateExport('IsPlayerCrawling', IsPlayerCrawling)
 
 ---Returns either "onfront" or "onback", this can be used to check if the player is on his back or on his stomach. NOTE: This will still return a string even if the player is not prone. Use IsPlayerProne() to check if the player is prone.
 ---@return string
 local function GetPlayerProneType()
 	return proneType
 end
-exports('GetPlayerProneType', GetPlayerProneType)
+CreateExport('GetPlayerProneType', GetPlayerProneType)
 
 -- Useful to call if the player gets handcuffed etc.
-exports('StopPlayerProne', stopPlayerProne)
+CreateExport('StopPlayerProne', stopPlayerProne)
