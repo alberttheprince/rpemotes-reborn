@@ -42,6 +42,7 @@ Locales['it'] = {
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Press ~y~G~w~ to vape.",
         ['candle'] = "press ~y~G~w~ to light candle.",
+        ['ptfxinfo'] = "Premi ~y~G~w~ per usare l'effetto particellare",
         ['currentlyboundemotes'] = " Animazioni correnti:",
         ['notvalidkey'] = "non è una chiave valida.",
         ['keybinds'] = "🔢 Tasti",
@@ -74,5 +75,17 @@ Locales['it'] = {
         ['in_a_vehicle'] = "You can only play this animation while in a vehicle 🚷",
         ['no_anim_crawling'] = "You can't play animations while crawling",
         ['no_anim_right_now'] = "You can't play an animation right now",
-    
+        -- Key maps
+        ['register_cancel_emote'] = "Annulla animazione attuale",
+        ['register_open_menu'] = "Apri menu animazioni",
+        ['register_handsup'] = "Alza le mani",
+        ['register_crouch'] = "Accovacciati",
+        ['register_crawl'] = "Striscia",
+        ['register_pointing'] = "Indica con il dito",
+        ['register_ragdoll'] = "Attiva/disattiva ragdoll",
+        -- Commands descriptions
+        ['cancel_emote'] = "Annulla animazione attuale",
+        ['crouch'] = "Accovacciati",
+        ['crawl'] = "Striscia",
+        ['pointing'] = "Indica con il dito"
 }

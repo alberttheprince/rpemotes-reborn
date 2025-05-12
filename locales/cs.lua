@@ -41,6 +41,7 @@ Locales['cs'] = {
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Stiskni ~y~G~w~ pro použití vapky.",
         ['candle'] = "press ~y~G~w~ to light candle.",
+        ['ptfxinfo'] = "Stiskni ~y~G~w~ pro použití efektu částic",
         ['boundto'] = "Bound (%s) to %s",
         ['currentlyboundemotes'] = "Momentálně nastavené animace:",
         ['notvalidkey'] = "Není platná klávesa.",
@@ -54,7 +55,7 @@ Locales['cs'] = {
         ['firework'] = "Stiskni ~y~G~w~ pro použití ohňostroje",
         ['poop'] = "Stisknutím ~y~G~w~ se vykakáte",
         ['puke'] = "Stiskni ~y~G~w~ pro zvracení",
-	['cut'] = "Press ~y~G~w~ to cut",
+        ['cut'] = "Press ~y~G~w~ to cut",
         ['btn_select'] = "Vybrat",
         ['btn_back'] = "Zpět",
         ['btn_switch'] = "Pohyb",
@@ -74,5 +75,17 @@ Locales['cs'] = {
         ['in_a_vehicle'] = "Tuto animaci lze přehrát pouze ve vozidle.",
         ['no_anim_crawling'] = "Při plazení nelze přehrávat animace",
         ['no_anim_right_now'] = "You can't play an animation right now",
-    
+        -- Key maps
+        ['register_cancel_emote'] = "Zrušit aktuální animaci",
+        ['register_open_menu'] = "Otevřít menu animací",
+        ['register_handsup'] = "Zvednout ruce",
+        ['register_crouch'] = "Dřep",
+        ['register_crawl'] = "Plazit se",
+        ['register_pointing'] = "Ukázat prstem",
+        ['register_ragdoll'] = "Přepnout ragdoll",
+        -- Commands descriptions
+        ['cancel_emote'] = "Zrušit aktuální animaci",
+        ['crouch'] = "Dřep",
+        ['crawl'] = "Plazit se",
+        ['pointing'] = "Ukázat prstem"
 }

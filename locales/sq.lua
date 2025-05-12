@@ -41,6 +41,7 @@ Locales['sq'] = {
         ['smoke'] = "Press ~y~G~w~ to smoke.",
 		['vape'] = "Shtyp ~y~G~w~ për të vape.",
 		['candle'] = "press ~y~G~w~ to light candle.",
+		['ptfxinfo'] = "Shtyp ~y~G~w~ për të përdorur efektin e grimcave",
 		['boundto'] = "I lidhur (~y~%s~w~) me ~g~%s~w~",
 		['currentlyboundemotes'] = " Emotet momentalisht të lidhura:",
 		['notvalidkey'] = "nuk është një çelës i vlefshëm.",
@@ -74,5 +75,17 @@ Locales['sq'] = {
 		['in_a_vehicle'] = "Mund të luash këtë animacion vetëm në këndin e një mjete 🚷",
 		['no_anim_crawling'] = "Nuk mund të luash animacione ndërsa shtrihesh",
 		['no_anim_right_now'] = "You can't play an animation right now",
-	
+		-- Key maps
+		['register_cancel_emote'] = "Anulo emoten aktual",
+		['register_open_menu'] = "Hap menunë e emotëve",
+		['register_handsup'] = "Ngri duart",
+		['register_crouch'] = "Ulu",
+		['register_crawl'] = "Zvarrit",
+		['register_pointing'] = "Trego me gisht",
+		['register_ragdoll'] = "Ndrysho ragdoll",
+		-- Commands descriptions
+		['cancel_emote'] = "Anulo emoten aktual",
+		['crouch'] = "Ulu",
+		['crawl'] = "Zvarrit",
+		['pointing'] = "Trego me gisht"
 }

@@ -49,6 +49,7 @@ Locales['nl'] = {
     ['smoke'] = "Druk op ~y~G~w~ om te roken",
     ['vape'] = "Druk op ~y~G~w~ om te vapen",
     ['candle'] = "Druk op ~y~G~w~ om kaars aan te steken.",
+    ['ptfxinfo'] = "Druk op ~y~G~w~ om het deeltjeffect te gebruiken",
     ['boundto'] = "(~y~%s~w~) gebonden aan ~g~%s~w~",
     ['handsup'] = "Handen omhoog",
     ['currentlyboundemotes'] = "Gebonden animaties:",

@@ -1,5 +1,5 @@
 Locales['vi'] = {
- -- Tiếng việt
+ -- Vietnamese 🇻🇳
         ['emotes'] = "~h~~p~ Hành động 🎬",
         ['danceemotes'] = "~h~~p~ 🕺 Nhảy nhót",
         ['animalemotes'] = "~h~~p~ 🐩 Thú cưng",
@@ -59,20 +59,32 @@ Locales['vi'] = {
         ['btn_back'] = "Trở lại",
         ['btn_switch'] = "Chuyển động",
         ['btn_increment'] = "Tăng",
-        ['dead'] = "Bạn không thể sử dụng hành động khi bất tỉnh!",
-        ['swimming'] = "You can't use emotes while swimming",
-        ['notvalidpet'] = "Ruh Roh!Mô hình PED không chính xác được phát hiện 🐕!",
-        ['animaldisabled'] = "Lấy làm tiếc!Các biểu cảm động vật bị vô hiệu hóa trên máy chủ này",
-        ['adultemotedisabled'] = "Bonk!Emotes người lớn bị vô hiệu hóa 🔞",
-        ['toggle_instructions'] = "Chuyển đổi các hướng dẫn",
+        ['dead'] = "Bạn không thể sử dụng động tác khi đã chết!",
+        ['swimming'] = "Bạn không thể sử dụng động tác khi đang bơi",
+        ['notvalidpet'] = "RUH ROH! Sai mẫu ped 🐕!",
+        ['animaldisabled'] = "Xin lỗi! Động tác động vật đã bị tắt trên máy chủ này",
+        ['adultemotedisabled'] = "Bonk! Động tác người lớn đã bị tắt 🔞",
+        ['toggle_instructions'] = "Chuyển đổi hướng dẫn",
         ['exit_binoculars'] = "Thoát ống nhòm",
-        ['toggle_binoculars_vision'] = "Chuyển đổi giữa các chế độ tầm nhìn",
-        ['exit_news'] = "Thoát khỏi camera tin tức",
-        ['toggle_news_vision'] = "Chuyển đổi giữa các chế độ tầm nhìn",
+        ['toggle_binoculars_vision'] = "Chuyển đổi chế độ nhìn",
+        ['exit_news'] = "Thoát camera tin tức",
+        ['toggle_news_vision'] = "Chuyển đổi chế độ nhìn",
         ['edit_values_newscam'] = "Chỉnh sửa văn bản tin tức",
-        ['not_in_a_vehicle'] = "Bạn không thể hành động này khi đang ở trong xe",
-        ['in_a_vehicle'] = "Bạn chỉ có thể hành động này khi ở trong xe 🚷",
-        ['no_anim_crawling'] = "Bạn không thể chơi hình ảnh động trong khi bò",
-        ['no_anim_right_now'] = "You can't play an animation right now",
-    
+        ['not_in_a_vehicle'] = "Bạn không thể thực hiện động tác này khi đang ở trong xe",
+        ['in_a_vehicle'] = "Bạn chỉ có thể thực hiện động tác này khi đang ở trong xe 🚷",
+        ['no_anim_crawling'] = "Bạn không thể thực hiện động tác khi đang bò",
+        ['no_anim_right_now'] = "Bạn không thể thực hiện động tác ngay bây giờ",
+        -- Key maps
+        ['register_cancel_emote'] = "Hủy động tác hiện tại",
+        ['register_open_menu'] = "Mở menu động tác",
+        ['register_handsup'] = "Giơ tay",
+        ['register_crouch'] = "Ngồi xổm",
+        ['register_crawl'] = "Bò",
+        ['register_pointing'] = "Chỉ tay",
+        ['register_ragdoll'] = "Chuyển đổi ragdoll",
+        -- Commands descriptions
+        ['cancel_emote'] = "Hủy động tác hiện tại",
+        ['crouch'] = "Ngồi xổm",
+        ['crawl'] = "Bò",
+        ['pointing'] = "Chỉ tay"
 }

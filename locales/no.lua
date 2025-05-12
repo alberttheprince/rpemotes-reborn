@@ -41,6 +41,7 @@ Locales['no'] = {
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Trykk ~y~G~w~ for å vape.",
         ['candle'] = "press ~y~G~w~ to light candle.",
+        ['ptfxinfo'] = "Trykk ~y~G~w~ for å bruke partikkeffekt",
         ['boundto'] = "Du har bundet (~y~%s~w~) til ~g~%s~w~",
         ['currentlyboundemotes'] = " Dine bundne animasjoner:",
         ['notvalidkey'] = "er ikke en gyldig tast.",
@@ -74,5 +75,17 @@ Locales['no'] = {
         ['in_a_vehicle'] = "Du kan kun bruke denne animasjonen menst du er i et kjøretøy",
         ['no_anim_crawling'] = "Du kan ikke starte animasjoner mens du kryper",
         ['no_anim_right_now'] = "You can't play an animation right now",
-    
+        -- Key maps
+        ['register_cancel_emote'] = "Avbryt nåværende animasjon",
+        ['register_open_menu'] = "Åpne animasjonsmeny",
+        ['register_handsup'] = "Hendene opp",
+        ['register_crouch'] = "Sitt ned",
+        ['register_crawl'] = "Kryp",
+        ['register_pointing'] = "Pek med fingeren",
+        ['register_ragdoll'] = "Bytt ragdoll",
+        -- Commands descriptions
+        ['cancel_emote'] = "Avbryt nåværende animasjon",
+        ['crouch'] = "Sitt ned",
+        ['crawl'] = "Kryp",
+        ['pointing'] = "Pek med fingeren"
 }

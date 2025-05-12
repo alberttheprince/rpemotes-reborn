@@ -49,6 +49,7 @@ Locales['lt'] = {
     ['smoke'] = "Press ~y~G~w~ to smoke.",
     ['vape'] = "Paspauskite ~y~G~w~, kad garuotumete",
     ['candle'] = "press ~y~G~w~ to light candle.",
+    ['ptfxinfo'] = "Paspauskite ~y~G~w~, kad naudotumėte dalelių efektą",
     ['boundto'] = "Suristi (~y~%s~w~) I ~g~%s~w~",
     ['handsup'] = "pakelti rankas",
     ['currentlyboundemotes'] = " Siuo metu susietos animacijos:",

@@ -41,6 +41,7 @@ Locales['fa'] = {
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "entekhab ~y~G~w~ to vape.",
         ['candle'] = "press ~y~G~w~ to light candle.",
+        ['ptfxinfo'] = "برای استفاده از افکت ذره ای ~y~G~w~ را فشار دهید",
         ['boundto'] = "Bound (%s) baray %s",
         ['currentlyboundemotes'] = " emote mahdod ast:",
         ['notvalidkey'] = "vojod nadarad.",
