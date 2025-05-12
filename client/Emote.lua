@@ -534,7 +534,7 @@ function OnEmotePlay(name, textureVariation)
         return
     end
 
-    local movementType = 0 -- Default movement type
+    local movementType = animOption.Flag or 0
 
     if InVehicle then
         if animOption and animOption.FullBody then
