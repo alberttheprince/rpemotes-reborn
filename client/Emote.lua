@@ -375,37 +375,46 @@ function DestroyAllProps(isClone)
     DebugPrint("Destroyed Props for " .. (isClone and "clone" or "player"))
 end
 
-function AddProp(prop1, bone, off1, off2, off3, rot1, rot2, rot3, textureVariation, isClone)
-    local target = isClone and ClonedPed or PlayerPedId()
+---@param data table
+---@return boolean
+function AddProp(data)
+    assert(data.prop1, 'no prop1 passed')
+    assert(data.bone, 'no bone passed')
+    assert(data.off1 and data.off2 and data.off3, 'missing offset(s)')
+    assert(data.rot1 and data.rot2 and data.rot3, 'missing rotation(s)')
+    assert(data.noCollision == nil or type(data.noCollision) == "boolean", 'noCollision must be a boolean')
 
+    local target = data.isClone and ClonedPed or PlayerPedId()
     local x, y, z = table.unpack(GetEntityCoords(target))
 
-    if not IsModelValid(prop1) then
-        DebugPrint(tostring(prop1) .. " is not a valid model!")
+    if not IsModelValid(data.prop1) then
+        DebugPrint(tostring(data.prop1) .. " is not a valid model!")
         return false
     end
 
-    LoadPropDict(prop1)
+    LoadPropDict(data.prop1)
 
-    attachedProp = CreateObject(GetHashKey(prop1), x, y, z + 0.2, not isClone, true, true)
+    attachedProp = CreateObject(GetHashKey(data.prop1), x, y, z + 0.2, not data.isClone, true, true)
 
-    if textureVariation ~= nil then
-        SetObjectTextureVariation(attachedProp, textureVariation)
+    if data.textureVariation ~= nil then
+        SetObjectTextureVariation(attachedProp, data.textureVariation)
     end
 
-    if isClone then
-        AttachEntityToEntity(attachedProp, target, GetPedBoneIndex(target, bone), off1, off2, off3, rot1, rot2, rot3,
-            true, true, false, true, 1, true)
+    if data.noCollision then
+        SetEntityCollision(attachedProp, false, false)
+    end
+
+    AttachEntityToEntity(attachedProp, target, GetPedBoneIndex(target, data.bone), data.off1, data.off2, data.off3, data.rot1, data.rot2, data.rot3,
+        true, true, false, true, 1, true)
+
+    if data.isClone then
         table.insert(PreviewPedProps, attachedProp)
     else
-        AttachEntityToEntity(attachedProp, target, GetPedBoneIndex(target, bone), off1, off2, off3, rot1, rot2, rot3,
-            true, true, false, true, 1, true)
         table.insert(PlayerProps, attachedProp)
     end
 
-
-    SetModelAsNoLongerNeeded(prop1)
-    DebugPrint("Added prop to " .. (isClone and "clone" or "player"))
+    SetModelAsNoLongerNeeded(data.prop1)
+    DebugPrint("Added prop to " .. (data.isClone and "clone" or "player"))
     return true
 end
 
@@ -571,7 +580,7 @@ function OnEmotePlay(name, textureVariation)
         ClearPedTasksImmediately(PlayerPedId())
     end
 
-    TaskPlayAnim(PlayerPedId(), ChosenDict, anim, animOption?.BlendInSpeed or 5.0, animOption?.BlendOutSpeed or 5.0, animOption?.EmoteDuration or -1, animOption.Flag or movementType, 0, false, false,
+    TaskPlayAnim(PlayerPedId(), ChosenDict, anim, animOption?.BlendInSpeed or 5.0, animOption?.BlendOutSpeed or 5.0, animOption?.EmoteDuration or -1, animOption?.Flag or movementType, 0, false, false,
         false)
     RemoveAnimDict(ChosenDict)
 
@@ -598,11 +607,27 @@ function OnEmotePlay(name, textureVariation)
 
         Wait(animOption and animOption.EmoteDuration or 0)
 
-        if not AddProp(animOption.Prop, animOption.PropBone, PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6, textureVariation, false) then return end
+        if not AddProp({
+            prop1 = animOption.Prop,
+            bone = animOption.PropBone,
+            off1 = PropPl1, off2 = PropPl2, off3 = PropPl3,
+            rot1 = PropPl4, rot2 = PropPl5, rot3 = PropPl6,
+            textureVariation = textureVariation,
+            isClone = false,
+            noCollision = animOption.PropNoCollision
+        }) then return end
 
         if animOption.SecondProp then
             SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6 = table.unpack(animOption.SecondPropPlacement)
-            if not AddProp(animOption.SecondProp, animOption.SecondPropBone, SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6, textureVariation, false) then
+            if not AddProp({
+                prop1 = animOption.SecondProp,
+                bone = animOption.SecondPropBone,
+                off1 = SecondPropPl1, off2 = SecondPropPl2, off3 = SecondPropPl3,
+                rot1 = SecondPropPl4, rot2 = SecondPropPl5, rot3 = SecondPropPl6,
+                textureVariation = textureVariation,
+                isClone = false,
+                noCollision = animOption.SecondPropNoCollision
+            }) then
                 DestroyAllProps()
                 return
             end
@@ -682,7 +707,7 @@ function OnEmotePlayClone(name)
         ClearPedTasksImmediately(ClonedPed)
     end
 
-    TaskPlayAnim(ClonedPed, dict, anim, 5.0, 5.0, animOption and animOption.EmoteDuration or -1, movementType, 0, false, false, false)
+    TaskPlayAnim(ClonedPed, dict, anim, 5.0, 5.0, animOption and animOption.EmoteDuration or -1, animOption?.Flag or movementType, 0, false, false, false)
     RemoveAnimDict(dict)
 
     if animOption and animOption.Prop then
@@ -690,12 +715,26 @@ function OnEmotePlayClone(name)
 
         Wait(animOption and animOption.EmoteDuration or 0)
 
-        if not AddProp(animOption.Prop, animOption.PropBone, PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6, nil, true) then return end
+        if not AddProp({
+            prop1 = animOption.Prop,
+            bone = animOption.PropBone,
+            off1 = PropPl1, off2 = PropPl2, off3 = PropPl3,
+            rot1 = PropPl4, rot2 = PropPl5, rot3 = PropPl6,
+            isClone = true,
+            noCollision = animOption.PropNoCollision
+        }) then return end
 
         if animOption.SecondProp then
             local SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6 = table.unpack(animOption.SecondPropPlacement)
 
-            if not AddProp(animOption.SecondProp, animOption.SecondPropBone, SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6, nil, true) then
+            if not AddProp({
+                prop1 = animOption.SecondProp,
+                bone = animOption.SecondPropBone,
+                off1 = SecondPropPl1, off2 = SecondPropPl2, off3 = SecondPropPl3,
+                rot1 = SecondPropPl4, rot2 = SecondPropPl5, rot3 = SecondPropPl6,
+                isClone = true,
+                noCollision = animOption.SecondPropNoCollision
+            }) then
                 DestroyAllProps(true)
                 return
             end
