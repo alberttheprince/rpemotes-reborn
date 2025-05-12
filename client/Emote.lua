@@ -94,7 +94,7 @@ local function RunAnimationThread()
             if PtfxPrompt and CurrentAnimOptions then
                 sleep = 0
                 if not PtfxNotif then
-                    SimpleNotify(CurrentAnimOptions.PtfxInfo)
+                    SimpleNotify(CurrentAnimOptions.PtfxInfo or Translate('ptfxinfo'))
                     PtfxNotif = true
                 end
                 if IsControlPressed(0, 47) then
