@@ -534,7 +534,7 @@ function OnEmotePlay(name, textureVariation)
         return
     end
 
-    local movementType = animOption.Flag or 0
+    local movementType = 0
 
     if InVehicle then
         if animOption and animOption.FullBody then
@@ -571,7 +571,7 @@ function OnEmotePlay(name, textureVariation)
         ClearPedTasksImmediately(PlayerPedId())
     end
 
-    TaskPlayAnim(PlayerPedId(), ChosenDict, anim, animOption?.BlendInSpeed or 5.0, animOption?.BlendOutSpeed or 5.0, animOption?.EmoteDuration or -1, movementType, 0, false, false,
+    TaskPlayAnim(PlayerPedId(), ChosenDict, anim, animOption?.BlendInSpeed or 5.0, animOption?.BlendOutSpeed or 5.0, animOption?.EmoteDuration or -1, animOption.Flag or movementType, 0, false, false,
         false)
     RemoveAnimDict(ChosenDict)
 
