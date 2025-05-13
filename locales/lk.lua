@@ -41,7 +41,6 @@ Locales['lk'] = {
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Vape ekata ~y~G~w~ press karanna.",
         ['candle'] = "press ~y~G~w~ to light candle.",
-        ['ptfxinfo'] = "~y~G~w~ ඔබන්න particle effect එකට",
         ['boundto'] = "Bound karanna (~y~%s~w~) ta ~g~%s~w~",
         ['currentlyboundemotes'] = " Denata bound karapu emotes:",
         ['notvalidkey'] = "kiyanne weradi key ekak.",

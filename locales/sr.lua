@@ -40,7 +40,6 @@ Locales['sr'] = {
         ['stun'] = "Pritisni ~y~G~w~ da 'koristiš' tejzer.",
         ['vape'] = "Pritisni ~y~G~w~ da vejpuješ.",
         ['candle'] = "press ~y~G~w~ to light candle.",
-        ['ptfxinfo'] = "Pritisni ~y~G~w~ za efekat čestica",
         ['boundto'] = "Bound-ano (~y~%s~w~) na ~g~%s~w~",
         ['currentlyboundemotes'] = " Trenutne bound-ane animacije:",
         ['notvalidkey'] = "nije validan ključ.",
@@ -74,17 +73,5 @@ Locales['sr'] = {
         ['in_a_vehicle'] = "Ovu animaciju možeš raditi samo dok si u vozilu 🚷",
         ['no_anim_crawling'] = "Ne možeš raditi animacije dok pužeš",
         ['no_anim_right_now'] = "You can't play an animation right now",
-        -- Key maps
-        ['register_cancel_emote'] = "Prekini trenutnu animaciju",
-        ['register_open_menu'] = "Otvori meni animacija",
-        ['register_handsup'] = "Podigni ruke",
-        ['register_crouch'] = "Čučni",
-        ['register_crawl'] = "Puzi",
-        ['register_pointing'] = "Pokazuj prstom",
-        ['register_ragdoll'] = "Prebaci ragdoll",
-        -- Commands descriptions
-        ['cancel_emote'] = "Prekini trenutnu animaciju",
-        ['crouch'] = "Čučni",
-        ['crawl'] = "Puzi",
-        ['pointing'] = "Pokazuj prstom"
+    
 }

@@ -40,7 +40,6 @@ Locales['fr'] = {
         ['smoke'] = "Appuyez sur <b>G</b> pour fumer.",
         ['vape'] = "Appuyez sur <b>G</b> pour vapoter.",
         ['candle'] = "press ~y~G~w~ to light candle.",
-        ['ptfxinfo'] = "Appuyez sur <b>G</b> pour utiliser l'effet de particules",
         ['boundto'] = "Liée (%s) à %s",
         ['currentlyboundemotes'] = " Emotes actuellement liées:",
         ['notvalidkey'] = "n'est pas une clé valide.",
@@ -75,14 +74,5 @@ Locales['fr'] = {
         ['no_anim_crawling'] = "Vous ne pouvez pas jouer d'animations pendant que vous rampez",
         ['no_anim_right_now'] = "Vous ne pouvez pas jouer une animation pour l'instant",
         ['register_cancel_emote'] = "Annuler l'émote actuelle",
-        ['register_open_menu'] = "Ouvrir le menu des animations",
-        ['register_handsup'] = "Lever les mains",
-        ['register_crouch'] = "S'accroupir",
-        ['register_crawl'] = "Ramper",
-        ['register_pointing'] = "Pointer du doigt",
-        ['register_ragdoll'] = "Basculer ragdoll",
-        ['cancel_emote'] = "Annuler l'émote actuelle",
-        ['crouch'] = "S'accroupir",
-        ['crawl'] = "Ramper",
-        ['pointing'] = "Pointer du doigt"
+    
 }

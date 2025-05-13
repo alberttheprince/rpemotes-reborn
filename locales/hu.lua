@@ -41,7 +41,6 @@ Locales['hu'] = {
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Nyomj ~y~G~w~ gombot a vapeeléshez.",
         ['candle'] = "press ~y~G~w~ to light candle.",
-        ['ptfxinfo'] = "Nyomj ~y~G~w~ gombot a partikuláris effekt használatához",
         ['boundto'] = "Rögzített (%s) ehhez %s",
         ['currentlyboundemotes'] = " Jelenleg rögzített animációk:",
         ['notvalidkey'] = "nem érvényes gombkiosztás.",
@@ -60,7 +59,6 @@ Locales['hu'] = {
         ['btn_back'] = "Vissza",
         ['btn_switch'] = "Mozgás",
         ['btn_increment'] = "Increment",
-        ['dead'] = "You can't use emotes while dead!",
         ['swimming'] = "You can't use emotes while swimming",
         ['notvalidpet'] = "RUH ROH! Incorrect ped model detected 🐕!",
         ['animaldisabled'] = "Sorry! Animal emotes are disabled on this server",
@@ -75,17 +73,5 @@ Locales['hu'] = {
         ['in_a_vehicle'] = "You can only play this animation while in a vehicle 🚷",
         ['no_anim_crawling'] = "You can't play animations while crawling",
         ['no_anim_right_now'] = "You can't play an animation right now",
-        -- Key maps
-        ['register_cancel_emote'] = "Jelenlegi animáció megszakítása",
-        ['register_open_menu'] = "Animációs menü megnyitása",
-        ['register_handsup'] = "Kézfeltartás",
-        ['register_crouch'] = "Leguggolás",
-        ['register_crawl'] = "Kúszás",
-        ['register_pointing'] = "Mutatás",
-        ['register_ragdoll'] = "Ragdoll váltás",
-        -- Commands descriptions
-        ['cancel_emote'] = "Jelenlegi animáció megszakítása",
-        ['crouch'] = "Leguggolás",
-        ['crawl'] = "Kúszás",
-        ['pointing'] = "Mutatás"
+    
 }

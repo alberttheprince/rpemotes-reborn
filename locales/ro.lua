@@ -41,7 +41,6 @@ Locales['ro'] = {
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Press ~y~G~w~ to vape.",
         ['candle'] = "press ~y~G~w~ to light candle.",
-        ['ptfxinfo'] = "Apasa ~y~G~w~ pentru a folosi efectul de particule",
         ['boundto'] = "Binduite (~y~%s~w~) la ~g~%s~w~",
         ['currentlyboundemotes'] = " Emote-uri prezent binduite:",
         ['notvalidkey'] = "nu este o tasta valida.",
@@ -75,17 +74,5 @@ Locales['ro'] = {
         ['in_a_vehicle'] = "You can only play this animation while in a vehicle 🚷",
         ['no_anim_crawling'] = "You can't play animations while crawling",
         ['no_anim_right_now'] = "You can't play an animation right now",
-        -- Key maps
-        ['register_cancel_emote'] = "Anulează emote-ul curent",
-        ['register_open_menu'] = "Deschide meniul de emote-uri",
-        ['register_handsup'] = "Ridică mâinile",
-        ['register_crouch'] = "Apleacă-te",
-        ['register_crawl'] = "Târăște-te",
-        ['register_pointing'] = "Arată cu degetul",
-        ['register_ragdoll'] = "Comută ragdoll",
-        -- Commands descriptions
-        ['cancel_emote'] = "Anulează emote-ul curent",
-        ['crouch'] = "Apleacă-te",
-        ['crawl'] = "Târăște-te",
-        ['pointing'] = "Arată cu degetul"
+    
 }

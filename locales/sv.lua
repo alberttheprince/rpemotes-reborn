@@ -40,7 +40,6 @@ Locales['sv'] = {
         ['stun'] = "Tryck ~y~G~w~ för att \"änvända\" elpistol",
         ['vape'] = "Tryck ~y~G~w~ för att puffa på din vape.",
         ['candle'] = "press ~y~G~w~ to light candle.",
-        ['ptfxinfo'] = "Tryck ~y~G~w~ för att använda partikeleffekten",
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['boundto'] = "Bunden (~y~%s~w~) till ~g~%s~w~",
         ['currentlyboundemotes'] = " För närvarande bundna emotes:",
@@ -75,17 +74,5 @@ Locales['sv'] = {
         ['in_a_vehicle'] = "Du kan bara använda den här animationen när du är i ett fordon",
         ['no_anim_crawling'] = "Du kan inte andända animationer när du säker genom",
         ['no_anim_right_now'] = "You can't play an animation right now",
-        -- Key maps
-        ['register_cancel_emote'] = "Avbryt nuvarande emote",
-        ['register_open_menu'] = "Öppna emote-menyn",
-        ['register_handsup'] = "Händerna upp",
-        ['register_crouch'] = "Sätt dig",
-        ['register_crawl'] = "Kryp",
-        ['register_pointing'] = "Peka med fingret",
-        ['register_ragdoll'] = "Växla ragdoll",
-        -- Commands descriptions
-        ['cancel_emote'] = "Avbryt nuvarande emote",
-        ['crouch'] = "Sätt dig",
-        ['crawl'] = "Kryp",
-        ['pointing'] = "Peka med fingret"
+    
 }

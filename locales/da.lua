@@ -41,7 +41,6 @@ Locales['da'] = {
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Press ~y~G~w~ to vape.",
         ['candle'] = "press ~y~G~w~ to light candle.",
-        ['ptfxinfo'] = "Tryk ~y~G~w~ for at bruge partikeleffekt",
         ['boundto'] = "Bound (%s) to %s",
         ['currentlyboundemotes'] = " Keybind animationer:",
         ['notvalidkey'] = "er ikke en gyldigt nøgle.",
@@ -54,8 +53,8 @@ Locales['da'] = {
         ['invalidvariation'] = "Ugyldig teksturvariation. Gyldige valg er: %s",
         ['firework'] = "Tryk på ~y~G~w~ for at bruge fyrværkeri",
         ['poop'] = "Tryk på ~y~G~w~ for at skide",
-        ['puke'] = "Tryk ~y~G~w~ for at kaste op",
-        ['cut'] = "Press ~y~G~w~ to cut",
+        ['puke'] = "Tryk ~y~G~w~ for at kaste op", ---- Translated via smodin.io
+	['cut'] = "Press ~y~G~w~ to cut",
         ['btn_select'] = "Vælg",
         ['btn_back'] = "Tilbage",
         ['btn_switch'] = "Bevægelse",
@@ -75,17 +74,5 @@ Locales['da'] = {
         ['in_a_vehicle'] = "You can only play this animation while in a vehicle 🚷",
         ['no_anim_crawling'] = "You can't play animations while crawling",
         ['no_anim_right_now'] = "You can't play an animation right now",
-        -- Key maps
-        ['register_cancel_emote'] = "Annuller nuværende animation",
-        ['register_open_menu'] = "Åbn animationsmenu",
-        ['register_handsup'] = "Hænderne op",
-        ['register_crouch'] = "Sæt dig",
-        ['register_crawl'] = "Kravl",
-        ['register_pointing'] = "Peg med fingeren",
-        ['register_ragdoll'] = "Skift ragdoll",
-        -- Commands descriptions
-        ['cancel_emote'] = "Annuller nuværende animation",
-        ['crouch'] = "Sæt dig",
-        ['crawl'] = "Kravl",
-        ['pointing'] = "Peg med fingeren"
+    
 }

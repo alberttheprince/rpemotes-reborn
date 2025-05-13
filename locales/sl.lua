@@ -41,7 +41,6 @@ Locales['sl'] = {
 		['smoke'] = "Pritisnite ~y~G~w~, da kadite.",
 		['vape'] = "Pritisnite ~y~G~w~, da vape-ate.",
 		['candle'] = "press ~y~G~w~ to light candle.",
-		['ptfxinfo'] = "Pritisnite ~y~G~w~ za uporabo učinka delcev",
 		['boundto'] = "Vezan (~y~%s~w~) na ~g~%s~w~",
 		['currentlyboundemotes'] = "Trenutno vezani emote:",
 		['notvalidkey'] = "ni veljavna tipka.",
@@ -75,17 +74,5 @@ Locales['sl'] = {
 		['in_a_vehicle'] = "To animacijo lahko predvajate samo med vožnjo 🚷",
 		['no_anim_crawling'] = "Med plazenjem ne morete predvajati animacij",
 		['no_anim_right_now'] = "You can't play an animation right now",
-		-- Key maps
-		['register_cancel_emote'] = "Prekliči trenutno animacijo",
-		['register_open_menu'] = "Odpri meni animacij",
-		['register_handsup'] = "Dvigni roke",
-		['register_crouch'] = "Počepni",
-		['register_crawl'] = "Plazi se",
-		['register_pointing'] = "Pokaži s prstom",
-		['register_ragdoll'] = "Preklopi ragdoll",
-		-- Commands descriptions
-		['cancel_emote'] = "Prekliči trenutno animacijo",
-		['crouch'] = "Počepni",
-		['crawl'] = "Plazi se",
-		['pointing'] = "Pokaži s prstom"
+    
 }

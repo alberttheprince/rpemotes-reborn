@@ -41,7 +41,6 @@ Locales['id'] = {
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Tekan ~y~G~w~ untuk melakukan vape.",
         ['candle'] = "press ~y~G~w~ to light candle.",
-        ['ptfxinfo'] = "Tekan ~y~G~w~ untuk menggunakan efek partikel",
         ['boundto'] = "Terikat (~y~%s~w~) untuk ~g~%s~w~",
         ['currentlyboundemotes'] = " Emoticon yang saat ini terikat:",
         ['notvalidkey'] = "bukan merupakan kunci yang valid.",
