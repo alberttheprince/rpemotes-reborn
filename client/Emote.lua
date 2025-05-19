@@ -380,8 +380,12 @@ end
 function AddProp(data)
     assert(data.prop1, 'no prop1 passed')
     assert(data.bone, 'no bone passed')
-    assert(data.off1 and data.off2 and data.off3, 'missing offset(s)')
-    assert(data.rot1 and data.rot2 and data.rot3, 'missing rotation(s)')
+    data.off1 = data.off1 or 0.0
+    data.off2 = data.off2 or 0.0
+    data.off3 = data.off3 or 0.0
+    data.rot1 = data.rot1 or 0.0
+    data.rot2 = data.rot2 or 0.0
+    data.rot3 = data.rot3 or 0.0
     assert(data.noCollision == nil or type(data.noCollision) == "boolean", 'noCollision must be a boolean')
 
     local target = data.isClone and ClonedPed or PlayerPedId()
