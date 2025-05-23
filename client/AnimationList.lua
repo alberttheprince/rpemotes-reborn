@@ -10808,15 +10808,6 @@ RP.Emotes = {
             EmoteMoving = false,
         }
     },
-	["femaleposeq"] = { -- Custom Emote By DRX Animations
-        "drx@femalestand13",
-        "xrd",
-        "Female Pose Q",
-        AnimationOptions = {
-            EmoteLoop = true,
-            EmoteMoving = false
-        }
-    },
     ["femaleposer"] = { -- Custom Emote By DRX Animations
         "drx@femalestand14",
         "xrd",
