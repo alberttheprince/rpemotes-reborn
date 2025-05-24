@@ -212,7 +212,7 @@ if Config.Search then
             for a, b in pairs(RP) do
                 if not ignoredCategories[b.category] then
                     if string.find(string.lower(a), string.lower(input)) or (b[3] ~= nil and string.find(string.lower(b[3]), string.lower(input))) then
-                        table.insert(results, {table = k, name = a, data = b})
+                        table.insert(results, { table = b.category, name = a, data = b })
                     end
                 end
             end
