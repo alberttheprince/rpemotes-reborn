@@ -17,10 +17,17 @@ local function ResetCrouch()
     SetPedCanPlayAmbientAnims(playerPed, true)
 
     local walkstyle = GetResourceKvpString("walkstyle")
-    if walkstyle ~= nil then
-        RequestWalking(walkstyle)
-        SetPedMovementClipset(PlayerPedId(), walkstyle, 0.5)
-        RemoveClipSet(walkstyle)
+    if walkstyle then
+        local toApply = RP[walkstyle]
+        if not toApply or type(toApply) ~= "table" or toApply.category ~= "Walks" then
+            ResetPedMovementClipset(playerPed, 0.5)
+            DeleteResourceKvp("walkstyle")
+            DebugPrint('Invalid walkstyle found in KVP, resetting to default.')
+            return
+        end
+        RequestWalking(toApply[1])
+        SetPedMovementClipset(PlayerPedId(), toApply[1], 0.5)
+        RemoveClipSet(toApply[1])
     else
         ResetPedMovementClipset(playerPed, 0.5)
     end
