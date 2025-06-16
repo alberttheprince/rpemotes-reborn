@@ -412,9 +412,9 @@ function AddProp(data)
         true, true, false, true, 1, true)
 
     if data.isClone then
-        table.insert(PreviewPedProps, attachedProp)
+        PreviewPedProps[#PreviewPedProps+1] = attachedProp
     else
-        table.insert(PlayerProps, attachedProp)
+        PlayerProps[#PlayerProps+1] = attachedProp
     end
 
     SetModelAsNoLongerNeeded(data.prop1)
@@ -599,7 +599,7 @@ function OnEmotePlay(name, textureVariation)
     for _, tabledata in pairs(RP) do
         for command, emotedata in pairs(tabledata) do
             if emotedata == emoteData then
-                table.insert(currentEmoteTable, command)
+                currentEmoteTable[#currentEmoteTable+1] = command
                 break
             end
         end

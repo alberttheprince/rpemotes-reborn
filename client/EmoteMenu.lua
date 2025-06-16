@@ -42,35 +42,35 @@ function AddEmoteMenu(menu)
     local submenu = _menuPool:AddSubMenu(menu, Translate('emotes'), "", true, true)
     if Config.Search then
         submenu:AddItem(NativeUI.CreateItem(Translate('searchemotes'), ""))
-        table.insert(EmoteTable, Translate('searchemotes'))
+        EmoteTable[#EmoteTable + 1] = Translate('searchemotes')
     end
     local dancemenu = _menuPool:AddSubMenu(submenu, Translate('danceemotes'), "", true, true)
     local animalmenu
     if Config.AnimalEmotesEnabled then
         animalmenu = _menuPool:AddSubMenu(submenu, Translate('animalemotes'), "", true, true)
-        table.insert(EmoteTable, Translate('animalemotes'))
+        EmoteTable[#EmoteTable + 1] = Translate('animalemotes')
     end
     local propmenu = _menuPool:AddSubMenu(submenu, Translate('propemotes'), "", true, true)
-    table.insert(EmoteTable, Translate('danceemotes'))
-    table.insert(EmoteTable, Translate('danceemotes'))
+    EmoteTable[#EmoteTable + 1] = Translate('danceemotes')
+    EmoteTable[#EmoteTable + 1] = Translate('danceemotes')
 
     if Config.SharedEmotesEnabled then
         sharemenu = _menuPool:AddSubMenu(submenu, Translate('shareemotes'),
             Translate('shareemotesinfo'), true, true)
         shareddancemenu = _menuPool:AddSubMenu(sharemenu, Translate('sharedanceemotes'), "", true, true)
-        table.insert(ShareTable, 'none')
-        table.insert(EmoteTable, Translate('shareemotes'))
+        ShareTable[#ShareTable + 1] = 'none'
+        EmoteTable[#EmoteTable + 1] = Translate('shareemotes')
     end
 
     if Config.Keybinding then
-        table.insert(EmoteTable, "keybinds")
+        EmoteTable[#EmoteTable + 1] = "keybinds"
         submenu:AddItem(NativeUI.CreateItem(Translate('keybinds'), Translate('keybindsinfo') .. " /emotebind [~y~num4-9~w~] [~g~emotename~w~]"))
     end
 
     for a, b in PairsByKeys(RP.Emotes) do
         local x, y, z = table.unpack(b)
         submenu:AddItem(NativeUI.CreateItem(z, "/e (" .. a .. ")"))
-        table.insert(EmoteTable, a)
+        EmoteTable[#EmoteTable + 1] = a
     end
 
     for a, b in PairsByKeys(RP.Dances) do
@@ -79,14 +79,14 @@ function AddEmoteMenu(menu)
         if Config.SharedEmotesEnabled then
             shareddancemenu:AddItem(NativeUI.CreateItem(name, "/nearby (" .. a .. ")"))
         end
-        table.insert(DanceTable, a)
+        DanceTable[#DanceTable + 1] = a
     end
 
     if Config.AnimalEmotesEnabled then
         for a, b in PairsByKeys(RP.AnimalEmotes) do
             local name = '🐶 ' .. b[3]
             animalmenu:AddItem(NativeUI.CreateItem(name, "/e (" .. a .. ")"))
-            table.insert(AnimalTable, a)
+            AnimalTable[#AnimalTable + 1] = a
         end
     end
 
@@ -95,7 +95,7 @@ function AddEmoteMenu(menu)
             local name = b[3]
             local shareitem = NativeUI.CreateItem(name, "/nearby (~g~" .. a .. "~w~)" .. (otheremotename and " " .. Translate('makenearby') .. " (~y~" .. otheremotename .. "~w~)" or ""))
             sharemenu:AddItem(shareitem)
-            table.insert(ShareTable, a)
+            ShareTable[#ShareTable + 1] = a
         end
     end
 
@@ -107,7 +107,7 @@ function AddEmoteMenu(menu)
 
         propmenu:AddItem(propitem)
 
-        table.insert(PropTable, a)
+        PropTable[#PropTable + 1] = a
     end
 
     -- Ped Emote on Change Index
@@ -212,7 +212,7 @@ if Config.Search then
             for a, b in pairs(RP) do
                 if not ignoredCategories[b.category] then
                     if string.find(string.lower(a), string.lower(input)) or (b[3] ~= nil and string.find(string.lower(b[3]), string.lower(input))) then
-                        table.insert(results, { table = b.category, name = a, data = b })
+                        results[#results + 1] = { table = b.category, name = a, data = b }
                     end
                 end
             end
@@ -352,20 +352,20 @@ function AddWalkMenu(menu)
 
     local walkreset = NativeUI.CreateItem(Translate('normalreset'), Translate('resetdef'))
     submenu:AddItem(walkreset)
-    table.insert(WalkTable, Translate('resetdef'))
+    WalkTable[#WalkTable + 1] = Translate('resetdef')
 
     local sortedWalks = {}
     for a, b in PairsByKeys(RP.Walks) do
         if b[1] == "move_m@injured" then
             table.insert(sortedWalks, 1, {label = a, anim = b[1]})
         else
-            table.insert(sortedWalks, {label = a, anim = b[1]})
+            sortedWalks[#sortedWalks + 1] = {label = a, anim = b[1]}
         end
     end
 
     for _, walk in ipairs(sortedWalks) do
         submenu:AddItem(NativeUI.CreateItem(walk.label, "/walk (" .. string.lower(walk.label) .. ")"))
-        table.insert(WalkTable, walk.label)
+        WalkTable[#WalkTable + 1] = walk.label
     end
 
     submenu.OnItemSelect = function(_, item, index)
@@ -383,12 +383,12 @@ function AddFaceMenu(menu)
 
     local facereset = NativeUI.CreateItem(Translate('normalreset'), Translate('resetdef'))
     submenu:AddItem(facereset)
-    table.insert(FaceTable, "")
+    FaceTable[#FaceTable + 1] = ""
 
     for name, data in PairsByKeys(RP.Expressions) do
         local faceitem = NativeUI.CreateItem(data[2] or name, "")
         submenu:AddItem(faceitem)
-        table.insert(FaceTable, name)
+        FaceTable[#FaceTable + 1] = name
     end
 
 
