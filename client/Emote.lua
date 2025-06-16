@@ -6,7 +6,7 @@ InHandsup = false
 CONVERTED = false
 
 local ChosenDict = ""
-local CurrentAnimOptions = false
+local CurrentAnimOptions
 local PlayerGender = "male"
 local PlayerProps = {}
 local PreviewPedProps = {}
@@ -511,6 +511,7 @@ function OnEmotePlay(name, textureVariation)
     end
 
     if ChosenDict == "MaleScenario" or ChosenDict == "Scenario" or ChosenDict == "ScenarioObject" then
+        assert(anim ~= nil)
         if InVehicle then return end
         CheckGender()
         ClearPedTasks(PlayerPedId())
@@ -584,6 +585,7 @@ function OnEmotePlay(name, textureVariation)
         ClearPedTasksImmediately(PlayerPedId())
     end
 
+    assert(anim ~= nil)
     TaskPlayAnim(PlayerPedId(), ChosenDict, anim, animOption?.BlendInSpeed or 5.0, animOption?.BlendOutSpeed or 5.0, animOption?.EmoteDuration or -1, animOption?.Flag or movementType, 0, false, false,
         false)
     RemoveAnimDict(ChosenDict)
