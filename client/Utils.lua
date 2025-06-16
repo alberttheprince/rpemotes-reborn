@@ -73,7 +73,7 @@ end
 function PairsByKeys(t, f)
     local a = {}
     for n in pairs(t) do
-        table.insert(a, n)
+        a[#a + 1] = n
     end
     table.sort(a, f)
     local i = 0             -- iterator variable
@@ -183,7 +183,7 @@ function GetPlayers()
 
     for i = 0, 255 do
         if NetworkIsPlayerActive(i) then
-            table.insert(players, i)
+            players[#players + 1] = i
         end
     end
 
@@ -350,7 +350,7 @@ function ShowPedMenu(zoom)
                 local target = world + normal * depth
                 local camRot = GetGameplayCamRot(2)
 
-                table.insert(positionBuffer, target)
+                positionBuffer[#positionBuffer + 1] = target
                 if #positionBuffer > bufferSize then
                     table.remove(positionBuffer, 1)
                 end
