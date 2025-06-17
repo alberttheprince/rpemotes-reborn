@@ -470,27 +470,29 @@ CreateThread(function()
     assert(RP ~= nil)
     for emoteType, content in pairs(RP) do
         for emoteName, emoteData in pairs(content) do
-            local shouldRemove = false
-
-            if Config.AdultEmotesDisabled and emoteData.AdultAnimation then
-                shouldRemove = true
-            end
             if newRP[emoteName] then
-                print('WARNING - Duplicate emote name found: ' .. emoteName .. ' in ' .. emoteType .. ' and ' .. newRP[emoteName].category)
+                print(string.format(
+                    "WARNING - Duplicate emote name found: %s in %s and %s",
+                    emoteName, emoteType, newRP[emoteName].category
+                ))
             end
-            if shouldRemove then
-            elseif type(emoteData) == "table" then
+            if Config.AdultEmotesDisabled and emoteData.AdultAnimation then
+                goto continue
+            end
+
+            if type(emoteData) == "table" then
                 newRP[emoteName] = {}
                 for k, v in pairs(emoteData) do
                     newRP[emoteName][k] = v
                 end
-                newRP[emoteName].category = emoteType
             else
                 newRP[emoteName] = { emoteData }
-                newRP[emoteName].category = emoteType
             end
+
+            newRP[emoteName].category = emoteType
+
+            ::continue::
         end
-        newRP[emoteType] = nil
     end
     EmoteData = newRP
     RP = nil
