@@ -449,6 +449,33 @@ function OpenEmoteMenu()
     end
 end
 
+local function convertToEmoteData(emote)
+    local arraySize = 0
+    for i = 1, 4 do
+        if emote[i] then
+            arraySize += 1
+        end
+    end
+
+    if arraySize == 1 then
+        emote.anim = emote[1]
+    elseif arraySize == 2 then
+        emote.anim = emote[1]
+        emote.label = emote[2]
+    elseif arraySize >= 3 then
+        local type = emote[1]
+        if type == 'MaleScenario' or type == 'Scenario' or type == 'ScenarioObject' then
+            emote.scenario = emote[2]
+        else
+            emote.dict = emote[1]
+            emote.anim = emote[2]
+            emote.secondPlayersAnim = emote[4]
+        end
+
+        emote.label = emote[3]
+    end
+end
+
 CreateThread(function()
     LoadAddonEmotes()
     AddEmoteMenu(mainMenu)
@@ -486,10 +513,11 @@ CreateThread(function()
                     newRP[emoteName][k] = v
                 end
             else
-                newRP[emoteName] = { emoteData }
+                newRP[emoteName] = {emoteData}
             end
 
             newRP[emoteName].category = emoteType
+            convertToEmoteData(newRP[emoteName])
 
             ::continue::
         end
