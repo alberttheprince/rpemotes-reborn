@@ -50,7 +50,7 @@
 ---@field PtfxColor? Color[]
 ---@field PtfxBone? integer
 ---@field ExitEmote? string
----@field ExitEmoteType? "Exits"
+---@field ExitEmoteType? "Exits" deprecated. unused.
 ---@field BlendInSpeed? number
 ---@field BlendOutSpeed? number
 ---@field Flag? integer

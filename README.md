@@ -277,7 +277,6 @@ Below is an example of how this would look:
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
 ```
