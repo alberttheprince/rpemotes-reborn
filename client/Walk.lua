@@ -16,7 +16,8 @@ function WalkMenuStart(name, force)
         return
     end
 
-    local walk = EmoteData[name][1]
+    local walk = EmoteData[name].anim
+    assert(walk ~= nil)
     RequestWalking(walk)
     SetPedMovementClipset(PlayerPedId(), walk, 0.2)
     RemoveAnimSet(walk)

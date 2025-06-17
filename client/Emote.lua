@@ -5,7 +5,7 @@ CurrentTextureVariation = nil
 InHandsup = false
 CONVERTED = false
 
-local ChosenDict = ""
+local ChosenScenarioType
 local CurrentAnimOptions
 local PlayerGender = "male"
 local PlayerProps = {}
@@ -160,11 +160,11 @@ function EmoteCancel(force)
 
     if not CanCancel and not force then return end
 
-    if ChosenDict == "MaleScenario" and IsInAnimation then
+    if ChosenScenarioType == "MaleScenario" and IsInAnimation then
         ClearPedTasksImmediately(PlayerPedId())
         IsInAnimation = false
         DebugPrint("Forced scenario exit")
-    elseif ChosenDict == "Scenario" and IsInAnimation then
+    elseif ChosenScenarioType == "Scenario" and IsInAnimation then
         ClearPedTasksImmediately(PlayerPedId())
         IsInAnimation = false
         DebugPrint("Forced scenario exit")
@@ -482,18 +482,21 @@ function OnEmotePlay(name, textureVariation)
         return EmoteChatMessage(Translate('in_a_vehicle'))
     end
 
-    if CurrentAnimOptions and CurrentAnimOptions.ExitEmote and animOption and animOption.ExitEmote then
-        if not (animOption and CurrentAnimOptions.ExitEmote == animOption.ExitEmote) and EmoteData[CurrentAnimOptions.ExitEmote][2] ~= emoteData[2] then
-            return
-        end
+    if CurrentAnimOptions
+        and CurrentAnimOptions.ExitEmote
+        and animOption
+        and animOption.ExitEmote
+        and CurrentAnimOptions.ExitEmote ~= animOption.ExitEmote
+        and EmoteData[CurrentAnimOptions.ExitEmote].anim ~= emoteData.anim
+    then
+        return
     end
 
     if IsInActionWithErrorMessage() then
         return false
     end
 
-    ChosenDict = emoteData[1]
-    local anim = emoteData[2]
+    ChosenScenarioType = emoteData.scenarioType
     CurrentAnimationName = name
     LocalPlayer.state:set('currentEmote', name, true)
     CurrentTextureVariation = textureVariation
@@ -509,28 +512,27 @@ function OnEmotePlay(name, textureVariation)
         DestroyAllProps()
     end
 
-    if ChosenDict == "MaleScenario" or ChosenDict == "Scenario" or ChosenDict == "ScenarioObject" then
-        assert(anim ~= nil)
+    if emoteData.scenario then
         if InVehicle then return end
         CheckGender()
         ClearPedTasks(PlayerPedId())
         DestroyAllProps()
-        if ChosenDict == "MaleScenario" then
+        if emoteData.scenarioType == "MaleScenario" then
             if PlayerGender == "male" then
-                TaskStartScenarioInPlace(PlayerPedId(), anim, 0, true)
-                DebugPrint("Playing scenario = (" .. anim .. ")")
+                TaskStartScenarioInPlace(PlayerPedId(), emoteData.scenario, 0, true)
+                DebugPrint("Playing scenario = (" .. emoteData.scenario .. ")")
             else
                 EmoteCancel()
                 EmoteChatMessage(Translate('maleonly'))
                 return
             end
-        elseif ChosenDict == "ScenarioObject" then
+        elseif emoteData.scenarioType == "ScenarioObject" then
             local BehindPlayer = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, -0.5, -0.5)
-            TaskStartScenarioAtPosition(PlayerPedId(), anim, BehindPlayer.x, BehindPlayer.y, BehindPlayer.z, GetEntityHeading(PlayerPedId()), 0, true, false)
-            DebugPrint("Playing scenario = (" .. anim .. ")")
+            TaskStartScenarioAtPosition(PlayerPedId(), emoteData.scenario, BehindPlayer.x, BehindPlayer.y, BehindPlayer.z, GetEntityHeading(PlayerPedId()), 0, true, false)
+            DebugPrint("Playing scenario = (" .. emoteData.scenario .. ")")
         else
-            TaskStartScenarioInPlace(PlayerPedId(), anim, 0, true)
-            DebugPrint("Playing scenario = (" .. anim .. ")")
+            TaskStartScenarioInPlace(PlayerPedId(), emoteData.scenario, 0, true)
+            DebugPrint("Playing scenario = (" .. emoteData.scenario .. ")")
         end
         IsInAnimation = true
         RunAnimationThread()
@@ -542,7 +544,7 @@ function OnEmotePlay(name, textureVariation)
         Wait(animOption.StartDelay)
     end
 
-    if not LoadAnim(ChosenDict) then
+    if not LoadAnim(emoteData.dict) then
         EmoteChatMessage("'" .. name .. "' " .. Translate('notvalidemote') .. "")
         return
     end
@@ -584,16 +586,15 @@ function OnEmotePlay(name, textureVariation)
         ClearPedTasksImmediately(PlayerPedId())
     end
 
-    assert(anim ~= nil)
-    TaskPlayAnim(PlayerPedId(), ChosenDict, anim, animOption?.BlendInSpeed or 5.0, animOption?.BlendOutSpeed or 5.0, animOption?.EmoteDuration or -1, animOption?.Flag or movementType, 0, false, false,
+    TaskPlayAnim(PlayerPedId(), emoteData.dict, emoteData.anim, animOption?.BlendInSpeed or 5.0, animOption?.BlendOutSpeed or 5.0, animOption?.EmoteDuration or -1, animOption?.Flag or movementType, 0, false, false,
         false)
-    RemoveAnimDict(ChosenDict)
+    RemoveAnimDict(emoteData.dict)
 
     IsInAnimation = true
     RunAnimationThread()
 
     if not (animOption and animOption.Prop) then
-        CheckStatusThread(ChosenDict, anim)
+        CheckStatusThread(emoteData.dict, emoteData.anim)
     end
 
     local currentEmoteTable = emoteData
@@ -668,30 +669,28 @@ function OnEmotePlayClone(name)
     local emoteData = EmoteData[name]
     local animOption = emoteData.AnimationOptions
 
-    local dict, anim = table.unpack(emoteData)
-
     if animOption and animOption.Prop then
         DestroyAllProps(true)
     end
 
-    if dict == "MaleScenario" or dict == "Scenario" or dict == "ScenarioObject" then
+    if emoteData.scenario then
         CheckGender()
         ClearPedTasks(ClonedPed)
         DestroyAllProps(true)
-        if dict == "MaleScenario" then
+        if emoteData.scenarioType == "MaleScenario" then
             if PlayerGender == "male" then
-                TaskStartScenarioInPlace(ClonedPed, anim, 0, true)
+                TaskStartScenarioInPlace(ClonedPed, emoteData.scenario, 0, true)
             end
-        elseif dict == "ScenarioObject" then
+        elseif emoteData.scenarioType == "ScenarioObject" then
             local BehindPlayer = GetOffsetFromEntityInWorldCoords(ClonedPed, 0.0, -0.5, -0.5)
-            TaskStartScenarioAtPosition(ClonedPed, anim, BehindPlayer.x, BehindPlayer.y, BehindPlayer.z, GetEntityHeading(ClonedPed), 0, true, false)
-        elseif dict == "Scenario" then
-            TaskStartScenarioInPlace(ClonedPed, anim, 0, true)
+            TaskStartScenarioAtPosition(ClonedPed, emoteData.scenario, BehindPlayer.x, BehindPlayer.y, BehindPlayer.z, GetEntityHeading(ClonedPed), 0, true, false)
+        elseif emoteData.scenarioType == "Scenario" then
+            TaskStartScenarioInPlace(ClonedPed, emoteData.scenario, 0, true)
         end
         return
     end
 
-    if not LoadAnim(dict) then
+    if not LoadAnim(emoteData.dict) then
         EmoteChatMessage("'" .. name .. "' " .. Translate('notvalidemote') .. "")
         return
     end
@@ -712,8 +711,8 @@ function OnEmotePlayClone(name)
         ClearPedTasksImmediately(ClonedPed)
     end
 
-    TaskPlayAnim(ClonedPed, dict, anim, 5.0, 5.0, animOption and animOption.EmoteDuration or -1, animOption?.Flag or movementType, 0, false, false, false)
-    RemoveAnimDict(dict)
+    TaskPlayAnim(ClonedPed, emoteData.dict, emoteData.anim, 5.0, 5.0, animOption and animOption.EmoteDuration or -1, animOption?.Flag or movementType, 0, false, false, false)
+    RemoveAnimDict(emoteData.dict)
 
     if animOption and animOption.Prop then
         local PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6 = table.unpack(animOption.PropPlacement)
@@ -750,11 +749,11 @@ end
 function PlayExitAndEnterEmote(name, textureVariation)
     local ped = PlayerPedId()
     if not CanCancel then return end
-    if ChosenDict == "MaleScenario" and IsInAnimation then
+    if ChosenScenarioType == "MaleScenario" and IsInAnimation then
         ClearPedTasksImmediately(ped)
         IsInAnimation = false
         DebugPrint("Forced scenario exit")
-    elseif ChosenDict == "Scenario" and IsInAnimation then
+    elseif ChosenScenarioType == "Scenario" and IsInAnimation then
         ClearPedTasksImmediately(ped)
         IsInAnimation = false
         DebugPrint("Forced scenario exit")

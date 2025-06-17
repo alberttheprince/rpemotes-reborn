@@ -214,7 +214,7 @@ if Config.Search then
             local results = {}
             for a, b in pairs(EmoteData) do
                 if not ignoredCategories[b.category] then
-                    if string.find(string.lower(a), string.lower(input)) or (b[3] ~= nil and string.find(string.lower(b[3]), string.lower(input))) then
+                    if string.find(string.lower(a), string.lower(input)) or (b.label ~= nil and string.find(string.lower(b.label), string.lower(input))) then
                         results[#results + 1] = { table = b.category, name = a, data = b }
                     end
                 end
@@ -466,6 +466,7 @@ local function convertToEmoteData(emote)
         local type = emote[1]
         if type == 'MaleScenario' or type == 'Scenario' or type == 'ScenarioObject' then
             emote.scenario = emote[2]
+            emote.scenarioType = type
         else
             emote.dict = emote[1]
             emote.anim = emote[2]

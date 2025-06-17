@@ -12,11 +12,11 @@ if Config.SharedEmotesEnabled then
             local emotename = string.lower(args[1])
             local target, distance = GetClosestPlayer()
             if (distance ~= -1 and distance < 3) then
-                if EmoteData[emotename] ~= nil and EmoteData[emotename].category == "Shared" then
-                    local _, _, ename = table.unpack(EmoteData[emotename])
+                local emote = EmoteData[emotename]
+                if emote ~= nil and emote.category == "Shared" then
                     TriggerServerEvent("rpemotes:server:requestEmote", GetPlayerServerId(target), emotename)
                     SimpleNotify(Translate('sentrequestto') ..
-                        GetPlayerName(target) .. " ~w~(~g~" .. ename .. "~w~)")
+                        GetPlayerName(target) .. " ~w~(~g~" .. emote.label .. "~w~)")
                 else
                     EmoteChatMessage("'" .. emotename .. "' " .. Translate('notvalidsharedemote') .. "")
                 end
@@ -42,7 +42,7 @@ RegisterNetEvent("rpemotes:client:syncEmote", function(emote, player)
     if EmoteData[emote] then
         local options = EmoteData[emote].AnimationOptions
         if options and options.Attachto then
-            local targetEmote = EmoteData[emote][4]
+            local targetEmote = EmoteData[emote].secondPlayersAnim
             if not targetEmote or not EmoteData[targetEmote] or not EmoteData[targetEmote].AnimationOptions or not EmoteData[targetEmote].AnimationOptions.Attachto then
                 local ped = PlayerPedId()
                 local pedInFront = GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer())
@@ -137,10 +137,9 @@ end
 RegisterNetEvent("rpemotes:client:requestEmote", function(emotename, etype, target)
     isRequestAnim = true
 
-    local displayed = EmoteData[emotename] and select(3, table.unpack(EmoteData[emotename]))
-
+    local emote = EmoteData[emotename]
     PlaySound(-1, "NAV", "HUD_AMMO_SHOP_SOUNDSET", false, 0, true)
-    SimpleNotify(Translate('doyouwanna') .. displayed .. "~w~)")
+    SimpleNotify(Translate('doyouwanna') .. emote.label .. "~w~)")
     -- The player has now 10 seconds to accept the request
     local timer = 10 * 1000
     while isRequestAnim do
@@ -154,7 +153,7 @@ RegisterNetEvent("rpemotes:client:requestEmote", function(emotename, etype, targ
         if IsControlJustPressed(1, 246) then
             isRequestAnim = false
 
-            local otheremote = EmoteData[emotename] and EmoteData[emotename][4] or emotename
+            local otheremote = emote and emote.secondPlayersAnim or emotename
             TriggerServerEvent("rpemotes:server:confirmEmote", target, emotename, otheremote)
         elseif IsControlJustPressed(1, 182) then
             isRequestAnim = false
