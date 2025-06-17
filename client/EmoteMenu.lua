@@ -1,3 +1,6 @@
+---@type table<string, EmoteData>
+EmoteData = {}
+
 local isSearching = false
 local rightPosition = { x = 1430, y = 200 }
 local leftPosition = { x = 0, y = 200 }
@@ -209,7 +212,7 @@ if Config.Search then
         local input = GetOnscreenKeyboardResult()
         if input ~= nil then
             local results = {}
-            for a, b in pairs(RP) do
+            for a, b in pairs(EmoteData) do
                 if not ignoredCategories[b.category] then
                     if string.find(string.lower(a), string.lower(input)) or (b[3] ~= nil and string.find(string.lower(b[3]), string.lower(input))) then
                         results[#results + 1] = { table = b.category, name = a, data = b }
@@ -464,6 +467,7 @@ CreateThread(function()
     _menuPool:RefreshIndex()
 
     local newRP = {}
+    assert(RP ~= nil)
     for emoteType, content in pairs(RP) do
         for emoteName, emoteData in pairs(content) do
             local shouldRemove = false
@@ -488,7 +492,8 @@ CreateThread(function()
         end
         newRP[emoteType] = nil
     end
-    RP = newRP
+    EmoteData = newRP
+    RP = nil
     CONVERTED = true
 end)
 

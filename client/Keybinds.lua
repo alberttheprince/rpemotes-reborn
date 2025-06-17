@@ -59,7 +59,7 @@ if Config.Keybinding then
                 return
             end
             if type(numkey) == "number" then
-                if RP[emote] then
+                if EmoteData[emote] then
                     SetResourceKvp(string.format('%s_emob%s', Config.keybindKVP, numkey), emote)
                 else
                     EmoteChatMessage("'" .. emote .. "' " .. Translate('notvalidemote') .. "")

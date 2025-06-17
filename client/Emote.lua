@@ -186,7 +186,7 @@ function EmoteCancel(force)
             local options = CurrentAnimOptions
             local ExitEmoteType = options.ExitEmoteType or "Emotes"
 
-            if not RP[options.ExitEmote] then
+            if not EmoteData[options.ExitEmote] then
                 DebugPrint("Exit emote was invalid")
                 IsInAnimation = false
                 ClearPedTasks(ped)
@@ -196,7 +196,7 @@ function EmoteCancel(force)
             OnEmotePlay(options.ExitEmote)
             DebugPrint("Playing exit animation")
 
-            local animationOptions = RP[options.ExitEmote].AnimationOptions
+            local animationOptions = EmoteData[options.ExitEmote].AnimationOptions
             if animationOptions and animationOptions.EmoteDuration then
                 InExitEmote = true
                 SetTimeout(animationOptions.EmoteDuration, function()
@@ -220,7 +220,7 @@ function EmoteCancel(force)
 end
 
 function EmoteMenuStart(name, category, textureVariation)
-    local emote = RP[name]
+    local emote = EmoteData[name]
 
     if not emote then
         return
@@ -248,7 +248,7 @@ function EmoteMenuStartClone(name, category)
     if not Config.PreviewPed then return end
     if not DoesEntityExist(ClonedPed) then return end
 
-    local emote = RP[name]
+    local emote = EmoteData[name]
 
     if not emote then
         return
@@ -295,7 +295,7 @@ function EmoteCommandStart(args)
             return
         end
 
-        local emote = RP[name]
+        local emote = EmoteData[name]
         if emote then
             if emote.category == "AnimalEmotes" then
                 if Config.AnimalEmotesEnabled then
@@ -437,7 +437,7 @@ RegisterNetEvent('animations:ToggleCanDoAnims', function(value)
 end)
 
 function OnEmotePlay(name, textureVariation)
-    local emoteData = RP[name]
+    local emoteData = EmoteData[name]
     if not emoteData then
         EmoteChatMessage("'" .. name .. "' " .. Translate('notvalidemote') .. "")
         return
@@ -484,7 +484,7 @@ function OnEmotePlay(name, textureVariation)
     end
 
     if CurrentAnimOptions and CurrentAnimOptions.ExitEmote and animOption and animOption.ExitEmote then
-        if not (animOption and CurrentAnimOptions.ExitEmote == animOption.ExitEmote) and RP[CurrentAnimOptions.ExitEmote][2] ~= emoteData[2] then
+        if not (animOption and CurrentAnimOptions.ExitEmote == animOption.ExitEmote) and EmoteData[CurrentAnimOptions.ExitEmote][2] ~= emoteData[2] then
             return
         end
     end
@@ -598,7 +598,7 @@ function OnEmotePlay(name, textureVariation)
     end
 
     local currentEmoteTable = emoteData
-    for _, tabledata in pairs(RP) do
+    for _, tabledata in pairs(EmoteData) do
         for command, emotedata in pairs(tabledata) do
             if emotedata == emoteData then
                 currentEmoteTable[#currentEmoteTable+1] = command
@@ -666,7 +666,7 @@ function OnEmotePlayClone(name)
         return
     end
 
-    local emoteData = RP[name]
+    local emoteData = EmoteData[name]
     local animOption = emoteData.AnimationOptions
 
     local dict, anim = table.unpack(emoteData)
@@ -774,7 +774,7 @@ function PlayExitAndEnterEmote(name, textureVariation)
     if CurrentAnimOptions?.ExitEmote then
         local options = CurrentAnimOptions or {}
 
-        if not RP[options.ExitEmote] then
+        if not EmoteData[options.ExitEmote] then
             DebugPrint("Exit emote was invalid")
             ClearPedTasks(ped)
             IsInAnimation = false
@@ -783,7 +783,7 @@ function PlayExitAndEnterEmote(name, textureVariation)
         OnEmotePlay(options.ExitEmote)
         DebugPrint("Playing exit animation")
 
-        local animationOptions = RP[options.ExitEmote].AnimationOptions
+        local animationOptions = EmoteData[options.ExitEmote].AnimationOptions
         if animationOptions and animationOptions.EmoteDuration then
             InExitEmote = true
             SetTimeout(animationOptions.EmoteDuration, function()

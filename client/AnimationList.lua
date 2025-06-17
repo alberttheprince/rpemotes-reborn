@@ -2,7 +2,7 @@
 -- If an emote does not work, you may be on an older gamebuild --
 -- To get a higher gamebuild, see ReadMe on github repository --
 
----@type AnimationListConfig | table<string, EmoteData>
+---@type AnimationListConfig
 ---@diagnostic disable-next-line: missing-fields
 RP = {}
 
