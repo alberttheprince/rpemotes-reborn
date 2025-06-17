@@ -66,10 +66,10 @@
 ---@field PropEmotes table<string, {[1]: Dictionary, [2]: AnimName, [3]: Label, AnimationOptions?: AnimationOptions}>
 
 ---@class EmoteData
----@field [1] AnimName | Dictionary | 'MaleScenario' | 'Scenario' | 'ScenarioObject'
----@field [2] AnimName | ScenarioName | Label?
----@field [3]? Label
----@field [4]? AnimName Second player's anim during a shared emote. Defaults to the same as first player if unset.
+---@field [1] AnimName | Dictionary | 'MaleScenario' | 'Scenario' | 'ScenarioObject' deprecated: Use anim or dict instead.
+---@field [2] AnimName | ScenarioName | Label? deprecated: Use anim, scenario, or label instead
+---@field [3]? Label deprecated: Use label instead
+---@field [4]? AnimName deprecated: Use secondPlayersAnim instead
 ---@field anim? string
 ---@field dict? string
 ---@field scenario? string
