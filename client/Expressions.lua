@@ -1,5 +1,5 @@
 function SetPlayerPedExpression(expression, saveToKvp)
-    local emote = RP[expression]
+    local emote = EmoteData[expression]
     if emote and emote.category == "Expressions" then
         SetFacialIdleAnimOverride(PlayerPedId(), emote[1], 0)
         if Config.PersistentExpression and saveToKvp then SetResourceKvp("expression", emote[1]) end
@@ -12,9 +12,9 @@ end
 if Config.ExpressionsEnabled then
     RegisterCommand('mood', function(_source, args, _raw)
         local expression = FirstToUpper(string.lower(args[1]))
-        local emote = RP[expression]
+        local emote = EmoteData[expression]
         if emote and emote.category == "Expressions" then
-            SetPlayerPedExpression(RP[expression][1], true)
+            SetPlayerPedExpression(EmoteData[expression][1], true)
         elseif expression == "Reset" then
             ClearFacialIdleAnimOverride(PlayerPedId())
             DeleteResourceKvp("expression")

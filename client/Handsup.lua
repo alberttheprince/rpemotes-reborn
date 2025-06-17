@@ -62,7 +62,7 @@ if Config.HandsupEnabled then
             LocalPlayer.state:set('currentEmote', nil, true)
             ClearPedSecondaryTask(PlayerPedId())
             if Config.ReplayEmoteAfterHandsup and IsInAnimation then
-                local emote = RP[CurrentAnimationName]
+                local emote = EmoteData[CurrentAnimationName]
                 if not emote then
                     return
                 end

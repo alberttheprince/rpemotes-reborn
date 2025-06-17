@@ -18,7 +18,7 @@ local function ResetCrouch()
 
     local walkstyle = GetResourceKvpString("walkstyle")
     if walkstyle then
-        local toApply = RP[walkstyle]
+        local toApply = EmoteData[walkstyle]
         if not toApply or type(toApply) ~= "table" or toApply.category ~= "Walks" then
             ResetPedMovementClipset(playerPed, 0.5)
             DeleteResourceKvp("walkstyle")
