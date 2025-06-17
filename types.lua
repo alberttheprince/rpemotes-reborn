@@ -70,6 +70,11 @@
 ---@field [2] AnimName | ScenarioName | Label?
 ---@field [3]? Label
 ---@field [4]? AnimName Second player's anim during a shared emote. Defaults to the same as first player if unset.
+---@field anim? string
+---@field dict? string
+---@field scenario? string
+---@field label? string
+---@field secondPlayersAnim? string Second player's anim during a shared emote. Defaults to the same as first player if unset.
 ---@field AnimationOptions? AnimationOptions
 ---@field AnimalEmote? boolean
 ---@field AdultAnimation? boolean
