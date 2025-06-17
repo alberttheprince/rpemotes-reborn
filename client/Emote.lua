@@ -184,7 +184,6 @@ function EmoteCancel(force)
 
         if CurrentAnimOptions and CurrentAnimOptions.ExitEmote then
             local options = CurrentAnimOptions
-            local ExitEmoteType = options.ExitEmoteType or "Emotes"
 
             if not RP[options.ExitEmote] then
                 DebugPrint("Exit emote was invalid")

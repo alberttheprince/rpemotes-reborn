@@ -3385,7 +3385,6 @@ RP.AnimalEmotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "bdogupk",
-            ExitEmoteType = "Exits"
         }
     },
     ["bdogsit"] = {
@@ -3395,7 +3394,6 @@ RP.AnimalEmotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "bdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["bdogpee"] = {
@@ -3480,7 +3478,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "bdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["bdogpridea"] = {
@@ -3510,7 +3507,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "bdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["bdogprideb"] = {
@@ -3540,7 +3536,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "bdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["bdogpridec"] = {
@@ -3570,7 +3565,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "bdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["bdogprided"] = {
@@ -3600,7 +3594,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "bdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["bdogpridee"] = {
@@ -3630,7 +3623,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "bdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["bdogpridef"] = {
@@ -3660,7 +3652,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "bdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["bdogprideg"] = {
@@ -3690,7 +3681,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "bdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["bdogprideh"] = {
@@ -3720,7 +3710,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "bdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["bdogpridei"] = {
@@ -3750,7 +3739,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "bdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["bdogfw"] = {
@@ -3824,7 +3812,6 @@ RP.AnimalEmotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "sdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sdogsit"] = {
@@ -3834,7 +3821,6 @@ RP.AnimalEmotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "sdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sdogld"] = {
@@ -3844,7 +3830,6 @@ RP.AnimalEmotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "sdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sdogshake"] = {
@@ -4348,7 +4333,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "sdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sdogtennis"] = {
@@ -4425,7 +4409,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "sdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sdogggun"] = {
@@ -4464,7 +4447,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "sdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sdogstun"] = {
@@ -4535,7 +4517,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "sdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sdoggl3"] = {
@@ -4574,7 +4555,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "sdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sdoghd1"] = {
@@ -4613,7 +4593,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "sdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sdoghlmt1"] = {
@@ -4710,7 +4689,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "sdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sdogsteak"] = {
@@ -4749,7 +4727,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "sdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sdogpridea"] = {
@@ -4940,7 +4917,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "sdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sdogpridesitb"] = {
@@ -4960,7 +4936,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "sdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sdogpridesitc"] = {
@@ -4980,7 +4955,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "sdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sdogpridesitd"] = {
@@ -5000,7 +4974,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "sdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sdogpridesite"] = {
@@ -5020,7 +4993,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "sdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sdogpridesitf"] = {
@@ -5040,7 +5012,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "sdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sdogpridesitg"] = {
@@ -5060,7 +5031,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "sdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sdogpridesith"] = {
@@ -5081,7 +5051,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "sdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sdogpridesiti"] = {
@@ -5101,7 +5070,6 @@ RP.AnimalEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "sdogup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sdogpee"] = {
@@ -5581,7 +5549,6 @@ RP.Emotes = {
             EmoteLoop = true,
             EmoteMoving = true,
             ExitEmote = "breakfreefont",
-            ExitEmoteType = "Exits"
         }
     },
     ["cuffedback"] = {
@@ -5592,7 +5559,6 @@ RP.Emotes = {
             EmoteLoop = true,
             EmoteMoving = true,
             ExitEmote = "breakfreeback",
-            ExitEmoteType = "Exits"
         }
     },
     ["dazzle1"] = { -- Custom Emote Provided To RpEmotes By Prue颜
@@ -5730,7 +5696,6 @@ RP.Emotes = {
             EmoteLoop = true,
             EmoteMoving = false,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["femalesitcute1"] = {
@@ -5741,7 +5706,6 @@ RP.Emotes = {
             EmoteLoop = true,
             EmoteMoving = false,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["femalesitcute2"] = {
@@ -5752,7 +5716,6 @@ RP.Emotes = {
             EmoteLoop = true,
             EmoteMoving = false,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["femaleonknees"] = {
@@ -5763,7 +5726,6 @@ RP.Emotes = {
             EmoteLoop = true,
             EmoteMoving = false,
             ExitEmote = "standup",
-            ExitEmoteType = "Exits"
         }
     },
     ["femaleonknees1"] = {
@@ -5774,7 +5736,6 @@ RP.Emotes = {
             EmoteLoop = true,
             EmoteMoving = false,
             ExitEmote = "standup",
-            ExitEmoteType = "Exits"
         }
     },
     ["femaleonknees2"] = {
@@ -5785,7 +5746,6 @@ RP.Emotes = {
             EmoteLoop = true,
             EmoteMoving = false,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["fashionpose1"] = { -- Custom Emote Provided To RpEmotes By Prue颜
@@ -5803,7 +5763,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "standup",
-            ExitEmoteType = "Exits"
         }
     },
 	["fashionpose3"] = { -- Custom Emote Provided To RpEmotes By Prue颜
@@ -5861,7 +5820,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "standup",
-            ExitEmoteType = "Exits"
         }
     },
     ["beast"] = {
@@ -5881,7 +5839,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 200,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["cloudgaze"] = {
@@ -5892,7 +5849,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 700,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["cloudgaze2"] = {
@@ -5903,7 +5859,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 700,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["crouchreach"] = {
@@ -5985,7 +5940,6 @@ RP.Emotes = {
         AnimationOptions = {
 			EmoteLoop = true,
 			ExitEmote = "getup",
-			ExitEmoteType = "Exits"
         }
     },
     ["sitsad4"] = { -- Custom Emote By EnchantedBrwny
@@ -5996,7 +5950,6 @@ RP.Emotes = {
 			StartDelay = 600,
 			EmoteLoop = true,
 			ExitEmote = "getup",
-			ExitEmoteType = "Exits"
         }
     },
     ["bend"] = {
@@ -6018,7 +5971,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 700,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["pullover"] = {
@@ -6496,7 +6448,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "surrender_exit",
-            ExitEmoteType = "Exits"
         }
     },
     ["surrender2"] = {
@@ -6506,7 +6457,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["surrender3"] = {
@@ -6516,7 +6466,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["surrender4"] = {
@@ -6526,7 +6475,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["surrender5"] = {
@@ -6536,7 +6484,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "surrender_exit",
-            ExitEmoteType = "Exits"
         }
     },
     ["surrender6"] = {
@@ -6546,7 +6493,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["surrender7"] = {
@@ -6556,7 +6502,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["facepalm2"] = {
@@ -6936,7 +6881,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 200,
             ExitEmote = "standup",
-            ExitEmoteType = "Exits"
         }
     },
     ["kneelbored"] = { -- Custom Emote By Chocoholic Animations
@@ -6947,7 +6891,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 200,
             ExitEmote = "standup",
-            ExitEmoteType = "Exits"
         }
     },
     ["kneelpeace"] = { -- Custom Emote By Chocoholic Animations
@@ -6958,7 +6901,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 200,
             ExitEmote = "standup",
-            ExitEmoteType = "Exits"
         }
     },
     ["shoepose"] = { -- Custom Emote By Darks Animations
@@ -7164,7 +7106,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 200,
             ExitEmote = "offtable",
-            ExitEmoteType = "Exits"
         }
     },
     ["me"] = {
@@ -7199,7 +7140,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["mechanic4"] = {
@@ -7234,7 +7174,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 300,
             ExitEmote = "meditateup",
-            ExitEmoteType = "Exits"
         }
     },
     ["meditate2"] = {
@@ -7245,7 +7184,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 300,
             ExitEmote = "meditateup",
-            ExitEmoteType = "Exits"
         }
     },
     ["meditate3"] = {
@@ -7256,7 +7194,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 300,
             ExitEmote = "meditateup",
-            ExitEmoteType = "Exits"
         }
     },
     ["metal"] = {
@@ -7463,7 +7400,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sleep"] = {
@@ -7515,7 +7451,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sit2"] = {
@@ -7525,7 +7460,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sit3"] = {
@@ -7535,7 +7469,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sit4"] = {
@@ -7545,7 +7478,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sit5"] = {
@@ -7555,7 +7487,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sit6"] = {
@@ -7565,7 +7496,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sit7"] = {
@@ -7576,7 +7506,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 900,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sit8"] = {
@@ -7586,7 +7515,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sit9"] = {
@@ -7596,7 +7524,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sit10"] = {
@@ -7606,7 +7533,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sitfu"] = {
@@ -7616,7 +7542,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["welcomeback"] = {
@@ -7691,7 +7616,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sitlean2"] = {
@@ -7701,7 +7625,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "offchair",
-            ExitEmoteType = "Exits"
         }
     },
     ["sitlean3"] = {
@@ -7711,7 +7634,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sitsad"] = {
@@ -7721,7 +7643,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sitsad2"] = {
@@ -7731,7 +7652,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sitscared"] = {
@@ -7774,7 +7694,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sitchair"] = {
@@ -7784,7 +7703,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "offchair",
-            ExitEmoteType = "Exits"
         }
     },
     ["sitchair2"] = {
@@ -7794,7 +7712,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "offchair",
-            ExitEmoteType = "Exits"
         }
     },
     ["sitchair3"] = {
@@ -7804,7 +7721,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "offchair",
-            ExitEmoteType = "Exits"
         }
     },
     ["sitchair4"] = {
@@ -7814,7 +7730,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "offchair",
-            ExitEmoteType = "Exits"
         }
     },
     ["sitchair5"] = {
@@ -7824,7 +7739,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "offchair",
-            ExitEmoteType = "Exits"
         }
     },
     ["sitchair6"] = {
@@ -7834,7 +7748,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "offchair",
-            ExitEmoteType = "Exits"
         }
     },
     ["sitchair7"] = {
@@ -7844,7 +7757,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "offchair",
-            ExitEmoteType = "Exits"
         }
     },
     ["sitchair8"] = {
@@ -7854,7 +7766,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "offchair",
-            ExitEmoteType = "Exits"
         }
     },
     ["sittoilet"] = {
@@ -7864,7 +7775,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "offchair",
-            ExitEmoteType = "Exits"
         }
     },
     ["sittoilet2"] = {
@@ -7874,7 +7784,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "offchair",
-            ExitEmoteType = "Exits"
         }
     },
     ["sitcute"] = { -- Custom Emote By QueenSistersAnimations
@@ -7885,7 +7794,6 @@ RP.Emotes = {
             EmoteLoop = true,
             EmoteMoving = false,
             ExitEmote = "offchair",
-            ExitEmoteType = "Exits"
         }
     },
     ["situp"] = {
@@ -8062,7 +7970,6 @@ RP.Emotes = {
             StartDelay = 700,
             NotInVehicle = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sunbathe2"] = {
@@ -8074,7 +7981,6 @@ RP.Emotes = {
             StartDelay = 700,
             NotInVehicle = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["sunbathe3"] = {
@@ -8086,7 +7992,6 @@ RP.Emotes = {
             StartDelay = 700,
             NotInVehicle = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["tpose"] = {
@@ -8442,7 +8347,6 @@ RP.Emotes = {
             StartDelay = 900,
             NotInVehicle = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["passout2"] = {
@@ -8454,7 +8358,6 @@ RP.Emotes = {
             StartDelay = 900,
             NotInVehicle = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["passout3"] = {
@@ -8466,7 +8369,6 @@ RP.Emotes = {
             StartDelay = 900,
             NotInVehicle = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["passout4"] = {
@@ -8478,7 +8380,6 @@ RP.Emotes = {
             StartDelay = 900,
             NotInVehicle = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["passout5"] = {
@@ -8490,7 +8391,6 @@ RP.Emotes = {
             StartDelay = 900,
             NotInVehicle = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["passout6"] = {
@@ -8502,7 +8402,6 @@ RP.Emotes = {
             StartDelay = 900,
             NotInVehicle = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["passout7"] = {
@@ -8514,7 +8413,6 @@ RP.Emotes = {
             StartDelay = 900,
             NotInVehicle = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["passout8"] = {
@@ -8526,7 +8424,6 @@ RP.Emotes = {
             StartDelay = 900,
             NotInVehicle = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["petting"] = {
@@ -8545,7 +8442,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 700,
             ExitEmote = "meditateup",
-            ExitEmoteType = "Exits"
         }
     },
     ["flip2"] = {
@@ -9197,7 +9093,6 @@ RP.Emotes = {
         AnimationOptions = {
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["fspose"] = {
@@ -9860,7 +9755,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 400,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["gym3"] = { -- Custom Female Emote By Souris
@@ -9887,7 +9781,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 550,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["gympose"] = { -- Custom Emote By Amnilka
@@ -10092,7 +9985,6 @@ RP.Emotes = {
             NotInVehicle = true,
             StartDelay = 800,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["relax2"] = {
@@ -10104,7 +9996,6 @@ RP.Emotes = {
             NotInVehicle = true,
             StartDelay = 800,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["uwu"] = {
@@ -10196,7 +10087,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 700,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["model"] = { -- Custom emote by Struggleville
@@ -10234,7 +10124,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 700,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["layncry2"] = {
@@ -10245,7 +10134,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 700,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["layncry3"] = {
@@ -10256,7 +10144,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 700,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["layncry4"] = {
@@ -10267,7 +10154,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 700,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["layncry5"] = {
@@ -10278,7 +10164,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 700,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["layncry6"] = {
@@ -10289,7 +10174,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 700,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["layncry7"] = {
@@ -10300,7 +10184,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 700,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["layncry8"] = {
@@ -10311,7 +10194,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 700,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["army1"] = {
@@ -10461,7 +10343,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 700,
             ExitEmote = "meditateup",
-            ExitEmoteType = "Exits"
         }
     },
     ["zombieswipe"] = {
@@ -10496,7 +10377,6 @@ RP.Emotes = {
             EmoteLoop = true,
             StartDelay = 700,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["gungirl1"] = { -- Custom Emote By Struggleville
@@ -10845,7 +10725,6 @@ RP.Emotes = {
             EmoteLoop = true,
             EmoteMoving = false,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["femaleposev"] = { -- Custom Emote By DRX Animations
@@ -11213,7 +11092,6 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true,
             ExitEmote = "shakeitoffhuman",
-            ExitEmoteType = "Exits"
         }
     },
     ['umbrella2'] = {
@@ -11234,7 +11112,6 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true,
             ExitEmote = "shakeitoffhuman",
-            ExitEmoteType = "Exits"
         }
     },
     ['umbrella3'] = { -- Custom Emote Provided To RPEmotes By Mr Witt
@@ -11255,7 +11132,6 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true,
             ExitEmote = "shakeitoffhuman",
-            ExitEmoteType = "Exits"
         }
     },
     ['umbrella4'] = { -- Custom Emote  By Mr ultrahacx
@@ -11276,7 +11152,6 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true,
             ExitEmote = "shakeitoffhuman",
-            ExitEmoteType = "Exits"
         }
     },
     -----------------------------------------------------------------------------------------------------
@@ -15687,7 +15562,6 @@ RP.PropEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["guitarsit2"] = {
@@ -15707,7 +15581,6 @@ RP.PropEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["guitarsit3"] = {
@@ -15727,7 +15600,6 @@ RP.PropEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["book"] = {
@@ -15853,7 +15725,6 @@ RP.PropEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["bouquet"] = {
@@ -20035,7 +19906,6 @@ RP.PropEmotes = {
             PtfxWait = 200,
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["selfiesexy"] = { -- Custom Emote By Little Spoon, designed for a custom iFruit phone model, however I am sticking with default game props for now
@@ -23712,7 +23582,6 @@ RP.PropEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["gamer2"] = { -- Custom Emote By Dark Animations exclusive to RPEmotes
@@ -23732,7 +23601,6 @@ RP.PropEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["study"] = { -- Custom Emote By Dark Animations exclusive to RPEmotes
@@ -23752,7 +23620,6 @@ RP.PropEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["crackhead"] = {
@@ -23888,7 +23755,6 @@ RP.PropEmotes = {
             },
             EmoteLoop = true,
             ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["patrolf1"] = {
@@ -25103,7 +24969,6 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = false,
 			ExitEmote = "getup",
-            ExitEmoteType = "Exits"
         }
     },
     ["rap6"] = { -- Custom Emote Provided To RPEmotes Courtesy Of Darks Animations
