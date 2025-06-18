@@ -25,9 +25,9 @@ local function ResetCrouch()
             DebugPrint('Invalid walkstyle found in KVP, resetting to default.')
             return
         end
-        RequestWalking(toApply[1])
-        SetPedMovementClipset(PlayerPedId(), toApply[1], 0.5)
-        RemoveClipSet(toApply[1])
+        RequestWalking(toApply.anim)
+        SetPedMovementClipset(PlayerPedId(), toApply.anim, 0.5)
+        RemoveClipSet(toApply.anim)
     else
         ResetPedMovementClipset(playerPed, 0.5)
     end
