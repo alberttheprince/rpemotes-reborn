@@ -275,7 +275,7 @@ Below is an example of how this would look:
         "sit_phone_phoneputdown_idle_nowork",
         "Sit",
         AnimationOptions = {
-            EmoteLoop = true,
+            onFootFlag = AnimFlag.LOOP,
             ExitEmote = "getup",
         }
     },

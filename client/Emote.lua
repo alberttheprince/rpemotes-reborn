@@ -552,14 +552,8 @@ function OnEmotePlay(name, textureVariation)
         else
             movementType = 51
         end
-    elseif animOption then
-        if animOption.EmoteMoving then
-            movementType = 51
-        elseif animOption.EmoteLoop then
-            movementType = 1
-        elseif animOption.EmoteStuck then
-            movementType = 50
-        end
+    elseif animOption and animOption.onFootFlag then
+        movementType = animOption.onFootFlag
     end
 
     DebugPrint("Animation flag = (" .. movementType .. ")")
@@ -690,23 +684,13 @@ function OnEmotePlayClone(name)
         return
     end
 
-    local movementType = 0
-
-    if animOption then
-        if animOption.EmoteMoving then
-            movementType = 51
-        elseif animOption.EmoteLoop then
-            movementType = 1
-        elseif animOption.EmoteStuck then
-            movementType = 50
-        end
-    end
+    local flag = animOption?.Flag or animOption?.onFootFlag or 0
 
     if IsPedUsingAnyScenario(ClonedPed) or IsPedActiveInScenario(ClonedPed) then
         ClearPedTasksImmediately(ClonedPed)
     end
 
-    TaskPlayAnim(ClonedPed, emoteData.dict, emoteData.anim, 5.0, 5.0, animOption and animOption.EmoteDuration or -1, animOption?.Flag or movementType, 0, false, false, false)
+    TaskPlayAnim(ClonedPed, emoteData.dict, emoteData.anim, 5.0, 5.0, animOption and animOption.EmoteDuration or -1, flag, 0, false, false, false)
     RemoveAnimDict(emoteData.dict)
 
     if animOption and animOption.Prop then
