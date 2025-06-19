@@ -7,11 +7,14 @@ end
 local function CanPlayerPoint()
     local playerPed = PlayerPedId()
     local playerId = PlayerId()
-    if not DoesEntityExist(playerPed) or IsPedOnAnyBike(playerPed) or IsPlayerAiming(playerId) or IsPedFalling(playerPed) or IsPedInjured(playerPed) or IsPedInMeleeCombat(playerPed) or IsPedRagdoll(playerPed) or not IsPedHuman(playerPed) then
-        return false
-    end
-
-    return true
+    return DoesEntityExist(playerPed)
+        and IsPedHuman(playerPed)
+        and not IsPedOnAnyBike(playerPed)
+        and not IsPlayerAiming(playerId)
+        and not IsPedFalling(playerPed)
+        and not IsPedInjured(playerPed)
+        and not IsPedInMeleeCombat(playerPed)
+        and not IsPedRagdoll(playerPed)
 end
 
 local function PointingStopped()

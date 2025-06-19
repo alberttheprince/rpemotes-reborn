@@ -160,11 +160,7 @@ function EmoteCancel(force)
 
     if not CanCancel and not force then return end
 
-    if ChosenScenarioType == "MaleScenario" and IsInAnimation then
-        ClearPedTasksImmediately(PlayerPedId())
-        IsInAnimation = false
-        DebugPrint("Forced scenario exit")
-    elseif ChosenScenarioType == "Scenario" and IsInAnimation then
+    if (ChosenScenarioType == "MaleScenario" or ChosenScenarioType == "Scenario") and IsInAnimation then
         ClearPedTasksImmediately(PlayerPedId())
         IsInAnimation = false
         DebugPrint("Forced scenario exit")
@@ -474,12 +470,12 @@ function OnEmotePlay(name, textureVariation)
 
 
     local animOption = emoteData.AnimationOptions
-    if InVehicle then
-        if animOption and animOption.NotInVehicle then
+    if animOption then
+        if InVehicle and animOption.NotInVehicle then
             return EmoteChatMessage(Translate('not_in_a_vehicle'))
+        elseif not InVehicle and animOption.onlyInVehicle then
+            return EmoteChatMessage(Translate('in_a_vehicle'))
         end
-    elseif animOption and animOption.onlyInVehicle then
-        return EmoteChatMessage(Translate('in_a_vehicle'))
     end
 
     if CurrentAnimOptions
@@ -550,7 +546,6 @@ function OnEmotePlay(name, textureVariation)
     end
 
     local movementType = 0
-
     if InVehicle then
         if animOption and animOption.FullBody then
             movementType = 35

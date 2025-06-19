@@ -3,7 +3,7 @@ PlayerLoaded, PlayerData = nil, {}
 
 local function InitializeFramework()
     if GetResourceState('es_extended') == 'started' then
-        ESX = exports['es_extended']:getSharedObject()
+        ESX = exports.es_extended:getSharedObject()
         Framework = 'esx'
 
         RegisterNetEvent('esx:playerLoaded', function(xPlayer)
