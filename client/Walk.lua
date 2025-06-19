@@ -70,22 +70,17 @@ if Config.WalkingStylesEnabled and Config.PersistentWalk then
         end
 
         local walkstyle = EmoteData[kvp]
-        if walkstyle and type(walkstyle) == "table" and walkstyle.category == "Walks" then
-            return true
-        end
-        return false
+        return walkstyle and type(walkstyle) == "table" and walkstyle.category == "Walks"
     end
 
     local function handleWalkstyle()
         local kvp = GetResourceKvpString("walkstyle")
-
-        if kvp then
-            if walkstyleExists(kvp) then
-                WalkMenuStart(kvp, true)
-            else
-                ResetPedMovementClipset(PlayerPedId(), 0.0)
-                DeleteResourceKvp("walkstyle")
-            end
+        if not kvp then return end
+        if walkstyleExists(kvp) then
+            WalkMenuStart(kvp, true)
+        else
+            ResetPedMovementClipset(PlayerPedId(), 0.0)
+            DeleteResourceKvp("walkstyle")
         end
     end
 

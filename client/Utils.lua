@@ -35,11 +35,12 @@ function IsPlayerAiming(player)
 end
 
 function CanPlayerCrouchCrawl(playerPed)
-    if not IsPedOnFoot(playerPed) or IsPedJumping(playerPed) or IsPedFalling(playerPed) or IsPedInjured(playerPed) or IsPedInMeleeCombat(playerPed) or IsPedRagdoll(playerPed) then
-        return false
-    end
-
-    return true
+    return IsPedOnFoot(playerPed)
+        and not IsPedJumping(playerPed)
+        and not IsPedFalling(playerPed)
+        and not IsPedInjured(playerPed)
+        and not IsPedInMeleeCombat(playerPed)
+        and not IsPedRagdoll(playerPed)
 end
 
 function PlayAnimOnce(playerPed, animDict, animName, blendInSpeed, blendOutSpeed, duration, startTime)
@@ -192,24 +193,24 @@ end
 
 -- Function that'll check if player is already proning, using news cam or else
 
----@param ignores? table | nil key string is the ignored value
+---@param ignores? table key string is the ignored value
 function IsInActionWithErrorMessage(ignores)
     if ignores then DebugPrint(ignores) end
     DebugPrint('IsProne', IsProne)
     DebugPrint('IsUsingNewscam', IsUsingNewscam)
     DebugPrint('IsUsingBinoculars', IsUsingBinoculars)
-    if (ignores == nil) then ignores = {} end
+    if ignores == nil then ignores = {} end
 
-    if not ignores['IsProne'] and IsProne then
+    if not ignores.IsProne and IsProne then
         EmoteChatMessage(Translate('no_anim_crawling'))
         return true
     end
-    if not ignores['IsUsingNewscam'] and IsUsingNewscam then
+    if not ignores.IsUsingNewscam and IsUsingNewscam then
         -- TODO: use specific error message
         EmoteChatMessage(Translate('no_anim_right_now'))
         return true
     end
-    if not ignores['IsUsingBinoculars'] and IsUsingBinoculars then
+    if not ignores.IsUsingBinoculars and IsUsingBinoculars then
         -- TODO: use specific error message
         EmoteChatMessage(Translate('no_anim_right_now'))
         return true

@@ -187,11 +187,7 @@ end
 ---@param playerPed number
 ---@return boolean
 local function ShouldPlayerDiveToCrawl(playerPed)
-    if IsPedRunning(playerPed) or IsPedSprinting(playerPed) then
-        return true
-    end
-
-    return false
+    return IsPedRunning(playerPed) or IsPedSprinting(playerPed)
 end
 
 ---Stops the player from being prone
@@ -241,13 +237,13 @@ local function Crawl(playerPed, type, direction)
     TaskPlayAnim(playerPed, 'move_crawl', type..'_'..direction, 8.0, -8.0, -1, 2, 0.0, false, false, false)
 
     local time = {
-        ['onfront'] = {
-            ['fwd'] = 820,
-            ['bwd'] = 990
+        onfront = {
+            fwd = 820,
+            bwd = 990
         },
-        ['onback'] = {
-            ['fwd'] = 1200,
-            ['bwd'] = 1200
+        onback = {
+            fwd = 1200,
+            bwd = 1200
         }
     }
 
@@ -402,7 +398,7 @@ local function CrawlKeyPressed()
         return
     end
 
-    if IsInActionWithErrorMessage({['IsProne'] = true}) then
+    if IsInActionWithErrorMessage({IsProne = true}) then
         return
     end
 

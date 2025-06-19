@@ -32,7 +32,7 @@ if Config.BinocularsEnabled then
         if IsPedSittingInAnyVehicle(PlayerPedId()) then
             return
         end
-        if IsInActionWithErrorMessage({ ['IsUsingBinoculars'] = true }) then
+        if IsInActionWithErrorMessage({ IsUsingBinoculars = true }) then
             return
         end
         IsUsingBinoculars = not IsUsingBinoculars
