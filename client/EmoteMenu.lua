@@ -449,6 +449,7 @@ function OpenEmoteMenu()
     end
 end
 
+---@param emote EmoteData
 local function convertToEmoteData(emote)
     local arraySize = 0
     for i = 1, 4 do
@@ -474,6 +475,17 @@ local function convertToEmoteData(emote)
         end
 
         emote.label = emote[3]
+    end
+
+    local animOptions = emote.AnimationOptions
+    if animOptions and not animOptions.onFootFlag then
+        if animOptions.EmoteMoving then
+            animOptions.onFootFlag = AnimFlag.MOVING
+        elseif animOptions.EmoteLoop then
+            animOptions.onFootFlag = AnimFlag.LOOP
+        elseif animOptions.EmoteStuck then
+            animOptions.onFootFlag = AnimFlag.STUCK
+        end
     end
 end
 

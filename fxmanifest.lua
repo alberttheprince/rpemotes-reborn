@@ -33,6 +33,7 @@ server_scripts {
 }
 
 client_scripts {
+    'types.lua',
     'NativeUI.lua',
     'client/Utils.lua',
     'client/Bridge.lua',

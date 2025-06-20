@@ -1,4 +1,9 @@
----@meta
+---@enum AnimFlag
+AnimFlag = {
+    MOVING = 51,
+    LOOP = 1,
+    STUCK = 50,
+}
 
 ---@alias Dictionary string
 ---@alias AnimName string
@@ -13,9 +18,11 @@
 ---@field A number
 
 ---@class AnimationOptions
----@field EmoteMoving? boolean
----@field EmoteLoop? boolean
----@field EmoteStuck? boolean
+---@field EmoteMoving? boolean deprecated. Set onFootFlag instead
+---@field EmoteLoop? boolean deprecated. Set onFootFlag instead
+---@field EmoteStuck? boolean deprecated. Set onFootFlag instead
+---@field onFootFlag? AnimFlag anim flag to use when not in a vehicle
+---@field Flag? integer anim flag to use. If set, overrides onFootFlag.
 ---@field FullBody? boolean
 ---@field Attachto? boolean
 ---@field NotInVehicle? boolean
@@ -54,7 +61,6 @@
 ---@field ExitEmoteType? "Exits" deprecated. unused.
 ---@field BlendInSpeed? number
 ---@field BlendOutSpeed? number
----@field Flag? integer
 
 ---@class AnimationListConfig
 ---@field Expressions table<string, {[1]: AnimName, [2]: Label?}>
