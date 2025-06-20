@@ -210,123 +210,124 @@ if Config.Search then
             Wait(100)
         end
         local input = GetOnscreenKeyboardResult()
-        if input ~= nil then
-            local results = {}
-            for a, b in pairs(EmoteData) do
-                if not ignoredCategories[b.category] then
-                    if string.find(string.lower(a), string.lower(input)) or (b.label ~= nil and string.find(string.lower(b.label), string.lower(input))) then
-                        results[#results + 1] = { table = b.category, name = a, data = b }
-                    end
+        if not input then return end
+
+        local results = {}
+        for a, b in pairs(EmoteData) do
+            if not ignoredCategories[b.category] then
+                if string.find(string.lower(a), string.lower(input)) or (b.label ~= nil and string.find(string.lower(b.label), string.lower(input))) then
+                    results[#results + 1] = { table = b.category, name = a, data = b }
                 end
-            end
-
-            if #results > 0 then
-                isSearching = true
-
-                local searchMenu = _menuPool:AddSubMenu(lastMenu, string.format('%s '..Translate('searchmenudesc')..' ~r~%s~w~', #results, input), "", true, true)
-                local sharedDanceMenu
-
-                if Config.SharedEmotesEnabled then
-                    sharedDanceMenu = _menuPool:AddSubMenu(searchMenu, Translate('sharedanceemotes'), "", true, true)
-                end
-
-                table.sort(results, function(a, b) return a.name < b.name end)
-                for k, v in pairs(results) do
-                    local desc = ""
-                    if v.table == Category.SHARED then
-                        local otheremotename = v.data[4]
-                        if otheremotename == nil then
-                           desc = "/nearby (~g~" .. v.name .. "~w~)"
-                        else
-                           desc = "/nearby (~g~" .. v.name .. "~w~) " .. Translate('makenearby') .. " (~y~" .. otheremotename .. "~w~)"
-                        end
-                    else
-                        desc = "/e (" .. v.name .. ")"
-                    end
-
-                    if v.data.AnimationOptions and v.data.AnimationOptions.PropTextureVariations then
-                        searchMenu:AddItem(NativeUI.CreateListItem(v.data[3], v.data.AnimationOptions.PropTextureVariations, 1, desc))
-                    else
-                        searchMenu:AddItem(NativeUI.CreateItem(v.data[3], desc))
-                    end
-
-                    if v.table == Category.DANCES and Config.SharedEmotesEnabled then
-                        sharedDanceMenu:AddItem(NativeUI.CreateItem(v.data[3], ""))
-                    end
-                end
-
-                searchMenu.OnMenuChanged = function()
-                    isSearching = false
-                    ShowPedMenu()
-                end
-
-
-                searchMenu.OnIndexChange = function(_, newindex)
-                    local data = results[newindex]
-
-                    ClearPedTaskPreview()
-                    EmoteMenuStartClone(data.name, data.data.category)
-                end
-
-
-                searchMenu.OnItemSelect = function(_, _, index)
-                    local data = results[index]
-
-                    if data == Translate('sharedanceemotes') then return end
-
-                    if data.table == Category.SHARED then
-                        local target, distance = GetClosestPlayer()
-                        if (distance ~= -1 and distance < 3) then
-                            TriggerServerEvent("rpemotes:server:requestEmote", GetPlayerServerId(target), data.name)
-                            SimpleNotify(Translate('sentrequestto') .. GetPlayerName(target))
-                        else
-                            SimpleNotify(Translate('nobodyclose'))
-                        end
-                    else
-                        EmoteMenuStart(data.name, data.data.category)
-                    end
-                end
-
-                searchMenu.OnListSelect = function(_, item, itemIndex, listIndex)
-                    EmoteMenuStart(results[itemIndex].name, Category.PROP_EMOTES, item:IndexToItem(listIndex).Value)
-                end
-
-                if Config.SharedEmotesEnabled then
-                    if #sharedDanceMenu.Items > 0 then
-                        table.insert(results, 1, Translate('sharedanceemotes'))
-                        sharedDanceMenu.OnItemSelect = function(_, _, index)
-                            if not LocalPlayer.state.canEmote then return end
-
-                            local data = results[index]
-                            local target, distance = GetClosestPlayer()
-                            if (distance ~= -1 and distance < 3) then
-                                TriggerServerEvent("rpemotes:server:requestEmote", GetPlayerServerId(target), data.name, 'Dances')
-                                SimpleNotify(Translate('sentrequestto') .. GetPlayerName(target))
-                            else
-                                SimpleNotify(Translate('nobodyclose'))
-                            end
-                        end
-                    else
-                        sharedDanceMenu:Clear()
-                        searchMenu:RemoveItemAt(1)
-                    end
-                end
-
-                searchMenu.OnMenuClosed = function()
-                    searchMenu:Clear()
-                    lastMenu:RemoveItemAt(#lastMenu.Items)
-                    _menuPool:RefreshIndex()
-                    results = {}
-                end
-
-                _menuPool:RefreshIndex()
-                _menuPool:CloseAllMenus()
-                searchMenu:Visible(true)
-                ShowPedMenu()
-            else
-                SimpleNotify(string.format(Translate('searchnoresult')..' ~r~%s~w~', input))
             end
         end
+
+        if #results <= 0 then
+            SimpleNotify(string.format(Translate('searchnoresult')..' ~r~%s~w~', input))
+            return
+        end
+
+        isSearching = true
+
+        local searchMenu = _menuPool:AddSubMenu(lastMenu, string.format('%s '..Translate('searchmenudesc')..' ~r~%s~w~', #results, input), "", true, true)
+        local sharedDanceMenu
+
+        if Config.SharedEmotesEnabled then
+            sharedDanceMenu = _menuPool:AddSubMenu(searchMenu, Translate('sharedanceemotes'), "", true, true)
+        end
+
+        table.sort(results, function(a, b) return a.name < b.name end)
+        for k, v in pairs(results) do
+            local desc = ""
+            if v.table == Category.SHARED then
+                local otheremotename = v.data[4]
+                if otheremotename == nil then
+                    desc = "/nearby (~g~" .. v.name .. "~w~)"
+                else
+                    desc = "/nearby (~g~" .. v.name .. "~w~) " .. Translate('makenearby') .. " (~y~" .. otheremotename .. "~w~)"
+                end
+            else
+                desc = "/e (" .. v.name .. ")"
+            end
+
+            if v.data.AnimationOptions and v.data.AnimationOptions.PropTextureVariations then
+                searchMenu:AddItem(NativeUI.CreateListItem(v.data[3], v.data.AnimationOptions.PropTextureVariations, 1, desc))
+            else
+                searchMenu:AddItem(NativeUI.CreateItem(v.data[3], desc))
+            end
+
+            if v.table == Category.DANCES and Config.SharedEmotesEnabled then
+                sharedDanceMenu:AddItem(NativeUI.CreateItem(v.data[3], ""))
+            end
+        end
+
+        searchMenu.OnMenuChanged = function()
+            isSearching = false
+            ShowPedMenu()
+        end
+
+
+        searchMenu.OnIndexChange = function(_, newindex)
+            local data = results[newindex]
+
+            ClearPedTaskPreview()
+            EmoteMenuStartClone(data.name, data.data.category)
+        end
+
+
+        searchMenu.OnItemSelect = function(_, _, index)
+            local data = results[index]
+
+            if data == Translate('sharedanceemotes') then return end
+
+            if data.table == Category.SHARED then
+                local target, distance = GetClosestPlayer()
+                if (distance ~= -1 and distance < 3) then
+                    TriggerServerEvent("rpemotes:server:requestEmote", GetPlayerServerId(target), data.name)
+                    SimpleNotify(Translate('sentrequestto') .. GetPlayerName(target))
+                else
+                    SimpleNotify(Translate('nobodyclose'))
+                end
+            else
+                EmoteMenuStart(data.name, data.data.category)
+            end
+        end
+
+        searchMenu.OnListSelect = function(_, item, itemIndex, listIndex)
+            EmoteMenuStart(results[itemIndex].name, Category.PROP_EMOTES, item:IndexToItem(listIndex).Value)
+        end
+
+        if Config.SharedEmotesEnabled then
+            if #sharedDanceMenu.Items > 0 then
+                table.insert(results, 1, Translate('sharedanceemotes'))
+                sharedDanceMenu.OnItemSelect = function(_, _, index)
+                    if not LocalPlayer.state.canEmote then return end
+
+                    local data = results[index]
+                    local target, distance = GetClosestPlayer()
+                    if (distance ~= -1 and distance < 3) then
+                        TriggerServerEvent("rpemotes:server:requestEmote", GetPlayerServerId(target), data.name, 'Dances')
+                        SimpleNotify(Translate('sentrequestto') .. GetPlayerName(target))
+                    else
+                        SimpleNotify(Translate('nobodyclose'))
+                    end
+                end
+            else
+                sharedDanceMenu:Clear()
+                searchMenu:RemoveItemAt(1)
+            end
+        end
+
+        searchMenu.OnMenuClosed = function()
+            searchMenu:Clear()
+            lastMenu:RemoveItemAt(#lastMenu.Items)
+            _menuPool:RefreshIndex()
+            results = {}
+        end
+
+        _menuPool:RefreshIndex()
+        _menuPool:CloseAllMenus()
+        searchMenu:Visible(true)
+        ShowPedMenu()
     end
 end
 

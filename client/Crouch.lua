@@ -207,23 +207,22 @@ end
 
 ---@param forceEnd boolean
 local function PlayExitCrawlAnims(forceEnd)
-    if not forceEnd then
-        inAction = true
-        local playerPed = PlayerPedId()
-        local animDict, animName, waitTime
+    if forceEnd then return end
+    inAction = true
+    local playerPed = PlayerPedId()
+    local animDict, animName, waitTime
 
-        if proneType == 'onfront' then
-            animDict, animName, waitTime = 'get_up@directional@transition@prone_to_knees@crawl', 'front', 780
-        else
-            animDict, animName, waitTime = 'get_up@directional@transition@prone_to_seated@crawl', 'back', 950
-        end
+    if proneType == 'onfront' then
+        animDict, animName, waitTime = 'get_up@directional@transition@prone_to_knees@crawl', 'front', 780
+    else
+        animDict, animName, waitTime = 'get_up@directional@transition@prone_to_seated@crawl', 'back', 950
+    end
 
-        PlayAnimOnce(playerPed, animDict, animName, nil, nil, waitTime)
+    PlayAnimOnce(playerPed, animDict, animName, nil, nil, waitTime)
 
-        if not isCrouched then
-            Wait(waitTime)
-            PlayAnimOnce(playerPed, 'get_up@directional@movement@from_'..(proneType == 'onfront' and 'knees' or 'seated')..'@standard', 'getup_l_0', nil, nil, 1300)
-        end
+    if not isCrouched then
+        Wait(waitTime)
+        PlayAnimOnce(playerPed, 'get_up@directional@movement@from_'..(proneType == 'onfront' and 'knees' or 'seated')..'@standard', 'getup_l_0', nil, nil, 1300)
     end
 end
 

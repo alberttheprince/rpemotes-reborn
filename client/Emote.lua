@@ -264,68 +264,68 @@ function EmoteMenuStartClone(name, category)
 end
 
 function EmoteCommandStart(args)
-    if #args > 0 then
-        if IsEntityDead(PlayerPedId()) or IsPedRagdoll(PlayerPedId()) or IsPedGettingUp(PlayerPedId()) or IsPedInMeleeCombat(PlayerPedId()) then
-            TriggerEvent('chat:addMessage', {
-                color = { 255, 0, 0 },
-                multiline = true,
-                args = { "RPEmotes", Translate('dead') }
-            })
-            return
-        end
-        if (IsPedSwimming(PlayerPedId()) or IsPedSwimmingUnderWater(PlayerPedId())) and not Config.AllowInWater then
-            TriggerEvent('chat:addMessage', {
-                color = { 255, 0, 0 },
-                multiline = true,
-                args = { "RPEmotes", Translate('swimming') }
-            })
-            return
-        end
-        local name = string.lower(args[1])
-        if name == "c" then
-            if IsInAnimation then
-                EmoteCancel()
-            else
-                EmoteChatMessage(Translate('nocancel'))
-            end
-            return
-        end
-
-        local emote = EmoteData[name]
-        if emote then
-            if emote.category == Category.ANIMAL_EMOTES then
-                if Config.AnimalEmotesEnabled then
-                    CheckAnimalAndOnEmotePlay(name)
-                else
-                    EmoteChatMessage(Translate('animaldisabled'))
-                end
-                return
-            end
-
-            if emote.category == Category.PROP_EMOTES and emote.AnimationOptions.PropTextureVariations then
-                if #args > 1 then
-                    local textureVariation = tonumber(args[2])
-                    if emote.AnimationOptions.PropTextureVariations[textureVariation] then
-                        OnEmotePlay(name, textureVariation - 1)
-                        return
-                    else
-                        local str = ""
-                        for k, v in ipairs(emote.AnimationOptions.PropTextureVariations) do
-                            str = str .. string.format("\n(%s) - %s", k, v.Name)
-                        end
-
-                        EmoteChatMessage(string.format(Translate('invalidvariation'), str), true)
-                        OnEmotePlay(name, 0)
-                        return
-                    end
-                end
-            end
-
-            OnEmotePlay(name)
+    if #args <= 0 then return end
+    if IsEntityDead(PlayerPedId()) or IsPedRagdoll(PlayerPedId()) or IsPedGettingUp(PlayerPedId()) or IsPedInMeleeCombat(PlayerPedId()) then
+        TriggerEvent('chat:addMessage', {
+            color = { 255, 0, 0 },
+            multiline = true,
+            args = { "RPEmotes", Translate('dead') }
+        })
+        return
+    end
+    if (IsPedSwimming(PlayerPedId()) or IsPedSwimmingUnderWater(PlayerPedId())) and not Config.AllowInWater then
+        TriggerEvent('chat:addMessage', {
+            color = { 255, 0, 0 },
+            multiline = true,
+            args = { "RPEmotes", Translate('swimming') }
+        })
+        return
+    end
+    local name = string.lower(args[1])
+    if name == "c" then
+        if IsInAnimation then
+            EmoteCancel()
         else
-            EmoteChatMessage("'" .. name .. "' " .. Translate('notvalidemote') .. "")
+            EmoteChatMessage(Translate('nocancel'))
+        end
+        return
+    end
+
+    local emote = EmoteData[name]
+    if not emote then
+        EmoteChatMessage("'" .. name .. "' " .. Translate('notvalidemote') .. "")
+        return
+    end
+
+    if emote.category == Category.ANIMAL_EMOTES then
+        if Config.AnimalEmotesEnabled then
+            CheckAnimalAndOnEmotePlay(name)
+        else
+            EmoteChatMessage(Translate('animaldisabled'))
+        end
+        return
+    end
+
+    if emote.category == Category.PROP_EMOTES
+        and emote.AnimationOptions.PropTextureVariations
+    then
+        local textureVariation = tonumber(args[2])
+        if emote.AnimationOptions.PropTextureVariations[textureVariation] then
+            OnEmotePlay(name, textureVariation - 1)
+            return
+        else
+            local str = ""
+            for k, v in ipairs(emote.AnimationOptions.PropTextureVariations) do
+                str = str .. string.format("\n(%s) - %s", k, v.Name)
+            end
+
+            EmoteChatMessage(string.format(Translate('invalidvariation'), str), true)
+            OnEmotePlay(name, 0)
+            return
         end
     end
+
+    OnEmotePlay(name)
 end
 
 function CheckAnimalAndOnEmotePlay(name)
@@ -694,35 +694,33 @@ function OnEmotePlayClone(name)
     TaskPlayAnim(ClonedPed, emoteData.dict, emoteData.anim, 5.0, 5.0, animOption and animOption.EmoteDuration or -1, flag, 0, false, false, false)
     RemoveAnimDict(emoteData.dict)
 
-    if animOption and animOption.Prop then
-        local PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6 = table.unpack(animOption.PropPlacement)
+    if not animOption or not animOption.Prop then return end
+    local PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6 = table.unpack(animOption.PropPlacement)
 
-        Wait(animOption and animOption.EmoteDuration or 0)
+    Wait(animOption and animOption.EmoteDuration or 0)
 
-        if not AddProp({
-            prop1 = animOption.Prop,
-            bone = animOption.PropBone,
-            off1 = PropPl1, off2 = PropPl2, off3 = PropPl3,
-            rot1 = PropPl4, rot2 = PropPl5, rot3 = PropPl6,
-            isClone = true,
-            noCollision = animOption.PropNoCollision
-        }) then return end
+    if not AddProp({
+        prop1 = animOption.Prop,
+        bone = animOption.PropBone,
+        off1 = PropPl1, off2 = PropPl2, off3 = PropPl3,
+        rot1 = PropPl4, rot2 = PropPl5, rot3 = PropPl6,
+        isClone = true,
+        noCollision = animOption.PropNoCollision
+    }) then return end
 
-        if animOption.SecondProp then
-            local SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6 = table.unpack(animOption.SecondPropPlacement)
+    if not animOption.SecondProp then return end
+    local SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6 = table.unpack(animOption.SecondPropPlacement)
 
-            if not AddProp({
-                prop1 = animOption.SecondProp,
-                bone = animOption.SecondPropBone,
-                off1 = SecondPropPl1, off2 = SecondPropPl2, off3 = SecondPropPl3,
-                rot1 = SecondPropPl4, rot2 = SecondPropPl5, rot3 = SecondPropPl6,
-                isClone = true,
-                noCollision = animOption.SecondPropNoCollision
-            }) then
-                DestroyAllProps(true)
-                return
-            end
-        end
+    if not AddProp({
+        prop1 = animOption.SecondProp,
+        bone = animOption.SecondPropBone,
+        off1 = SecondPropPl1, off2 = SecondPropPl2, off3 = SecondPropPl3,
+        rot1 = SecondPropPl4, rot2 = SecondPropPl5, rot3 = SecondPropPl6,
+        isClone = true,
+        noCollision = animOption.SecondPropNoCollision
+    }) then
+        DestroyAllProps(true)
+        return
     end
 end
 
