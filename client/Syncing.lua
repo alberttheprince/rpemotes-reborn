@@ -39,39 +39,43 @@ RegisterNetEvent("rpemotes:client:syncEmote", function(emote, player)
         return EmoteChatMessage(Translate('not_in_a_vehicle'))
     end
 
-    if EmoteData[emote] then
-        local options = EmoteData[emote].AnimationOptions
-        if options and options.Attachto then
-            local targetEmote = EmoteData[emote].secondPlayersAnim
-            if not targetEmote or not EmoteData[targetEmote] or not EmoteData[targetEmote].AnimationOptions or not EmoteData[targetEmote].AnimationOptions.Attachto then
-                local ped = PlayerPedId()
-                local pedInFront = GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer())
-
-                AttachEntityToEntity(
-                    ped,
-                    pedInFront,
-                    GetPedBoneIndex(pedInFront, options.bone or -1),
-                    options.xPos or 0.0,
-                    options.yPos or 0.0,
-                    options.zPos or 0.0,
-                    options.xRot or 0.0,
-                    options.yRot or 0.0,
-                    options.zRot or 0.0,
-                    false,
-                    false,
-                    false,
-                    true,
-                    1,
-                    true
-                )
-            end
-        end
-
-        OnEmotePlay(emote)
-        return
-    else
+    if not EmoteData[emote] then
         DebugPrint("rpemotes:client:syncEmote : Emote not found")
+        return
     end
+
+    local options = EmoteData[emote].AnimationOptions
+    if options and options.Attachto then
+        local targetEmote = EmoteData[emote].secondPlayersAnim
+        if not targetEmote
+            or not EmoteData[targetEmote]
+            or not EmoteData[targetEmote].AnimationOptions
+            or not EmoteData[targetEmote].AnimationOptions.Attachto
+        then
+            local ped = PlayerPedId()
+            local pedInFront = GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer())
+
+            AttachEntityToEntity(
+                ped,
+                pedInFront,
+                GetPedBoneIndex(pedInFront, options.bone or -1),
+                options.xPos or 0.0,
+                options.yPos or 0.0,
+                options.zPos or 0.0,
+                options.xRot or 0.0,
+                options.yRot or 0.0,
+                options.zRot or 0.0,
+                false,
+                false,
+                false,
+                true,
+                1,
+                true
+            )
+        end
+    end
+
+    OnEmotePlay(emote)
 end)
 
 RegisterNetEvent("rpemotes:client:syncEmoteSource", function(emote, player)
