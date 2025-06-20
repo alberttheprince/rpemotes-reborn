@@ -5167,200 +5167,200 @@ RP.Emotes = {
     ------ THESE ARE SCENARIOS, SOME OF THESE DON'T WORK ON WOMEN AND SOME OTHER ISSUES, BUT STILL GOOD TO HAVE    ------
     -----------------------------------------------------------------------------------------------------------
     ["atm"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "PROP_HUMAN_ATM",
         "ATM"
     },
     ["bbq"] = {
-        "MaleScenario",
+        ScenarioType.MALE,
         "PROP_HUMAN_BBQ",
         "BBQ"
     },
     ["bumbin"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "PROP_HUMAN_BUM_BIN",
         "Bum Bin"
     },
     ["cheer"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_CHEERING",
         "Cheer"
     },
     ["chinup"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "PROP_HUMAN_MUSCLE_CHIN_UPS",
         "Chinup"
     },
     ["clipboard2"] = {
-        "MaleScenario",
+        ScenarioType.MALE,
         "WORLD_HUMAN_CLIPBOARD",
         "Clipboard 2"
     },
     ["cop"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_COP_IDLES",
         "Cop"
     },
     ["drill"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_CONST_DRILL",
         "Construction Drilling"
     },
     ["filmshocking"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_MOBILE_FILM_SHOCKING",
         "Film Shocking"
     },
     ["flex"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_MUSCLE_FLEX",
         "Flex"
     },
      ["guard"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_GUARD_STAND",
         "Guard"
     },
     ["garden"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_GARDENER_PLANT",
         "Gardening"
     },
     ["hammer"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_HAMMERING",
         "Hammer"
     },
     ["hangout"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_HANG_OUT_STREET",
         "Hangout"
     },
     ["impatient"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_STAND_IMPATIENT",
         "Impatient"
     },
     ["janitor"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_JANITOR",
         "Janitor"
     },
     ["jog"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_JOG_STANDING",
         "Jog"
     },
     ["kneel"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "CODE_HUMAN_MEDIC_KNEEL",
         "Kneel"
     },
     ["lean"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_LEANING",
         "Lean"
     },
     ["leanbar"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "PROP_HUMAN_BUM_SHOPPING_CART",
         "Lean Bar"
     },
     ["lookout"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "CODE_HUMAN_CROSS_ROAD_WAIT",
         "Lookout"
     },
     ["maid"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_MAID_CLEAN",
         "Maid"
     },
     ["medic"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "CODE_HUMAN_MEDIC_TEND_TO_DEAD",
         "Medic"
     },
     ["musician"] = {
-        "MaleScenario",
+        ScenarioType.MALE,
         "WORLD_HUMAN_MUSICIAN",
         "Musician"
     },
     -- Ambient Music Doesn't Seem To Work For Female, Hence It's Male Only
     ["notepad2"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "CODE_HUMAN_MEDIC_TIME_OF_DEATH",
         "Notepad 2"
     },
     ["parkingmeter"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "PROP_HUMAN_PARKING_METER",
         "Parking Meter"
     },
     ["party"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_PARTYING",
         "Party"
     },
     ["texting"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_STAND_MOBILE",
         "Texting"
     },
     ["prosthigh"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_PROSTITUTE_HIGH_CLASS",
         "Prostitue High"
     },
     ["prostlow"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_PROSTITUTE_LOW_CLASS",
         "Prostitue Low"
     },
     ["puddle"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_BUM_WASH",
         "Puddle"
     },
     ["record"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_MOBILE_FILM_SHOCKING",
         "Record"
     },
     ["smoke"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_SMOKING",
         "Smoke"
     },
     ["smokeweed"] = {
-        "MaleScenario",
+        ScenarioType.MALE,
         "WORLD_HUMAN_DRUG_DEALER",
         "Smoke Weed (Male)"
     },
     -- Female
     ["smokeweed2"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_SMOKING_POT",
         "Smoke Weed (Female)"
     },
     -- Female
     ["statue"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_HUMAN_STATUE",
         "Statue"
     },
     ["weld"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_WELDING",
         "Weld"
     },
     ["windowshop"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_WINDOW_SHOP_BROWSE",
         "Window Shop"
     },
     ["yoga"] = {
-        "Scenario",
+        ScenarioType.SCENARIO,
         "WORLD_HUMAN_YOGA",
         "Yoga"
     },

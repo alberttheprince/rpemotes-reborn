@@ -149,7 +149,7 @@ end
 function NearbysOnCommand(source, args, raw)
     local NearbysCommand = ""
     for a, b in PairsByKeys(EmoteData) do
-        if type(b) == "table" and b.category == "Shared" then
+        if type(b) == "table" and b.category == Category.SHARED then
             NearbysCommand = NearbysCommand .. a .. ", "
         end
     end

@@ -11,7 +11,7 @@ function WalkMenuStart(name, force)
         ResetWalk()
         return
     end
-    if not EmoteData[name] or type(EmoteData[name]) ~= "table" or EmoteData[name].category ~= "Walks" then
+    if not EmoteData[name] or type(EmoteData[name]) ~= "table" or EmoteData[name].category ~= Category.WALKS then
         EmoteChatMessage("'" .. tostring(name) .. "' is not a valid walk")
         return
     end
@@ -36,7 +36,7 @@ end
 function WalksOnCommand()
     local WalksCommand = ""
     for name, data in PairsByKeys(EmoteData) do
-        if type(data) == "table" and data.category == "Walks" then
+        if type(data) == "table" and data.category == Category.WALKS then
             WalksCommand = WalksCommand .. string.lower(name) .. ", "
         end
     end
@@ -70,7 +70,7 @@ if Config.WalkingStylesEnabled and Config.PersistentWalk then
         end
 
         local walkstyle = EmoteData[kvp]
-        return walkstyle and type(walkstyle) == "table" and walkstyle.category == "Walks"
+        return walkstyle and type(walkstyle) == "table" and walkstyle.category == Category.WALKS
     end
 
     local function handleWalkstyle()

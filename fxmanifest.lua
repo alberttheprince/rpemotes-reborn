@@ -21,6 +21,7 @@ files {
 data_file 'CONDITIONAL_ANIMS_FILE' 'conditionalanims.meta'
 
 shared_scripts {
+    'types.lua',
     'config.lua',
     'locale.lua',
     'locales/*.lua',
@@ -33,7 +34,6 @@ server_scripts {
 }
 
 client_scripts {
-    'types.lua',
     'NativeUI.lua',
     'client/Utils.lua',
     'client/Bridge.lua',

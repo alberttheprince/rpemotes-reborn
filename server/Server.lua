@@ -108,7 +108,7 @@ local function ExtractEmoteProps(format)
     if not success then return nil end
 
     if format == 4 then
-        local emoteTypes = { "Shared", "Dances", "AnimalEmotes", "Emotes", "PropEmotes", "Expressions", "Walks" }
+        local emoteTypes = { Category.SHARED, Category.DANCES, Category.ANIMAL_EMOTES, Category.EMOTES, Category.PROP_EMOTES, Category.EXPRESSIONS, Category.WALKS }
         local expressionAndWalkCount = 0
         local otherEmotesCount = 0
 
@@ -117,7 +117,7 @@ local function ExtractEmoteProps(format)
             for _ in pairs(res[emoteType]) do
                 count = count + 1
             end
-            if emoteType == "Expressions" or emoteType == "Walks" then
+            if emoteType == Category.EXPRESSIONS or emoteType == Category.WALKS then
                 expressionAndWalkCount = expressionAndWalkCount + count
             else
                 otherEmotesCount = otherEmotesCount + count
