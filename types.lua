@@ -5,11 +5,29 @@ AnimFlag = {
     STUCK = 50,
 }
 
+---@enum ScenarioType
+ScenarioType = {
+    MALE = 'MaleScenario',
+    SCENARIO = 'Scenario',
+    OBJECT = 'ScenarioObject',
+}
+
+---@enum Category
+Category = {
+    EXPRESSIONS = 'Expressions',
+    WALKS = 'Walks',
+    SHARED = 'Shared',
+    DANCES = 'Dances',
+    ANIMAL_EMOTES = 'AnimalEmotes',
+    EXITS = 'Exits',
+    EMOTES = 'Emotes',
+    PROP_EMOTES = 'PropEmotes',
+}
+
 ---@alias Dictionary string
 ---@alias AnimName string
 ---@alias ScenarioName string
 ---@alias Label string
----@alias ScenarioType 'MaleScenario' | 'Scenario' | 'ScenarioObject'
 
 ---@class Color
 ---@field R number
@@ -69,7 +87,7 @@ AnimFlag = {
 ---@field Dances table<string, {[1]: Dictionary, [2]: AnimName, [3]: Label, AnimationOptions?: AnimationOptions}>
 ---@field AnimalEmotes table<string, {[1]: Dictionary, [2]: AnimName, [3]: Label, AnimationOptions?: AnimationOptions, AdultAnimation?: boolean, AnimalEmote?: boolean}>
 ---@field Exits table<string, {[1]: Dictionary, [2]: AnimName, [3]: Label, AnimationOptions?: AnimationOptions}>
----@field Emotes table<string, {[1]: Dictionary | 'MaleScenario' | 'Scenario', [2]: AnimName | ScenarioName, [3]: Label, AnimationOptions?: AnimationOptions, AdultAnimation?: boolean}>
+---@field Emotes table<string, {[1]: Dictionary | ScenarioType, [2]: AnimName | ScenarioName, [3]: Label, AnimationOptions?: AnimationOptions, AdultAnimation?: boolean}>
 ---@field PropEmotes table<string, {[1]: Dictionary, [2]: AnimName, [3]: Label, AnimationOptions?: AnimationOptions}>
 
 ---@class EmoteData
@@ -86,4 +104,4 @@ AnimFlag = {
 ---@field AnimationOptions? AnimationOptions
 ---@field AnimalEmote? boolean
 ---@field AdultAnimation? boolean
----@field category 'Expressions' | 'Walks' | 'Shared' | 'Dances' | 'AnimalEmotes' | 'Exits' | 'Emotes' | 'PropEmotes'
+---@field category Category

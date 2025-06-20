@@ -117,18 +117,18 @@ function AddEmoteMenu(menu)
 
     dancemenu.OnIndexChange = function(_, newindex)
         ClearPedTaskPreview()
-        EmoteMenuStartClone(DanceTable[newindex], "Dances")
+        EmoteMenuStartClone(DanceTable[newindex], Category.DANCES)
     end
 
     propmenu.OnIndexChange = function(_, newindex)
         ClearPedTaskPreview()
-        EmoteMenuStartClone(PropTable[newindex], "PropEmotes")
+        EmoteMenuStartClone(PropTable[newindex], Category.PROP_EMOTES)
     end
 
     submenu.OnIndexChange = function(_, newindex)
         if newindex > 5 then
             ClearPedTaskPreview()
-            EmoteMenuStartClone(EmoteTable[newindex], "Emotes")
+            EmoteMenuStartClone(EmoteTable[newindex], Category.EMOTES)
         end
     end
 
@@ -137,12 +137,12 @@ function AddEmoteMenu(menu)
     end
 
     dancemenu.OnItemSelect = function(_, _, index)
-        EmoteMenuStart(DanceTable[index], "Dances")
+        EmoteMenuStart(DanceTable[index], Category.DANCES)
     end
 
     if Config.AnimalEmotesEnabled then
         animalmenu.OnItemSelect = function(_, _, index)
-            EmoteMenuStart(AnimalTable[index], "AnimalEmotes")
+            EmoteMenuStart(AnimalTable[index], Category.ANIMAL_EMOTES)
         end
     end
 
@@ -171,18 +171,18 @@ function AddEmoteMenu(menu)
     end
 
     propmenu.OnItemSelect = function(_, _, index)
-        EmoteMenuStart(PropTable[index], "PropEmotes")
+        EmoteMenuStart(PropTable[index], Category.PROP_EMOTES)
     end
 
    propmenu.OnListSelect = function(_, item, itemIndex, listIndex)
-        EmoteMenuStart(PropTable[itemIndex], "PropEmotes", item:IndexToItem(listIndex).Value)
+        EmoteMenuStart(PropTable[itemIndex], Category.PROP_EMOTES, item:IndexToItem(listIndex).Value)
     end
 
     submenu.OnItemSelect = function(_, _, index)
         if Config.Search and EmoteTable[index] == Translate('searchemotes') then
             EmoteMenuSearch(submenu)
         else
-            EmoteMenuStart(EmoteTable[index], "Emotes")
+            EmoteMenuStart(EmoteTable[index], Category.EMOTES)
         end
     end
 
@@ -196,9 +196,9 @@ end
 
 if Config.Search then
     local ignoredCategories = {
-        ["Walks"] = true,
-        ["Expressions"] = true,
-        ["Shared"] = not Config.SharedEmotesEnabled
+        [Category.WALKS] = true,
+        [Category.EXPRESSIONS] = true,
+        [Category.SHARED] = not Config.SharedEmotesEnabled
     }
 
     function EmoteMenuSearch(lastMenu)
@@ -233,7 +233,7 @@ if Config.Search then
                 table.sort(results, function(a, b) return a.name < b.name end)
                 for k, v in pairs(results) do
                     local desc = ""
-                    if v.table == "Shared" then
+                    if v.table == Category.SHARED then
                         local otheremotename = v.data[4]
                         if otheremotename == nil then
                            desc = "/nearby (~g~" .. v.name .. "~w~)"
@@ -250,7 +250,7 @@ if Config.Search then
                         searchMenu:AddItem(NativeUI.CreateItem(v.data[3], desc))
                     end
 
-                    if v.table == "Dances" and Config.SharedEmotesEnabled then
+                    if v.table == Category.DANCES and Config.SharedEmotesEnabled then
                         sharedDanceMenu:AddItem(NativeUI.CreateItem(v.data[3], ""))
                     end
                 end
@@ -274,7 +274,7 @@ if Config.Search then
 
                     if data == Translate('sharedanceemotes') then return end
 
-                    if data.table == "Shared" then
+                    if data.table == Category.SHARED then
                         local target, distance = GetClosestPlayer()
                         if (distance ~= -1 and distance < 3) then
                             TriggerServerEvent("rpemotes:server:requestEmote", GetPlayerServerId(target), data.name)
@@ -288,7 +288,7 @@ if Config.Search then
                 end
 
                 searchMenu.OnListSelect = function(_, item, itemIndex, listIndex)
-                    EmoteMenuStart(results[itemIndex].name, "PropEmotes", item:IndexToItem(listIndex).Value)
+                    EmoteMenuStart(results[itemIndex].name, Category.PROP_EMOTES, item:IndexToItem(listIndex).Value)
                 end
 
                 if Config.SharedEmotesEnabled then
@@ -396,15 +396,15 @@ function AddFaceMenu(menu)
 
 
     submenu.OnIndexChange = function(_, newindex)
-        EmoteMenuStartClone(FaceTable[newindex], "Expressions")
+        EmoteMenuStartClone(FaceTable[newindex], Category.EXPRESSIONS)
     end
 
     submenu.OnItemSelect = function(_, item, index)
         if item == facereset then
-            DeleteResourceKvp("Expressions")
+            DeleteResourceKvp(Category.EXPRESSIONS)
             ClearFacialIdleAnimOverride(PlayerPedId())
         else
-            EmoteMenuStart(FaceTable[index], "Expressions")
+            EmoteMenuStart(FaceTable[index], Category.EXPRESSIONS)
         end
     end
 
@@ -465,7 +465,7 @@ local function convertToEmoteData(emote)
         emote.label = emote[2]
     elseif arraySize >= 3 then
         local type = emote[1]
-        if type == 'MaleScenario' or type == 'Scenario' or type == 'ScenarioObject' then
+        if type == ScenarioType.MALE or type == ScenarioType.SCENARIO or type == ScenarioType.OBJECT then
             emote.scenario = emote[2]
             emote.scenarioType = type
         else

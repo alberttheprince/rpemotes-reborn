@@ -5,6 +5,7 @@ CurrentTextureVariation = nil
 InHandsup = false
 CONVERTED = false
 
+---@type ScenarioType
 local ChosenScenarioType
 local CurrentAnimOptions
 local PlayerGender = "male"
@@ -160,7 +161,7 @@ function EmoteCancel(force)
 
     if not CanCancel and not force then return end
 
-    if (ChosenScenarioType == "MaleScenario" or ChosenScenarioType == "Scenario") and IsInAnimation then
+    if (ChosenScenarioType == ScenarioType.MALE or ChosenScenarioType == ScenarioType.SCENARIO) and IsInAnimation then
         ClearPedTasksImmediately(PlayerPedId())
         IsInAnimation = false
         DebugPrint("Forced scenario exit")
@@ -226,12 +227,12 @@ function EmoteMenuStart(name, category, textureVariation)
         return
     end
 
-    if category == "Expressions" then
+    if category == Category.EXPRESSIONS then
         SetPlayerPedExpression(name, true)
         return
     end
 
-    if emote.category == "AnimalEmotes" then
+    if emote.category == Category.ANIMAL_EMOTES then
         CheckAnimalAndOnEmotePlay(name)
         return
     end
@@ -254,7 +255,7 @@ function EmoteMenuStartClone(name, category)
         return
     end
 
-    if category == "Expressions" then
+    if category == Category.EXPRESSIONS then
         SetFacialIdleAnimOverride(ClonedPed, emote[1], true)
         return
     end
@@ -292,7 +293,7 @@ function EmoteCommandStart(args)
 
         local emote = EmoteData[name]
         if emote then
-            if emote.category == "AnimalEmotes" then
+            if emote.category == Category.ANIMAL_EMOTES then
                 if Config.AnimalEmotesEnabled then
                     CheckAnimalAndOnEmotePlay(name)
                 else
@@ -301,7 +302,7 @@ function EmoteCommandStart(args)
                 return
             end
 
-            if emote.category == "PropEmotes" and emote.AnimationOptions.PropTextureVariations then
+            if emote.category == Category.PROP_EMOTES and emote.AnimationOptions.PropTextureVariations then
                 if #args > 1 then
                     local textureVariation = tonumber(args[2])
                     if emote.AnimationOptions.PropTextureVariations[textureVariation] then
@@ -513,7 +514,7 @@ function OnEmotePlay(name, textureVariation)
         CheckGender()
         ClearPedTasks(PlayerPedId())
         DestroyAllProps()
-        if emoteData.scenarioType == "MaleScenario" then
+        if emoteData.scenarioType == ScenarioType.MALE then
             if PlayerGender == "male" then
                 TaskStartScenarioInPlace(PlayerPedId(), emoteData.scenario, 0, true)
                 DebugPrint("Playing scenario = (" .. emoteData.scenario .. ")")
@@ -522,7 +523,7 @@ function OnEmotePlay(name, textureVariation)
                 EmoteChatMessage(Translate('maleonly'))
                 return
             end
-        elseif emoteData.scenarioType == "ScenarioObject" then
+        elseif emoteData.scenarioType == ScenarioType.OBJECT then
             local BehindPlayer = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, -0.5, -0.5)
             TaskStartScenarioAtPosition(PlayerPedId(), emoteData.scenario, BehindPlayer.x, BehindPlayer.y, BehindPlayer.z, GetEntityHeading(PlayerPedId()), 0, true, false)
             DebugPrint("Playing scenario = (" .. emoteData.scenario .. ")")
@@ -666,14 +667,14 @@ function OnEmotePlayClone(name)
         CheckGender()
         ClearPedTasks(ClonedPed)
         DestroyAllProps(true)
-        if emoteData.scenarioType == "MaleScenario" then
+        if emoteData.scenarioType == ScenarioType.MALE then
             if PlayerGender == "male" then
                 TaskStartScenarioInPlace(ClonedPed, emoteData.scenario, 0, true)
             end
-        elseif emoteData.scenarioType == "ScenarioObject" then
+        elseif emoteData.scenarioType == ScenarioType.OBJECT then
             local BehindPlayer = GetOffsetFromEntityInWorldCoords(ClonedPed, 0.0, -0.5, -0.5)
             TaskStartScenarioAtPosition(ClonedPed, emoteData.scenario, BehindPlayer.x, BehindPlayer.y, BehindPlayer.z, GetEntityHeading(ClonedPed), 0, true, false)
-        elseif emoteData.scenarioType == "Scenario" then
+        elseif emoteData.scenarioType == ScenarioType.SCENARIO then
             TaskStartScenarioInPlace(ClonedPed, emoteData.scenario, 0, true)
         end
         return
@@ -728,11 +729,11 @@ end
 function PlayExitAndEnterEmote(name, textureVariation)
     local ped = PlayerPedId()
     if not CanCancel then return end
-    if ChosenScenarioType == "MaleScenario" and IsInAnimation then
+    if ChosenScenarioType == ScenarioType.MALE and IsInAnimation then
         ClearPedTasksImmediately(ped)
         IsInAnimation = false
         DebugPrint("Forced scenario exit")
-    elseif ChosenScenarioType == "Scenario" and IsInAnimation then
+    elseif ChosenScenarioType == ScenarioType.SCENARIO and IsInAnimation then
         ClearPedTasksImmediately(ped)
         IsInAnimation = false
         DebugPrint("Forced scenario exit")
