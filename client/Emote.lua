@@ -71,7 +71,7 @@ CreateThread(function()
     LocalPlayer.state:set('canEmote', true, true)
 end)
 
-local function RunAnimationThread()
+local function runAnimationThread()
     local pPed = PlayerPedId()
     if AnimationThreadStatus then return end
     AnimationThreadStatus = true
@@ -115,7 +115,7 @@ local function RunAnimationThread()
     end)
 end
 
-local function CheckStatusThread(dict, anim)
+local function checkStatusThread(dict, anim)
     CreateThread(function()
         if CheckStatus then
             CheckStatus = false
@@ -151,6 +151,17 @@ local function cleanScenarioObjects(isClone)
     end
 end
 
+local function exitScenario()
+    if (ChosenScenarioType == ScenarioType.MALE
+        or ChosenScenarioType == ScenarioType.SCENARIO)
+        and IsInAnimation
+    then
+        ClearPedTasksImmediately(PlayerPedId())
+        IsInAnimation = false
+        DebugPrint("Forced scenario exit")
+    end
+end
+
 function EmoteCancel(force)
     LocalPlayer.state:set('currentEmote', nil, true)
     EmoteCancelPlaying = true
@@ -161,11 +172,7 @@ function EmoteCancel(force)
 
     if not CanCancel and not force then return end
 
-    if (ChosenScenarioType == ScenarioType.MALE or ChosenScenarioType == ScenarioType.SCENARIO) and IsInAnimation then
-        ClearPedTasksImmediately(PlayerPedId())
-        IsInAnimation = false
-        DebugPrint("Forced scenario exit")
-    end
+    exitScenario()
 
     PtfxNotif = false
     PtfxPrompt = false
@@ -215,120 +222,7 @@ function EmoteCancel(force)
     CheckStatus = false
 end
 
-function EmoteMenuStart(name, category, textureVariation)
-    local emote = EmoteData[name]
-
-    if not emote then
-        return
-    end
-
-    if emote.category ~= category then
-        DebugPrint("Emote category mismatch : " .. emote.category .. " vs " .. category)
-        return
-    end
-
-    if category == Category.EXPRESSIONS then
-        SetPlayerPedExpression(name, true)
-        return
-    end
-
-    if emote.category == Category.ANIMAL_EMOTES then
-        CheckAnimalAndOnEmotePlay(name)
-        return
-    end
-
-    OnEmotePlay(name, textureVariation)
-end
-
-function EmoteMenuStartClone(name, category)
-    if not Config.PreviewPed then return end
-    if not DoesEntityExist(ClonedPed) then return end
-
-    local emote = EmoteData[name]
-
-    if not emote then
-        return
-    end
-
-    if emote.category ~= category then
-        DebugPrint("Emote category mismatch : " .. emote.category .. " vs " .. category)
-        return
-    end
-
-    if category == Category.EXPRESSIONS then
-        SetFacialIdleAnimOverride(ClonedPed, emote[1], true)
-        return
-    end
-
-    OnEmotePlayClone(name)
-end
-
-function EmoteCommandStart(args)
-    if #args <= 0 then return end
-    if IsEntityDead(PlayerPedId()) or IsPedRagdoll(PlayerPedId()) or IsPedGettingUp(PlayerPedId()) or IsPedInMeleeCombat(PlayerPedId()) then
-        TriggerEvent('chat:addMessage', {
-            color = { 255, 0, 0 },
-            multiline = true,
-            args = { "RPEmotes", Translate('dead') }
-        })
-        return
-    end
-    if (IsPedSwimming(PlayerPedId()) or IsPedSwimmingUnderWater(PlayerPedId())) and not Config.AllowInWater then
-        TriggerEvent('chat:addMessage', {
-            color = { 255, 0, 0 },
-            multiline = true,
-            args = { "RPEmotes", Translate('swimming') }
-        })
-        return
-    end
-    local name = string.lower(args[1])
-    if name == "c" then
-        if IsInAnimation then
-            EmoteCancel()
-        else
-            EmoteChatMessage(Translate('nocancel'))
-        end
-        return
-    end
-
-    local emote = EmoteData[name]
-    if not emote then
-        EmoteChatMessage("'" .. name .. "' " .. Translate('notvalidemote') .. "")
-        return
-    end
-
-    if emote.category == Category.ANIMAL_EMOTES then
-        if Config.AnimalEmotesEnabled then
-            CheckAnimalAndOnEmotePlay(name)
-        else
-            EmoteChatMessage(Translate('animaldisabled'))
-        end
-        return
-    end
-
-    if emote.category == Category.PROP_EMOTES
-        and emote.AnimationOptions.PropTextureVariations
-    then
-        local textureVariation = tonumber(args[2])
-        if emote.AnimationOptions.PropTextureVariations[textureVariation] then
-            OnEmotePlay(name, textureVariation - 1)
-            return
-        else
-            local str = ""
-            for k, v in ipairs(emote.AnimationOptions.PropTextureVariations) do
-                str = str .. string.format("\n(%s) - %s", k, v.Name)
-            end
-
-            EmoteChatMessage(string.format(Translate('invalidvariation'), str), true)
-            OnEmotePlay(name, 0)
-            return
-        end
-    end
-
-    OnEmotePlay(name)
-end
-
-function CheckAnimalAndOnEmotePlay(name)
+local function checkAnimalAndOnEmotePlay(name)
     local playerPed = PlayerPedId()
     local isValidPet = false
 
@@ -355,25 +249,44 @@ function CheckAnimalAndOnEmotePlay(name)
     end
 end
 
----@param isClone? boolean
-function DestroyAllProps(isClone)
-    if isClone then
-        for _, v in pairs(PreviewPedProps) do
-            DeleteEntity(v)
-        end
-        PreviewPedProps = {}
-    else
-        for _, v in pairs(PlayerProps) do
-            DeleteEntity(v)
-        end
-        PlayerProps = {}
+function EmoteMenuStart(name, category, textureVariation)
+    local emote = EmoteData[name]
+
+    if not emote then
+        return
     end
-    DebugPrint("Destroyed Props for " .. (isClone and "clone" or "player"))
+
+    if emote.category ~= category then
+        DebugPrint("Emote category mismatch : " .. emote.category .. " vs " .. category)
+        return
+    end
+
+    if category == Category.EXPRESSIONS then
+        SetPlayerPedExpression(name, true)
+        return
+    end
+
+    if emote.category == Category.ANIMAL_EMOTES then
+        checkAnimalAndOnEmotePlay(name)
+        return
+    end
+
+    OnEmotePlay(name, textureVariation)
+end
+
+local function checkGender()
+    PlayerGender = "male"
+
+    if GetEntityModel(PlayerPedId()) == GetHashKey("mp_f_freemode_01") then
+        PlayerGender = "female"
+    end
+
+    DebugPrint("Set gender to " .. PlayerGender)
 end
 
 ---@param data table
 ---@return boolean
-function AddProp(data)
+local function addProp(data)
     assert(data.prop1, 'no prop1 passed')
     assert(data.bone, 'no bone passed')
     data.off1 = data.off1 or 0.0
@@ -418,226 +331,42 @@ function AddProp(data)
     return true
 end
 
-function CheckGender()
-    PlayerGender = "male"
+---@param animOption AnimationOptions
+---@param textureVariation? integer
+---@param isClone? boolean
+local function addProps(animOption, textureVariation, isClone)
+    PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6 = table.unpack(animOption.PropPlacement)
 
-    if GetEntityModel(PlayerPedId()) == GetHashKey("mp_f_freemode_01") then
-        PlayerGender = "female"
-    end
+    Wait(animOption and animOption.EmoteDuration or 0)
 
-    DebugPrint("Set gender to " .. PlayerGender)
-end
+    if not addProp({
+        prop1 = animOption.Prop,
+        bone = animOption.PropBone,
+        off1 = PropPl1, off2 = PropPl2, off3 = PropPl3,
+        rot1 = PropPl4, rot2 = PropPl5, rot3 = PropPl6,
+        textureVariation = textureVariation,
+        isClone = isClone,
+        noCollision = animOption.PropNoCollision
+    }) then return end
 
-RegisterNetEvent('animations:ToggleCanDoAnims', function(value)
-    LocalPlayer.state:set('canEmote', value, true)
-end)
-
-function OnEmotePlay(name, textureVariation)
-    local emoteData = EmoteData[name]
-    if not emoteData then
-        EmoteChatMessage("'" .. name .. "' " .. Translate('notvalidemote') .. "")
-        return
-    end
-
-    if not LocalPlayer.state.canEmote then return end
-
-    if not DoesEntityExist(PlayerPedId()) then
-        return false
-    end
-
-    cleanScenarioObjects(false)
-
-    InVehicle = IsPedInAnyVehicle(PlayerPedId(), true)
-    Pointing = false
-
-    if not Config.AllowEmoteInVehicle and InVehicle then
-        return
-    end
-
-    if Config.AdultEmotesDisabled and emoteData.AdultAnimation then
-        return EmoteChatMessage(Translate('adultemotedisabled'))
-    end
-
-    if InExitEmote then
-        return false
-    end
-
-    if Config.CancelPreviousEmote and IsInAnimation and not ExitAndPlay and not EmoteCancelPlaying then
-        ExitAndPlay = true
-        DebugPrint("Canceling previous emote and playing next emote")
-        PlayExitAndEnterEmote(name, textureVariation)
-        return
-    end
-
-
-    local animOption = emoteData.AnimationOptions
-    if animOption then
-        if InVehicle and animOption.NotInVehicle then
-            return EmoteChatMessage(Translate('not_in_a_vehicle'))
-        elseif not InVehicle and animOption.onlyInVehicle then
-            return EmoteChatMessage(Translate('in_a_vehicle'))
-        end
-    end
-
-    if CurrentAnimOptions
-        and CurrentAnimOptions.ExitEmote
-        and animOption
-        and animOption.ExitEmote
-        and CurrentAnimOptions.ExitEmote ~= animOption.ExitEmote
-        and EmoteData[CurrentAnimOptions.ExitEmote].anim ~= emoteData.anim
-    then
-        return
-    end
-
-    if IsInActionWithErrorMessage() then
-        return false
-    end
-
-    ChosenScenarioType = emoteData.scenarioType
-    CurrentAnimationName = name
-    LocalPlayer.state:set('currentEmote', name, true)
-    CurrentTextureVariation = textureVariation
-    CurrentAnimOptions = animOption
-
-    if Config.DisarmPlayerOnEmote then
-        if IsPedArmed(PlayerPedId(), 7) then
-            SetCurrentPedWeapon(PlayerPedId(), GetHashKey('WEAPON_UNARMED'), true)
-        end
-    end
-
-    if animOption and animOption.Prop then
-        DestroyAllProps()
-    end
-
-    if emoteData.scenario then
-        if InVehicle then return end
-        CheckGender()
-        ClearPedTasks(PlayerPedId())
-        DestroyAllProps()
-        if emoteData.scenarioType == ScenarioType.MALE then
-            if PlayerGender == "male" then
-                TaskStartScenarioInPlace(PlayerPedId(), emoteData.scenario, 0, true)
-                DebugPrint("Playing scenario = (" .. emoteData.scenario .. ")")
-            else
-                EmoteCancel()
-                EmoteChatMessage(Translate('maleonly'))
-                return
-            end
-        elseif emoteData.scenarioType == ScenarioType.OBJECT then
-            local BehindPlayer = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, -0.5, -0.5)
-            TaskStartScenarioAtPosition(PlayerPedId(), emoteData.scenario, BehindPlayer.x, BehindPlayer.y, BehindPlayer.z, GetEntityHeading(PlayerPedId()), 0, true, false)
-            DebugPrint("Playing scenario = (" .. emoteData.scenario .. ")")
-        else
-            TaskStartScenarioInPlace(PlayerPedId(), emoteData.scenario, 0, true)
-            DebugPrint("Playing scenario = (" .. emoteData.scenario .. ")")
-        end
-        IsInAnimation = true
-        RunAnimationThread()
-        return
-    end
-
-    -- Small delay at the start
-    if animOption and animOption.StartDelay then
-        Wait(animOption.StartDelay)
-    end
-
-    if not LoadAnim(emoteData.dict) then
-        EmoteChatMessage("'" .. name .. "' " .. Translate('notvalidemote') .. "")
-        return
-    end
-
-    local movementType = 0
-    if InVehicle then
-        if animOption and animOption.FullBody then
-            movementType = 35
-        else
-            movementType = 51
-        end
-    elseif animOption and animOption.onFootFlag then
-        movementType = animOption.onFootFlag
-    end
-
-    DebugPrint("Animation flag = (" .. movementType .. ")")
-
-    if animOption then
-        if animOption.PtfxAsset then
-            Ptfx1, Ptfx2, Ptfx3, Ptfx4, Ptfx5, Ptfx6, PtfxScale = table.unpack(animOption.PtfxPlacement)
-            PtfxNotif = false
-            PtfxPrompt = true
-            RunAnimationThread()
-            TriggerServerEvent("rpemotes:ptfx:sync", animOption.PtfxAsset, animOption.PtfxName, vector3(Ptfx1, Ptfx2, Ptfx3),
-                vector3(Ptfx4, Ptfx5, Ptfx6), animOption.PtfxBone, PtfxScale, animOption.PtfxColor)
-        else
-            PtfxPrompt = false
-        end
-    end
-
-    if IsPedUsingAnyScenario(PlayerPedId()) or IsPedActiveInScenario(PlayerPedId()) then
-        ClearPedTasksImmediately(PlayerPedId())
-    end
-
-    TaskPlayAnim(PlayerPedId(), emoteData.dict, emoteData.anim, animOption?.BlendInSpeed or 5.0, animOption?.BlendOutSpeed or 5.0, animOption?.EmoteDuration or -1, animOption?.Flag or movementType, 0, false, false,
-        false)
-    RemoveAnimDict(emoteData.dict)
-
-    IsInAnimation = true
-    RunAnimationThread()
-
-    if not (animOption and animOption.Prop) then
-        CheckStatusThread(emoteData.dict, emoteData.anim)
-    end
-
-    local currentEmoteTable = emoteData
-    for _, tabledata in pairs(EmoteData) do
-        for command, emotedata in pairs(tabledata) do
-            if emotedata == emoteData then
-                currentEmoteTable[#currentEmoteTable+1] = command
-                break
-            end
-        end
-    end
-    currentEmote = currentEmoteTable
-
-    if animOption and animOption.Prop then
-        PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6 = table.unpack(animOption.PropPlacement)
-
-        Wait(animOption and animOption.EmoteDuration or 0)
-
-        if not AddProp({
-            prop1 = animOption.Prop,
-            bone = animOption.PropBone,
-            off1 = PropPl1, off2 = PropPl2, off3 = PropPl3,
-            rot1 = PropPl4, rot2 = PropPl5, rot3 = PropPl6,
+    if animOption.SecondProp then
+        SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6 = table.unpack(animOption.SecondPropPlacement)
+        if not addProp({
+            prop1 = animOption.SecondProp,
+            bone = animOption.SecondPropBone,
+            off1 = SecondPropPl1, off2 = SecondPropPl2, off3 = SecondPropPl3,
+            rot1 = SecondPropPl4, rot2 = SecondPropPl5, rot3 = SecondPropPl6,
             textureVariation = textureVariation,
-            isClone = false,
-            noCollision = animOption.PropNoCollision
-        }) then return end
-
-        if animOption.SecondProp then
-            SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6 = table.unpack(animOption.SecondPropPlacement)
-            if not AddProp({
-                prop1 = animOption.SecondProp,
-                bone = animOption.SecondPropBone,
-                off1 = SecondPropPl1, off2 = SecondPropPl2, off3 = SecondPropPl3,
-                rot1 = SecondPropPl4, rot2 = SecondPropPl5, rot3 = SecondPropPl6,
-                textureVariation = textureVariation,
-                isClone = false,
-                noCollision = animOption.SecondPropNoCollision
-            }) then
-                DestroyAllProps()
-                return
-            end
-        end
-
-        -- Ptfx is on the prop, then we need to sync it
-        if not animOption then return end
-        if animOption.PtfxAsset and not animOption.PtfxNoProp then
-            TriggerServerEvent("rpemotes:ptfx:syncProp", ObjToNet(attachedProp))
+            isClone = isClone,
+            noCollision = animOption.SecondPropNoCollision
+        }) then
+            DestroyAllProps()
+            return
         end
     end
 end
 
-function OnEmotePlayClone(name)
+local function onEmotePlayClone(name)
     if not Config.PreviewPed then return end
 
     cleanScenarioObjects(true)
@@ -664,7 +393,7 @@ function OnEmotePlayClone(name)
     end
 
     if emoteData.scenario then
-        CheckGender()
+        checkGender()
         ClearPedTasks(ClonedPed)
         DestroyAllProps(true)
         if emoteData.scenarioType == ScenarioType.MALE then
@@ -695,47 +424,123 @@ function OnEmotePlayClone(name)
     RemoveAnimDict(emoteData.dict)
 
     if not animOption or not animOption.Prop then return end
-    local PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6 = table.unpack(animOption.PropPlacement)
-
-    Wait(animOption and animOption.EmoteDuration or 0)
-
-    if not AddProp({
-        prop1 = animOption.Prop,
-        bone = animOption.PropBone,
-        off1 = PropPl1, off2 = PropPl2, off3 = PropPl3,
-        rot1 = PropPl4, rot2 = PropPl5, rot3 = PropPl6,
-        isClone = true,
-        noCollision = animOption.PropNoCollision
-    }) then return end
-
-    if not animOption.SecondProp then return end
-    local SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6 = table.unpack(animOption.SecondPropPlacement)
-
-    if not AddProp({
-        prop1 = animOption.SecondProp,
-        bone = animOption.SecondPropBone,
-        off1 = SecondPropPl1, off2 = SecondPropPl2, off3 = SecondPropPl3,
-        rot1 = SecondPropPl4, rot2 = SecondPropPl5, rot3 = SecondPropPl6,
-        isClone = true,
-        noCollision = animOption.SecondPropNoCollision
-    }) then
-        DestroyAllProps(true)
-        return
-    end
+    addProps(animOption, nil, true)
 end
 
-function PlayExitAndEnterEmote(name, textureVariation)
+function EmoteMenuStartClone(name, category)
+    if not Config.PreviewPed then return end
+    if not DoesEntityExist(ClonedPed) then return end
+
+    local emote = EmoteData[name]
+
+    if not emote then
+        return
+    end
+
+    if emote.category ~= category then
+        DebugPrint("Emote category mismatch : " .. emote.category .. " vs " .. category)
+        return
+    end
+
+    if category == Category.EXPRESSIONS then
+        SetFacialIdleAnimOverride(ClonedPed, emote[1], true)
+        return
+    end
+
+    onEmotePlayClone(name)
+end
+
+function EmoteCommandStart(args)
+    if #args <= 0 then return end
+    if IsEntityDead(PlayerPedId()) or IsPedRagdoll(PlayerPedId()) or IsPedGettingUp(PlayerPedId()) or IsPedInMeleeCombat(PlayerPedId()) then
+        TriggerEvent('chat:addMessage', {
+            color = { 255, 0, 0 },
+            multiline = true,
+            args = { "RPEmotes", Translate('dead') }
+        })
+        return
+    end
+    if (IsPedSwimming(PlayerPedId()) or IsPedSwimmingUnderWater(PlayerPedId())) and not Config.AllowInWater then
+        TriggerEvent('chat:addMessage', {
+            color = { 255, 0, 0 },
+            multiline = true,
+            args = { "RPEmotes", Translate('swimming') }
+        })
+        return
+    end
+    local name = string.lower(args[1])
+    if name == "c" then
+        if IsInAnimation then
+            EmoteCancel()
+        else
+            EmoteChatMessage(Translate('nocancel'))
+        end
+        return
+    end
+
+    local emote = EmoteData[name]
+    if not emote then
+        EmoteChatMessage("'" .. name .. "' " .. Translate('notvalidemote') .. "")
+        return
+    end
+
+    if emote.category == Category.ANIMAL_EMOTES then
+        if Config.AnimalEmotesEnabled then
+            checkAnimalAndOnEmotePlay(name)
+        else
+            EmoteChatMessage(Translate('animaldisabled'))
+        end
+        return
+    end
+
+    if emote.category == Category.PROP_EMOTES
+        and emote.AnimationOptions.PropTextureVariations
+    then
+        local textureVariation = tonumber(args[2])
+        if emote.AnimationOptions.PropTextureVariations[textureVariation] then
+            OnEmotePlay(name, textureVariation - 1)
+            return
+        else
+            local str = ""
+            for k, v in ipairs(emote.AnimationOptions.PropTextureVariations) do
+                str = str .. string.format("\n(%s) - %s", k, v.Name)
+            end
+
+            EmoteChatMessage(string.format(Translate('invalidvariation'), str), true)
+            OnEmotePlay(name, 0)
+            return
+        end
+    end
+
+    OnEmotePlay(name)
+end
+
+---@param isClone? boolean
+function DestroyAllProps(isClone)
+    if isClone then
+        for _, v in pairs(PreviewPedProps) do
+            DeleteEntity(v)
+        end
+        PreviewPedProps = {}
+    else
+        for _, v in pairs(PlayerProps) do
+            DeleteEntity(v)
+        end
+        PlayerProps = {}
+    end
+    DebugPrint("Destroyed Props for " .. (isClone and "clone" or "player"))
+end
+
+RegisterNetEvent('animations:ToggleCanDoAnims', function(value)
+    LocalPlayer.state:set('canEmote', value, true)
+end)
+
+local function playExitAndEnterEmote(name, textureVariation)
+    ExitAndPlay = true
+    DebugPrint("Canceling previous emote and playing next emote")
     local ped = PlayerPedId()
     if not CanCancel then return end
-    if ChosenScenarioType == ScenarioType.MALE and IsInAnimation then
-        ClearPedTasksImmediately(ped)
-        IsInAnimation = false
-        DebugPrint("Forced scenario exit")
-    elseif ChosenScenarioType == ScenarioType.SCENARIO and IsInAnimation then
-        ClearPedTasksImmediately(ped)
-        IsInAnimation = false
-        DebugPrint("Forced scenario exit")
-    end
+    exitScenario()
 
     PtfxNotif = false
     PtfxPrompt = false
@@ -777,6 +582,186 @@ function PlayExitAndEnterEmote(name, textureVariation)
         ExitAndPlay = false
         DestroyAllProps(true)
         OnEmotePlay(name, CurrentTextureVariation)
+    end
+end
+
+local function playScenario(emoteData)
+    checkGender()
+    ClearPedTasks(PlayerPedId())
+    DestroyAllProps()
+    if emoteData.scenarioType == ScenarioType.MALE then
+        if PlayerGender == "male" then
+            TaskStartScenarioInPlace(PlayerPedId(), emoteData.scenario, 0, true)
+            DebugPrint("Playing scenario = (" .. emoteData.scenario .. ")")
+        else
+            EmoteCancel()
+            EmoteChatMessage(Translate('maleonly'))
+            return
+        end
+    elseif emoteData.scenarioType == ScenarioType.OBJECT then
+        local BehindPlayer = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, -0.5, -0.5)
+        TaskStartScenarioAtPosition(PlayerPedId(), emoteData.scenario, BehindPlayer.x, BehindPlayer.y, BehindPlayer.z, GetEntityHeading(PlayerPedId()), 0, true, false)
+        DebugPrint("Playing scenario = (" .. emoteData.scenario .. ")")
+    else
+        TaskStartScenarioInPlace(PlayerPedId(), emoteData.scenario, 0, true)
+        DebugPrint("Playing scenario = (" .. emoteData.scenario .. ")")
+    end
+    IsInAnimation = true
+    runAnimationThread()
+end
+
+function OnEmotePlay(name, textureVariation)
+    local emoteData = EmoteData[name]
+    if not emoteData then
+        EmoteChatMessage("'" .. name .. "' " .. Translate('notvalidemote') .. "")
+        return
+    end
+
+    if not LocalPlayer.state.canEmote then return end
+
+    if not DoesEntityExist(PlayerPedId()) then
+        return false
+    end
+
+    cleanScenarioObjects(false)
+
+    local inVehicle = IsPedInAnyVehicle(PlayerPedId(), true)
+    Pointing = false
+
+    if not Config.AllowEmoteInVehicle and inVehicle then
+        return
+    end
+
+    if Config.AdultEmotesDisabled and emoteData.AdultAnimation then
+        return EmoteChatMessage(Translate('adultemotedisabled'))
+    end
+
+    if InExitEmote then
+        return false
+    end
+
+    if Config.CancelPreviousEmote
+        and IsInAnimation
+        and not ExitAndPlay
+        and not EmoteCancelPlaying
+    then
+        playExitAndEnterEmote(name, textureVariation)
+        return
+    end
+
+    local animOption = emoteData.AnimationOptions
+    if animOption then
+        if inVehicle and animOption.NotInVehicle then
+            return EmoteChatMessage(Translate('not_in_a_vehicle'))
+        elseif not inVehicle and animOption.onlyInVehicle then
+            return EmoteChatMessage(Translate('in_a_vehicle'))
+        end
+    end
+
+    if CurrentAnimOptions
+        and CurrentAnimOptions.ExitEmote
+        and animOption
+        and animOption.ExitEmote
+        and CurrentAnimOptions.ExitEmote ~= animOption.ExitEmote
+        and EmoteData[CurrentAnimOptions.ExitEmote].anim ~= emoteData.anim
+    then
+        return
+    end
+
+    if IsInActionWithErrorMessage() then
+        return false
+    end
+
+    ChosenScenarioType = emoteData.scenarioType
+    CurrentAnimationName = name
+    LocalPlayer.state:set('currentEmote', name, true)
+    CurrentTextureVariation = textureVariation
+    CurrentAnimOptions = animOption
+
+    if Config.DisarmPlayerOnEmote then
+        if IsPedArmed(PlayerPedId(), 7) then
+            SetCurrentPedWeapon(PlayerPedId(), GetHashKey('WEAPON_UNARMED'), true)
+        end
+    end
+
+    if animOption and animOption.Prop then
+        DestroyAllProps()
+    end
+
+    if emoteData.scenario then
+        if not inVehicle then
+            playScenario(emoteData)
+        end
+        return
+    end
+
+    -- Small delay at the start
+    if animOption and animOption.StartDelay then
+        Wait(animOption.StartDelay)
+    end
+
+    if not LoadAnim(emoteData.dict) then
+        EmoteChatMessage("'" .. name .. "' " .. Translate('notvalidemote') .. "")
+        return
+    end
+
+    local movementType = 0
+    if inVehicle then
+        if animOption and animOption.FullBody then
+            movementType = 35
+        else
+            movementType = 51
+        end
+    elseif animOption and animOption.onFootFlag then
+        movementType = animOption.onFootFlag
+    end
+
+    DebugPrint("Animation flag = (" .. movementType .. ")")
+
+    if animOption then
+        if animOption.PtfxAsset then
+            Ptfx1, Ptfx2, Ptfx3, Ptfx4, Ptfx5, Ptfx6, PtfxScale = table.unpack(animOption.PtfxPlacement)
+            PtfxNotif = false
+            PtfxPrompt = true
+            runAnimationThread()
+            TriggerServerEvent("rpemotes:ptfx:sync", animOption.PtfxAsset, animOption.PtfxName, vector3(Ptfx1, Ptfx2, Ptfx3),
+                vector3(Ptfx4, Ptfx5, Ptfx6), animOption.PtfxBone, PtfxScale, animOption.PtfxColor)
+        else
+            PtfxPrompt = false
+        end
+    end
+
+    if IsPedUsingAnyScenario(PlayerPedId()) or IsPedActiveInScenario(PlayerPedId()) then
+        ClearPedTasksImmediately(PlayerPedId())
+    end
+
+    TaskPlayAnim(PlayerPedId(), emoteData.dict, emoteData.anim, animOption?.BlendInSpeed or 5.0, animOption?.BlendOutSpeed or 5.0, animOption?.EmoteDuration or -1, animOption?.Flag or movementType or 0, 0, false, false,
+        false)
+    RemoveAnimDict(emoteData.dict)
+
+    IsInAnimation = true
+    runAnimationThread()
+
+    if not (animOption and animOption.Prop) then
+        checkStatusThread(emoteData.dict, emoteData.anim)
+    end
+
+    for _, emote in pairs(EmoteData) do
+        for propName, propValue in pairs(emote) do
+            if propValue == emoteData then
+                emoteData[#emoteData+1] = propName
+                break
+            end
+        end
+    end
+    currentEmote = emoteData
+
+    if animOption and animOption.Prop then
+        addProps(animOption, textureVariation)
+            -- Ptfx is on the prop, then we need to sync it
+        if animOption.PtfxAsset and not animOption.PtfxNoProp then
+            TriggerServerEvent("rpemotes:ptfx:syncProp", ObjToNet(attachedProp))
+        end
     end
 end
 
