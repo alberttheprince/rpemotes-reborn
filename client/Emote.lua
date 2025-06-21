@@ -746,14 +746,6 @@ function OnEmotePlay(name, textureVariation)
         checkStatusThread(emoteData.dict, emoteData.anim)
     end
 
-    for _, emote in pairs(EmoteData) do
-        for propName, propValue in pairs(emote) do
-            if propValue == emoteData then
-                emoteData[#emoteData+1] = propName
-                break
-            end
-        end
-    end
     currentEmote = emoteData
 
     if animOption and animOption.Prop then
