@@ -7739,6 +7739,50 @@ RP.Emotes = {
             ExitEmote = "getup",
         }
     },
+    ["Sunbathe4"] = {
+        "amb@world_human_sunbathe@male@back@idle_a",
+        "idle_a",
+        "Sunbathe 4",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+            StartDelay = 700,
+            NotInVehicle = true,
+            ExitEmote = "getup",
+        }
+    },
+    ["Sunbathe5"] = {
+        "amb@world_human_sunbathe@female@back@idle_a",
+        "idle_a",
+        "Sunbathe 5",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+            StartDelay = 700,
+            NotInVehicle = true,
+            ExitEmote = "getup",
+        }
+    },
+    ["Sunbathe6"] = {
+        "amb@world_human_sunbathe@female@front@idle_a",
+        "idle_c",
+        "Sunbathe 6",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+            StartDelay = 700,
+            NotInVehicle = true,
+            ExitEmote = "getup",
+        }
+    },
+        ["Sunbathe7"] = {
+        "amb@world_human_sunbathe@male@front@base",
+        "base",
+        "Sunbathe 7",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+            StartDelay = 700,
+            NotInVehicle = true,
+            ExitEmote = "getup",
+        }
+    },
     ["tpose"] = {
         "missfam5_yoga",
         "a2_pose",
@@ -10747,6 +10791,60 @@ RP.PropEmotes = {
             onFootFlag = AnimFlag.MOVING
         }
     },
+    ["mallet"] = {
+        "amb@world_human_hammering@male@base",
+        "base",
+        "Mallet",
+        AnimationOptions = {
+            Prop = 'prop_tool_mallet',
+            PropBone = 28422,
+            PropPlacement = {
+                0.00,
+                0.00,
+                0.00,
+                0.00,
+                0.00,
+                0.00
+            },
+            onFootFlag = AnimFlag.MOVING
+        }
+    },
+    ["cranialsaw"] = {
+        "anim@heists@fleeca_bank@drilling",
+        "drill_straight_end",
+        "Cranial Saw",
+        AnimationOptions = {
+            Prop = 'prop_cranial_saw',
+            PropBone = 28422,
+            PropPlacement = {
+                0.00,
+                0.00,
+                0.05,
+                90.00,
+                0.00,
+                90.00
+            },
+            onFootFlag = AnimFlag.MOVING
+        }
+    },
+    ["nailgun"] = {
+        "anim@heists@fleeca_bank@drilling",
+        "drill_straight_end",
+        "Nail Gun",
+        AnimationOptions = {
+            Prop = 'prop_tool_nailgun',
+            PropBone = 28422,
+            PropPlacement = {
+                0.00,
+                0.00,
+                0.00,
+                0.00,
+                0.00,
+                90.00
+            },
+            onFootFlag = AnimFlag.MOVING
+        }
+    },
 	["k12saw"] = {
         "anim@heists@fleeca_bank@drilling",
         "drill_straight_end",
@@ -11108,7 +11206,115 @@ RP.PropEmotes = {
             },
             onFootFlag = AnimFlag.MOVING,
         }
-     },
+    },
+    ["syringe"] = {
+        "anim@heists@humane_labs@finale@keycards",
+        "ped_a_enter_loop",
+        "Syringe",
+        AnimationOptions = {
+            Prop = "prop_single_rose",
+            PropBone = 18905,
+            PropPlacement = {
+                0.11,
+                0.03,
+                0.01,
+                90.0,
+                0.0,
+                -50.0
+            },
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
+    ["scalpel"] = {
+        "anim@heists@humane_labs@finale@keycards",
+        "ped_a_enter_loop",
+        "Scalpel",
+        AnimationOptions = {
+            Prop = "prop_scalpel",
+            PropBone = 18905,
+            PropPlacement = {
+                0.11,
+                0.03,
+                0.01,
+                0.0,
+                180.0,
+                -70.0
+            },
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
+    ["bonesaw"] = {
+        "anim@heists@humane_labs@finale@keycards",
+        "ped_a_enter_loop",
+        "Bonesaw",
+        AnimationOptions = {
+            Prop = "prop_bonesaw",
+            PropBone = 18905,
+            PropPlacement = {
+                0.11,
+                0.03,
+                0.01,
+                0.0,
+                180.0,
+                -10.0
+            },
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
+    ["vulture"] = {
+        "anim@heists@humane_labs@finale@keycards",
+        "ped_a_enter_loop",
+        "Vulture",
+        AnimationOptions = {
+            Prop = "ch_prop_arcade_gun_bird_01a",
+            PropBone = 18905,
+            PropPlacement = {
+                0.65,
+                -1.65,
+                0.55,
+                -65.00,
+                180.00,
+                0.0
+            },
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
+    ["stickbutterfly"] = {
+        "anim@heists@humane_labs@finale@keycards",
+        "ped_a_enter_loop",
+        "Stick Butterfly",
+        AnimationOptions = {
+            Prop = "prop_stickbfly",
+            PropBone = 18905,
+            PropPlacement = {
+                0.11,
+                0.01,
+                0.01,
+                -90.00,
+                90.00,
+                -25.0
+            },
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
+        ["stickhummingbird"] = {
+        "anim@heists@humane_labs@finale@keycards",
+        "ped_a_enter_loop",
+        "Stick Hummingbird",
+        AnimationOptions = {
+            Prop = "prop_stickhbird",
+            PropBone = 18905,
+            PropPlacement = {
+                0.11,
+                0.01,
+                0.01,
+                -90.00,
+                90.00,
+                -25.0
+            },
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
     ["dollar"] = {
         "anim@heists@humane_labs@finale@keycards",
         "ped_a_enter_loop",
@@ -15122,6 +15328,24 @@ RP.PropEmotes = {
             onFootFlag = AnimFlag.MOVING,
         }
     },
+    ["doggy"] = {
+        "impexp_int-0",
+        "mp_m_waremech_01_dual-0",
+        "Doggy",
+        AnimationOptions = {
+            Prop = 'xm3_prop_xm3_toy_dog_01a',
+            PropBone = 24817,
+            PropPlacement = {
+                -0.100000,
+                0.460000,
+                -0.016000,
+                -180.000000,
+                -90.000000,
+                0.000000
+            },
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
     ["backpack"] = {
         "move_p_m_zero_rucksack",
         "nill",
@@ -16304,6 +16528,150 @@ RP.PropEmotes = {
                 88.6283,
                 -51.8805,
                 54.3903
+            },
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["weightsbarbell"] = {
+        "amb@prop_human_seat_muscle_bench_press@idle_a",
+        "idle_a",
+        "Weights - Barbell 10KG",
+        AnimationOptions = {
+            Prop = 'prop_barbell_10kg',
+            PropBone = 28422, -- Right Wrist
+            PropPlacement = {
+                0.000,
+                0.000,
+                0.000,
+                0.000,
+                0.000,
+                0.000
+            },
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["weightsbarbell2"] = {
+        "amb@prop_human_seat_muscle_bench_press@idle_a",
+        "idle_a",
+        "Weights - Barbell 20KG",
+        AnimationOptions = {
+            Prop = 'prop_barbell_20kg',
+            PropBone = 28422, -- Right Wrist
+            PropPlacement = {
+                0.000,
+                0.000,
+                0.000,
+                0.000,
+                0.000,
+                0.000
+            },
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["weightsbarbell3"] = {
+        "amb@prop_human_seat_muscle_bench_press@idle_a",
+        "idle_a",
+        "Weights - Barbell 30KG",
+        AnimationOptions = {
+            Prop = 'prop_barbell_30kg',
+            PropBone = 28422, -- Right Wrist
+            PropPlacement = {
+                0.000,
+                0.000,
+                0.000,
+                0.000,
+                0.000,
+                0.000
+            },
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["weightsbarbell4"] = {
+        "amb@prop_human_seat_muscle_bench_press@idle_a",
+        "idle_a",
+        "Weights - Barbell 40KG",
+        AnimationOptions = {
+            Prop = 'prop_barbell_40kg',
+            PropBone = 28422, -- Right Wrist
+            PropPlacement = {
+                0.000,
+                0.000,
+                0.000,
+                0.000,
+                0.000,
+                0.000
+            },
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["weightsbarbell5"] = {
+        "amb@prop_human_seat_muscle_bench_press@idle_a",
+        "idle_a",
+        "Weights - Barbell 50KG",
+        AnimationOptions = {
+            Prop = 'prop_barbell_50kg',
+            PropBone = 28422, -- Right Wrist
+            PropPlacement = {
+                0.000,
+                0.000,
+                0.000,
+                0.000,
+                0.000,
+                0.000
+            },
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["weightsbarbell6"] = {
+        "amb@prop_human_seat_muscle_bench_press@idle_a",
+        "idle_a",
+        "Weights - Barbell 60KG",
+        AnimationOptions = {
+            Prop = 'prop_barbell_60kg',
+            PropBone = 28422, -- Right Wrist
+            PropPlacement = {
+                0.000,
+                0.000,
+                0.000,
+                0.000,
+                0.000,
+                0.000
+            },
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["weightsbarbell7"] = {
+        "amb@prop_human_seat_muscle_bench_press@idle_a",
+        "idle_a",
+        "Weights - Barbell 80KG",
+        AnimationOptions = {
+            Prop = 'prop_barbell_80kg',
+            PropBone = 28422, -- Right Wrist
+            PropPlacement = {
+                0.000,
+                0.000,
+                0.000,
+                0.000,
+                0.000,
+                0.000
+            },
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["weightsbarbell8"] = {
+        "amb@prop_human_seat_muscle_bench_press@idle_a",
+        "idle_a",
+        "Weights - Barbell 100KG",
+        AnimationOptions = {
+            Prop = 'prop_barbell_100kg',
+            PropBone = 28422, -- Right Wrist
+            PropPlacement = {
+                0.000,
+                0.000,
+                0.000,
+                0.000,
+                0.000,
+                0.000
             },
             onFootFlag = AnimFlag.LOOP,
         }
@@ -17636,6 +18004,78 @@ RP.PropEmotes = {
         },
         AdultAnimation = true
     },
+    ["hoe"] = {
+        "anim@amb@drug_field_workers@rake@male_a@base",
+        "base",
+        "Hoe",
+        AnimationOptions = {
+            Prop = "prop_tool_shovel5",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                -0.500,
+                0.0,
+                0.0,
+                0.0
+            },
+            onFootFlag = AnimFlag.LOOP
+        }
+    },
+    ["hoe2"] = {
+        "anim@amb@drug_field_workers@rake@male_a@idles",
+        "idle_b",
+        "Hoe 2",
+        AnimationOptions = {
+            Prop = "prop_tool_shovel5",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                -0.500,
+                0.0,
+                0.0,
+                0.0
+            },
+            onFootFlag = AnimFlag.LOOP
+        }
+    },
+    ["hoe3"] = {
+        "anim@amb@drug_field_workers@rake@male_b@base",
+        "idle_b",
+        "Hoe 3",
+        AnimationOptions = {
+            Prop = "prop_tool_shovel5",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                -0.500,
+                0.0,
+                0.0,
+                0.0
+            },
+            onFootFlag = AnimFlag.LOOP
+        }
+    },
+    ["hoe4"] = {
+        "anim@amb@drug_field_workers@rake@male_b@idles",
+        "idle_d",
+        "Hoe 4",
+        AnimationOptions = {
+            Prop = "prop_tool_shovel5",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                -0.500,
+                0.0,
+                0.0,
+                0.0
+            },
+            onFootFlag = AnimFlag.LOOP
+        }
+    },
     ["rake"] = {
         "anim@amb@drug_field_workers@rake@male_a@base",
         "base",
@@ -17682,8 +18122,8 @@ RP.PropEmotes = {
             PropPlacement = {
                 0.0,
                 0.0,
-                -0.0300,
-                0.0,
+                -0.500,
+                -20.00,
                 0.0,
                 0.0
             },
@@ -17801,6 +18241,42 @@ RP.PropEmotes = {
                 0.0,
                 0.0,
                 0.010,
+                0.0,
+                0.0,
+                0.0
+            },
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
+    ["champw2"] = {
+        "anim@move_f@waitress",
+        "idle",
+        "Champagne Waiter 2",
+        AnimationOptions = {
+            Prop = "h4_prop_h4_champ_tray_01b",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0100,
+                0.0,
+                0.0,
+                0.0
+            },
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
+    ["champw3"] = {
+        "anim@move_f@waitress",
+        "idle",
+        "Champagne Waiter 3",
+        AnimationOptions = {
+            Prop = "h4_prop_h4_champ_tray_01c",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0100,
                 0.0,
                 0.0,
                 0.0
@@ -20508,7 +20984,25 @@ RP.PropEmotes = {
             },
             onFootFlag = AnimFlag.MOVING,
         }
-     },
+    },
+    ["medbag2"] = {
+        "move_weapon@jerrycan@generic",
+        "idle",
+        "Medic Bag 2",
+        AnimationOptions = {
+            Prop = "v_ret_ta_firstaid",
+            PropBone = 57005,
+            PropPlacement = {
+                0.210000,
+                0.00000,
+                -0.030000,
+                -100.000000,
+                -180.000000,
+                -78.000000
+            },
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
     ["medbox"] = {
         "move_weapon@jerrycan@generic",
         "idle",
@@ -20527,10 +21021,100 @@ RP.PropEmotes = {
             onFootFlag = AnimFlag.MOVING,
         }
     },
+    ["beachbag"] = {
+        "move_weapon@jerrycan@generic",
+        "idle",
+        "Beach Bag",
+        AnimationOptions = {
+            Prop = "prop_beachbag_05",
+            PropBone = 28422,
+            PropPlacement = {
+                0.400000,
+                0.030000,
+                0.010000,
+                0.000000, 
+                -90.000000,
+                100.000000
+            },
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
+    ["beachbag2"] = {
+        "move_weapon@jerrycan@generic",
+        "idle",
+        "Beach Bag 2",
+        AnimationOptions = {
+            Prop = "prop_beachbag_06",
+            PropBone = 28422,
+            PropPlacement = {
+                0.400000,
+                0.030000,
+                0.010000,
+                0.000000, 
+                -90.000000,
+                100.000000
+            },
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
+    ["beachbag3"] = {
+        "move_weapon@jerrycan@generic",
+        "idle",
+        "Beach Bag 3",
+        AnimationOptions = {
+            Prop = "prop_beachbag_01",
+            PropBone = 28422,
+            PropPlacement = {
+                0.400000,
+                0.030000,
+                0.010000,
+                0.000000,
+                -90.000000,
+                100.000000
+            },
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
     ["dufbag"] = {
         "move_weapon@jerrycan@generic",
         "idle",
         "Duffel Bag",
+        AnimationOptions = {
+            Prop = "prop_big_bag_01",
+            PropBone = 28422,
+            PropPlacement = {
+                0.2600,
+                0.0400,
+                0.00,
+                90.00,
+                0.00,
+                -78.99
+            },
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
+    ["dufbag2"] = {
+        "move_weapon@jerrycan@generic",
+        "idle",
+        "Duffel Bag 2",
+        AnimationOptions = {
+            Prop = "v_ret_gc_bag02",
+            PropBone = 28422,
+            PropPlacement = {
+                0.2600,
+                0.0400,
+                0.00,
+                90.00,
+                0.00,
+                -78.99
+            },
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
+    ["dufbag3"] = {
+        "move_weapon@jerrycan@generic",
+        "idle",
+        "Duffel Bag 3",
         AnimationOptions = {
             Prop = "bkr_prop_duffel_bag_01a",
             PropBone = 28422,
@@ -20700,6 +21284,24 @@ RP.PropEmotes = {
                 90.4294,
                 -177.4267,
                 83.0011
+            },
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
+        ["handbag2"] = {
+        "move_weapon@jerrycan@generic",
+        "idle",
+        "Hand Bag 2",
+        AnimationOptions = {
+            Prop = 'v_ret_ps_bag_02',
+            PropBone = 28422, -- Right Wrist
+            PropPlacement = {
+                0.52000, 
+                0.030000, 
+                0.00000, 
+                0.000000, 
+                -90.000000, 
+                100.000000
             },
             onFootFlag = AnimFlag.MOVING,
         }
