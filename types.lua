@@ -50,12 +50,14 @@ Category = {
 ---@field SyncOffsetSide? number
 ---@field SyncOffsetHeading? number
 ---@field bone? integer
----@field xPos? number
----@field yPos? number
----@field zPos? number
----@field xRot? number
----@field yRot? number
----@field zRot? number
+---@field pos? vector3
+---@field rot? vector3
+---@field xPos? number deprecated use pos instead
+---@field yPos? number deprecated use pos instead
+---@field zPos? number deprecated use pos instead
+---@field xRot? number deprecated use rot instead
+---@field yRot? number deprecated use rot instead
+---@field zRot? number deprecated use rot instead
 ---@field Prop? string
 ---@field PropBone? integer
 ---@field PropPlacement? number[]

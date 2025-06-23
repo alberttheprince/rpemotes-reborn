@@ -488,6 +488,13 @@ local function convertToEmoteData(emote)
             animOptions.onFootFlag = AnimFlag.STUCK
         end
     end
+
+    if animOptions and animOptions.Attachto then
+        animOptions.pos = animOptions.pos
+            or vector3(animOptions.xPos or 0.0, animOptions.yPos or 0.0, animOptions.zPos or 0.0)
+        animOptions.rot = animOptions.rot
+            or vector3(animOptions.xRot or 0.0, animOptions.yRot or 0.0, animOptions.zRot or 0.0)
+    end
 end
 
 CreateThread(function()
