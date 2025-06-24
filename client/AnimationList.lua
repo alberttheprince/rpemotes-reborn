@@ -2347,7 +2347,8 @@ RP.Dances = {
                 0.1400,
                 0.0,
                 -80.0,
-                20.0
+                20.0,
+                0.0                
             },
             SecondProp = 'ba_prop_battle_glowstick_01',
             SecondPropBone = 60309,
@@ -2356,7 +2357,8 @@ RP.Dances = {
                 0.0900,
                 0.0,
                 -120.0,
-                -20.0
+                -20.0,
+                0.0
             },
             onFootFlag = AnimFlag.MOVING,
         }
@@ -2373,7 +2375,8 @@ RP.Dances = {
                 0.1400,
                 0.0,
                 -80.0,
-                20.0
+                20.0,
+                0.0
             },
             SecondProp = 'ba_prop_battle_glowstick_01',
             SecondPropBone = 60309,
@@ -2382,7 +2385,8 @@ RP.Dances = {
                 0.0900,
                 0.0,
                 -120.0,
-                -20.0
+                -20.0,
+                0.0
             },
             onFootFlag = AnimFlag.LOOP
         }
@@ -2399,7 +2403,8 @@ RP.Dances = {
                 0.1400,
                 0.0,
                 -80.0,
-                20.0
+                20.0,
+                0.0
             },
             SecondProp = 'ba_prop_battle_glowstick_01',
             SecondPropBone = 60309,
@@ -2408,7 +2413,8 @@ RP.Dances = {
                 0.0900,
                 0.0,
                 -120.0,
-                -20.0
+                -20.0,
+                0.0
             },
             onFootFlag = AnimFlag.LOOP
         }
