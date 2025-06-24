@@ -3032,6 +3032,14 @@ RP.AnimalEmotes = {
             onFootFlag = AnimFlag.LOOP
         }
     },
+    ["bdogbark2"] = { -- Retrievers use different anims/skeletons from Rottweilers, so we need to use them specifically for retriever-based peds to work
+        "creatures@retriever@amb@world_dog_barking@idle_a",
+        "idle_a",
+        "Bark (big dog - retriever)",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP
+        }
+    },
     ["bdogindicateahead"] = {
         "creatures@rottweiler@indication@",
         "indicate_ahead",
@@ -3084,6 +3092,14 @@ RP.AnimalEmotes = {
         "creatures@rottweiler@move",
         "dead_left",
         "Lay Left (big dog)",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP
+        }
+    },
+    ["bdogexcited"] = { -- Retrievers use different anims/skeletons from Rottweilers, so we need to use them specifically for retriever-based peds to work
+        "creatures@retriever@amb@world_dog_barking@idle_a",
+        "idle_c",
+        "Excited (big dog - retriever)",
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP
         }
