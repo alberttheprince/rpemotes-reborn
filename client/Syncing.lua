@@ -110,9 +110,10 @@ RegisterNetEvent("rpemotes:client:syncEmoteSource", function(emote, player)
         end
     end
 
-    local coords = GetOffsetFromEntityInWorldCoords(pedInFront, (options and options.SyncOffsetSide or 0) + 0.0, (options and options.SyncOffsetFront or 1) + 0.0, (options and options.SyncOffsetHeight or 0) + 0.0)
+    local offset = options and options.syncOffset or vector4(0.0, 1.0, 0.0, 180.0)
+    local coords = GetOffsetFromEntityInWorldCoords(pedInFront, offset.x + 0.0, offset.y + 0.0, offset.z + 0.0)
     local heading = GetEntityHeading(pedInFront)
-    SetEntityHeading(ped, heading - (options and options.SyncOffsetHeading or 180) + 0.0)
+    SetEntityHeading(ped, heading - offset.w + 0.0)
     SetEntityCoordsNoOffset(ped, coords.x, coords.y, coords.z)
     EmoteCancel()
     Wait(300)
