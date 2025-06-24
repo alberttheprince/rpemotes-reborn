@@ -831,12 +831,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
             bone = 40269,
-            xPos = -0.14,
-            yPos = 0.15,
-            zPos = 0.14,
-            xRot = 0.0,
-            yRot = -59.0,
-            zRot = -4.5
+            pos = vector3(-0.14, 0.15, 0.14),
+            rot = vector3(0.0, -59.0, -4.5),
         }
     },
     ["carry3"] = {
@@ -857,12 +853,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
             bone = 28252,
-            xPos = 0.350,
-            yPos = 0.15,
-            zPos = -0.15,
-            xRot = -42.50,
-            yRot = -22.50,
-            zRot = 22.50
+            pos = vector3(0.350, 0.15, -0.15),
+            rot = vector3(-42.50, -22.50, 22.50),
         }
     },
     ["carrymecute"] = { -- Male Custom emote by Amnilka
@@ -883,12 +875,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
             bone = 0,
-            xPos = 0.0000,
-            yPos = 0.0000,
-            zPos = 0.0000,
-            xRot = 0.0000,
-            yRot = 0.0000,
-            zRot = 0.0000
+            pos = vector3(0.0000, 0.0000, 0.0000),
+            rot = vector3(0.0000, 0.0000, 0.0000),
         }
     },
     ["carrycmg"] = { -- Male Custom emote by CMG Mods
@@ -909,12 +897,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
             bone = 0,
-            xPos = 0.0100,
-            yPos = 0.3440,
-            zPos = -0.0100,
-            xRot = 180.0000,
-            yRot = 180.0000,
-            zRot = -1.9999
+            pos = vector3(0.0100, 0.3440, -0.0100),
+            rot = vector3(180.0000, 180.0000, -1.9999),
         }
     },
     ["bestfriends"] = { -- Female Custom emote by MrWitt
@@ -931,16 +915,12 @@ RP.Shared = {
     "mrwitt",
     "Best Friends 2",
     "bestfriends",
-    AnimationOptions = {
-        onFootFlag = AnimFlag.LOOP,
-        Attachto = true,
-        bone = 0,
-        xPos = -0.2500,
-        yPos = 0.1400,
-        zPos = 0.0200,
-        xRot = 0.0000,
-        yRot = 0.0000,
-        zRot = -0.0000
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+            Attachto = true,
+            bone = 0,
+            pos = vector3(-0.2500, 0.1400, 0.0200),
+            rot = vector3(0.0000, 0.0000, -0.0000),
         },
     },
     ["bff"] = {
@@ -961,12 +941,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
             bone = 0,
-            xPos = 0.0100,
-            yPos = 0.1300,
-            zPos = 0.0,
-            xRot = 0.0,
-            yRot = 0.0,
-            zRot = 76.0000
+            pos = vector3(0.0100, 0.1300, 0.0),
+            rot = vector3(0.0, 0.0, 76.0000),
         },
     },
     ["sitwithmepose"] = { -- Male Custom emote by Amnilka
@@ -987,12 +963,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
             bone = 0,
-            xPos = 0.3540,
-            yPos = 0.5110,
-            zPos = 0.8310,
-            xRot = 0.0000,
-            yRot = 0.0000,
-            zRot = -2.8000
+            pos = vector3(0.3540, 0.5110, 0.8310),
+            rot = vector3(0.0000, 0.0000, -2.8000),
         }
     },
     ["hugpose"] = { -- Male Custom emote by Amnilka
@@ -1013,12 +985,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
             bone = 0,
-            xPos = 0.1400,
-            yPos = 0.2500,
-            zPos = 0.0000,
-            xRot = 0.0000,
-            yRot = 0.0000,
-            zRot = 0.0000
+            pos = vector3(0.1400, 0.2500, 0.0000),
+            rot = vector3(0.0000, 0.0000, 0.0000),
         }
     },
     ["hugtip"] = { -- Male Custom emote by Little Spoon
@@ -1039,12 +1007,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
             bone = 0,
-            xPos = 0.0100,
-            yPos = 0.2700,
-            zPos = 0.0,
-            xRot = -180.0000,
-            yRot = -180.0000,
-            zRot = 10.0000
+            pos = vector3(0.0100, 0.2700, 0.0),
+            rot = vector3(-180.0000, -180.0000, 10.0000),
         }
     },
     ["cutepicpose"] = { -- Male Custom emote by Amnilka
@@ -1065,12 +1029,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
             bone = 0,
-            xPos = 0.2700,
-            yPos = 0.1200,
-            zPos = 0.0000,
-            xRot = 0.0000,
-            yRot = 0.0000,
-            zRot = 0.0000
+            pos = vector3(0.2700, 0.1200, 0.0000),
+            rot = vector3(0.0000, 0.0000, 0.0000),
         }
     },
     ["couplehhands"] = { -- Male Custom emote by Amnilka
@@ -1091,12 +1051,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
             bone = 0,
-            xPos = -0.1230,
-            yPos = 0.4740,
-            zPos = 0.0000,
-            xRot = 0.0000,
-            yRot = 0.0000,
-            zRot = 94.0000
+            pos = vector3(-0.1230, 0.4740, 0.0000),
+            rot = vector3(0.0000, 0.0000, 94.0000),
         }
     },
     ["couplewed1a"] = { -- Male Custom emote by EnchantedBrwny
@@ -1117,12 +1073,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
             bone = 0,
-            xPos = 0.0300,
-            yPos = 1.0000,
-            zPos = 0.0200,
-            xRot = 0.0000,
-            yRot = 0.0000,
-            zRot = 130.0000
+            pos = vector3(0.0300, 1.0000, 0.0200),
+            rot = vector3(0.0000, 0.0000, 130.0000),
         }
     },
     ["couplewed2a"] = { -- Male Custom emote by EnchantedBrwny
@@ -1143,12 +1095,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
             bone = 0,
-            xPos = 0.0100,
-            yPos = 0.2500,
-            zPos = 0.0,
-            xRot = 0.0,
-            yRot = 0.0,
-            zRot = -88.9000
+            pos = vector3(0.0100, 0.2500, 0.0),
+            rot = vector3(0.0, 0.0, -88.9000),
         }
     },
     ["liftme"] = { -- Male Custom emote by -Moses-
@@ -1169,12 +1117,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
             bone = 0,
-            xPos = 0.0020,
-            yPos = 0.2870,
-            zPos = 0.2500,
-            xRot = 0.0000,
-            yRot = 0.0000,
-            zRot = 180.0000
+            pos = vector3(0.0020, 0.2870, 0.2500),
+            rot = vector3(0.0000, 0.0000, 180.0000),
         }
     },
     ["liftme3"] = { -- Male Custom emote by -Moses-
@@ -1195,12 +1139,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
             bone = 0,
-            xPos = 0.0100,
-            yPos = 0.4800,
-            zPos = 0.5300,
-            xRot = 0.0000,
-            yRot = 0.0000,
-            zRot = 180.0000
+            pos = vector3(0.0100, 0.4800, 0.5300),
+            rot = vector3(0.0000, 0.0000, 180.0000),
         }
     },
     ["liftme5"] = { -- Male Custom emote by -Moses-
@@ -1221,12 +1161,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
             bone = 0,
-            xPos = -0.2120,
-            yPos = -0.5400,
-            zPos = -0.1000,
-            xRot = 0.0000,
-            yRot = 0.0000,
-            zRot = 0.0000
+            pos = vector3(-0.2120, -0.5400, -0.1000),
+            rot = vector3(0.0000, 0.0000, 0.0000),
         }
     },
     ["csdog"] = {
@@ -1247,12 +1183,8 @@ RP.Shared = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
-            xPos = -0.040,
-            yPos = 0.330,
-            zPos = 0.280,
-            xRot = 0.0,
-            yRot = 0.0,
-            zRot = 80.0,
+            pos = vector3(-0.040, 0.330, 0.280),
+            rot = vector3(0.0, 0.0, 80.0),
         },
         AnimalEmote = true
     },
@@ -1275,12 +1207,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
             bone = 24818,
-            xPos = -0.95,
-            yPos = 0.16,
-            zPos = -0.15,
-            xRot = 3.70,
-            yRot = 75.00,
-            zRot = -161.90,
+            pos = vector3(-0.95, 0.16, -0.15),
+            rot = vector3(3.70, 75.00, -161.90),
         },
         AnimalEmote = true
     },
@@ -1302,12 +1230,8 @@ RP.Shared = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
-            xPos = -0.100,
-            yPos = 0.650,
-            zPos = 0.430,
-            xRot = 0.0,
-            yRot = 0.0,
-            zRot = -100.00,
+            pos = vector3(-0.100, 0.650, 0.430),
+            rot = vector3(0.0, 0.0, -100.00),
         },
         AnimalEmote = true
     },
@@ -1329,12 +1253,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
             bone = 0,
-            xPos = 0.0200,
-            yPos = -0.4399,
-            zPos = 0.4200,
-            xRot = 0.0,
-            yRot = 0.0,
-            zRot = 0.0
+            pos = vector3(0.0200, -0.4399, 0.4200),
+            rot = vector3(0.0, 0.0, 0.0),
         }
     },
     ["cprs"] = {
@@ -1355,12 +1275,8 @@ RP.Shared = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
-            xPos = 0.35,
-            yPos = 0.8,
-            zPos = 0.0,
-            xRot = 0.0,
-            yRot = 0.0,
-            zRot = 270.0
+            pos = vector3(0.35, 0.8, 0.0),
+            rot = vector3(0.0, 0.0, 270.0),
         }
     },
     ["cprs3"] = {
@@ -1381,12 +1297,8 @@ RP.Shared = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
-            xPos = 0.35,
-            yPos = 0.65,
-            zPos = 0.0,
-            xRot = 0.0,
-            yRot = 0.0,
-            zRot = 270.0
+            pos = vector3(0.35, 0.65, 0.0),
+            rot = vector3(0.0, 0.0, 270.0),
         }
     },
     ["hostage"] = {
@@ -1406,12 +1318,8 @@ RP.Shared = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
-            xPos = -0.3,
-            yPos = 0.1,
-            zPos = 0.0,
-            xRot = 0.0,
-            yRot = 0.0,
-            zRot = 0.0
+            pos = vector3(-0.3, 0.1, 0.0),
+            rot = vector3(0.0, 0.0, 0.0),
         }
     },
     ["search"] = { -- Custom Emote By ultrahacx
@@ -1433,12 +1341,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.MOVING,
             -- EmoteDuration = 9700,
             Attachto = true,
-            xPos = 0.0,
-            yPos = 0.5,
-            zPos = 0.0,
-            xRot = 0.0,
-            yRot = 0.0,
-            zRot = 0.0
+            pos = vector3(0.0, 0.5, 0.0),
+            rot = vector3(0.0, 0.0, 0.0),
         }
     },
     ["followa"] = { -- Custom Ped In Front Emote By Dollie Mods
@@ -1459,12 +1363,8 @@ RP.Shared = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
-            xPos = 0.078,
-            yPos = 0.018,
-            zPos = 0.00,
-            xRot = 0.00,
-            yRot = 0.00,
-            zRot = 0.00
+            pos = vector3(0.078, 0.018, 0.00),
+            rot = vector3(0.00, 0.00, 0.00),
         }
     },
     ["kiss"] = {
@@ -1517,12 +1417,8 @@ RP.Shared = {
             Attachto = true,
             --SyncOffsetFront = 0.05,
             --bone = 0,
-            xPos = -0.56,
-            yPos = 0.0,
-            zPos = 0.0,
-            xRot = 0.0,
-            yRot = 0.0,
-            zRot = 0.0,
+            pos = vector3(-0.56, 0.0, 0.0),
+            rot = vector3(0.0, 0.0, 0.0),
 
         }
     },
@@ -1547,12 +1443,8 @@ RP.Shared = {
             Attachto = true,
             --SyncOffsetFront = 0.05,
             --bone = 0,
-            xPos = 0.35,
-            yPos = 0.0,
-            zPos = 0.0,
-            xRot = 0.0,
-            yRot = 0.0,
-            zRot = 0.0,
+            pos = vector3(0.35, 0.0, 0.0),
+            rot = vector3(0.0, 0.0, 0.0),
 
         }
     },
@@ -1577,12 +1469,8 @@ RP.Shared = {
             Attachto = true,
             --SyncOffsetFront = 0.05,
             --bone = 0,
-            xPos = 0.38,
-            yPos = 0.0,
-            zPos = 0.0,
-            xRot = 0.0,
-            yRot = 0.0,
-            zRot = 0.0,
+            pos = vector3(0.38, 0.0, 0.0),
+            rot = vector3(0.0, 0.0, 0.0),
 
         }
     },
@@ -1595,12 +1483,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
             bone = 0,
-            xPos = 0.1600,
-            yPos = 0.2700,
-            zPos = 0.0,
-            xRot = 0.0,
-            yRot = 0.0,
-            zRot = 130.0,
+            pos = vector3(0.1600, 0.2700, 0.0),
+            rot = vector3(0.0, 0.0, 130.0),
 
         }
     },
@@ -1683,12 +1567,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
             bone = 0,
-            xPos = -0.0200,
-            yPos =  0.2400,
-            zPos = -0.0100,
-            xRot = 0.0,
-            yRot = 0.0,
-            zRot = 0.0
+            pos = vector3(-0.0200, 0.2400, -0.0100),
+            rot = vector3(0.0, 0.0, 0.0),
         },
     },
     ["holdmec"] = { -- Custom Animation By SapphireMods
@@ -1709,12 +1589,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
             bone = 0,
-            xPos = -0.1200,
-            yPos =  0.3600,
-            zPos = -0.0100,
-            xRot = 0.0,
-            yRot = 0.0,
-            zRot = -180.0
+            pos = vector3(-0.1200, 0.3600, -0.0100),
+            rot = vector3(0.0, 0.0, -180.0),
         },
     },
     ["holdmee"] = { -- Custom Animation By SapphireMods
@@ -1735,12 +1611,8 @@ RP.Shared = {
             onFootFlag = AnimFlag.LOOP,
             Attachto = true,
             bone = 0,
-            xPos =  0.0400,
-            yPos =  0.2100,
-            zPos = -0.0300,
-            xRot = 0.0,
-            yRot = 0.0,
-            zRot = 0.0
+            pos = vector3(0.0400, 0.2100, -0.0300),
+            rot = vector3(0.0, 0.0, 0.0),
         },
     }
 }
