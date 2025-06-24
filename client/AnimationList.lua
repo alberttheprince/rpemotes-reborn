@@ -5658,7 +5658,7 @@ RP.Emotes = {
         AnimationOptions = {
 			StartDelay = 600,
             onFootFlag = AnimFlag.MOVING,
-            NotInVehicle = true
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED
         }
     },
     ["prone"] = {
@@ -7043,7 +7043,7 @@ RP.Emotes = {
             StartDelay = 700,
             ExitEmote = "getup",
             ExitEmoteType = "Exits",
-            NotInVehicle = true
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED
         }
     },
     ["bumsleep"] = {
@@ -7055,7 +7055,7 @@ RP.Emotes = {
             StartDelay = 700,
             ExitEmote = "getup",
             ExitEmoteType = "Exits",
-            NotInVehicle = true
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED
         }
     },
     ["shrug"] = {
@@ -7236,7 +7236,7 @@ RP.Emotes = {
         "single47_clip",
         "Window Elbow 2",
         AnimationOptions = {
-            onlyInVehicle = true,
+            vehicleRequirement = VehicleRequirement.REQUIRED,
             onFootFlag = AnimFlag.LOOP
         }
     },
@@ -7293,7 +7293,7 @@ RP.Emotes = {
             onFootFlag = AnimFlag.LOOP,
             ExitEmote = "getup",
             ExitEmoteType = "Exits",
-            NotInVehicle = true
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED
         }
     },
     ["sitscared2"] = {
@@ -7304,7 +7304,7 @@ RP.Emotes = {
             onFootFlag = AnimFlag.LOOP,
             ExitEmote = "getup",
             ExitEmoteType = "Exits",
-            NotInVehicle = true
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED
         }
     },
     ["sitscared3"] = {
@@ -7315,7 +7315,7 @@ RP.Emotes = {
             onFootFlag = AnimFlag.LOOP,
             ExitEmote = "getup",
             ExitEmoteType = "Exits",
-            NotInVehicle = true
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED
         }
     },
     ["sitdrunk"] = {
@@ -7591,7 +7591,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             StartDelay = 700,
-            NotInVehicle = true,
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED,
             ExitEmote = "getup",
         }
     },
@@ -7602,7 +7602,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             StartDelay = 700,
-            NotInVehicle = true,
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED,
             ExitEmote = "getup",
         }
     },
@@ -7613,7 +7613,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             StartDelay = 700,
-            NotInVehicle = true,
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED,
             ExitEmote = "getup",
         }
     },
@@ -7624,7 +7624,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             StartDelay = 700,
-            NotInVehicle = true,
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED,
             ExitEmote = "getup",
         }
     },
@@ -7635,7 +7635,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             StartDelay = 700,
-            NotInVehicle = true,
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED,
             ExitEmote = "getup",
         }
     },
@@ -7646,7 +7646,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             StartDelay = 700,
-            NotInVehicle = true,
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED,
             ExitEmote = "getup",
         }
     },
@@ -7657,7 +7657,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             StartDelay = 700,
-            NotInVehicle = true,
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED,
             ExitEmote = "getup",
         }
     },
@@ -7983,7 +7983,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             StartDelay = 900,
-            NotInVehicle = true,
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED,
             ExitEmote = "getup",
         }
     },
@@ -7994,7 +7994,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             StartDelay = 900,
-            NotInVehicle = true,
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED,
             ExitEmote = "getup",
         }
     },
@@ -8005,7 +8005,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             StartDelay = 900,
-            NotInVehicle = true,
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED,
             ExitEmote = "getup",
         }
     },
@@ -8016,7 +8016,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             StartDelay = 900,
-            NotInVehicle = true,
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED,
             ExitEmote = "getup",
         }
     },
@@ -8027,7 +8027,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             StartDelay = 900,
-            NotInVehicle = true,
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED,
             ExitEmote = "getup",
         }
     },
@@ -8038,7 +8038,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             StartDelay = 900,
-            NotInVehicle = true,
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED,
             ExitEmote = "getup",
         }
     },
@@ -8049,7 +8049,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             StartDelay = 900,
-            NotInVehicle = true,
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED,
             ExitEmote = "getup",
         }
     },
@@ -8060,7 +8060,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             StartDelay = 900,
-            NotInVehicle = true,
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED,
             ExitEmote = "getup",
         }
     },
@@ -8584,7 +8584,7 @@ RP.Emotes = {
         "Spider-Man",
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
-            NotInVehicle = true
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED
         }
     },
     ["boi"] = {
@@ -8701,7 +8701,7 @@ RP.Emotes = {
         "F Sex Pose 2",
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
-            NotInVehicle = true
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED
         },
         AdultAnimation = true
     },
@@ -9142,7 +9142,7 @@ RP.Emotes = {
         "cmonfrank",
         "Car Taunt",
         AnimationOptions = {
-            onlyInVehicle = true,
+            vehicleRequirement = VehicleRequirement.REQUIRED,
             EmoteDuration = 2000
         }
     },
@@ -9151,7 +9151,7 @@ RP.Emotes = {
         "cmonmynigga",
         "Car Taunt 2",
         AnimationOptions = {
-            onlyInVehicle = true,
+            vehicleRequirement = VehicleRequirement.REQUIRED,
             EmoteDuration = 2000
         }
     },
@@ -9160,7 +9160,7 @@ RP.Emotes = {
         "hahahakeepup",
         "Car Taunt 3",
         AnimationOptions = {
-            onlyInVehicle = true,
+            vehicleRequirement = VehicleRequirement.REQUIRED,
             EmoteDuration = 2000
         }
     },
@@ -9169,7 +9169,7 @@ RP.Emotes = {
         "manthisismeanttobe",
         "Car Taunt 4",
         AnimationOptions = {
-            onlyInVehicle = true,
+            vehicleRequirement = VehicleRequirement.REQUIRED,
             EmoteDuration = 2000
         }
     },
@@ -9178,7 +9178,7 @@ RP.Emotes = {
         "rememberthis",
         "Car Taunt 5",
         AnimationOptions = {
-            onlyInVehicle = true,
+            vehicleRequirement = VehicleRequirement.REQUIRED,
             EmoteDuration = 3000
         }
     },
@@ -9187,7 +9187,7 @@ RP.Emotes = {
         "skoolinyoass",
         "Car Taunt 6",
         AnimationOptions = {
-            onlyInVehicle = true,
+            vehicleRequirement = VehicleRequirement.REQUIRED,
             EmoteDuration = 3000
         }
     },
@@ -9196,7 +9196,7 @@ RP.Emotes = {
         "youaintfuckin",
         "Car Taunt 7",
         AnimationOptions = {
-            onlyInVehicle = true,
+            vehicleRequirement = VehicleRequirement.REQUIRED,
             EmoteDuration = 2000
         }
     },
@@ -9205,7 +9205,7 @@ RP.Emotes = {
         "heyidontneedanybody",
         "Car Taunt 8",
         AnimationOptions = {
-            onlyInVehicle = true,
+            vehicleRequirement = VehicleRequirement.REQUIRED,
             EmoteDuration = 2000
         }
     },
@@ -9214,7 +9214,7 @@ RP.Emotes = {
         "heymotherfuckayoudriveslowasfuck",
         "Car Taunt 9",
         AnimationOptions = {
-            onlyInVehicle = true,
+            vehicleRequirement = VehicleRequirement.REQUIRED,
             EmoteDuration = 3000
         }
     },
@@ -9223,7 +9223,7 @@ RP.Emotes = {
         "kids_on_bicycles",
         "Car Taunt 10",
         AnimationOptions = {
-            onlyInVehicle = true,
+            vehicleRequirement = VehicleRequirement.REQUIRED,
             EmoteDuration = 2000
         }
     },
@@ -9232,7 +9232,7 @@ RP.Emotes = {
         "learnhowtouseastick",
         "Car Taunt 11",
         AnimationOptions = {
-            onlyInVehicle = true,
+            vehicleRequirement = VehicleRequirement.REQUIRED,
             EmoteDuration = 2000
         }
     },
@@ -9241,7 +9241,7 @@ RP.Emotes = {
         "slowassshit",
         "Car Taunt 12",
         AnimationOptions = {
-            onlyInVehicle = true,
+            vehicleRequirement = VehicleRequirement.REQUIRED,
             EmoteDuration = 2000
         }
     },
@@ -9250,7 +9250,7 @@ RP.Emotes = {
         "mcs_7_taunt_female",
         "Car Taunt 13",
         AnimationOptions = {
-            onlyInVehicle = true,
+            vehicleRequirement = VehicleRequirement.REQUIRED,
             EmoteDuration = 5000
         }
     },
@@ -9259,7 +9259,7 @@ RP.Emotes = {
         "mcs_7_taunt_male",
         "Car Taunt 14",
         AnimationOptions = {
-            onlyInVehicle = true,
+            vehicleRequirement = VehicleRequirement.REQUIRED,
             EmoteDuration = 5000
         }
     },
@@ -9321,7 +9321,7 @@ RP.Emotes = {
         "Gym Pose",
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
-            NotInVehicle = true
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED
         }
     },
     ["gympose2"] = { -- Custom Emote By Amnilka
@@ -9333,7 +9333,7 @@ RP.Emotes = {
             StartDelay = 550,
             ExitEmote = "standup",
             ExitEmoteType = "Exits",
-            NotInVehicle = true
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED
         }
     },
     ["gympose3"] = { -- Custom Female Emote By Frabi
@@ -9345,7 +9345,7 @@ RP.Emotes = {
             StartDelay = 550,
             ExitEmote = "standup",
             ExitEmoteType = "Exits",
-            NotInVehicle = true
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED
         }
     },
     ["gympose4"] = { -- Custom Female Emote By Frabi
@@ -9357,7 +9357,7 @@ RP.Emotes = {
             StartDelay = 510,
             ExitEmote = "getup",
             ExitEmoteType = "Exits",
-            NotInVehicle = true
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED
         }
     },
 
@@ -9507,7 +9507,7 @@ RP.Emotes = {
         "Relax",
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
-            NotInVehicle = true,
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED,
             StartDelay = 800,
             ExitEmote = "getup",
         }
@@ -9518,7 +9518,7 @@ RP.Emotes = {
         "Relax 2",
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
-            NotInVehicle = true,
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED,
             StartDelay = 800,
             ExitEmote = "getup",
         }
