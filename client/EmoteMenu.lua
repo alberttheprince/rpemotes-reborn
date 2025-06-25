@@ -495,6 +495,18 @@ local function convertToEmoteData(emote)
         animOptions.rot = animOptions.rot
             or vector3(animOptions.xRot or 0.0, animOptions.yRot or 0.0, animOptions.zRot or 0.0)
     end
+
+    if animOptions and (animOptions.SyncOffsetSide
+        or animOptions.SyncOffsetFront
+        or animOptions.SyncOffsetHeight
+        or animOptions.SyncOffsetHeading)
+    then
+        animOptions.syncOffset = vector4(
+            animOptions.SyncOffsetSide or 0.0,
+            animOptions.SyncOffsetFront or 1.0,
+            animOptions.SyncOffsetHeight or 0.0,
+            animOptions.SyncOffsetHeading or 180.0)
+    end
 end
 
 CreateThread(function()
