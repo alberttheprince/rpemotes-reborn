@@ -53,9 +53,11 @@ Category = {
 ---@field onlyInVehicle? boolean deprecated. Use vehicleRequirement instead
 ---@field vehicleRequirement? VehicleRequirement
 ---@field EmoteDuration? integer
----@field SyncOffsetFront? number
----@field SyncOffsetSide? number
----@field SyncOffsetHeading? number
+---@field SyncOffsetSide? number defaults to 0.0
+---@field SyncOffsetFront? number defaults to 1.0
+---@field SyncOffsetHeight? number defaults to 0.0
+---@field SyncOffsetHeading? number defaults to 180.0
+---@field syncOffset? vector4 internal use only
 ---@field bone? integer
 ---@field pos? vector3
 ---@field rot? vector3
