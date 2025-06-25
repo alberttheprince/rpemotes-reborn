@@ -651,9 +651,9 @@ function OnEmotePlay(name, textureVariation)
 
     local animOption = emoteData.AnimationOptions
     if animOption then
-        if inVehicle and animOption.NotInVehicle then
+        if inVehicle and animOption.vehicleRequirement == VehicleRequirement.NOT_ALLOWED then
             return EmoteChatMessage(Translate('not_in_a_vehicle'))
-        elseif not inVehicle and animOption.onlyInVehicle then
+        elseif not inVehicle and animOption.vehicleRequirement == VehicleRequirement.REQUIRED then
             return EmoteChatMessage(Translate('in_a_vehicle'))
         end
     end

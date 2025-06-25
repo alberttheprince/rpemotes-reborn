@@ -496,6 +496,14 @@ local function convertToEmoteData(emote)
             or vector3(animOptions.xRot or 0.0, animOptions.yRot or 0.0, animOptions.zRot or 0.0)
     end
 
+    if animOptions and not animOptions.vehicleRequirement then
+        if animOptions.NotInVehicle then
+            animOptions.vehicleRequirement = VehicleRequirement.NOT_ALLOWED
+        elseif animOptions.onlyInVehicle then
+            animOptions.vehicleRequirement = VehicleRequirement.REQUIRED
+        end
+    end
+
     if animOptions and (animOptions.SyncOffsetSide
         or animOptions.SyncOffsetFront
         or animOptions.SyncOffsetHeight

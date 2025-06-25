@@ -12,6 +12,12 @@ ScenarioType = {
     OBJECT = 'ScenarioObject',
 }
 
+---@enum VehicleRequirement
+VehicleRequirement = {
+    NOT_ALLOWED = 'NOT_ALLOWED',
+    REQUIRED = 'REQUIRED',
+}
+
 ---@enum Category
 Category = {
     EXPRESSIONS = 'Expressions',
@@ -43,8 +49,9 @@ Category = {
 ---@field Flag? AnimFlag | integer anim flag to use. If set, overrides onFootFlag.
 ---@field FullBody? boolean
 ---@field Attachto? boolean
----@field NotInVehicle? boolean
----@field onlyInVehicle? boolean
+---@field NotInVehicle? boolean deprecated. Use vehicleRequirement instead
+---@field onlyInVehicle? boolean deprecated. Use vehicleRequirement instead
+---@field vehicleRequirement? VehicleRequirement
 ---@field EmoteDuration? integer
 ---@field SyncOffsetSide? number defaults to 0.0
 ---@field SyncOffsetFront? number defaults to 1.0
