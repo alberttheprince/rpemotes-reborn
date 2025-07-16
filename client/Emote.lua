@@ -163,6 +163,10 @@ local function exitScenario()
 end
 
 function EmoteCancel(force)
+    if not LocalPlayer.state.canCancel then
+        return
+    end
+
     LocalPlayer.state:set('currentEmote', nil, true)
     EmoteCancelPlaying = true
 
