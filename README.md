@@ -110,11 +110,14 @@ exports["rpemotes-reborn"]:setWalkstyle(name, force) -- name = "move_m@alien" or
 exports["rpemotes-reborn"]:toggleWalkstyle(bool, message) -- bool to allow the user to change their walkstyle in the menu or not / message to show the user (optional, default is :"You are unable to change your walking style right now.")"
 ```
 
-Having issues with players using emotes when/where they're not supposed to? Use the following where you need. This would be somewhere like if you want to disable emotes in jail or when someone is handcuffed/escorted:
+Having issues with players using emotes when/where they're not supposed to? Use the following where needed. This would be somewhere like if you want to disable emotes in jail or when someone is handcuffed/escorted. We've also added one for blocking emote cancels!
 
 ```lua
-LocalPlayer.state:set('canEmote', false, true) -- stops emoting
-LocalPlayer.state:set('canEmote', true, true) -- allows emoting
+LocalPlayer.state:set('canEmote', false, true) -- Blocks players from emoting
+LocalPlayer.state:set('canEmote', true, true) -- Allows players to emote
+
+LocalPlayer.state:set('canCancel', false, true) -- Blocks players from using emote cancel
+LocalPlayer.state:set('canCancel', true, true) -- Allows players to use emote cancel
 ```
 
 # Menu Keybind 🎛️
