@@ -163,7 +163,7 @@ local function exitScenario()
 end
 
 function EmoteCancel(force)
-    if not LocalPlayer.state.canCancel then
+    if LocalPlayer.state.canCancel == false then
         return
     end
 
