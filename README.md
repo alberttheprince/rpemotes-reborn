@@ -94,7 +94,6 @@ The rpemotes-reborn resource has the following exports:
 ```lua
 exports["rpemotes-reborn"]:EmoteCommandStart(emoteName, textureVariation)
 exports["rpemotes-reborn"]:EmoteCancel(forceCancel) – forceCancel is optional
-exports["rpemotes-reborn"]:CanCancelEmote(state)
 exports["rpemotes-reborn"]:IsPlayerCrouched()
 exports["rpemotes-reborn"]:IsPlayerProne()
 exports["rpemotes-reborn"]:StopPlayerProne(force) -- force is optional
