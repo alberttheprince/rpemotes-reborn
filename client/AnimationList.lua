@@ -11109,7 +11109,7 @@ RP.PropEmotes = {
         "ped_a_enter_loop",
         "Syringe",
         AnimationOptions = {
-            Prop = "prop_single_rose",
+            Prop = "prop_syringe_01",
             PropBone = 18905,
             PropPlacement = {
                 0.11,
