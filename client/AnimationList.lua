@@ -153,7 +153,8 @@ RP.Walks = {
         "Butch 3"
     },
     ["Bigfoot"] = {
-        "move_characters@orleans@core@"
+        "move_characters@orleans@core@",
+        abusable = true,
     },
     ["Buzzed"] = {
         "move_m@buzzed"
@@ -306,23 +307,28 @@ RP.Walks = {
         "Fire 3"
     },
     ["Flee"] = {
-        "move_f@flee@a"
+        "move_f@flee@a",
+        abusable = true,
     },
     ["Flee2"] = {
         "move_f@flee@c",
-        "Flee 2"
+        "Flee 2",
+        abusable = true,
     },
     ["Flee3"] = {
         "move_m@flee@a",
-        "Flee 3"
+        "Flee 3",
+        abusable = true,
     },
     ["Flee4"] = {
         "move_m@flee@b",
-        "Flee 4"
+        "Flee 4",
+        abusable = true,
     },
     ["Flee5"] = {
         "move_m@flee@c",
-        "Flee 5"
+        "Flee 5",
+        abusable = true,
     },
     ["Floyd"] = {
         "move_characters@floyd"
@@ -434,15 +440,18 @@ RP.Walks = {
     },
     ["Hurry"] = {
         "move_m@hurry@a",
-        "Hurry Male"
+        "Hurry Male",
+        abusable = true,
     },
     ["Hurry2"] = {
         "move_f@hurry@a",
-        "Hurry Female"
+        "Hurry Female",
+        abusable = true,
     },
     ["Hurry3"] = {
         "move_f@hurry@b",
-        "Hurry Female 2"
+        "Hurry Female 2",
+        abusable = true,
     },
     ["InjuredWalk"] = {
         "move_m@injured",

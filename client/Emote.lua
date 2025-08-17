@@ -636,6 +636,10 @@ function OnEmotePlay(name, textureVariation)
         return EmoteChatMessage(Translate('adultemotedisabled'))
     end
 
+    if Config.AbusableEmotesDisabled and emoteData.abusable then
+        return EmoteChatMessage(Translate('abusableemotedisabled'))
+    end
+
     if InExitEmote then
         return false
     end

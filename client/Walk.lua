@@ -11,12 +11,17 @@ function WalkMenuStart(name, force)
         ResetWalk()
         return
     end
-    if not EmoteData[name] or type(EmoteData[name]) ~= "table" or EmoteData[name].category ~= Category.WALKS then
+    local emoteData = EmoteData[name]
+    if not emoteData or type(emoteData) ~= "table" or emoteData.category ~= Category.WALKS then
         EmoteChatMessage("'" .. tostring(name) .. "' is not a valid walk")
         return
     end
+    if Config.AbusableEmotesDisabled and emoteData.abusable then
+        EmoteChatMessage(Translate('abusableemotedisabled'))
+        return
+    end
 
-    local walk = EmoteData[name].anim
+    local walk = emoteData.anim
     assert(walk ~= nil)
     RequestWalking(walk)
     SetPedMovementClipset(PlayerPedId(), walk, 0.2)

@@ -72,6 +72,7 @@ Locales['en'] = {
     ['swimming'] = "You can't use emotes while swimming",
     ['notvalidpet'] = "RUH ROH! Incorrect ped model detected 🐕!",
     ['animaldisabled'] = "Sorry! Animal emotes are disabled on this server",
+    ['abusableemotedisabled'] = "Sorry! This emote has been disabled on this server",
     ['adultemotedisabled'] = "Bonk! Adult emotes disabled 🔞",
     ['toggle_instructions'] = "Toggle the instructions",
     ['exit_binoculars'] = "Exit binoculars",
