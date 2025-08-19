@@ -547,6 +547,10 @@ CreateThread(function()
             if Config.AdultEmotesDisabled and emoteData.AdultAnimation then
                 goto continue
             end
+            
+            if Config.AbusableEmotesDisabled and emoteData.abusable then
+                goto continue
+            end
 
             if type(emoteData) == "table" then
                 newRP[emoteName] = {}
