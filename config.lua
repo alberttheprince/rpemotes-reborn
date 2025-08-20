@@ -56,7 +56,7 @@ Config = {
     -- Pointing
     PointingEnabled = true,
     PointingKeybindEnabled = true,
-    PointingKeybind = 'B', 
+    PointingKeybind = 'B',
     PointingInCar = false,
     ReplayEmoteAfterPointing = true,
 
@@ -86,6 +86,9 @@ Config = {
 
     CheckForUpdates = true,
     DebugDisplay = false,
+
+    -- Emote Cooldown in milliseconds. Prevents switching emotes too quickly. If nil, no cooldown is enforced
+    EmoteCooldownMs = nil
 }
 
 Config.KeybindKeys = {

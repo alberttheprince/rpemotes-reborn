@@ -4,6 +4,7 @@ CurrentAnimationName = nil
 CurrentTextureVariation = nil
 InHandsup = false
 CONVERTED = false
+local lastEmoteTime = 0
 
 ---@type ScenarioType
 local ChosenScenarioType
@@ -638,6 +639,17 @@ function OnEmotePlay(name, textureVariation)
 
     if InExitEmote then
         return false
+    end
+
+    if Config.EmoteCooldownMs then
+        local timeSinceLastEmote = GetGameTimer() - lastEmoteTime
+        
+        if timeSinceLastEmote < Config.EmoteCooldownMs then
+            EmoteChatMessage(Translate('emotecooldown'))
+            return
+        else
+            lastEmoteTime = GetGameTimer()
+        end
     end
 
     if Config.CancelPreviousEmote
