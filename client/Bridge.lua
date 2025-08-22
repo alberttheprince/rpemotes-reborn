@@ -114,6 +114,4 @@ end
 if Framework == 'qb' then
     RegisterNetEvent('hospital:client:Revive', DelayedHandleWalkstyle)
     RegisterNetEvent('qbx_medical:client:playerRevived', DelayedHandleWalkstyle)
-elseif Framework == 'esx' then
-    RegisterNetEvent('esx_ambulancejob:revive', DelayedHandleWalkstyle)
 end
