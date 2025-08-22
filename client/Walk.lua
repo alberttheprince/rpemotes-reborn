@@ -78,7 +78,7 @@ if Config.WalkingStylesEnabled and Config.PersistentWalk then
         return walkstyle and type(walkstyle) == "table" and walkstyle.category == Category.WALKS
     end
 
-    local function handleWalkstyle()
+    function HandleWalkstyle()
         local kvp = GetResourceKvpString("walkstyle")
         if not kvp then return end
         if walkstyleExists(kvp) then
@@ -91,15 +91,15 @@ if Config.WalkingStylesEnabled and Config.PersistentWalk then
 
     AddEventHandler('playerSpawned', function()
         Wait(3000)
-        handleWalkstyle()
+        HandleWalkstyle()
     end)
 
-    RegisterNetEvent('QBCore:Client:OnPlayerLoaded', handleWalkstyle)
-    RegisterNetEvent('esx:playerLoaded', handleWalkstyle)
+    RegisterNetEvent('QBCore:Client:OnPlayerLoaded', HandleWalkstyle)
+    RegisterNetEvent('esx:playerLoaded', HandleWalkstyle)
 
     AddEventHandler('onResourceStart', function(resource)
         if resource == GetCurrentResourceName() then
-            handleWalkstyle()
+            HandleWalkstyle()
         end
     end)
 end

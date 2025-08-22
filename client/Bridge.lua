@@ -105,3 +105,15 @@ RegisterNetEvent('animations:client:ListWalks', function()
         WalksOnCommand()
     end
 end)
+
+
+local function DelayedHandleWalkstyle()
+    SetTimeout(1500, HandleWalkstyle)
+end
+
+if Framework == 'qb' then
+    RegisterNetEvent('hospital:client:Revive', DelayedHandleWalkstyle)
+    RegisterNetEvent('qbx_medical:client:playerRevived', DelayedHandleWalkstyle)
+elseif Framework == 'esx' then
+    RegisterNetEvent('esx_ambulancejob:revive', DelayedHandleWalkstyle)
+end
