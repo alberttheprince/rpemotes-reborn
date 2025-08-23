@@ -250,24 +250,24 @@ local function checkAnimalAndOnEmotePlay(name)
     end
 end
 
-function EmoteMenuStart(name, category, textureVariation)
+function EmoteMenuStart(name, emoteType, textureVariation)
     local emote = EmoteData[name]
 
     if not emote then
         return
     end
 
-    if emote.category ~= category then
-        DebugPrint("Emote category mismatch : " .. emote.category .. " vs " .. category)
+    if emote.emoteType ~= emoteType then
+        DebugPrint("Emote category mismatch : " .. emote.emoteType .. " vs " .. emoteType)
         return
     end
 
-    if category == Category.EXPRESSIONS then
+    if emoteType == EmoteType.EXPRESSIONS then
         SetPlayerPedExpression(name, true)
         return
     end
 
-    if emote.category == Category.ANIMAL_EMOTES then
+    if emote.emoteType == EmoteType.ANIMAL_EMOTES then
         checkAnimalAndOnEmotePlay(name)
         return
     end
@@ -428,7 +428,7 @@ local function onEmotePlayClone(name)
     addProps(animOption, nil, true)
 end
 
-function EmoteMenuStartClone(name, category)
+function EmoteMenuStartClone(name, emoteType)
     if not Config.PreviewPed then return end
     if not DoesEntityExist(ClonedPed) then return end
 
@@ -438,12 +438,12 @@ function EmoteMenuStartClone(name, category)
         return
     end
 
-    if emote.category ~= category then
-        DebugPrint("Emote category mismatch : " .. emote.category .. " vs " .. category)
+    if emote.emoteType ~= emoteType then
+        DebugPrint("Emote category mismatch : " .. emote.emoteType .. " vs " .. emoteType)
         return
     end
 
-    if category == Category.EXPRESSIONS then
+    if emoteType == EmoteType.EXPRESSIONS then
         SetFacialIdleAnimOverride(ClonedPed, emote[1], true)
         return
     end
@@ -485,7 +485,7 @@ function EmoteCommandStart(args)
         return
     end
 
-    if emote.category == Category.ANIMAL_EMOTES then
+    if emote.emoteType == EmoteType.ANIMAL_EMOTES then
         if Config.AnimalEmotesEnabled then
             checkAnimalAndOnEmotePlay(name)
         else
@@ -494,7 +494,7 @@ function EmoteCommandStart(args)
         return
     end
 
-    if emote.category == Category.PROP_EMOTES
+    if emote.emoteType == EmoteType.PROP_EMOTES
         and emote.AnimationOptions.PropTextureVariations
     then
         local textureVariation = tonumber(args[2])
