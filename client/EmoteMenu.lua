@@ -483,10 +483,6 @@ local function convertToEmoteData(emote)
         emote.label = emote[3]
     end
 
-    if not emote.category then
-        emote.category = emote.emoteType
-    end
-
     local animOptions = emote.AnimationOptions
     if animOptions and not animOptions.onFootFlag then
         if animOptions.EmoteMoving then
