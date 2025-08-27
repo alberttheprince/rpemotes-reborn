@@ -70,47 +70,45 @@ function AddEmoteMenu(menu)
         submenu:AddItem(NativeUI.CreateItem(Translate('keybinds'), Translate('keybindsinfo') .. " /emotebind [~y~num4-9~w~] [~g~emotename~w~]"))
     end
 
-    for a, b in PairsByKeys(RP.Emotes) do
-        local x, y, z = table.unpack(b)
-        submenu:AddItem(NativeUI.CreateItem(z, "/e (" .. a .. ")"))
-        EmoteTable[#EmoteTable + 1] = a
-    end
+    for emoteName, data in pairs(EmoteData) do
+        if data.emoteType == EmoteType.EMOTES then
+            submenu:AddItem(NativeUI.CreateItem(data.label, string.format("/e (%s)", emoteName)))
+            EmoteTable[#EmoteTable + 1] = emoteName
+        elseif data.emoteType == EmoteType.DANCES then
+            local label = '🤼 ' .. data.label
+            dancemenu:AddItem(NativeUI.CreateItem(label, string.format("/e (%s)", emoteName)))
+            if Config.SharedEmotesEnabled then
+                shareddancemenu:AddItem(NativeUI.CreateItem(label, string.format("/nearby (%s)", emoteName)))
+            end
+            DanceTable[#DanceTable + 1] = emoteName
+        elseif data.emoteType == EmoteType.ANIMAL_EMOTES then
+            if Config.AnimalEmotesEnabled then
+                local name = '🐶 ' .. data.label
+                animalmenu:AddItem(NativeUI.CreateItem(name, string.format("/e (%s)", emoteName)))
+                AnimalTable[#AnimalTable + 1] = emoteName
+            end
+        elseif data.emoteType == EmoteType.SHARED then
+            if Config.SharedEmotesEnabled then
+                local desc
+                if data.secondPlayersAnim == nil then
+                    desc = string.format("/nearby (~g~%s~w~)", emoteName)
+                else
+                    desc = string.format("/nearby (~g~%s~w~) %s (~y~%s~w~)", emoteName, Translate('makenearby'), data.secondPlayersAnim)
+                end
+                local shareitem = NativeUI.CreateItem(data.label, desc)
+                sharemenu:AddItem(shareitem)
+                ShareTable[#ShareTable + 1] = emoteName
+            end
+        elseif data.emoteType == EmoteType.PROP_EMOTES then
+            local name = '📦 ' .. data.label
+            local propitem = data.AnimationOptions.PropTextureVariations and
+                NativeUI.CreateListItem(name, data.AnimationOptions.PropTextureVariations, 1, string.format("/e (%s)", emoteName)) or
+                NativeUI.CreateItem(name, string.format("/e (%s)", emoteName))
 
-    for a, b in PairsByKeys(RP.Dances) do
-        local name = '🤼 ' .. b[3]
-        dancemenu:AddItem(NativeUI.CreateItem(name, "/e (" .. a .. ")"))
-        if Config.SharedEmotesEnabled then
-            shareddancemenu:AddItem(NativeUI.CreateItem(name, "/nearby (" .. a .. ")"))
+            propmenu:AddItem(propitem)
+
+            PropTable[#PropTable + 1] = emoteName
         end
-        DanceTable[#DanceTable + 1] = a
-    end
-
-    if Config.AnimalEmotesEnabled then
-        for a, b in PairsByKeys(RP.AnimalEmotes) do
-            local name = '🐶 ' .. b[3]
-            animalmenu:AddItem(NativeUI.CreateItem(name, "/e (" .. a .. ")"))
-            AnimalTable[#AnimalTable + 1] = a
-        end
-    end
-
-    if Config.SharedEmotesEnabled then
-        for a, b in PairsByKeys(RP.Shared) do
-            local name = b[3]
-            local shareitem = NativeUI.CreateItem(name, "/nearby (~g~" .. a .. "~w~)" .. (otheremotename and " " .. Translate('makenearby') .. " (~y~" .. otheremotename .. "~w~)" or ""))
-            sharemenu:AddItem(shareitem)
-            ShareTable[#ShareTable + 1] = a
-        end
-    end
-
-    for a, b in PairsByKeys(RP.PropEmotes) do
-        local name = '📦 ' .. b[3]
-        local propitem = b.AnimationOptions.PropTextureVariations and
-            NativeUI.CreateListItem(name, b.AnimationOptions.PropTextureVariations, 1, "/e (" .. a .. ")") or
-            NativeUI.CreateItem(name, "/e (" .. a .. ")")
-
-        propmenu:AddItem(propitem)
-
-        PropTable[#PropTable + 1] = a
     end
 
     -- Ped Emote on Change Index
@@ -241,9 +239,9 @@ if Config.Search then
             if v.table == EmoteType.SHARED then
                 local otheremotename = v.data[4]
                 if otheremotename == nil then
-                    desc = "/nearby (~g~" .. v.name .. "~w~)"
+                    desc = string.format("/nearby (~g~%s~w~)", v.name)
                 else
-                    desc = "/nearby (~g~" .. v.name .. "~w~) " .. Translate('makenearby') .. " (~y~" .. otheremotename .. "~w~)"
+                    desc = string.format("/nearby (~g~%s~w~) %s (~y~%s~w~)", v.name, Translate('makenearby'), otheremotename)
                 end
             else
                 desc = "/e (" .. v.name .. ")"
@@ -351,6 +349,7 @@ ShowPedPreview = function(menu)
     end
 end
 
+-- TODO: merge with main iterating for loop for menu initialization.
 function AddWalkMenu(menu)
     local submenu = _menuPool:AddSubMenu(menu, Translate('walkingstyles'), "", true, true)
 
@@ -359,16 +358,20 @@ function AddWalkMenu(menu)
     WalkTable[#WalkTable + 1] = Translate('resetdef')
 
     local sortedWalks = {}
-    for a, b in PairsByKeys(RP.Walks) do
-        if b[1] == "move_m@injured" then
-            table.insert(sortedWalks, 1, {label = a, anim = b[1]})
-        else
-            sortedWalks[#sortedWalks + 1] = {label = a, anim = b[1]}
+    for _, data in pairs(EmoteData) do
+        if data.emoteType == EmoteType.WALKS then
+            -- TODO: I'm not sure why injured walk styles need to appear first in the list.
+            -- Maybe it's a commonly used one? Should find out and add a comment explaining it. 
+            if data.anim == "move_m@injured" then
+                table.insert(sortedWalks, 1, {label = data.label, anim = data.anim})
+            else
+                sortedWalks[#sortedWalks + 1] = {label = data.label, anim = data.anim}
+            end
         end
     end
 
     for _, walk in ipairs(sortedWalks) do
-        submenu:AddItem(NativeUI.CreateItem(walk.label, "/walk (" .. string.lower(walk.label) .. ")"))
+        submenu:AddItem(NativeUI.CreateItem(walk.label, string.format("/walk (%s)", string.lower(walk.label))))
         WalkTable[#WalkTable + 1] = walk.label
     end
 
@@ -382,6 +385,7 @@ function AddWalkMenu(menu)
     end
 end
 
+-- TODO: merge with main iterating for loop for menu initialization.
 function AddFaceMenu(menu)
     local submenu = _menuPool:AddSubMenu(menu, Translate('moods'), "", true, true)
 
@@ -389,12 +393,13 @@ function AddFaceMenu(menu)
     submenu:AddItem(facereset)
     FaceTable[#FaceTable + 1] = ""
 
-    for name, data in PairsByKeys(RP.Expressions) do
-        local faceitem = NativeUI.CreateItem(data[2] or name, "")
-        submenu:AddItem(faceitem)
-        FaceTable[#FaceTable + 1] = name
+    for emoteName, data in pairs(EmoteData) do
+        if data.emoteType == EmoteType.EXPRESSIONS then
+            local faceitem = NativeUI.CreateItem(data.label or emoteName, "")
+            submenu:AddItem(faceitem)
+            FaceTable[#FaceTable + 1] = emoteName
+        end
     end
-
 
     submenu.OnIndexChange = function(_, newindex)
         EmoteMenuStartClone(FaceTable[newindex], EmoteType.EXPRESSIONS)
@@ -517,23 +522,7 @@ local function convertToEmoteData(emote)
     end
 end
 
-CreateThread(function()
-    LoadAddonEmotes()
-    AddEmoteMenu(mainMenu)
-    AddCancelEmote(mainMenu)
-    if Config.PreviewPed then
-        ShowPedPreview(mainMenu)
-    end
-    if Config.WalkingStylesEnabled then
-        AddWalkMenu(mainMenu)
-    end
-    if Config.ExpressionsEnabled then
-        AddFaceMenu(mainMenu)
-    end
-    AddInfoMenu(mainMenu)
-
-    _menuPool:RefreshIndex()
-
+local function convertRP()
     local newRP = {}
     assert(RP ~= nil)
     for emoteType, content in pairs(RP) do
@@ -570,6 +559,29 @@ CreateThread(function()
     EmoteData = newRP
     RP = nil
     CONVERTED = true
+end
+
+local function initMenu()
+    AddEmoteMenu(mainMenu)
+    AddCancelEmote(mainMenu)
+    if Config.PreviewPed then
+        ShowPedPreview(mainMenu)
+    end
+    if Config.WalkingStylesEnabled then
+        AddWalkMenu(mainMenu)
+    end
+    if Config.ExpressionsEnabled then
+        AddFaceMenu(mainMenu)
+    end
+    AddInfoMenu(mainMenu)
+
+    _menuPool:RefreshIndex()
+end
+
+CreateThread(function()
+    LoadAddonEmotes()
+    convertRP()
+    initMenu()
 end)
 
 local isMenuProcessing = false
