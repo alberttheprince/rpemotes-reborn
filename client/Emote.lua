@@ -250,29 +250,20 @@ local function checkAnimalAndOnEmotePlay(name)
     end
 end
 
-function EmoteMenuStart(name, emoteType, textureVariation)
+function EmoteMenuStart(name, textureVariation)
     local emote = EmoteData[name]
 
     if not emote then
         return
     end
 
-    if emote.emoteType ~= emoteType then
-        DebugPrint("Emote category mismatch : " .. emote.emoteType .. " vs " .. emoteType)
-        return
-    end
-
-    if emoteType == EmoteType.EXPRESSIONS then
+    if emote.emoteType == EmoteType.EXPRESSIONS then
         SetPlayerPedExpression(name, true)
-        return
-    end
-
-    if emote.emoteType == EmoteType.ANIMAL_EMOTES then
+    elseif emote.emoteType == EmoteType.ANIMAL_EMOTES then
         checkAnimalAndOnEmotePlay(name)
-        return
+    else
+        OnEmotePlay(name, textureVariation)
     end
-
-    OnEmotePlay(name, textureVariation)
 end
 
 local function checkGender()
@@ -428,7 +419,7 @@ local function onEmotePlayClone(name)
     addProps(animOption, nil, true)
 end
 
-function EmoteMenuStartClone(name, emoteType)
+function EmoteMenuStartClone(name)
     if not Config.PreviewPed then return end
     if not DoesEntityExist(ClonedPed) then return end
 
@@ -438,12 +429,7 @@ function EmoteMenuStartClone(name, emoteType)
         return
     end
 
-    if emote.emoteType ~= emoteType then
-        DebugPrint("Emote category mismatch : " .. emote.emoteType .. " vs " .. emoteType)
-        return
-    end
-
-    if emoteType == EmoteType.EXPRESSIONS then
+    if emote.emoteType == EmoteType.EXPRESSIONS then
         SetFacialIdleAnimOverride(ClonedPed, emote[1], true)
         return
     end
