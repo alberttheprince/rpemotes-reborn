@@ -1,4 +1,4 @@
-RegisterNetEvent("rpemotes:server:requestEmote", function(target, emotename, etype)
+RegisterNetEvent("rpemotes:server:requestEmote", function(target, emotename)
     local source = source
     if not Player(source).state.canEmote then return end
 
@@ -12,7 +12,7 @@ RegisterNetEvent("rpemotes:server:requestEmote", function(target, emotename, ety
         return
     end
 
-    TriggerClientEvent("rpemotes:client:requestEmote", target, emotename, etype, source)
+    TriggerClientEvent("rpemotes:client:requestEmote", target, emotename, source)
 end)
 
 RegisterNetEvent("rpemotes:server:confirmEmote", function(target, requestedemote, otheremote)

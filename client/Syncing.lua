@@ -139,7 +139,7 @@ function CancelSharedEmote()
     end
 end
 
-RegisterNetEvent("rpemotes:client:requestEmote", function(emotename, etype, target)
+RegisterNetEvent("rpemotes:client:requestEmote", function(emotename, target)
     isRequestAnim = true
 
     local emote = EmoteData[emotename]

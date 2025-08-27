@@ -40,6 +40,15 @@ local WalkTable = {}
 local FaceTable = {}
 local ShareTable = {}
 
+local function sendSharedEmoteRequest(emoteName)
+    local target, distance = GetClosestPlayer()
+    if (distance ~= -1 and distance < 3) then
+        TriggerServerEvent("rpemotes:server:requestEmote", GetPlayerServerId(target), emoteName)
+        SimpleNotify(Translate('sentrequestto') .. GetPlayerName(target))
+    else
+        SimpleNotify(Translate('nobodyclose'))
+    end
+end
 
 function AddEmoteMenu(menu)
     local submenu = _menuPool:AddSubMenu(menu, Translate('emotes'), "", true, true)
@@ -147,24 +156,12 @@ function AddEmoteMenu(menu)
     if Config.SharedEmotesEnabled then
         sharemenu.OnItemSelect = function(_, _, index)
             if ShareTable[index] ~= 'none' then
-                local target, distance = GetClosestPlayer()
-                if (distance ~= -1 and distance < 3) then
-                    TriggerServerEvent("rpemotes:server:requestEmote", GetPlayerServerId(target), ShareTable[index])
-                    SimpleNotify(Translate('sentrequestto') .. GetPlayerName(target))
-                else
-                    SimpleNotify(Translate('nobodyclose'))
-                end
+                sendSharedEmoteRequest(ShareTable[index])
             end
         end
 
         shareddancemenu.OnItemSelect = function(_, _, index)
-            local target, distance = GetClosestPlayer()
-            if (distance ~= -1 and distance < 3) then
-                TriggerServerEvent("rpemotes:server:requestEmote", GetPlayerServerId(target), DanceTable[index], 'Dances')
-                SimpleNotify(Translate('sentrequestto') .. GetPlayerName(target))
-            else
-                SimpleNotify(Translate('nobodyclose'))
-            end
+            sendSharedEmoteRequest(DanceTable[index])
         end
     end
 
@@ -278,13 +275,7 @@ if Config.Search then
             if data == Translate('sharedanceemotes') then return end
 
             if data.table == EmoteType.SHARED then
-                local target, distance = GetClosestPlayer()
-                if (distance ~= -1 and distance < 3) then
-                    TriggerServerEvent("rpemotes:server:requestEmote", GetPlayerServerId(target), data.name)
-                    SimpleNotify(Translate('sentrequestto') .. GetPlayerName(target))
-                else
-                    SimpleNotify(Translate('nobodyclose'))
-                end
+                sendSharedEmoteRequest(data.name)
             else
                 EmoteMenuStart(data.name, data.data.emoteType)
             end
@@ -301,13 +292,7 @@ if Config.Search then
                     if not LocalPlayer.state.canEmote then return end
 
                     local data = results[index]
-                    local target, distance = GetClosestPlayer()
-                    if (distance ~= -1 and distance < 3) then
-                        TriggerServerEvent("rpemotes:server:requestEmote", GetPlayerServerId(target), data.name, 'Dances')
-                        SimpleNotify(Translate('sentrequestto') .. GetPlayerName(target))
-                    else
-                        SimpleNotify(Translate('nobodyclose'))
-                    end
+                    sendSharedEmoteRequest(data.name)
                 end
             else
                 sharedDanceMenu:Clear()
