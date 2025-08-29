@@ -124,18 +124,18 @@ function AddEmoteMenu(menu)
 
     dancemenu.OnIndexChange = function(_, newindex)
         ClearPedTaskPreview()
-        EmoteMenuStartClone(DanceTable[newindex], EmoteType.DANCES)
+        EmoteMenuStartClone(DanceTable[newindex])
     end
 
     propmenu.OnIndexChange = function(_, newindex)
         ClearPedTaskPreview()
-        EmoteMenuStartClone(PropTable[newindex], EmoteType.PROP_EMOTES)
+        EmoteMenuStartClone(PropTable[newindex])
     end
 
     submenu.OnIndexChange = function(_, newindex)
         if newindex > 5 then
             ClearPedTaskPreview()
-            EmoteMenuStartClone(EmoteTable[newindex], EmoteType.EMOTES)
+            EmoteMenuStartClone(EmoteTable[newindex])
         end
     end
 
@@ -144,12 +144,12 @@ function AddEmoteMenu(menu)
     end
 
     dancemenu.OnItemSelect = function(_, _, index)
-        EmoteMenuStart(DanceTable[index], EmoteType.DANCES)
+        EmoteMenuStart(DanceTable[index])
     end
 
     if Config.AnimalEmotesEnabled then
         animalmenu.OnItemSelect = function(_, _, index)
-            EmoteMenuStart(AnimalTable[index], EmoteType.ANIMAL_EMOTES)
+            EmoteMenuStart(AnimalTable[index])
         end
     end
 
@@ -166,18 +166,18 @@ function AddEmoteMenu(menu)
     end
 
     propmenu.OnItemSelect = function(_, _, index)
-        EmoteMenuStart(PropTable[index], EmoteType.PROP_EMOTES)
+        EmoteMenuStart(PropTable[index])
     end
 
    propmenu.OnListSelect = function(_, item, itemIndex, listIndex)
-        EmoteMenuStart(PropTable[itemIndex], EmoteType.PROP_EMOTES, item:IndexToItem(listIndex).Value)
+        EmoteMenuStart(PropTable[itemIndex], item:IndexToItem(listIndex).Value)
     end
 
     submenu.OnItemSelect = function(_, _, index)
         if Config.Search and EmoteTable[index] == Translate('searchemotes') then
             EmoteMenuSearch(submenu)
         else
-            EmoteMenuStart(EmoteTable[index], EmoteType.EMOTES)
+            EmoteMenuStart(EmoteTable[index])
         end
     end
 
@@ -265,7 +265,7 @@ if Config.Search then
             local data = results[newindex]
 
             ClearPedTaskPreview()
-            EmoteMenuStartClone(data.name, data.data.emoteType)
+            EmoteMenuStartClone(data.name)
         end
 
 
@@ -277,12 +277,12 @@ if Config.Search then
             if data.table == EmoteType.SHARED then
                 sendSharedEmoteRequest(data.name)
             else
-                EmoteMenuStart(data.name, data.data.emoteType)
+                EmoteMenuStart(data.name)
             end
         end
 
         searchMenu.OnListSelect = function(_, item, itemIndex, listIndex)
-            EmoteMenuStart(results[itemIndex].name, EmoteType.PROP_EMOTES, item:IndexToItem(listIndex).Value)
+            EmoteMenuStart(results[itemIndex].name, item:IndexToItem(listIndex).Value)
         end
 
         if Config.SharedEmotesEnabled then
@@ -387,7 +387,7 @@ function AddFaceMenu(menu)
     end
 
     submenu.OnIndexChange = function(_, newindex)
-        EmoteMenuStartClone(FaceTable[newindex], EmoteType.EXPRESSIONS)
+        EmoteMenuStartClone(FaceTable[newindex])
     end
 
     submenu.OnItemSelect = function(_, item, index)
@@ -395,7 +395,7 @@ function AddFaceMenu(menu)
             DeleteResourceKvp(EmoteType.EXPRESSIONS)
             ClearFacialIdleAnimOverride(PlayerPedId())
         else
-            EmoteMenuStart(FaceTable[index], EmoteType.EXPRESSIONS)
+            EmoteMenuStart(FaceTable[index])
         end
     end
 
