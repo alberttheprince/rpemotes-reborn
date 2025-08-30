@@ -30,15 +30,12 @@ local _menuPool = NativeUI.CreatePool()
 local mainMenu = NativeUI.CreateMenu(Config.MenuTitle or "", "", menuPosition["x"], menuPosition["y"], menuHeader, menuHeader)
 _menuPool:Add(mainMenu)
 
-local sharemenu, shareddancemenu, infomenu
+local shareddancemenu, infomenu
 
 local EmoteTable = {}
-local DanceTable = {}
-local AnimalTable = {}
-local PropTable = {}
-local WalkTable = {}
-local FaceTable = {}
-local ShareTable = {}
+
+---@type table<EmoteType, {menu: table, items: string[]}>
+local subMenus = {}
 
 local function sendSharedEmoteRequest(emoteName)
     local target, distance = GetClosestPlayer()
@@ -50,27 +47,81 @@ local function sendSharedEmoteRequest(emoteName)
     end
 end
 
+local function createSubMenu(parent, emoteType, title, description)
+    local menu = _menuPool:AddSubMenu(parent, title, description or '', true, true)
+    local items = {}
+    subMenus[emoteType] = {
+        menu = menu,
+        items = items,
+    }
+    EmoteTable[#EmoteTable + 1] = title
+
+    if emoteType == EmoteType.DANCES then
+        menu.OnIndexChange = function(_, newindex)
+            ClearPedTaskPreview()
+            EmoteMenuStartClone(items[newindex])
+        end
+
+        menu.OnMenuClosed = function()
+            ClearPedTaskPreview()
+        end
+    
+        menu.OnItemSelect = function(_, _, index)
+            EmoteMenuStart(items[index])
+        end
+    elseif emoteType == EmoteType.ANIMAL_EMOTES then
+        menu.OnItemSelect = function(_, _, index)
+            EmoteMenuStart(items[index])
+        end
+    elseif emoteType == EmoteType.PROP_EMOTES then
+        menu.OnIndexChange = function(_, newindex)
+            ClearPedTaskPreview()
+            EmoteMenuStartClone(items[newindex])
+        end
+
+        menu.OnItemSelect = function(_, _, index)
+            EmoteMenuStart(items[index])
+        end
+
+        menu.OnListSelect = function(_, item, itemIndex, listIndex)
+            EmoteMenuStart(items[itemIndex], item:IndexToItem(listIndex).Value)
+        end
+    elseif emoteType == EmoteType.SHARED then
+        menu.OnItemSelect = function(_, _, index)
+            if items[index] ~= 'none' then
+                sendSharedEmoteRequest(items[index])
+            end
+        end
+    elseif emoteType == EmoteType.EXPRESSIONS then
+        menu.OnIndexChange = function(_, newindex)
+            EmoteMenuStartClone(items[newindex])
+        end
+    
+        menu.OnMenuClosed = function()
+            ClosePedMenu()
+        end
+    end
+end
+
 function AddEmoteMenu(menu)
     local submenu = _menuPool:AddSubMenu(menu, Translate('emotes'), "", true, true)
     if Config.Search then
         submenu:AddItem(NativeUI.CreateItem(Translate('searchemotes'), ""))
         EmoteTable[#EmoteTable + 1] = Translate('searchemotes')
     end
-    local dancemenu = _menuPool:AddSubMenu(submenu, Translate('danceemotes'), "", true, true)
-    local animalmenu
+
+    createSubMenu(submenu, EmoteType.DANCES, Translate('danceemotes'))
+
     if Config.AnimalEmotesEnabled then
-        animalmenu = _menuPool:AddSubMenu(submenu, Translate('animalemotes'), "", true, true)
-        EmoteTable[#EmoteTable + 1] = Translate('animalemotes')
+        createSubMenu(submenu, EmoteType.ANIMAL_EMOTES, Translate('animalemotes'))
     end
-    local propmenu = _menuPool:AddSubMenu(submenu, Translate('propemotes'), "", true, true)
-    EmoteTable[#EmoteTable + 1] = Translate('danceemotes')
-    EmoteTable[#EmoteTable + 1] = Translate('danceemotes')
+    createSubMenu(submenu, EmoteType.PROP_EMOTES, Translate('propemotes'))
 
     if Config.SharedEmotesEnabled then
-        sharemenu = _menuPool:AddSubMenu(submenu, Translate('shareemotes'),
-            Translate('shareemotesinfo'), true, true)
-        shareddancemenu = _menuPool:AddSubMenu(sharemenu, Translate('sharedanceemotes'), "", true, true)
-        ShareTable[#ShareTable + 1] = 'none'
+        createSubMenu(submenu, EmoteType.SHARED, Translate('shareemotes'), Translate('shareemotesinfo'))
+        local shareMenu = subMenus[EmoteType.SHARED]
+        shareddancemenu = _menuPool:AddSubMenu(shareMenu.menu, Translate('sharedanceemotes'), "", true, true)
+        shareMenu.items[#shareMenu.items+1] = 'none'
         EmoteTable[#EmoteTable + 1] = Translate('shareemotes')
     end
 
@@ -85,16 +136,18 @@ function AddEmoteMenu(menu)
             EmoteTable[#EmoteTable + 1] = emoteName
         elseif data.emoteType == EmoteType.DANCES then
             local label = '🤼 ' .. data.label
-            dancemenu:AddItem(NativeUI.CreateItem(label, string.format("/e (%s)", emoteName)))
+            local danceMenu = subMenus[EmoteType.DANCES]
+            danceMenu.menu:AddItem(NativeUI.CreateItem(label, string.format("/e (%s)", emoteName)))
             if Config.SharedEmotesEnabled then
                 shareddancemenu:AddItem(NativeUI.CreateItem(label, string.format("/nearby (%s)", emoteName)))
             end
-            DanceTable[#DanceTable + 1] = emoteName
+            danceMenu.items[#danceMenu.items+1] = emoteName
         elseif data.emoteType == EmoteType.ANIMAL_EMOTES then
             if Config.AnimalEmotesEnabled then
                 local name = '🐶 ' .. data.label
-                animalmenu:AddItem(NativeUI.CreateItem(name, string.format("/e (%s)", emoteName)))
-                AnimalTable[#AnimalTable + 1] = emoteName
+                local animalMenu = subMenus[EmoteType.ANIMAL_EMOTES]
+                animalMenu.menu:AddItem(NativeUI.CreateItem(name, string.format("/e (%s)", emoteName)))
+                animalMenu.items[#animalMenu.items+1] = emoteName
             end
         elseif data.emoteType == EmoteType.SHARED then
             if Config.SharedEmotesEnabled then
@@ -105,8 +158,9 @@ function AddEmoteMenu(menu)
                     desc = string.format("/nearby (~g~%s~w~) %s (~y~%s~w~)", emoteName, Translate('makenearby'), data.secondPlayersAnim)
                 end
                 local shareitem = NativeUI.CreateItem(data.label, desc)
-                sharemenu:AddItem(shareitem)
-                ShareTable[#ShareTable + 1] = emoteName
+                local shareMenu = subMenus[EmoteType.SHARED]
+                shareMenu.menu:AddItem(shareitem)
+                shareMenu.items[#shareMenu.items+1] = emoteName
             end
         elseif data.emoteType == EmoteType.PROP_EMOTES then
             local name = '📦 ' .. data.label
@@ -114,23 +168,13 @@ function AddEmoteMenu(menu)
                 NativeUI.CreateListItem(name, data.AnimationOptions.PropTextureVariations, 1, string.format("/e (%s)", emoteName)) or
                 NativeUI.CreateItem(name, string.format("/e (%s)", emoteName))
 
-            propmenu:AddItem(propitem)
-
-            PropTable[#PropTable + 1] = emoteName
+            local propMenu = subMenus[EmoteType.PROP_EMOTES]
+            propMenu.menu:AddItem(propitem)
+            propMenu.items[#propMenu.items+1] = emoteName
         end
     end
 
     -- Ped Emote on Change Index
-
-    dancemenu.OnIndexChange = function(_, newindex)
-        ClearPedTaskPreview()
-        EmoteMenuStartClone(DanceTable[newindex])
-    end
-
-    propmenu.OnIndexChange = function(_, newindex)
-        ClearPedTaskPreview()
-        EmoteMenuStartClone(PropTable[newindex])
-    end
 
     submenu.OnIndexChange = function(_, newindex)
         if newindex > 5 then
@@ -139,38 +183,10 @@ function AddEmoteMenu(menu)
         end
     end
 
-    dancemenu.OnMenuClosed = function()
-        ClearPedTaskPreview()
-    end
-
-    dancemenu.OnItemSelect = function(_, _, index)
-        EmoteMenuStart(DanceTable[index])
-    end
-
-    if Config.AnimalEmotesEnabled then
-        animalmenu.OnItemSelect = function(_, _, index)
-            EmoteMenuStart(AnimalTable[index])
-        end
-    end
-
     if Config.SharedEmotesEnabled then
-        sharemenu.OnItemSelect = function(_, _, index)
-            if ShareTable[index] ~= 'none' then
-                sendSharedEmoteRequest(ShareTable[index])
-            end
-        end
-
         shareddancemenu.OnItemSelect = function(_, _, index)
-            sendSharedEmoteRequest(DanceTable[index])
+            sendSharedEmoteRequest(subMenus[EmoteType.DANCES].items[index])
         end
-    end
-
-    propmenu.OnItemSelect = function(_, _, index)
-        EmoteMenuStart(PropTable[index])
-    end
-
-   propmenu.OnListSelect = function(_, item, itemIndex, listIndex)
-        EmoteMenuStart(PropTable[itemIndex], item:IndexToItem(listIndex).Value)
     end
 
     submenu.OnItemSelect = function(_, _, index)
@@ -336,11 +352,11 @@ end
 
 -- TODO: merge with main iterating for loop for menu initialization.
 function AddWalkMenu(menu)
-    local submenu = _menuPool:AddSubMenu(menu, Translate('walkingstyles'), "", true, true)
-
+    createSubMenu(menu, EmoteType.WALKS, Translate('walkingstyles'))
+    local walkMenu = subMenus[EmoteType.WALKS]
     local walkreset = NativeUI.CreateItem(Translate('normalreset'), Translate('resetdef'))
-    submenu:AddItem(walkreset)
-    WalkTable[#WalkTable + 1] = Translate('resetdef')
+    walkMenu.menu:AddItem(walkreset)
+    walkMenu.items[#walkMenu.items+1] = Translate('resetdef')
 
     local sortedWalks = {}
     for _, data in pairs(EmoteData) do
@@ -356,51 +372,43 @@ function AddWalkMenu(menu)
     end
 
     for _, walk in ipairs(sortedWalks) do
-        submenu:AddItem(NativeUI.CreateItem(walk.label, string.format("/walk (%s)", string.lower(walk.label))))
-        WalkTable[#WalkTable + 1] = walk.label
+        walkMenu.menu:AddItem(NativeUI.CreateItem(walk.label, string.format("/walk (%s)", string.lower(walk.label))))
+        walkMenu.items[#walkMenu.items+1] = walk.label
     end
 
-    submenu.OnItemSelect = function(_, item, index)
+    walkMenu.menu.OnItemSelect = function(_, item, index)
         if item == walkreset then
             ResetWalk()
             DeleteResourceKvp("walkstyle")
         else
-            WalkMenuStart(WalkTable[index])
+            WalkMenuStart(walkMenu.items[index])
         end
     end
 end
 
 -- TODO: merge with main iterating for loop for menu initialization.
 function AddFaceMenu(menu)
-    local submenu = _menuPool:AddSubMenu(menu, Translate('moods'), "", true, true)
-
+    createSubMenu(menu, EmoteType.EXPRESSIONS, Translate('moods'))
     local facereset = NativeUI.CreateItem(Translate('normalreset'), Translate('resetdef'))
-    submenu:AddItem(facereset)
-    FaceTable[#FaceTable + 1] = ""
+    local faceMenu = subMenus[EmoteType.EXPRESSIONS]
+    faceMenu.menu:AddItem(facereset)
+    faceMenu.items[#faceMenu.items+1] = ""
 
     for emoteName, data in pairs(EmoteData) do
         if data.emoteType == EmoteType.EXPRESSIONS then
             local faceitem = NativeUI.CreateItem(data.label or emoteName, "")
-            submenu:AddItem(faceitem)
-            FaceTable[#FaceTable + 1] = emoteName
+            faceMenu.menu:AddItem(faceitem)
+            faceMenu.items[#faceMenu.items+1] = emoteName
         end
     end
 
-    submenu.OnIndexChange = function(_, newindex)
-        EmoteMenuStartClone(FaceTable[newindex])
-    end
-
-    submenu.OnItemSelect = function(_, item, index)
+    faceMenu.menu.OnItemSelect = function(_, item, index)
         if item == facereset then
             DeleteResourceKvp(EmoteType.EXPRESSIONS)
             ClearFacialIdleAnimOverride(PlayerPedId())
         else
-            EmoteMenuStart(FaceTable[index])
+            EmoteMenuStart(faceMenu.items[index])
         end
-    end
-
-    submenu.OnMenuClosed = function()
-        ClosePedMenu()
     end
 end
 
