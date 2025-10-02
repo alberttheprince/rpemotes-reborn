@@ -16133,7 +16133,7 @@ RP.PropEmotes = {
         "Walkie Talkie 5",
         AnimationOptions = {
             Prop = "prop_cs_hand_radio",
-            PropBone = 28422,
+            PropBone = 18905,
             PropPlacement = {
                 0.1300,
                 0.0500,
