@@ -16085,7 +16085,7 @@ RP.PropEmotes = {
                 0.0110,
               -97.9442,
                 3.7058,
-                -23.2367
+              -23.2367
 				},
             onFootFlag = AnimFlag.LOOP,
 
@@ -16104,7 +16104,7 @@ RP.PropEmotes = {
                 0.0110,
               -97.9442,
                 3.7058,
-                -23.2367
+              -23.2367
 				},
             onFootFlag = AnimFlag.MOVING,
         }
@@ -16121,8 +16121,26 @@ RP.PropEmotes = {
                 0.0230,
                -0.0230,
               -90.0000,
-                0.0,
+                0.0000,
               -59.9999
+				},
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
+    ["wt5"] = {
+        "missfbi3_steve_phone",
+        "steve_phone_idle_a",
+        "Walkie Talkie 5",
+        AnimationOptions = {
+            Prop = "prop_cs_hand_radio",
+            PropBone = 18905,
+            PropPlacement = {
+                0.1300,
+                0.0500,
+                0.0100,
+             -113.0000,
+                0.0000,
+              -60.0000
 				},
             onFootFlag = AnimFlag.MOVING,
         }
