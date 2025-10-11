@@ -359,6 +359,9 @@ function AddWalkMenu(menu)
     end
 
     for _, walk in ipairs(sortedWalks) do
+        if not walk.label then
+            print('missing label', json.encode(walk))
+        end
         walkMenu.menu:AddItem(NativeUI.CreateItem(walk.label, string.format("/walk (%s)", string.lower(walk.label))))
         walkMenu.items[#walkMenu.items+1] = walk.label
     end
@@ -435,8 +438,9 @@ function OpenEmoteMenu()
     end
 end
 
+---@param emoteName string
 ---@param emote EmoteData
-local function convertToEmoteData(emote)
+local function convertToEmoteData(emoteName, emote)
     local arraySize = 0
     for i = 1, 4 do
         if emote[i] then
@@ -446,6 +450,7 @@ local function convertToEmoteData(emote)
 
     if arraySize == 1 then
         emote.anim = emote[1]
+        emote.label = emoteName
     elseif arraySize == 2 then
         emote.anim = emote[1]
         emote.label = emote[2]
@@ -531,7 +536,7 @@ local function convertRP()
             end
 
             newRP[emoteName].emoteType = emoteType
-            convertToEmoteData(newRP[emoteName])
+            convertToEmoteData(emoteName, newRP[emoteName])
 
             ::continue::
         end
