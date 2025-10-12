@@ -10528,7 +10528,54 @@ RP.Emotes = {
             onFootFlag = AnimFlag.LOOP,
         }
     },
-
+    ["pfootball1"] = { -- Custom Emote By Pazeee
+        "pazeee@football1@animations",
+        "pazeee@football1@clip",
+        "Football Back Middle",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["pfootball2"] = { -- Custom Emote By Pazeee
+        "pazeee@football2@animations",
+        "pazeee@football2@clip",
+        "Football Back Right",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["pfootball3"] = { -- Custom Emote By Pazeee
+        "pazeee@football3@animations",
+        "pazeee@football3@clip",
+        "Football Front Right",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["pfootball4"] = { -- Custom Emote By Pazeee
+        "pazeee@football4@animations",
+        "pazeee@football4@clip",
+        "Football Front Middle",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["pfootball5"] = { -- Custom Emote By Pazeee
+        "pazeee@football5@animations",
+        "pazeee@football5@clip",
+        "Football Front Left",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["pfootball6"] = { -- Custom Emote By Pazeee
+        "pazeee@football6@animations",
+        "pazeee@football6@clip",
+        "Football Back Left",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
 }
 
 --- PROP EMOTES GO HERE. CURRENTLY SUPPORTS UP TO ONE OR TWO PROPS  ---
