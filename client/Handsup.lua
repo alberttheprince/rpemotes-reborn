@@ -7,7 +7,7 @@ local function HandsUpLoop()
                 end
             end
 
-            if IsPlayerAiming(PlayerId()) not IsEntityPlayingAnim(PlayerPedId(), "random@mugging3", "handsup_standing_base", 49) then
+            if IsPlayerAiming(PlayerId()) or not IsEntityPlayingAnim(PlayerPedId(), "random@mugging3", "handsup_standing_base", 49) then
                 ClearPedSecondaryTask(PlayerPedId())
                 InHandsup = false
             end
