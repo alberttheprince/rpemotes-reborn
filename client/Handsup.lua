@@ -9,10 +9,7 @@ local function HandsUpLoop()
 
             if IsPlayerAiming(PlayerId()) not IsEntityPlayingAnim(PlayerPedId(), "random@mugging3", "handsup_standing_base", 49) then
                 ClearPedSecondaryTask(PlayerPedId())
-                CreateThread(function()
-                    Wait(350)
-                    InHandsup = false
-                end)
+                InHandsup = false
             end
 
             Wait(0)
