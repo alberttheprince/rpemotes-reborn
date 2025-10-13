@@ -2,23 +2,89 @@
 EmoteData = {}
 
 local isSearching = false
-local rightPosition = { x = 1430, y = 200 }
-local leftPosition = { x = 0, y = 200 }
-local menuPosition = { x = 0, y = 200 }
-local menuHeader = "shopui_title_sm_hangar"
 
-if GetAspectRatio() > 2.0 then
-    rightPosition = { x = 1200, y = 100 }
-    leftPosition = { x = -250, y = 100 }
+-- Helper functions
+local function canPlayerEmote()
+    local ped = PlayerPedId()
+    if IsEntityDead(ped) then
+        return false, Translate('dead')
+    end
+    if (IsPedSwimming(ped) or IsPedSwimmingUnderWater(ped)) and not Config.AllowInWater then
+        return false, Translate('swimming')
+    end
+    return true
 end
 
-if Config.MenuPosition then
-    if Config.MenuPosition == "left" then
-        menuPosition = leftPosition
-    elseif Config.MenuPosition == "right" then
-        menuPosition = rightPosition
+local function isEmoteTypePreviewable(emoteType)
+    return emoteType == EmoteType.DANCES
+        or emoteType == EmoteType.EMOTES
+        or emoteType == EmoteType.EXPRESSIONS
+        or emoteType == EmoteType.PROP_EMOTES
+end
+
+local function isEmoteTypePlayable(emoteType)
+    return emoteType == EmoteType.DANCES
+        or emoteType == EmoteType.ANIMAL_EMOTES
+        or emoteType == EmoteType.PROP_EMOTES
+        or emoteType == EmoteType.EMOTES
+end
+
+-- Helper function to add emote item to menu
+local function addEmoteToMenu(menu, items, emoteName, label, description)
+    menu:AddItem(NativeUI.CreateItem(label, description))
+    items[#items+1] = emoteName
+end
+
+-- Helper function to format shared emote description
+local function formatSharedEmoteDescription(emoteName, secondPlayersAnim)
+    if secondPlayersAnim == nil then
+        return string.format("/nearby (~g~%s~w~)", emoteName)
+    else
+        return string.format("/nearby (~g~%s~w~) %s (~y~%s~w~)", emoteName, Translate('makenearby'), secondPlayersAnim)
     end
 end
+
+-- Helper function to get menu position based on config
+local function getMenuPosition()
+    local rightPosition = { x = 1430, y = 200 }
+    local leftPosition = { x = 0, y = 200 }
+
+    if GetAspectRatio() > 2.0 then
+        rightPosition = { x = 1200, y = 100 }
+        leftPosition = { x = -250, y = 100 }
+    end
+
+    if Config.MenuPosition == "left" then
+        return leftPosition
+    elseif Config.MenuPosition == "right" then
+        return rightPosition
+    end
+
+    return { x = 0, y = 200 }
+end
+
+-- Helper function to check if emote matches search term
+local function matchesSearchTerm(emoteName, emoteData, searchTerm)
+    local lowerSearch = string.lower(searchTerm)
+    if string.find(string.lower(emoteName), lowerSearch) then
+        return true
+    end
+    if emoteData.label and string.find(string.lower(emoteData.label), lowerSearch) then
+        return true
+    end
+    return false
+end
+
+-- Helper function to add reset menu item
+local function addResetMenuItem(menu, items)
+    local resetItem = NativeUI.CreateItem(Translate('normalreset'), Translate('resetdef'))
+    menu:AddItem(resetItem)
+    items[#items+1] = Translate('resetdef')
+    return resetItem
+end
+
+local menuPosition = getMenuPosition()
+local menuHeader = "shopui_title_sm_hangar"
 
 if Config.CustomMenuEnabled then
     local txd = CreateRuntimeTxd('Custom_Menu_Head')
@@ -27,7 +93,7 @@ if Config.CustomMenuEnabled then
 end
 
 local _menuPool = NativeUI.CreatePool()
-local mainMenu = NativeUI.CreateMenu(Config.MenuTitle or "", "", menuPosition["x"], menuPosition["y"], menuHeader, menuHeader)
+local mainMenu = NativeUI.CreateMenu(Config.MenuTitle or "", "", menuPosition.x, menuPosition.y, menuHeader, menuHeader)
 _menuPool:Add(mainMenu)
 
 local shareddancemenu, infomenu
@@ -67,11 +133,7 @@ local function createSubMenu(parent, category, title, description)
         local emote = EmoteData[emoteName]
         ClearPedTaskPreview()
         if not emote then return end
-        if emote.emoteType == EmoteType.DANCES
-            or emote.emoteType == EmoteType.EMOTES
-            or emote.emoteType == EmoteType.EXPRESSIONS
-            or emote.emoteType == EmoteType.PROP_EMOTES
-        then
+        if isEmoteTypePreviewable(emote.emoteType) then
             EmoteMenuStartClone(emoteName)
         end
     end
@@ -81,16 +143,12 @@ local function createSubMenu(parent, category, title, description)
             EmoteMenuSearch(menu)
             return
         end
-        
+
         local emoteName = items[index]
         local emote = EmoteData[emoteName]
         if not emote then return end
 
-        if emote.emoteType == EmoteType.DANCES
-            or emote.emoteType == EmoteType.ANIMAL_EMOTES
-            or emote.emoteType == EmoteType.PROP_EMOTES
-            or emote.emoteType == EmoteType.EMOTES
-        then
+        if isEmoteTypePlayable(emote.emoteType) then
             EmoteMenuStart(items[index])
         elseif emote.emoteType == EmoteType.SHARED then
             sendSharedEmoteRequest(items[index])
@@ -101,7 +159,7 @@ local function createSubMenu(parent, category, title, description)
         local emoteName = items[itemIndex]
         local emote = EmoteData[emoteName]
         if not emote then return end
-        if not emote.emoteType ~= EmoteType.PROP_EMOTES then return end
+        if emote.emoteType ~= EmoteType.PROP_EMOTES then return end
         EmoteMenuStart(items[itemIndex], item:IndexToItem(listIndex).Value)
     end
 
@@ -121,7 +179,6 @@ end
 
 function AddEmoteMenu(menu)
     local emoteMenu = createSubMenu(menu, EmoteType.EMOTES, Translate('emotes'))
-    -- local submenu = _menuPool:AddSubMenu(menu, Translate('emotes'), "", true, true)
     if Config.Search then
         emoteMenu.menu:AddItem(NativeUI.CreateItem(Translate('searchemotes'), ""))
         emoteMenu.items[#emoteMenu.items+1] = Translate('searchemotes')
@@ -147,29 +204,21 @@ function AddEmoteMenu(menu)
 
     for emoteName, data in pairs(EmoteData) do
         if data.emoteType == EmoteType.EMOTES then
-            emoteMenu.menu:AddItem(NativeUI.CreateItem(data.label, string.format("/e (%s)", emoteName)))
-            emoteMenu.items[#emoteMenu.items+1] = emoteName
+            addEmoteToMenu(emoteMenu.menu, emoteMenu.items, emoteName, data.label, string.format("/e (%s)", emoteName))
         elseif data.emoteType == EmoteType.DANCES then
             local label = '🤼 ' .. data.label
-            danceMenu.menu:AddItem(NativeUI.CreateItem(label, string.format("/e (%s)", emoteName)))
+            addEmoteToMenu(danceMenu.menu, danceMenu.items, emoteName, label, string.format("/e (%s)", emoteName))
             if Config.SharedEmotesEnabled then
                 shareddancemenu:AddItem(NativeUI.CreateItem(label, string.format("/nearby (%s)", emoteName)))
             end
-            danceMenu.items[#danceMenu.items+1] = emoteName
         elseif data.emoteType == EmoteType.ANIMAL_EMOTES then
             if Config.AnimalEmotesEnabled then
                 local name = '🐶 ' .. data.label
-                animalMenu.menu:AddItem(NativeUI.CreateItem(name, string.format("/e (%s)", emoteName)))
-                animalMenu.items[#animalMenu.items+1] = emoteName
+                addEmoteToMenu(animalMenu.menu, animalMenu.items, emoteName, name, string.format("/e (%s)", emoteName))
             end
         elseif data.emoteType == EmoteType.SHARED then
             if Config.SharedEmotesEnabled then
-                local desc
-                if data.secondPlayersAnim == nil then
-                    desc = string.format("/nearby (~g~%s~w~)", emoteName)
-                else
-                    desc = string.format("/nearby (~g~%s~w~) %s (~y~%s~w~)", emoteName, Translate('makenearby'), data.secondPlayersAnim)
-                end
+                local desc = formatSharedEmoteDescription(emoteName, data.secondPlayersAnim)
                 local shareitem = NativeUI.CreateItem(data.label, desc)
                 shareMenu.menu:AddItem(shareitem)
                 shareMenu.items[#shareMenu.items+1] = emoteName
@@ -211,10 +260,10 @@ if Config.Search then
         if not input then return end
 
         local results = {}
-        for a, b in pairs(EmoteData) do
-            if not ignoredCategories[b.emoteType] then
-                if string.find(string.lower(a), string.lower(input)) or (b.label ~= nil and string.find(string.lower(b.label), string.lower(input))) then
-                    results[#results + 1] = { table = b.emoteType, name = a, data = b }
+        for emoteName, emoteData in pairs(EmoteData) do
+            if not ignoredCategories[emoteData.emoteType] then
+                if matchesSearchTerm(emoteName, emoteData, input) then
+                    results[#results + 1] = { table = emoteData.emoteType, name = emoteName, data = emoteData }
                 end
             end
         end
@@ -234,27 +283,22 @@ if Config.Search then
         end
 
         table.sort(results, function(a, b) return a.name < b.name end)
-        for k, v in pairs(results) do
-            local desc = ""
-            if v.table == EmoteType.SHARED then
-                local otheremotename = v.data[4]
-                if otheremotename == nil then
-                    desc = string.format("/nearby (~g~%s~w~)", v.name)
-                else
-                    desc = string.format("/nearby (~g~%s~w~) %s (~y~%s~w~)", v.name, Translate('makenearby'), otheremotename)
-                end
+        for _, result in pairs(results) do
+            local desc
+            if result.table == EmoteType.SHARED then
+                desc = formatSharedEmoteDescription(result.name, result.data.secondPlayersAnim)
             else
-                desc = "/e (" .. v.name .. ")"
+                desc = "/e (" .. result.name .. ")"
             end
 
-            if v.data.AnimationOptions and v.data.AnimationOptions.PropTextureVariations then
-                searchMenu:AddItem(NativeUI.CreateListItem(v.data[3], v.data.AnimationOptions.PropTextureVariations, 1, desc))
+            if result.data.AnimationOptions and result.data.AnimationOptions.PropTextureVariations then
+                searchMenu:AddItem(NativeUI.CreateListItem(result.data.label, result.data.AnimationOptions.PropTextureVariations, 1, desc))
             else
-                searchMenu:AddItem(NativeUI.CreateItem(v.data[3], desc))
+                searchMenu:AddItem(NativeUI.CreateItem(result.data.label, desc))
             end
 
-            if v.table == EmoteType.DANCES and Config.SharedEmotesEnabled then
-                sharedDanceMenu:AddItem(NativeUI.CreateItem(v.data[3], ""))
+            if result.table == EmoteType.DANCES and Config.SharedEmotesEnabled then
+                sharedDanceMenu:AddItem(NativeUI.CreateItem(result.data.label, ""))
             end
         end
 
@@ -263,14 +307,12 @@ if Config.Search then
             ShowPedMenu()
         end
 
-
         searchMenu.OnIndexChange = function(_, newindex)
             local data = results[newindex]
 
             ClearPedTaskPreview()
             EmoteMenuStartClone(data.name)
         end
-
 
         searchMenu.OnItemSelect = function(_, _, index)
             local data = results[index]
@@ -326,7 +368,7 @@ function AddCancelEmote(menu)
     end
 end
 
-ShowPedPreview = function(menu)
+function ShowPedPreview(menu)
     menu.OnItemSelect = function(_, _, index)
         if index == 1 then
             isSearching = false
@@ -341,9 +383,7 @@ end
 function AddWalkMenu(menu)
     createSubMenu(menu, EmoteType.WALKS, Translate('walkingstyles'))
     local walkMenu = subMenus[EmoteType.WALKS]
-    local walkreset = NativeUI.CreateItem(Translate('normalreset'), Translate('resetdef'))
-    walkMenu.menu:AddItem(walkreset)
-    walkMenu.items[#walkMenu.items+1] = Translate('resetdef')
+    local walkreset = addResetMenuItem(walkMenu.menu, walkMenu.items)
 
     local sortedWalks = {}
     for _, data in pairs(EmoteData) do
@@ -379,10 +419,10 @@ end
 -- TODO: merge with main iterating for loop for menu initialization.
 function AddFaceMenu(menu)
     createSubMenu(menu, EmoteType.EXPRESSIONS, Translate('moods'))
-    local facereset = NativeUI.CreateItem(Translate('normalreset'), Translate('resetdef'))
     local faceMenu = subMenus[EmoteType.EXPRESSIONS]
-    faceMenu.menu:AddItem(facereset)
-    faceMenu.items[#faceMenu.items+1] = ""
+    local facereset = addResetMenuItem(faceMenu.menu, faceMenu.items)
+    -- Override the last item to be empty string instead of 'resetdef'
+    faceMenu.items[#faceMenu.items] = ""
 
     for emoteName, data in pairs(EmoteData) do
         if data.emoteType == EmoteType.EXPRESSIONS then
@@ -405,28 +445,19 @@ end
 function AddInfoMenu(menu)
     infomenu = _menuPool:AddSubMenu(menu, Translate('infoupdate'), "~h~~y~The RPEmotes Developers~h~~y~", true, true)
 
-    for _,v in ipairs(Config.Credits) do
-        local item = NativeUI.CreateItem(v.title,v.subtitle or "")
+    for _, credit in ipairs(Config.Credits) do
+        local item = NativeUI.CreateItem(credit.title, credit.subtitle or "")
         infomenu:AddItem(item)
     end
 end
 
 function OpenEmoteMenu()
-    if IsEntityDead(PlayerPedId()) then
-        -- show in chat
+    local canEmote, errorMsg = canPlayerEmote()
+    if not canEmote then
         TriggerEvent('chat:addMessage', {
             color = {255, 0, 0},
             multiline = true,
-            args = {"RPEmotes", Translate('dead')}
-        })
-        return
-    end
-    if (IsPedSwimming(PlayerPedId()) or IsPedSwimmingUnderWater(PlayerPedId())) and not Config.AllowInWater then
-        -- show in chat
-        TriggerEvent('chat:addMessage', {
-            color = {255, 0, 0},
-            multiline = true,
-            args = {"RPEmotes", Translate('swimming')}
+            args = {"RPEmotes", errorMsg}
         })
         return
     end
@@ -521,7 +552,7 @@ local function convertRP()
             if Config.AdultEmotesDisabled and emoteData.AdultAnimation then
                 goto continue
             end
-            
+
             if Config.AbusableEmotesDisabled and emoteData.abusable then
                 goto continue
             end
@@ -580,15 +611,12 @@ function ProcessMenu()
     isMenuProcessing = false
 end
 
--- While ped is dead, don't show menus
+-- While ped is dead or swimming, don't show menus
 CreateThread(function()
     while true do
         Wait(500)
-        if IsEntityDead(PlayerPedId()) then
-            _menuPool:CloseAllMenus()
-        end
-        if (IsPedSwimming(PlayerPedId()) or IsPedSwimmingUnderWater(PlayerPedId())) and not Config.AllowInWater then
-            -- cancel emote, destroy props and close menu
+        local canEmote, _ = canPlayerEmote()
+        if not canEmote then
             if IsInAnimation then
                 EmoteCancel()
             end
