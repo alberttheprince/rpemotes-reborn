@@ -2,6 +2,7 @@
 EmoteData = {}
 
 local isSearching = false
+local isMenuProcessing = false
 
 -- Helper functions
 local function canPlayerEmote()
@@ -177,7 +178,7 @@ local function createSubMenu(parent, category, title, description)
     return subMenu
 end
 
-function AddEmoteMenu(menu)
+local function addEmoteMenu(menu)
     local emoteMenu = createSubMenu(menu, EmoteType.EMOTES, Translate('emotes'))
     if Config.Search then
         emoteMenu.menu:AddItem(NativeUI.CreateItem(Translate('searchemotes'), ""))
@@ -359,7 +360,7 @@ if Config.Search then
     end
 end
 
-function AddCancelEmote(menu)
+local function addCancelEmote(menu)
     local newitem = NativeUI.CreateItem(Translate('cancelemote'), Translate('cancelemoteinfo'))
     menu:AddItem(newitem)
     newitem.Activated = function()
@@ -368,7 +369,7 @@ function AddCancelEmote(menu)
     end
 end
 
-function ShowPedPreview(menu)
+local function showPedPreview(menu)
     menu.OnItemSelect = function(_, _, index)
         if index == 1 then
             isSearching = false
@@ -380,7 +381,7 @@ function ShowPedPreview(menu)
 end
 
 -- TODO: merge with main iterating for loop for menu initialization.
-function AddWalkMenu(menu)
+local function addWalkMenu(menu)
     createSubMenu(menu, EmoteType.WALKS, Translate('walkingstyles'))
     local walkMenu = subMenus[EmoteType.WALKS]
     local walkreset = addResetMenuItem(walkMenu.menu, walkMenu.items)
@@ -417,7 +418,7 @@ function AddWalkMenu(menu)
 end
 
 -- TODO: merge with main iterating for loop for menu initialization.
-function AddFaceMenu(menu)
+local function addFaceMenu(menu)
     createSubMenu(menu, EmoteType.EXPRESSIONS, Translate('moods'))
     local faceMenu = subMenus[EmoteType.EXPRESSIONS]
     local facereset = addResetMenuItem(faceMenu.menu, faceMenu.items)
@@ -442,13 +443,23 @@ function AddFaceMenu(menu)
     end
 end
 
-function AddInfoMenu(menu)
+local function addInfoMenu(menu)
     infomenu = _menuPool:AddSubMenu(menu, Translate('infoupdate'), "~h~~y~The RPEmotes Developers~h~~y~", true, true)
 
     for _, credit in ipairs(Config.Credits) do
         local item = NativeUI.CreateItem(credit.title, credit.subtitle or "")
         infomenu:AddItem(item)
     end
+end
+
+local function processMenu()
+    if isMenuProcessing then return end
+    isMenuProcessing = true
+    while _menuPool:IsAnyMenuOpen() do
+        _menuPool:ProcessMenus()
+        Wait(0)
+    end
+    isMenuProcessing = false
 end
 
 function OpenEmoteMenu()
@@ -465,7 +476,7 @@ function OpenEmoteMenu()
         _menuPool:CloseAllMenus()
     else
         mainMenu:Visible(true)
-        ProcessMenu()
+        processMenu()
     end
 end
 
@@ -578,18 +589,18 @@ local function convertRP()
 end
 
 local function initMenu()
-    AddEmoteMenu(mainMenu)
-    AddCancelEmote(mainMenu)
+    addEmoteMenu(mainMenu)
+    addCancelEmote(mainMenu)
     if Config.PreviewPed then
-        ShowPedPreview(mainMenu)
+        showPedPreview(mainMenu)
     end
     if Config.WalkingStylesEnabled then
-        AddWalkMenu(mainMenu)
+        addWalkMenu(mainMenu)
     end
     if Config.ExpressionsEnabled then
-        AddFaceMenu(mainMenu)
+        addFaceMenu(mainMenu)
     end
-    AddInfoMenu(mainMenu)
+    addInfoMenu(mainMenu)
 
     _menuPool:RefreshIndex()
 end
@@ -599,17 +610,6 @@ CreateThread(function()
     convertRP()
     initMenu()
 end)
-
-local isMenuProcessing = false
-function ProcessMenu()
-    if isMenuProcessing then return end
-    isMenuProcessing = true
-    while _menuPool:IsAnyMenuOpen() do
-        _menuPool:ProcessMenus()
-        Wait(0)
-    end
-    isMenuProcessing = false
-end
 
 -- While ped is dead or swimming, don't show menus
 CreateThread(function()
