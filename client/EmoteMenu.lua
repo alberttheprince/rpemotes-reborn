@@ -284,7 +284,9 @@ if Config.Search then
         end
 
         table.sort(results, function(a, b) return a.name < b.name end)
-        for _, result in pairs(results) do
+        for index, result in pairs(results) do
+            if index == 1 then LastEmoteName = result.name end
+
             local desc
             if result.table == EmoteType.SHARED then
                 desc = formatSharedEmoteDescription(result.name, result.data.secondPlayersAnim)
@@ -357,6 +359,7 @@ if Config.Search then
         _menuPool:CloseAllMenus()
         searchMenu:Visible(true)
         ShowPedMenu()
+        WaitForClonedPedThenPlayLastAnim()
     end
 end
 
@@ -638,19 +641,23 @@ CreateThread(function()
                 ShowPedMenu()
 
                 if LastEmoteName then
-                    CreateThread(function()
-                        local timeout = GetGameTimer() + 1500
-
-                        while GetGameTimer() > timeout and (not ClonedPed or not DoesEntityExist(ClonedPed)) do
-                            Wait(50)
-                        end
-
-                        if ClonedPed and DoesEntityExist(ClonedPed) then
-                            EmoteMenuStartClone(LastEmoteName)
-                        end
-                    end)
+                    WaitForClonedPedThenPlayLastAnim()
                 end
             end
         end
     end
 end)
+
+function WaitForClonedPedThenPlayLastAnim()
+    CreateThread(function()
+        local timeout = GetGameTimer() + 1500
+
+        while GetGameTimer() > timeout and (not ClonedPed or not DoesEntityExist(ClonedPed)) do
+            Wait(50)
+        end
+
+        if ClonedPed and DoesEntityExist(ClonedPed) then
+            EmoteMenuStartClone(LastEmoteName)
+        end
+    end)
+end
