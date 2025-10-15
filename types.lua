@@ -35,6 +35,8 @@ EmoteType = {
 ---@alias ScenarioName string
 ---@alias Label string
 
+---@alias CategoryMapping (EmoteType | string)[] -- Array containing EmoteTypes and/or emote names
+
 ---@class Color
 ---@field R number
 ---@field G number
