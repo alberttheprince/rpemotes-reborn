@@ -133,7 +133,7 @@ local function createSubMenu(parent, category, title, description)
         local emoteName = items[newIndex]
         local emote = EmoteData[emoteName]
         ClearPedTaskPreview()
-        if not emote then return end
+        if not emote then LastEmoteName = nil return end
         if isEmoteTypePreviewable(emote.emoteType) then
             EmoteMenuStartClone(emoteName)
         end
@@ -611,16 +611,46 @@ CreateThread(function()
     initMenu()
 end)
 
--- While ped is dead or swimming, don't show menus
+local idleCamActive = false
+
 CreateThread(function()
     while true do
         Wait(500)
+        -- While ped is dead or swimming, don't show menus
         local canEmote, _ = canPlayerEmote()
         if not canEmote then
             if IsInAnimation then
                 EmoteCancel()
             end
             _menuPool:CloseAllMenus()
+        end
+
+        if Config.PreviewPed and Config.HidePreviewPedOnIdleCam then
+            local camIsIdle = IsCinematicIdleCamRendering()
+
+            if not idleCamActive and camIsIdle then
+                idleCamActive = true
+
+                ClosePedMenu()
+            elseif idleCamActive and not camIsIdle then
+                idleCamActive = false
+
+                ShowPedMenu()
+
+                if LastEmoteName then
+                    CreateThread(function()
+                        local timeout = GetGameTimer() + 1500
+
+                        while GetGameTimer() > timeout and (not ClonedPed or not DoesEntityExist(ClonedPed)) do
+                            Wait(50)
+                        end
+
+                        if ClonedPed and DoesEntityExist(ClonedPed) then
+                            EmoteMenuStartClone(LastEmoteName)
+                        end
+                    end)
+                end
+            end
         end
     end
 end)
