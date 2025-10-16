@@ -25,7 +25,6 @@ Locales['zhtw'] = {
         ['emotemenucmd'] = "使用命令 /emotemenu 打開動作菜單。",
         ['shareemotes'] = "~h~~p~ 👫 共享動作",
         ['shareemotesinfo'] = "邀請附近的人動作",
-        ['sharedanceemotes'] = "🕺 共享舞蹈動作",
         ['notvalidsharedemote'] = "不是有效的共享動作。",
         ['sentrequestto'] = "已向此人發送請求 ~y~",
         ['nobodyclose'] = "沒有人 ~r~靠近~w~。",

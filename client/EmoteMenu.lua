@@ -338,8 +338,6 @@ if Config.Search then
         searchMenu.OnItemSelect = function(_, _, index)
             local data = results[index]
 
-            if data == Translate('sharedanceemotes') then return end
-
             if data.table == EmoteType.SHARED then
                 sendSharedEmoteRequest(data.name)
             else

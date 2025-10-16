@@ -25,7 +25,6 @@ Locales['fa'] = {
         ['emotemenucmd'] = "ba farman /emotemenu be menu emote ha miravid",
         ['shareemotes'] = "👫 eshterak emote",
         ['shareemotesinfo'] = "peyvastan afrad atraf be in emote",
-        ['sharedanceemotes'] = "🕺 eshtrak raghs",
         ['notvalidsharedemote'] = "in emote baray eshtrak motabar nist.",
         ['sentrequestto'] = "ersal darkhast ~y~",
         ['nobodyclose'] = "hichkas nist ~r~bastan~w~ kafi nist.",

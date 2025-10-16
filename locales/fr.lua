@@ -25,7 +25,6 @@ Locales['fr'] = {
         ['emotemenucmd'] = "Fait /emotemenu pour ouvrir le menu",
         ['shareemotes'] = "👫 Emotes partagées",
         ['shareemotesinfo'] = "Invite une personne proche à faire une emote avec toi",
-        ['sharedanceemotes'] = "🕺 Dances partagées",
         ['notvalidsharedemote'] = "n'est pas un emote partagée valide.",
         ['sentrequestto'] = "Demande envoyée à <b>",
         ['nobodyclose'] = "Personne n'est assez proche.",

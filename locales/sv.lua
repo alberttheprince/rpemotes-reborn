@@ -25,7 +25,6 @@ Locales['sv'] = {
         ['emotemenucmd'] = "Använd /emotemenu för att öppna animationsmenyn",
         ['shareemotes'] = "👫 Delade Emotes",
         ['shareemotesinfo'] = "Bjud in en närliggande person till en emote",
-        ['sharedanceemotes'] = "🕺 Delade Danser",
         ['notvalidsharedemote'] = "är inte en giltig delad emote.",
         ['sentrequestto'] = "Skickad förfrågan till ~g~",
         ['nobodyclose'] = "Ingen ~r~närliggande~w~ person hittades.",

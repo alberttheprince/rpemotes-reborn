@@ -25,7 +25,6 @@ Locales['fi'] = {
         ['emotemenucmd'] = "Käytä /emotemenu avataksesi animaatio valikon",
         ['shareemotes'] = "~h~~p~ 👫 Yhteiset Animaatiot",
         ['shareemotesinfo'] = "Kutsu lähin pelaaja animaatioon ",
-        ['sharedanceemotes'] = "~h~~p~ 🕺 Yhteiset Tanssit",
         ['notvalidsharedemote'] = "Ei ole yhteinen tanssi animaatio.",
         ['sentrequestto'] = "Kutsu lähetetty pelaajalle ~y~",
         ['nobodyclose'] = "Kukaan ei ole ~r~lähelläsi~w~.",

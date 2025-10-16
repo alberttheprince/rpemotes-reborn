@@ -33,7 +33,6 @@ Locales['zhcn'] = {
         ['emotemenucmd'] = "使用命令 /emotemenu 打开动作菜单。",
         ['shareemotes'] = "👫 共享动作",
         ['shareemotesinfo'] = "邀请附近的人一起动作",
-        ['sharedanceemotes'] = "🕺 共享舞蹈",
         ['notvalidsharedemote'] = "不是有效的共享动作。",
         ['sentrequestto'] = "发送请求给 ~y~",
         ['nobodyclose'] = "附近没有人 ~r~足够近~w~。",
