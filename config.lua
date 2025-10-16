@@ -101,16 +101,16 @@ Config = {
 
 -- Build CustomCategories based on config settings
 Config.CustomCategories = {}
-Config.CustomCategories["Emotes"] = {EmoteType.EMOTES}
-Config.CustomCategories["Dances"] = {EmoteType.DANCES}
-Config.CustomCategories["Props"] = {EmoteType.PROP_EMOTES}
+Config.CustomCategories[Translate('emotes')] = {EmoteType.EMOTES}
+Config.CustomCategories[Translate('danceemotes')] = {EmoteType.DANCES}
+Config.CustomCategories[Translate('propemotes')] = {EmoteType.PROP_EMOTES}
 
 if Config.SharedEmotesEnabled then
-    Config.CustomCategories["Shared"] = {EmoteType.SHARED}
+    Config.CustomCategories[Translate('shareemotes')] = {EmoteType.SHARED}
 end
 
 if Config.AnimalEmotesEnabled then
-    Config.CustomCategories["Animals"] = {EmoteType.ANIMAL_EMOTES}
+    Config.CustomCategories[Translate('animalemotes')] = {EmoteType.ANIMAL_EMOTES}
 end
 
 -- Example: Add custom categories mixing EmoteTypes and specific emotes
