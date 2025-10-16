@@ -130,7 +130,6 @@ local infomenu
 ---@field menu table
 ---@field items string[]
 
----@alias Category string
 ---@type table<Category, SubMenu>
 local subMenus = {}
 
