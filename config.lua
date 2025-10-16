@@ -101,14 +101,11 @@ Config = {
 
 -- Build CustomCategories based on config settings
 Config.CustomCategories = {}
-Config.CustomCategories[Translate('emotes')] = {EmoteType.EMOTES}
 Config.CustomCategories[Translate('danceemotes')] = {EmoteType.DANCES}
 Config.CustomCategories[Translate('propemotes')] = {EmoteType.PROP_EMOTES}
-
 if Config.SharedEmotesEnabled then
     Config.CustomCategories[Translate('shareemotes')] = {EmoteType.SHARED}
 end
-
 if Config.AnimalEmotesEnabled then
     Config.CustomCategories[Translate('animalemotes')] = {EmoteType.ANIMAL_EMOTES}
 end
