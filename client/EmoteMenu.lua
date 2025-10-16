@@ -628,7 +628,7 @@ CreateThread(function()
             _menuPool:CloseAllMenus()
         end
 
-        if Config.PreviewPed and Config.HidePreviewPedOnIdleCam then
+        if Config.PreviewPed then
             local camIsIdle = IsCinematicIdleCamRendering()
 
             if not idleCamActive and camIsIdle then
