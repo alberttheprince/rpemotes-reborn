@@ -25,7 +25,6 @@ Locales['sr'] = {
         ['emotemenucmd'] = "Koristi komandu /emotemenu da otvoris meni animacija.",
         ['shareemotes'] = "👫 Društvene Animacije",
         ['shareemotesinfo'] = "Pozovite obliznju osobu na animaciju",
-        ['sharedanceemotes'] = "🕺 Društveni Plesovi",
         ['notvalidsharedemote'] = "nije validna društvena animacija.",
         ['sentrequestto'] = "Zahtjev je poslat ~y~",
         ['nobodyclose'] = "Niko ~r~close~w~ dovoljno.",

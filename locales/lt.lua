@@ -33,7 +33,6 @@ Locales['lt'] = {
     ['emotemenucmd'] = "Noredami atidaryti animaciju meniu, naudokite komanda /emotemenu.",
     ['shareemotes'] = "~h~~p~ 👫 Porines animacijos",
     ['shareemotesinfo'] = "Pakvieskite salia esanti zmogu animacijai kartu",
-    ['sharedanceemotes'] = "~h~~p~ 🕺 Poriniai sokiai",
     ['notvalidsharedemote'] = "Nera tinkama porine animacija.",
     ['sentrequestto'] = "Prasymas issiustas asmeniui ~y~",
     ['nobodyclose'] = "Nieko ~r~arti~w~ nera.",

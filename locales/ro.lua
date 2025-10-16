@@ -25,7 +25,6 @@ Locales['ro'] = {
         ['emotemenucmd'] = "Foloseste comanda /emotemenu pentru a deschide meniul de animatii.",
         ['shareemotes'] = "👫 Shared Emotes",
         ['shareemotesinfo'] = "Invita persoana de langa tine",
-        ['sharedanceemotes'] = "🕺 Shared Dances",
         ['notvalidsharedemote'] = "nu este un emote shared valid.",
         ['sentrequestto'] = "Am trimis propunerea catre ~y~",
         ['nobodyclose'] = "Nu este nici o persoana ~r~langa tine~w~.",

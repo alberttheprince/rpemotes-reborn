@@ -97,7 +97,7 @@ local _menuPool = NativeUI.CreatePool()
 local mainMenu = NativeUI.CreateMenu(Config.MenuTitle or "", "", menuPosition.x, menuPosition.y, menuHeader, menuHeader)
 _menuPool:Add(mainMenu)
 
-local shareddancemenu, infomenu
+local infomenu
 
 ---@class SubMenu
 ---@field menu table
@@ -194,7 +194,6 @@ local function addEmoteMenu(menu)
     local shareMenu
     if Config.SharedEmotesEnabled then
         shareMenu = createSubMenu(emoteMenu, EmoteType.SHARED, Translate('shareemotes'), Translate('shareemotesinfo'))
-        shareddancemenu = _menuPool:AddSubMenu(shareMenu.menu, Translate('sharedanceemotes'), "", true, true)
         shareMenu.items[#shareMenu.items+1] = 'none'
     end
 
@@ -209,9 +208,6 @@ local function addEmoteMenu(menu)
         elseif data.emoteType == EmoteType.DANCES then
             local label = '🤼 ' .. data.label
             addEmoteToMenu(danceMenu.menu, danceMenu.items, emoteName, label, string.format("/e (%s)", emoteName))
-            if Config.SharedEmotesEnabled then
-                shareddancemenu:AddItem(NativeUI.CreateItem(label, string.format("/nearby (%s)", emoteName)))
-            end
         elseif data.emoteType == EmoteType.ANIMAL_EMOTES then
             if Config.AnimalEmotesEnabled then
                 local name = '🐶 ' .. data.label
@@ -231,13 +227,6 @@ local function addEmoteMenu(menu)
                 NativeUI.CreateItem(name, string.format("/e (%s)", emoteName))
             propMenu.menu:AddItem(propitem)
             propMenu.items[#propMenu.items+1] = emoteName
-        end
-    end
-
-    -- Ped Emote on Change Index
-    if Config.SharedEmotesEnabled then
-        shareddancemenu.OnItemSelect = function(_, _, index)
-            sendSharedEmoteRequest(subMenus[EmoteType.DANCES].items[index])
         end
     end
 end
@@ -277,11 +266,7 @@ if Config.Search then
         isSearching = true
 
         local searchMenu = _menuPool:AddSubMenu(lastMenu, string.format('%s '..Translate('searchmenudesc')..' ~r~%s~w~', #results, input), "", true, true)
-        local sharedDanceMenu
 
-        if Config.SharedEmotesEnabled then
-            sharedDanceMenu = _menuPool:AddSubMenu(searchMenu, Translate('sharedanceemotes'), "", true, true)
-        end
 
         table.sort(results, function(a, b) return a.name < b.name end)
         for _, result in pairs(results) do
@@ -296,10 +281,6 @@ if Config.Search then
                 searchMenu:AddItem(NativeUI.CreateListItem(result.data.label, result.data.AnimationOptions.PropTextureVariations, 1, desc))
             else
                 searchMenu:AddItem(NativeUI.CreateItem(result.data.label, desc))
-            end
-
-            if result.table == EmoteType.DANCES and Config.SharedEmotesEnabled then
-                sharedDanceMenu:AddItem(NativeUI.CreateItem(result.data.label, ""))
             end
         end
 
@@ -318,8 +299,6 @@ if Config.Search then
         searchMenu.OnItemSelect = function(_, _, index)
             local data = results[index]
 
-            if data == Translate('sharedanceemotes') then return end
-
             if data.table == EmoteType.SHARED then
                 sendSharedEmoteRequest(data.name)
             else
@@ -329,21 +308,6 @@ if Config.Search then
 
         searchMenu.OnListSelect = function(_, item, itemIndex, listIndex)
             EmoteMenuStart(results[itemIndex].name, item:IndexToItem(listIndex).Value)
-        end
-
-        if Config.SharedEmotesEnabled then
-            if #sharedDanceMenu.Items > 0 then
-                table.insert(results, 1, Translate('sharedanceemotes'))
-                sharedDanceMenu.OnItemSelect = function(_, _, index)
-                    if not LocalPlayer.state.canEmote then return end
-
-                    local data = results[index]
-                    sendSharedEmoteRequest(data.name)
-                end
-            else
-                sharedDanceMenu:Clear()
-                searchMenu:RemoveItemAt(1)
-            end
         end
 
         searchMenu.OnMenuClosed = function()

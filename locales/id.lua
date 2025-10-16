@@ -25,7 +25,6 @@ Locales['id'] = {
         ['emotemenucmd'] = "Gunakan perintah /emotemenu untuk membuka menu animasi.",
         ['shareemotes'] = "~h~~p~ 👫 Emote Bersama",
         ['shareemotesinfo'] = "Undang orang terdekat untuk beremote",
-        ['sharedanceemotes'] = "~h~~p~ 🕺 Tarian Bersama",
         ['notvalidsharedemote'] = "bukan merupakan emote bersama yang valid.",
         ['sentrequestto'] = "Mengirim permintaan ke ~y~",
         ['nobodyclose'] = "Tidak ada yang ~r~mendekati~w~ cukup.",

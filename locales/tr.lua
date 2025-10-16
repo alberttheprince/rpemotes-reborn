@@ -33,7 +33,6 @@ Locales['tr'] = {
        ['emotemenucmd'] = "Animasyon menüsünü açmak için /emotemenu komudunu kullanın",
        ['shareemotes'] = "👫 Ortak Animasyonlar",
        ['shareemotesinfo'] = "Yakın bir oyuncuyu animasyona davet edin",
-       ['sharedanceemotes'] = "🕺 Ortak Danslar",
        ['notvalidsharedemote'] = "animasyonu mevcut değil",
        ['sentrequestto'] = "~y~ oyuncusuna istek gönderildi",
        ['nobodyclose'] = "Kimse yeterince ~r~yakın~w~ değil",

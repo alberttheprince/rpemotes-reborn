@@ -25,7 +25,6 @@ Locales['sq'] = {
 		['emotemenucmd'] = "Përdor komandën /emotemenu për të hapur menunë e animacioneve.",
 		['shareemotes'] = "~h~~p~ 👫 Emotet e Ndara",
 		['shareemotesinfo'] = "Ftoj një person të afërt për të emotuar",
-		['sharedanceemotes'] = "~h~~p~ 🕺 Kërcime të Ndara",
 		['notvalidsharedemote'] = "nuk është një emote i ndarë i vlefshëm.",
 		['sentrequestto'] = "U dërgua kërkesa te ~y~",
 		['nobodyclose'] = "Askush ~r~afër~w~ mjaftueshëm.",

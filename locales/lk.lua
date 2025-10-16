@@ -25,7 +25,6 @@ Locales['lk'] = {
         ['emotemenucmd'] = "/emotemenu kiyana command eken animations menu eka ganna.",
         ['shareemotes'] = "~h~~p~ 👫 Shared Emotes",
         ['shareemotesinfo'] = "Laga inna kenata emote eka danna katha krnna",
-        ['sharedanceemotes'] = "~h~~p~ 🕺 Shared Natana Emotes",
         ['notvalidsharedemote'] = "kiyanne weradi shared emote ekak.",
         ['sentrequestto'] = "Request ekak yewwa ~y~",
         ['nobodyclose'] = "Kawruwat ~r~Laga~w~ na.",

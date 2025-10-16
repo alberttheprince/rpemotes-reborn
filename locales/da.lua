@@ -25,7 +25,6 @@ Locales['da'] = {
         ['emotemenucmd'] = "Skriv /emotemenu for animationsmenuen",
         ['shareemotes'] = "👫 Delte animationer",
         ['shareemotesinfo'] = "Inviter en person i nærheden til at dele en animationer",
-        ['sharedanceemotes'] = "~h~~p~ 🕺 Delete Danse",
         ['notvalidsharedemote'] = "er ikke en gyldig delt animation.",
         ['sentrequestto'] = "Anmodning sendt til ~y~",
         ['nobodyclose'] = "Ingen ~r~personer~w~ i nærheden.",
