@@ -117,3 +117,5 @@ EmoteType = {
 ---@field AdultAnimation? boolean
 ---@field abusable? boolean true if the emote or walk style has abuse potential such as letting a player change their movement speed, or move through a wall.
 ---@field emoteType EmoteType
+
+---@alias Category string

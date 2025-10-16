@@ -22,9 +22,9 @@ data_file 'CONDITIONAL_ANIMS_FILE' 'conditionalanims.meta'
 
 shared_scripts {
     'types.lua',
-    'config.lua',
     'locale.lua',
     'locales/*.lua',
+    'config.lua',
     'animals.lua'
 }
 

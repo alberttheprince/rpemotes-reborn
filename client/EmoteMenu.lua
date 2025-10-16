@@ -84,6 +84,33 @@ local function addResetMenuItem(menu, items)
     return resetItem
 end
 
+-- Helper function to expand EmoteTypes in CustomCategories to actual emote names
+---@return table<string, string[]> -- Returns category name to array of emote names
+local function expandCustomCategories()
+    local expanded = {}
+
+    for categoryName, mappings in pairs(Config.CustomCategories) do
+        expanded[categoryName] = {}
+
+        for _, mapping in ipairs(mappings) do
+            -- Check if mapping is an EmoteType by seeing if RP has that key
+            if RP and RP[mapping] then
+                -- It's an EmoteType - add all emotes of this type from RP
+                for emoteName in pairs(RP[mapping]) do
+                    expanded[categoryName][#expanded[categoryName]+1] = emoteName
+                end
+            else
+                -- It's a specific emote name - verify it exists in EmoteData
+                if EmoteData[mapping] then
+                    expanded[categoryName][#expanded[categoryName]+1] = mapping
+                end
+            end
+        end
+    end
+
+    return expanded
+end
+
 local menuPosition = getMenuPosition()
 local menuHeader = "shopui_title_sm_hangar"
 
@@ -103,9 +130,11 @@ local infomenu
 ---@field menu table
 ---@field items string[]
 
----@alias Category string
 ---@type table<Category, SubMenu>
 local subMenus = {}
+
+---@type table<string, string[]>
+local categoryToEmotes = {}
 
 local function sendSharedEmoteRequest(emoteName)
     local target, distance = GetClosestPlayer()
@@ -185,48 +214,58 @@ local function addEmoteMenu(menu)
         emoteMenu.items[#emoteMenu.items+1] = Translate('searchemotes')
     end
 
-    local danceMenu = createSubMenu(emoteMenu, EmoteType.DANCES, Translate('danceemotes'))
-    local animalMenu
-    if Config.AnimalEmotesEnabled then
-        animalMenu = createSubMenu(emoteMenu, EmoteType.ANIMAL_EMOTES, Translate('animalemotes'))
-    end
-    local propMenu = createSubMenu(emoteMenu, EmoteType.PROP_EMOTES, Translate('propemotes'))
-    local shareMenu
-    if Config.SharedEmotesEnabled then
-        shareMenu = createSubMenu(emoteMenu, EmoteType.SHARED, Translate('shareemotes'), Translate('shareemotesinfo'))
-        shareMenu.items[#shareMenu.items+1] = 'none'
-    end
-
     if Config.Keybinding then
         emoteMenu.items[#emoteMenu.items+1] = "keybinds"
         emoteMenu.menu:AddItem(NativeUI.CreateItem(Translate('keybinds'), Translate('keybindsinfo') .. " /emotebind [~y~num4-9~w~] [~g~emotename~w~]"))
     end
 
+    -- Create submenus for each custom category
+    for categoryName in pairs(categoryToEmotes) do
+        createSubMenu(emoteMenu, categoryName, categoryName)
+    end
+
+    -- Populate each category with its emotes
+    for categoryName, emoteNames in pairs(categoryToEmotes) do
+        local categoryMenu = subMenus[categoryName]
+        if categoryMenu then
+            for _, emoteName in ipairs(emoteNames) do
+                local data = EmoteData[emoteName]
+                if data then
+                    if data.emoteType == EmoteType.EMOTES then
+                        addEmoteToMenu(categoryMenu.menu, categoryMenu.items, emoteName, data.label, string.format("/e (%s)", emoteName))
+                    elseif data.emoteType == EmoteType.DANCES then
+                        local label = '🤼 ' .. data.label
+                        addEmoteToMenu(categoryMenu.menu, categoryMenu.items, emoteName, label, string.format("/e (%s)", emoteName))
+                    elseif data.emoteType == EmoteType.ANIMAL_EMOTES then
+                        if Config.AnimalEmotesEnabled then
+                            local name = '🐶 ' .. data.label
+                            addEmoteToMenu(categoryMenu.menu, categoryMenu.items, emoteName, name, string.format("/e (%s)", emoteName))
+                        end
+                    elseif data.emoteType == EmoteType.SHARED then
+                        if Config.SharedEmotesEnabled then
+                            local desc = formatSharedEmoteDescription(emoteName, data.secondPlayersAnim)
+                            local shareitem = NativeUI.CreateItem(data.label, desc)
+                            categoryMenu.menu:AddItem(shareitem)
+                            categoryMenu.items[#categoryMenu.items+1] = emoteName
+                        end
+                    elseif data.emoteType == EmoteType.PROP_EMOTES then
+                        local name = '📦 ' .. data.label
+                        local propitem = data.AnimationOptions.PropTextureVariations and
+                            NativeUI.CreateListItem(name, data.AnimationOptions.PropTextureVariations, 1, string.format("/e (%s)", emoteName)) or
+                            NativeUI.CreateItem(name, string.format("/e (%s)", emoteName))
+                        categoryMenu.menu:AddItem(propitem)
+                        categoryMenu.items[#categoryMenu.items+1] = emoteName
+                    end
+                end
+            end
+        end
+    end
+
+
+    -- Put all the emotes with EmoteType.EMOTES within the emotes category
     for emoteName, data in pairs(EmoteData) do
         if data.emoteType == EmoteType.EMOTES then
             addEmoteToMenu(emoteMenu.menu, emoteMenu.items, emoteName, data.label, string.format("/e (%s)", emoteName))
-        elseif data.emoteType == EmoteType.DANCES then
-            local label = '🤼 ' .. data.label
-            addEmoteToMenu(danceMenu.menu, danceMenu.items, emoteName, label, string.format("/e (%s)", emoteName))
-        elseif data.emoteType == EmoteType.ANIMAL_EMOTES then
-            if Config.AnimalEmotesEnabled then
-                local name = '🐶 ' .. data.label
-                addEmoteToMenu(animalMenu.menu, animalMenu.items, emoteName, name, string.format("/e (%s)", emoteName))
-            end
-        elseif data.emoteType == EmoteType.SHARED then
-            if Config.SharedEmotesEnabled then
-                local desc = formatSharedEmoteDescription(emoteName, data.secondPlayersAnim)
-                local shareitem = NativeUI.CreateItem(data.label, desc)
-                shareMenu.menu:AddItem(shareitem)
-                shareMenu.items[#shareMenu.items+1] = emoteName
-            end
-        elseif data.emoteType == EmoteType.PROP_EMOTES then
-            local name = '📦 ' .. data.label
-            local propitem = data.AnimationOptions.PropTextureVariations and
-                NativeUI.CreateListItem(name, data.AnimationOptions.PropTextureVariations, 1, string.format("/e (%s)", emoteName)) or
-                NativeUI.CreateItem(name, string.format("/e (%s)", emoteName))
-            propMenu.menu:AddItem(propitem)
-            propMenu.items[#propMenu.items+1] = emoteName
         end
     end
 end
@@ -266,7 +305,6 @@ if Config.Search then
         isSearching = true
 
         local searchMenu = _menuPool:AddSubMenu(lastMenu, string.format('%s '..Translate('searchmenudesc')..' ~r~%s~w~', #results, input), "", true, true)
-
 
         table.sort(results, function(a, b) return a.name < b.name end)
         for _, result in pairs(results) do
@@ -548,6 +586,10 @@ local function convertRP()
         end
     end
     EmoteData = newRP
+
+    -- Expand custom categories after EmoteData is populated
+    categoryToEmotes = expandCustomCategories()
+
     RP = nil
     CONVERTED = true
 end
