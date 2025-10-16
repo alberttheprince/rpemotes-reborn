@@ -366,6 +366,7 @@ function ShowPedMenu(zoom)
                 local heading_offset = Config.MenuPosition == "left" and 170.0 or 190.0
                 SetEntityHeading(ClonedPed, camRot.z + heading_offset)
                 SetEntityRotation(ClonedPed, camRot.x * (-1), 0.0, camRot.z + 170.0, 2, false)
+                ForcePedMotionState(ClonedPed, `MotionState_None`, false, 1, true)
 
                 Wait(4)
             end
@@ -391,6 +392,15 @@ function ClearPedTaskPreview()
 
     if ClonedPed then
         DestroyAllProps(true)
-        ClearPedTasksImmediately(ClonedPed)
+
+        if LastEmoteName == nil then return end
+
+        local lastEmoteDate = EmoteData[LastEmoteName]
+
+        if lastEmoteDate.scenario then
+            SetPedShouldPlayImmediateScenarioExit(ClonedPed)
+        else
+            StopAnimTask(ClonedPed, lastEmoteDate.dict, lastEmoteDate.anim, -4)
+        end
     end
 end

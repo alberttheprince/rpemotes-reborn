@@ -162,7 +162,7 @@ local function createSubMenu(parent, category, title, description)
         local emoteName = items[newIndex]
         local emote = EmoteData[emoteName]
         ClearPedTaskPreview()
-        if not emote then return end
+        if not emote then LastEmoteName = nil return end
         if isEmoteTypePreviewable(emote.emoteType) then
             EmoteMenuStartClone(emoteName)
         end
@@ -307,7 +307,9 @@ if Config.Search then
         local searchMenu = _menuPool:AddSubMenu(lastMenu, string.format('%s '..Translate('searchmenudesc')..' ~r~%s~w~', #results, input), "", true, true)
 
         table.sort(results, function(a, b) return a.name < b.name end)
-        for _, result in pairs(results) do
+        for index, result in pairs(results) do
+            if index == 1 then LastEmoteName = result.name end
+
             local desc
             if result.table == EmoteType.SHARED then
                 desc = formatSharedEmoteDescription(result.name, result.data.secondPlayersAnim)
@@ -359,6 +361,7 @@ if Config.Search then
         _menuPool:CloseAllMenus()
         searchMenu:Visible(true)
         ShowPedMenu()
+        WaitForClonedPedThenPlayLastAnim()
     end
 end
 
@@ -617,10 +620,12 @@ CreateThread(function()
     initMenu()
 end)
 
--- While ped is dead or swimming, don't show menus
+local idleCamActive = false
+
 CreateThread(function()
     while true do
         Wait(500)
+        -- While ped is dead or swimming, don't show menus
         local canEmote, _ = canPlayerEmote()
         if not canEmote then
             if IsInAnimation then
@@ -628,5 +633,37 @@ CreateThread(function()
             end
             _menuPool:CloseAllMenus()
         end
+
+        if Config.PreviewPed then
+            local camIsIdle = IsCinematicIdleCamRendering()
+
+            if not idleCamActive and camIsIdle then
+                idleCamActive = true
+
+                ClosePedMenu()
+            elseif idleCamActive and not camIsIdle then
+                idleCamActive = false
+
+                ShowPedMenu()
+
+                if LastEmoteName then
+                    WaitForClonedPedThenPlayLastAnim()
+                end
+            end
+        end
     end
 end)
+
+function WaitForClonedPedThenPlayLastAnim()
+    CreateThread(function()
+        local timeout = GetGameTimer() + 1500
+
+        while GetGameTimer() > timeout and (not ClonedPed or not DoesEntityExist(ClonedPed)) do
+            Wait(50)
+        end
+
+        if ClonedPed and DoesEntityExist(ClonedPed) then
+            EmoteMenuStartClone(LastEmoteName)
+        end
+    end)
+end

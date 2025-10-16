@@ -4,6 +4,7 @@ CurrentAnimationName = nil
 CurrentTextureVariation = nil
 InHandsup = false
 CONVERTED = false
+LastEmoteName = nil
 local lastEmoteTime = 0
 
 ---@type ScenarioType
@@ -379,6 +380,8 @@ local function onEmotePlayClone(name)
 
     local emoteData = EmoteData[name]
     local animOption = emoteData.AnimationOptions
+
+    LastEmoteName = name
 
     if animOption and animOption.Prop then
         DestroyAllProps(true)
