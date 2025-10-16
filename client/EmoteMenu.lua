@@ -611,6 +611,10 @@ local function initMenu()
     end
     addInfoMenu(mainMenu)
 
+    mainMenu.OnMenuClosed = function()
+        ClosePedMenu()
+    end
+
     _menuPool:RefreshIndex()
 end
 
@@ -644,10 +648,12 @@ CreateThread(function()
             elseif idleCamActive and not camIsIdle then
                 idleCamActive = false
 
-                ShowPedMenu()
+                if _menuPool:IsAnyMenuOpen() then
+                    ShowPedMenu()
 
-                if LastEmoteName then
-                    WaitForClonedPedThenPlayLastAnim()
+                    if LastEmoteName then
+                        WaitForClonedPedThenPlayLastAnim()
+                    end
                 end
             end
         end
