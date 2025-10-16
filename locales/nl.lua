@@ -33,7 +33,6 @@ Locales['nl'] = {
     ['emotemenucmd'] = "Gebruik /emotemenu om het animatiemenu te openen",
     ['shareemotes'] = "👫 Gedeelde Animaties",
     ['shareemotesinfo'] = "Nodig een persoon in de buurt uit om een animatie te doen.",
-    ['sharedanceemotes'] = "~h~~p~ 🕺 Gedeelde Dansjes",
     ['notvalidsharedemote'] = "is geen geldige gedeelde animatie",
     ['sentrequestto'] = "Verzoek gestuurd naar ~y~",
     ['nobodyclose'] = "Er is niemand ~r~dichtbij~w~ genoeg",

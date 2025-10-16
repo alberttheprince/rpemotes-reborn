@@ -33,7 +33,6 @@ Locales['en'] = {
     ['emotemenucmd'] = "Use command /emotemenu to open animations menu.",
     ['shareemotes'] = "👫 Shared Emotes",
     ['shareemotesinfo'] = "Invite a nearby person to emote",
-    ['sharedanceemotes'] = "🕺 Shared Dances",
     ['notvalidsharedemote'] = "is not a valid shared emote.",
     ['sentrequestto'] = "Sent request to ~y~",
     ['nobodyclose'] = "Nobody ~r~close~w~ enough.",

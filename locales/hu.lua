@@ -25,7 +25,6 @@ Locales['hu'] = {
         ['emotemenucmd'] = "A /emotemenu paranccsal nyisd meg az animációk menüt.",
         ['shareemotes'] = "~h~~p~ 👫 Megosztott animációk",
         ['shareemotesinfo'] = "Hívj meg egy közeli személyt animációra",
-        ['sharedanceemotes'] = "~h~~p~ 🕺 Közös Táncok",
         ['notvalidsharedemote'] = "nem érvényes megosztott animáció.",
         ['sentrequestto'] = "Elküldted a kérelmet a(z) ~y~",
         ['nobodyclose'] = "Senki sincs elég ~r~közel~w~.",

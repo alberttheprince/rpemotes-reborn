@@ -33,7 +33,6 @@ Locales['de'] = {
         ['emotemenucmd'] = "Verwende den Befehl /emotemenu, um das Animationsmenü zu öffnen.",
         ['shareemotes'] = "~h~~p~ 👫 Geteilte Emotes",
         ['shareemotesinfo'] = "Laden Sie eine Person in Ihrer Nähe zum Emoten ein",
-        ['sharedanceemotes'] = "~h~~p~ 🕺 Geteilte Tänze",
         ['notvalidsharedemote'] = "ist kein gültiges geteiltes Emote.",
         ['sentrequestto'] = "Anfrage an ~g~ gesendet",
         ['nobodyclose'] = "Niemand ist nah genug dran.",

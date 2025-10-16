@@ -25,7 +25,6 @@ Locales['sl'] = {
 		['emotemenucmd'] = "Uporabite ukaz /emotemenu, da odprete meni za animacije.",
 		['shareemotes'] = "~h~~p~ 👫 Deljeni Emotes",
 		['shareemotesinfo'] = "Povabite osebo v bližini, da naredi emote",
-		['sharedanceemotes'] = "~h~~p~ 🕺 Deljeni Plesi",
 		['notvalidsharedemote'] = "ni veljaven deljeni emote.",
 		['sentrequestto'] = "Poslano povpraševanje ~y~",
 		['nobodyclose'] = "Nihče ni dovolj ~r~blizu~w~.",

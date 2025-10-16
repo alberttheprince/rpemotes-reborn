@@ -25,7 +25,6 @@ Locales['it'] = {
         ['emotemenucmd'] = "Esegui /emotemenu per aprire il menù.",
         ['shareemotes'] = "~h~~p~ 👫 Animazioni di coppia",
         ['shareemotesinfo'] = "Invita un giocatore vicino ad un'animazione",
-        ['sharedanceemotes'] = "~h~~p~ 🕺 Balli di coppia",
         ['notvalidsharedemote'] = "non è un'animazione di coppia valida.",
         ['sentrequestto'] = "Richiesta mandata a ~y~",
         ['nobodyclose'] = "Nessun giocatore abbastanza ~r~vicino~w~.",

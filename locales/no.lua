@@ -25,7 +25,6 @@ Locales['no'] = {
         ['emotemenucmd'] = "Use command /emotemenu to open animations menu.",
         ['shareemotes'] = "~h~~p~ 👫 Felles Animasjoner",
         ['shareemotesinfo'] = "Inviter den nærmeste personen til en felles animasjon",
-        ['sharedanceemotes'] = "~h~~p~ 🕺 Felles Danser",
         ['notvalidsharedemote'] = "er ikke en gyldig felles animasjon.",
         ['sentrequestto'] = "Sendte en forespørsel til ~y~",
         ['nobodyclose'] = "Ingen ~r~personer~w~ er i nærheten.",

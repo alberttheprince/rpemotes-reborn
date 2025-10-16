@@ -25,7 +25,6 @@ Locales['cs'] = {
         ['emotemenucmd'] = "Použij /emotemenu pro otevření menu.",
         ['shareemotes'] = "~h~~p~ 👫 Sdílené animace",
         ['shareemotesinfo'] = "Pozvěte osobu v okolí, k tanci",
-        ['sharedanceemotes'] = "~h~~p~ 🕺 Sdílené tance",
         ['notvalidsharedemote'] = "Není platný Sdílený tanec.",
         ['sentrequestto'] = "Odeslal jsi ~y~ žádost o tanec ",
         ['nobodyclose'] = "Nikdo ~r~není~w~ v dostatečné blízkosti.",

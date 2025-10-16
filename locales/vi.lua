@@ -25,7 +25,6 @@ Locales['vi'] = {
         ['emotemenucmd'] = "Sử dụng lệnh /emotemenu để mở danh mục hành động.",
         ['shareemotes'] = "~h~~p~ 👫 Hành động chung",
         ['shareemotesinfo'] = "Mời người ở gần tham gia hành động.",
-        ['sharedanceemotes'] = "~h~~p~ 🕺 Nhảy nhót chung",
         ['notvalidsharedemote'] = "không khả dụng.",
         ['sentrequestto'] = "Đã gửi yêu cầu tới ~y~",
         ['nobodyclose'] = "Không có ai ~r~ở gần~w~.",
