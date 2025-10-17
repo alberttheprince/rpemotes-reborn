@@ -1,5 +1,6 @@
 local HANDSUP_DICT = "random@mugging3"
 local HANDSUP_ANIM = "handsup_standing_base"
+local HANDSUP_FLAGS = 49
 
 local function HandsUpLoop()
     CreateThread(function()
