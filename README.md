@@ -69,16 +69,6 @@ All languages were translated or contributed by the FiveM community, with the od
 
 If you find any incorrect translations or would like to add more languages, please make a pull request with the corrections.
 
-# Header
-
-To edit the header, find the image in the main directory of rpemotes-reborn and edit the image in your program of choice. The image dimensions are 512 x 128.
-
-Do not change the name of the image file.
-
-Example Banner:
-![image](https://github.com/user-attachments/assets/dac5b7e5-4b63-4d10-8d59-3e8502d9913c)
-
-**Note for users of older versions of rpemotes:** Previously, the banner was hosted through a web link on an image hosting website. Due to various image hosting sites dealing with large amounts of traffic from FiveM, they cut off access to FiveM.
 
 # Exports and Documentation
 
@@ -144,7 +134,18 @@ Alternatively, you can use the keybind command that comes with FiveM without hav
 
 `bind keyboard "Yourbutton" "e youremote"`. To remove the keybind, type `"unbind keyboard "Yourbutton"`.
 
-# Menu Customization
+# Menu Customization: Header
+
+To edit the header, find the image in the main directory of rpemotes-reborn and edit the image in your program of choice. The image dimensions are 512 x 128.
+
+Do not change the name of the image file.
+
+Example Banner:
+![image](https://github.com/user-attachments/assets/dac5b7e5-4b63-4d10-8d59-3e8502d9913c)
+
+**Note for users of older versions of rpemotes:** Previously, the banner was hosted through a web link on an image hosting website. Due to various image hosting sites dealing with large amounts of traffic from FiveM, they cut off access to FiveM.
+
+# Menu Customization: Title
 
 In the`config.lua` file, server owners can set the MenuTitle or simply leave it blank. Ideally, this should be 11 characters or less without any spaces.
 You can also set the font and decide whether or not you want an outline and MenuPosition. The available fonts are as follows:
