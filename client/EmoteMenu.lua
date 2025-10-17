@@ -1,6 +1,12 @@
 ---@type table<string, EmoteData>
 EmoteData = {}
 
+InPlacement = false
+PlacementPosition = vector3(0)
+PlacementRotation = vector3(0)
+PlacementHeading = 0
+PlacementWalking = false
+
 local isSearching = false
 local isMenuProcessing = false
 
@@ -169,6 +175,8 @@ local function createSubMenu(parent, category, title, description)
     end
 
     menu.OnItemSelect = function(_, _, index)
+        if PlacementWalking then return end
+
         if Config.Search and items[index] == Translate('searchemotes') then
             EmoteMenuSearch(menu)
             return
@@ -179,6 +187,8 @@ local function createSubMenu(parent, category, title, description)
         if not emote then return end
 
         if isEmoteTypePlayable(emote.emoteType) then
+            if not RunPlacementLogic() then return end
+
             EmoteMenuStart(items[index])
         elseif emote.emoteType == EmoteType.SHARED then
             sendSharedEmoteRequest(items[index])
@@ -342,6 +352,8 @@ if Config.Search then
             if data.table == EmoteType.SHARED then
                 sendSharedEmoteRequest(data.name)
             else
+                if not RunPlacementLogic() then return end
+
                 EmoteMenuStart(data.name)
             end
         end
@@ -363,6 +375,53 @@ if Config.Search then
         ShowPedMenu()
         WaitForClonedPedThenPlayLastAnim()
     end
+end
+
+function RunPlacementLogic()
+    local shiftHeld = IsControlPressed(0, 21)
+
+    if shiftHeld and not InPlacement then
+        StartPlacement()
+        return false
+    end
+
+    if InPlacement then
+        local playerPed = PlayerPedId()
+
+        InPlacement = false
+        PlacementWalking = true
+
+        TaskGoStraightToCoord(playerPed, PlacementPosition.x, PlacementPosition.y, PlacementPosition.z, 1, -1, PlacementHeading, 0)
+
+        local timeout = GetGameTimer() + 5000
+
+        while timeout > GetGameTimer() and GetScriptTaskStatus(playerPed, "SCRIPT_TASK_GO_STRAIGHT_TO_COORD") ~= 7 and #(GetEntityCoords(playerPed) - PlacementPosition) > 1 do
+            Citizen.Wait(300)
+        end
+
+        -- Too far away or timed out, cancel emote
+        if #(GetEntityCoords(playerPed) - PlacementPosition) > 1 or GetGameTimer() > timeout then
+            ClearPedTasksImmediately(playerPed)
+
+            PlacementPosition = vector3(0)
+            PlacementRotation = vector3(0)
+            PlacementHeading = 0
+            PlacementWalking = false
+
+            return false
+        end
+
+        SetEntityCoordsNoOffset(playerPed, PlacementPosition.x, PlacementPosition.y, PlacementPosition.z, true, true, true)
+        SetEntityRotation(playerPed, PlacementRotation.x, PlacementRotation.y, PlacementRotation.z, 2, false)
+        SetEntityHeading(playerPed, PlacementHeading)
+
+        PlacementPosition = vector3(0)
+        PlacementRotation = vector3(0)
+        PlacementHeading = 0
+        PlacementWalking = false
+    end
+
+    return true
 end
 
 local function addCancelEmote(menu)
@@ -672,4 +731,107 @@ function WaitForClonedPedThenPlayLastAnim()
             EmoteMenuStartClone(LastEmoteName)
         end
     end)
+end
+
+function StartPlacement()
+    if InPlacement then return end
+
+    local playerPed = PlayerPedId()
+    local playerPedPosition = GetEntityCoords(playerPed)
+
+    local leftRightOffset = 0
+    local upDownOffset = 0
+    local initHeading = GetEntityHeading(playerPed) + 180
+
+    InPlacement = true
+
+    SetEntityAlpha(ClonedPed, 150, false)
+    FreezeEntityPosition(ClonedPed, true)
+    SetEntityRotation(ClonedPed, 0, 0, 0, 2, false)
+    SetEntityCoordsNoOffset(ClonedPed, playerPedPosition.x, playerPedPosition.y, playerPedPosition.z - 50, true, true, true)
+
+    -- Prevents TP abuse to 0,0,0
+    PlacementPosition = playerPedPosition
+
+    CreateThread(function()
+        while InPlacement do
+            local cameraPosition = GetGameplayCamCoord()
+            local cameraRotation = GetGameplayCamRot(2)
+            local direction = RotationToDirection(cameraRotation)
+            local destination = cameraPosition + (direction * 1000)
+
+            local rayHandle = StartShapeTestRay(cameraPosition.x, cameraPosition.y, cameraPosition.z, destination.x, destination.y, destination.z, 1, playerPed, 7)
+            local _, hit, hitPosition, _, _ = GetShapeTestResult(rayHandle)
+
+            local upDownChangeAmount = 0.01
+            local leftRightChangeAmount = 2.5
+
+            if hit then
+                local placementPosition = vector3(hitPosition.x, hitPosition.y, hitPosition.z + 1 + upDownOffset)
+
+                playerPedPosition = GetEntityCoords(playerPed)
+
+                if #(placementPosition - playerPedPosition) <= 5 then
+                    SetEntityHeading(ClonedPed, initHeading + leftRightOffset)
+                    SetEntityCoordsNoOffset(ClonedPed, placementPosition.x, placementPosition.y, placementPosition.z, true, true, true)
+
+                    PlacementPosition = placementPosition
+                    PlacementRotation = GetEntityRotation(ClonedPed)
+                    PlacementHeading = GetEntityHeading(ClonedPed)
+                end
+            end
+
+            DisableControlAction(0, 23, true)
+            DisableControlAction(0, 44, true)
+            DisableControlAction(0, 45, true)
+            DisableControlAction(0, 46, true)
+            DisableControlAction(0, 49, true)
+            DisableControlAction(0, 140, true)
+            DisableControlAction(0, 141, true)
+
+            if IsDisabledControlPressed(0, 44) then
+                leftRightOffset += leftRightChangeAmount
+            elseif IsDisabledControlPressed(0, 46) then
+                leftRightOffset -= leftRightChangeAmount
+            elseif IsDisabledControlPressed(0, 45) then
+                upDownOffset += upDownChangeAmount
+
+                if upDownOffset >= 1 then upDownOffset = 1 end
+            elseif IsDisabledControlPressed(0, 49) then
+                upDownOffset -= upDownChangeAmount
+
+                if upDownOffset <= -1 then upDownOffset = -1 end
+            end
+
+            HelpText(
+                "~INPUT_COVER~/~INPUT_TALK~ " .. Translate('rotate') .. '\n' ..
+                "~INPUT_RELOAD~/~INPUT_ARREST~ " .. Translate('height') .. '\n' ..
+                "~INPUT_CELLPHONE_SELECT~ " .. Translate('btn_select')
+            )
+
+            Wait(0)
+        end
+
+        SetEntityAlpha(ClonedPed, 0, false)
+
+        while PlacementWalking do
+            Wait(3000)
+        end
+
+        SetEntityAlpha(ClonedPed, 255, false)
+    end)
+end
+
+function RotationToDirection(rotation)
+    local rotZ = math.rad(rotation.z)
+    local rotX = math.rad(rotation.x)
+    local multXY = math.abs(math.cos(rotX))
+
+    return vector3(-math.sin(rotZ) * multXY, math.cos(rotZ) * multXY, math.sin(rotX))
+end
+
+function HelpText(text)
+    BeginTextCommandDisplayHelp("STRING")
+    AddTextComponentSubstringPlayerName(text)
+    EndTextCommandDisplayHelp(0, false, false, -1)
 end
