@@ -10,27 +10,39 @@ Interested in joining our community? You can find our Discord [here](https://dis
 
 # Features 🛠️
 
-- Emote Preview - View emotes before you use them
+- Emote Preview & Placement - View and place emotes before using them!
 
-- Changeable Banner Font
+- Customizable Banner (Change the image, text, and text color)
 
-- Changeable Banner Colour
+- Emote Search Function 🔎
 
-- Multiple Translations 🌏
+- Community contributed custom animations 🕺
 
-- Search Function 🔎
+- Group emotes: Dance, salute, and more with 2 or more people
 
-- Custom Animations with **permission from the community** 🏃
+- Exit Emotes: Exit out of emotes with smooth transitions
 
-- Persistent Facial Expressions via client KVP 🤪
+- Persistent Facial Expressions and Walkstyles via client KVP 
+
+- Easily convert Menyoo to RPEmotes 🔄
+
+- Hide Adult Emotes 🔞
+
+- Hide Animal Emotes ⛔
 
 - Animal Emotes 🐩
 
-- Shared Dances 🕺💃
+- Shared Particle Effects: emotes with smoke effects, fire, and more 💨
 
-- Persistent Walkstyles via client KVP 🚶‍♂️ - Standalone, QB-Core and ESX support!
+- QB-Core Framework & KVP Keybinding Support ⚙️
+
+- Support for shared and couple poses/animations 👫
 
 - Persistent Disabling Of Idle Camera via KVP 🎥
+
+- Easy To Understand Configuration File ⚙️
+
+- Props Extractor for anti-cheat scripts 💾
 
 - Crouching 🐞
 
@@ -42,27 +54,10 @@ Interested in joining our community? You can find our Discord [here](https://dis
 
 - Hands up 🙌
 
-- Shared Particle Effects 💨
-
-- QB-Core Framework & KVP Keybinding Support ⚙️
-
-- Further support for shared and couple poses/animations 👫
-
-- Easily convert Menyoo to RPEmotes 🔄
-
-- Hide Adult Emotes 🔞
-
-- Hide Animal Emotes ⛔
-
-- Easy To Understand Configuration File ⚙️
-
-- Exit Emotes 😎
-
 - Working Binoculars 👀
 
 - News Camera 🎤📹
 
-- Props Extractor for anti-cheat scripts 💾
 
 **Available in the following languages:**
 
