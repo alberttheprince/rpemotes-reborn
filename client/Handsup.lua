@@ -51,14 +51,18 @@ if Config.HandsupEnabled then
         if InHandsup then
             LocalPlayer.state:set('currentEmote', 'handsup', true)
             DestroyAllProps()
-
             RequestAnimDict(HANDSUP_DICT)
             while not HasAnimDictLoaded(HANDSUP_DICT) do
                 Wait(0)
             end
-
-            TaskPlayAnim(PlayerPedId(), HANDSUP_DICT, HANDSUP_ANIM, 3.0, 3.0, -1, HANDSUP_FLAGS, 0, false,
-                IsThisModelABike(GetEntityModel(GetVehiclePedIsIn(PlayerPedId(), false))) and 4127 or false, false)
+            
+            local vehicleModel = GetEntityModel(GetVehiclePedIsIn(PlayerPedId(), false))
+            local isTwoWheeler = IsThisModelABike(vehicleModel) or 
+                                 IsThisModelAJetski(vehicleModel) or 
+                                 IsThisModelAQuadbike(vehicleModel)
+            
+            TaskPlayAnim(PlayerPedId(), HANDSUP_DICT, HANDSUP_ANIM, 3.0, 3.0, -1, 262161, 0, false,
+                isTwoWheeler and 4098 or false, false)
             HandsUpLoop()
         else
             LocalPlayer.state:set('currentEmote', nil, true)
