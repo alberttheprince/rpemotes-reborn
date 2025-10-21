@@ -84,6 +84,15 @@ local function addResetMenuItem(menu, items)
     return resetItem
 end
 
+-- Helper function to sort emotes by label alphabetically (case-insensitive)
+local function sortEmotesByLabel(emoteNames)
+    table.sort(emoteNames, function(a, b)
+        local labelA = EmoteData[a] and EmoteData[a].label or a
+        local labelB = EmoteData[b] and EmoteData[b].label or b
+        return string.lower(labelA) < string.lower(labelB)
+    end)
+end
+
 -- Helper function to expand EmoteTypes in CustomCategories to actual emote names
 ---@return table<string, string[]> -- Returns category name to array of emote names
 local function expandCustomCategories()
@@ -228,6 +237,7 @@ local function addEmoteMenu(menu)
     for categoryName, emoteNames in pairs(categoryToEmotes) do
         local categoryMenu = subMenus[categoryName]
         if categoryMenu then
+            sortEmotesByLabel(emoteNames)
             for _, emoteName in ipairs(emoteNames) do
                 local data = EmoteData[emoteName]
                 if data then
@@ -263,10 +273,16 @@ local function addEmoteMenu(menu)
 
 
     -- Put all the emotes with EmoteType.EMOTES within the emotes category
+    local emotesList = {}
     for emoteName, data in pairs(EmoteData) do
         if data.emoteType == EmoteType.EMOTES then
-            addEmoteToMenu(emoteMenu.menu, emoteMenu.items, emoteName, data.label, string.format("/e (%s)", emoteName))
+            emotesList[#emotesList + 1] = emoteName
         end
+    end
+    sortEmotesByLabel(emotesList)
+    for _, emoteName in ipairs(emotesList) do
+        local data = EmoteData[emoteName]
+        addEmoteToMenu(emoteMenu.menu, emoteMenu.items, emoteName, data.label, string.format("/e (%s)", emoteName))
     end
 end
 
@@ -394,15 +410,14 @@ local function addWalkMenu(menu)
     local sortedWalks = {}
     for _, data in pairs(EmoteData) do
         if data.emoteType == EmoteType.WALKS then
-            -- TODO: I'm not sure why injured walk styles need to appear first in the list.
-            -- Maybe it's a commonly used one? Should find out and add a comment explaining it. 
-            if data.anim == "move_m@injured" then
-                table.insert(sortedWalks, 1, {label = data.label, anim = data.anim})
-            else
-                sortedWalks[#sortedWalks + 1] = {label = data.label, anim = data.anim}
-            end
+            sortedWalks[#sortedWalks + 1] = {label = data.label, anim = data.anim}
         end
     end
+
+    -- Sort walking styles alphabetically by label (case-insensitive)
+    table.sort(sortedWalks, function(a, b)
+        return string.lower(a.label) < string.lower(b.label)
+    end)
 
     for _, walk in ipairs(sortedWalks) do
         if not walk.label then
@@ -430,12 +445,18 @@ local function addFaceMenu(menu)
     -- Override the last item to be empty string instead of 'resetdef'
     faceMenu.items[#faceMenu.items] = ""
 
+    local expressionsList = {}
     for emoteName, data in pairs(EmoteData) do
         if data.emoteType == EmoteType.EXPRESSIONS then
-            local faceitem = NativeUI.CreateItem(data.label or emoteName, "")
-            faceMenu.menu:AddItem(faceitem)
-            faceMenu.items[#faceMenu.items+1] = emoteName
+            expressionsList[#expressionsList + 1] = emoteName
         end
+    end
+    sortEmotesByLabel(expressionsList)
+    for _, emoteName in ipairs(expressionsList) do
+        local data = EmoteData[emoteName]
+        local faceitem = NativeUI.CreateItem(data.label or emoteName, "")
+        faceMenu.menu:AddItem(faceitem)
+        faceMenu.items[#faceMenu.items+1] = emoteName
     end
 
     faceMenu.menu.OnItemSelect = function(_, item, index)
