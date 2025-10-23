@@ -160,52 +160,63 @@ local function hidePreview()
     if ClonedPed and DoesEntityExist(ClonedPed) then
         ClosePedMenu()
     end
+     
 end
 
-local function findSubMenuData(menu)
-    if not menu or menu == mainMenu then
+--- Unified handler that updates the ped preview based on the currently active menu and selection
+--- Determines which menu is active, what item is selected, and shows/hides preview accordingly
+---@param currentMenu table The menu to check for preview
+local function updatePedPreview(currentMenu)
+    if not currentMenu or currentMenu == mainMenu then
+        hidePreview()
         return
     end
 
+    -- Find the menu in our subMenus table to get the items list
+    local subMenuData = nil
     for _, data in pairs(subMenus) do
-        if data.menu == menu then
-            return data
+        if data.menu == currentMenu then
+            subMenuData = data
+            break
         end
     end
-end
 
---- Updates the ped preview based on the submenu data and current selection
----@param subMenuData SubMenu? The submenu data containing menu and items, or nil to hide preview
-local function updatePedPreview(subMenuData)
     if not subMenuData then
         hidePreview()
         return
     end
 
-    local currentIndex = subMenuData.menu:CurrentSelection()
-    local emoteName = subMenuData.items[currentIndex]
-    local emote = EmoteData[emoteName]
-
-    -- Only show preview for previewable emotes
-    if not emote or not isEmoteTypePreviewable(emote.emoteType) then
+    -- Get the current selection
+    local currentIndex = currentMenu:CurrentSelection()
+    if not currentIndex or not subMenuData.items[currentIndex] then
         hidePreview()
         return
     end
 
-    local pedExists = ClonedPed and DoesEntityExist(ClonedPed)
+    local emoteName = subMenuData.items[currentIndex]
+    local emote = EmoteData[emoteName]
 
-    -- Don't restart if already showing this emote
-    if LastEmoteName == emoteName and pedExists then
-        return
-    end
+    -- Check if the selected item is a previewable emote
+    if emote and isEmoteTypePreviewable(emote.emoteType) then
+        -- Check if we're already showing this exact emote - if so, do nothing
+        if LastEmoteName == emoteName and ClonedPed and DoesEntityExist(ClonedPed) then
+            return
+        end
 
-    LastEmoteName = emoteName
-    if pedExists then
-        ClearPedTaskPreview()
-        EmoteMenuStartClone(emoteName)
+        -- Show this emote
+        if ClonedPed and DoesEntityExist(ClonedPed) then
+            -- Ped exists, just switch animation
+            ClearPedTaskPreview()
+            LastEmoteName = emoteName
+            EmoteMenuStartClone(emoteName)
+        else
+            -- Ped doesn't exist, create it
+            LastEmoteName = emoteName
+            ShowPedMenu()
+            WaitForClonedPedThenPlayLastAnim()
+        end
     else
-        ShowPedMenu()
-        WaitForClonedPedThenPlayLastAnim()
+        hidePreview()
     end
 end
 
@@ -221,14 +232,8 @@ local function createSubMenu(parent, category, title, description)
     local menu = _menuPool:AddSubMenu(parent.menu or parent, title, description or '', true, true)
     local items = {}
 
-    local subMenu = {
-        menu = menu,
-        items = items,
-    }
-    subMenus[category] = subMenu
-
     menu.OnIndexChange = function(_, newIndex)
-        updatePedPreview(subMenus[category])
+        updatePedPreview(menu)
     end
 
     menu.OnItemSelect = function(_, _, index)
@@ -257,9 +262,14 @@ local function createSubMenu(parent, category, title, description)
     end
 
     menu.OnMenuChanged = function(oldMenu, newMenu, forward)
-        updatePedPreview(findSubMenuData(newMenu))
+        updatePedPreview(newMenu)
     end
 
+    local subMenu = {
+        menu = menu,
+        items = items,
+    }
+    subMenus[category] = subMenu
     return subMenu
 end
 
