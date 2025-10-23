@@ -3,6 +3,7 @@ EmoteData = {}
 
 local isSearching = false
 local isMenuProcessing = false
+local isWaitingForPed = false
 
 -- Helper functions
 local function canPlayerEmote()
@@ -155,6 +156,70 @@ local function sendSharedEmoteRequest(emoteName)
     end
 end
 
+local function hidePreview()
+    if ClonedPed and DoesEntityExist(ClonedPed) then
+        ClosePedMenu()
+    end
+     
+end
+
+--- Unified handler that updates the ped preview based on the currently active menu and selection
+--- Determines which menu is active, what item is selected, and shows/hides preview accordingly
+---@param currentMenu table The menu to check for preview
+local function updatePedPreview(currentMenu)
+    if not currentMenu or currentMenu == mainMenu then
+        hidePreview()
+        return
+    end
+
+    -- Find the menu in our subMenus table to get the items list
+    local subMenuData = nil
+    for _, data in pairs(subMenus) do
+        if data.menu == currentMenu then
+            subMenuData = data
+            break
+        end
+    end
+
+    if not subMenuData then
+        hidePreview()
+        return
+    end
+
+    -- Get the current selection
+    local currentIndex = currentMenu:CurrentSelection()
+    if not currentIndex or not subMenuData.items[currentIndex] then
+        hidePreview()
+        return
+    end
+
+    local emoteName = subMenuData.items[currentIndex]
+    local emote = EmoteData[emoteName]
+
+    -- Check if the selected item is a previewable emote
+    if emote and isEmoteTypePreviewable(emote.emoteType) then
+        -- Check if we're already showing this exact emote - if so, do nothing
+        if LastEmoteName == emoteName and ClonedPed and DoesEntityExist(ClonedPed) then
+            return
+        end
+
+        -- Show this emote
+        if ClonedPed and DoesEntityExist(ClonedPed) then
+            -- Ped exists, just switch animation
+            ClearPedTaskPreview()
+            LastEmoteName = emoteName
+            EmoteMenuStartClone(emoteName)
+        else
+            -- Ped doesn't exist, create it
+            LastEmoteName = emoteName
+            ShowPedMenu()
+            WaitForClonedPedThenPlayLastAnim()
+        end
+    else
+        hidePreview()
+    end
+end
+
 ---@param parent SubMenu|table
 ---@param category string
 ---@param title string
@@ -168,13 +233,7 @@ local function createSubMenu(parent, category, title, description)
     local items = {}
 
     menu.OnIndexChange = function(_, newIndex)
-        local emoteName = items[newIndex]
-        local emote = EmoteData[emoteName]
-        ClearPedTaskPreview()
-        if not emote then LastEmoteName = nil return end
-        if isEmoteTypePreviewable(emote.emoteType) then
-            EmoteMenuStartClone(emoteName)
-        end
+        updatePedPreview(menu)
     end
 
     menu.OnItemSelect = function(_, _, index)
@@ -202,10 +261,8 @@ local function createSubMenu(parent, category, title, description)
         EmoteMenuStart(items[itemIndex], item:IndexToItem(listIndex).Value)
     end
 
-    menu.OnMenuClosed = function()
-        if not isSearching then
-            ClosePedMenu()
-        end
+    menu.OnMenuChanged = function(oldMenu, newMenu, forward)
+        updatePedPreview(newMenu)
     end
 
     local subMenu = {
@@ -390,17 +447,6 @@ local function addCancelEmote(menu)
     end
 end
 
-local function showPedPreview(menu)
-    menu.OnItemSelect = function(_, _, index)
-        if index == 1 then
-            isSearching = false
-            ShowPedMenu()
-        elseif index == 4 then
-            ShowPedMenu(true)
-        end
-    end
-end
-
 -- TODO: merge with main iterating for loop for menu initialization.
 local function addWalkMenu(menu)
     createSubMenu(menu, EmoteType.WALKS, Translate('walkingstyles'))
@@ -501,6 +547,11 @@ function OpenEmoteMenu()
     if _menuPool:IsAnyMenuOpen() then
         _menuPool:CloseAllMenus()
     else
+        -- Clean up any existing preview before opening
+        if ClonedPed and DoesEntityExist(ClonedPed) then
+            ClosePedMenu()
+        end
+
         mainMenu:Visible(true)
         processMenu()
     end
@@ -621,9 +672,6 @@ end
 local function initMenu()
     addEmoteMenu(mainMenu)
     addCancelEmote(mainMenu)
-    if Config.PreviewPed then
-        showPedPreview(mainMenu)
-    end
     if Config.WalkingStylesEnabled then
         addWalkMenu(mainMenu)
     end
@@ -631,6 +679,14 @@ local function initMenu()
         addFaceMenu(mainMenu)
     end
     addInfoMenu(mainMenu)
+
+    mainMenu.OnIndexChange = function()
+        updatePedPreview(mainMenu)
+    end
+
+    mainMenu.OnMenuChanged = function(oldMenu, newMenu, forward)
+        updatePedPreview(newMenu)
+    end
 
     mainMenu.OnMenuClosed = function()
         ClosePedMenu()
@@ -670,10 +726,13 @@ CreateThread(function()
                 idleCamActive = false
 
                 if _menuPool:IsAnyMenuOpen() then
-                    ShowPedMenu()
+                    -- Only recreate ped if it doesn't exist
+                    if not ClonedPed or not DoesEntityExist(ClonedPed) then
+                        ShowPedMenu()
 
-                    if LastEmoteName then
-                        WaitForClonedPedThenPlayLastAnim()
+                        if LastEmoteName then
+                            WaitForClonedPedThenPlayLastAnim()
+                        end
                     end
                 end
             end
@@ -682,15 +741,23 @@ CreateThread(function()
 end)
 
 function WaitForClonedPedThenPlayLastAnim()
+    -- Prevent multiple concurrent threads
+    if isWaitingForPed then
+        return
+    end
+
+    isWaitingForPed = true
     CreateThread(function()
         local timeout = GetGameTimer() + 1500
 
-        while GetGameTimer() > timeout and (not ClonedPed or not DoesEntityExist(ClonedPed)) do
+        while GetGameTimer() < timeout and (not ClonedPed or not DoesEntityExist(ClonedPed)) do
             Wait(50)
         end
 
-        if ClonedPed and DoesEntityExist(ClonedPed) then
+        if ClonedPed and DoesEntityExist(ClonedPed) and LastEmoteName then
             EmoteMenuStartClone(LastEmoteName)
         end
+
+        isWaitingForPed = false
     end)
 end
