@@ -362,13 +362,13 @@ function ShowPedMenu(zoom)
                 end
                 averagedTarget = averagedTarget / #positionBuffer
 
-                -- Update position every frame to prevent falling, but use gentle updates
-                SetEntityCoords(ClonedPed, averagedTarget.x, averagedTarget.y, averagedTarget.z, false, false, false, false)
-
+                SetEntityCoords(ClonedPed, averagedTarget.x, averagedTarget.y, averagedTarget.z, false, false, false, true)
                 local heading_offset = Config.MenuPosition == "left" and 170.0 or 190.0
                 SetEntityHeading(ClonedPed, camRot.z + heading_offset)
+                SetEntityRotation(ClonedPed, camRot.x * (-1), 0.0, camRot.z + 170.0, 2, false)
+                ForcePedMotionState(ClonedPed, `MotionState_None`, false, 1, true)
 
-                Wait(10)
+                Wait(4)
             end
 
             DeleteEntity(ClonedPed)
@@ -380,14 +380,11 @@ end
 function ClosePedMenu()
     if not Config.PreviewPed then return end
 
-    ShowPed = false
-
-    if ClonedPed and DoesEntityExist(ClonedPed) then
+    if ClonedPed then
+        ShowPed = false
         ClearPedTaskPreview()
         DeleteEntity(ClonedPed)
     end
-
-    ClonedPed = nil
 end
 
 function ClearPedTaskPreview()
