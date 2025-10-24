@@ -454,9 +454,9 @@ local function addWalkMenu(menu)
     local walkreset = addResetMenuItem(walkMenu.menu, walkMenu.items)
 
     local sortedWalks = {}
-    for _, data in pairs(EmoteData) do
+    for walkName, data in pairs(EmoteData) do
         if data.emoteType == EmoteType.WALKS then
-            sortedWalks[#sortedWalks + 1] = {label = data.label, anim = data.anim}
+            sortedWalks[#sortedWalks + 1] = {name = walkName, label = data.label, anim = data.anim}
         end
     end
 
@@ -470,7 +470,7 @@ local function addWalkMenu(menu)
             print('missing label', json.encode(walk))
         end
         walkMenu.menu:AddItem(NativeUI.CreateItem(walk.label, string.format("/walk (%s)", string.lower(walk.label))))
-        walkMenu.items[#walkMenu.items+1] = walk.label
+        walkMenu.items[#walkMenu.items+1] = walk.name
     end
 
     walkMenu.menu.OnItemSelect = function(_, item, index)
