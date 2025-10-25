@@ -226,25 +226,9 @@ end
 
 local function checkAnimalAndOnEmotePlay(name)
     local playerPed = PlayerPedId()
-    local isValidPet = false
 
-    if string.sub(name, 1, 4) == "bdog" then
-        for _, model in ipairs(BigDogs) do
-            if IsPedModel(playerPed, GetHashKey(model)) then
-                isValidPet = true
-                break
-            end
-        end
-    elseif string.sub(name, 1, 4) == "sdog" then
-        for _, model in ipairs(SmallDogs) do
-            if IsPedModel(playerPed, GetHashKey(model)) then
-                isValidPet = true
-                break
-            end
-        end
-    end
-
-    if isValidPet then
+    -- Simple check: if not human, it's an animal (works with any animal ped model)
+    if not IsPedHuman(playerPed) then
         OnEmotePlay(name)
     else
         EmoteChatMessage(Translate('notvalidpet'))
@@ -632,7 +616,7 @@ function OnEmotePlay(name, textureVariation)
 
     if Config.EmoteCooldownMs then
         local timeSinceLastEmote = GetGameTimer() - lastEmoteTime
-        
+
         if timeSinceLastEmote < Config.EmoteCooldownMs then
             EmoteChatMessage(Translate('emotecooldown'))
             return
