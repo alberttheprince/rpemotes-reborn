@@ -162,3 +162,7 @@ RegisterCommand("emoteextract", function(source, args)
     if source > 0 then return end
     ExtractEmoteProps(args[1])
 end, true)
+
+AddEventHandler("playerLeftScope", function(data)
+    TriggerClientEvent("onPlayerLeavingScope", tonumber(data["for"]), tonumber(data["player"]))
+end)

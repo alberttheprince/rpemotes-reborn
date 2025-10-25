@@ -404,3 +404,50 @@ function ClearPedTaskPreview()
         end
     end
 end
+
+--------------------------------------------------------------------------------------------------
+-- Handle prop spawning (except the preview screen)
+ServerProps = {
+    -- [serverSource] = {AnimationOptions, TextureVariation}
+}
+
+
+AddStateBagChangeHandler('rpemotes:props', nil, function(bagName, key, value, reserved, replicated)
+    if replicated then return end
+    local ply = GetPlayerFromStateBagName(bagName)
+    if ply == 0 then return end
+    local ped = GetPlayerPed(ply)
+    local serverSource = GetPlayerServerId(ply)
+
+    if ServerProps[serverSource] and #ServerProps[serverSource] > 0 then
+        for _, v in pairs(ServerProps[serverSource]) do
+            DeleteEntity(v)
+        end
+        DebugPrint("Deleted props for player. rpemotes statebag update")
+        ServerProps[serverSource] = {}
+    end
+    if not ServerProps[serverSource] then ServerProps[serverSource] = {} end
+
+
+    if type(value) == "table" and value.AnimationOptions ~= nil and value.AnimationOptions.Prop ~= nil then
+        -- Overly cautious? Maybe.
+        local gameTime = GetGameTimer()
+        DebugPrint("creating props")
+        while not DoesEntityExist(ped) do
+            ped = GetPlayerPed(ply)
+            Wait(1)
+        end
+        DebugPrint("time to finish loading ped (ms)", GetGameTimer() - gameTime)
+        addProps(value.AnimationOptions, value.TextureVariation or nil, false, ply)
+    end
+end)
+
+RegisterNetEvent("onPlayerLeavingScope", function(serverSource)
+    if ServerProps[serverSource] and #ServerProps[serverSource] > 0 then
+        for _, v in pairs(ServerProps[serverSource]) do
+            DeleteEntity(v)
+        end
+        DebugPrint("Deleted props for player. leaving scope")
+        ServerProps[serverSource] = {}
+    end
+end)
