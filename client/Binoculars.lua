@@ -56,7 +56,7 @@ function UseBinocular()
             -- prop_binoc = CreateObject(`prop_binoc_01`, x, y, z + 0.2, true, true, true)
             -- AttachEntityToEntity(prop_binoc, PlayerPedId(), boneIndex, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, true, true,
             --     false, true, 1, true)
-            LocalPlayer.state:set("rpemotes:props", {AnimationOptions = EmoteData["binoculars"].AnimationOptions, TextureVariation = nil}, true)
+            OnEmotePlay("binoculars", nil)
 
             TaskPlayAnim(PlayerPedId(), "amb@world_human_binoculars@male@idle_a", "idle_c", 5.0, 5.0, -1, 51, 0,
                 false, false, false)

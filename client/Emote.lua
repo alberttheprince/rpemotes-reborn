@@ -521,6 +521,7 @@ function DestroyAllProps(isClone)
         PreviewPedProps = {}
     else
         LocalPlayer.state:set("rpemotes:props", {}, true)
+        LocalPlayer.state:set("ptfxPropId", nil, true)
     end
     DebugPrint("Destroyed Props for " .. (isClone and "clone" or "player"))
 end
@@ -758,7 +759,7 @@ function OnEmotePlay(name, textureVariation)
         LocalPlayer.state:set("rpemotes:props", {AnimationOptions = animOption, TextureVariation = textureVariation}, true)
             -- Ptfx is on the prop, then we need to sync it
         if animOption.PtfxAsset and not animOption.PtfxNoProp then
-            TriggerServerEvent("rpemotes:ptfx:syncProp", ObjToNet(attachedProp))
+            LocalPlayer.state:set("ptfxPropId", animOption.SecondProp and 2 or 1, true) -- TODO: prop ptfx should be related to a prop.
         end
     end
 end

@@ -51,33 +51,9 @@ RegisterNetEvent("rpemotes:ptfx:sync", function(asset, name, offset, rot, bone, 
     state:set("ptfxBone", bone, true)
     state:set("ptfxScale", scale, true)
     state:set("ptfxColor", color, true)
-    state:set("ptfxPropNet", nil, true)
+    state:set("ptfxPropId", nil, true)
     state:set("ptfx", nil, true)
 end)
-
-RegisterNetEvent("rpemotes:ptfx:syncProp", function(propNet)
-    local state = Player(source).state
-    if propNet then
-        local entity
-        local maxAttempts = 100
-        local attempt = 0
-
-        repeat
-            entity = NetworkGetEntityFromNetworkId(propNet)
-            if entity and DoesEntityExist(entity) then
-                state:set("ptfxPropNet", propNet, true)
-                return
-            end
-            attempt = attempt + 1
-            Wait(10)
-        until attempt >= maxAttempts
-
-        print(("[rpemotes] Warning: Failed to find entity for propNet %s after %d attempts (source: %s)"):format(tostring(propNet), maxAttempts, tostring(source)))
-    end
-
-    state:set("ptfxPropNet", nil, true)
-end)
-
 
 local function ExtractEmoteProps(format)
     format = tonumber(format)

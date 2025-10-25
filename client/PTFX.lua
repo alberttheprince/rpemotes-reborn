@@ -33,10 +33,9 @@ AddStateBagChangeHandler('ptfx', '', function(bagName, key, value, _unused, repl
         local boneIndex = stateBag.ptfxBone and GetPedBoneIndex(plyPed, stateBag.ptfxBone) or GetEntityBoneIndexByName(stateBag.ptfxName, "VFX")
         local entityTarget = plyPed
 
-        if stateBag.ptfxPropNet then
-            local propObj = NetToObj(stateBag.ptfxPropNet)
-            if DoesEntityExist(propObj) then
-                entityTarget = propObj
+        if stateBag.ptfxPropId then
+            if DoesEntityExist(ServerProps[plyId][stateBag.ptfxPropId]) then
+                entityTarget = ServerProps[plyId][stateBag.ptfxPropId]
             end
         end
 
