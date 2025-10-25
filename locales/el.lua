@@ -5,6 +5,8 @@ Locales['el'] = {
         ['animalemotes'] = "~h~~p~ 🐩 Ζώα",
         ['propemotes'] = "~h~~p~ 📦 Αντικείμενα",
         ['prop2info'] = "❓ Τα αντικείμενα βρίσκοντε στο τέλος",
+        ['emojis'] = 'Emojis 😀 😕 😡',
+        ['emojisdescription'] = 'Express yourself with emojis',
         ['set'] = "Set (",
         ['newsetemote'] = "~w~ είναι τώρα στα αγαπημένα σου, πάτησε ~g~CapsLock~w~ για να την χρησιμοποιήσεις.",
         ['cancelemote'] = "~h~~r~ Ακύρωση Κίνησης 🚷",
@@ -73,5 +75,4 @@ Locales['el'] = {
         ['in_a_vehicle'] = "Μπορείς να κάνεις αυτή τη κίνηση μόνο ενώ είσαι σε όχημα 🚷",
         ['no_anim_crawling'] = "Δεν μπορείς να κάνεις κάποια κίνηση ενώ σέρνεσαι",
         ['no_anim_right_now'] = "You can't play an animation right now",
-
 }

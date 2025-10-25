@@ -5,6 +5,8 @@ Locales['sv'] = {
         ['animalemotes'] = "~h~~p~ 🐩 Djur Emotes",
         ['propemotes'] = "~h~~p~ 📦 Objekt Emotes",
         ['prop2info'] = "❓ Objekt Emotes finns längst ner i listan.",
+        ['emojis'] = 'Emojis 😀 😕 😡',
+        ['emojisdescription'] = 'Express yourself with emojis',
         ['set'] = "Sätt (",
         ['newsetemote'] = "~w~ är nu din favorit emote, tryck ~g~CapsLock~w~ för att använda den.",
         ['cancelemote'] = "~h~~r~ Avbryt Emote 🚷",
@@ -53,7 +55,7 @@ Locales['sv'] = {
         ['firework'] = "Tryck ~y~G~w~ för att avfyra dina fyrverkerier",
         ['poop'] = "Tryck ~y~G~w~ för att bajsa", -- Translated using smodin.io
         ['puke'] = "Tryck ~y~G~w~ För att Spy",
-	['cut'] = "Press ~y~G~w~ to cut",
+        ['cut'] = "Press ~y~G~w~ to cut",
         ['btn_select'] = "Välj",
         ['btn_back'] = "Tillbaka",
         ['btn_switch'] = "Rörelse",
@@ -73,5 +75,4 @@ Locales['sv'] = {
         ['in_a_vehicle'] = "Du kan bara använda den här animationen när du är i ett fordon",
         ['no_anim_crawling'] = "Du kan inte andända animationer när du säker genom",
         ['no_anim_right_now'] = "You can't play an animation right now",
-    
 }

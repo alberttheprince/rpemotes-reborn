@@ -134,6 +134,7 @@ local mainMenu = NativeUI.CreateMenu(Config.MenuTitle or "", "", menuPosition.x,
 _menuPool:Add(mainMenu)
 
 local infomenu
+local emojiSubmenu -- Store reference to emoji submenu for dynamic visibility based on ped type
 
 ---@class SubMenu
 ---@field menu table
@@ -469,6 +470,33 @@ local function addFaceMenu(menu)
     end
 end
 
+local function addEmojiMenu(menu)
+    if not Config.EmojiMenuEnabled then return end
+
+    createSubMenu(menu, 'Emojis', Translate('emojis'), Translate('emojisdescription'))
+    local emojiMenu = subMenus['Emojis']
+    emojiSubmenu = emojiMenu.menu -- Store reference for dynamic visibility control
+
+    -- Sort emojis alphabetically by key
+    local sortedEmojis = {}
+    for key, emoji in pairs(EmojiData) do
+        sortedEmojis[#sortedEmojis + 1] = {key = key, emoji = emoji}
+    end
+    table.sort(sortedEmojis, function(a, b)
+        return string.lower(a.key) < string.lower(b.key)
+    end)
+
+    -- Add emojis to menu
+    for _, emojiInfo in ipairs(sortedEmojis) do
+        emojiMenu.menu:AddItem(NativeUI.CreateItem(emojiInfo.emoji, ""))
+        emojiMenu.items[#emojiMenu.items+1] = emojiInfo.key
+    end
+
+    emojiMenu.menu.OnItemSelect = function(_, _, index)
+        ShowEmoji(emojiMenu.items[index])
+    end
+end
+
 local function addInfoMenu(menu)
     infomenu = _menuPool:AddSubMenu(menu, Translate('infoupdate'), "~h~~y~The RPEmotes Developers~h~~y~", true, true)
 
@@ -497,6 +525,18 @@ function OpenEmoteMenu()
             args = {"RPEmotes", errorMsg}
         })
         return
+    end
+
+    if Config.EmojiMenuEnabled and Config.EmojiMenuAnimalsOnly and emojiSubmenu then
+        local playerPed = PlayerPedId()
+        local isHuman = IsPedHuman(playerPed)
+
+        for _, item in pairs(mainMenu.Items) do
+            if item.Text == Translate('emojis') then
+                item:Enabled(not isHuman)
+                break
+            end
+        end
     end
     if _menuPool:IsAnyMenuOpen() then
         _menuPool:CloseAllMenus()
@@ -629,6 +669,9 @@ local function initMenu()
     end
     if Config.ExpressionsEnabled then
         addFaceMenu(mainMenu)
+    end
+    if Config.EmojiMenuEnabled then
+        addEmojiMenu(mainMenu)
     end
     addInfoMenu(mainMenu)
 

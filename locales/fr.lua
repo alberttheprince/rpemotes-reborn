@@ -5,6 +5,8 @@ Locales['fr'] = {
         ['animalemotes'] = "~p~ 🐩 Emotes d'animaux",
         ['propemotes'] = "~p~ 📦 Emotes objet",
         ['prop2info'] = "❓ Les emotes d'objet peuvent être à la fin",
+        ['emojis'] = 'Emojis 😀 😕 😡',
+        ['emojisdescription'] = 'Express yourself with emojis',
         ['set'] = "Mettre (",
         ['newsetemote'] = "~w~ est maintenant votre emote favorite, appuyez sur ~g~CapsLock~w~ pour l'utiliser.",
         ['cancelemote'] = "~r~ Annuler l'émote 🚷",
@@ -73,5 +75,4 @@ Locales['fr'] = {
         ['no_anim_crawling'] = "Vous ne pouvez pas jouer d'animations pendant que vous rampez",
         ['no_anim_right_now'] = "Vous ne pouvez pas jouer une animation pour l'instant",
         ['register_cancel_emote'] = "Annuler l'émote actuelle",
-    
 }

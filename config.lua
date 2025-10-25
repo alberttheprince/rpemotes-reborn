@@ -22,6 +22,10 @@ Config = {
     MenuPosition = 'right', -- 'left' / 'right'
     CustomMenuEnabled = true, -- Change the header.png to your own image
 
+    -- Emoji Menu
+    EmojiMenuEnabled = true,
+    EmojiMenuAnimalsOnly = false, -- If true, only non-human peds can use emojis
+
     -- Combat Car, and Player Movement
     DisarmPlayerOnEmote = false,
     AllowPunchingDuringEmote = false,
