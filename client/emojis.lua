@@ -1,7 +1,6 @@
--- Emoji display functionality
-local emojiDisplaying = {}
+local activeEmojis = {}
+local drawLoopActive = false
 
--- Emoji data (key = emoji)
 EmojiData = {
     ['grinning'] = '😀',
     ['smiley'] = '😃',
@@ -70,9 +69,8 @@ EmojiData = {
     ['exploding_head'] = '🤯',
     ['scream'] = '😱',
     ['grimacing'] = '😬',
-    ['exhaling'] = '😮💨',
+    ['exhaling'] = '💨',
     ['dizzy'] = '😵',
-    ['dizzy_spiral'] = '😵💫',
     ['melting'] = '🫠',
     ['shaking'] = '🫨',
     ['yawning'] = '🥱',
@@ -100,8 +98,7 @@ EmojiData = {
     ['thumbs_down'] = '👎',
 }
 
--- Function to draw text in 3D space
-local function DrawText3D(coords, text)
+local function drawText3D(coords, text)
     local camCoords = GetGameplayCamCoord()
     local dist = #(coords - camCoords)
     local scale = 300 / (GetGameplayCamFov() * dist)
@@ -119,64 +116,98 @@ local function DrawText3D(coords, text)
     ClearDrawOrigin()
 end
 
--- Function to display emoji above the ped's head
-local function DisplayEmoji(ped, emoji)
-    local playerPed = PlayerPedId()
-    local playerCoords = GetEntityCoords(playerPed)
-    local pedCoords = GetEntityCoords(ped)
-    local dist = #(playerCoords - pedCoords)
+local function startEmojiDrawLoop()
+    if drawLoopActive then return end
+    drawLoopActive = true
 
-    if dist <= 25 then
-        emojiDisplaying[ped] = (emojiDisplaying[ped] or 0) + 1
-        local isDisplaying = true
+    CreateThread(function()
+        local playerPed = PlayerPedId()
 
-        CreateThread(function()
-            Wait(5000) -- Display time in milliseconds
-            isDisplaying = false
-        end)
+        while drawLoopActive do
+            playerPed = PlayerPedId()
+            local playerCoords = GetEntityCoords(playerPed)
+            local hasActiveEmojis = false
 
-        local offset = 1.0 + emojiDisplaying[ped] * 0.1
-        while isDisplaying do
-            if HasEntityClearLosToEntity(playerPed, ped, 17) then
-                local x, y, z = table.unpack(GetEntityCoords(ped))
-                z = z + offset
-                DrawText3D(vector3(x, y, z), emoji)
+            for ped, emojiList in pairs(activeEmojis) do
+                if DoesEntityExist(ped) then
+                    local pedCoords = GetEntityCoords(ped)
+                    local dist = #(playerCoords - pedCoords)
+
+                    if dist <= 25 then
+                        for i = #emojiList, 1, -1 do
+                            local emojiData = emojiList[i]
+
+                            if GetGameTimer() >= emojiData.expireTime then
+                                table.remove(emojiList, i)
+                            else
+                                hasActiveEmojis = true
+
+                                if HasEntityClearLosToEntity(playerPed, ped, 17) then
+                                    local coords = GetEntityCoords(ped)
+                                    local offset = 1.0 + (i - 1) * 0.15
+                                    local drawCoords = vector3(coords.x, coords.y, coords.z + offset)
+                                    drawText3D(drawCoords, emojiData.emoji)
+                                end
+                            end
+                        end
+
+                        if #emojiList == 0 then
+                            activeEmojis[ped] = nil
+                        end
+                    else
+                        activeEmojis[ped] = nil
+                    end
+                else
+                    activeEmojis[ped] = nil
+                end
             end
+
+            if not hasActiveEmojis then
+                drawLoopActive = false
+            end
+
             Wait(0)
         end
-
-        emojiDisplaying[ped] = emojiDisplaying[ped] - 1
-    end
+    end)
 end
 
--- State bag change handler for emoji display (replaces old event-based system)
+local function addEmojiToPed(ped, emoji)
+    if not activeEmojis[ped] then
+        activeEmojis[ped] = {}
+    end
+
+    if #activeEmojis[ped] >= Config.MaxEmojisPerPlayer then
+        table.remove(activeEmojis[ped], 1)
+    end
+
+    table.insert(activeEmojis[ped], {
+        emoji = emoji,
+        expireTime = GetGameTimer() + 5000 -- 5 seconds display time
+    })
+
+    startEmojiDrawLoop()
+end
+
 AddStateBagChangeHandler('emoji', '', function(bagName, key, value, _unused, replicated)
-    -- Ignore if no emoji value (cleared) or if it's our own state
     if not value then return end
-    
-    -- Extract player ID from state bag name
+
     local plyId = tonumber(bagName:gsub('player:', ''), 10)
     if not plyId then return end
-    
-    -- Get the player from server ID
+
     local ply = GetPlayerFromServerId(plyId)
     if ply == -1 then return end
-    
-    -- Get the player's ped
+
     local ped = GetPlayerPed(ply)
     if not DoesEntityExist(ped) then return end
-    
-    -- Display the emoji
-    DisplayEmoji(ped, value)
+
+    addEmojiToPed(ped, value)
 end)
 
--- Function to show emoji (called from menu or keybind)
 function ShowEmoji(emojiKey)
     if not Config.EmojiMenuEnabled then return end
 
     local playerPed = PlayerPedId()
 
-    -- Check if animals only mode is enabled
     if Config.EmojiMenuAnimalsOnly then
         if IsPedHuman(playerPed) then
             SimpleNotify("Emojis are only available for animals!")

@@ -473,28 +473,36 @@ end
 local function addEmojiMenu(menu)
     if not Config.EmojiMenuEnabled then return end
 
-    createSubMenu(menu, 'Emojis', Translate('emojis'), Translate('emojisdescription'))
-    local emojiMenu = subMenus['Emojis']
-    emojiSubmenu = emojiMenu.menu -- Store reference for dynamic visibility control
+    emojiSubmenu = _menuPool:AddSubMenu(menu, Translate('emojis'), Translate('emojisdescription'), true, true)
+    emojiSubmenu.SubMenu:SetMenuWidthOffset(45)
 
-    -- Sort emojis alphabetically by key
     local sortedEmojis = {}
     for key, emoji in pairs(EmojiData) do
-        sortedEmojis[#sortedEmojis + 1] = {key = key, emoji = emoji}
+        table.insert(sortedEmojis, {key = key, emoji = emoji})
     end
-    table.sort(sortedEmojis, function(a, b)
-        return string.lower(a.key) < string.lower(b.key)
-    end)
+    table.sort(sortedEmojis, function(a, b) return a.key < b.key end)
 
-    -- Add emojis to menu
-    for _, emojiInfo in ipairs(sortedEmojis) do
-        emojiMenu.menu:AddItem(NativeUI.CreateItem(emojiInfo.emoji, ""))
-        emojiMenu.items[#emojiMenu.items+1] = emojiInfo.key
-    end
+    for _, emojiData in ipairs(sortedEmojis) do
+        local displayName = emojiData.emoji .. " " .. emojiData.key:gsub("_", " ")
+        local item = NativeUI.CreateItem(displayName, "")
+        emojiSubmenu.SubMenu:AddItem(item)
 
-    emojiMenu.menu.OnItemSelect = function(_, _, index)
-        ShowEmoji(emojiMenu.items[index])
+        item.Activated = function(parentMenu, item)
+            ShowEmoji(emojiData.key)
+            _menuPool:CloseAllMenus()
+        end
     end
+end
+
+local function updateEmojiMenuAvailability()
+    if not Config.EmojiMenuEnabled then return end
+    if not Config.EmojiMenuAnimalsOnly then return end
+    if not emojiSubmenu then return end
+
+    local playerPed = PlayerPedId()
+    local isHuman = IsPedHuman(playerPed)
+
+    emojiSubmenu:Enabled(not isHuman)
 end
 
 local function addInfoMenu(menu)
@@ -527,17 +535,7 @@ function OpenEmoteMenu()
         return
     end
 
-    if Config.EmojiMenuEnabled and Config.EmojiMenuAnimalsOnly and emojiSubmenu then
-        local playerPed = PlayerPedId()
-        local isHuman = IsPedHuman(playerPed)
-
-        for _, item in pairs(mainMenu.Items) do
-            if item.Text == Translate('emojis') then
-                item:Enabled(not isHuman)
-                break
-            end
-        end
-    end
+    updateEmojiMenuAvailability()
     if _menuPool:IsAnyMenuOpen() then
         _menuPool:CloseAllMenus()
     else
