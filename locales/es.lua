@@ -5,6 +5,8 @@ Locales['es'] = {
         ['animalemotes'] = "~h~~p~ 🐩 Emotes de animales",
         ['propemotes'] = "~h~~p~ 📦 Objetos",
         ['prop2info'] = "❓ Los Prop Emotes se pueden encontrar al final",
+        ['emojis'] = 'Emojis 😀 😕 😡',
+        ['emojisdescription'] = 'Express yourself with emojis',
         ['set'] = "Elegir (",
         ['newsetemote'] = "~w~ es ahora tu animación favorita, presiona ~g~[CapsLock]~w~ para usarla.",
         ['cancelemote'] = "~h~~r~ Cancelar animación 🚷",
@@ -39,7 +41,7 @@ Locales['es'] = {
         ['smoke'] = "Press ~y~G~w~ to smoke.",
         ['vape'] = "Presione ~y~G~w~ para vapear.",
         ['candle'] = "press ~y~G~w~ to light candle.",
-        ['boundto'] = "Unida (%s) a %s", 
+        ['boundto'] = "Unida (%s) a %s",
         ['currentlyboundemotes'] = " Emotes vinculados actualmente:",
         ['notvalidkey'] = "no es una clave válida.",
         ['keybinds'] = "🔢 Keybinds",
@@ -72,5 +74,4 @@ Locales['es'] = {
         ['in_a_vehicle'] = "You can only play this animation while in a vehicle 🚷",
         ['no_anim_crawling'] = "You can't play animations while crawling",
         ['no_anim_right_now'] = "You can't play an animation right now",
-    
 }

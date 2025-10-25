@@ -31,6 +31,7 @@ shared_scripts {
 server_scripts {
     'server/Server.lua',
     'server/Updates.lua',
+    'server/Emoji.lua',
 }
 
 client_scripts {
@@ -53,6 +54,7 @@ client_scripts {
     'client/Ragdoll.lua',
     'client/Syncing.lua',
     'client/Walk.lua',
+    'client/Emoji.lua',
 }
 
 

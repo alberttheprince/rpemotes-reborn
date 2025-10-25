@@ -5,6 +5,8 @@ Locales['da'] = {
         ['animalemotes'] = "~h~~p~ 🐩 Dyr Animationer",
         ['propemotes'] = "~h~~p~ 📦 Rekvisit Animationer",
         ['prop2info'] = "❓ Rekvisit animationer findes i slutningen",
+        ['emojis'] = 'Emojis 😀 😕 😡',
+        ['emojisdescription'] = 'Express yourself with emojis',
         ['set'] = "Sæt (",
         ['newsetemote'] = "~w~ er nu din favorit animation, tryk ~g~CapsLock~w~ for at bruge den.",
         ['cancelemote'] = "~h~~r~ Afbryd animation",
@@ -73,5 +75,4 @@ Locales['da'] = {
         ['in_a_vehicle'] = "You can only play this animation while in a vehicle 🚷",
         ['no_anim_crawling'] = "You can't play animations while crawling",
         ['no_anim_right_now'] = "You can't play an animation right now",
-    
 }

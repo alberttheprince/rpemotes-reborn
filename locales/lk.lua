@@ -5,6 +5,8 @@ Locales['lk'] = {
         ['animalemotes'] = "~h~~p~ 🐩 Sattunge Emotes",
         ['propemotes'] = "~h~~p~ 📦 Prop Emotes",
         ['prop2info'] = "❓ Prop emotes tiyenne anthimata",
+        ['emojis'] = 'Emojis 😀 😕 😡',
+        ['emojisdescription'] = 'Express yourself with emojis',
         ['set'] = "Set karanna (",
         ['newsetemote'] = "~w~ thamai oyage favorite emote eka, ~g~CapsLock~w~ eken use karanna.",
         ['cancelemote'] = "~h~~r~ Emote Eka Nawattanna 🚷",
@@ -53,7 +55,7 @@ Locales['lk'] = {
         ['firework'] = "Firework ekata ~y~G~w~ press karanna",
         ['poop'] = "Kakki danna ~y~G~w~ press karanna",
         ['puke'] = "Wamane danna ~y~G~w~ press karanna",
-	['cut'] = "Press ~y~G~w~ to cut",
+        ['cut'] = "Press ~y~G~w~ to cut",
         ['btn_select'] = "Select Karanna",
         ['btn_back'] = "Aapassata",
         ['btn_switch'] = "Movement eka",
@@ -73,5 +75,4 @@ Locales['lk'] = {
         ['in_a_vehicle'] = "You can only play this animation while in a vehicle 🚷",
         ['no_anim_crawling'] = "You can't play animations while crawling",
         ['no_anim_right_now'] = "You can't play an animation right now",
-    
 }

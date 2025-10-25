@@ -5,6 +5,8 @@ Locales['cs'] = {
         ['animalemotes'] = "~h~~p~ 🐩 Zvířecí Animace",
         ['propemotes'] = "~h~~p~ 📦 Animace s předměty",
         ['prop2info'] = "❓ Pomůcky se mohou nacházet na konci",
+        ['emojis'] = 'Emojis 😀 😕 😡',
+        ['emojisdescription'] = 'Express yourself with emojis',
         ['set'] = "Nastavit",
         ['newsetemote'] = "~w~ je nyní vaší novou nastavenou animací. Chcete-li jej použít, stiskněte ~g~CapsLock~w~.",
         ['cancelemote'] = "~h~~r~ Zrušit animaci 🚷",
@@ -73,5 +75,4 @@ Locales['cs'] = {
         ['in_a_vehicle'] = "Tuto animaci lze přehrát pouze ve vozidle.",
         ['no_anim_crawling'] = "Při plazení nelze přehrávat animace",
         ['no_anim_right_now'] = "You can't play an animation right now",
-    
 }

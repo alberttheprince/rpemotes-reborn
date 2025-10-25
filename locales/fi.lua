@@ -5,6 +5,8 @@ Locales['fi'] = {
         ['animalemotes'] = "~h~~p~ 🐩 Eläin Animaatiot",
         ['propemotes'] = "~h~~p~ 📦 Esine Animaatiot",
         ['prop2info'] = "❓ Esine animaatiot voivat sijaita lopussa",
+        ['emojis'] = 'Emojis 😀 😕 😡',
+        ['emojisdescription'] = 'Express yourself with emojis',
         ['set'] = "Aseta (",
         ['newsetemote'] = "~w~ on nyt bindattu animaatio, paina ~g~CapsLock~w~ käyttääksesi",
         ['cancelemote'] = "~h~~r~ Peru animaatio 🚷",
@@ -73,5 +75,4 @@ Locales['fi'] = {
         ['in_a_vehicle'] = "Voit toistaa tämän animaation vain ajoneuvossa",
         ['no_anim_crawling'] = "Animaatiota ei voi toistaa ryömiessä",
         ['no_anim_right_now'] = "You can't play an animation right now",
-    
 }

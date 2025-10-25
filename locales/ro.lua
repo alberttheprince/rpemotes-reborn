@@ -5,6 +5,8 @@ Locales['ro'] = {
         ['animalemotes'] = "~h~~p~ 🐩 Emote-uri pentru animale",
         ['propemotes'] = "~h~~p~ 📦 Prop Emote-uri",
         ['prop2info'] = "❓ Prop Emote-urile pot fi gasite la final",
+        ['emojis'] = 'Emojis 😀 😕 😡',
+        ['emojisdescription'] = 'Express yourself with emojis',
         ['set'] = "Seteaza (",
         ['newsetemote'] = "~w~ este acum emote-ul tau binduit, apasa ~g~CapsLock~w~ pentru a folosi.",
         ['cancelemote'] = "~h~~r~ Anuleaza animatia 🚷",
@@ -73,5 +75,4 @@ Locales['ro'] = {
         ['in_a_vehicle'] = "You can only play this animation while in a vehicle 🚷",
         ['no_anim_crawling'] = "You can't play animations while crawling",
         ['no_anim_right_now'] = "You can't play an animation right now",
-    
 }

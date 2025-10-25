@@ -5,6 +5,8 @@ Locales['vi'] = {
         ['animalemotes'] = "~h~~p~ 🐩 Thú cưng",
         ['propemotes'] = "~h~~p~ 📦 Đồ vật",
         ['prop2info'] = "❓ Hành động liên quan đến đồ vật sẽ ở cuối.",
+        ['emojis'] = 'Emojis 😀 😕 😡',
+        ['emojisdescription'] = 'Express yourself with emojis',
         ['set'] = "Đặt (",
         ['newsetemote'] = "~w~ đã được đặt, Bấm ~g~CapsLock~w~ để sử dụng.",
         ['cancelemote'] = "~h~~r~ Hủy hành động 🚷",
@@ -53,7 +55,7 @@ Locales['vi'] = {
         ['firework'] = "Nhấn ~y~G~w~ Để sử dụng pháo hoa",
         ['poop'] = "Nhấn ~y~G~w~ để ị", -- Translated using smodin.io
         ['puke'] = "Nhấn ~y~G~w~ để nôn",
-	['cut'] = "Press ~y~G~w~ to cut",
+        ['cut'] = "Press ~y~G~w~ to cut",
         ['btn_select'] = "Chọn",
         ['btn_back'] = "Trở lại",
         ['btn_switch'] = "Chuyển động",
@@ -73,5 +75,4 @@ Locales['vi'] = {
         ['in_a_vehicle'] = "Bạn chỉ có thể hành động này khi ở trong xe 🚷",
         ['no_anim_crawling'] = "Bạn không thể chơi hình ảnh động trong khi bò",
         ['no_anim_right_now'] = "You can't play an animation right now",
-    
 }

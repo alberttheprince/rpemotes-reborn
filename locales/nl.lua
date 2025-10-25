@@ -1,10 +1,12 @@
 Locales['nl'] = {
-    -- Dutch 🇳🇱
+-- Dutch 🇳🇱
     ['emotes'] = "Animaties 🎬",
     ['danceemotes'] = "🕺 Dans Animaties",
     ['animalemotes'] = "🐩 Dier Animaties",
     ['propemotes'] = "📦 Voorwerp Animaties",
     ['prop2info'] = "❓ Voorwerp animaties aan het einde",
+    ['emojis'] = 'Emojis 😀 😕 😡',
+    ['emojisdescription'] = 'Express yourself with emojis',
     ['set'] = "Maak (",
     ['newsetemote'] = "~w~ is nu je toegewezen animatie, druk op ~g~CapsLock~w~ om het te gebruiken.",
     ['cancelemote'] = "Animatie Stoppen 🚷",
