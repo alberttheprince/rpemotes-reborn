@@ -451,3 +451,12 @@ RegisterNetEvent("onPlayerLeavingScope", function(serverSource)
         ServerProps[serverSource] = {}
     end
 end)
+
+RegisterNetEvent("onResourceStop", function(resource)
+    if GetCurrentResourceName() ~= resource then return end
+    for i,k in pairs(ServerProps) do
+        for _,v in pairs(k) do
+            DeleteEntity(v)
+        end
+    end
+end)
