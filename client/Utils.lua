@@ -429,7 +429,7 @@ AddStateBagChangeHandler('rpemotes:props', nil, function(bagName, key, value, re
     if not ServerProps[serverSource] then ServerProps[serverSource] = {} end
 
 
-    if type(value) == "table" and value.AnimationOptions ~= nil and value.AnimationOptions.Prop ~= nil then
+    if type(value) == "table" and value.Emote ~= nil then
         -- Overly cautious? Maybe.
         local gameTime = GetGameTimer()
         DebugPrint("creating props")
@@ -438,7 +438,7 @@ AddStateBagChangeHandler('rpemotes:props', nil, function(bagName, key, value, re
             Wait(1)
         end
         DebugPrint("time to finish loading ped (ms)", GetGameTimer() - gameTime)
-        addProps(value.AnimationOptions, value.TextureVariation or nil, false, ply)
+        addProps(EmoteData[value.Emote].AnimationOptions, value.TextureVariation or nil, false, ply)
     end
 end)
 

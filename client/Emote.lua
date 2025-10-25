@@ -319,7 +319,6 @@ local function addProp(data)
     if data.isClone then
         PreviewPedProps[#PreviewPedProps+1] = attachedProp
     else
-        local PlayerProps = ServerProps[propPool]
         ServerProps[propPool][#ServerProps[propPool]+1] = attachedProp
     end
 
@@ -755,8 +754,7 @@ function OnEmotePlay(name, textureVariation)
     currentEmote = emoteData
 
     if animOption and animOption.Prop then
-        -- addProps(animOption, textureVariation)
-        LocalPlayer.state:set("rpemotes:props", {AnimationOptions = animOption, TextureVariation = textureVariation}, true)
+        LocalPlayer.state:set("rpemotes:props", {Emote = name, TextureVariation = textureVariation}, true)
             -- Ptfx is on the prop, then we need to sync it
         if animOption.PtfxAsset and not animOption.PtfxNoProp then
             LocalPlayer.state:set("ptfxPropId", animOption.SecondProp and 2 or 1, true) -- TODO: prop ptfx should be related to a prop.

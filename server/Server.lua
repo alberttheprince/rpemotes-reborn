@@ -51,7 +51,6 @@ RegisterNetEvent("rpemotes:ptfx:sync", function(asset, name, offset, rot, bone, 
     state:set("ptfxBone", bone, true)
     state:set("ptfxScale", scale, true)
     state:set("ptfxColor", color, true)
-    state:set("ptfxPropId", nil, true)
     state:set("ptfx", nil, true)
 end)
 
