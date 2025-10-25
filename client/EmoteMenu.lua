@@ -478,7 +478,7 @@ local function addEmojiMenu(menu)
 
     local sortedEmojis = {}
     for key, emoji in pairs(EmojiData) do
-        table.insert(sortedEmojis, {key = key, emoji = emoji})
+        sortedEmojis[#sortedEmojis + 1] = {key = key, emoji = emoji}
     end
     table.sort(sortedEmojis, function(a, b) return a.key < b.key end)
 

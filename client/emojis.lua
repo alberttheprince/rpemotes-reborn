@@ -2,6 +2,7 @@ local activeEmojis = {}
 local drawLoopActive = false
 
 EmojiData = {
+    -- ['dizzy_spiral'] = '😵💫', -- This counts as 1 emoji, but for sake of preventing visual clutter we leave it out. Multiple emojis can be played like this though.
     ['grinning'] = '😀',
     ['smiley'] = '😃',
     ['smile'] = '😄',
@@ -126,43 +127,46 @@ local function startEmojiDrawLoop()
         while drawLoopActive do
             playerPed = PlayerPedId()
             local playerCoords = GetEntityCoords(playerPed)
-            local hasActiveEmojis = false
 
-            for ped, emojiList in pairs(activeEmojis) do
-                if DoesEntityExist(ped) then
-                    local pedCoords = GetEntityCoords(ped)
-                    local dist = #(playerCoords - pedCoords)
+            for serverId, emojiList in pairs(activeEmojis) do
+                local player = GetPlayerFromServerId(serverId)
+                if player ~= -1 then
+                    local ped = GetPlayerPed(player)
+                    if DoesEntityExist(ped) then
+                        local pedCoords = GetEntityCoords(ped)
+                        local dist = #(playerCoords - pedCoords)
 
-                    if dist <= 25 then
-                        for i = #emojiList, 1, -1 do
-                            local emojiData = emojiList[i]
+                        if dist <= 25 then
+                            for i = #emojiList, 1, -1 do
+                                local emojiData = emojiList[i]
 
-                            if GetGameTimer() >= emojiData.expireTime then
-                                table.remove(emojiList, i)
-                            else
-                                hasActiveEmojis = true
-
-                                if HasEntityClearLosToEntity(playerPed, ped, 17) then
-                                    local coords = GetEntityCoords(ped)
-                                    local offset = 1.0 + (i - 1) * 0.15
-                                    local drawCoords = vector3(coords.x, coords.y, coords.z + offset)
-                                    drawText3D(drawCoords, emojiData.emoji)
+                                if GetGameTimer() >= emojiData.expireTime then
+                                    table.remove(emojiList, i)
+                                else
+                                    if HasEntityClearLosToEntity(playerPed, ped, 17) then
+                                        local coords = GetEntityCoords(ped)
+                                        local offset = 1.0 + (i - 1) * 0.15
+                                        local drawCoords = vector3(coords.x, coords.y, coords.z + offset)
+                                        drawText3D(drawCoords, emojiData.emoji)
+                                    end
                                 end
                             end
-                        end
 
-                        if #emojiList == 0 then
-                            activeEmojis[ped] = nil
+                            if not next(emojiList) then
+                                activeEmojis[serverId] = nil
+                            end
+                        else
+                            activeEmojis[serverId] = nil
                         end
                     else
-                        activeEmojis[ped] = nil
+                        activeEmojis[serverId] = nil
                     end
                 else
-                    activeEmojis[ped] = nil
+                    activeEmojis[serverId] = nil
                 end
             end
 
-            if not hasActiveEmojis then
+            if not next(activeEmojis) then
                 drawLoopActive = false
             end
 
@@ -171,36 +175,28 @@ local function startEmojiDrawLoop()
     end)
 end
 
-local function addEmojiToPed(ped, emoji)
-    if not activeEmojis[ped] then
-        activeEmojis[ped] = {}
+local function addEmojiToPlayer(serverId, emoji)
+    if not activeEmojis[serverId] then
+        activeEmojis[serverId] = {}
     end
 
-    if #activeEmojis[ped] >= Config.MaxEmojisPerPlayer then
-        table.remove(activeEmojis[ped], 1)
-    end
-
-    table.insert(activeEmojis[ped], {
+    local emojiList = activeEmojis[serverId]
+    emojiList[#emojiList + 1] = {
         emoji = emoji,
         expireTime = GetGameTimer() + 5000 -- 5 seconds display time
-    })
+    }
 
     startEmojiDrawLoop()
 end
 
-AddStateBagChangeHandler('emoji', '', function(bagName, key, value, _unused, replicated)
-    if not value then return end
+RegisterNetEvent('rpemotes:client:displayEmoji', function(serverId, emoji)
+    addEmojiToPlayer(serverId, emoji)
+end)
 
-    local plyId = tonumber(bagName:gsub('player:', ''), 10)
-    if not plyId then return end
-
-    local ply = GetPlayerFromServerId(plyId)
-    if ply == -1 then return end
-
-    local ped = GetPlayerPed(ply)
-    if not DoesEntityExist(ped) then return end
-
-    addEmojiToPed(ped, value)
+RegisterNetEvent('rpemotes:client:clearEmoji', function(serverId)
+    if activeEmojis[serverId] then
+        activeEmojis[serverId] = nil
+    end
 end)
 
 function ShowEmoji(emojiKey)
