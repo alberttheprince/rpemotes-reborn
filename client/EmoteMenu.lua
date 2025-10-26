@@ -415,9 +415,6 @@ function RunPlacementLogic()
         SetEntityRotation(playerPed, PlacementRotation.x, PlacementRotation.y, PlacementRotation.z, 2, false)
         SetEntityHeading(playerPed, PlacementHeading)
 
-        PlacementPosition = vector3(0)
-        PlacementRotation = vector3(0)
-        PlacementHeading = 0
         PlacementWalking = false
     end
 
@@ -739,8 +736,10 @@ function StartPlacement()
     local playerPed = PlayerPedId()
     local playerPedPosition = GetEntityCoords(playerPed)
 
-    local leftRightOffset = 0
+    local rotateAmount = 0
     local upDownOffset = 0
+    local moveForwardBack = 0
+    local moveLeftRight = 0
     local initHeading = GetEntityHeading(playerPed) + 180
 
     InPlacement = true
@@ -767,12 +766,12 @@ function StartPlacement()
             local leftRightChangeAmount = 2.5
 
             if hit then
-                local placementPosition = vector3(hitPosition.x, hitPosition.y, hitPosition.z + 1 + upDownOffset)
+                local placementPosition = vector3(hitPosition.x + moveForwardBack, hitPosition.y + moveLeftRight, hitPosition.z + 1 + upDownOffset)
 
                 playerPedPosition = GetEntityCoords(playerPed)
 
                 if #(placementPosition - playerPedPosition) <= 5 then
-                    SetEntityHeading(ClonedPed, initHeading + leftRightOffset)
+                    SetEntityHeading(ClonedPed, initHeading + rotateAmount)
                     SetEntityCoordsNoOffset(ClonedPed, placementPosition.x, placementPosition.y, placementPosition.z, true, true, true)
 
                     PlacementPosition = placementPosition
@@ -782,6 +781,12 @@ function StartPlacement()
             end
 
             DisableControlAction(0, 23, true)
+            DisableControlAction(0, 30, true)
+            DisableControlAction(0, 31, true)
+            DisableControlAction(0, 32, true)
+            DisableControlAction(0, 33, true)
+            DisableControlAction(0, 34, true)
+            DisableControlAction(0, 35, true)
             DisableControlAction(0, 44, true)
             DisableControlAction(0, 45, true)
             DisableControlAction(0, 46, true)
@@ -790,9 +795,9 @@ function StartPlacement()
             DisableControlAction(0, 141, true)
 
             if IsDisabledControlPressed(0, 44) then
-                leftRightOffset += leftRightChangeAmount
+                rotateAmount += leftRightChangeAmount
             elseif IsDisabledControlPressed(0, 46) then
-                leftRightOffset -= leftRightChangeAmount
+                rotateAmount -= leftRightChangeAmount
             elseif IsDisabledControlPressed(0, 45) then
                 upDownOffset += upDownChangeAmount
 
@@ -801,6 +806,22 @@ function StartPlacement()
                 upDownOffset -= upDownChangeAmount
 
                 if upDownOffset <= -1 then upDownOffset = -1 end
+            elseif IsDisabledControlPressed(0, 33) then
+                moveForwardBack += upDownChangeAmount
+
+                if moveForwardBack >= 1 then moveForwardBack = 1 end
+            elseif IsDisabledControlPressed(0, 32) then
+                moveForwardBack -= upDownChangeAmount
+
+                if moveForwardBack <= -1 then moveForwardBack = -1 end
+            elseif IsDisabledControlPressed(0, 35) then
+                moveLeftRight += upDownChangeAmount
+
+                if moveLeftRight >= 1 then moveLeftRight = 1 end
+            elseif IsDisabledControlPressed(0, 34) then
+                moveLeftRight -= upDownChangeAmount
+
+                if moveLeftRight <= -1 then moveLeftRight = -1 end
             end
 
             HelpText(

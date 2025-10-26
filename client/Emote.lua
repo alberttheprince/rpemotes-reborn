@@ -73,6 +73,31 @@ CreateThread(function()
     LocalPlayer.state:set('canCancel', true, true)
 end)
 
+AddEventHandler('gameEventTriggered', function (name, args)
+    if not IsInAnimation or name ~= 'CEventNetworkEntityDamage' then return end
+
+    local playerPedId = PlayerPedId()
+    local targetPedId = args[1]
+
+    if playerPedId ~= targetPedId then return end
+
+    EmoteCancel()
+end)
+
+local function EntityBelowPlayerPed(ped)
+    local pedPosition = GetEntityCoords(ped)
+    local ray = StartExpensiveSynchronousShapeTestLosProbe(
+        pedPosition.x, pedPosition.y, pedPosition.z,
+        pedPosition.x, pedPosition.y, pedPosition.z - 2,
+        2 + 4 + 8, -- Vehicles, Peds, & Ragdolls
+        ped, 7
+    )
+
+    local _, hit, _, _, hitEntity = GetShapeTestResult(ray)
+
+    return hit and hitEntity
+end
+
 local function runAnimationThread()
     local pPed = PlayerPedId()
     if AnimationThreadStatus then return end
@@ -91,6 +116,20 @@ local function runAnimationThread()
                     DisableControlAction(2, 140, true)
                     DisableControlAction(2, 141, true)
                     DisableControlAction(2, 142, true)
+                end
+
+                local entityBelowPed = EntityBelowPlayerPed(pPed)
+
+                if entityBelowPed then
+                    if IsModelAVehicle(GetEntityModel(entityBelowPed)) then
+                        -- Allow emotes on stationary vehicles
+                        if not IsVehicleStopped(entityBelowPed) then
+                            EmoteCancel()
+                        end
+                    -- Entity is a ped or ragdoll, cancel emote
+                    else
+                        EmoteCancel()
+                    end
                 end
             end
 
@@ -187,6 +226,10 @@ function EmoteCancel(force)
         end
         DetachEntity(ped, true, false)
         CancelSharedEmote()
+
+        PlacementPosition = vector3(0)
+        PlacementRotation = vector3(0)
+        PlacementHeading = 0
 
         if CurrentAnimOptions and CurrentAnimOptions.ExitEmote then
             local options = CurrentAnimOptions
@@ -736,7 +779,7 @@ function OnEmotePlay(name, textureVariation)
         ClearPedTasksImmediately(PlayerPedId())
     end
 
-    TaskPlayAnim(PlayerPedId(), emoteData.dict, emoteData.anim, animOption?.BlendInSpeed or 5.0, animOption?.BlendOutSpeed or 5.0, animOption?.EmoteDuration or -1, animOption?.Flag or movementType or 0, 0, false, false,
+    TaskPlayAnim(PlayerPedId(), emoteData.dict, emoteData.anim, animOption?.BlendInSpeed or 5.0, animOption?.BlendOutSpeed or 5.0, animOption?.EmoteDuration or -1, (animOption?.Flag or movementType or 0) + 1024 + 4194304, 0, false, false,
         false)
     RemoveAnimDict(emoteData.dict)
 
