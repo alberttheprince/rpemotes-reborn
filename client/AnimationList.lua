@@ -8606,10 +8606,10 @@ RP.Emotes = {
         "wakeup",
         "Rabbit"
     },
-    ["hunchedover"] = {
+    ["hunched"] = {
         "missexile3",
         "ex03_train_roof_idle",
-        "Spider-Man",
+        "hunched",
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             vehicleRequirement = VehicleRequirement.NOT_ALLOWED
