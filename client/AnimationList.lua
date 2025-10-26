@@ -8606,7 +8606,7 @@ RP.Emotes = {
         "wakeup",
         "Rabbit"
     },
-    ["spiderman"] = {
+    ["hunchedover"] = {
         "missexile3",
         "ex03_train_roof_idle",
         "Spider-Man",
