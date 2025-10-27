@@ -6,6 +6,7 @@ PlacementPosition = vector3(0)
 PlacementRotation = vector3(0)
 PlacementHeading = 0
 PlacementWalking = false
+PositionPriorToPlacement = vector3(0)
 
 local isSearching = false
 local isMenuProcessing = false
@@ -409,8 +410,10 @@ function RunPlacementLogic()
             Citizen.Wait(300)
         end
 
+        local latestPedPosition = GetEntityCoords(playerPed)
+
         -- Too far away or timed out, cancel emote
-        if #(GetEntityCoords(playerPed) - PlacementPosition) > 1 or GetGameTimer() > timeout then
+        if #(latestPedPosition - PlacementPosition) > 1.5 or GetGameTimer() > timeout then
             ClearPedTasksImmediately(playerPed)
 
             PlacementPosition = vector3(0)
@@ -420,6 +423,8 @@ function RunPlacementLogic()
 
             return false
         end
+
+        PositionPriorToPlacement = latestPedPosition
 
         SetEntityCoordsNoOffset(playerPed, PlacementPosition.x, PlacementPosition.y, PlacementPosition.z, true, true, true)
         SetEntityRotation(playerPed, PlacementRotation.x, PlacementRotation.y, PlacementRotation.z, 2, false)

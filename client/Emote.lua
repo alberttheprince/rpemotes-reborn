@@ -227,10 +227,6 @@ function EmoteCancel(force)
         DetachEntity(ped, true, false)
         CancelSharedEmote()
 
-        PlacementPosition = vector3(0)
-        PlacementRotation = vector3(0)
-        PlacementHeading = 0
-
         if CurrentAnimOptions and CurrentAnimOptions.ExitEmote then
             local options = CurrentAnimOptions
 
@@ -261,6 +257,21 @@ function EmoteCancel(force)
             EmoteCancelPlaying = false
         end
         DestroyAllProps()
+
+        if #PositionPriorToPlacement > 0 then
+            local pedCoords = GetEntityCoords(ped)
+            local foundGround, groundZ = GetGroundZFor_3dCoord(pedCoords.x, pedCoords.y, pedCoords.z, false)
+
+            -- No ground found, or ground > 3 units away, or diff between start & end Z > 1 unit
+            if not foundGround or math.abs(pedCoords.z - groundZ) > 3 or math.abs(pedCoords.z - PositionPriorToPlacement.z) > 1 then
+                SetEntityCoordsNoOffset(ped, PositionPriorToPlacement.x, PositionPriorToPlacement.y, PositionPriorToPlacement.z, true, true, true)
+            end
+        end
+
+        PlacementPosition = vector3(0)
+        PlacementRotation = vector3(0)
+        PlacementHeading = 0
+        PositionPriorToPlacement = vector3(0)
     end
     cleanScenarioObjects(false)
     AnimationThreadStatus = false
