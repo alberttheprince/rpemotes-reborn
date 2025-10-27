@@ -39,7 +39,7 @@ RegisterNetEvent('rpemotes:server:shareEmoji', function(emoji)
     local coords = GetEntityCoords(ped)
     
     -- Send to players slightly beyond draw range to prevent pop-in when approaching
-    local nearbyPlayers = getPlayersInRange(coords, Config.EmojiRange + 5.0)
+    local nearbyPlayers = getPlayersInRange(coords, Config.EmojiRange)
     
     for _, playerId in ipairs(nearbyPlayers) do
         TriggerClientEvent('rpemotes:client:displayEmoji', playerId, source, emoji)
