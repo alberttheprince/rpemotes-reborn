@@ -5,6 +5,8 @@ Locales['hu'] = {
         ['animalemotes'] = "~h~~p~ 🐩 Állatos Animációk",
         ['propemotes'] = "~h~~p~ 📦 Tárgyas Animációk",
         ['prop2info'] = "❓ A Prop Emote-ok a végén találhatók",
+        ['emojis'] = 'Emojis 😀 😕 😡',
+        ['emojisdescription'] = 'Express yourself with emojis',
         ['set'] = "Kiválasztod (",
         ['newsetemote'] = "~w~ lett a kedvenc animációd, nyomj egy ~g~CapsLock~w~-ot a használatához.",
         ['cancelemote'] = "~h~~r~ Animáció Befejezése 🚷",
@@ -72,5 +74,4 @@ Locales['hu'] = {
         ['in_a_vehicle'] = "You can only play this animation while in a vehicle 🚷",
         ['no_anim_crawling'] = "You can't play animations while crawling",
         ['no_anim_right_now'] = "You can't play an animation right now",
-    
 }

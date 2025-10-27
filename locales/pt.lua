@@ -5,6 +5,8 @@ Locales['pt'] = {
         ['animalemotes'] = "~h~~p~ 🐩 Emotes de Animais",
         ['propemotes'] = "~h~~p~ 📦 Emotes com Props",
         ['prop2info'] = "❓ Emotes de props podem ser localizados no fim",
+        ['emojis'] = 'Emojis 😀 😕 😡',
+        ['emojisdescription'] = 'Express yourself with emojis',
         ['set'] = "Set (",
         ['newsetemote'] = "~w~ é o seu emote vinculado, pressione ~g~CapsLock~w~ para usá-lo",
         ['cancelemote'] = "~h~~r~ Cancelar emote 🚷",
@@ -73,5 +75,4 @@ Locales['pt'] = {
         ['in_a_vehicle'] = "You can only play this animation while in a vehicle 🚷",
         ['no_anim_crawling'] = "You can't play animations while crawling",
         ['no_anim_right_now'] = "You can't play an animation right now",
-    
 }
