@@ -206,6 +206,8 @@ local function createSubMenu(parent, category, title, description)
     menu.OnMenuClosed = function()
         if not isSearching then
             ClosePedMenu()
+
+            InPlacement = false
         end
     end
 
@@ -759,7 +761,12 @@ function StartPlacement()
             local direction = RotationToDirection(cameraRotation)
             local destination = cameraPosition + (direction * 1000)
 
-            local rayHandle = StartShapeTestRay(cameraPosition.x, cameraPosition.y, cameraPosition.z, destination.x, destination.y, destination.z, 1, playerPed, 7)
+            local rayHandle = StartExpensiveSynchronousShapeTestLosProbe(
+                cameraPosition.x, cameraPosition.y, cameraPosition.z,
+                destination.x, destination.y, destination.z,
+                1 + 2 + 16, -- World, Vehicles, & Props
+                playerPed, 7
+            )
             local _, hit, hitPosition, _, _ = GetShapeTestResult(rayHandle)
 
             local upDownChangeAmount = 0.01
@@ -801,11 +808,11 @@ function StartPlacement()
             elseif IsDisabledControlPressed(0, 45) then
                 upDownOffset += upDownChangeAmount
 
-                if upDownOffset >= 1 then upDownOffset = 1 end
+                if upDownOffset >= 0.3 then upDownOffset = 0.3 end
             elseif IsDisabledControlPressed(0, 49) then
                 upDownOffset -= upDownChangeAmount
 
-                if upDownOffset <= -1 then upDownOffset = -1 end
+                if upDownOffset <= -0.5 then upDownOffset = -0.5 end
             elseif IsDisabledControlPressed(0, 33) then
                 moveForwardBack += upDownChangeAmount
 
@@ -832,6 +839,8 @@ function StartPlacement()
 
             Wait(0)
         end
+
+        if not DoesEntityExist(ClonedPed) then return end
 
         SetEntityAlpha(ClonedPed, 0, false)
 
