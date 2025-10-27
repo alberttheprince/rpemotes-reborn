@@ -27,6 +27,7 @@ Config = {
     EmojiMenuAnimalsOnly = false, -- If true, only non-human peds can use emojis
     MaxEmojisPerPlayer = 3,     -- Max emojis that can stack (client-side)
     EmojiCooldownMs = 2500,     -- Cooldown between sends in ms (server-side)
+    EmojiRange = 25.0, -- Distance in meters where emojis are visible
 
     -- Combat Car, and Player Movement
     DisarmPlayerOnEmote = false,

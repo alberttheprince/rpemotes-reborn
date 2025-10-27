@@ -1,4 +1,3 @@
-local activeEmojiTimers = {}
 local emojiCooldowns = {}
 local playerEmojiCounts = {}
 
@@ -23,7 +22,7 @@ RegisterNetEvent('rpemotes:server:shareEmoji', function(emoji)
     if emojiCooldowns[source] and GetGameTimer() < emojiCooldowns[source] then
         return
     end
-
+    
     emojiCooldowns[source] = GetGameTimer() + Config.EmojiCooldownMs
 
     if not playerEmojiCounts[source] then
@@ -35,44 +34,29 @@ RegisterNetEvent('rpemotes:server:shareEmoji', function(emoji)
     end
 
     playerEmojiCounts[source] = playerEmojiCounts[source] + 1
-
-    activeEmojiTimers[source] = nil
-
+    
     local ped = GetPlayerPed(source)
     local coords = GetEntityCoords(ped)
-
-    local nearbyPlayers = getPlayersInRange(coords, 30.0)
-
+    
+    -- Send to players slightly beyond draw range to prevent pop-in when approaching
+    local nearbyPlayers = getPlayersInRange(coords, Config.EmojiRange + 5.0)
+    
     for _, playerId in ipairs(nearbyPlayers) do
         TriggerClientEvent('rpemotes:client:displayEmoji', playerId, source, emoji)
     end
-
-    activeEmojiTimers[source] = true
-
-    SetTimeout(5000, function() -- 5 seconds display time
-        if activeEmojiTimers[source] then
-            if playerEmojiCounts[source] then
-                playerEmojiCounts[source] = playerEmojiCounts[source] - 1
-                if playerEmojiCounts[source] < 0 then
-                    playerEmojiCounts[source] = 0
-                end
+    
+    SetTimeout(5000, function()
+        if playerEmojiCounts[source] then
+            playerEmojiCounts[source] = playerEmojiCounts[source] - 1
+            if playerEmojiCounts[source] < 0 then
+                playerEmojiCounts[source] = 0
             end
-
-            for _, playerId in ipairs(nearbyPlayers) do
-                if GetPlayerPed(playerId) then
-                    TriggerClientEvent('rpemotes:client:clearEmoji', playerId, source)
-                end
-            end
-            activeEmojiTimers[source] = nil
         end
     end)
 end)
 
 AddEventHandler('playerDropped', function()
     local source = source
-    if activeEmojiTimers[source] then
-        activeEmojiTimers[source] = nil
-    end
     if emojiCooldowns[source] then
         emojiCooldowns[source] = nil
     end

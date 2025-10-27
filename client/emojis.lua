@@ -136,7 +136,7 @@ local function startEmojiDrawLoop()
                         local pedCoords = GetEntityCoords(ped)
                         local dist = #(playerCoords - pedCoords)
 
-                        if dist <= 25 then
+                        if dist <= Config.EmojiRange then
                             for i = #emojiList, 1, -1 do
                                 local emojiData = emojiList[i]
 
