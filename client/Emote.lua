@@ -790,8 +790,11 @@ function OnEmotePlay(name, textureVariation)
         ClearPedTasksImmediately(PlayerPedId())
     end
 
-    TaskPlayAnim(PlayerPedId(), emoteData.dict, emoteData.anim, animOption?.BlendInSpeed or 5.0, animOption?.BlendOutSpeed or 5.0, animOption?.EmoteDuration or -1, (animOption?.Flag or movementType or 0) + 1024 + 4194304, 0, false, false,
-        false)
+    TaskPlayAnim(
+        PlayerPedId(), emoteData.dict, emoteData.anim, animOption?.BlendInSpeed or 5.0, animOption?.BlendOutSpeed or 5.0, animOption?.EmoteDuration or -1,
+        (animOption?.Flag or movementType or 0) + 1024 + 4194304, -- Override physics (allow floating off the ground) & Ragdoll on Col
+        0, false, false, false
+    )
     RemoveAnimDict(emoteData.dict)
 
     IsInAnimation = true

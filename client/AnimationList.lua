@@ -18,9 +18,6 @@ RP.Expressions = { ---- MOODS ----
     ["Burning"] = {
         "burning_1"
     },
-    ["Crying"] = {
-        "console_wasnt_fun_end_loop_floyd_facial"
-    },
     ["Dead"] = {
         "dead_1"
     },
@@ -107,6 +104,9 @@ RP.Expressions = { ---- MOODS ----
     },
     ["Stressed"] = {
         "mood_stressed_1"
+    },
+    ["Suggestive"] = {
+        "console_wasnt_fun_end_loop_floyd_facial"
     },
     ["Sulking"] = {
         "mood_sulk_1"
