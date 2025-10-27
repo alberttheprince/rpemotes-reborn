@@ -28,6 +28,7 @@ local function CleanupNewscam()
     if prop_newscam then
         DeleteEntity(prop_newscam)
     end
+    LocalPlayer.state:set("rpemotes:props", {}, true)
     SetNightvision(false)
     SetSeethrough(false)
 end
@@ -56,8 +57,9 @@ function UseNewscam()
             if not HasModelLoaded("prop_v_cam_01") then
                 LoadPropDict("prop_v_cam_01")
             end
-            prop_newscam = CreateObject(`prop_v_cam_01`, x, y, z + 0.2, true, true, true)
-            AttachEntityToEntity(prop_newscam, PlayerPedId(), boneIndex, 0.0, 0.03, 0.01, 0.0, 0.0, 0.0, true, true, false, true, 1, true)
+            -- prop_newscam = CreateObject(`prop_v_cam_01`, x, y, z + 0.2, true, true, true)
+            -- AttachEntityToEntity(prop_newscam, PlayerPedId(), boneIndex, 0.0, 0.03, 0.01, 0.0, 0.0, 0.0, true, true, false, true, 1, true)
+            OnEmotePlay("newscam", nil)
 
             TaskPlayAnim(PlayerPedId(), "missfinale_c2mcs_1", "fin_c2_mcs_1_camman", 5.0, 5.0, -1, 51, 0, false, false, false)
             PlayAmbientSpeech1(PlayerPedId(), "GENERIC_CURSE_MED", "SPEECH_PARAMS_FORCE")
