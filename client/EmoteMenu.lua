@@ -135,6 +135,7 @@ local mainMenu = NativeUI.CreateMenu(Config.MenuTitle or "", "", menuPosition.x,
 _menuPool:Add(mainMenu)
 
 local infomenu
+local emojiSubmenu -- Store reference to emoji submenu for dynamic visibility based on ped type
 
 ---@class SubMenu
 ---@field menu table
@@ -515,6 +516,41 @@ local function addFaceMenu(menu)
     end
 end
 
+local function addEmojiMenu(menu)
+    if not Config.EmojiMenuEnabled then return end
+
+    emojiSubmenu = _menuPool:AddSubMenu(menu, Translate('emojis'), Translate('emojisdescription'), true, true)
+    emojiSubmenu.SubMenu:SetMenuWidthOffset(45)
+
+    local sortedEmojis = {}
+    for key, emoji in pairs(EmojiData) do
+        sortedEmojis[#sortedEmojis + 1] = {key = key, emoji = emoji}
+    end
+    table.sort(sortedEmojis, function(a, b) return a.key < b.key end)
+
+    for _, emojiData in ipairs(sortedEmojis) do
+        local displayName = emojiData.emoji .. " " .. emojiData.key:gsub("_", " ")
+        local item = NativeUI.CreateItem(displayName, "")
+        emojiSubmenu.SubMenu:AddItem(item)
+
+        item.Activated = function(parentMenu, item)
+            ShowEmoji(emojiData.key)
+            _menuPool:CloseAllMenus()
+        end
+    end
+end
+
+local function updateEmojiMenuAvailability()
+    if not Config.EmojiMenuEnabled then return end
+    if not Config.EmojiMenuAnimalsOnly then return end
+    if not emojiSubmenu then return end
+
+    local playerPed = PlayerPedId()
+    local isHuman = IsPedHuman(playerPed)
+
+    emojiSubmenu:Enabled(not isHuman)
+end
+
 local function addInfoMenu(menu)
     infomenu = _menuPool:AddSubMenu(menu, Translate('infoupdate'), "~h~~y~The RPEmotes Developers~h~~y~", true, true)
 
@@ -544,6 +580,8 @@ function OpenEmoteMenu()
         })
         return
     end
+
+    updateEmojiMenuAvailability()
     if _menuPool:IsAnyMenuOpen() then
         _menuPool:CloseAllMenus()
     else
@@ -677,6 +715,9 @@ local function initMenu()
     end
     if Config.ExpressionsEnabled then
         addFaceMenu(mainMenu)
+    end
+    if Config.EmojiMenuEnabled then
+        addEmojiMenu(mainMenu)
     end
     addInfoMenu(mainMenu)
 

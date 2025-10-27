@@ -1,10 +1,12 @@
 Locales['lt'] = {
-    -- Lithuanian (LT)
+-- Lithuanian (LT)
     ['emotes'] = '~h~~p~ Animacijos 🎬',
     ['danceemotes'] = "~h~~p~ 🕺 Sokiu animacijos",
     ['animalemotes'] = "~h~~p~ 🐩 Gyvunu animacijos",
     ['propemotes'] = "~h~~p~ 📦 Daiktu animacijos",
     ['prop2info'] = "❓ Daiktu animacijos gali buti pabaigoje",
+    ['emojis'] = 'Emojis 😀 😕 😡',
+    ['emojisdescription'] = 'Express yourself with emojis',
     ['set'] = "Rinkinys (",
     ['newsetemote'] = "~w~ dabar yra jusu susietas jaustukas, paspauskite ~g~CapsLock~w~, kad ji naudotumete.",
     ['cancelemote'] = "~h~~r~ Atsaukti animacija 🚷",
@@ -94,5 +96,5 @@ Locales['lt'] = {
     ['cancel_emote'] = "Atšaukti animaciją",
     ['crouch'] = "Pritūpti",
     ['crawl'] = "Šliaužti",
-    ['pointing'] = "Rodyti pirštu"
+    ['pointing'] = "Rodyti pirštu",
 }
