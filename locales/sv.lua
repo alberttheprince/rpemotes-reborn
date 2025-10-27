@@ -15,7 +15,6 @@ Locales['sv'] = {
         ['resetdef'] = "Återställ till standard",
         ['normalreset'] = "~h~~r~ Normal (Återställ)",
         ['moods'] = "~h~~p~ Humör 😒",
-        ['infoupdate'] = "~h~~g~ Krediter 🤝🏻",
         ['infoupdateav'] = "Information (Uppdatering tillgänglig)",
         ['infoupdateavtext'] = "En uppdatering är tillgänglig ~y~https://github.com/alberttheprince/rpemotes-reborn~w~",
         ['suggestions'] = "Förslag?",

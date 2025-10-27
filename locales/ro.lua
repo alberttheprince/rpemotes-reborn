@@ -15,7 +15,6 @@ Locales['ro'] = {
         ['resetdef'] = "Reseteaza la default",
         ['normalreset'] = "~h~~r~ Normal (Reset)",
         ['moods'] = "~h~~p~ Expresii 😒",
-        ['infoupdate'] = "~h~~g~ Credits 🤝🏻",
         ['infoupdateav'] = "Informatii",
         ['infoupdateavtext'] = "Credits: See our read me for credits!",
         ['suggestions'] = "Sugestii?",

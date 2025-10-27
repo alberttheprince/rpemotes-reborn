@@ -15,7 +15,6 @@ Locales['de'] = {
     ['resetdef'] = "~h~~y~ Auf Standard zurücksetzen",
     ['normalreset'] = "~h~~r~ Normal (Zurücksetzen)",
     ['moods'] = "~h~~p~ Stimmungen 😒",
-    ['infoupdate'] = "~h~~g~ Credits 🤝🏻",
     ['remove_emote_keybind'] = 'Emote von den Tastenkombinationen entfernen',
     ['show_emote_keybind'] = 'Emotes mit Tastenkombination anzeigen',
     ['play_emote'] = 'Eine Animation abspielen',

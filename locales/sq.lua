@@ -15,7 +15,6 @@ Locales['sq'] = {
 	['resetdef'] = "Rivendos në parazgjedhje",
 	['normalreset'] = "~h~~r~ Normale (Rivendos)",
 	['moods'] = "~h~~p~ Gjendjet 😒",
-	['infoupdate'] = "~h~~g~ Kredite 🤝🏻",
 	['infoupdateav'] = "Informacion (Përditësim i disponueshëm)",
 	['infoupdateavtext'] = "Ka një përditësim të disponueshëm, merrni versionin e fundit nga ~y~https://github.com/alberttheprince/rpemotes-reborn~w~",
 	['suggestions'] = "Sugjerime?",

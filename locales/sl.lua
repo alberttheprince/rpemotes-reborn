@@ -15,7 +15,6 @@ Locales['sl'] = {
 	['resetdef'] = "~h~~y~ Ponastavi na privzeto",
 	['normalreset'] = "~h~~r~ Normalno (Ponastavi)",
 	['moods'] = "~h~~p~ Počutja 😒",
-	['infoupdate'] = "~h~~g~ Krediti 🤝🏻",
 	['infoupdateav'] = "Informacije (Na voljo je posodobitev)",
 	['infoupdateavtext'] = "Na voljo je posodobitev, pridobite najnovejšo različico s spletne strani ~y~https://github.com/alberttheprince/rpemotes-reborn~w~",
 	['suggestions'] = "Predlogi?",

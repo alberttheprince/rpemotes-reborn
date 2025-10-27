@@ -15,7 +15,6 @@ Locales['zhtw'] = {
     ['resetdef'] = "重置為默認",
     ['normalreset'] = "~h~~r~ 正常 (重置)",
     ['moods'] = "~h~~p~ 情緒 😒",
-    ['infoupdate'] = "致謝 🤝🏻",
     ['infoupdateav'] = "信息 (有更新)",
     ['infoupdateavtext'] = "已有新版本可用，請前往 ~y~https://github.com/alberttheprince/rpemotes-reborn~w~ 獲取最新版。",
     ['suggestions'] = "想提出建議？",

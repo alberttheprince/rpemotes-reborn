@@ -15,7 +15,6 @@ Locales['en'] = {
     ['resetdef'] = "~h~~y~ Reset to default",
     ['normalreset'] = "~h~~r~ Normal (Reset)",
     ['moods'] = "Moods 😒",
-    ['infoupdate'] = "Credits 🤝🏻",
     ['remove_emote_keybind'] = 'Delete an emote from keybinds',
     ['show_emote_keybind'] = 'view emotes on keybinds',
     ['play_emote'] = 'play an animation',

@@ -15,7 +15,6 @@ Locales['cs'] = {
         ['resetdef'] = "Obnovit do základního nastavení",
         ['normalreset'] = "~h~~r~ Neutrální výraz",
         ['moods'] = "~h~~p~ Výrazy 😒",
-        ['infoupdate'] = "~h~~g~ Kredity 🤝🏻",
         ['infoupdateav'] = "Informace (aktualizace dostupná)",
         ['infoupdateavtext'] = "Je k dispozici aktualizace, stáhněte si nejnovější verzi z ~y~https://github.com/alberttheprince/rpemotes-reborn~w~",
         ['suggestions'] = "Nápady?",

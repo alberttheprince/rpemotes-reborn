@@ -15,7 +15,6 @@ Locales['lk'] = {
         ['resetdef'] = "Yathã thatweta path karanna",
         ['normalreset'] = "~h~~r~ Normal (Reset karanna)",
         ['moods'] = "~h~~p~ Mood Eka 😒",
-        ['infoupdate'] = "~h~~g~ Credits 🤝🏻",
         ['infoupdateav'] = "Information (Update ekak tiyanawa)",
         ['infoupdateavtext'] = "Update ekak tiyanawa, alutma update eka methanin ganna ~y~https://github.com/alberttheprince/rpemotes-reborn~w~",
         ['suggestions'] = "Suggestions?",

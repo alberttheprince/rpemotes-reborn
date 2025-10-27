@@ -15,7 +15,6 @@ Locales['vi'] = {
         ['resetdef'] = "Đặt về mặc định",
         ['normalreset'] = "~h~~r~ Bình thường (Mặc định)",
         ['moods'] = "~h~~p~ Biểu cảm 😒",
-        ['infoupdate'] = "~h~~g~ Thông tin 🤝🏻",
         ['infoupdateav'] = "Thông tin (cập nhật)",
         ['infoupdateavtext'] = "Đang cập nhật",
         ['suggestions'] = "Đề xuất?",

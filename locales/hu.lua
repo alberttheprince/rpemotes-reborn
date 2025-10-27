@@ -15,7 +15,6 @@ Locales['hu'] = {
         ['resetdef'] = "Séta alaphelyzetbe állítása",
         ['normalreset'] = "~h~~r~ Normális (Alaphelyzet)",
         ['moods'] = "~h~~p~ Archangulatok 😒",
-        ['infoupdate'] = "~h~~g~ Kreditek 🤝🏻",
         ['infoupdateav'] = "Információ (frissítés elérhető)",
         ['infoupdateavtext'] = "A frissítés elérhető, a legfrissebb verziót a következő címen tudod beszerezni ~y~https://github.com/alberttheprince/rpemotes-reborn~w~",
         ['suggestions'] = "Javaslatok?",
