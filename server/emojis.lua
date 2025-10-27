@@ -22,7 +22,7 @@ RegisterNetEvent('rpemotes:server:shareEmoji', function(emoji)
     if emojiCooldowns[source] and GetGameTimer() < emojiCooldowns[source] then
         return
     end
-    
+
     emojiCooldowns[source] = GetGameTimer() + Config.EmojiCooldownMs
 
     if not playerEmojiCounts[source] then
@@ -34,23 +34,20 @@ RegisterNetEvent('rpemotes:server:shareEmoji', function(emoji)
     end
 
     playerEmojiCounts[source] = playerEmojiCounts[source] + 1
-    
+
     local ped = GetPlayerPed(source)
     local coords = GetEntityCoords(ped)
-    
+
     -- Send to players slightly beyond draw range to prevent pop-in when approaching
     local nearbyPlayers = getPlayersInRange(coords, Config.EmojiRange)
-    
+
     for _, playerId in ipairs(nearbyPlayers) do
         TriggerClientEvent('rpemotes:client:displayEmoji', playerId, source, emoji)
     end
-    
+
     SetTimeout(5000, function()
-        if playerEmojiCounts[source] then
+        if playerEmojiCounts[source] and playerEmojiCounts[source] > 0 then
             playerEmojiCounts[source] = playerEmojiCounts[source] - 1
-            if playerEmojiCounts[source] < 0 then
-                playerEmojiCounts[source] = 0
-            end
         end
     end)
 end)

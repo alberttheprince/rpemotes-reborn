@@ -193,12 +193,6 @@ RegisterNetEvent('rpemotes:client:displayEmoji', function(serverId, emoji)
     addEmojiToPlayer(serverId, emoji)
 end)
 
-RegisterNetEvent('rpemotes:client:clearEmoji', function(serverId)
-    if activeEmojis[serverId] then
-        activeEmojis[serverId] = nil
-    end
-end)
-
 function ShowEmoji(emojiKey)
     if not Config.EmojiMenuEnabled then return end
 
