@@ -203,10 +203,18 @@ local function createSubMenu(parent, category, title, description)
         EmoteMenuStart(items[itemIndex], item:IndexToItem(listIndex).Value)
     end
 
-    menu.OnMenuClosed = function()
-        if not isSearching then
-            ClosePedMenu()
+    local deleteClonedPed = {
+        [Translate('emotes')] = true,
+        [Translate('walkingstyles')] = true,
+        [Translate('moods')] = true
+    }
 
+    menu.OnMenuClosed = function(newMenu)
+        if deleteClonedPed[newMenu.Subtitle.BackupText] then
+            ClosePedMenu()
+        end
+
+        if not isSearching then
             InPlacement = false
         end
     end
