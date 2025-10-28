@@ -110,6 +110,15 @@ PlacementState = {
 ---@field Emotes table<string, {[1]: Dictionary | ScenarioType, [2]: AnimName | ScenarioName, [3]: Label, AnimationOptions?: AnimationOptions, AdultAnimation?: boolean}>
 ---@field PropEmotes table<string, {[1]: Dictionary, [2]: AnimName, [3]: Label, AnimationOptions?: AnimationOptions}>
 
+---@class ExpressionData
+---@field anim string
+---@field label? string
+ 
+---@class WalkData
+---@field anim string
+---@field label? string
+---@field abusable? boolean
+
 ---@class EmoteData
 ---@field [1] AnimName | Dictionary | ScenarioType deprecated: Use anim or dict instead.
 ---@field [2] AnimName | ScenarioName | Label? deprecated: Use anim, scenario, or label instead

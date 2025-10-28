@@ -1,6 +1,12 @@
 ---@type table<string, EmoteData>
 EmoteData = {}
 
+---@type table<string, ExpressionData>
+ExpressionData = {}
+
+---@type table<string, WalkData>
+WalkData = {}
+
 local isSearching = false
 local isMenuProcessing = false
 local isWaitingForPed = false
@@ -196,12 +202,13 @@ local function updatePedPreview(currentMenu)
     end
 
     local emoteName = subMenuData.items[currentIndex]
+    local expression = subMenuData == subMenus[EmoteType.WALKS] and ExpressionData[emoteName]
     local emote = EmoteData[emoteName]
 
     -- Check if the selected item is a previewable emote
-    if emote and isEmoteTypePreviewable(emote.emoteType) then
+    if expression or (emote and isEmoteTypePreviewable(emote.emoteType)) then
         -- Check if we're already showing this exact emote - if so, do nothing
-        if LastEmoteName == emoteName and ClonedPed and DoesEntityExist(ClonedPed) then
+        if LastEmote.name == emoteName and ClonedPed and DoesEntityExist(ClonedPed) then
             return
         end
 
@@ -209,11 +216,17 @@ local function updatePedPreview(currentMenu)
         if ClonedPed and DoesEntityExist(ClonedPed) then
             -- Ped exists, just switch animation
             ClearPedTaskPreview()
-            LastEmoteName = emoteName
-            EmoteMenuStartClone(emoteName)
+            LastEmote = {
+                name = emoteName,
+                isExpression = not emote
+            }
+            EmoteMenuStartClone(emoteName, emote?.emoteType or EmoteType.EXPRESSIONS)
         else
             -- Ped doesn't exist, create it
-            LastEmoteName = emoteName
+            LastEmote = {
+                name = emoteName,
+                isExpression = not emote
+            }
             ShowPedMenu()
             WaitForClonedPedThenPlayLastAnim()
         end
@@ -355,8 +368,6 @@ end
 
 if Config.Search then
     local ignoredCategories = {
-        [EmoteType.WALKS] = true,
-        [EmoteType.EXPRESSIONS] = true,
         [EmoteType.SHARED] = not Config.SharedEmotesEnabled
     }
 
@@ -391,7 +402,7 @@ if Config.Search then
 
         table.sort(results, function(a, b) return a.name < b.name end)
         for index, result in pairs(results) do
-            if index == 1 then LastEmoteName = result.name end
+            if index == 1 then LastEmote = {name = result.name} end
 
             local desc
             if result.table == EmoteType.SHARED then
@@ -472,10 +483,8 @@ local function addWalkMenu(menu)
     local walkreset = addResetMenuItem(walkMenu.menu, walkMenu.items)
 
     local sortedWalks = {}
-    for walkName, data in pairs(EmoteData) do
-        if data.emoteType == EmoteType.WALKS then
-            sortedWalks[#sortedWalks + 1] = {name = walkName, label = data.label, anim = data.anim}
-        end
+    for walkName, data in pairs(WalkData) do
+        sortedWalks[#sortedWalks + 1] = {name = walkName, label = data.label, anim = data.anim}
     end
 
     -- Sort walking styles alphabetically by label (case-insensitive)
@@ -682,12 +691,6 @@ local function convertRP()
     assert(RP ~= nil)
     for emoteType, content in pairs(RP) do
         for emoteName, emoteData in pairs(content) do
-            if newRP[emoteName] then
-                print(string.format(
-                    "WARNING - Duplicate emote name found: %s in %s and %s",
-                    emoteName, emoteType, newRP[emoteName].emoteType
-                ))
-            end
             if Config.AdultEmotesDisabled and emoteData.AdultAnimation then
                 goto continue
             end
@@ -696,18 +699,40 @@ local function convertRP()
                 goto continue
             end
 
-            if type(emoteData) == "table" then
-                newRP[emoteName] = {}
-                for k, v in pairs(emoteData) do
-                    newRP[emoteName][k] = v
+            if emoteType == EmoteType.EXPRESSIONS then
+                if ExpressionData[emoteName] then
+                    print(string.format("WARNING - Duplicate expression name found: %s", emoteName))
                 end
+                emoteData.anim = emoteData[1]
+                emoteData.label = emoteData[2]
+                ExpressionData[emoteName] = emoteData
+            elseif emoteType == EmoteType.WALKS then
+                if WalkData[emoteName] then
+                    print(string.format("WARNING - Duplicate walk name found: %s", emoteName))
+                end
+                emoteData.anim = emoteData[1]
+                emoteData.label = emoteData[2]
+                WalkData[emoteName] = emoteData
             else
-                newRP[emoteName] = {emoteData}
+                if newRP[emoteName] then
+                    print(string.format(
+                        "WARNING - Duplicate emote name found: %s in %s and %s",
+                        emoteName, emoteType, newRP[emoteName].emoteType
+                    ))
+                end
+
+                if type(emoteData) == "table" then
+                    newRP[emoteName] = {}
+                    for k, v in pairs(emoteData) do
+                        newRP[emoteName][k] = v
+                    end
+                else
+                    newRP[emoteName] = {emoteData}
+                end
+
+                newRP[emoteName].emoteType = emoteType
+                convertToEmoteData(emoteName, newRP[emoteName])
             end
-
-            newRP[emoteName].emoteType = emoteType
-            convertToEmoteData(emoteName, newRP[emoteName])
-
             ::continue::
         end
     end
@@ -783,7 +808,7 @@ CreateThread(function()
                     if not ClonedPed or not DoesEntityExist(ClonedPed) then
                         ShowPedMenu()
 
-                        if LastEmoteName then
+                        if LastEmote.name then
                             WaitForClonedPedThenPlayLastAnim()
                         end
                     end
@@ -807,8 +832,8 @@ function WaitForClonedPedThenPlayLastAnim()
             Wait(50)
         end
 
-        if ClonedPed and DoesEntityExist(ClonedPed) and LastEmoteName then
-            EmoteMenuStartClone(LastEmoteName)
+        if ClonedPed and DoesEntityExist(ClonedPed) and LastEmote.name then
+            EmoteMenuStartClone(LastEmote.name)
         end
 
         isWaitingForPed = false

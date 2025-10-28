@@ -4,7 +4,10 @@ CurrentAnimationName = nil
 CurrentTextureVariation = nil
 InHandsup = false
 CONVERTED = false
-LastEmoteName = nil
+LastEmote = {
+    name = nil,
+    isExpression = false,
+}
 local lastEmoteTime = 0
 
 ---@type ScenarioType
@@ -387,7 +390,7 @@ function EmotePlayOnNonPlayerPed(ped, name)
     local emoteData = EmoteData[name]
     local animOption = emoteData.AnimationOptions
 
-    LastEmoteName = name
+    LastEmote = {name = name}
 
     if animOption and animOption.Prop then
         DestroyAllProps(true)
@@ -428,9 +431,16 @@ function EmotePlayOnNonPlayerPed(ped, name)
     addProps(animOption, nil, true)
 end
 
-function EmoteMenuStartClone(name)
+function EmoteMenuStartClone(name, emoteType)
     if not Config.PreviewPed then return end
     if not DoesEntityExist(ClonedPed) then return end
+
+    if emoteType == EmoteType.EXPRESSIONS then
+        local emote = ExpressionData[name]
+        if not emote then return end
+        SetFacialIdleAnimOverride(ClonedPed, emote.anim, true)
+        return
+    end
 
     local emote = EmoteData[name]
 

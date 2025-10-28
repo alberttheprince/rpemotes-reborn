@@ -393,9 +393,9 @@ function ClearPedTaskPreview()
     if ClonedPed then
         DestroyAllProps(true)
 
-        if LastEmoteName == nil then return end
+        if LastEmote.name == nil then return end
 
-        local lastEmoteDate = EmoteData[LastEmoteName]
+        local lastEmoteDate = EmoteData[LastEmote.name]
 
         if lastEmoteDate.scenario then
             SetPedShouldPlayImmediateScenarioExit(ClonedPed)
