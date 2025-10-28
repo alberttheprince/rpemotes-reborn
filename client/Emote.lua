@@ -217,6 +217,8 @@ function EmoteCancel(force)
             EmoteCancelPlaying = false
         end
         DestroyAllProps()
+
+        if CurrentAnimationIsPlacementAnimation() then CleanUpPlacement(ped) end
     end
     cleanScenarioObjects(false)
     AnimationThreadStatus = false
@@ -365,12 +367,10 @@ function addProps(animOption, textureVariation, isClone, playerId)
     end
 end
 
-local function onEmotePlayClone(name)
-    if not Config.PreviewPed then return end
-
+function EmotePlayOnNonPlayerPed(ped, name)
     cleanScenarioObjects(true)
 
-    if not DoesEntityExist(ClonedPed) then
+    if not DoesEntityExist(ped) then
         return false
     end
 
@@ -395,17 +395,17 @@ local function onEmotePlayClone(name)
 
     if emoteData.scenario then
         checkGender()
-        ClearPedTasks(ClonedPed)
+        ClearPedTasks(ped)
         DestroyAllProps(true)
         if emoteData.scenarioType == ScenarioType.MALE then
             if PlayerGender == "male" then
-                TaskStartScenarioInPlace(ClonedPed, emoteData.scenario, 0, true)
+                TaskStartScenarioInPlace(ped, emoteData.scenario, 0, true)
             end
         elseif emoteData.scenarioType == ScenarioType.OBJECT then
-            local BehindPlayer = GetOffsetFromEntityInWorldCoords(ClonedPed, 0.0, -0.5, -0.5)
-            TaskStartScenarioAtPosition(ClonedPed, emoteData.scenario, BehindPlayer.x, BehindPlayer.y, BehindPlayer.z, GetEntityHeading(ClonedPed), 0, true, false)
+            local BehindPlayer = GetOffsetFromEntityInWorldCoords(ped, 0.0, -0.5, -0.5)
+            TaskStartScenarioAtPosition(ped, emoteData.scenario, BehindPlayer.x, BehindPlayer.y, BehindPlayer.z, GetEntityHeading(ped), 0, true, false)
         elseif emoteData.scenarioType == ScenarioType.SCENARIO then
-            TaskStartScenarioInPlace(ClonedPed, emoteData.scenario, 0, true)
+            TaskStartScenarioInPlace(ped, emoteData.scenario, 0, true)
         end
         return
     end
@@ -417,11 +417,11 @@ local function onEmotePlayClone(name)
 
     local flag = animOption?.Flag or animOption?.onFootFlag or 0
 
-    if IsPedUsingAnyScenario(ClonedPed) or IsPedActiveInScenario(ClonedPed) then
-        ClearPedTasksImmediately(ClonedPed)
+    if IsPedUsingAnyScenario(ped) or IsPedActiveInScenario(ped) then
+        ClearPedTasksImmediately(ped)
     end
 
-    TaskPlayAnim(ClonedPed, emoteData.dict, emoteData.anim, 5.0, 5.0, animOption and animOption.EmoteDuration or -1, flag, 0, false, false, false)
+    TaskPlayAnim(ped, emoteData.dict, emoteData.anim, 5.0, 5.0, animOption and animOption.EmoteDuration or -1, flag, 0, false, false, false)
     RemoveAnimDict(emoteData.dict)
 
     if not animOption or not animOption.Prop then return end
@@ -443,7 +443,7 @@ function EmoteMenuStartClone(name)
         return
     end
 
-    onEmotePlayClone(name)
+    EmotePlayOnNonPlayerPed(ClonedPed, name)
 end
 
 function EmoteCommandStart(args)
@@ -740,7 +740,12 @@ function OnEmotePlay(name, textureVariation)
         ClearPedTasksImmediately(PlayerPedId())
     end
 
-    TaskPlayAnim(PlayerPedId(), emoteData.dict, emoteData.anim, animOption?.BlendInSpeed or 5.0, animOption?.BlendOutSpeed or 5.0, animOption?.EmoteDuration or -1, animOption?.Flag or movementType or 0, 0, false, false,
+    local flags = animOption?.Flag or movementType or 0
+
+    -- Override physics (allow floating off the ground) & Ragdoll on Collision
+    if GetPlacementState() == PlacementState.IN_ANIMATION then flags += 1024 + 4194304 end
+
+    TaskPlayAnim(PlayerPedId(), emoteData.dict, emoteData.anim, animOption?.BlendInSpeed or 5.0, animOption?.BlendOutSpeed or 5.0, animOption?.EmoteDuration or -1, flags, 0, false, false,
         false)
     RemoveAnimDict(emoteData.dict)
 
@@ -849,6 +854,7 @@ AddEventHandler('onResourceStop', function(resource)
     local ped = PlayerPedId()
     ClosePedMenu()
     DestroyAllProps()
+    CleanUpPlacement(ped)
     ClearPedTasksImmediately(ped)
     DetachEntity(ped, true, false)
     ResetPedMovementClipset(ped, 0.8)

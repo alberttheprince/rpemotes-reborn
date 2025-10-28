@@ -67,6 +67,7 @@ Locales['en'] = {
     ['cut'] = "Press ~y~G~w~ to cut",
     ['btn_select'] = "Select",
     ['btn_back'] = "Back",
+    ['btn_place'] = "Place in world",
     ['btn_increment'] = "Increment",
     ['dead'] = "You can't use emotes while dead!",
     ['swimming'] = "You can't use emotes while swimming",
@@ -97,5 +98,9 @@ Locales['en'] = {
     ['cancel_emote'] = "Cancel current emote",
     ['crouch'] = "Crouch",
     ['crawl'] = "Crawl",
-    ['pointing'] = "Finger pointing"
+    ['pointing'] = "Finger pointing",
+    -- Placement helper
+    ['rotate'] = "Rotate",
+    ['height'] = "Height",
+    ['toofar'] = "~r~Too far away!~w~~s~"
 }

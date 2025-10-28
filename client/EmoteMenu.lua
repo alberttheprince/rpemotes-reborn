@@ -157,6 +157,8 @@ local function sendSharedEmoteRequest(emoteName)
 end
 
 local function hidePreview()
+    LastEmoteName = nil
+
     if ClonedPed and DoesEntityExist(ClonedPed) then
         ClosePedMenu()
     end
@@ -247,6 +249,14 @@ local function createSubMenu(parent, category, title, description)
         if not emote then return end
 
         if isEmoteTypePlayable(emote.emoteType) then
+            local shiftHeld = IsControlPressed(0, 21)
+            local placementState = GetPlacementState()
+
+            if shiftHeld and placementState ~= PlacementState.PREVIEWING and placementState ~= PlacementState.WALKING then
+                StartNewPlacement(items[index])
+                return
+            end
+
             EmoteMenuStart(items[index])
         elseif emote.emoteType == EmoteType.SHARED then
             sendSharedEmoteRequest(items[index])
@@ -415,6 +425,14 @@ if Config.Search then
             if data.table == EmoteType.SHARED then
                 sendSharedEmoteRequest(data.name)
             else
+                local shiftHeld = IsControlPressed(0, 21)
+                local placementState = GetPlacementState()
+
+                if shiftHeld and placementState ~= PlacementState.PREVIEWING and placementState ~= PlacementState.WALKING then
+                    StartNewPlacement(data.name)
+                    return
+                end
+
                 EmoteMenuStart(data.name)
             end
         end
@@ -571,7 +589,12 @@ function OpenEmoteMenu()
         return
     end
 
+    local placementState = GetPlacementState()
+
+    if placementState == PlacementState.PREVIEWING or placementState == PlacementState.WALKING then return end
+
     updateEmojiMenuAvailability()
+    
     if _menuPool:IsAnyMenuOpen() then
         _menuPool:CloseAllMenus()
     else
@@ -791,3 +814,5 @@ function WaitForClonedPedThenPlayLastAnim()
         isWaitingForPed = false
     end)
 end
+
+function CloseAllMenus() _menuPool:CloseAllMenus() end
