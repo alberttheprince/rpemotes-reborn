@@ -66,7 +66,7 @@ Locales['en'] = {
     ['cut'] = "Press ~y~G~w~ to cut",
     ['btn_select'] = "Select",
     ['btn_back'] = "Back",
-    ['btn_place'] = "Place",
+    ['btn_place'] = "Place in world",
     ['btn_increment'] = "Increment",
     ['dead'] = "You can't use emotes while dead!",
     ['swimming'] = "You can't use emotes while swimming",
@@ -101,4 +101,5 @@ Locales['en'] = {
     -- Placement helper
     ['rotate'] = "Rotate",
     ['height'] = "Height",
+    ['toofar'] = "~r~Too far away!~w~~s~"
 }

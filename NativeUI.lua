@@ -3591,26 +3591,12 @@ function UIMenu:RemoveEnabledControl(Inputgroup, Control, Controller)
     end
 end
 
-local shouldShowEmoteButtons = {
-    [Translate('emotes')] = true,
-    [Translate('walkingstyles')] = true,
-    [Translate('moods')] = true,
-    [Translate('infoupdate')] = true,
-    [Translate('danceemotes')] = true,
-    [Translate('animalemotes')] = true,
-    [Translate('propemotes')] = true,
-}
-
 function UIMenu:UpdateScaleform()
     if not self._Visible or not self.Settings.InstructionalButtons then
         return
     end
 
-    local showEmoteButtons = shouldShowEmoteButtons[self.Subtitle.BackupText]
-
-    if not showEmoteButtons then
-        showEmoteButtons = string.find(self.Subtitle.BackupText or '', Translate('searchmenudesc'), 1, true)
-    end
+    local showEmoteButtons = LastEmoteName and #LastEmoteName > 0
 
     PushScaleformMovieFunction(self.InstructionalScaleform, "CLEAR_ALL")
     PopScaleformMovieFunction()

@@ -339,40 +339,36 @@ function ShowPedMenu(zoom)
             local bufferSize = 5
 
             while ShowPed do
-                if InPlacement then
-                    Wait(1000)
-                else
-                    local screencoordsX = zoom and 0.6 or 0.65135417461395
-                    local screencoordsY = zoom and 1.9 or 0.77
+                local screencoordsX = zoom and 0.6 or 0.65135417461395
+                local screencoordsY = zoom and 1.9 or 0.77
 
-                    if Config.MenuPosition == "left" then
-                        screencoordsX = 1.0 - screencoordsX
-                    end
-
-                    local world, normal = GetWorldCoordFromScreenCoord(screencoordsX, screencoordsY)
-                    local depth = zoom and 2.0 or 3.5
-                    local target = world + normal * depth
-                    local camRot = GetGameplayCamRot(2)
-
-                    positionBuffer[#positionBuffer + 1] = target
-                    if #positionBuffer > bufferSize then
-                        table.remove(positionBuffer, 1)
-                    end
-
-                    local averagedTarget = vector3(0, 0, 0)
-                    for _, position in ipairs(positionBuffer) do
-                        averagedTarget = averagedTarget + position
-                    end
-                    averagedTarget = averagedTarget / #positionBuffer
-
-                    SetEntityCoords(ClonedPed, averagedTarget.x, averagedTarget.y, averagedTarget.z, false, false, false, true)
-                    local heading_offset = Config.MenuPosition == "left" and 170.0 or 190.0
-                    SetEntityHeading(ClonedPed, camRot.z + heading_offset)
-                    SetEntityRotation(ClonedPed, camRot.x * (-1), 0.0, camRot.z + 170.0, 2, false)
-                    ForcePedMotionState(ClonedPed, `MotionState_None`, false, 1, true)
-
-                    Wait(4)
+                if Config.MenuPosition == "left" then
+                    screencoordsX = 1.0 - screencoordsX
                 end
+
+                local world, normal = GetWorldCoordFromScreenCoord(screencoordsX, screencoordsY)
+                local depth = zoom and 2.0 or 3.5
+                local target = world + normal * depth
+                local camRot = GetGameplayCamRot(2)
+
+                positionBuffer[#positionBuffer + 1] = target
+                if #positionBuffer > bufferSize then
+                    table.remove(positionBuffer, 1)
+                end
+
+                local averagedTarget = vector3(0, 0, 0)
+                for _, position in ipairs(positionBuffer) do
+                    averagedTarget = averagedTarget + position
+                end
+                averagedTarget = averagedTarget / #positionBuffer
+
+                SetEntityCoords(ClonedPed, averagedTarget.x, averagedTarget.y, averagedTarget.z, false, false, false, true)
+                local heading_offset = Config.MenuPosition == "left" and 170.0 or 190.0
+                SetEntityHeading(ClonedPed, camRot.z + heading_offset)
+                SetEntityRotation(ClonedPed, camRot.x * (-1), 0.0, camRot.z + 170.0, 2, false)
+                ForcePedMotionState(ClonedPed, `MotionState_None`, false, 1, true)
+
+                Wait(4)
             end
 
             DeleteEntity(ClonedPed)

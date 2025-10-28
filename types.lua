@@ -30,6 +30,15 @@ EmoteType = {
     PROP_EMOTES = 'PropEmotes',
 }
 
+---@enum PlacementState
+PlacementState = {
+    NONE = 'None',
+    PREVIEWING = 'Previewing',
+    WALKING = 'Walking',
+    IN_ANIMATION = 'In Animation'
+}
+
+
 ---@alias Dictionary string
 ---@alias AnimName string
 ---@alias ScenarioName string

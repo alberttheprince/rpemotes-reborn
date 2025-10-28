@@ -1,13 +1,6 @@
 ---@type table<string, EmoteData>
 EmoteData = {}
 
-InPlacement = false
-PlacementPosition = vector3(0)
-PlacementRotation = vector3(0)
-PlacementHeading = 0
-PlacementWalking = false
-PositionPriorToPlacement = vector3(0)
-
 local isSearching = false
 local isMenuProcessing = false
 local isWaitingForPed = false
@@ -164,6 +157,8 @@ local function sendSharedEmoteRequest(emoteName)
 end
 
 local function hidePreview()
+    LastEmoteName = nil
+
     if ClonedPed and DoesEntityExist(ClonedPed) then
         ClosePedMenu()
     end
@@ -244,8 +239,6 @@ local function createSubMenu(parent, category, title, description)
     end
 
     menu.OnItemSelect = function(_, _, index)
-        if PlacementWalking then return end
-
         if Config.Search and items[index] == Translate('searchemotes') then
             EmoteMenuSearch(menu)
             return
@@ -256,7 +249,12 @@ local function createSubMenu(parent, category, title, description)
         if not emote then return end
 
         if isEmoteTypePlayable(emote.emoteType) then
-            if not RunPlacementLogic() then return end
+            local shiftHeld = IsControlPressed(0, 21)
+
+            if shiftHeld and not IsCurrentlyPlacingPreviewPed() then
+                StartNewPlacement(items[index])
+                return
+            end
 
             EmoteMenuStart(items[index])
         elseif emote.emoteType == EmoteType.SHARED then
@@ -426,7 +424,12 @@ if Config.Search then
             if data.table == EmoteType.SHARED then
                 sendSharedEmoteRequest(data.name)
             else
-                if not RunPlacementLogic() then return end
+                local shiftHeld = IsControlPressed(0, 21)
+
+                if shiftHeld and not IsCurrentlyPlacingPreviewPed() then
+                    StartNewPlacement(data.name)
+                    return
+                end
 
                 EmoteMenuStart(data.name)
             end
@@ -449,54 +452,6 @@ if Config.Search then
         ShowPedMenu()
         WaitForClonedPedThenPlayLastAnim()
     end
-end
-
-function RunPlacementLogic()
-    local shiftHeld = IsControlPressed(0, 21)
-
-    if shiftHeld and not InPlacement then
-        StartPlacement()
-        return false
-    end
-
-    if InPlacement then
-        local playerPed = PlayerPedId()
-
-        InPlacement = false
-        PlacementWalking = true
-
-        TaskGoStraightToCoord(playerPed, PlacementPosition.x, PlacementPosition.y, PlacementPosition.z, 1, -1, PlacementHeading, 0)
-
-        local timeout = GetGameTimer() + 5000
-
-        while timeout > GetGameTimer() and GetScriptTaskStatus(playerPed, "SCRIPT_TASK_GO_STRAIGHT_TO_COORD") ~= 7 and #(GetEntityCoords(playerPed) - PlacementPosition) > 1 do
-            Citizen.Wait(300)
-        end
-
-        local latestPedPosition = GetEntityCoords(playerPed)
-
-        -- Too far away or timed out, cancel emote
-        if #(latestPedPosition - PlacementPosition) > 1.5 or GetGameTimer() > timeout then
-            ClearPedTasksImmediately(playerPed)
-
-            PlacementPosition = vector3(0)
-            PlacementRotation = vector3(0)
-            PlacementHeading = 0
-            PlacementWalking = false
-
-            return false
-        end
-
-        PositionPriorToPlacement = latestPedPosition
-
-        SetEntityCoordsNoOffset(playerPed, PlacementPosition.x, PlacementPosition.y, PlacementPosition.z, true, true, true)
-        SetEntityRotation(playerPed, PlacementRotation.x, PlacementRotation.y, PlacementRotation.z, 2, false)
-        SetEntityHeading(playerPed, PlacementHeading)
-
-        PlacementWalking = false
-    end
-
-    return true
 end
 
 local function addCancelEmote(menu)
@@ -605,6 +560,9 @@ function OpenEmoteMenu()
         })
         return
     end
+
+    if IsCurrentlyPlacingPreviewPed() then return end
+
     if _menuPool:IsAnyMenuOpen() then
         _menuPool:CloseAllMenus()
     else
@@ -823,136 +781,4 @@ function WaitForClonedPedThenPlayLastAnim()
     end)
 end
 
-function StartPlacement()
-    if InPlacement then return end
-
-    local playerPed = PlayerPedId()
-    local playerPedPosition = GetEntityCoords(playerPed)
-
-    local rotateAmount = 0
-    local upDownOffset = 0
-    local moveForwardBack = 0
-    local moveLeftRight = 0
-    local initHeading = GetEntityHeading(playerPed) + 180
-
-    InPlacement = true
-
-    SetEntityAlpha(ClonedPed, 150, false)
-    FreezeEntityPosition(ClonedPed, true)
-    SetEntityRotation(ClonedPed, 0, 0, 0, 2, false)
-    SetEntityCoordsNoOffset(ClonedPed, playerPedPosition.x, playerPedPosition.y, playerPedPosition.z - 50, true, true, true)
-
-    -- Prevents TP abuse to 0,0,0
-    PlacementPosition = playerPedPosition
-
-    CreateThread(function()
-        while InPlacement do
-            local cameraPosition = GetGameplayCamCoord()
-            local cameraRotation = GetGameplayCamRot(2)
-            local direction = RotationToDirection(cameraRotation)
-            local destination = cameraPosition + (direction * 1000)
-
-            local rayHandle = StartExpensiveSynchronousShapeTestLosProbe(
-                cameraPosition.x, cameraPosition.y, cameraPosition.z,
-                destination.x, destination.y, destination.z,
-                1 + 2 + 16, -- World, Vehicles, & Props
-                playerPed, 7
-            )
-            local _, hit, hitPosition, _, _ = GetShapeTestResult(rayHandle)
-
-            local upDownChangeAmount = 0.01
-            local leftRightChangeAmount = 2.5
-
-            if hit then
-                local placementPosition = vector3(hitPosition.x + moveForwardBack, hitPosition.y + moveLeftRight, hitPosition.z + 1 + upDownOffset)
-
-                playerPedPosition = GetEntityCoords(playerPed)
-
-                if #(placementPosition - playerPedPosition) <= 5 then
-                    SetEntityHeading(ClonedPed, initHeading + rotateAmount)
-                    SetEntityCoordsNoOffset(ClonedPed, placementPosition.x, placementPosition.y, placementPosition.z, true, true, true)
-
-                    PlacementPosition = placementPosition
-                    PlacementRotation = GetEntityRotation(ClonedPed)
-                    PlacementHeading = GetEntityHeading(ClonedPed)
-                end
-            end
-
-            DisableControlAction(0, 23, true)
-            DisableControlAction(0, 30, true)
-            DisableControlAction(0, 31, true)
-            DisableControlAction(0, 32, true)
-            DisableControlAction(0, 33, true)
-            DisableControlAction(0, 34, true)
-            DisableControlAction(0, 35, true)
-            DisableControlAction(0, 44, true)
-            DisableControlAction(0, 45, true)
-            DisableControlAction(0, 46, true)
-            DisableControlAction(0, 49, true)
-            DisableControlAction(0, 140, true)
-            DisableControlAction(0, 141, true)
-
-            if IsDisabledControlPressed(0, 44) then
-                rotateAmount += leftRightChangeAmount
-            elseif IsDisabledControlPressed(0, 46) then
-                rotateAmount -= leftRightChangeAmount
-            elseif IsDisabledControlPressed(0, 45) then
-                upDownOffset += upDownChangeAmount
-
-                if upDownOffset >= 0.3 then upDownOffset = 0.3 end
-            elseif IsDisabledControlPressed(0, 49) then
-                upDownOffset -= upDownChangeAmount
-
-                if upDownOffset <= -0.5 then upDownOffset = -0.5 end
-            elseif IsDisabledControlPressed(0, 33) then
-                moveForwardBack += upDownChangeAmount
-
-                if moveForwardBack >= 1 then moveForwardBack = 1 end
-            elseif IsDisabledControlPressed(0, 32) then
-                moveForwardBack -= upDownChangeAmount
-
-                if moveForwardBack <= -1 then moveForwardBack = -1 end
-            elseif IsDisabledControlPressed(0, 35) then
-                moveLeftRight += upDownChangeAmount
-
-                if moveLeftRight >= 1 then moveLeftRight = 1 end
-            elseif IsDisabledControlPressed(0, 34) then
-                moveLeftRight -= upDownChangeAmount
-
-                if moveLeftRight <= -1 then moveLeftRight = -1 end
-            end
-
-            HelpText(
-                "~INPUT_COVER~/~INPUT_TALK~ " .. Translate('rotate') .. '\n' ..
-                "~INPUT_RELOAD~/~INPUT_ARREST~ " .. Translate('height') .. '\n' ..
-                "~INPUT_CELLPHONE_SELECT~ " .. Translate('btn_select')
-            )
-
-            Wait(0)
-        end
-
-        if not DoesEntityExist(ClonedPed) then return end
-
-        SetEntityAlpha(ClonedPed, 0, false)
-
-        while PlacementWalking do
-            Wait(3000)
-        end
-
-        SetEntityAlpha(ClonedPed, 255, false)
-    end)
-end
-
-function RotationToDirection(rotation)
-    local rotZ = math.rad(rotation.z)
-    local rotX = math.rad(rotation.x)
-    local multXY = math.abs(math.cos(rotX))
-
-    return vector3(-math.sin(rotZ) * multXY, math.cos(rotZ) * multXY, math.sin(rotX))
-end
-
-function HelpText(text)
-    BeginTextCommandDisplayHelp("STRING")
-    AddTextComponentSubstringPlayerName(text)
-    EndTextCommandDisplayHelp(0, false, false, -1)
-end
+function CloseAllMenus() _menuPool:CloseAllMenus() end
