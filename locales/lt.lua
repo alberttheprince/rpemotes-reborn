@@ -1,10 +1,12 @@
 Locales['lt'] = {
-    -- Lithuanian (LT)
+-- Lithuanian (LT)
     ['emotes'] = '~h~~p~ Animacijos 🎬',
     ['danceemotes'] = "~h~~p~ 🕺 Sokiu animacijos",
     ['animalemotes'] = "~h~~p~ 🐩 Gyvunu animacijos",
     ['propemotes'] = "~h~~p~ 📦 Daiktu animacijos",
     ['prop2info'] = "❓ Daiktu animacijos gali buti pabaigoje",
+    ['emojis'] = 'Emojis 😀 😕 😡',
+    ['emojisdescription'] = 'Express yourself with emojis',
     ['set'] = "Rinkinys (",
     ['newsetemote'] = "~w~ dabar yra jusu susietas jaustukas, paspauskite ~g~CapsLock~w~, kad ji naudotumete.",
     ['cancelemote'] = "~h~~r~ Atsaukti animacija 🚷",
@@ -22,7 +24,6 @@ Locales['lt'] = {
     ['link_emote_keybind'] = 'Animacijos susiejimas su mygtuku',
     ['help_command'] = 'dance, camera, sit arba kita animacija',
     ['help_variation'] = '(Nebūtina) 1, 2, 3 ar kitas skaičius. Pakeis tam tikrų priedų, naudojamų emocijoms, tekstūrą, pavyzdžiui, telefono spalvą. Įrašykite -1 norėdami pamatyti variantų sąrašą',
-    ['infoupdate'] = "~h~~g~ Porines animacijos 🤝🏻",
     ['infoupdateavtext'] = "Galimas naujinimas, gaukite naujausia versija is ~y~https://github.com/alberttheprince/rpemotes-reborn~w~",
     ['suggestions'] = "Pasiulymus?",
     ['suggestionsinfo'] = "~r~Noor_Nahas~s~ FiveM forumuose del bet kokiu funkciju / emociju pasiulymu! ✉️",
@@ -94,5 +95,5 @@ Locales['lt'] = {
     ['cancel_emote'] = "Atšaukti animaciją",
     ['crouch'] = "Pritūpti",
     ['crawl'] = "Šliaužti",
-    ['pointing'] = "Rodyti pirštu"
+    ['pointing'] = "Rodyti pirštu",
 }

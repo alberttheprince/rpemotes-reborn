@@ -5,6 +5,8 @@ Locales['pl'] = {
         ['animalemotes'] = "~h~~p~ 🐩 Animacje zwierząt",
         ['propemotes'] = "~h~~p~ 📦 Animacje z propami",
         ['prop2info'] = "❓ Animacje z propami są zlokalizowane na samym końcu listy",
+        ['emojis'] = 'Emojis 😀 😕 😡',
+        ['emojisdescription'] = 'Express yourself with emojis',
         ['set'] = "Ustaw (",
         ['newsetemote'] = "~w~ jest teraz Twoją przypisaną animacją, wciśnij ~g~CapsLock~w~ by jej użyć.",
         ['cancelemote'] = "~h~~r~ Anuluj animację 🚷",
@@ -13,7 +15,6 @@ Locales['pl'] = {
         ['resetdef'] = "Zresetuj do ustawień domyślnych",
         ['normalreset'] = "~h~~r~ Normal (Reset)",
         ['moods'] = "~h~~p~ Nastroje 😒",
-        ['infoupdate'] = "~h~~g~ Creditsy 🤝🏻",
         ['infoupdateav'] = "Informacje (aktualizacja dostępna)",
         ['infoupdateavtext'] = "Dostępna jest nowa aktualizacja, pobierz ją z: ~y~https://github.com/alberttheprince/rpemotes-reborn~w~",
         ['suggestions'] = "Masz sugestie?",
@@ -72,5 +73,4 @@ Locales['pl'] = {
         ['in_a_vehicle'] = "You can only play this animation while in a vehicle 🚷",
         ['no_anim_crawling'] = "You can't play animations while crawling",
         ['no_anim_right_now'] = "You can't play an animation right now",
-    
 }

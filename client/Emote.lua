@@ -11,7 +11,6 @@ local lastEmoteTime = 0
 local ChosenScenarioType
 local CurrentAnimOptions
 local PlayerGender = "male"
-local PlayerProps = {}
 local PreviewPedProps = {}
 local PtfxNotif = false
 local PtfxPrompt = false
@@ -293,6 +292,10 @@ local function addProp(data)
     assert(data.noCollision == nil or type(data.noCollision) == "boolean", 'noCollision must be a boolean')
 
     local target = data.isClone and ClonedPed or PlayerPedId()
+    local propPool = data.playerId and GetPlayerServerId(data.playerId) or GetPlayerServerId(PlayerId())
+    if data.playerId and DoesEntityExist(GetPlayerPed(data.playerId)) then
+        target = GetPlayerPed(data.playerId)
+    end
     local x, y, z = table.unpack(GetEntityCoords(target))
 
     if not IsModelValid(data.prop1) then
@@ -302,7 +305,7 @@ local function addProp(data)
 
     LoadPropDict(data.prop1)
 
-    attachedProp = CreateObject(GetHashKey(data.prop1), x, y, z + 0.2, not data.isClone, true, true)
+    attachedProp = CreateObject(GetHashKey(data.prop1), x, y, z + 0.2, false, false, false)
 
     if data.textureVariation ~= nil then
         SetObjectTextureVariation(attachedProp, data.textureVariation)
@@ -318,7 +321,7 @@ local function addProp(data)
     if data.isClone then
         PreviewPedProps[#PreviewPedProps+1] = attachedProp
     else
-        PlayerProps[#PlayerProps+1] = attachedProp
+        ServerProps[propPool][#ServerProps[propPool]+1] = attachedProp
     end
 
     SetModelAsNoLongerNeeded(data.prop1)
@@ -329,7 +332,8 @@ end
 ---@param animOption AnimationOptions
 ---@param textureVariation? integer
 ---@param isClone? boolean
-local function addProps(animOption, textureVariation, isClone)
+---@param playerId? integer
+function addProps(animOption, textureVariation, isClone, playerId)
     PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6 = table.unpack(animOption.PropPlacement)
 
     Wait(animOption and animOption.EmoteDuration or 0)
@@ -341,7 +345,8 @@ local function addProps(animOption, textureVariation, isClone)
         rot1 = PropPl4, rot2 = PropPl5, rot3 = PropPl6,
         textureVariation = textureVariation,
         isClone = isClone,
-        noCollision = animOption.PropNoCollision
+        noCollision = animOption.PropNoCollision,
+        playerId = playerId
     }) then return end
 
     if animOption.SecondProp then
@@ -353,7 +358,8 @@ local function addProps(animOption, textureVariation, isClone)
             rot1 = SecondPropPl4, rot2 = SecondPropPl5, rot3 = SecondPropPl6,
             textureVariation = textureVariation,
             isClone = isClone,
-            noCollision = animOption.SecondPropNoCollision
+            noCollision = animOption.SecondPropNoCollision,
+            playerId = playerId
         }) then
             DestroyAllProps()
             return
@@ -513,10 +519,8 @@ function DestroyAllProps(isClone)
         end
         PreviewPedProps = {}
     else
-        for _, v in pairs(PlayerProps) do
-            DeleteEntity(v)
-        end
-        PlayerProps = {}
+        LocalPlayer.state:set("rpemotes:props", {}, true)
+        LocalPlayer.state:set("ptfxPropId", nil, true)
     end
     DebugPrint("Destroyed Props for " .. (isClone and "clone" or "player"))
 end
@@ -755,10 +759,10 @@ function OnEmotePlay(name, textureVariation)
     currentEmote = emoteData
 
     if animOption and animOption.Prop then
-        addProps(animOption, textureVariation)
+        LocalPlayer.state:set("rpemotes:props", {Emote = name, TextureVariation = textureVariation}, true)
             -- Ptfx is on the prop, then we need to sync it
         if animOption.PtfxAsset and not animOption.PtfxNoProp then
-            TriggerServerEvent("rpemotes:ptfx:syncProp", ObjToNet(attachedProp))
+            LocalPlayer.state:set("ptfxPropId", animOption.SecondProp and 2 or 1, true) -- TODO: prop ptfx should be related to a prop.
         end
     end
 end

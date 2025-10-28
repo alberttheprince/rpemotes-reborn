@@ -1,10 +1,12 @@
 Locales['nl'] = {
-    -- Dutch 🇳🇱
+-- Dutch 🇳🇱
     ['emotes'] = "Animaties 🎬",
     ['danceemotes'] = "🕺 Dans Animaties",
     ['animalemotes'] = "🐩 Dier Animaties",
     ['propemotes'] = "📦 Voorwerp Animaties",
     ['prop2info'] = "❓ Voorwerp animaties aan het einde",
+    ['emojis'] = 'Emojis 😀 😕 😡',
+    ['emojisdescription'] = 'Express yourself with emojis',
     ['set'] = "Maak (",
     ['newsetemote'] = "~w~ is nu je toegewezen animatie, druk op ~g~CapsLock~w~ om het te gebruiken.",
     ['cancelemote'] = "Animatie Stoppen 🚷",
@@ -13,7 +15,6 @@ Locales['nl'] = {
     ['resetdef'] = "~h~~y~ Reset naar standaard.",
     ['normalreset'] = "~h~~r~ Normaal (Reset)",
     ['moods'] = "Stemmingen 😒",
-    ['infoupdate'] = "Credits 🤝🏻",
     ['remove_emote_keybind'] = 'Verwijder een gebonden animatie van een toets',
     ['show_emote_keybind'] = 'Zie een lijst met gebonden animaties',
     ['play_emote'] = 'Start een animatie',

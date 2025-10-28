@@ -5,6 +5,8 @@ Locales['fi'] = {
         ['animalemotes'] = "~h~~p~ 🐩 Eläin Animaatiot",
         ['propemotes'] = "~h~~p~ 📦 Esine Animaatiot",
         ['prop2info'] = "❓ Esine animaatiot voivat sijaita lopussa",
+        ['emojis'] = 'Emojis 😀 😕 😡',
+        ['emojisdescription'] = 'Express yourself with emojis',
         ['set'] = "Aseta (",
         ['newsetemote'] = "~w~ on nyt bindattu animaatio, paina ~g~CapsLock~w~ käyttääksesi",
         ['cancelemote'] = "~h~~r~ Peru animaatio 🚷",
@@ -13,7 +15,6 @@ Locales['fi'] = {
         ['resetdef'] = "Resetoi oletuksen",
         ['normalreset'] = "~h~~r~ Normaali (Reset)",
         ['moods'] = "~h~~p~ Mielialat 😒",
-        ['infoupdate'] = "~h~~g~ Krediitit 🤝🏻",
         ['infoupdateav'] = "Informaatio (Päivitys saatavilla)",
         ['infoupdateavtext'] = "Uusin versio saatavilla täältä ~y~https://github.com/alberttheprince/rpemotes-reborn~w~",
         ['suggestions'] = "Ehdotukset?",
@@ -73,5 +74,4 @@ Locales['fi'] = {
         ['in_a_vehicle'] = "Voit toistaa tämän animaation vain ajoneuvossa",
         ['no_anim_crawling'] = "Animaatiota ei voi toistaa ryömiessä",
         ['no_anim_right_now'] = "You can't play an animation right now",
-    
 }

@@ -1,10 +1,12 @@
 Locales['en'] = {
-    -- English 🇬🇧
+-- English 🇬🇧
     ['emotes'] = 'Emotes 🎬',
     ['danceemotes'] = "🕺 Dance Emotes",
     ['animalemotes'] = "🐩 Animal Emotes",
     ['propemotes'] = "📦 Prop Emotes",
     ['prop2info'] = "❓ Prop Emotes can be located at the end",
+    ['emojis'] = 'Emojis 😀 😕 😡',
+    ['emojisdescription'] = 'Express yourself with emojis',
     ['set'] = "Set (",
     ['newsetemote'] = "~w~ is now your bound emote, press ~g~CapsLock~w~ to use it.",
     ['cancelemote'] = "Cancel Emote 🚷",
@@ -13,7 +15,6 @@ Locales['en'] = {
     ['resetdef'] = "~h~~y~ Reset to default",
     ['normalreset'] = "~h~~r~ Normal (Reset)",
     ['moods'] = "Moods 😒",
-    ['infoupdate'] = "Credits 🤝🏻",
     ['remove_emote_keybind'] = 'Delete an emote from keybinds',
     ['show_emote_keybind'] = 'view emotes on keybinds',
     ['play_emote'] = 'play an animation',

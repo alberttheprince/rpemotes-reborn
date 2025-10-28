@@ -22,6 +22,13 @@ Config = {
     MenuPosition = 'right', -- 'left' / 'right'
     CustomMenuEnabled = true, -- Change the header.png to your own image
 
+    -- Emoji Menu
+    EmojiMenuEnabled = true,
+    EmojiMenuAnimalsOnly = false, -- If true, only non-human peds can use emojis
+    MaxEmojisPerPlayer = 3,     -- Max emojis that can stack (client-side)
+    EmojiCooldownMs = 2500,     -- Cooldown between sends in ms (server-side)
+    EmojiRange = 25.0, -- Distance in meters where emojis are visible
+
     -- Combat Car, and Player Movement
     DisarmPlayerOnEmote = false,
     AllowPunchingDuringEmote = false,
@@ -168,18 +175,4 @@ Config.DisabledHandsupControls = {
     [345] = true, -- INPUT_VEH_MELEE_HOLD
     [346] = true, -- INPUT_VEH_MELEE_LEFT
     [347] = true, -- INPUT_VEH_MELEE_RIGHT
-}
-
-Config.Credits = {
-    { title = "<b>Thanks to the community<b>", subtitle = "For supporting and using RP Emotes!" },
-    { title = "Thanks ~o~DullPear 🍐~s~", subtitle = "~o~DullPear~s~ for the original dpemotes ❤️" },
-    { title = "Thanks <font color=\"#ff451d\">Mathu_lmn 🇫🇷 </font>", subtitle = "<font color=\"#ff451d\">Mathu_lmn 🇫🇷</font> Maintainer, additional features and fixes 🛠️" },
-    { title = "Thanks <font color=\"#ff451d\">Enzo2991 🇧🇪 </font>", subtitle = "<font color=\"#ff451d\">Enzo2991 🇧🇪 </font> for creating the ped preview functionality, keybind with kvp" },
-    { title = "Thanks <b>Kibook 🐩</b>", subtitle = "<b>Kibook</b> for the addition of Animal Emotes 🐩 submenu." },
-    { title = "Thanks ~y~AvaN0x 🇫🇷~s~", subtitle = "~y~AvaN0x~s~ 🇫🇷 for reformatting and assisting with code and additional features 🙏" },
-    { title = "Thanks <font color=\"#40E0D0\">iSentrie </font>", subtitle = "<font color=\"#40E0D0\">iSentrie</font> for assisting with code 🛠️" },
-    { title = "Thanks <font color=\"#0e64ed\">Mads 🤖</font>", subtitle = "<font color=\"#0e64ed\">Mads 🤖</font> for the addition of Exit Emotes, Crouch & Crawl ⚙️" },
-    { title = "Thanks <font color=\"#ff00c3\">Tigerle 🐯</font>", subtitle = "<font color=\"#ff00c3\">Tigerle</font> for assisting with attached Shared Emotes ⚙️." },
-    { title = "Thanks <font color=\"#1C9369\">northsqrd ⚙️</font>", subtitle = "<font color=\"#1C9369\">northsqrd</font> for assisting with search feature and phone colours 🔎" },
-    { title = "Thanks <font color=\"#15BCEC\">GeekGarage 🤓</font>", subtitle = "<font color=\"#15BCEC\">GeekGarage</font> for assisting with code and features" },
 }
