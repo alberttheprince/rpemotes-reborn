@@ -15,7 +15,6 @@ Locales['fa'] = {
     ['resetdef'] = "bazneshani pishfarz",
     ['normalreset'] = "~h~~r~ Mamoli (Pishfarz)",
     ['moods'] = "~h~~p~ halat sorat 😒",
-    ['infoupdate'] = "~h~~g~ pishnahad 🤝🏻",
     ['infoupdateav'] = "etelaate (berozresani mojod)",
     ['infoupdateavtext'] = "update jadid vojod darad baray daryaft ~y~https://github.com/alberttheprince/rpemotes-reborn~w~",
     ['suggestions'] = "pishnahad?",

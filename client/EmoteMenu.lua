@@ -134,7 +134,6 @@ local _menuPool = NativeUI.CreatePool()
 local mainMenu = NativeUI.CreateMenu(Config.MenuTitle or "", "", menuPosition.x, menuPosition.y, menuHeader, menuHeader)
 _menuPool:Add(mainMenu)
 
-local infomenu
 local emojiSubmenu -- Store reference to emoji submenu for dynamic visibility based on ped type
 
 ---@class SubMenu
@@ -551,15 +550,6 @@ local function updateEmojiMenuAvailability()
     emojiSubmenu:Enabled(not isHuman)
 end
 
-local function addInfoMenu(menu)
-    infomenu = _menuPool:AddSubMenu(menu, Translate('infoupdate'), "~h~~y~The RPEmotes Developers~h~~y~", true, true)
-
-    for _, credit in ipairs(Config.Credits) do
-        local item = NativeUI.CreateItem(credit.title, credit.subtitle or "")
-        infomenu:AddItem(item)
-    end
-end
-
 local function processMenu()
     if isMenuProcessing then return end
     isMenuProcessing = true
@@ -719,7 +709,6 @@ local function initMenu()
     if Config.EmojiMenuEnabled then
         addEmojiMenu(mainMenu)
     end
-    addInfoMenu(mainMenu)
 
     mainMenu.OnIndexChange = function()
         updatePedPreview(mainMenu)

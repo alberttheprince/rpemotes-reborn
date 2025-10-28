@@ -24,7 +24,6 @@ Locales['lt'] = {
     ['link_emote_keybind'] = 'Animacijos susiejimas su mygtuku',
     ['help_command'] = 'dance, camera, sit arba kita animacija',
     ['help_variation'] = '(Nebūtina) 1, 2, 3 ar kitas skaičius. Pakeis tam tikrų priedų, naudojamų emocijoms, tekstūrą, pavyzdžiui, telefono spalvą. Įrašykite -1 norėdami pamatyti variantų sąrašą',
-    ['infoupdate'] = "~h~~g~ Porines animacijos 🤝🏻",
     ['infoupdateavtext'] = "Galimas naujinimas, gaukite naujausia versija is ~y~https://github.com/alberttheprince/rpemotes-reborn~w~",
     ['suggestions'] = "Pasiulymus?",
     ['suggestionsinfo'] = "~r~Noor_Nahas~s~ FiveM forumuose del bet kokiu funkciju / emociju pasiulymu! ✉️",

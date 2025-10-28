@@ -15,7 +15,6 @@ Locales['tr'] = {
     ['resetdef'] = "~h~~y~ Sıfırla",
     ['normalreset'] = "~h~~r~ Normal (Reset)",
     ['moods'] = "Haller 😒",
-    ['infoupdate'] = "Emeği Geçenler 🤝🏻",
     ['remove_emote_keybind'] = 'Tuşlara atanmış bir animasyonu siler',
     ['show_emote_keybind'] = 'tuşlara atanmış animasyonların listesini gör',
     ['play_emote'] = 'animasyona gir',

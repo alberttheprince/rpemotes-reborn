@@ -15,7 +15,6 @@ Locales['nl'] = {
     ['resetdef'] = "~h~~y~ Reset naar standaard.",
     ['normalreset'] = "~h~~r~ Normaal (Reset)",
     ['moods'] = "Stemmingen 😒",
-    ['infoupdate'] = "Credits 🤝🏻",
     ['remove_emote_keybind'] = 'Verwijder een gebonden animatie van een toets',
     ['show_emote_keybind'] = 'Zie een lijst met gebonden animaties',
     ['play_emote'] = 'Start een animatie',

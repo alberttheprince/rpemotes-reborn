@@ -15,7 +15,6 @@ Locales['fi'] = {
         ['resetdef'] = "Resetoi oletuksen",
         ['normalreset'] = "~h~~r~ Normaali (Reset)",
         ['moods'] = "~h~~p~ Mielialat 😒",
-        ['infoupdate'] = "~h~~g~ Krediitit 🤝🏻",
         ['infoupdateav'] = "Informaatio (Päivitys saatavilla)",
         ['infoupdateavtext'] = "Uusin versio saatavilla täältä ~y~https://github.com/alberttheprince/rpemotes-reborn~w~",
         ['suggestions'] = "Ehdotukset?",

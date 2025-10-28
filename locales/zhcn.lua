@@ -15,7 +15,6 @@ Locales['zhcn'] = {
     ['resetdef'] = "~h~~y~ 重置为默认",
     ['normalreset'] = "~h~~r~ 正常 (重置)",
     ['moods'] = "情绪 😒",
-    ['infoupdate'] = "鸣谢 🤝🏻",
     ['remove_emote_keybind'] = '删除绑定的动作',
     ['show_emote_keybind'] = '查看绑定的动作',
     ['play_emote'] = '使用一个动作',

@@ -15,7 +15,6 @@ Locales['pl'] = {
         ['resetdef'] = "Zresetuj do ustawień domyślnych",
         ['normalreset'] = "~h~~r~ Normal (Reset)",
         ['moods'] = "~h~~p~ Nastroje 😒",
-        ['infoupdate'] = "~h~~g~ Creditsy 🤝🏻",
         ['infoupdateav'] = "Informacje (aktualizacja dostępna)",
         ['infoupdateavtext'] = "Dostępna jest nowa aktualizacja, pobierz ją z: ~y~https://github.com/alberttheprince/rpemotes-reborn~w~",
         ['suggestions'] = "Masz sugestie?",
