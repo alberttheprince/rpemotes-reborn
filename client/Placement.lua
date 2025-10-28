@@ -1,11 +1,14 @@
 -- The movement amounts when placing preview ped
-local smallChangeAmount = 0.01
-local largeChangeAmount = 2.5
+local SMALL_CHANGE_AMOUNT = 0.01
+local LARGE_CHANGE_AMOUNT = 2.5
 
 local placementState = PlacementState.NONE
-local placementPosition = vector4(0)
-local placementRotation = vector3(0)
-local positionPriorToPlacement = vector3(0)
+---@type vector4
+local placementPosition
+---@type vector3
+local placementRotation
+---@type vector3
+local positionPriorToPlacement
 
 local previewPed
 
@@ -70,7 +73,7 @@ local function walkPedToPlacementPosition(emoteName)
 
     while timeout > GetGameTimer() and GetScriptTaskStatus(playerPed, "SCRIPT_TASK_GO_STRAIGHT_TO_COORD") ~= 7 and #(GetEntityCoords(playerPed) - placementPosition.xyz) > 1 and not anyMovementInput do
         anyMovementInput = anyMovementControlsPressed()
-        Citizen.Wait(0)
+        Wait(0)
     end
 
     local latestPedPosition = GetEntityCoords(playerPed)
@@ -216,31 +219,31 @@ local function positionPreviewPed(emoteName)
             disableControls()
 
             if IsDisabledControlPressed(0, 44) then
-                rotateAmount += largeChangeAmount
+                rotateAmount += LARGE_CHANGE_AMOUNT
             elseif IsDisabledControlPressed(0, 46) then
-                rotateAmount -= largeChangeAmount
+                rotateAmount -= LARGE_CHANGE_AMOUNT
             elseif IsDisabledControlPressed(0, 45) then
-                upDownOffset += smallChangeAmount
+                upDownOffset += SMALL_CHANGE_AMOUNT
 
                 if upDownOffset >= 0.3 then upDownOffset = 0.3 end
             elseif IsDisabledControlPressed(0, 49) then
-                upDownOffset -= smallChangeAmount
+                upDownOffset -= SMALL_CHANGE_AMOUNT
 
                 if upDownOffset <= -0.5 then upDownOffset = -0.5 end
             elseif IsDisabledControlPressed(0, 33) then
-                moveForwardBack += smallChangeAmount
+                moveForwardBack += SMALL_CHANGE_AMOUNT
 
                 if moveForwardBack >= 1 then moveForwardBack = 1 end
             elseif IsDisabledControlPressed(0, 32) then
-                moveForwardBack -= smallChangeAmount
+                moveForwardBack -= SMALL_CHANGE_AMOUNT
 
                 if moveForwardBack <= -1 then moveForwardBack = -1 end
             elseif IsDisabledControlPressed(0, 35) then
-                moveLeftRight += smallChangeAmount
+                moveLeftRight += SMALL_CHANGE_AMOUNT
 
                 if moveLeftRight >= 1 then moveLeftRight = 1 end
             elseif IsDisabledControlPressed(0, 34) then
-                moveLeftRight -= smallChangeAmount
+                moveLeftRight -= SMALL_CHANGE_AMOUNT
 
                 if moveLeftRight <= -1 then moveLeftRight = -1 end
             elseif IsDisabledControlPressed(0, 18) then
@@ -257,9 +260,7 @@ local function positionPreviewPed(emoteName)
     end)
 end
 
-function IsCurrentlyPlacingPreviewPed() return placementState == PlacementState.PREVIEWING or placementState == PlacementState.WALKING end
-
-function CurrentAnimationIsPlacementAnimation() return placementState == PlacementState.IN_ANIMATION end
+function GetPlacementState() return placementState end
 
 function StartNewPlacement(emoteName)
     local playerPed = PlayerPedId()
@@ -286,7 +287,7 @@ function StartNewPlacement(emoteName)
     positionPreviewPed(emoteName)
 end
 
-function CleanUpPlacementHelper(ped)
+function CleanUpPlacement(ped)
     if #positionPriorToPlacement > 0 then
         local pedCoords = GetEntityCoords(ped)
         local foundGround, groundZ = GetGroundZFor_3dCoord(pedCoords.x, pedCoords.y, pedCoords.z, false)

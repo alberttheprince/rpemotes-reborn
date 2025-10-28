@@ -218,7 +218,7 @@ function EmoteCancel(force)
         end
         DestroyAllProps()
 
-        if CurrentAnimationIsPlacementAnimation() then CleanUpPlacementHelper(ped) end
+        if CurrentAnimationIsPlacementAnimation() then CleanUpPlacement(ped) end
     end
     cleanScenarioObjects(false)
     AnimationThreadStatus = false
@@ -743,7 +743,7 @@ function OnEmotePlay(name, textureVariation)
     local flags = animOption?.Flag or movementType or 0
 
     -- Override physics (allow floating off the ground) & Ragdoll on Collision
-    if CurrentAnimationIsPlacementAnimation() then flags += 1024 + 4194304 end
+    if GetPlacementState() == PlacementState.IN_ANIMATION then flags += 1024 + 4194304 end
 
     TaskPlayAnim(PlayerPedId(), emoteData.dict, emoteData.anim, animOption?.BlendInSpeed or 5.0, animOption?.BlendOutSpeed or 5.0, animOption?.EmoteDuration or -1, flags, 0, false, false,
         false)
@@ -854,7 +854,7 @@ AddEventHandler('onResourceStop', function(resource)
     local ped = PlayerPedId()
     ClosePedMenu()
     DestroyAllProps()
-    CleanUpPlacementHelper(ped)
+    CleanUpPlacement(ped)
     ClearPedTasksImmediately(ped)
     DetachEntity(ped, true, false)
     ResetPedMovementClipset(ped, 0.8)

@@ -250,8 +250,9 @@ local function createSubMenu(parent, category, title, description)
 
         if isEmoteTypePlayable(emote.emoteType) then
             local shiftHeld = IsControlPressed(0, 21)
+            local placementState = GetPlacementState()
 
-            if shiftHeld and not IsCurrentlyPlacingPreviewPed() then
+            if shiftHeld and placementState ~= PlacementState.PREVIEWING and placementState ~= PlacementState.WALKING then
                 StartNewPlacement(items[index])
                 return
             end
@@ -425,8 +426,9 @@ if Config.Search then
                 sendSharedEmoteRequest(data.name)
             else
                 local shiftHeld = IsControlPressed(0, 21)
+                local placementState = GetPlacementState()
 
-                if shiftHeld and not IsCurrentlyPlacingPreviewPed() then
+                if shiftHeld and placementState ~= PlacementState.PREVIEWING and placementState ~= PlacementState.WALKING then
                     StartNewPlacement(data.name)
                     return
                 end
@@ -587,7 +589,9 @@ function OpenEmoteMenu()
         return
     end
 
-    if IsCurrentlyPlacingPreviewPed() then return end
+    local placementState = GetPlacementState()
+
+    if placementState == PlacementState.PREVIEWING or placementState == PlacementState.WALKING then return end
 
     updateEmojiMenuAvailability()
     
