@@ -18,6 +18,7 @@ files {
     'header.png'
 }
 
+-- Unlocks idle Animations from GTA:O when using motorcycles, dirt bikes, etc
 data_file 'CONDITIONAL_ANIMS_FILE' 'conditionalanims.meta'
 
 shared_scripts {
