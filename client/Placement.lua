@@ -8,7 +8,7 @@ local placementPosition
 ---@type vector3
 local placementRotation
 ---@type vector3
-local positionPriorToPlacement
+local positionPriorToPlacement = vector3(0)
 
 local previewPed
 
