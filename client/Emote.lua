@@ -218,7 +218,7 @@ function EmoteCancel(force)
         end
         DestroyAllProps()
 
-        if CurrentAnimationIsPlacementAnimation() then CleanUpPlacement(ped) end
+        if GetPlacementState() == PlacementState.IN_ANIMATION then CleanUpPlacement(ped) end
     end
     cleanScenarioObjects(false)
     AnimationThreadStatus = false
