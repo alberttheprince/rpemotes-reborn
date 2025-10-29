@@ -255,16 +255,20 @@ local function checkAnimalAndOnEmotePlay(name)
     end
 end
 
-function EmoteMenuStart(name, textureVariation)
+function EmoteMenuStart(name, textureVariation, emoteType)
+    if emoteType == EmoteType.EXPRESSIONS then
+        if not ExpressionData[name] then return end
+        SetPlayerPedExpression(name, true)
+        return
+    end
+
     local emote = EmoteData[name]
 
     if not emote then
         return
     end
 
-    if emote.emoteType == EmoteType.EXPRESSIONS then
-        SetPlayerPedExpression(name, true)
-    elseif emote.emoteType == EmoteType.ANIMAL_EMOTES then
+    if emote.emoteType == EmoteType.ANIMAL_EMOTES then
         checkAnimalAndOnEmotePlay(name)
     else
         OnEmotePlay(name, textureVariation)
