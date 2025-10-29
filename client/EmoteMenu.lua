@@ -537,7 +537,7 @@ local function addEmojiMenu(menu)
     if not Config.EmojiMenuEnabled then return end
 
     emojiSubmenu = _menuPool:AddSubMenu(menu, Translate('emojis'), Translate('emojisdescription'), true, true)
-    emojiSubmenu.SubMenu:SetMenuWidthOffset(45)
+    emojiSubmenu:SetMenuWidthOffset(45)
 
     local sortedEmojis = {}
     for key, emoji in pairs(EmojiData) do
@@ -548,11 +548,10 @@ local function addEmojiMenu(menu)
     for _, emojiData in ipairs(sortedEmojis) do
         local displayName = emojiData.emoji .. " " .. emojiData.key:gsub("_", " ")
         local item = NativeUI.CreateItem(displayName, "")
-        emojiSubmenu.SubMenu:AddItem(item)
+        emojiSubmenu:AddItem(item)
 
         item.Activated = function(parentMenu, item)
             ShowEmoji(emojiData.key)
-            _menuPool:CloseAllMenus()
         end
     end
 end

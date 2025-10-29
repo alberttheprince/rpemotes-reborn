@@ -73,7 +73,6 @@ EmojiData = {
     ['exhaling'] = '💨',
     ['dizzy'] = '😵',
     ['melting'] = '🫠',
-    ['shaking'] = '🫨',
     ['yawning'] = '🥱',
     ['sleepy'] = '😪',
     ['sleeping'] = '😴',
@@ -100,21 +99,28 @@ EmojiData = {
 }
 
 local function drawText3D(coords, text)
-    local camCoords = GetGameplayCamCoord()
-    local dist = #(coords - camCoords)
-    local scale = 300 / (GetGameplayCamFov() * dist)
-
-    SetTextColour(230, 230, 230, 255)
-    SetTextScale(0.0, 0.5 * scale)
-    SetTextDropshadow(0, 0, 0, 0, 55)
-    SetTextDropShadow()
-    SetTextCentre(true)
-
-    BeginTextCommandDisplayText("STRING")
-    AddTextComponentSubstringPlayerName(text)
-    SetDrawOrigin(coords, 0)
-    EndTextCommandDisplayText(0.0, 0.0)
-    ClearDrawOrigin()
+    local onScreen, x, y = World3dToScreen2d(coords.x, coords.y, coords.z)
+    
+    if onScreen then
+        local camCoords = GetGameplayCamCoord()
+        local dist = #(coords - camCoords)
+        local scale = (1 / dist) * 2
+        local fov = (1 / GetGameplayCamFov()) * 100
+        scale = scale * fov * 0.6
+        
+        SetTextScale(0.0, scale)
+        SetTextFont(4)
+        SetTextProportional(true)
+        SetTextColour(255, 255, 255, 255)
+        SetTextDropshadow(0, 0, 0, 0, 255)
+        SetTextEdge(2, 0, 0, 0, 150)
+        SetTextDropShadow()
+        SetTextOutline()
+        SetTextEntry("STRING")
+        SetTextCentre(true)
+        AddTextComponentString(text)
+        DrawText(x, y)
+    end
 end
 
 local function startEmojiDrawLoop()
@@ -145,7 +151,7 @@ local function startEmojiDrawLoop()
                                 else
                                     if HasEntityClearLosToEntity(playerPed, ped, 17) then
                                         local coords = GetEntityCoords(ped)
-                                        local offset = 1.0 + (i - 1) * 0.15
+                                        local offset = 1.0 + (i - 1) * 0.20
                                         local drawCoords = vector3(coords.x, coords.y, coords.z + offset)
                                         drawText3D(drawCoords, emojiData.emoji)
                                     end
