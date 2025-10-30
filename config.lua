@@ -99,23 +99,27 @@ Config = {
 }
 
 -- Custom Categories: Define custom categories to organize emotes in the menu
--- Each category is an array that can contain:
--- 1. EmoteType values (e.g., EmoteType.EMOTES) to include all emotes of that type
--- 2. Specific emote names (e.g., "salute", "wave") to include individual emotes
--- 3. Mix of both in the same category
+-- Each category lists emotes grouped by EmoteType. If empty, all emotes of the EmoteType will be included.
 -- Note: An emote can appear in multiple categories
--- Example: Add custom categories mixing EmoteTypes and specific emotes
--- Config.CustomCategories["Fun Stuff"] = {EmoteType.DANCES, "salute", "wave"}
--- Config.CustomCategories["Sports"] = {"basketball", "yoga", "pushup"}
----@type table<string, (EmoteType | string)[]>
+-- Example: Adds a new custom category which will include all DANCES and a few selected EMOTES.
+-- Config.CustomCategories["Sports & Dances"] = {[EmoteType.DANCES] = {}, [EmoteType.EMOTES] = {"basketball", "yoga", "pushup"}}
+---@type table<string, table<EmoteType, string[]>>
 Config.CustomCategories = {}
-Config.CustomCategories[Translate('danceemotes')] = {EmoteType.DANCES}
-Config.CustomCategories[Translate('propemotes')] = {EmoteType.PROP_EMOTES}
+Config.CustomCategories[Translate('danceemotes')] = {
+    [EmoteType.DANCES] = {}
+}
+Config.CustomCategories[Translate('propemotes')] = {
+    [EmoteType.PROP_EMOTES] = {}
+}
 if Config.SharedEmotesEnabled then
-    Config.CustomCategories[Translate('shareemotes')] = {EmoteType.SHARED}
+    Config.CustomCategories[Translate('shareemotes')] = {
+        [EmoteType.SHARED] = {}
+    }
 end
 if Config.AnimalEmotesEnabled then
-    Config.CustomCategories[Translate('animalemotes')] = {EmoteType.ANIMAL_EMOTES}
+    Config.CustomCategories[Translate('animalemotes')] = {
+        [EmoteType.ANIMAL_EMOTES] = {}
+    }
 end
 
 Config.KeybindKeys = {

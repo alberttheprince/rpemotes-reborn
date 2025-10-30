@@ -148,8 +148,8 @@ end
 
 function NearbysOnCommand(source, args, raw)
     local NearbysCommand = ""
-    for a, b in PairsByKeys(EmoteData) do
-        if type(b) == "table" and b.emoteType == EmoteType.SHARED then
+    for a, b in PairsByKeys(SharedEmoteData) do
+        if type(b) == "table" then
             NearbysCommand = NearbysCommand .. a .. ", "
         end
     end
@@ -393,9 +393,10 @@ function ClearPedTaskPreview()
     if ClonedPed then
         DestroyAllProps(true)
 
-        if LastEmoteName == nil then return end
+        if LastEmote.name == nil then return end
+        local lastEmoteDate = LastEmote.emoteType == EmoteType.EXPRESSIONS and ExpressionData[LastEmote.name] or EmoteData[LastEmote.name]
 
-        local lastEmoteDate = EmoteData[LastEmoteName]
+        if not lastEmoteDate then return end
 
         if lastEmoteDate.scenario then
             SetPedShouldPlayImmediateScenarioExit(ClonedPed)
@@ -438,7 +439,8 @@ AddStateBagChangeHandler('rpemotes:props', nil, function(bagName, key, value, re
             Wait(1)
         end
         DebugPrint("time to finish loading ped (ms)", GetGameTimer() - gameTime)
-        addProps(EmoteData[value.Emote].AnimationOptions, value.TextureVariation or nil, false, ply)
+        local emoteData = value.emoteType == EmoteType.SHARED and SharedEmoteData[value.Emote] or EmoteData[value.Emote]
+        addProps(emoteData.AnimationOptions, value.TextureVariation or nil, false, ply)
     end
 end)
 

@@ -4,7 +4,10 @@ CurrentAnimationName = nil
 CurrentTextureVariation = nil
 InHandsup = false
 CONVERTED = false
-LastEmoteName = nil
+LastEmote = {
+    name = nil,
+    emoteType = nil,
+}
 local lastEmoteTime = 0
 
 ---@type ScenarioType
@@ -252,16 +255,20 @@ local function checkAnimalAndOnEmotePlay(name)
     end
 end
 
-function EmoteMenuStart(name, textureVariation)
-    local emote = EmoteData[name]
+function EmoteMenuStart(name, textureVariation, emoteType)
+    if emoteType == EmoteType.EXPRESSIONS then
+        if not ExpressionData[name] then return end
+        SetPlayerPedExpression(name, true)
+        return
+    end
+
+    local emote = emoteType == EmoteType.SHARED and SharedEmoteData[name] or EmoteData[name]
 
     if not emote then
         return
     end
 
-    if emote.emoteType == EmoteType.EXPRESSIONS then
-        SetPlayerPedExpression(name, true)
-    elseif emote.emoteType == EmoteType.ANIMAL_EMOTES then
+    if emote.emoteType == EmoteType.ANIMAL_EMOTES then
         checkAnimalAndOnEmotePlay(name)
     else
         OnEmotePlay(name, textureVariation)
@@ -387,7 +394,7 @@ function EmotePlayOnNonPlayerPed(ped, name)
     local emoteData = EmoteData[name]
     local animOption = emoteData.AnimationOptions
 
-    LastEmoteName = name
+    LastEmote = {name = name}
 
     if animOption and animOption.Prop then
         DestroyAllProps(true)
@@ -428,18 +435,23 @@ function EmotePlayOnNonPlayerPed(ped, name)
     addProps(animOption, nil, true)
 end
 
-function EmoteMenuStartClone(name)
+function EmoteMenuStartClone(name, emoteType)
     if not Config.PreviewPed then return end
     if not DoesEntityExist(ClonedPed) then return end
 
-    local emote = EmoteData[name]
-
-    if not emote then
+    if emoteType == EmoteType.EXPRESSIONS then
+        local emote = ExpressionData[name]
+        if emote then
+            SetFacialIdleAnimOverride(ClonedPed, emote.anim, true)
+        else
+            ClearFacialIdleAnimOverride(ClonedPed)
+        end
         return
     end
 
-    if emote.emoteType == EmoteType.EXPRESSIONS then
-        SetFacialIdleAnimOverride(ClonedPed, emote[1], true)
+    local emote = emoteType == EmoteType.SHARED and SharedEmoteData[name] or EmoteData[name]
+
+    if not emote then
         return
     end
 
@@ -525,7 +537,7 @@ function DestroyAllProps(isClone)
     DebugPrint("Destroyed Props for " .. (isClone and "clone" or "player"))
 end
 
-local function playExitAndEnterEmote(name, textureVariation)
+local function playExitAndEnterEmote(name, textureVariation, emoteType)
     if not LocalPlayer.state.canCancel then return end
     ExitAndPlay = true
     DebugPrint("Canceling previous emote and playing next emote")
@@ -561,7 +573,7 @@ local function playExitAndEnterEmote(name, textureVariation)
                 InExitEmote = false
                 DestroyAllProps(true)
                 ClearPedTasks(ped)
-                OnEmotePlay(name, textureVariation)
+                OnEmotePlay(name, textureVariation, emoteType)
                 ExitAndPlay = false
             end)
             return
@@ -571,7 +583,7 @@ local function playExitAndEnterEmote(name, textureVariation)
         IsInAnimation = false
         ExitAndPlay = false
         DestroyAllProps(true)
-        OnEmotePlay(name, CurrentTextureVariation)
+        OnEmotePlay(name, CurrentTextureVariation, emoteType)
     end
 end
 
@@ -600,8 +612,8 @@ local function playScenario(emoteData)
     runAnimationThread()
 end
 
-function OnEmotePlay(name, textureVariation)
-    local emoteData = EmoteData[name]
+function OnEmotePlay(name, textureVariation, emoteType)
+    local emoteData = emoteType == EmoteType.SHARED and SharedEmoteData[name] or EmoteData[name]
     if not emoteData then
         EmoteChatMessage("'" .. name .. "' " .. Translate('notvalidemote') .. "")
         return
@@ -650,7 +662,7 @@ function OnEmotePlay(name, textureVariation)
         and not ExitAndPlay
         and not EmoteCancelPlaying
     then
-        playExitAndEnterEmote(name, textureVariation)
+        playExitAndEnterEmote(name, textureVariation, emoteType)
         return
     end
 
@@ -759,7 +771,7 @@ function OnEmotePlay(name, textureVariation)
     currentEmote = emoteData
 
     if animOption and animOption.Prop then
-        LocalPlayer.state:set("rpemotes:props", {Emote = name, TextureVariation = textureVariation}, true)
+        LocalPlayer.state:set("rpemotes:props", {Emote = name, TextureVariation = textureVariation, emoteType = emoteType}, true)
             -- Ptfx is on the prop, then we need to sync it
         if animOption.PtfxAsset and not animOption.PtfxNoProp then
             LocalPlayer.state:set("ptfxPropId", animOption.SecondProp and 2 or 1, true) -- TODO: prop ptfx should be related to a prop.
