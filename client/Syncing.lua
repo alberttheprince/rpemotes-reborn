@@ -12,8 +12,8 @@ if Config.SharedEmotesEnabled then
             local emotename = string.lower(args[1])
             local target, distance = GetClosestPlayer()
             if (distance ~= -1 and distance < 3) then
-                local emote = EmoteData[emotename]
-                if emote ~= nil and emote.emoteType == EmoteType.SHARED then
+                local emote = SharedEmoteData[emotename]
+                if emote ~= nil then
                     TriggerServerEvent("rpemotes:server:requestEmote", GetPlayerServerId(target), emotename)
                     SimpleNotify(Translate('sentrequestto') ..
                         GetPlayerName(target) .. " ~w~(~g~" .. emote.label .. "~w~)")
@@ -39,18 +39,19 @@ RegisterNetEvent("rpemotes:client:syncEmote", function(emote, player)
         return EmoteChatMessage(Translate('not_in_a_vehicle'))
     end
 
-    if not EmoteData[emote] then
+    local emoteData = SharedEmoteData[emote]
+    if not emoteData then
         DebugPrint("rpemotes:client:syncEmote : Emote not found")
         return
     end
 
-    local options = EmoteData[emote].AnimationOptions
+    local options = emoteData.AnimationOptions
     if options and options.Attachto then
-        local targetEmote = EmoteData[emote].secondPlayersAnim
+        local targetEmote = emoteData.secondPlayersAnim
         if not targetEmote
-            or not EmoteData[targetEmote]
-            or not EmoteData[targetEmote].AnimationOptions
-            or not EmoteData[targetEmote].AnimationOptions.Attachto
+            or not SharedEmoteData[targetEmote]
+            or not SharedEmoteData[targetEmote].AnimationOptions
+            or not SharedEmoteData[targetEmote].AnimationOptions.Attachto
         then
             local ped = PlayerPedId()
             local pedInFront = GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer())
@@ -75,7 +76,7 @@ RegisterNetEvent("rpemotes:client:syncEmote", function(emote, player)
         end
     end
 
-    OnEmotePlay(emote)
+    OnEmotePlay(emote, nil, EmoteType.SHARED)
 end)
 
 RegisterNetEvent("rpemotes:client:syncEmoteSource", function(emote, player)
@@ -87,7 +88,9 @@ RegisterNetEvent("rpemotes:client:syncEmoteSource", function(emote, player)
         return EmoteChatMessage(Translate('not_in_a_vehicle'))
     end
 
-    local options = EmoteData[emote] and EmoteData[emote].AnimationOptions
+    local emoteData = SharedEmoteData[emote]
+
+    local options = emoteData and emoteData.AnimationOptions
     if options then
         if (options.Attachto) then
             AttachEntityToEntity(
@@ -119,8 +122,8 @@ RegisterNetEvent("rpemotes:client:syncEmoteSource", function(emote, player)
     Wait(300)
 
     targetPlayerId = player
-    if EmoteData[emote] ~= nil then
-        OnEmotePlay(emote)
+    if emoteData ~= nil then
+        OnEmotePlay(emote, nil, EmoteType.SHARED)
         return
     end
 end)
@@ -142,7 +145,7 @@ end
 RegisterNetEvent("rpemotes:client:requestEmote", function(emotename, target)
     isRequestAnim = true
 
-    local emote = EmoteData[emotename]
+    local emote = SharedEmoteData[emotename]
     PlaySound(-1, "NAV", "HUD_AMMO_SHOP_SOUNDSET", false, 0, true)
     SimpleNotify(Translate('doyouwanna') .. emote.label .. "~w~)")
     -- The player has now 10 seconds to accept the request

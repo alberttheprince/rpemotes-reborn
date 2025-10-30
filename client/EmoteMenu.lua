@@ -95,33 +95,80 @@ local function addResetMenuItem(menu, items, emoteType)
 end
 
 -- Helper function to sort emotes by label alphabetically (case-insensitive)
-local function sortEmotesByLabel(emoteNames)
-    table.sort(emoteNames, function(a, b)
-        local labelA = EmoteData[a] and EmoteData[a].label or a
-        local labelB = EmoteData[b] and EmoteData[b].label or b
+-- Can accept either string[] or {name: string, emoteType: EmoteType}[]
+local function sortEmotesByLabel(emotes)
+    table.sort(emotes, function(a, b)
+        local nameA, nameB, labelA, labelB
+
+        -- Check if we're working with objects or strings
+        if type(a) == "table" then
+            nameA = a.name
+            -- Get label from appropriate table based on emoteType
+            if a.emoteType == EmoteType.SHARED then
+                labelA = SharedEmoteData[nameA] and SharedEmoteData[nameA].label or nameA
+            elseif a.emoteType == EmoteType.EXPRESSIONS then
+                labelA = ExpressionData[nameA] and ExpressionData[nameA].label or nameA
+            elseif a.emoteType == EmoteType.WALKS then
+                labelA = WalkData[nameA] and WalkData[nameA].label or nameA
+            else
+                labelA = EmoteData[nameA] and EmoteData[nameA].label or nameA
+            end
+        else
+            nameA = a
+            labelA = EmoteData[nameA] and EmoteData[nameA].label or nameA
+        end
+
+        if type(b) == "table" then
+            nameB = b.name
+            -- Get label from appropriate table based on emoteType
+            if b.emoteType == EmoteType.SHARED then
+                labelB = SharedEmoteData[nameB] and SharedEmoteData[nameB].label or nameB
+            elseif b.emoteType == EmoteType.EXPRESSIONS then
+                labelB = ExpressionData[nameB] and ExpressionData[nameB].label or nameB
+            elseif b.emoteType == EmoteType.WALKS then
+                labelB = WalkData[nameB] and WalkData[nameB].label or nameB
+            else
+                labelB = EmoteData[nameB] and EmoteData[nameB].label or nameB
+            end
+        else
+            nameB = b
+            labelB = EmoteData[nameB] and EmoteData[nameB].label or nameB
+        end
+
         return string.lower(labelA) < string.lower(labelB)
     end)
 end
 
 -- Helper function to expand EmoteTypes in CustomCategories to actual emote names
----@return table<string, string[]> -- Returns category name to array of emote names
+---@return table<string, {name: string, emoteType: EmoteType}> -- Returns category name to array of emote names
 local function expandCustomCategories()
     local expanded = {}
 
-    for categoryName, mappings in pairs(Config.CustomCategories) do
+    for categoryName, emoteTypeMap in pairs(Config.CustomCategories) do
         expanded[categoryName] = {}
 
-        for _, mapping in ipairs(mappings) do
-            -- Check if mapping is an EmoteType by seeing if RP has that key
-            if RP and RP[mapping] then
-                -- It's an EmoteType - add all emotes of this type from RP
-                for emoteName in pairs(RP[mapping]) do
-                    expanded[categoryName][#expanded[categoryName]+1] = emoteName
+        for emoteType, emoteNames in pairs(emoteTypeMap) do
+            -- Check if the array is empty (include all emotes of this type)
+            if #emoteNames == 0 then
+                -- Include all emotes of this type from RP
+                if RP and RP[emoteType] then
+                    for emoteName in pairs(RP[emoteType]) do
+                        expanded[categoryName][#expanded[categoryName]+1] = {
+                            name = emoteName,
+                            emoteType = emoteType
+                        }
+                    end
                 end
             else
-                -- It's a specific emote name - verify it exists in EmoteData
-                if EmoteData[mapping] then
-                    expanded[categoryName][#expanded[categoryName]+1] = mapping
+                -- Include only the specified emotes
+                for _, emoteName in ipairs(emoteNames) do
+                    -- Verify it exists in the appropriate data structure
+                    if RP and RP[emoteType] and RP[emoteType][emoteName] then
+                        expanded[categoryName][#expanded[categoryName]+1] = {
+                            name = emoteName,
+                            emoteType = emoteType
+                        }
+                    end
                 end
             end
         end
@@ -156,7 +203,7 @@ local emojiSubmenu -- Store reference to emoji submenu for dynamic visibility ba
 ---@type table<Category, SubMenu>
 local subMenus = {}
 
----@type table<string, string[]>
+---@type table<string, {name: string, emoteType: EmoteType}[]>
 local categoryToEmotes = {}
 
 local function sendSharedEmoteRequest(emoteName)
@@ -210,6 +257,8 @@ local function updatePedPreview(currentMenu)
 
     local emoteName = subMenuData.items[currentIndex].name
     local emoteType = subMenuData.items[currentIndex].emoteType
+    --- Don't preview SHARED emotes
+    if emoteType == EmoteType.SHARED then hidePreview() return end
     local emote = EmoteData[emoteName]
 
     -- Check if the selected item is a previewable emote
@@ -266,7 +315,7 @@ local function createSubMenu(parent, category, title, description, emoteType)
         end
 
         local emoteName = items[index].name
-        local emote = EmoteData[emoteName]
+        local emote = items[index].emoteType == EmoteType.SHARED and SharedEmoteData[emoteName] or EmoteData[emoteName]
         if not emote then return end
 
         if isEmoteTypePlayable(emote.emoteType) then
@@ -322,12 +371,15 @@ local function addEmoteMenu(menu)
     end
 
     -- Populate each category with its emotes
-    for categoryName, emoteNames in pairs(categoryToEmotes) do
+    for categoryName, emoteList in pairs(categoryToEmotes) do
         local categoryMenu = subMenus[categoryName]
         if categoryMenu then
-            sortEmotesByLabel(emoteNames)
-            for _, emoteName in ipairs(emoteNames) do
-                local data = EmoteData[emoteName]
+            sortEmotesByLabel(emoteList)
+            for _, emoteInfo in ipairs(emoteList) do
+                local emoteName = emoteInfo.name
+                local emoteType = emoteInfo.emoteType
+                local data = emoteType == EmoteType.SHARED and SharedEmoteData[emoteName] or EmoteData[emoteName]
+
                 if data then
                     if data.emoteType == EmoteType.EMOTES then
                         addEmoteToMenu(categoryMenu.menu, categoryMenu.items, emoteName, data.label, string.format("/e (%s)", emoteName), data.emoteType)
@@ -375,10 +427,6 @@ local function addEmoteMenu(menu)
 end
 
 if Config.Search then
-    local ignoredCategories = {
-        [EmoteType.SHARED] = not Config.SharedEmotesEnabled
-    }
-
     function EmoteMenuSearch(lastMenu)
         ClosePedMenu()
         AddTextEntry("PM_NAME_CHALL", Translate('searchinputtitle'))
@@ -392,10 +440,8 @@ if Config.Search then
 
         local results = {}
         for emoteName, emoteData in pairs(EmoteData) do
-            if not ignoredCategories[emoteData.emoteType] then
-                if matchesSearchTerm(emoteName, emoteData, input) then
-                    results[#results + 1] = { table = emoteData.emoteType, name = emoteName, data = emoteData }
-                end
+            if matchesSearchTerm(emoteName, emoteData, input) then
+                results[#results + 1] = { table = emoteData.emoteType, name = emoteName, data = emoteData }
             end
         end
 
@@ -732,9 +778,6 @@ local function convertRP()
                     sharedEmote.emoteType = emoteType
                     convertToEmoteData(emoteName, sharedEmote)
                     SharedEmoteData[emoteName] = sharedEmote
-
-                    -- Also add to EmoteData for backward compatibility
-                    newRP[emoteName] = sharedEmote
                 end
             else
                 if newRP[emoteName] then
