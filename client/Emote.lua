@@ -258,6 +258,11 @@ end
 function EmoteMenuStart(name, textureVariation, emoteType)
     if emoteType == EmoteType.EXPRESSIONS then
         if not ExpressionData[name] then return end
+        -- Check permission for expressions
+        if not HasEmotePermission(name, EmoteType.EXPRESSIONS) then
+            EmoteChatMessage("You don't have permission to use this expression")
+            return
+        end
         SetPlayerPedExpression(name, true)
         return
     end
@@ -265,6 +270,12 @@ function EmoteMenuStart(name, textureVariation, emoteType)
     local emote = emoteType == EmoteType.SHARED and SharedEmoteData[name] or EmoteData[name]
 
     if not emote then
+        return
+    end
+
+    -- Check permission for regular emotes and shared emotes
+    if not HasEmotePermission(name, emote.emoteType) then
+        EmoteChatMessage("You don't have permission to use this emote")
         return
     end
 
@@ -489,6 +500,12 @@ function EmoteCommandStart(args)
     local emote = EmoteData[name]
     if not emote then
         EmoteChatMessage("'" .. name .. "' " .. Translate('notvalidemote') .. "")
+        return
+    end
+
+    -- Check ACE permission
+    if not HasEmotePermission(name, emote.emoteType) then
+        EmoteChatMessage("You don't have permission to use this emote")
         return
     end
 

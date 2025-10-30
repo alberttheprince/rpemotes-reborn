@@ -16,6 +16,13 @@ function WalkMenuStart(name, force)
         EmoteChatMessage("'" .. tostring(name) .. "' is not a valid walk")
         return
     end
+
+    -- Check ACE permission
+    if not HasEmotePermission(name, EmoteType.WALKS) then
+        EmoteChatMessage("You don't have permission to use this walk")
+        return
+    end
+
     if Config.AbusableEmotesDisabled and emoteData.abusable then
         EmoteChatMessage(Translate('abusableemotedisabled'))
         return

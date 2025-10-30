@@ -1,3 +1,22 @@
+-- ACE Permission Helper
+function HasEmotePermission(emoteName, emoteType)
+    local playerServerId = GetPlayerServerId(PlayerId())
+    local principal = "player." .. playerServerId
+    local acePermission = ""
+
+    if emoteType == EmoteType.SHARED then
+        acePermission = string.format("rpemotes.shared.%s", emoteName)
+    elseif emoteType == EmoteType.EXPRESSIONS then
+        acePermission = string.format("rpemotes.expressions.%s", emoteName)
+    elseif emoteType == EmoteType.WALKS then
+        acePermission = string.format("rpemotes.walks.%s", emoteName)
+    else
+        acePermission = string.format("rpemotes.emotes.%s", emoteName)
+    end
+
+    return IsPrincipalAceAllowed(principal, acePermission)
+end
+
 -- You can edit this function to add support for your favorite notification system
 function SimpleNotify(message)
     if Config.NotificationsAsChatMessage then

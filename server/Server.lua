@@ -12,6 +12,11 @@ RegisterNetEvent("rpemotes:server:requestEmote", function(target, emotename)
         return
     end
 
+    -- Check ACE permission for shared emote (only requestor needs permission)
+    if not hasEmotePermission(source, emotename, EmoteType.SHARED) then
+        return
+    end
+
     TriggerClientEvent("rpemotes:client:requestEmote", target, emotename, source)
 end)
 
@@ -141,3 +146,20 @@ end, true)
 AddEventHandler("playerLeftScope", function(data)
     TriggerClientEvent("onPlayerLeavingScope", tonumber(data["for"]), tonumber(data["player"]))
 end)
+
+-- ACE Permission System
+local function hasEmotePermission(source, emoteName, emoteType)
+    local acePermission = ""
+
+    if emoteType == EmoteType.SHARED then
+        acePermission = string.format("rpemotes.shared.%s", emoteName)
+    elseif emoteType == EmoteType.EXPRESSIONS then
+        acePermission = string.format("rpemotes.expressions.%s", emoteName)
+    elseif emoteType == EmoteType.WALKS then
+        acePermission = string.format("rpemotes.walks.%s", emoteName)
+    else
+        acePermission = string.format("rpemotes.emotes.%s", emoteName)
+    end
+
+    return IsPlayerAceAllowed(source, acePermission)
+end

@@ -318,6 +318,12 @@ local function createSubMenu(parent, category, title, description, emoteType)
         local emote = items[index].emoteType == EmoteType.SHARED and SharedEmoteData[emoteName] or EmoteData[emoteName]
         if not emote then return end
 
+        -- Check permission before playing
+        if not HasEmotePermission(emoteName, items[index].emoteType) then
+            SimpleNotify("You don't have permission to use this emote")
+            return
+        end
+
         if isEmoteTypePlayable(emote.emoteType) then
             local shiftHeld = IsControlPressed(0, 21)
             local placementState = GetPlacementState()
@@ -559,7 +565,12 @@ local function addWalkMenu(menu)
             ResetWalk()
             DeleteResourceKvp("walkstyle")
         else
-            WalkMenuStart(walkMenu.items[index].name)
+            local walkName = walkMenu.items[index].name
+            if not HasEmotePermission(walkName, EmoteType.WALKS) then
+                SimpleNotify("You don't have permission to use this walk")
+                return
+            end
+            WalkMenuStart(walkName)
         end
     end
 end
@@ -589,7 +600,12 @@ local function addFaceMenu(menu)
             DeleteResourceKvp(EmoteType.EXPRESSIONS)
             ClearFacialIdleAnimOverride(PlayerPedId())
         else
-            EmoteMenuStart(faceMenu.items[index].name, nil, EmoteType.EXPRESSIONS)
+            local expressionName = faceMenu.items[index].name
+            if not HasEmotePermission(expressionName, EmoteType.EXPRESSIONS) then
+                SimpleNotify("You don't have permission to use this expression")
+                return
+            end
+            EmoteMenuStart(expressionName, nil, EmoteType.EXPRESSIONS)
         end
     end
 end
@@ -638,6 +654,22 @@ local function processMenu()
     isMenuProcessing = false
 end
 
+-- Update ACE permissions for all menu items
+local function updateMenuPermissions()
+    -- Update permissions for all submenus
+    for _, subMenu in pairs(subMenus) do
+        for i, itemData in ipairs(subMenu.items) do
+            if itemData.name and itemData.emoteType then
+                local hasPermission = HasEmotePermission(itemData.name, itemData.emoteType)
+                local menuItem = subMenu.menu.Items[i]
+                if menuItem then
+                    menuItem:Enabled(hasPermission)
+                end
+            end
+        end
+    end
+end
+
 function OpenEmoteMenu()
     local canEmote, errorMsg = canPlayerEmote()
     if not canEmote then
@@ -654,7 +686,7 @@ function OpenEmoteMenu()
     if placementState == PlacementState.PREVIEWING or placementState == PlacementState.WALKING then return end
 
     updateEmojiMenuAvailability()
-    
+
     if _menuPool:IsAnyMenuOpen() then
         _menuPool:CloseAllMenus()
     else
@@ -662,6 +694,9 @@ function OpenEmoteMenu()
         if ClonedPed and DoesEntityExist(ClonedPed) then
             ClosePedMenu()
         end
+
+        -- Update permissions dynamically before showing menu
+        updateMenuPermissions()
 
         mainMenu:Visible(true)
         processMenu()
