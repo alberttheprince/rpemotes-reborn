@@ -129,11 +129,13 @@ PlacementState = {
 ---@field scenario? string
 ---@field scenarioType? ScenarioType
 ---@field label? string
----@field secondPlayersAnim? string Second player's anim during a shared emote. Defaults to the same as first player if unset.
 ---@field AnimationOptions? AnimationOptions
 ---@field AnimalEmote? boolean
 ---@field AdultAnimation? boolean
 ---@field abusable? boolean true if the emote or walk style has abuse potential such as letting a player change their movement speed, or move through a wall.
 ---@field emoteType EmoteType
+
+---@class SharedEmoteData : EmoteData
+---@field secondPlayersAnim? string Second player's anim during a shared emote. Defaults to the same as first player if unset.
 
 ---@alias Category string

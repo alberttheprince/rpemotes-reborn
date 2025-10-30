@@ -1,6 +1,9 @@
 ---@type table<string, EmoteData>
 EmoteData = {}
 
+---@type table<string, SharedEmoteData>
+SharedEmoteData = {}
+
 ---@type table<string, ExpressionData>
 ExpressionData = {}
 
@@ -206,11 +209,11 @@ local function updatePedPreview(currentMenu)
     end
 
     local emoteName = subMenuData.items[currentIndex].name
-    local expression = subMenuData == subMenus[EmoteType.EXPRESSIONS] and ExpressionData[emoteName]
+    local emoteType = subMenuData.items[currentIndex].emoteType
     local emote = EmoteData[emoteName]
 
     -- Check if the selected item is a previewable emote
-    if expression or (emote and isEmoteTypePreviewable(emote.emoteType)) then
+    if emoteType == EmoteType.EXPRESSIONS or (emote and isEmoteTypePreviewable(emote.emoteType)) then
         -- Check if we're already showing this exact emote - if so, do nothing
         if LastEmote.name == emoteName and ClonedPed and DoesEntityExist(ClonedPed) then
             return
@@ -222,14 +225,14 @@ local function updatePedPreview(currentMenu)
             ClearPedTaskPreview()
             LastEmote = {
                 name = emoteName,
-                isExpression = not emote
+                emoteType = emoteType,
             }
-            EmoteMenuStartClone(emoteName, nil, emote?.emoteType or EmoteType.EXPRESSIONS)
+            EmoteMenuStartClone(emoteName, emoteType)
         else
             -- Ped doesn't exist, create it
             LastEmote = {
                 name = emoteName,
-                isExpression = not emote
+                emoteType = emoteType,
             }
             ShowPedMenu()
             WaitForClonedPedThenPlayLastAnim()
@@ -275,7 +278,7 @@ local function createSubMenu(parent, category, title, description, emoteType)
                 return
             end
 
-            EmoteMenuStart(items[index].name)
+            EmoteMenuStart(items[index].name, nil, items[index].emoteType)
         elseif emote.emoteType == EmoteType.SHARED then
             sendSharedEmoteRequest(items[index].name)
         end
@@ -286,7 +289,7 @@ local function createSubMenu(parent, category, title, description, emoteType)
         local emote = EmoteData[emoteName]
         if not emote then return end
         if emote.emoteType ~= EmoteType.PROP_EMOTES then return end
-        EmoteMenuStart(items[itemIndex].name, item:IndexToItem(listIndex).Value)
+        EmoteMenuStart(items[itemIndex].name, item:IndexToItem(listIndex).Value, items[itemIndex].emoteType)
     end
 
     menu.OnMenuChanged = function(oldMenu, newMenu, forward)
@@ -407,7 +410,7 @@ if Config.Search then
 
         table.sort(results, function(a, b) return a.name < b.name end)
         for index, result in pairs(results) do
-            if index == 1 then LastEmote = {name = result.name} end
+            if index == 1 then LastEmote = {name = result.name, emoteType = result.emoteType} end
 
             local desc
             if result.table == EmoteType.SHARED then
@@ -432,7 +435,7 @@ if Config.Search then
             local data = results[newindex]
 
             ClearPedTaskPreview()
-            EmoteMenuStartClone(data.name)
+            EmoteMenuStartClone(data.name, data.emoteType)
         end
 
         searchMenu.OnItemSelect = function(_, _, index)
@@ -449,12 +452,12 @@ if Config.Search then
                     return
                 end
 
-                EmoteMenuStart(data.name)
+                EmoteMenuStart(data.name, nil, data.emoteType)
             end
         end
 
         searchMenu.OnListSelect = function(_, item, itemIndex, listIndex)
-            EmoteMenuStart(results[itemIndex].name, item:IndexToItem(listIndex).Value)
+            EmoteMenuStart(results[itemIndex].name, item:IndexToItem(listIndex).Value, results[itemIndex].emoteType)
         end
 
         searchMenu.OnMenuClosed = function()
@@ -716,6 +719,23 @@ local function convertRP()
                 emoteData.anim = emoteData[1]
                 emoteData.label = emoteData[2] or emoteName
                 WalkData[emoteName] = emoteData
+            elseif emoteType == EmoteType.SHARED then
+                if SharedEmoteData[emoteName] then
+                    print(string.format("WARNING - Duplicate shared emote name found: %s", emoteName))
+                end
+
+                if type(emoteData) == "table" then
+                    local sharedEmote = {}
+                    for k, v in pairs(emoteData) do
+                        sharedEmote[k] = v
+                    end
+                    sharedEmote.emoteType = emoteType
+                    convertToEmoteData(emoteName, sharedEmote)
+                    SharedEmoteData[emoteName] = sharedEmote
+
+                    -- Also add to EmoteData for backward compatibility
+                    newRP[emoteName] = sharedEmote
+                end
             else
                 if newRP[emoteName] then
                     print(string.format(
@@ -836,7 +856,7 @@ function WaitForClonedPedThenPlayLastAnim()
         end
 
         if ClonedPed and DoesEntityExist(ClonedPed) and LastEmote.name then
-            EmoteMenuStartClone(LastEmote.name)
+            EmoteMenuStartClone(LastEmote.name, LastEmote.emoteType)
         end
 
         isWaitingForPed = false

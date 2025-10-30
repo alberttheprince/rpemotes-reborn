@@ -6,7 +6,7 @@ InHandsup = false
 CONVERTED = false
 LastEmote = {
     name = nil,
-    isExpression = false,
+    emoteType = nil,
 }
 local lastEmoteTime = 0
 
@@ -262,7 +262,7 @@ function EmoteMenuStart(name, textureVariation, emoteType)
         return
     end
 
-    local emote = EmoteData[name]
+    local emote = emoteType == EmoteType.SHARED and SharedEmoteData[name] or EmoteData[name]
 
     if not emote then
         return
@@ -441,19 +441,17 @@ function EmoteMenuStartClone(name, emoteType)
 
     if emoteType == EmoteType.EXPRESSIONS then
         local emote = ExpressionData[name]
-        if not emote then return end
-        SetFacialIdleAnimOverride(ClonedPed, emote.anim, true)
+        if emote then
+            SetFacialIdleAnimOverride(ClonedPed, emote.anim, true)
+        else
+            ClearFacialIdleAnimOverride(ClonedPed)
+        end
         return
     end
 
-    local emote = EmoteData[name]
+    local emote = emoteType == EmoteType.SHARED and SharedEmoteData[name] or EmoteData[name]
 
     if not emote then
-        return
-    end
-
-    if emote.emoteType == EmoteType.EXPRESSIONS then
-        SetFacialIdleAnimOverride(ClonedPed, emote[1], true)
         return
     end
 
