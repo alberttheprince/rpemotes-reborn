@@ -61,7 +61,7 @@ if Config.HandsupEnabled then
                                  IsThisModelAJetski(vehicleModel) or 
                                  IsThisModelAQuadbike(vehicleModel)
             
-            TaskPlayAnim(PlayerPedId(), HANDSUP_DICT, HANDSUP_ANIM, 3.0, 3.0, -1, 262161, 0, false,
+            TaskPlayAnim(PlayerPedId(), HANDSUP_DICT, HANDSUP_ANIM, 3.0, 3.0, -1, HANDSUP_FLAGS, 0, false,
                 isTwoWheeler and 4098 or false, false)
             HandsUpLoop()
         else
