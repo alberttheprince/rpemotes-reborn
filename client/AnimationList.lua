@@ -23887,6 +23887,7 @@ RP.PropEmotes = {
         "beachanims@molly",
         "beachanim_surf_clip",
         "Shield",
+        abusable = true,
         AnimationOptions = {
             Prop = "prop_riot_shield",
             PropBone = 18905,
@@ -23905,6 +23906,7 @@ RP.PropEmotes = {
         "beachanims@molly",
         "beachanim_surf_clip",
         "Shield 2",
+        abusable = true,
         AnimationOptions = {
             Prop = "prop_ballistic_shield",
             PropBone = 18905,
