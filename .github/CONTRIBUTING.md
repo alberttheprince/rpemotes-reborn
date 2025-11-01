@@ -2,10 +2,6 @@
 
 Thank you for considering contributing to our project! We value the involvement of every community member and appreciate your help in making this project better. To ensure a positive and inclusive experience for everyone, we have established these guidelines, which we expect all contributors to follow.
 
-## Code of Conduct
-
-Before contributing, please review our [Code of Conduct](CODE_OF_CONDUCT.md) to understand the expected behavior and our commitment to maintaining a respectful and inclusive environment.
-
 ## How to Contribute
 
 1. Fork the repository and create your branch from the `master` branch.
