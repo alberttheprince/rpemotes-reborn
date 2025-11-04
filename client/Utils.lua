@@ -1,77 +1,39 @@
--- ACE Permission System - Client Side
 -- Stores permission manifest from server (adaptive allow/deny list)
-local PermissionManifest = {
+local permissions = {
     mode = "allow",  -- "allow" or "deny"
-    list = {
-        emotes = {},
-        shared = {},
-        expressions = {},
-        walks = {}
+    categories = {
+        [EmoteType.EMOTES] = {},
+        [EmoteType.SHARED] = {},
+        [EmoteType.EXPRESSIONS] = {},
+        [EmoteType.WALKS] = {}
     },
     loaded = false
 }
 
--- Receive permission manifest from server
-RegisterNetEvent('rpemotes:client:receivePermissions')
-AddEventHandler('rpemotes:client:receivePermissions', function(manifest)
-    PermissionManifest = manifest
-    PermissionManifest.loaded = true
-    DebugPrint(string.format("[rpemotes] Received permission manifest: mode=%s", manifest.mode))
-
-    -- Update menu permissions if the menu exists
-    if updateMenuPermissions then
-        updateMenuPermissions()
-    end
-end)
-
--- Request permissions from server on startup
-CreateThread(function()
-    -- Wait a moment for player to be fully loaded
-    Wait(1000)
-    TriggerServerEvent('rpemotes:server:requestPermissions')
-    DebugPrint("[rpemotes] Requested permission manifest from server")
+RegisterNetEvent('rpemotes:client:receivePermissions', function(manifest)
+    permissions = manifest
+    permissions.loaded = true
+    DebugPrint(string.format("[rpemotes] Received permission manifest: mode=%s", permissions.mode))
+    UpdateMenuPermissions()
 end)
 
 -- ACE Permission Helper
 function HasEmotePermission(emoteName, emoteType)
     -- If manifest not loaded yet, allow by default (server will validate anyway)
-    if not PermissionManifest.loaded then
+    if not permissions.loaded then
         return true
     end
 
-    -- Determine category
-    local category
-    if emoteType == EmoteType.SHARED then
-        category = 'shared'
-    elseif emoteType == EmoteType.EXPRESSIONS then
-        category = 'expressions'
-    elseif emoteType == EmoteType.WALKS then
-        category = 'walks'
-    else
-        category = 'emotes'
-    end
-
-    -- Check if emote is in the list
-    local isInList = PermissionManifest.list[category][emoteName] == true
+    local category = AceCategoryFromEmoteType[emoteType]
+    local present = permissions.categories[category][emoteName]
 
     -- Return based on mode
-    if PermissionManifest.mode == "deny" then
-        return not isInList  -- Allowed unless in deny list
+    if permissions.mode == "deny" then
+        return not present  -- Allowed unless in deny list
     else
-        return isInList      -- Denied unless in allow list
+        return present      -- Denied unless in allow list
     end
 end
-
--- Export function to manually refresh permissions
-CreateExport('RefreshPermissions', function()
-    TriggerServerEvent('rpemotes:server:requestPermissions')
-end)
-
--- Client command to refresh permissions
-RegisterCommand('rpemotes:refreshperms', function()
-    TriggerServerEvent('rpemotes:server:requestPermissions')
-    SimpleNotify("Refreshing emote permissions...")
-end, false)
 
 -- You can edit this function to add support for your favorite notification system
 function SimpleNotify(message)

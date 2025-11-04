@@ -654,11 +654,10 @@ local function processMenu()
     isMenuProcessing = false
 end
 
--- Update ACE permissions for all menu items
-local function updateMenuPermissions()
-    -- Update permissions for all submenus
+--- Disable menu items which user doesn't have permission for
+function UpdateMenuPermissions()
     for _, subMenu in pairs(subMenus) do
-        for i, itemData in ipairs(subMenu.items) do
+         for i, itemData in ipairs(subMenu.items) do
             if itemData.name and itemData.emoteType then
                 local hasPermission = HasEmotePermission(itemData.name, itemData.emoteType)
                 local menuItem = subMenu.menu.Items[i]
@@ -694,9 +693,6 @@ function OpenEmoteMenu()
         if ClonedPed and DoesEntityExist(ClonedPed) then
             ClosePedMenu()
         end
-
-        -- Update permissions dynamically before showing menu
-        updateMenuPermissions()
 
         mainMenu:Visible(true)
         processMenu()
@@ -877,6 +873,10 @@ CreateThread(function()
     LoadAddonEmotes()
     convertRP()
     initMenu()
+
+    -- Request permissions from server after menu is created
+    TriggerServerEvent('rpemotes:server:requestPermissions')
+    DebugPrint("[rpemotes] Requested permission manifest from server")
 end)
 
 local idleCamActive = false

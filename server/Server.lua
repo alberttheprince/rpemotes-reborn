@@ -1,3 +1,95 @@
+local emoteCache = {
+    [EmoteType.EMOTES] = {},
+    [EmoteType.SHARED] = {},
+    [EmoteType.EXPRESSIONS] = {},
+    [EmoteType.WALKS] = {},
+}
+
+-- Load and cache animation lists on startup
+local function loadAndCacheEmotes()
+    print("^3[rpemotes] Loading and caching emote data...^0")
+
+    -- Load AnimationList.lua
+    local animationFile = LoadResourceFile(GetCurrentResourceName(), "client/AnimationList.lua")
+    if not animationFile then
+        print("^1[rpemotes] Failed to load AnimationList.lua^0")
+        return false
+    end
+
+    local f, err = load(animationFile .. " return RP")
+    if err then
+        print("^1[rpemotes] Error loading AnimationList.lua: " .. tostring(err) .. "^0")
+        return false
+    end
+
+    local success, RP = pcall(f)
+    if not success then
+        print("^1[rpemotes] Error parsing AnimationList.lua: " .. tostring(RP) .. "^0")
+        return false
+    end
+
+    -- Load AnimationListCustom.lua
+    local CustomDP
+    local customFile = LoadResourceFile(GetCurrentResourceName(), "client/AnimationListCustom.lua")
+    if customFile then
+        local customFunc, customErr = load(customFile .. " return CustomDP")
+        if not customErr then
+            local customSuccess, result = pcall(customFunc)
+            if customSuccess and result then
+                CustomDP = result
+                print("^2[rpemotes] Loaded custom emotes^0")
+            end
+        end
+    end
+
+    -- Cache emote names by ACE category
+    local counts = {
+        [EmoteType.EMOTES] = 0,
+        [EmoteType.SHARED] = 0,
+        [EmoteType.EXPRESSIONS] = 0,
+        [EmoteType.WALKS] = 0,
+    }
+
+    -- Helper function to cache emotes from a table
+    local function cacheEmotesFromTable(emoteTable)
+        for emoteType, aceCategory in pairs(AceCategoryFromEmoteType) do
+            for emoteName in pairs(emoteTable[emoteType] or {}) do
+                emoteCache[aceCategory][emoteName] = true
+                counts[aceCategory] += 1
+            end
+        end
+    end
+
+    -- Cache emotes from both AnimationList and AnimationListCustom
+    cacheEmotesFromTable(RP)
+    if CustomDP then
+        cacheEmotesFromTable(CustomDP)
+    end
+
+    print(string.format("^2[rpemotes] Cached %d emotes, %d shared, %d expressions, %d walks^0",
+        counts[EmoteType.EMOTES], counts[EmoteType.SHARED], counts[EmoteType.EXPRESSIONS], counts[EmoteType.WALKS]))
+
+    return true
+end
+
+loadAndCacheEmotes()
+
+local function hasEmotePermission(source, emoteName, emoteType)
+    local ace
+    if emoteType == EmoteType.SHARED then
+        ace = string.format("rpemotes.shared.%s", emoteName)
+    elseif emoteType == EmoteType.EXPRESSIONS then
+        ace = string.format("rpemotes.expressions.%s", emoteName)
+    elseif emoteType == EmoteType.WALKS then
+        ace = string.format("rpemotes.walks.%s", emoteName)
+    else
+        ace = string.format("rpemotes.emotes.%s", emoteName)
+    end
+
+    return IsPlayerAceAllowed(source, ace)
+end
+
+
 RegisterNetEvent("rpemotes:server:requestEmote", function(target, emotename)
     local source = source
     if not Player(source).state.canEmote then return end
@@ -147,193 +239,47 @@ AddEventHandler("playerLeftScope", function(data)
     TriggerClientEvent("onPlayerLeavingScope", tonumber(data["for"]), tonumber(data["player"]))
 end)
 
--- ACE Permission System
-local function hasEmotePermission(source, emoteName, emoteType)
-    local acePermission = ""
-
-    if emoteType == EmoteType.SHARED then
-        acePermission = string.format("rpemotes.shared.%s", emoteName)
-    elseif emoteType == EmoteType.EXPRESSIONS then
-        acePermission = string.format("rpemotes.expressions.%s", emoteName)
-    elseif emoteType == EmoteType.WALKS then
-        acePermission = string.format("rpemotes.walks.%s", emoteName)
-    else
-        acePermission = string.format("rpemotes.emotes.%s", emoteName)
-    end
-
-    return IsPlayerAceAllowed(source, acePermission)
-end
-
--- Load emote data from AnimationList
-local function loadEmoteData()
-    local animationFile = LoadResourceFile(GetCurrentResourceName(), "client/AnimationList.lua")
-    if not animationFile then
-        print("^1[rpemotes] Failed to load AnimationList.lua^0")
-        return nil
-    end
-
-    local f, err = load(animationFile .. " return RP")
-    if err then
-        print("^1[rpemotes] Error loading AnimationList.lua: " .. tostring(err) .. "^0")
-        return nil
-    end
-
-    local success, res = pcall(f)
-    if not success then
-        print("^1[rpemotes] Error parsing AnimationList.lua: " .. tostring(res) .. "^0")
-        return nil
-    end
-
-    return res
-end
-
 -- Build adaptive permission manifest (sends smaller list: allow or deny)
 local function buildPermissionManifest(source)
-    local RP = loadEmoteData()
-    if not RP then
-        -- Return empty manifest if loading fails
-        return {mode = "allow", list = {emotes = {}, shared = {}, expressions = {}, walks = {}}}
-    end
-
     local allowedCount = 0
     local deniedCount = 0
-    local allowed = {emotes = {}, shared = {}, expressions = {}, walks = {}}
-    local denied = {emotes = {}, shared = {}, expressions = {}, walks = {}}
+    local allowed = {
+        [EmoteType.EMOTES] = {},
+        [EmoteType.SHARED] = {},
+        [EmoteType.EXPRESSIONS] = {},
+        [EmoteType.WALKS] = {},
+    }
+    local denied = {
+        [EmoteType.EMOTES] = {},
+        [EmoteType.SHARED] = {},
+        [EmoteType.EXPRESSIONS] = {},
+        [EmoteType.WALKS] = {},
+    }
 
-    -- Check regular emotes (includes PropEmotes, Dances, AnimalEmotes)
-    for emoteName, _ in pairs(RP.Emotes or {}) do
-        if hasEmotePermission(source, emoteName, EmoteType.EMOTES) then
-            allowed.emotes[emoteName] = true
-            allowedCount = allowedCount + 1
-        else
-            denied.emotes[emoteName] = true
-            deniedCount = deniedCount + 1
-        end
-    end
-
-    -- Check prop emotes
-    for emoteName, _ in pairs(RP.PropEmotes or {}) do
-        if hasEmotePermission(source, emoteName, EmoteType.PROP_EMOTES) then
-            allowed.emotes[emoteName] = true
-            allowedCount = allowedCount + 1
-        else
-            denied.emotes[emoteName] = true
-            deniedCount = deniedCount + 1
-        end
-    end
-
-    -- Check dances
-    for emoteName, _ in pairs(RP.Dances or {}) do
-        if hasEmotePermission(source, emoteName, EmoteType.DANCES) then
-            allowed.emotes[emoteName] = true
-            allowedCount = allowedCount + 1
-        else
-            denied.emotes[emoteName] = true
-            deniedCount = deniedCount + 1
-        end
-    end
-
-    -- Check animal emotes
-    for emoteName, _ in pairs(RP.AnimalEmotes or {}) do
-        if hasEmotePermission(source, emoteName, EmoteType.ANIMAL_EMOTES) then
-            allowed.emotes[emoteName] = true
-            allowedCount = allowedCount + 1
-        else
-            denied.emotes[emoteName] = true
-            deniedCount = deniedCount + 1
-        end
-    end
-
-    -- Check exits
-    for emoteName, _ in pairs(RP.Exits or {}) do
-        if hasEmotePermission(source, emoteName, EmoteType.EXITS) then
-            allowed.emotes[emoteName] = true
-            allowedCount = allowedCount + 1
-        else
-            denied.emotes[emoteName] = true
-            deniedCount = deniedCount + 1
-        end
-    end
-
-    -- Check shared emotes
-    for emoteName, _ in pairs(RP.Shared or {}) do
-        if hasEmotePermission(source, emoteName, EmoteType.SHARED) then
-            allowed.shared[emoteName] = true
-            allowedCount = allowedCount + 1
-        else
-            denied.shared[emoteName] = true
-            deniedCount = deniedCount + 1
-        end
-    end
-
-    -- Check expressions
-    for emoteName, _ in pairs(RP.Expressions or {}) do
-        if hasEmotePermission(source, emoteName, EmoteType.EXPRESSIONS) then
-            allowed.expressions[emoteName] = true
-            allowedCount = allowedCount + 1
-        else
-            denied.expressions[emoteName] = true
-            deniedCount = deniedCount + 1
-        end
-    end
-
-    -- Check walks
-    for emoteName, _ in pairs(RP.Walks or {}) do
-        if hasEmotePermission(source, emoteName, EmoteType.WALKS) then
-            allowed.walks[emoteName] = true
-            allowedCount = allowedCount + 1
-        else
-            denied.walks[emoteName] = true
-            deniedCount = deniedCount + 1
+    -- Check all cached emotes against permissions
+    for emoteType, emoteNames in pairs(emoteCache) do
+        for emoteName in pairs(emoteNames) do
+            if hasEmotePermission(source, emoteName, emoteType) then
+                allowed[emoteType][emoteName] = true
+                allowedCount += 1
+            else
+                denied[emoteType][emoteName] = true
+                deniedCount += 1
+            end
         end
     end
 
     -- Send whichever list is smaller
     if deniedCount < allowedCount then
-        return {mode = "deny", list = denied}
+        return {mode = "deny", categories = denied}
     else
-        return {mode = "allow", list = allowed}
+        return {mode = "allow", categories = allowed}
     end
 end
 
--- Handle permission manifest requests
-RegisterNetEvent('rpemotes:server:requestPermissions')
-AddEventHandler('rpemotes:server:requestPermissions', function()
+--- permissions callback
+RegisterNetEvent('rpemotes:server:requestPermissions', function()
     local source = source
-    local manifest = buildPermissionManifest(source)
-
-    -- Log for debugging
-    local listSize = 0
-    for _, category in pairs(manifest.list) do
-        for _ in pairs(category) do
-            listSize = listSize + 1
-        end
-    end
-
-    print(string.format("^3[rpemotes] Sent %s list (%d emotes) to player %d^0", manifest.mode, listSize, source))
-
-    TriggerClientEvent('rpemotes:client:receivePermissions', source, manifest)
+    local permissions = buildPermissionManifest(source)
+    TriggerClientEvent('rpemotes:client:receivePermissions', source, permissions)
 end)
-
--- Refresh permissions for a specific player (admin command)
-RegisterCommand('rpemotes:refreshperms', function(source, args)
-    if source > 0 then
-        -- Player executing command - refresh their own permissions
-        local manifest = buildPermissionManifest(source)
-        TriggerClientEvent('rpemotes:client:receivePermissions', source, manifest)
-        TriggerClientEvent('chat:addMessage', source, {
-            color = {255, 255, 0},
-            args = {"[rpemotes]", "Your emote permissions have been refreshed"}
-        })
-    else
-        -- Console executing command - refresh target player's permissions
-        local targetId = tonumber(args[1])
-        if targetId then
-            local manifest = buildPermissionManifest(targetId)
-            TriggerClientEvent('rpemotes:client:receivePermissions', targetId, manifest)
-            print(string.format("^2[rpemotes] Refreshed permissions for player %d^0", targetId))
-        else
-            print("^1[rpemotes] Usage: rpemotes:refreshperms <playerId>^0")
-        end
-    end
-end, false)
