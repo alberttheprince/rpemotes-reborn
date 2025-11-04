@@ -323,7 +323,7 @@ function DoesPedVehicleHaveHandleBars(ped)
 
     local vehicleModel = GetEntityModel(pedVehicle)
 
-    return IsThisModelABike(vehicleModel) or IsThisModelAJetski(vehicleModel) or IsThisModelAQuadbike(vehicleModel)
+    return IsThisModelABike(vehicleModel) or IsThisModelAJetski(vehicleModel) or IsThisModelAQuadbike(vehicleModel) or IsThisModelABicycle(vehicleModel)
 end
 
 ----------------------------------------------------------------------
