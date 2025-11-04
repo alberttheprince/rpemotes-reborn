@@ -658,10 +658,25 @@ function UpdateMenuPermissions()
     for _, subMenu in pairs(subMenus) do
          for i, itemData in ipairs(subMenu.items) do
             if itemData.name and itemData.emoteType then
-                local hasPermission = HasEmotePermission(itemData.name, itemData.emoteType)
-                local menuItem = subMenu.menu.Items[i]
-                if menuItem then
-                    menuItem:Enabled(hasPermission)
+                -- Check if this is an actual emote (exists in data tables)
+                local isActualEmote = false
+                if itemData.emoteType == EmoteType.SHARED then
+                    isActualEmote = SharedEmoteData[itemData.name] ~= nil
+                elseif itemData.emoteType == EmoteType.EXPRESSIONS then
+                    isActualEmote = ExpressionData[itemData.name] ~= nil
+                elseif itemData.emoteType == EmoteType.WALKS then
+                    isActualEmote = WalkData[itemData.name] ~= nil
+                else
+                    isActualEmote = EmoteData[itemData.name] ~= nil
+                end
+
+                -- Only check permissions for actual emotes
+                if isActualEmote then
+                    local hasPermission = HasEmotePermission(itemData.name, itemData.emoteType)
+                    local menuItem = subMenu.menu.Items[i]
+                    if menuItem then
+                        menuItem:Enabled(hasPermission)
+                    end
                 end
             end
         end

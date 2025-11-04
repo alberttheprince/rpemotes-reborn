@@ -52,10 +52,14 @@ local function loadAndCacheEmotes()
     }
 
     local function cacheEmotesFromTable(emoteTable)
-        for emoteType, emoteName in pairs(emoteTable) do
+        for emoteType, emoteList in pairs(emoteTable) do
             local aceCategory = AceCategoryFromEmoteType[emoteType]
-            emoteCache[aceCategory][emoteName] = true
-            counts[aceCategory] += 1
+            if aceCategory and type(emoteList) == "table" then
+                for emoteName in pairs(emoteList) do
+                    emoteCache[aceCategory][emoteName] = true
+                    counts[aceCategory] += 1
+                end
+            end
         end
     end
 
