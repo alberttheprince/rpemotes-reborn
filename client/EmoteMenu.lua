@@ -318,9 +318,8 @@ local function createSubMenu(parent, category, title, description, emoteType)
         local emote = items[index].emoteType == EmoteType.SHARED and SharedEmoteData[emoteName] or EmoteData[emoteName]
         if not emote then return end
 
-        -- Check permission before playing
         if not HasEmotePermission(emoteName, items[index].emoteType) then
-            SimpleNotify("You don't have permission to use this emote")
+            EmoteChatMessage("You don't have permission to use this emote")
             return
         end
 
@@ -567,7 +566,7 @@ local function addWalkMenu(menu)
         else
             local walkName = walkMenu.items[index].name
             if not HasEmotePermission(walkName, EmoteType.WALKS) then
-                SimpleNotify("You don't have permission to use this walk")
+                EmoteChatMessage("You don't have permission to use this walk")
                 return
             end
             WalkMenuStart(walkName)
@@ -602,7 +601,7 @@ local function addFaceMenu(menu)
         else
             local expressionName = faceMenu.items[index].name
             if not HasEmotePermission(expressionName, EmoteType.EXPRESSIONS) then
-                SimpleNotify("You don't have permission to use this expression")
+                EmoteChatMessage("You don't have permission to use this expression")
                 return
             end
             EmoteMenuStart(expressionName, nil, EmoteType.EXPRESSIONS)

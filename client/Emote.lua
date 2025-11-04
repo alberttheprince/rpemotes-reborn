@@ -256,13 +256,12 @@ local function checkAnimalAndOnEmotePlay(name)
 end
 
 function EmoteMenuStart(name, textureVariation, emoteType)
+    if not HasEmotePermission(name, emoteType) then
+        EmoteChatMessage("You don't have permission to use this emote")
+        return
+    end
     if emoteType == EmoteType.EXPRESSIONS then
         if not ExpressionData[name] then return end
-        -- Check permission for expressions
-        if not HasEmotePermission(name, EmoteType.EXPRESSIONS) then
-            EmoteChatMessage("You don't have permission to use this expression")
-            return
-        end
         SetPlayerPedExpression(name, true)
         return
     end
@@ -270,12 +269,6 @@ function EmoteMenuStart(name, textureVariation, emoteType)
     local emote = emoteType == EmoteType.SHARED and SharedEmoteData[name] or EmoteData[name]
 
     if not emote then
-        return
-    end
-
-    -- Check permission for regular emotes and shared emotes
-    if not HasEmotePermission(name, emote.emoteType) then
-        EmoteChatMessage("You don't have permission to use this emote")
         return
     end
 
@@ -503,7 +496,6 @@ function EmoteCommandStart(args)
         return
     end
 
-    -- Check ACE permission
     if not HasEmotePermission(name, emote.emoteType) then
         EmoteChatMessage("You don't have permission to use this emote")
         return

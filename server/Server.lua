@@ -1,3 +1,4 @@
+---@type table<EmoteType, table<string, boolean>>
 local emoteCache = {
     [EmoteType.EMOTES] = {},
     [EmoteType.SHARED] = {},
@@ -50,13 +51,11 @@ local function loadAndCacheEmotes()
         [EmoteType.WALKS] = 0,
     }
 
-    -- Helper function to cache emotes from a table
     local function cacheEmotesFromTable(emoteTable)
-        for emoteType, aceCategory in pairs(AceCategoryFromEmoteType) do
-            for emoteName in pairs(emoteTable[emoteType] or {}) do
-                emoteCache[aceCategory][emoteName] = true
-                counts[aceCategory] += 1
-            end
+        for emoteType, emoteName in pairs(emoteTable) do
+            local aceCategory = AceCategoryFromEmoteType[emoteType]
+            emoteCache[aceCategory][emoteName] = true
+            counts[aceCategory] += 1
         end
     end
 
