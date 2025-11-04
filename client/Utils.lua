@@ -43,6 +43,11 @@ function CanPlayerCrouchCrawl(playerPed)
         and not IsPedRagdoll(playerPed)
 end
 
+-- Calls `TaskPlayAnim`, but bypasses issue with `use_experimental_fxv2_oal` being `true`, that prevents ints being passed for the last three parameters
+function PlayAnim(...)
+    return Citizen.InvokeNative(0xEA47FE3719165B94, ...)
+end
+
 function PlayAnimOnce(playerPed, animDict, animName, blendInSpeed, blendOutSpeed, duration, startTime)
     LoadAnim(animDict)
     TaskPlayAnim(playerPed, animDict, animName, blendInSpeed or 2.0, blendOutSpeed or 2.0, duration or -1, 0,
@@ -309,6 +314,16 @@ function HandleZoomAndCheckRotation(cam, fov)
     end
 
     return fov
+end
+
+function DoesPedVehicleHaveHandleBars(ped)
+    local pedVehicle = GetVehiclePedIsIn(ped, false)
+
+    if pedVehicle == 0 then return false end
+
+    local vehicleModel = GetEntityModel(pedVehicle)
+
+    return IsThisModelABike(vehicleModel) or IsThisModelAJetski(vehicleModel) or IsThisModelAQuadbike(vehicleModel)
 end
 
 ----------------------------------------------------------------------

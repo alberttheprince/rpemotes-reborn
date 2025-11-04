@@ -2,6 +2,10 @@ local HANDSUP_DICT = "random@mugging3"
 local HANDSUP_ANIM = "handsup_standing_base"
 local HANDSUP_FLAGS = 49
 
+local function IsInHandsUpAnim()
+    return IsEntityPlayingAnim(PlayerPedId(), HANDSUP_DICT, HANDSUP_ANIM, 3)
+end
+
 local function HandsUpLoop()
     CreateThread(function()
         while InHandsup do
@@ -11,7 +15,7 @@ local function HandsUpLoop()
                 end
             end
 
-            if IsPlayerAiming(PlayerId()) or not IsEntityPlayingAnim(PlayerPedId(), HANDSUP_DICT, HANDSUP_ANIM, 3) then
+            if IsPlayerAiming(PlayerId()) or not IsInHandsUpAnim() then
                 ClearPedSecondaryTask(PlayerPedId())
                 InHandsup = false
             end
@@ -55,18 +59,20 @@ if Config.HandsupEnabled then
             while not HasAnimDictLoaded(HANDSUP_DICT) do
                 Wait(0)
             end
-            
-            local vehicleModel = GetEntityModel(GetVehiclePedIsIn(PlayerPedId(), false))
-            local isTwoWheeler = IsThisModelABike(vehicleModel) or 
-                                 IsThisModelAJetski(vehicleModel) or 
-                                 IsThisModelAQuadbike(vehicleModel)
-            
-            TaskPlayAnim(PlayerPedId(), HANDSUP_DICT, HANDSUP_ANIM, 3.0, 3.0, -1, 262161, 0, false,
-                isTwoWheeler and 4098 or false, false)
+
+            local vehicleHasHandleBars = DoesPedVehicleHaveHandleBars(playerPed)
+
+            PlayAnim(PlayerPedId(), HANDSUP_DICT, HANDSUP_ANIM, 3.0, 3.0, -1, vehicleHasHandleBars and 262161 or HANDSUP_FLAGS, 0, false,
+                vehicleHasHandleBars and 4098 or false, false)
+
+            while not IsInHandsUpAnim() do
+                Wait(10)
+            end
+
             HandsUpLoop()
         else
             LocalPlayer.state:set('currentEmote', nil, true)
-            ClearPedSecondaryTask(PlayerPedId())
+            ClearPedTasks(PlayerPedId())
             if Config.ReplayEmoteAfterHandsup and IsInAnimation then
                 local emote = EmoteData[CurrentAnimationName]
                 if not emote then

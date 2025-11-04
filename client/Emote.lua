@@ -94,6 +94,17 @@ local function runAnimationThread()
                     DisableControlAction(2, 141, true)
                     DisableControlAction(2, 142, true)
                 end
+                if DoesPedVehicleHaveHandleBars(pPed) then
+                    if
+                        IsControlJustPressed(0, 59) or -- A/D
+                        IsControlJustPressed(0, 63) or -- A
+                        IsControlJustPressed(0, 64) or -- D
+                        IsControlJustPressed(0, 71) or -- W
+                        IsControlJustPressed(0, 72)    -- S
+                    then
+                        EmoteCancel()
+                    end
+                end
             end
 
             if PtfxPrompt and CurrentAnimOptions then
@@ -634,6 +645,12 @@ function OnEmotePlay(name, textureVariation, emoteType)
         return
     end
 
+    local vehicleHasHandleBars = inVehicle and DoesPedVehicleHaveHandleBars(PlayerPedId())
+
+    if not Config.AllowOnBikes and vehicleHasHandleBars then
+        return
+    end
+
     if Config.AdultEmotesDisabled and emoteData.AdultAnimation then
         return EmoteChatMessage(Translate('adultemotedisabled'))
     end
@@ -754,10 +771,15 @@ function OnEmotePlay(name, textureVariation, emoteType)
 
     local flags = animOption?.Flag or movementType or 0
 
-    -- Override physics (allow floating off the ground) & Ragdoll on Collision
-    if GetPlacementState() == PlacementState.IN_ANIMATION then flags += 1024 + 4194304 end
+    if GetPlacementState() == PlacementState.IN_ANIMATION then
+        -- Override physics (allow floating off the ground) & Ragdoll on Collision
+        flags += 1024 + 4194304
+    elseif vehicleHasHandleBars then
+        -- Overrides flags to sync animations between clients and force only upperbody
+        flags = 16 + 262144
+    end
 
-    TaskPlayAnim(PlayerPedId(), emoteData.dict, emoteData.anim, animOption?.BlendInSpeed or 5.0, animOption?.BlendOutSpeed or 5.0, animOption?.EmoteDuration or -1, flags, 0, false, false,
+    PlayAnim(PlayerPedId(), emoteData.dict, emoteData.anim, animOption?.BlendInSpeed or 5.0, animOption?.BlendOutSpeed or 5.0, animOption?.EmoteDuration or -1, flags, 0, false, vehicleHasHandleBars and 4098 or false,
         false)
     RemoveAnimDict(emoteData.dict)
 

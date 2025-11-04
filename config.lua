@@ -34,6 +34,7 @@ Config = {
     AllowPunchingDuringEmote = false,
     AllowEmoteInVehicle = true,
     AllowInWater = false,
+    AllowOnBikes = true, -- Allow emotes when on a vehicle with handlebars
 
     -- Ragdoll
     RagdollEnabled = false,
