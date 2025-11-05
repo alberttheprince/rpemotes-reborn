@@ -33,6 +33,7 @@ server_scripts {
     'server/Server.lua',
     'server/Updates.lua',
     'server/emojis.lua',
+    'server/GroupEmote.lua'
 }
 
 client_scripts {
@@ -56,7 +57,8 @@ client_scripts {
     'client/Syncing.lua',
     'client/Walk.lua',
     'client/Placement.lua',
-    'client/emojis.lua'
+    'client/emojis.lua',
+    'client/GroupEmote.lua'
 }
 
 

@@ -69,6 +69,7 @@ Locales['en'] = {
     ['btn_back'] = "Back",
     ['btn_place'] = "Place in world",
     ['btn_increment'] = "Increment",
+    ['btn_groupselect'] = "Group emote",
     ['dead'] = "You can't use emotes while dead!",
     ['swimming'] = "You can't use emotes while swimming",
     ['notvalidpet'] = "RUH ROH! Incorrect ped model detected 🐕!",
@@ -102,5 +103,11 @@ Locales['en'] = {
     -- Placement helper
     ['rotate'] = "Rotate",
     ['height'] = "Height",
-    ['toofar'] = "~r~Too far away!~w~~s~"
+    ['toofar'] = "~r~Too far away!~w~~s~",
+    -- Group emotes
+    ['notvalidgroupemote'] = "Not a valid group emote!",
+    ['requestedgroupemote'] = "You requested group emote (~g~%s~w~) to ~y~%i~w~ people!",
+    ['acceptedgroupemote'] = "You accepted group emote (~g~%s~w~). It will start in a moment.",
+    ['refusedgroupemote'] = "You refused the group emote.",
+    ['canceledgroupemote'] = "You canceled the group emote."
 }
