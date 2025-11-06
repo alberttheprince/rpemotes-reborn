@@ -150,7 +150,7 @@ local function preparePreviewPed(startPosition, emoteName)
     SetEntityAlpha(previewPed, 150, false)
     FreezeEntityPosition(previewPed, true)
     SetEntityRotation(previewPed, 0, 0, 0, 2, false)
-    SetEntityCoordsNoOffset(previewPed, startPosition.x, startPosition.y, startPosition.z - 50, true, true, true)
+    SetEntityCoords(previewPed, startPosition.x, startPosition.y, startPosition.z - 50, false, false, false, false)
     EmotePlayOnNonPlayerPed(previewPed, emoteName)
 end
 
@@ -213,7 +213,7 @@ local function positionPreviewPed(emoteName)
                 end
 
                 SetEntityHeading(previewPed, initHeading + rotateAmount)
-                SetEntityCoordsNoOffset(previewPed, possiblePosition.x, possiblePosition.y, possiblePosition.z, true, true, true)
+                SetEntityCoords(previewPed, possiblePosition.x, possiblePosition.y, possiblePosition.z - 1, false, false, false, false)
             end
 
             disableControls()
