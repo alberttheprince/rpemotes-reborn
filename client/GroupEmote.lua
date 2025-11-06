@@ -60,10 +60,9 @@ AddEventHandler("rpemotes:client:autoCancel", function()
     local existingEmote = LocalPlayer.state.currentEmote 
 
     while groupEmoteReqId ~= nil and groupEmoteAccepted == true do
-        -- Keep rechecking to make sure the player is still in area and not using another emote.
-        local currentEmote = LocalPlayer.state.currentEmote
+        -- Keep rechecking to make sure the player is still in area.
         local crds = GetEntityCoords(PlayerPedId())
-        if #(crds - (groupEmoteOriginCoords or vector3(0))) > groupEmoteOriginRadius or (currentEmote ~= nil and currentEmote ~= existingEmote) then
+        if #(crds - (groupEmoteOriginCoords or vector3(0))) > groupEmoteOriginRadius then
             groupEmoteReqId = nil
             groupEmoteAccepted = false
             groupEmoteOriginCoords = vector3(0)

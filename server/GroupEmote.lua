@@ -16,7 +16,7 @@ local groupEmoteRequests = {
     ]]--
 }
 
-local function CreateGroupEmoteRequest(reqid, emote, source)
+local function createGroupEmoteRequest(reqid, emote, source)
     return {
         emote = emote,
         requestorID = source,
@@ -37,10 +37,9 @@ RegisterNetEvent("rpemotes:server:startGroupEmote", function(emote, players)
     if type(players) ~= "table" or #players == 0 then return end
     
     -- Create groupEmoteRequest
-    ::retry_reqid::
-    local reqid = tostring(os.time())..tostring(source)..tostring(math.random(0,99))
-    if groupEmoteRequests[reqid] then goto retry_reqid end
-    groupEmoteRequests[reqid] = CreateGroupEmoteRequest(reqid, emote, source)
+    local reqid = tostring(os.time())..tostring(source)
+    if groupEmoteRequests[reqid] then return end -- Player already started a group emote.
+    groupEmoteRequests[reqid] = createGroupEmoteRequest(reqid, emote, source)
 
     local zone = {
         coords = groupEmoteRequests[reqid].zoneOrigin,
