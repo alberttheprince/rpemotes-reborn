@@ -1,3 +1,39 @@
+-- Stores permission manifest from server (adaptive allow/deny list)
+local permissions = {
+    mode = "allow",  -- "allow" or "deny"
+    categories = {
+        [EmoteType.EMOTES] = {},
+        [EmoteType.SHARED] = {},
+        [EmoteType.EXPRESSIONS] = {},
+        [EmoteType.WALKS] = {}
+    },
+    loaded = false
+}
+
+RegisterNetEvent('rpemotes:client:receivePermissions', function(manifest)
+    permissions = manifest
+    permissions.loaded = true
+    DebugPrint(string.format("[rpemotes] Received permission manifest: mode=%s", permissions.mode))
+end)
+
+-- ACE Permission Helper
+function HasEmotePermission(emoteName, emoteType)
+    -- If manifest not loaded yet, allow by default (server will validate anyway)
+    if not permissions.loaded then
+        return true
+    end
+
+    local category = AceCategoryFromEmoteType[emoteType]
+    local present = permissions.categories[category][emoteName]
+
+    -- Return based on mode
+    if permissions.mode == "deny" then
+        return not present  -- Allowed unless in deny list
+    else
+        return present      -- Denied unless in allow list
+    end
+end
+
 -- You can edit this function to add support for your favorite notification system
 function SimpleNotify(message)
     if Config.NotificationsAsChatMessage then

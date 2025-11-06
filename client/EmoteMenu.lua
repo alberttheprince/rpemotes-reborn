@@ -318,6 +318,11 @@ local function createSubMenu(parent, category, title, description, emoteType)
         local emote = items[index].emoteType == EmoteType.SHARED and SharedEmoteData[emoteName] or EmoteData[emoteName]
         if not emote then return end
 
+        if not HasEmotePermission(emoteName, items[index].emoteType) then
+            EmoteChatMessage("You don't have permission to use this emote")
+            return
+        end
+
         if isEmoteTypePlayable(emote.emoteType) then
             local shiftHeld = IsControlPressed(0, 21)
             local placementState = GetPlacementState()
@@ -559,7 +564,12 @@ local function addWalkMenu(menu)
             ResetWalk()
             DeleteResourceKvp("walkstyle")
         else
-            WalkMenuStart(walkMenu.items[index].name)
+            local walkName = walkMenu.items[index].name
+            if not HasEmotePermission(walkName, EmoteType.WALKS) then
+                EmoteChatMessage("You don't have permission to use this walk")
+                return
+            end
+            WalkMenuStart(walkName)
         end
     end
 end
@@ -589,7 +599,12 @@ local function addFaceMenu(menu)
             DeleteResourceKvp(EmoteType.EXPRESSIONS)
             ClearFacialIdleAnimOverride(PlayerPedId())
         else
-            EmoteMenuStart(faceMenu.items[index].name, nil, EmoteType.EXPRESSIONS)
+            local expressionName = faceMenu.items[index].name
+            if not HasEmotePermission(expressionName, EmoteType.EXPRESSIONS) then
+                EmoteChatMessage("You don't have permission to use this expression")
+                return
+            end
+            EmoteMenuStart(expressionName, nil, EmoteType.EXPRESSIONS)
         end
     end
 end
@@ -654,7 +669,7 @@ function OpenEmoteMenu()
     if placementState == PlacementState.PREVIEWING or placementState == PlacementState.WALKING then return end
 
     updateEmojiMenuAvailability()
-    
+
     if _menuPool:IsAnyMenuOpen() then
         _menuPool:CloseAllMenus()
     else
@@ -842,6 +857,10 @@ CreateThread(function()
     LoadAddonEmotes()
     convertRP()
     initMenu()
+
+    -- Request permissions from server after menu is created
+    TriggerServerEvent('rpemotes:server:requestPermissions')
+    DebugPrint("[rpemotes] Requested permission manifest from server")
 end)
 
 local idleCamActive = false
