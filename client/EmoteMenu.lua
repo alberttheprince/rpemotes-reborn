@@ -94,47 +94,34 @@ local function addResetMenuItem(menu, items, emoteType)
     return resetItem
 end
 
+-- Helper function to get label for an emote based on its name and type
+---@param emoteItem string|{name: string, emoteType: EmoteType}
+---@return string
+local function getEmoteLabel(emoteItem)
+    local emoteName = type(emoteItem) == "table" and emoteItem.name or emoteItem
+    local emoteType = type(emoteItem) == "table" and emoteItem.emoteType or nil
+
+    if not emoteType then
+        return EmoteData[emoteName] and EmoteData[emoteName].label or emoteName
+    end
+
+    if emoteType == EmoteType.SHARED then
+        return SharedEmoteData[emoteName] and SharedEmoteData[emoteName].label or emoteName
+    elseif emoteType == EmoteType.EXPRESSIONS then
+        return ExpressionData[emoteName] and ExpressionData[emoteName].label or emoteName
+    elseif emoteType == EmoteType.WALKS then
+        return WalkData[emoteName] and WalkData[emoteName].label or emoteName
+    else
+        return EmoteData[emoteName] and EmoteData[emoteName].label or emoteName
+    end
+end
+
 -- Helper function to sort emotes by label alphabetically (case-insensitive)
 -- Can accept either string[] or {name: string, emoteType: EmoteType}[]
 local function sortEmotesByLabel(emotes)
     table.sort(emotes, function(a, b)
-        local nameA, nameB, labelA, labelB
-
-        -- Check if we're working with objects or strings
-        if type(a) == "table" then
-            nameA = a.name
-            -- Get label from appropriate table based on emoteType
-            if a.emoteType == EmoteType.SHARED then
-                labelA = SharedEmoteData[nameA] and SharedEmoteData[nameA].label or nameA
-            elseif a.emoteType == EmoteType.EXPRESSIONS then
-                labelA = ExpressionData[nameA] and ExpressionData[nameA].label or nameA
-            elseif a.emoteType == EmoteType.WALKS then
-                labelA = WalkData[nameA] and WalkData[nameA].label or nameA
-            else
-                labelA = EmoteData[nameA] and EmoteData[nameA].label or nameA
-            end
-        else
-            nameA = a
-            labelA = EmoteData[nameA] and EmoteData[nameA].label or nameA
-        end
-
-        if type(b) == "table" then
-            nameB = b.name
-            -- Get label from appropriate table based on emoteType
-            if b.emoteType == EmoteType.SHARED then
-                labelB = SharedEmoteData[nameB] and SharedEmoteData[nameB].label or nameB
-            elseif b.emoteType == EmoteType.EXPRESSIONS then
-                labelB = ExpressionData[nameB] and ExpressionData[nameB].label or nameB
-            elseif b.emoteType == EmoteType.WALKS then
-                labelB = WalkData[nameB] and WalkData[nameB].label or nameB
-            else
-                labelB = EmoteData[nameB] and EmoteData[nameB].label or nameB
-            end
-        else
-            nameB = b
-            labelB = EmoteData[nameB] and EmoteData[nameB].label or nameB
-        end
-
+        local labelA = getEmoteLabel(a)
+        local labelB = getEmoteLabel(b)
         return string.lower(labelA) < string.lower(labelB)
     end)
 end
