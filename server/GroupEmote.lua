@@ -16,11 +16,11 @@ local groupEmoteRequests = {
     ]]--
 }
 
-function CreateGroupEmoteRequest(reqid, emote, source)
+local function CreateGroupEmoteRequest(reqid, emote, source)
     return {
         emote = emote,
         requestorID = source,
-        requestorName = GetPlayerName(source) or "INVALID",
+        requestorName = GetPlayerName(source) or "Unknown",
         zoneOrigin = GetEntityCoords(GetPlayerPed(source)), -- Coords where the group request was started.
         zoneRadius = 5.0,
         players = {}
@@ -66,8 +66,8 @@ RegisterNetEvent("rpemotes:server:startGroupEmote", function(emote, players)
     TriggerClientEvent("rpemotes:client:startGroupEmote", source, reqid, zone)
 
     -- Send request to all clients.
-    for src,accepted in pairs(groupEmoteRequests[reqid].players) do
-        if not accepted then
+    for src,acceptedEmote in pairs(groupEmoteRequests[reqid].players) do
+        if not acceptedEmote then
             TriggerClientEvent("rpemotes:client:requestGroupEmote", src, emote, reqid, source, zone)
         end
     end
@@ -83,8 +83,8 @@ RegisterNetEvent("rpemotes:server:confirmGroupEmote", function(reqid)
     group.players[source] = true
 
     local startGroupEmote = true
-    for i,k in pairs(group.players) do
-        if not k then
+    for src, acceptedEmote in pairs(group.players) do
+        if not acceptedEmote then
             startGroupEmote = false
         end
     end

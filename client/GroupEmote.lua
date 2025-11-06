@@ -3,8 +3,6 @@ local groupEmoteAccepted = false
 local groupEmoteOriginCoords = vector3(0)
 local groupEmoteOriginRadius = 5.0
 
-local sourceId = GetPlayerServerId(PlayerId()) -- Cached server source of the client!
-
 RegisterCommand('gemote', function(source, args, raw)
     if not LocalPlayer.state.canEmote then return end
     if IsPedInAnyVehicle(PlayerPedId(), true) then
@@ -20,6 +18,11 @@ RegisterCommand('gemote', function(source, args, raw)
 end, false)
 
 function OnGroupEmoteRequest(emotename)
+    if groupEmoteReqId then
+        SimpleNotify(Translate("cannotstartgroupemote"))
+        return
+    end
+
     local emote = EmoteData[emotename]
     if emote ~= nil and emote.type ~= EmoteType.SHARED then
         local players = {}
@@ -52,15 +55,19 @@ RegisterNetEvent("rpemotes:client:startGroupEmote", function(reqid, zone)
 end)
 
 AddEventHandler("rpemotes:client:autoCancel", function()
+
+    -- We don't want to auto-cancel the group emote request, if the player already has an emote playing.
+    local existingEmote = LocalPlayer.state.currentEmote 
+
     while groupEmoteReqId ~= nil and groupEmoteAccepted == true do
-        -- Keep rechecking to make sure the player is still in area.
+        -- Keep rechecking to make sure the player is still in area and not using another emote.
+        local currentEmote = LocalPlayer.state.currentEmote
         local crds = GetEntityCoords(PlayerPedId())
-        if #(crds - (groupEmoteOriginCoords or vector3(0))) > groupEmoteOriginRadius or LocalPlayer.state.currentEmote ~= nil then
+        if #(crds - (groupEmoteOriginCoords or vector3(0))) > groupEmoteOriginRadius or (currentEmote ~= nil and currentEmote ~= existingEmote) then
             groupEmoteReqId = nil
             groupEmoteAccepted = false
             groupEmoteOriginCoords = vector3(0)
             SimpleNotify(Translate('canceledgroupemote'))
-            print(LocalPlayer.state.currentEmote, type(LocalPlayer.state.currentEmote))
         end
 
         Wait(100)
@@ -70,7 +77,7 @@ end)
 RegisterNetEvent("rpemotes:client:requestGroupEmote", function(emotename, reqid, requestor, zone)
     if groupEmoteReqId then return end
 
-    isRequestAnim = true
+    local isRequestAnim = true
 
     local emote = EmoteData[emotename]
     PlaySound(-1, "NAV", "HUD_AMMO_SHOP_SOUNDSET", false, 0, true)
@@ -107,7 +114,6 @@ RegisterNetEvent("rpemotes:client:requestGroupEmote", function(emotename, reqid,
     end
     Wait(1000)
     if groupEmoteReqId ~= nil and groupEmoteReqId == req then
-        print("cleared old reqid")
         groupEmoteReqId = nil
         groupEmoteAccepted = false
     end

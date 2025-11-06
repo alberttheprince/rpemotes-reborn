@@ -109,5 +109,6 @@ Locales['en'] = {
     ['requestedgroupemote'] = "You requested group emote (~g~%s~w~) to ~y~%i~w~ people!",
     ['acceptedgroupemote'] = "You accepted group emote (~g~%s~w~). It will start in a moment.",
     ['refusedgroupemote'] = "You refused the group emote.",
-    ['canceledgroupemote'] = "You canceled the group emote."
+    ['canceledgroupemote'] = "You canceled the group emote.",
+    ['cannotstartgroupemote'] = "You cannot start another group emote!"
 }
