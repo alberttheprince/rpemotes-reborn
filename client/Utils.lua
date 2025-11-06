@@ -14,7 +14,6 @@ RegisterNetEvent('rpemotes:client:receivePermissions', function(manifest)
     permissions = manifest
     permissions.loaded = true
     DebugPrint(string.format("[rpemotes] Received permission manifest: mode=%s", permissions.mode))
-    UpdateMenuPermissions()
 end)
 
 -- ACE Permission Helper
