@@ -26,6 +26,10 @@ local function canPlayerEmote()
     return true
 end
 
+local function hasClonedPed()
+    return ClonedPed and DoesEntityExist(ClonedPed)
+end
+
 local function isEmoteTypePreviewable(emoteType)
     return emoteType == EmoteType.DANCES
         or emoteType == EmoteType.EMOTES
@@ -94,6 +98,22 @@ local function addResetMenuItem(menu, items, emoteType)
     return resetItem
 end
 
+-- Helper function to get emote data from the appropriate table based on type
+---@param emoteName string
+---@param emoteType EmoteType
+---@return EmoteData|SharedEmoteData|ExpressionData|WalkData|nil
+local function getEmoteData(emoteName, emoteType)
+    if emoteType == EmoteType.SHARED then
+        return SharedEmoteData[emoteName]
+    elseif emoteType == EmoteType.EXPRESSIONS then
+        return ExpressionData[emoteName]
+    elseif emoteType == EmoteType.WALKS then
+        return WalkData[emoteName]
+    else
+        return EmoteData[emoteName]
+    end
+end
+
 -- Helper function to get label for an emote based on its name and type
 ---@param emoteItem string|{name: string, emoteType: EmoteType}
 ---@return string
@@ -101,19 +121,8 @@ local function getEmoteLabel(emoteItem)
     local emoteName = type(emoteItem) == "table" and emoteItem.name or emoteItem
     local emoteType = type(emoteItem) == "table" and emoteItem.emoteType or nil
 
-    if not emoteType then
-        return EmoteData[emoteName] and EmoteData[emoteName].label or emoteName
-    end
-
-    if emoteType == EmoteType.SHARED then
-        return SharedEmoteData[emoteName] and SharedEmoteData[emoteName].label or emoteName
-    elseif emoteType == EmoteType.EXPRESSIONS then
-        return ExpressionData[emoteName] and ExpressionData[emoteName].label or emoteName
-    elseif emoteType == EmoteType.WALKS then
-        return WalkData[emoteName] and WalkData[emoteName].label or emoteName
-    else
-        return EmoteData[emoteName] and EmoteData[emoteName].label or emoteName
-    end
+    local data = getEmoteData(emoteName, emoteType)
+    return data and data.label or emoteName
 end
 
 -- Helper function to sort emotes by label alphabetically (case-insensitive)
@@ -193,6 +202,74 @@ local subMenus = {}
 ---@type table<string, {name: string, emoteType: EmoteType}[]>
 local categoryToEmotes = {}
 
+-- Configuration for how different emote types are displayed in the menu
+local EMOTE_TYPE_CONFIG = {
+    [EmoteType.EMOTES] = {
+        enabled = true,
+        prefix = "",
+        formatDescription = function(emoteName)
+            return string.format("/e (%s)", emoteName)
+        end,
+        addToMenu = function(menu, items, emoteName, data)
+            addEmoteToMenu(menu, items, emoteName, data.label, string.format("/e (%s)", emoteName), data.emoteType)
+        end
+    },
+    [EmoteType.DANCES] = {
+        enabled = true,
+        prefix = "🤼 ",
+        formatDescription = function(emoteName)
+            return string.format("/e (%s)", emoteName)
+        end,
+        addToMenu = function(menu, items, emoteName, data)
+            local label = '🤼 ' .. data.label
+            addEmoteToMenu(menu, items, emoteName, label, string.format("/e (%s)", emoteName), data.emoteType)
+        end
+    },
+    [EmoteType.ANIMAL_EMOTES] = {
+        enabled = function() return Config.AnimalEmotesEnabled end,
+        prefix = "🐶 ",
+        formatDescription = function(emoteName)
+            return string.format("/e (%s)", emoteName)
+        end,
+        addToMenu = function(menu, items, emoteName, data)
+            if Config.AnimalEmotesEnabled then
+                local name = '🐶 ' .. data.label
+                addEmoteToMenu(menu, items, emoteName, name, string.format("/e (%s)", emoteName), data.emoteType)
+            end
+        end
+    },
+    [EmoteType.SHARED] = {
+        enabled = function() return Config.SharedEmotesEnabled end,
+        prefix = "",
+        formatDescription = function(emoteName, data)
+            return formatSharedEmoteDescription(emoteName, data.secondPlayersAnim)
+        end,
+        addToMenu = function(menu, items, emoteName, data)
+            if Config.SharedEmotesEnabled then
+                local desc = formatSharedEmoteDescription(emoteName, data.secondPlayersAnim)
+                local shareitem = NativeUI.CreateItem(data.label, desc)
+                menu:AddItem(shareitem)
+                items[#items+1] = {name = emoteName, emoteType = data.emoteType}
+            end
+        end
+    },
+    [EmoteType.PROP_EMOTES] = {
+        enabled = true,
+        prefix = "📦 ",
+        formatDescription = function(emoteName)
+            return string.format("/e (%s)", emoteName)
+        end,
+        addToMenu = function(menu, items, emoteName, data)
+            local name = '📦 ' .. data.label
+            local propitem = data.AnimationOptions.PropTextureVariations and
+                NativeUI.CreateListItem(name, data.AnimationOptions.PropTextureVariations, 1, string.format("/e (%s)", emoteName)) or
+                NativeUI.CreateItem(name, string.format("/e (%s)", emoteName))
+            menu:AddItem(propitem)
+            items[#items+1] = {name = emoteName, emoteType = data.emoteType}
+        end
+    }
+}
+
 local function sendSharedEmoteRequest(emoteName)
     local target, distance = GetClosestPlayer()
     if (distance ~= -1 and distance < 3) then
@@ -203,13 +280,48 @@ local function sendSharedEmoteRequest(emoteName)
     end
 end
 
+-- Unified handler for emote selection from menus
+---@param emoteName string
+---@param emoteType EmoteType
+---@param textureVariation? any Optional texture variation for prop emotes
+---@return boolean Returns true if the emote was handled successfully
+local function handleEmoteSelection(emoteName, emoteType, textureVariation)
+    local emote = getEmoteData(emoteName, emoteType)
+    if not emote then return false end
+
+    if not HasEmotePermission(emoteName, emoteType) then
+        EmoteChatMessage("You don't have permission to use this emote")
+        return false
+    end
+
+    if emote.emoteType == EmoteType.SHARED then
+        sendSharedEmoteRequest(emoteName)
+        return true
+    end
+
+    if isEmoteTypePlayable(emote.emoteType) then
+        local shiftHeld = IsControlPressed(0, 21)
+        local placementState = GetPlacementState()
+
+        if shiftHeld and placementState ~= PlacementState.PREVIEWING and placementState ~= PlacementState.WALKING then
+            StartNewPlacement(emoteName)
+            return true
+        end
+
+        EmoteMenuStart(emoteName, textureVariation, emoteType)
+        return true
+    end
+
+    return false
+end
+
 local function hidePreview()
     LastEmoteName = nil
 
-    if ClonedPed and DoesEntityExist(ClonedPed) then
+    if hasClonedPed() then
         ClosePedMenu()
     end
-     
+
 end
 
 --- Unified handler that updates the ped preview based on the currently active menu and selection
@@ -251,12 +363,12 @@ local function updatePedPreview(currentMenu)
     -- Check if the selected item is a previewable emote
     if emoteType == EmoteType.EXPRESSIONS or (emote and isEmoteTypePreviewable(emote.emoteType)) then
         -- Check if we're already showing this exact emote - if so, do nothing
-        if LastEmote.name == emoteName and ClonedPed and DoesEntityExist(ClonedPed) then
+        if LastEmote.name == emoteName and hasClonedPed() then
             return
         end
 
         -- Show this emote
-        if ClonedPed and DoesEntityExist(ClonedPed) then
+        if hasClonedPed() then
             -- Ped exists, just switch animation
             ClearPedTaskPreview()
             LastEmote = {
@@ -301,28 +413,7 @@ local function createSubMenu(parent, category, title, description, emoteType)
             return
         end
 
-        local emoteName = items[index].name
-        local emote = items[index].emoteType == EmoteType.SHARED and SharedEmoteData[emoteName] or EmoteData[emoteName]
-        if not emote then return end
-
-        if not HasEmotePermission(emoteName, items[index].emoteType) then
-            EmoteChatMessage("You don't have permission to use this emote")
-            return
-        end
-
-        if isEmoteTypePlayable(emote.emoteType) then
-            local shiftHeld = IsControlPressed(0, 21)
-            local placementState = GetPlacementState()
-
-            if shiftHeld and placementState ~= PlacementState.PREVIEWING and placementState ~= PlacementState.WALKING then
-                StartNewPlacement(items[index].name)
-                return
-            end
-
-            EmoteMenuStart(items[index].name, nil, items[index].emoteType)
-        elseif emote.emoteType == EmoteType.SHARED then
-            sendSharedEmoteRequest(items[index].name)
-        end
+        handleEmoteSelection(items[index].name, items[index].emoteType)
     end
 
     menu.OnListSelect = function(_, item, itemIndex, listIndex)
@@ -330,7 +421,7 @@ local function createSubMenu(parent, category, title, description, emoteType)
         local emote = EmoteData[emoteName]
         if not emote then return end
         if emote.emoteType ~= EmoteType.PROP_EMOTES then return end
-        EmoteMenuStart(items[itemIndex].name, item:IndexToItem(listIndex).Value, items[itemIndex].emoteType)
+        handleEmoteSelection(emoteName, items[itemIndex].emoteType, item:IndexToItem(listIndex).Value)
     end
 
     menu.OnMenuChanged = function(oldMenu, newMenu, forward)
@@ -370,33 +461,16 @@ local function addEmoteMenu(menu)
             for _, emoteInfo in ipairs(emoteList) do
                 local emoteName = emoteInfo.name
                 local emoteType = emoteInfo.emoteType
-                local data = emoteType == EmoteType.SHARED and SharedEmoteData[emoteName] or EmoteData[emoteName]
+                local data = getEmoteData(emoteName, emoteType)
 
                 if data then
-                    if data.emoteType == EmoteType.EMOTES then
-                        addEmoteToMenu(categoryMenu.menu, categoryMenu.items, emoteName, data.label, string.format("/e (%s)", emoteName), data.emoteType)
-                    elseif data.emoteType == EmoteType.DANCES then
-                        local label = '🤼 ' .. data.label
-                        addEmoteToMenu(categoryMenu.menu, categoryMenu.items, emoteName, label, string.format("/e (%s)", emoteName), data.emoteType)
-                    elseif data.emoteType == EmoteType.ANIMAL_EMOTES then
-                        if Config.AnimalEmotesEnabled then
-                            local name = '🐶 ' .. data.label
-                            addEmoteToMenu(categoryMenu.menu, categoryMenu.items, emoteName, name, string.format("/e (%s)", emoteName), data.emoteType)
+                    local config = EMOTE_TYPE_CONFIG[data.emoteType]
+                    if config and config.addToMenu then
+                        -- Check if this type is enabled
+                        local enabled = type(config.enabled) == "function" and config.enabled() or config.enabled
+                        if enabled then
+                            config.addToMenu(categoryMenu.menu, categoryMenu.items, emoteName, data)
                         end
-                    elseif data.emoteType == EmoteType.SHARED then
-                        if Config.SharedEmotesEnabled then
-                            local desc = formatSharedEmoteDescription(emoteName, data.secondPlayersAnim)
-                            local shareitem = NativeUI.CreateItem(data.label, desc)
-                            categoryMenu.menu:AddItem(shareitem)
-                            categoryMenu.items[#categoryMenu.items+1] = {name = emoteName, emoteType = data.emoteType}
-                        end
-                    elseif data.emoteType == EmoteType.PROP_EMOTES then
-                        local name = '📦 ' .. data.label
-                        local propitem = data.AnimationOptions.PropTextureVariations and
-                            NativeUI.CreateListItem(name, data.AnimationOptions.PropTextureVariations, 1, string.format("/e (%s)", emoteName)) or
-                            NativeUI.CreateItem(name, string.format("/e (%s)", emoteName))
-                        categoryMenu.menu:AddItem(propitem)
-                        categoryMenu.items[#categoryMenu.items+1] = {name = emoteName, emoteType = data.emoteType}
                     end
                 end
             end
@@ -478,24 +552,11 @@ if Config.Search then
 
         searchMenu.OnItemSelect = function(_, _, index)
             local data = results[index]
-
-            if data.table == EmoteType.SHARED then
-                sendSharedEmoteRequest(data.name)
-            else
-                local shiftHeld = IsControlPressed(0, 21)
-                local placementState = GetPlacementState()
-
-                if shiftHeld and placementState ~= PlacementState.PREVIEWING and placementState ~= PlacementState.WALKING then
-                    StartNewPlacement(data.name)
-                    return
-                end
-
-                EmoteMenuStart(data.name, nil, data.emoteType)
-            end
+            handleEmoteSelection(data.name, data.table)
         end
 
         searchMenu.OnListSelect = function(_, item, itemIndex, listIndex)
-            EmoteMenuStart(results[itemIndex].name, item:IndexToItem(listIndex).Value, results[itemIndex].emoteType)
+            handleEmoteSelection(results[itemIndex].name, results[itemIndex].table, item:IndexToItem(listIndex).Value)
         end
 
         searchMenu.OnMenuClosed = function()
@@ -522,78 +583,74 @@ local function addCancelEmote(menu)
     end
 end
 
--- TODO: merge with main iterating for loop for menu initialization.
-local function addWalkMenu(menu)
-    createSubMenu(menu, EmoteType.WALKS, Translate('walkingstyles'))
-    local walkMenu = subMenus[EmoteType.WALKS]
-    local walkreset = addResetMenuItem(walkMenu.menu, walkMenu.items, EmoteType.WALKS)
+-- Generic builder for menus with reset functionality (walks, expressions, etc)
+local function addResetableDataMenu(parent, emoteType, title, dataSource, resetHandler, selectHandler)
+    createSubMenu(parent, emoteType, title)
+    local menu = subMenus[emoteType]
+    local resetItem = addResetMenuItem(menu.menu, menu.items, emoteType)
 
-    local sortedWalks = {}
-    for walkName, data in pairs(WalkData) do
-        sortedWalks[#sortedWalks + 1] = {name = walkName, label = data.label, anim = data.anim}
+    -- Sort and add items
+    local sortedItems = {}
+    for name in pairs(dataSource) do
+        sortedItems[#sortedItems + 1] = name
+    end
+    sortEmotesByLabel(sortedItems)
+
+    for _, itemName in ipairs(sortedItems) do
+        local data = dataSource[itemName]
+        local label = data.label or itemName
+        local description = emoteType == EmoteType.WALKS and string.format("/walk (%s)", string.lower(label)) or ""
+        menu.menu:AddItem(NativeUI.CreateItem(label, description))
+        menu.items[#menu.items+1] = {name = itemName, emoteType = emoteType}
     end
 
-    -- Sort walking styles alphabetically by label (case-insensitive)
-    table.sort(sortedWalks, function(a, b)
-        return string.lower(a.label) < string.lower(b.label)
-    end)
-
-    for _, walk in ipairs(sortedWalks) do
-        if not walk.label then
-            print('missing label', json.encode(walk))
-        end
-        walkMenu.menu:AddItem(NativeUI.CreateItem(walk.label, string.format("/walk (%s)", string.lower(walk.label))))
-        walkMenu.items[#walkMenu.items+1] = {name = walk.name, emoteType = EmoteType.WALKS}
-    end
-
-    walkMenu.menu.OnItemSelect = function(_, item, index)
-        if item == walkreset then
-            ResetWalk()
-            DeleteResourceKvp("walkstyle")
+    -- Setup OnItemSelect handler
+    menu.menu.OnItemSelect = function(_, item, index)
+        if item == resetItem then
+            resetHandler()
         else
-            local walkName = walkMenu.items[index].name
-            if not HasEmotePermission(walkName, EmoteType.WALKS) then
-                EmoteChatMessage("You don't have permission to use this walk")
+            local itemName = menu.items[index].name
+            if not HasEmotePermission(itemName, emoteType) then
+                local typeName = emoteType == EmoteType.WALKS and "walk" or "expression"
+                EmoteChatMessage(string.format("You don't have permission to use this %s", typeName))
                 return
             end
-            WalkMenuStart(walkName)
+            selectHandler(itemName)
         end
     end
 end
 
--- TODO: merge with main iterating for loop for menu initialization.
+local function addWalkMenu(menu)
+    addResetableDataMenu(
+        menu,
+        EmoteType.WALKS,
+        Translate('walkingstyles'),
+        WalkData,
+        function()
+            ResetWalk()
+            DeleteResourceKvp("walkstyle")
+        end,
+        WalkMenuStart
+    )
+end
+
 local function addFaceMenu(menu)
-    createSubMenu(menu, EmoteType.EXPRESSIONS, Translate('moods'))
-    local faceMenu = subMenus[EmoteType.EXPRESSIONS]
-    local facereset = addResetMenuItem(faceMenu.menu, faceMenu.items, EmoteType.EXPRESSIONS)
-    -- Override the last item to be empty string instead of 'resetdef'
-    faceMenu.items[#faceMenu.items] = {name = "", emoteType = EmoteType.EXPRESSIONS}
-
-    local expressionsList = {}
-    for emoteName in pairs(ExpressionData) do
-        expressionsList[#expressionsList + 1] = emoteName
-    end
-    sortEmotesByLabel(expressionsList)
-    for _, emoteName in ipairs(expressionsList) do
-        local data = ExpressionData[emoteName]
-        local faceitem = NativeUI.CreateItem(data.label or emoteName, "")
-        faceMenu.menu:AddItem(faceitem)
-        faceMenu.items[#faceMenu.items+1] = {name = emoteName, emoteType = EmoteType.EXPRESSIONS}
-    end
-
-    faceMenu.menu.OnItemSelect = function(_, item, index)
-        if item == facereset then
+    addResetableDataMenu(
+        menu,
+        EmoteType.EXPRESSIONS,
+        Translate('moods'),
+        ExpressionData,
+        function()
             DeleteResourceKvp(EmoteType.EXPRESSIONS)
             ClearFacialIdleAnimOverride(PlayerPedId())
-        else
-            local expressionName = faceMenu.items[index].name
-            if not HasEmotePermission(expressionName, EmoteType.EXPRESSIONS) then
-                EmoteChatMessage("You don't have permission to use this expression")
-                return
-            end
+        end,
+        function(expressionName)
             EmoteMenuStart(expressionName, nil, EmoteType.EXPRESSIONS)
         end
-    end
+    )
+    -- Override the first item to be empty string instead of 'resetdef'
+    local faceMenu = subMenus[EmoteType.EXPRESSIONS]
+    faceMenu.items[1] = {name = "", emoteType = EmoteType.EXPRESSIONS}
 end
 
 local function addEmojiMenu(menu)
@@ -661,7 +718,7 @@ function OpenEmoteMenu()
         _menuPool:CloseAllMenus()
     else
         -- Clean up any existing preview before opening
-        if ClonedPed and DoesEntityExist(ClonedPed) then
+        if hasClonedPed() then
             ClosePedMenu()
         end
 
@@ -876,7 +933,7 @@ CreateThread(function()
 
                 if _menuPool:IsAnyMenuOpen() then
                     -- Only recreate ped if it doesn't exist
-                    if not ClonedPed or not DoesEntityExist(ClonedPed) then
+                    if not hasClonedPed() then
                         ShowPedMenu()
 
                         if LastEmote.name then
@@ -899,11 +956,11 @@ function WaitForClonedPedThenPlayLastAnim()
     CreateThread(function()
         local timeout = GetGameTimer() + 1500
 
-        while GetGameTimer() < timeout and (not ClonedPed or not DoesEntityExist(ClonedPed)) do
+        while GetGameTimer() < timeout and not hasClonedPed() do
             Wait(50)
         end
 
-        if ClonedPed and DoesEntityExist(ClonedPed) and LastEmote.name then
+        if hasClonedPed() and LastEmote.name then
             EmoteMenuStartClone(LastEmote.name, LastEmote.emoteType)
         end
 
