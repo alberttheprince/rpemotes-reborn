@@ -114,14 +114,8 @@ local function disableControls()
     DisableControlAction(0, 201, true)
 end
 
-local function helpText(text)
-    BeginTextCommandDisplayHelp("STRING")
-    AddTextComponentSubstringPlayerName(text)
-    EndTextCommandDisplayHelp(0, false, false, -1)
-end
-
 local function drawControlHelpText()
-    helpText(
+    SimpleHelpText(
         "~INPUT_COVER~/~INPUT_TALK~ " .. Translate('rotate') .. '\n' ..
         "~INPUT_RELOAD~/~INPUT_ARREST~ " .. Translate('height') .. '\n' ..
         "~INPUT_FRONTEND_ACCEPT~ " .. Translate('btn_select')

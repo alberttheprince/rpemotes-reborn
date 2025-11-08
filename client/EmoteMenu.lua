@@ -217,7 +217,7 @@ local function sendSharedEmoteRequest(emoteName)
 end
 
 local function hidePreview()
-    LastEmoteName = nil
+    LastEmote = {}
 
     if ClonedPed and DoesEntityExist(ClonedPed) then
         ClosePedMenu()
@@ -304,6 +304,8 @@ local function createSubMenu(parent, category, title, description, emoteType)
     local menu = _menuPool:AddSubMenu(parent.menu or parent, title, description or '', true, true)
     local items = {}
 
+    menu:AddInstructionButton({GetControlInstructionalButton(2,176), GetControlInstructionalButton(2,36), Translate('btn_groupselect')})
+
     menu.OnIndexChange = function(_, newIndex)
         updatePedPreview(menu)
     end
@@ -323,7 +325,9 @@ local function createSubMenu(parent, category, title, description, emoteType)
             return
         end
 
-        if isEmoteTypePlayable(emote.emoteType) then
+        if IsDisabledControlPressed(0, 36) and isEmoteTypePlayable(emote.emoteType) then
+            OnGroupEmoteRequest(emoteName)
+        elseif isEmoteTypePlayable(emote.emoteType) then
             local shiftHeld = IsControlPressed(0, 21)
             local placementState = GetPlacementState()
 
@@ -646,8 +650,10 @@ end
 local function processMenu()
     if isMenuProcessing then return end
     isMenuProcessing = true
+    mainMenu:UpdateScaleform()
     while _menuPool:IsAnyMenuOpen() do
         _menuPool:ProcessMenus()
+        DisableControlAction(0, 36, true) -- Ducking, to not conflict with group emotes keybind
         Wait(0)
     end
     isMenuProcessing = false
@@ -849,7 +855,6 @@ local function initMenu()
     mainMenu.OnMenuClosed = function()
         ClosePedMenu()
     end
-
     _menuPool:RefreshIndex()
 end
 

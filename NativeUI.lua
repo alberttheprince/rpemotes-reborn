@@ -3553,7 +3553,7 @@ function UIMenu:ProcessMouse()
 end
 
 function UIMenu:AddInstructionButton(button)
-    if type(button) == "table" and #button == 2 then
+    if type(button) == "table" and #button >= 2 then
         table.insert(self.InstructionalButtons, button)
     end
 end
@@ -3596,7 +3596,8 @@ function UIMenu:UpdateScaleform()
         return
     end
 
-    local showEmoteButtons = LastEmoteName and #LastEmoteName > 0
+    local showEmoteButtons = LastEmote and LastEmote.name
+    -- local showEmoteButtons = true
 
     PushScaleformMovieFunction(self.InstructionalScaleform, "CLEAR_ALL")
     PopScaleformMovieFunction()
@@ -3608,59 +3609,64 @@ function UIMenu:UpdateScaleform()
     PushScaleformMovieFunction(self.InstructionalScaleform, "CREATE_CONTAINER")
     PopScaleformMovieFunction()
 
+    local count = 0
+
     PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
-    PushScaleformMovieFunctionParameterInt(0)
+    PushScaleformMovieFunctionParameterInt(count)
     PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 176, 0))
     PushScaleformMovieFunctionParameterString(Translate('btn_select'))
     PopScaleformMovieFunction()
+    count = count + 1
 
     if self.Controls.Back.Enabled then
         PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
-        PushScaleformMovieFunctionParameterInt(1)
+        PushScaleformMovieFunctionParameterInt(count)
         PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 177, 0))
         PushScaleformMovieFunctionParameterString(Translate('btn_back'))
         PopScaleformMovieFunction()
+        count = count + 1
+    end
+
+    -- If using keyboard, show alt increment button
+    if self.Controls.Increment.Enabled and not tobool(Controller()) then
+        PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
+        PushScaleformMovieFunctionParameterInt(count)
+        PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 19, 0))
+        PushScaleformMovieFunctionParameterString(Translate('btn_increment')..(paginationValue and ': '..paginationValue or ": "..paginationValue))
+        PopScaleformMovieFunction()
+        count = count + 1
+    end
+
+    -- If using controller, show 199 increment button
+    if self.Controls.Increment.Enabled and tobool(Controller()) then
+        PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
+        PushScaleformMovieFunctionParameterInt(count)
+        PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 199, 0))
+        PushScaleformMovieFunctionParameterString(Translate('btn_increment')..(paginationValue and ': '..paginationValue or ": "..paginationValue))
+        PopScaleformMovieFunction()
+        count = count + 1
     end
 
     if showEmoteButtons then
         PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
-        PushScaleformMovieFunctionParameterInt(2)
+        PushScaleformMovieFunctionParameterInt(count)
         PushScaleformMovieMethodParameterButtonName(GetControlInstructionalButton(2, 176, 0))
         PushScaleformMovieMethodParameterButtonName(GetControlInstructionalButton(2, 21, 0))
         PushScaleformMovieFunctionParameterString(Translate('btn_place'))
         PopScaleformMovieFunction()
+        count = count + 1
+    end
 
-        -- If using keyboard, show alt increment button
-        if self.Controls.Increment.Enabled and not tobool(Controller()) then
-            PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
-            PushScaleformMovieFunctionParameterInt(3)
-            PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 19, 0))
-            PushScaleformMovieFunctionParameterString(Translate('btn_increment')..(paginationValue and ': '..paginationValue or ": "..paginationValue))
-            PopScaleformMovieFunction()
-        end
-
-        -- If using controller, show 199 increment button
-        if self.Controls.Increment.Enabled and tobool(Controller()) then
-            PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
-            PushScaleformMovieFunctionParameterInt(3)
-            PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 199, 0))
-            PushScaleformMovieFunctionParameterString(Translate('btn_increment')..(paginationValue and ': '..paginationValue or ": "..paginationValue))
-            PopScaleformMovieFunction()
-        end
-
-        local count = 3
-
-        for i = 1, #self.InstructionalButtons do
-            if self.InstructionalButtons[i] then
-                if #self.InstructionalButtons[i] == 3 then
-                    PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
-                    PushScaleformMovieFunctionParameterInt(count)
-                    PushScaleformMovieFunctionParameterString(self.InstructionalButtons[i][1])
-                    PushScaleformMovieFunctionParameterString(self.InstructionalButtons[i][2])
-                    PushScaleformMovieFunctionParameterString(self.InstructionalButtons[i][3])
-                    PopScaleformMovieFunction()
-                    count = count + 1
-                end
+    for i = 1, #self.InstructionalButtons do
+        if self.InstructionalButtons[i] then
+            if #self.InstructionalButtons[i] >= 2 then
+                PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
+                PushScaleformMovieFunctionParameterInt(count)
+                PushScaleformMovieFunctionParameterString(self.InstructionalButtons[i][1])
+                PushScaleformMovieFunctionParameterString(self.InstructionalButtons[i][2])
+                PushScaleformMovieFunctionParameterString(self.InstructionalButtons[i][3])
+                PopScaleformMovieFunction()
+                count = count + 1
             end
         end
     end
