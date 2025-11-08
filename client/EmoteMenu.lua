@@ -325,7 +325,9 @@ local function createSubMenu(parent, category, title, description, emoteType)
             return
         end
 
-        if isEmoteTypePlayable(emote.emoteType) then
+        if IsDisabledControlPressed(0, 36) and isEmoteTypePlayable(emote.emoteType) then
+            OnGroupEmoteRequest(emoteName)
+        elseif isEmoteTypePlayable(emote.emoteType) then
             local shiftHeld = IsControlPressed(0, 21)
             local placementState = GetPlacementState()
 

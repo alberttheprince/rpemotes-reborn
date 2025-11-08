@@ -1,7 +1,7 @@
 local groupEmoteReqId = nil
 local groupEmoteAccepted = false
 local groupEmoteOriginCoords = vector3(0)
-local groupEmoteOriginRadius = 5.0
+local groupEmoteOriginRadius = Config.GroupEmoteDefaultArea
 
 RegisterCommand('gemote', function(source, args, raw)
     if not LocalPlayer.state.canEmote then return end
@@ -17,11 +17,47 @@ RegisterCommand('gemote', function(source, args, raw)
     end
 end, false)
 
+-- Blocks all controls, renders a radius marker and allows the user to select the correct airfryer
+local function setGroupArea(emotename, initialRadius)
+    local waitForInput = true
+    local returnRadius = initialRadius
+    local coords = GetEntityCoords(PlayerPedId())
+    Wait(10)
+    while waitForInput do
+        -- Disable actions.
+        DisableAllControlActions(2)
+
+        SimpleHelpText(Translate("groupemoteradiushelp", emotename))
+        DrawMarker(1, coords.x, coords.y, coords.z-1, 0.0,0.0,0.0,0.0,0.0,0.0,returnRadius*2,returnRadius*2,0.5, 255,255,255,200, false, false, 2, false, nil,nil,false)
+
+        if IsDisabledControlJustPressed(0, 14) and returnRadius > 1 then
+            returnRadius = returnRadius - 1
+        end
+        if IsDisabledControlJustPressed(0, 15) and returnRadius < Config.GroupEmoteMaxArea then
+            returnRadius = returnRadius + 1
+        end
+        if IsDisabledControlJustPressed(0, 201) then
+            waitForInput = false
+        end
+        if IsDisabledControlJustPressed(2, 202) then
+            returnRadius = -1 -- Cancel event.
+            waitForInput = false
+        end
+
+        Wait(0)
+    end
+
+    return returnRadius
+end
+
 function OnGroupEmoteRequest(emotename)
     if groupEmoteReqId then
         SimpleNotify(Translate("cannotstartgroupemote"))
         return
     end
+
+    local emoteRadius = setGroupArea(emotename, Config.GroupEmoteDefaultArea)
+    if emoteRadius < 0 then return end
 
     local emote = EmoteData[emotename]
     if emote ~= nil and emote.type ~= EmoteType.SHARED then
@@ -29,17 +65,17 @@ function OnGroupEmoteRequest(emotename)
         local originCoords = GetEntityCoords(PlayerPedId())
         for _,src in pairs(GetActivePlayers()) do
             local crds = GetEntityCoords(GetPlayerPed(src))
-            if #(originCoords - crds) <= 5.0 then
+            if #(originCoords - crds) <= emoteRadius then
                 players[#players+1] = GetPlayerServerId(tonumber(src))
             end
         end
-        if #players > 1 then
+        if #players > 0 then
         else
             SimpleNotify(Translate('nobodyclose'))
             return
         end
 
-        TriggerServerEvent("rpemotes:server:startGroupEmote", emotename, players)
+        TriggerServerEvent("rpemotes:server:startGroupEmote", emotename, players, emoteRadius)
         SimpleNotify(Translate("requestedgroupemote", emote.label, #players))
     else
         SimpleNotify(Translate("notvalidgroupemote"))

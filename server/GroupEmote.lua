@@ -16,18 +16,18 @@ local groupEmoteRequests = {
     ]]--
 }
 
-local function createGroupEmoteRequest(reqid, emote, source)
+local function createGroupEmoteRequest(reqid, emote, radius, source)
     return {
         emote = emote,
         requestorID = source,
         requestorName = GetPlayerName(source) or "Unknown",
         zoneOrigin = GetEntityCoords(GetPlayerPed(source)), -- Coords where the group request was started.
-        zoneRadius = 5.0,
+        zoneRadius = radius or Config.GroupEmoteDefaultArea or 5.0,
         players = {}
     }
 end
 
-RegisterNetEvent("rpemotes:server:startGroupEmote", function(emote, players)
+RegisterNetEvent("rpemotes:server:startGroupEmote", function(emote, players, radius)
     local source = source
     -- We will send the list of players from the client.
     -- We could loop through all the players server-side, but I am not sure servers with ~1000 players online would appreciate it.
@@ -35,11 +35,16 @@ RegisterNetEvent("rpemotes:server:startGroupEmote", function(emote, players)
 
     if not Player(source).state.canEmote then return end
     if type(players) ~= "table" or #players == 0 then return end
+
+    local radius = radius
+    if not tonumber(radius) or radius > Config.GroupEmoteMaxArea or radius < 1 then
+        radius = Config.GroupEmoteDefaultArea
+    end
     
     -- Create groupEmoteRequest
     local reqid = tostring(os.time())..tostring(source)
     if groupEmoteRequests[reqid] then return end -- Player already started a group emote.
-    groupEmoteRequests[reqid] = createGroupEmoteRequest(reqid, emote, source)
+    groupEmoteRequests[reqid] = createGroupEmoteRequest(reqid, emote, radius, source)
 
     local zone = {
         coords = groupEmoteRequests[reqid].zoneOrigin,

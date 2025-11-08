@@ -110,5 +110,6 @@ Locales['en'] = {
     ['acceptedgroupemote'] = "You accepted group emote (~g~%s~w~). It will start in a moment.",
     ['refusedgroupemote'] = "You refused the group emote.",
     ['canceledgroupemote'] = "You canceled the group emote.",
-    ['cannotstartgroupemote'] = "You cannot start another group emote!"
+    ['cannotstartgroupemote'] = "You cannot start another group emote!",
+    ['groupemoteradiushelp'] = "Select the area of the group emote for ~g~%s~w~.\n~INPUT_WEAPON_WHEEL_NEXT~~INPUT_WEAPON_WHEEL_PREV~ Change Radius\n~INPUT_FRONTEND_ACCEPT~ Select  |  ~INPUT_FRONTEND_CANCEL~ Cancel"
 }
