@@ -267,6 +267,10 @@ local function checkAnimalAndOnEmotePlay(name)
 end
 
 function EmoteMenuStart(name, textureVariation, emoteType)
+    if not HasEmotePermission(name, emoteType) then
+        EmoteChatMessage("You don't have permission to use this emote")
+        return
+    end
     if emoteType == EmoteType.EXPRESSIONS then
         if not ExpressionData[name] then return end
         SetPlayerPedExpression(name, true)
@@ -500,6 +504,11 @@ function EmoteCommandStart(args)
     local emote = EmoteData[name]
     if not emote then
         EmoteChatMessage("'" .. name .. "' " .. Translate('notvalidemote') .. "")
+        return
+    end
+
+    if not HasEmotePermission(name, emote.emoteType) then
+        EmoteChatMessage("You don't have permission to use this emote")
         return
     end
 

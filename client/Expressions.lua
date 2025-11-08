@@ -14,6 +14,11 @@ if Config.ExpressionsEnabled then
         local expression = FirstToUpper(string.lower(args[1]))
         local emote = ExpressionData[expression]
         if emote then
+            -- Check ACE permission
+            if not HasEmotePermission(expression, EmoteType.EXPRESSIONS) then
+                EmoteChatMessage("You don't have permission to use this expression")
+                return
+            end
             SetPlayerPedExpression(emote.anim, true)
         elseif expression == "Reset" then
             ClearFacialIdleAnimOverride(PlayerPedId())

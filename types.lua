@@ -38,6 +38,18 @@ PlacementState = {
     IN_ANIMATION = 'In Animation'
 }
 
+-- Mapping of EmoteTypes to the 4 ACE categories
+AceCategoryFromEmoteType = {
+    [EmoteType.EMOTES] = EmoteType.EMOTES,
+    [EmoteType.PROP_EMOTES] = EmoteType.EMOTES,
+    [EmoteType.DANCES] = EmoteType.EMOTES,
+    [EmoteType.ANIMAL_EMOTES] = EmoteType.EMOTES,
+    [EmoteType.EXITS] = EmoteType.EMOTES,
+    [EmoteType.SHARED] = EmoteType.SHARED,
+    [EmoteType.EXPRESSIONS] = EmoteType.EXPRESSIONS,
+    [EmoteType.WALKS] = EmoteType.WALKS,
+}
+
 
 ---@alias Dictionary string
 ---@alias AnimName string
