@@ -316,7 +316,7 @@ local function handleEmoteSelection(emoteName, emoteType, textureVariation)
 end
 
 local function hidePreview()
-    LastEmoteName = nil
+    LastEmote = {}
 
     if hasClonedPed() then
         ClosePedMenu()
@@ -403,6 +403,8 @@ local function createSubMenu(parent, category, title, description, emoteType)
     local menu = _menuPool:AddSubMenu(parent.menu or parent, title, description or '', true, true)
     local items = {}
 
+    menu:AddInstructionButton({GetControlInstructionalButton(2,176), GetControlInstructionalButton(2,36), Translate('btn_groupselect')})
+
     menu.OnIndexChange = function(_, newIndex)
         updatePedPreview(menu)
     end
@@ -413,7 +415,30 @@ local function createSubMenu(parent, category, title, description, emoteType)
             return
         end
 
-        handleEmoteSelection(items[index].name, items[index].emoteType)
+        local emoteName = items[index].name
+        local emote = items[index].emoteType == EmoteType.SHARED and SharedEmoteData[emoteName] or EmoteData[emoteName]
+        if not emote then return end
+
+        if not HasEmotePermission(emoteName, items[index].emoteType) then
+            EmoteChatMessage("You don't have permission to use this emote")
+            return
+        end
+
+        if IsDisabledControlPressed(0, 36) and isEmoteTypePlayable(emote.emoteType) then
+            OnGroupEmoteRequest(emoteName)
+        elseif isEmoteTypePlayable(emote.emoteType) then
+            local shiftHeld = IsControlPressed(0, 21)
+            local placementState = GetPlacementState()
+
+            if shiftHeld and placementState ~= PlacementState.PREVIEWING and placementState ~= PlacementState.WALKING then
+                StartNewPlacement(items[index].name)
+                return
+            end
+
+            EmoteMenuStart(items[index].name, nil, items[index].emoteType)
+        elseif emote.emoteType == EmoteType.SHARED then
+            sendSharedEmoteRequest(items[index].name)
+        end
     end
 
     menu.OnListSelect = function(_, item, itemIndex, listIndex)
@@ -690,8 +715,10 @@ end
 local function processMenu()
     if isMenuProcessing then return end
     isMenuProcessing = true
+    mainMenu:UpdateScaleform()
     while _menuPool:IsAnyMenuOpen() do
         _menuPool:ProcessMenus()
+        DisableControlAction(0, 36, true) -- Ducking, to not conflict with group emotes keybind
         Wait(0)
     end
     isMenuProcessing = false
@@ -893,7 +920,6 @@ local function initMenu()
     mainMenu.OnMenuClosed = function()
         ClosePedMenu()
     end
-
     _menuPool:RefreshIndex()
 end
 

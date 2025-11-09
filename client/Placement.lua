@@ -114,14 +114,8 @@ local function disableControls()
     DisableControlAction(0, 201, true)
 end
 
-local function helpText(text)
-    BeginTextCommandDisplayHelp("STRING")
-    AddTextComponentSubstringPlayerName(text)
-    EndTextCommandDisplayHelp(0, false, false, -1)
-end
-
 local function drawControlHelpText()
-    helpText(
+    SimpleHelpText(
         "~INPUT_COVER~/~INPUT_TALK~ " .. Translate('rotate') .. '\n' ..
         "~INPUT_RELOAD~/~INPUT_ARREST~ " .. Translate('height') .. '\n' ..
         "~INPUT_FRONTEND_ACCEPT~ " .. Translate('btn_select')
@@ -150,7 +144,7 @@ local function preparePreviewPed(startPosition, emoteName)
     SetEntityAlpha(previewPed, 150, false)
     FreezeEntityPosition(previewPed, true)
     SetEntityRotation(previewPed, 0, 0, 0, 2, false)
-    SetEntityCoordsNoOffset(previewPed, startPosition.x, startPosition.y, startPosition.z - 50, true, true, true)
+    SetEntityCoords(previewPed, startPosition.x, startPosition.y, startPosition.z - 50, false, false, false, false)
     EmotePlayOnNonPlayerPed(previewPed, emoteName)
 end
 
@@ -213,7 +207,7 @@ local function positionPreviewPed(emoteName)
                 end
 
                 SetEntityHeading(previewPed, initHeading + rotateAmount)
-                SetEntityCoordsNoOffset(previewPed, possiblePosition.x, possiblePosition.y, possiblePosition.z, true, true, true)
+                SetEntityCoords(previewPed, possiblePosition.x, possiblePosition.y, possiblePosition.z - 1, false, false, false, false)
             end
 
             disableControls()

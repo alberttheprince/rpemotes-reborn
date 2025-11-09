@@ -97,6 +97,10 @@ Config = {
 
     -- Emote Cooldown in milliseconds. Prevents switching emotes too quickly. If nil, no cooldown is enforced
     EmoteCooldownMs = nil,
+
+    -- Group Emotes: Default and Max group emote area that a player can select.
+    GroupEmoteDefaultArea = 5.0,
+    GroupEmoteMaxArea = 10.0
 }
 
 -- Custom Categories: Define custom categories to organize emotes in the menu

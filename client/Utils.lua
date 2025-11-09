@@ -45,6 +45,13 @@ function SimpleNotify(message)
     end
 end
 
+-- You can also edit this function to add support for your favorite notification system
+function SimpleHelpText(message)
+    AddTextEntry('RPEMOTES_HELPTEXT', message) -- Using text labels, because STRING has a 99 character limit.
+    BeginTextCommandDisplayHelp("RPEMOTES_HELPTEXT")
+    EndTextCommandDisplayHelp(0, false, false, -1)
+end
+
 -- Don't touch after this line if you don't know what you're doing
 CreateExport = function(name, func)
     AddEventHandler('__cfx_export_rpemotes_'..name, function(setCb)
@@ -413,7 +420,7 @@ function ShowPedMenu(zoom)
                 end
                 averagedTarget = averagedTarget / #positionBuffer
 
-                SetEntityCoords(ClonedPed, averagedTarget.x, averagedTarget.y, averagedTarget.z, false, false, false, true)
+                SetEntityCoords(ClonedPed, averagedTarget.x, averagedTarget.y, averagedTarget.z, false, false, false, false)
                 local heading_offset = Config.MenuPosition == "left" and 170.0 or 190.0
                 SetEntityHeading(ClonedPed, camRot.z + heading_offset)
                 SetEntityRotation(ClonedPed, camRot.x * (-1), 0.0, camRot.z + 170.0, 2, false)
