@@ -498,7 +498,7 @@ AddStateBagChangeHandler('rpemotes:props', nil, function(bagName, key, value, re
         end
         DebugPrint("time to finish loading ped (ms)", GetGameTimer() - gameTime)
         local emoteData = value.emoteType == EmoteType.SHARED and SharedEmoteData[value.Emote] or EmoteData[value.Emote]
-        addProps(emoteData.AnimationOptions, value.TextureVariation or nil, false, ply)
+        addProps(emoteData.AnimationOptions, value.TextureVariation or nil, -1, ply)
     end
 end)
 

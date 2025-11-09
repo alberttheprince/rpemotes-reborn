@@ -269,6 +269,7 @@ local function positionPreviewPed(emoteName)
             Wait(0)
         end
 
+        DestroyAllProps(true)
         DeleteEntity(previewPed)
         walkPedToPlacementPosition(emoteName)
     end)
