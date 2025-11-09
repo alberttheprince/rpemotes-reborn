@@ -118,7 +118,8 @@ local function drawControlHelpText()
     SimpleHelpText(
         "~INPUT_COVER~/~INPUT_TALK~ " .. Translate('rotate') .. '\n' ..
         "~INPUT_RELOAD~/~INPUT_ARREST~ " .. Translate('height') .. '\n' ..
-        "~INPUT_FRONTEND_ACCEPT~ " .. Translate('btn_select')
+        "~INPUT_FRONTEND_ACCEPT~ " .. Translate('btn_select') .. '\n' ..
+        "~INPUT_FRONTEND_CANCEL~ " .. Translate('btn_back')
     )
 end
 
@@ -242,6 +243,13 @@ local function positionPreviewPed(emoteName)
                 if moveLeftRight <= -1 then moveLeftRight = -1 end
             elseif IsDisabledControlPressed(0, 18) then
                 placementState = PlacementState.WALKING
+            elseif IsDisabledControlJustPressed(0, 194) then -- Backspace/ESC
+                placementState = PlacementState.NONE
+                DeleteEntity(previewPed)
+                -- We need to wait a bit before opening the emote menu so that the key press event doesn't immediately close the menu.
+                Wait(100)
+                OpenEmoteMenu()
+                return
             end
 
             drawControlHelpText()
