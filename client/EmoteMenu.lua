@@ -459,6 +459,7 @@ if Config.Search then
         end
 
         local searchMenu = _menuPool:AddSubMenu(lastMenu, string.format('%s '..Translate('searchmenudesc')..' ~r~%s~w~', #results, input), "", true, true)
+        searchMenu:AddInstructionButton({GetControlInstructionalButton(2,176), GetControlInstructionalButton(2,36), Translate('btn_groupselect')})
 
         table.sort(results, function(a, b) return a.name < b.name end)
         for index, result in pairs(results) do
