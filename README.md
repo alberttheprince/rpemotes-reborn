@@ -34,7 +34,7 @@ Interested in joining our community? You can find our Discord [here](https://dis
 
 - Shared Particle Effects: emotes with smoke effects, fire, and more 💨
 
-- QB-Core Framework & KVP Keybinding Support ⚙️
+- QB-Core + ESX Framework & KVP Keybinding Support ⚙️
 
 - Support for shared and couple poses/animations 👫
 
