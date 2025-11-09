@@ -11,6 +11,7 @@ local placementRotation
 local positionPriorToPlacement = vector3(0)
 
 local previewPed
+local menuBeforePlacement = nil
 
 local function checkForCollidingEntities(ped)
     local pedPosition = GetEntityCoords(ped)
@@ -118,7 +119,8 @@ local function drawControlHelpText()
     SimpleHelpText(
         "~INPUT_COVER~/~INPUT_TALK~ " .. Translate('rotate') .. '\n' ..
         "~INPUT_RELOAD~/~INPUT_ARREST~ " .. Translate('height') .. '\n' ..
-        "~INPUT_FRONTEND_ACCEPT~ " .. Translate('btn_select')
+        "~INPUT_FRONTEND_ACCEPT~ " .. Translate('btn_select') .. '\n' ..
+        "~INPUT_FRONTEND_CANCEL~ " .. Translate('btn_back')
     )
 end
 
@@ -242,6 +244,24 @@ local function positionPreviewPed(emoteName)
                 if moveLeftRight <= -1 then moveLeftRight = -1 end
             elseif IsDisabledControlPressed(0, 18) then
                 placementState = PlacementState.WALKING
+            elseif IsDisabledControlJustPressed(0, 194) then -- Backspace/ESC
+                placementState = PlacementState.NONE
+                DeleteEntity(previewPed)
+                -- Prevent double backspace from affecting menu navigation
+                Wait(100)
+                -- Restore the menu we were on before placement
+                if menuBeforePlacement then
+                    menuBeforePlacement:Visible(true)
+                    -- Restore the preview ped if we had a LastEmote
+                    if LastEmote and LastEmote.name then
+                        ShowPedMenu()
+                        WaitForClonedPedThenPlayLastAnim()
+                    end
+                    menuBeforePlacement = nil
+                    -- Restart menu processing loop
+                    ProcessEmoteMenu()
+                end
+                return
             end
 
             drawControlHelpText()
@@ -274,7 +294,12 @@ function StartNewPlacement(emoteName)
     SetEntityCollision(previewPed, false, false)
 
     ClosePedMenu()
-    CloseAllMenus()
+
+    -- Store and hide the currently visible menu
+    menuBeforePlacement = GetCurrentlyVisibleMenu()
+    if menuBeforePlacement then
+        menuBeforePlacement:Visible(false)
+    end
 
     placementState = PlacementState.PREVIEWING
 

@@ -3596,8 +3596,10 @@ function UIMenu:UpdateScaleform()
         return
     end
 
-    local showEmoteButtons = LastEmote and LastEmote.name
-    -- local showEmoteButtons = true
+    local showEmoteButtons = CurrentMenuSelection and CurrentMenuSelection.name and CurrentMenuSelection.emoteType
+        and CurrentMenuSelection.emoteType ~= EmoteType.EXPRESSIONS
+        and CurrentMenuSelection.emoteType ~= EmoteType.WALKS
+        and CurrentMenuSelection.emoteType ~= EmoteType.SHARED
 
     PushScaleformMovieFunction(self.InstructionalScaleform, "CLEAR_ALL")
     PopScaleformMovieFunction()
@@ -3653,6 +3655,14 @@ function UIMenu:UpdateScaleform()
         PushScaleformMovieMethodParameterButtonName(GetControlInstructionalButton(2, 176, 0))
         PushScaleformMovieMethodParameterButtonName(GetControlInstructionalButton(2, 21, 0))
         PushScaleformMovieFunctionParameterString(Translate('btn_place'))
+        PopScaleformMovieFunction()
+        count = count + 1
+
+        PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
+        PushScaleformMovieFunctionParameterInt(count)
+        PushScaleformMovieMethodParameterButtonName(GetControlInstructionalButton(2, 176, 0))
+        PushScaleformMovieMethodParameterButtonName(GetControlInstructionalButton(2, 36, 0))
+        PushScaleformMovieFunctionParameterString(Translate('btn_groupselect'))
         PopScaleformMovieFunction()
         count = count + 1
     end
