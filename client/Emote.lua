@@ -409,7 +409,7 @@ function EmotePlayOnNonPlayerPed(ped, name)
     local emoteData = EmoteData[name]
     local animOption = emoteData.AnimationOptions
 
-    LastEmote = {name = name}
+    LastEmote = {name = name, emoteType = emoteData.emoteType}
 
     if animOption and animOption.Prop then
         DestroyAllProps(true)

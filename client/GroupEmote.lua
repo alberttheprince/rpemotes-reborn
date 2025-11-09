@@ -42,6 +42,7 @@ local function setGroupArea(emotename, initialRadius)
         if IsDisabledControlJustPressed(2, 202) then
             returnRadius = -1 -- Cancel event.
             waitForInput = false
+            Wait(100) -- Prevent double backspace from affecting menu navigation
         end
 
         Wait(0)

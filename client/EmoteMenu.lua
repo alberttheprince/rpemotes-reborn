@@ -13,6 +13,12 @@ WalkData = {}
 local isMenuProcessing = false
 local isWaitingForPed = false
 
+-- Tracks currently selected menu item for instruction button visibility
+CurrentMenuSelection = {
+    name = nil,
+    emoteType = nil,
+}
+
 local function canPlayerEmote()
     local ped = PlayerPedId()
     if IsEntityDead(ped) then
@@ -242,14 +248,18 @@ local function hidePreview()
     if hasClonedPed() then
         ClosePedMenu()
     end
-
 end
 
---- Unified handler that updates the ped preview based on the currently active menu and selection
---- Determines which menu is active, what item is selected, and shows/hides preview accordingly
+--- Unified handler that updates CurrentMenuSelection, instruction buttons, and ped preview
+--- Called whenever menu selection changes (scroll, menu open, menu close)
 ---@param currentMenu table The menu to check for preview
-local function updatePedPreview(currentMenu)
+local function onMenuItemHover(currentMenu)
+    -- Handle main menu or no menu - clear everything
     if not currentMenu or currentMenu == mainMenu then
+        CurrentMenuSelection = {}
+        if mainMenu then
+            mainMenu:UpdateScaleform()
+        end
         hidePreview()
         return
     end
@@ -264,21 +274,43 @@ local function updatePedPreview(currentMenu)
     end
 
     if not subMenuData then
+        CurrentMenuSelection = {}
+        currentMenu:UpdateScaleform()
         hidePreview()
         return
     end
 
     -- Get the current selection
     local currentIndex = currentMenu:CurrentSelection()
-    if not currentIndex or not subMenuData.items[currentIndex] then
+    if not currentIndex or currentIndex == 0 then
+        currentIndex = 1 -- Default to first item if no selection
+    end
+
+    if not subMenuData.items[currentIndex] then
+        CurrentMenuSelection = {}
+        currentMenu:UpdateScaleform()
         hidePreview()
         return
     end
 
     local emoteName = subMenuData.items[currentIndex].name
     local emoteType = subMenuData.items[currentIndex].emoteType
+
+    -- Always update CurrentMenuSelection for instruction buttons
+    CurrentMenuSelection = {
+        name = emoteName,
+        emoteType = emoteType,
+    }
+
+    -- Force scaleform refresh to update instruction buttons
+    currentMenu:UpdateScaleform()
+
     --- Don't preview SHARED emotes
-    if emoteType == EmoteType.SHARED then hidePreview() return end
+    if emoteType == EmoteType.SHARED then
+        hidePreview()
+        return
+    end
+
     local emote = EmoteData[emoteName]
 
     -- Check if the selected item is a previewable emote
@@ -288,21 +320,23 @@ local function updatePedPreview(currentMenu)
             return
         end
 
+        -- Clear previous preview (ClearPedTaskPreview uses LastEmote to know what to clear)
+        if hasClonedPed() then
+            ClearPedTaskPreview()
+        end
+
+        -- Update LastEmote to new preview
+        LastEmote = {
+            name = emoteName,
+            emoteType = emoteType,
+        }
+
         -- Show this emote
         if hasClonedPed() then
             -- Ped exists, just switch animation
-            ClearPedTaskPreview()
-            LastEmote = {
-                name = emoteName,
-                emoteType = emoteType,
-            }
             EmoteMenuStartClone(emoteName, emoteType)
         else
             -- Ped doesn't exist, create it
-            LastEmote = {
-                name = emoteName,
-                emoteType = emoteType,
-            }
             ShowPedMenu()
             WaitForClonedPedThenPlayLastAnim()
         end
@@ -324,10 +358,8 @@ local function createSubMenu(parent, category, title, description, emoteType)
     local menu = _menuPool:AddSubMenu(parent.menu or parent, title, description or '', true, true)
     local items = {}
 
-    menu:AddInstructionButton({GetControlInstructionalButton(2,176), GetControlInstructionalButton(2,36), Translate('btn_groupselect')})
-
     menu.OnIndexChange = function(_, newIndex)
-        updatePedPreview(menu)
+        onMenuItemHover(menu)
     end
 
     menu.OnItemSelect = function(_, _, index)
@@ -348,7 +380,7 @@ local function createSubMenu(parent, category, title, description, emoteType)
     end
 
     menu.OnMenuChanged = function(oldMenu, newMenu, forward)
-        updatePedPreview(newMenu)
+        onMenuItemHover(newMenu)
     end
 
     local subMenu = {
@@ -363,11 +395,11 @@ local function addEmoteMenu(menu)
     local emoteMenu = createSubMenu(menu, EmoteType.EMOTES, Translate('emotes'))
     if Config.Search then
         emoteMenu.menu:AddItem(NativeUI.CreateItem(Translate('searchemotes'), ""))
-        emoteMenu.items[#emoteMenu.items+1] = {name = Translate('searchemotes'), emoteType = EmoteType.EMOTES}
+        emoteMenu.items[#emoteMenu.items+1] = {name = Translate('searchemotes'), emoteType = nil}
     end
 
     if Config.Keybinding then
-        emoteMenu.items[#emoteMenu.items+1] = {name = "keybinds", emoteType = EmoteType.EMOTES}
+        emoteMenu.items[#emoteMenu.items+1] = {name = "keybinds", emoteType = nil}
         emoteMenu.menu:AddItem(NativeUI.CreateItem(Translate('keybinds'), Translate('keybindsinfo') .. " /emotebind [~y~num4-9~w~] [~g~emotename~w~]"))
     end
 
@@ -459,12 +491,9 @@ if Config.Search then
         end
 
         local searchMenu = _menuPool:AddSubMenu(lastMenu, string.format('%s '..Translate('searchmenudesc')..' ~r~%s~w~', #results, input), "", true, true)
-        searchMenu:AddInstructionButton({GetControlInstructionalButton(2,176), GetControlInstructionalButton(2,36), Translate('btn_groupselect')})
 
         table.sort(results, function(a, b) return a.name < b.name end)
         for index, result in pairs(results) do
-            if index == 1 then LastEmote = {name = result.name, emoteType = result.emoteType} end
-
             local desc
             if result.table == EmoteType.SHARED then
                 desc = formatSharedEmoteDescription(result.name, result.data.secondPlayersAnim)
@@ -481,13 +510,29 @@ if Config.Search then
 
         searchMenu.OnMenuChanged = function()
             ShowPedMenu()
+            -- Update CurrentMenuSelection for the first item and refresh scaleform
+            if results[1] then
+                CurrentMenuSelection = {name = results[1].name, emoteType = results[1].data.emoteType}
+                searchMenu:UpdateScaleform()
+            end
         end
 
         searchMenu.OnIndexChange = function(_, newindex)
-            local data = results[newindex]
+            local result = results[newindex]
 
-            ClearPedTaskPreview()
-            EmoteMenuStartClone(data.name, data.emoteType)
+            -- Update CurrentMenuSelection for instruction buttons
+            CurrentMenuSelection = {name = result.name, emoteType = result.data.emoteType}
+            searchMenu:UpdateScaleform()
+
+            -- Clear previous preview before updating LastEmote
+            if hasClonedPed() and LastEmote.name ~= result.name then
+                ClearPedTaskPreview()
+            end
+
+            -- Update LastEmote for the new preview
+            LastEmote = {name = result.name, emoteType = result.data.emoteType}
+
+            EmoteMenuStartClone(result.name, result.data.emoteType)
         end
 
         searchMenu.OnItemSelect = function(_, _, index)
@@ -504,11 +549,24 @@ if Config.Search then
             lastMenu:RemoveItemAt(#lastMenu.Items)
             _menuPool:RefreshIndex()
             results = {}
+            -- Clear CurrentMenuSelection and update instruction buttons when closing search
+            CurrentMenuSelection = {}
+            if lastMenu then
+                lastMenu:UpdateScaleform()
+            end
         end
 
         _menuPool:RefreshIndex()
         _menuPool:CloseAllMenus()
         searchMenu:Visible(true)
+
+        -- Set CurrentMenuSelection for the first search result to show instruction buttons
+        if results[1] then
+            CurrentMenuSelection = {name = results[1].name, emoteType = results[1].data.emoteType}
+            LastEmote = {name = results[1].name, emoteType = results[1].data.emoteType}
+            searchMenu:UpdateScaleform()
+        end
+
         ShowPedMenu()
         WaitForClonedPedThenPlayLastAnim()
     end
@@ -830,11 +888,11 @@ local function initMenu()
     end
 
     mainMenu.OnIndexChange = function()
-        updatePedPreview(mainMenu)
+        onMenuItemHover(mainMenu)
     end
 
     mainMenu.OnMenuChanged = function(oldMenu, newMenu, forward)
-        updatePedPreview(newMenu)
+        onMenuItemHover(newMenu)
     end
 
     mainMenu.OnMenuClosed = function()
@@ -915,3 +973,28 @@ function WaitForClonedPedThenPlayLastAnim()
 end
 
 function CloseAllMenus() _menuPool:CloseAllMenus() end
+
+function GetCurrentlyVisibleMenu()
+    for _, menu in pairs(_menuPool.Menus) do
+        if menu:Visible() then
+            return menu
+        end
+    end
+end
+
+function ProcessEmoteMenu()
+    if isMenuProcessing then return end
+    isMenuProcessing = true
+    if _menuPool:IsAnyMenuOpen() then
+        local currentMenu = GetCurrentlyVisibleMenu()
+        if currentMenu then
+            currentMenu:UpdateScaleform()
+        end
+    end
+    while _menuPool:IsAnyMenuOpen() do
+        _menuPool:ProcessMenus()
+        DisableControlAction(0, 36, true) -- Ducking, to not conflict with group emotes keybind
+        Wait(0)
+    end
+    isMenuProcessing = false
+end

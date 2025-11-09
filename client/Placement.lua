@@ -11,6 +11,7 @@ local placementRotation
 local positionPriorToPlacement = vector3(0)
 
 local previewPed
+local menuBeforePlacement = nil
 
 local function checkForCollidingEntities(ped)
     local pedPosition = GetEntityCoords(ped)
@@ -246,9 +247,20 @@ local function positionPreviewPed(emoteName)
             elseif IsDisabledControlJustPressed(0, 194) then -- Backspace/ESC
                 placementState = PlacementState.NONE
                 DeleteEntity(previewPed)
-                -- We need to wait a bit before opening the emote menu so that the key press event doesn't immediately close the menu.
+                -- Prevent double backspace from affecting menu navigation
                 Wait(100)
-                OpenEmoteMenu()
+                -- Restore the menu we were on before placement
+                if menuBeforePlacement then
+                    menuBeforePlacement:Visible(true)
+                    -- Restore the preview ped if we had a LastEmote
+                    if LastEmote and LastEmote.name then
+                        ShowPedMenu()
+                        WaitForClonedPedThenPlayLastAnim()
+                    end
+                    menuBeforePlacement = nil
+                    -- Restart menu processing loop
+                    ProcessEmoteMenu()
+                end
                 return
             end
 
@@ -282,7 +294,12 @@ function StartNewPlacement(emoteName)
     SetEntityCollision(previewPed, false, false)
 
     ClosePedMenu()
-    CloseAllMenus()
+
+    -- Store and hide the currently visible menu
+    menuBeforePlacement = GetCurrentlyVisibleMenu()
+    if menuBeforePlacement then
+        menuBeforePlacement:Visible(false)
+    end
 
     placementState = PlacementState.PREVIEWING
 
