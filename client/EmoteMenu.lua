@@ -427,6 +427,11 @@ local function addEmoteMenu(menu)
                         goto continue
                     end
 
+                    -- Check model compatibility
+                    if CachedPlayerModel and not IsModelCompatible(CachedPlayerModel, emoteName) then
+                        goto continue
+                    end
+
                     if data.emoteType == EmoteType.SHARED then
                         local desc = formatSharedEmoteDescription(emoteName, data.secondPlayersAnim)
                         local shareitem = NativeUI.CreateItem(data.label, desc)
@@ -456,7 +461,10 @@ local function addEmoteMenu(menu)
     local emotesList = {}
     for emoteName, data in pairs(EmoteData) do
         if data.emoteType == EmoteType.EMOTES then
-            emotesList[#emotesList + 1] = emoteName
+            -- Check model compatibility
+            if not CachedPlayerModel or IsModelCompatible(CachedPlayerModel, emoteName) then
+                emotesList[#emotesList + 1] = emoteName
+            end
         end
     end
     sortEmotesByLabel(emotesList)
@@ -481,7 +489,10 @@ if Config.Search then
         local results = {}
         for emoteName, emoteData in pairs(EmoteData) do
             if matchesSearchTerm(emoteName, emoteData, input) then
-                results[#results + 1] = { table = emoteData.emoteType, name = emoteName, data = emoteData }
+                -- Check model compatibility
+                if not CachedPlayerModel or IsModelCompatible(CachedPlayerModel, emoteName) then
+                    results[#results + 1] = { table = emoteData.emoteType, name = emoteName, data = emoteData }
+                end
             end
         end
 
@@ -899,6 +910,26 @@ local function initMenu()
         ClosePedMenu()
     end
     _menuPool:RefreshIndex()
+end
+
+function RebuildEmoteMenu()
+    -- Close all menus if open
+    if _menuPool:IsAnyMenuOpen() then
+        _menuPool:CloseAllMenus()
+    end
+
+    -- Clear all submenus from the main menu
+    for i = #mainMenu.Items, 1, -1 do
+        mainMenu:RemoveItemAt(i)
+    end
+
+    -- Clear the subMenus tracking table
+    subMenus = {}
+
+    -- Rebuild the menu
+    initMenu()
+
+    DebugPrint("Menu rebuilt for model compatibility")
 end
 
 CreateThread(function()

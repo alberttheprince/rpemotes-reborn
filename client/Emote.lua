@@ -70,9 +70,32 @@ if not Config.AnimalEmotesEnabled then
     RP.AnimalEmotes = {}
 end
 
+-- Cache the current player model for compatibility checks
+CachedPlayerModel = nil
+
 CreateThread(function()
     LocalPlayer.state:set('canEmote', true, true)
     LocalPlayer.state:set('canCancel', true, true)
+
+    -- Initialize cached model on startup
+    CachedPlayerModel = GetEntityModel(PlayerPedId())
+end)
+
+-- Poll for model changes
+CreateThread(function()
+    while true do
+        Wait(1000) -- Check every second
+
+        local currentModel = GetEntityModel(PlayerPedId())
+
+        if currentModel ~= CachedPlayerModel then
+            CachedPlayerModel = currentModel
+            DebugPrint("Player model changed to: " .. currentModel)
+
+            -- Rebuild menu with compatible emotes
+            RebuildEmoteMenu()
+        end
+    end
 end)
 
 local function runAnimationThread()
