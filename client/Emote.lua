@@ -152,12 +152,11 @@ local function checkStatusThread(dict, anim)
     end)
 end
 
-local function cleanScenarioObjects(isClone)
-    local ped = isClone and ClonedPed or PlayerPedId()
-    local playerCoords = GetEntityCoords(ped)
+local function cleanScenarioObjects(ped)
+    local pedCoords = GetEntityCoords(ped)
 
     for i = 1, #scenarioObjects do
-        local deleteScenarioObject = GetClosestObjectOfType(playerCoords.x, playerCoords.y, playerCoords.z, 1.0,
+        local deleteScenarioObject = GetClosestObjectOfType(pedCoords.x, pedCoords.y, pedCoords.z, 1.0,
             scenarioObjects[i], false, true, true)
         if DoesEntityExist(deleteScenarioObject) then
             SetEntityAsMissionEntity(deleteScenarioObject, false, false)
@@ -234,7 +233,7 @@ function EmoteCancel(force)
 
         if GetPlacementState() == PlacementState.IN_ANIMATION then CleanUpPlacement(ped) end
     end
-    cleanScenarioObjects(false)
+    cleanScenarioObjects(PlayerPedId())
     AnimationThreadStatus = false
     CheckStatus = false
 end
@@ -313,7 +312,7 @@ local function addProp(data)
     data.rot3 = data.rot3 or 0.0
     assert(data.noCollision == nil or type(data.noCollision) == "boolean", 'noCollision must be a boolean')
 
-    local target = data.isClone and ClonedPed or PlayerPedId()
+    local target = data.ped and data.ped > 0 and data.ped or PlayerPedId()
     local propPool = data.playerId and GetPlayerServerId(data.playerId) or GetPlayerServerId(PlayerId())
     if data.playerId and DoesEntityExist(GetPlayerPed(data.playerId)) then
         target = GetPlayerPed(data.playerId)
@@ -340,22 +339,24 @@ local function addProp(data)
     AttachEntityToEntity(attachedProp, target, GetPedBoneIndex(target, data.bone), data.off1, data.off2, data.off3, data.rot1, data.rot2, data.rot3,
         true, true, false, true, 1, true)
 
-    if data.isClone then
+    if not data.playerId then
         PreviewPedProps[#PreviewPedProps+1] = attachedProp
+
+        SetEntityAlpha(attachedProp, 150, false)
     else
         ServerProps[propPool][#ServerProps[propPool]+1] = attachedProp
     end
 
     SetModelAsNoLongerNeeded(data.prop1)
-    DebugPrint("Added prop to " .. (data.isClone and "clone" or "player"))
+    DebugPrint("Added prop to " .. (not data.playerId and "non-player" or "player"))
     return true
 end
 
 ---@param animOption AnimationOptions
 ---@param textureVariation? integer
----@param isClone? boolean
+---@param ped? integer
 ---@param playerId? integer
-function addProps(animOption, textureVariation, isClone, playerId)
+function addProps(animOption, textureVariation, ped, playerId)
     PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6 = table.unpack(animOption.PropPlacement)
 
     Wait(animOption and animOption.EmoteDuration or 0)
@@ -366,7 +367,7 @@ function addProps(animOption, textureVariation, isClone, playerId)
         off1 = PropPl1, off2 = PropPl2, off3 = PropPl3,
         rot1 = PropPl4, rot2 = PropPl5, rot3 = PropPl6,
         textureVariation = textureVariation,
-        isClone = isClone,
+        ped = ped,
         noCollision = animOption.PropNoCollision,
         playerId = playerId
     }) then return end
@@ -379,7 +380,7 @@ function addProps(animOption, textureVariation, isClone, playerId)
             off1 = SecondPropPl1, off2 = SecondPropPl2, off3 = SecondPropPl3,
             rot1 = SecondPropPl4, rot2 = SecondPropPl5, rot3 = SecondPropPl6,
             textureVariation = textureVariation,
-            isClone = isClone,
+            ped = ped,
             noCollision = animOption.SecondPropNoCollision,
             playerId = playerId
         }) then
@@ -390,7 +391,7 @@ function addProps(animOption, textureVariation, isClone, playerId)
 end
 
 function EmotePlayOnNonPlayerPed(ped, name)
-    cleanScenarioObjects(true)
+    cleanScenarioObjects(ped)
 
     if not DoesEntityExist(ped) then
         return false
@@ -447,7 +448,7 @@ function EmotePlayOnNonPlayerPed(ped, name)
     RemoveAnimDict(emoteData.dict)
 
     if not animOption or not animOption.Prop then return end
-    addProps(animOption, nil, true)
+    addProps(animOption, nil, ped)
 end
 
 function EmoteMenuStartClone(name, emoteType)
@@ -543,9 +544,9 @@ function EmoteCommandStart(args)
     OnEmotePlay(name)
 end
 
----@param isClone? boolean
-function DestroyAllProps(isClone)
-    if isClone then
+---@param isNonPlayer? boolean
+function DestroyAllProps(isNonPlayer)
+    if isNonPlayer then
         for _, v in pairs(PreviewPedProps) do
             DeleteEntity(v)
         end
@@ -554,7 +555,7 @@ function DestroyAllProps(isClone)
         LocalPlayer.state:set("rpemotes:props", {}, true)
         LocalPlayer.state:set("ptfxPropId", nil, true)
     end
-    DebugPrint("Destroyed Props for " .. (isClone and "clone" or "player"))
+    DebugPrint("Destroyed Props for " .. (isNonPlayer and "non-player" or "player"))
 end
 
 local function playExitAndEnterEmote(name, textureVariation, emoteType)
@@ -645,7 +646,7 @@ function OnEmotePlay(name, textureVariation, emoteType)
         return false
     end
 
-    cleanScenarioObjects(false)
+    cleanScenarioObjects(PlayerPedId())
 
     local inVehicle = IsPedInAnyVehicle(PlayerPedId(), true)
     Pointing = false
