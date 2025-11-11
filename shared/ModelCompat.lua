@@ -1,7 +1,5 @@
 ---@enum CompatGroup
 local CompatGroup = {
-    PED = 'Ped',
-    HUMAN = 'Human',
     DOG = 'Dog',
     SMALL_DOG = 'SmallDog',
     ROTTWEILER = 'Rottweiler',
