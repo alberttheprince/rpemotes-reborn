@@ -121,11 +121,6 @@ if Config.SharedEmotesEnabled then
         [EmoteType.SHARED] = {}
     }
 end
-if Config.AnimalEmotesEnabled then
-    Config.CustomCategories[Translate('animalemotes')] = {
-        [EmoteType.ANIMAL_EMOTES] = {}
-    }
-end
 
 Config.KeybindKeys = {
     'NUMPAD4',
