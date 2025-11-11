@@ -20,124 +20,114 @@ local relationships = {
     },
     [CompatGroup.SMALL_DOG] = {},
     [CompatGroup.CAT] = {},
-    -- [CompatGroup.PED] = {
-    --     [CompatGroup.HUMAN] = {},
-    --     [CompatGroup.ANIMAL] = {
-    --         [CompatGroup.DOG] = {
-    --             [CompatGroup.BIG_DOG] = {},
-    --             [CompatGroup.SMALL_DOG] = {}
-    --         },
-    --     },
-    -- }
 }
 
---- models not listed will be assumed to be compatible with all emotes
+--- models not listed will be assumed to be compatible with all emotes not assigned to a compat group.
 ---@type table<integer, CompatGroup>
 local models = {
-    [CompatGroup.ROTTWEILER] = {
-        'a_c_chop',
-        'a_c_rottweiler',
+    -- ROTTWEILER
+    [`a_c_chop`] = CompatGroup.ROTTWEILER,
+    [`a_c_rottweiler`] = CompatGroup.ROTTWEILER,
 
-        -- popcornrp-pets: https://github.com/alberttheprince/popcornrp-pets
-        'a_c_k9',
-        'k9_male',
-        'k9_female',
-        'doberman',
-        'chowchow',
-        -- Popcorn Roleplay Peds: https://popcornrp-store.tebex.io/
-        'ame',
-        'BullTerrier',
-        'Cattle_Dog',
-        'dobermannprp',
-        'Dogue',
-        'EnglishBulldog',
-        'filabrasileiroprp',
-        'greatdaneprp',
-        'k9_shepherd',
-        'kangaldogprp',
-        'pitbullxl',
-        'stffordbtprp',
-        'canecorsoprptwo',
-        'popcornrpcanecorso',
-        'chihuahuaprpnew',
-        'rottweilerk9_new',
-        'rhodesianridge',
-        'newsamoyedprp',
-        'Samoyed',
-        'Sharpei_dog',
-        'standardpoodle',
-        'Weimaranerprp',
-        'goredogfprp',
-        'goredogmprp',
-    },
-    [CompatGroup.RETRIEVER] = {
-        'a_c_retriever',
-        'a_c_shepherd',
+    -- popcornrp-pets: https://github.com/alberttheprince/popcornrp-pets
+    [`a_c_k9`] = CompatGroup.ROTTWEILER,
+    [`k9_male`] = CompatGroup.ROTTWEILER,
+    [`k9_female`] = CompatGroup.ROTTWEILER,
+    [`doberman`] = CompatGroup.ROTTWEILER,
+    [`chowchow`] = CompatGroup.ROTTWEILER,
+    -- Popcorn Roleplay Peds: https://popcornrp-store.tebex.io/
+    [`ame`] = CompatGroup.ROTTWEILER,
+    [`BullTerrier`] = CompatGroup.ROTTWEILER,
+    [`Cattle_Dog`] = CompatGroup.ROTTWEILER,
+    [`dobermannprp`] = CompatGroup.ROTTWEILER,
+    [`Dogue`] = CompatGroup.ROTTWEILER,
+    [`EnglishBulldog`] = CompatGroup.ROTTWEILER,
+    [`filabrasileiroprp`] = CompatGroup.ROTTWEILER,
+    [`greatdaneprp`] = CompatGroup.ROTTWEILER,
+    [`k9_shepherd`] = CompatGroup.ROTTWEILER,
+    [`kangaldogprp`] = CompatGroup.ROTTWEILER,
+    [`pitbullxl`] = CompatGroup.ROTTWEILER,
+    [`stffordbtprp`] = CompatGroup.ROTTWEILER,
+    [`canecorsoprptwo`] = CompatGroup.ROTTWEILER,
+    [`popcornrpcanecorso`] = CompatGroup.ROTTWEILER,
+    [`chihuahuaprpnew`] = CompatGroup.ROTTWEILER,
+    [`rottweilerk9_new`] = CompatGroup.ROTTWEILER,
+    [`rhodesianridge`] = CompatGroup.ROTTWEILER,
+    [`newsamoyedprp`] = CompatGroup.ROTTWEILER,
+    [`Samoyed`] = CompatGroup.ROTTWEILER,
+    [`Sharpei_dog`] = CompatGroup.ROTTWEILER,
+    [`standardpoodle`] = CompatGroup.ROTTWEILER,
+    [`Weimaranerprp`] = CompatGroup.ROTTWEILER,
+    [`goredogfprp`] = CompatGroup.ROTTWEILER,
+    [`goredogmprp`] = CompatGroup.ROTTWEILER,
 
-        -- popcornrp-pets: https://github.com/alberttheprince/popcornrp-pets
-        'robot_dog',
-        -- Popcorn Roleplay Peds: https://popcornrp-store.tebex.io/
-        'akitaprp',
-        'bandoggeprp',
-        'bandoggeprpxl',
-        'boxerhoundprp',
-        'dogoargentinoprp',
-        'hyenaprp',
-        'inutosaprp',
-        'irishsetterprp',
-        'newfoundland',
-        'poprprott',
-        'retriever_k9',
-        'standardpitbullprp',
-    },
-    [CompatGroup.HUSKY] = {
-        'a_c_husky',
-        'a_c_dalmatian',
-        
-        -- popcornrp-pets: https://github.com/alberttheprince/popcornrp-pets
-        'huskyk9_new',
-    },
-    [CompatGroup.SMALL_DOG] = {
-        'a_c_poodle',
-        'a_c_pug',
-        'a_c_westy',
+    -- RETRIEVER
+    [`a_c_retriever`] = CompatGroup.RETRIEVER,
+    [`a_c_shepherd`] = CompatGroup.RETRIEVER,
 
-        -- Popcorn Roleplay Peds: https://popcornrp-store.tebex.io/
-        'a_c_airterrier',
-        'babypygmyhippoprp',
-        'alligatorprp',
-        'Brittany',
-        'capybaraprp',
-        'daschundprp',
-        'yorkie',
-        'chowchowpuppyprp',
-        'dobermanpupprp',
-        'engbullpuppyprp',
-        'greatdanepuppyprp',
-        'huskypuppyprp',
-        'labradorpuppyprp',
-        'malsheppuppyprp',
-        'pitbullpuppyprp',
-        'popcornrpcanecorsopuppy',
-        'rottweilerpupprp',
-        'samoyedpuppyprp',
-        'standardpoodlepupprp',
-    },
-    [CompatGroup.CAT] = {
-        'a_c_cat',
-        
-        -- popcornrp-pets: https://github.com/alberttheprince/popcornrp-pets
-        'armadillo',
-        -- Popcorn Roleplay Peds: https://popcornrp-store.tebex.io/
-        'bshorthairpoprp',
-        'koalaprp',
-        'popcornrparcticfox',
-        'popcornrpchihuahua',
-        'prplemur',
-        'prpotter',
-        'raccoon_new',
-        'sphynxpoprp',
-    },
+    -- popcornrp-pets: https://github.com/alberttheprince/popcornrp-pets
+    [`robot_dog`] = CompatGroup.RETRIEVER,
+    -- Popcorn Roleplay Peds: https://popcornrp-store.tebex.io/
+    [`akitaprp`] = CompatGroup.RETRIEVER,
+    [`bandoggeprp`] = CompatGroup.RETRIEVER,
+    [`bandoggeprpxl`] = CompatGroup.RETRIEVER,
+    [`boxerhoundprp`] = CompatGroup.RETRIEVER,
+    [`dogoargentinoprp`] = CompatGroup.RETRIEVER,
+    [`hyenaprp`] = CompatGroup.RETRIEVER,
+    [`inutosaprp`] = CompatGroup.RETRIEVER,
+    [`irishsetterprp`] = CompatGroup.RETRIEVER,
+    [`newfoundland`] = CompatGroup.RETRIEVER,
+    [`poprprott`] = CompatGroup.RETRIEVER,
+    [`retriever_k9`] = CompatGroup.RETRIEVER,
+    [`standardpitbullprp`] = CompatGroup.RETRIEVER,
+
+    -- HUSKY
+    [`a_c_husky`] = CompatGroup.HUSKY,
+    [`a_c_dalmatian`] = CompatGroup.HUSKY,
+
+    -- popcornrp-pets: https://github.com/alberttheprince/popcornrp-pets
+    [`huskyk9_new`] = CompatGroup.HUSKY,
+
+    -- SMALL_DOG
+    [`a_c_poodle`] = CompatGroup.SMALL_DOG,
+    [`a_c_pug`] = CompatGroup.SMALL_DOG,
+    [`a_c_westy`] = CompatGroup.SMALL_DOG,
+
+    -- Popcorn Roleplay Peds: https://popcornrp-store.tebex.io/
+    [`a_c_airterrier`] = CompatGroup.SMALL_DOG,
+    [`babypygmyhippoprp`] = CompatGroup.SMALL_DOG,
+    [`alligatorprp`] = CompatGroup.SMALL_DOG,
+    [`Brittany`] = CompatGroup.SMALL_DOG,
+    [`capybaraprp`] = CompatGroup.SMALL_DOG,
+    [`daschundprp`] = CompatGroup.SMALL_DOG,
+    [`yorkie`] = CompatGroup.SMALL_DOG,
+    [`chowchowpuppyprp`] = CompatGroup.SMALL_DOG,
+    [`dobermanpupprp`] = CompatGroup.SMALL_DOG,
+    [`engbullpuppyprp`] = CompatGroup.SMALL_DOG,
+    [`greatdanepuppyprp`] = CompatGroup.SMALL_DOG,
+    [`huskypuppyprp`] = CompatGroup.SMALL_DOG,
+    [`labradorpuppyprp`] = CompatGroup.SMALL_DOG,
+    [`malsheppuppyprp`] = CompatGroup.SMALL_DOG,
+    [`pitbullpuppyprp`] = CompatGroup.SMALL_DOG,
+    [`popcornrpcanecorsopuppy`] = CompatGroup.SMALL_DOG,
+    [`rottweilerpupprp`] = CompatGroup.SMALL_DOG,
+    [`samoyedpuppyprp`] = CompatGroup.SMALL_DOG,
+    [`standardpoodlepupprp`] = CompatGroup.SMALL_DOG,
+
+    -- CAT
+    [`a_c_cat`] = CompatGroup.CAT,
+
+    -- popcornrp-pets: https://github.com/alberttheprince/popcornrp-pets
+    [`armadillo`] = CompatGroup.CAT,
+    -- Popcorn Roleplay Peds: https://popcornrp-store.tebex.io/
+    [`bshorthairpoprp`] = CompatGroup.CAT,
+    [`koalaprp`] = CompatGroup.CAT,
+    [`popcornrparcticfox`] = CompatGroup.CAT,
+    [`popcornrpchihuahua`] = CompatGroup.CAT,
+    [`prplemur`] = CompatGroup.CAT,
+    [`prpotter`] = CompatGroup.CAT,
+    [`raccoon_new`] = CompatGroup.CAT,
+    [`sphynxpoprp`] = CompatGroup.CAT,
 }
 
 --- which emotes can the compat group use.
