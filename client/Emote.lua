@@ -261,33 +261,6 @@ function EmoteCancel(force)
     CheckStatus = false
 end
 
-local function checkAnimalAndOnEmotePlay(name)
-    local playerPed = PlayerPedId()
-    local isValidPet = false
-
-    if string.sub(name, 1, 4) == "bdog" then
-        for _, model in ipairs(BigDogs) do
-            if IsPedModel(playerPed, GetHashKey(model)) then
-                isValidPet = true
-                break
-            end
-        end
-    elseif string.sub(name, 1, 4) == "sdog" then
-        for _, model in ipairs(SmallDogs) do
-            if IsPedModel(playerPed, GetHashKey(model)) then
-                isValidPet = true
-                break
-            end
-        end
-    end
-
-    if isValidPet then
-        OnEmotePlay(name)
-    else
-        EmoteChatMessage(Translate('notvalidpet'))
-    end
-end
-
 function EmoteMenuStart(name, textureVariation, emoteType)
     if not HasEmotePermission(name, emoteType) then
         EmoteChatMessage("You don't have permission to use this emote")
@@ -310,12 +283,7 @@ function EmoteMenuStart(name, textureVariation, emoteType)
         EmoteChatMessage("This emote is not compatible with your current model")
         return
     end
-
-    if emote.emoteType == EmoteType.ANIMAL_EMOTES then
-        checkAnimalAndOnEmotePlay(name)
-    else
-        OnEmotePlay(name, textureVariation)
-    end
+    OnEmotePlay(name, textureVariation)
 end
 
 local function checkGender()
@@ -550,7 +518,7 @@ function EmoteCommandStart(args)
 
     if emote.emoteType == EmoteType.ANIMAL_EMOTES then
         if Config.AnimalEmotesEnabled then
-            checkAnimalAndOnEmotePlay(name)
+            OnEmotePlay(name)
         else
             EmoteChatMessage(Translate('animaldisabled'))
         end
