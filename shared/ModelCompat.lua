@@ -13,69 +13,89 @@ local CompatGroup = {
 --- nested table of parent child relationships
 local relationships = {
     [CompatGroup.DOG] = {
-        [CompatGroup.ROTTWEILER] = {
-            'a_c_chop',
-            'a_c_rottweiler',
-
-            -- popcornrp-pets: https://github.com/alberttheprince/popcornrp-pets
-            'a_c_k9',
-            'k9_male',
-            'k9_female',
-            'doberman',
-            'chowchow',
-            -- Popcorn Roleplay Peds: https://popcornrp-store.tebex.io/
-            'ame',
-            'BullTerrier',
-            'Cattle_Dog',
-            'dobermannprp',
-            'Dogue',
-            'EnglishBulldog',
-            'filabrasileiroprp',
-            'greatdaneprp',
-            'k9_shepherd',
-            'kangaldogprp',
-            'pitbullxl',
-            'stffordbtprp',
-            'canecorsoprptwo',
-            'popcornrpcanecorso',
-            'chihuahuaprpnew',
-            'rottweilerk9_new',
-            'rhodesianridge',
-            'newsamoyedprp',
-            'Samoyed',
-            'Sharpei_dog',
-            'standardpoodle',
-            'Weimaranerprp',
-            'goredogfprp',
-            'goredogmprp',
-        },
+        [CompatGroup.ROTTWEILER] = {},
         [CompatGroup.RETRIEVER] = {
-            'a_c_retriever',
-            'a_c_shepherd',
-
-            -- popcornrp-pets: https://github.com/alberttheprince/popcornrp-pets
-            'robot_dog',
-            -- Popcorn Roleplay Peds: https://popcornrp-store.tebex.io/
-            'akitaprp',
-            'bandoggeprp',
-            'bandoggeprpxl',
-            'boxerhoundprp',
-            'dogoargentinoprp',
-            'hyenaprp',
-            'inutosaprp',
-            'irishsetterprp',
-            'newfoundland',
-            'poprprott',
-            'retriever_k9',
-            'standardpitbullprp',
-            [CompatGroup.HUSKY] = {
-                    'a_c_husky',
-                    'a_c_dalmatian',
-                    
-                    -- popcornrp-pets: https://github.com/alberttheprince/popcornrp-pets
-                    'huskyk9_new',
-                },
+            [CompatGroup.HUSKY] = {},
         },
+    },
+    [CompatGroup.SMALL_DOG] = {},
+    [CompatGroup.CAT] = {},
+    -- [CompatGroup.PED] = {
+    --     [CompatGroup.HUMAN] = {},
+    --     [CompatGroup.ANIMAL] = {
+    --         [CompatGroup.DOG] = {
+    --             [CompatGroup.BIG_DOG] = {},
+    --             [CompatGroup.SMALL_DOG] = {}
+    --         },
+    --     },
+    -- }
+}
+
+--- models not listed will be assumed to be compatible with all emotes
+---@type table<integer, CompatGroup>
+local models = {
+    [CompatGroup.ROTTWEILER] = {
+        'a_c_chop',
+        'a_c_rottweiler',
+
+        -- popcornrp-pets: https://github.com/alberttheprince/popcornrp-pets
+        'a_c_k9',
+        'k9_male',
+        'k9_female',
+        'doberman',
+        'chowchow',
+        -- Popcorn Roleplay Peds: https://popcornrp-store.tebex.io/
+        'ame',
+        'BullTerrier',
+        'Cattle_Dog',
+        'dobermannprp',
+        'Dogue',
+        'EnglishBulldog',
+        'filabrasileiroprp',
+        'greatdaneprp',
+        'k9_shepherd',
+        'kangaldogprp',
+        'pitbullxl',
+        'stffordbtprp',
+        'canecorsoprptwo',
+        'popcornrpcanecorso',
+        'chihuahuaprpnew',
+        'rottweilerk9_new',
+        'rhodesianridge',
+        'newsamoyedprp',
+        'Samoyed',
+        'Sharpei_dog',
+        'standardpoodle',
+        'Weimaranerprp',
+        'goredogfprp',
+        'goredogmprp',
+    },
+    [CompatGroup.RETRIEVER] = {
+        'a_c_retriever',
+        'a_c_shepherd',
+
+        -- popcornrp-pets: https://github.com/alberttheprince/popcornrp-pets
+        'robot_dog',
+        -- Popcorn Roleplay Peds: https://popcornrp-store.tebex.io/
+        'akitaprp',
+        'bandoggeprp',
+        'bandoggeprpxl',
+        'boxerhoundprp',
+        'dogoargentinoprp',
+        'hyenaprp',
+        'inutosaprp',
+        'irishsetterprp',
+        'newfoundland',
+        'poprprott',
+        'retriever_k9',
+        'standardpitbullprp',
+    },
+    [CompatGroup.HUSKY] = {
+        'a_c_husky',
+        'a_c_dalmatian',
+        
+        -- popcornrp-pets: https://github.com/alberttheprince/popcornrp-pets
+        'huskyk9_new',
     },
     [CompatGroup.SMALL_DOG] = {
         'a_c_poodle',
@@ -118,20 +138,7 @@ local relationships = {
         'raccoon_new',
         'sphynxpoprp',
     },
-    -- [CompatGroup.PED] = {
-    --     [CompatGroup.HUMAN] = {},
-    --     [CompatGroup.ANIMAL] = {
-    --         [CompatGroup.DOG] = {
-    --             [CompatGroup.BIG_DOG] = {},
-    --             [CompatGroup.SMALL_DOG] = {}
-    --         },
-    --     },
-    -- }
 }
-
---- models not listed will be assumed to be compatible with all emotes
----@type table<integer, CompatGroup>
-local models = {}
 
 --- which emotes can the compat group use.
 ---@type table<CompatGroup, string[]>
