@@ -76,14 +76,23 @@ for group, emotes in pairs(emoteCompatibility) do
     end
 end
 
+--- Build a set of all emotes assigned to any compat group
+---@type table<string, boolean>
+local emotesInCompatGroups = {}
+for _, emotes in pairs(emoteCompatibilitySets) do
+    for emoteName, _ in pairs(emotes) do
+        emotesInCompatGroups[emoteName] = true
+    end
+end
+
 ---@param model integer The model hash
 ---@param emoteName string The name of the emote
 ---@return boolean compatible True if the model can use the emote
 function IsModelCompatible(model, emoteName)
-    -- Models not in the list are compatible with all emotes
+    -- Models not in the list are only compatible with emotes not in any compat group
     local compatGroup = models[model]
     if not compatGroup then
-        return true
+        return not emotesInCompatGroups[emoteName]
     end
 
     -- Check if the emote is allowed for this group or any ancestor
