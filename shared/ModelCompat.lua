@@ -242,7 +242,19 @@ local emoteCompatibility = {
 
     },
     [CompatGroup.HUSKY] = { },
-    [CompatGroup.CAT] = { },
+    [CompatGroup.CAT] = {
+        'catsleep',
+        'catsleep2',
+        'catlayobserve',
+        'catlaywatch',
+        'catstretch',
+        'catpanic',
+        'catplaydead',
+        'catplaydead2',
+        'catpensive',
+        'catshuffleright',
+        'catshuffleleft',
+     },
 }
 
 --- Build a map of each CompatGroup to all its ancestors (parent groups)
