@@ -2,23 +2,131 @@
 local CompatGroup = {
     PED = 'Ped',
     HUMAN = 'Human',
-    ANIMAL = 'Animal',
     DOG = 'Dog',
     SMALL_DOG = 'SmallDog',
-    BIG_DOG = 'BigDog',
+    ROTTWEILER = 'Rottweiler',
+    RETRIEVER = 'Retriever',
+    HUSKY = 'Husky',
+    CAT = 'Cat',
 }
 
 --- nested table of parent child relationships
 local relationships = {
-    [CompatGroup.PED] = {
-        [CompatGroup.HUMAN] = {},
-        [CompatGroup.ANIMAL] = {
-            [CompatGroup.DOG] = {
-                [CompatGroup.BIG_DOG] = {},
-                [CompatGroup.SMALL_DOG] = {}
-            },
+    [CompatGroup.DOG] = {
+        [CompatGroup.ROTTWEILER] = {
+            'a_c_chop',
+            'a_c_rottweiler',
+
+            -- popcornrp-pets: https://github.com/alberttheprince/popcornrp-pets
+            'a_c_k9',
+            'k9_male',
+            'k9_female',
+            'doberman',
+            'chowchow',
+            -- Popcorn Roleplay Peds: https://popcornrp-store.tebex.io/
+            'ame',
+            'BullTerrier',
+            'Cattle_Dog',
+            'dobermannprp',
+            'Dogue',
+            'EnglishBulldog',
+            'filabrasileiroprp',
+            'greatdaneprp',
+            'k9_shepherd',
+            'kangaldogprp',
+            'pitbullxl',
+            'stffordbtprp',
+            'canecorsoprptwo',
+            'popcornrpcanecorso',
+            'chihuahuaprpnew',
+            'rottweilerk9_new',
+            'rhodesianridge',
+            'newsamoyedprp',
+            'Samoyed',
+            'Sharpei_dog',
+            'standardpoodle',
+            'Weimaranerprp',
+            'goredogfprp',
+            'goredogmprp',
         },
-    }
+        [CompatGroup.RETRIEVER] = {
+            'a_c_retriever',
+            'a_c_shepherd',
+
+            -- popcornrp-pets: https://github.com/alberttheprince/popcornrp-pets
+            'robot_dog',
+            -- Popcorn Roleplay Peds: https://popcornrp-store.tebex.io/
+            'akitaprp',
+            'bandoggeprp',
+            'bandoggeprpxl',
+            'boxerhoundprp',
+            'dogoargentinoprp',
+            'hyenaprp',
+            'inutosaprp',
+            'irishsetterprp',
+            'newfoundland',
+            'poprprott',
+            'retriever_k9',
+            'standardpitbullprp',
+            [CompatGroup.HUSKY] = {
+                    'a_c_husky',
+                    'a_c_dalmatian',
+                    
+                    -- popcornrp-pets: https://github.com/alberttheprince/popcornrp-pets
+                    'huskyk9_new',
+                },
+        },
+    },
+    [CompatGroup.SMALL_DOG] = {
+        'a_c_poodle',
+        'a_c_pug',
+        'a_c_westy',
+
+        -- Popcorn Roleplay Peds: https://popcornrp-store.tebex.io/
+        'a_c_airterrier',
+        'babypygmyhippoprp',
+        'alligatorprp',
+        'Brittany',
+        'capybaraprp',
+        'daschundprp',
+        'yorkie',
+        'chowchowpuppyprp',
+        'dobermanpupprp',
+        'engbullpuppyprp',
+        'greatdanepuppyprp',
+        'huskypuppyprp',
+        'labradorpuppyprp',
+        'malsheppuppyprp',
+        'pitbullpuppyprp',
+        'popcornrpcanecorsopuppy',
+        'rottweilerpupprp',
+        'samoyedpuppyprp',
+        'standardpoodlepupprp',
+    },
+    [CompatGroup.CAT] = {
+        'a_c_cat',
+        
+        -- popcornrp-pets: https://github.com/alberttheprince/popcornrp-pets
+        'armadillo',
+        -- Popcorn Roleplay Peds: https://popcornrp-store.tebex.io/
+        'bshorthairpoprp',
+        'koalaprp',
+        'popcornrparcticfox',
+        'popcornrpchihuahua',
+        'prplemur',
+        'prpotter',
+        'raccoon_new',
+        'sphynxpoprp',
+    },
+    -- [CompatGroup.PED] = {
+    --     [CompatGroup.HUMAN] = {},
+    --     [CompatGroup.ANIMAL] = {
+    --         [CompatGroup.DOG] = {
+    --             [CompatGroup.BIG_DOG] = {},
+    --             [CompatGroup.SMALL_DOG] = {}
+    --         },
+    --     },
+    -- }
 }
 
 --- models not listed will be assumed to be compatible with all emotes
@@ -27,7 +135,118 @@ local models = {}
 
 --- which emotes can the compat group use.
 ---@type table<CompatGroup, string[]>
-local emoteCompatibility = {}
+local emoteCompatibility = {
+    [CompatGroup.DOG] = {
+        'bdogindicateahead',
+        'bdogindicatehigh',
+        'bdogindicatelow',
+        'bdogbeg',
+        'bdogbeg2',
+        'bdoglayright',
+        'bdoglayleft',
+        'bdogsitcar',
+        'bdogfhump',
+        'bdogmhump',
+        'bdogshit',
+        'bdogitch',
+        'bdogsleep',
+        'bdogsit',
+        'bdogpee',
+        'bdogpee2',
+        'bdogglowa',
+        'bdogglowb',
+        'bdogpridea',
+        'bdogprideb',
+        'bdogpridec',
+        'bdogprided',
+        'bdogpridee',
+        'bdogpridef',
+        'bdogprideg',
+        'bdogprideh',
+        'bdogpridei',
+        'bdogfw',
+        'bdogfris',
+    },
+    [CompatGroup.SMALL_DOG] = {
+        'sdogbark',
+        'sdogitch',
+        'sdogsit',
+        'sdogld',
+        'sdogshake',
+        'sdogdance',
+        'sdogdance2',
+        'sdogdancepridea',
+        'sdogdanceprideb',
+        'sdogdancepridec',
+        'sdogdanceprided',
+        'sdogdancepridee',
+        'sdogdancepridef',
+        'sdogdanceprideg',
+        'sdogdanceprideh',
+        'sdogdancepridei',
+        'sdogbb',
+        'sdogburger',
+        'sdogcontroller',
+        'sdogdolla',
+        'sdogdolla2',
+        'sdogdolla3',
+        'sdogdolla4',
+        'sdogmic',
+        'sdogteddy',
+        'sdogteddy2',
+        'sdogtennis',
+        'sdogtennisr',
+        'sdogrose',
+        'sdogrose2',
+        'sdogggun',
+        'sdoggun2',
+        'sdogstun',
+        'sdoggl1',
+        'sdoggl2',
+        'sdoggl3',
+        'sdoggl4',
+        'sdoghd1',
+        'sdoghd2',
+        'sdoghlmt1',
+        'sdoghlmt2',
+        'sdoghat',
+        'sdoghat2',
+        'sdogsteak',
+        'sdogsteak2',
+        'sdogpridea',
+        'sdogprideb',
+        'sdogpridec',
+        'sdogprided',
+        'sdogpridee',
+        'sdogpridef',
+        'sdogprideg',
+        'sdogprideh',
+        'sdogpridei',
+        'sdogpridesita',
+        'sdogpridesitb',
+        'sdogpridesitc',
+        'sdogpridesitd',
+        'sdogpridesite',
+        'sdogpridesitf',
+        'sdogpridesitg',
+        'sdogpridesith',
+        'sdogpridesiti',
+        'sdogpee',
+        'sdogshit',
+        'sdogfw',
+        'sdogfris',
+    },
+    [CompatGroup.ROTTWEILER] = {
+        'bdogbark',
+    },
+    [CompatGroup.RETRIEVER] = {
+        'bdogbark2', -- Retrievers use different anims/skeletons from Rottweilers, so we need to use them specifically for retriever-based peds to work
+        'bdogexcited', -- Retrievers use different anims/skeletons from Rottweilers, so we need to use them specifically for retriever-based peds to work
+
+    },
+    [CompatGroup.HUSKY] = { },
+    [CompatGroup.CAT] = { },
+}
 
 --- Build a map of each CompatGroup to all its ancestors (parent groups)
 --- This allows for fast inheritance lookups
