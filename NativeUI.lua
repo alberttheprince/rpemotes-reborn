@@ -2633,8 +2633,12 @@ function UIMenu:CurrentSelection(value)
     if tonumber(value) then
         if #self.Items == 0 then
             self.ActiveItem = 0
+            return
         end
-        self.Items[self:CurrentSelection()]:Selected(false)
+        local currentItem = self.Items[self:CurrentSelection()]
+        if currentItem then
+            currentItem:Selected(false)
+        end
         self.ActiveItem = 1000000 - (1000000 % #self.Items) + tonumber(value)
 
         if self:CurrentSelection() > self.Pagination.Max then

@@ -70,9 +70,32 @@ if not Config.AnimalEmotesEnabled then
     RP.AnimalEmotes = {}
 end
 
+-- Cache the current player model for compatibility checks
+CachedPlayerModel = nil
+
 CreateThread(function()
     LocalPlayer.state:set('canEmote', true, true)
     LocalPlayer.state:set('canCancel', true, true)
+
+    -- Initialize cached model on startup
+    CachedPlayerModel = GetEntityModel(PlayerPedId())
+end)
+
+-- Poll for model changes
+CreateThread(function()
+    while true do
+        Wait(1000) -- Check every second
+
+        local currentModel = GetEntityModel(PlayerPedId())
+
+        if currentModel ~= CachedPlayerModel then
+            CachedPlayerModel = currentModel
+            DebugPrint("Player model changed to: " .. currentModel)
+
+            -- Rebuild menu with compatible emotes
+            RebuildEmoteMenu()
+        end
+    end
 end)
 
 local function runAnimationThread()
@@ -279,6 +302,12 @@ function EmoteMenuStart(name, textureVariation, emoteType)
     local emote = emoteType == EmoteType.SHARED and SharedEmoteData[name] or EmoteData[name]
 
     if not emote then
+        return
+    end
+
+    -- Check model compatibility
+    if not IsModelCompatible(CachedPlayerModel, name) then
+        EmoteChatMessage("This emote is not compatible with your current model")
         return
     end
 
@@ -505,6 +534,12 @@ function EmoteCommandStart(args)
     local emote = EmoteData[name]
     if not emote then
         EmoteChatMessage("'" .. name .. "' " .. Translate('notvalidemote') .. "")
+        return
+    end
+
+    -- Check model compatibility
+    if not IsModelCompatible(CachedPlayerModel, name) then
+        EmoteChatMessage("This emote is not compatible with your current model")
         return
     end
 
