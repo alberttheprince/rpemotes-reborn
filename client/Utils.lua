@@ -11,12 +11,24 @@ local permissions = {
 }
 
 RegisterNetEvent('rpemotes:client:receivePermissions', function(manifest)
+    local wasLoaded = permissions.loaded
     permissions = manifest
     permissions.loaded = true
     DebugPrint(string.format("[rpemotes] Received permission manifest: mode=%s", permissions.mode))
+
+    -- Initialize menu the first time permissions are received
+    if not wasLoaded then
+        InitMenu()
+        DebugPrint("[rpemotes] Menu initialized after receiving permissions")
+    else
+        -- Rebuild menu if permissions changed after initial load
+        RebuildEmoteMenu()
+        DebugPrint("[rpemotes] Menu rebuilt due to permission update")
+    end
 end)
 
 -- ACE Permission Helper
+---@return boolean
 function HasEmotePermission(emoteName, emoteType)
     -- If manifest not loaded yet, allow by default (server will validate anyway)
     if not permissions.loaded then
@@ -30,7 +42,7 @@ function HasEmotePermission(emoteName, emoteType)
     if permissions.mode == "deny" then
         return not present  -- Allowed unless in deny list
     else
-        return present      -- Denied unless in allow list
+        return tobool(present)      -- Denied unless in allow list
     end
 end
 

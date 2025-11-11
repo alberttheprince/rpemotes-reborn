@@ -49,7 +49,10 @@ local function isEmoteTypePlayable(emoteType)
 end
 
 local function addEmoteToMenu(menu, items, emoteName, label, description, emoteType)
-    menu:AddItem(NativeUI.CreateItem(label, description))
+    local item = NativeUI.CreateItem(label, description)
+    local hasPermission = HasEmotePermission(emoteName, emoteType)
+    item:Enabled(hasPermission)
+    menu:AddItem(item)
     items[#items+1] = {name = emoteName, emoteType = emoteType}
 end
 
@@ -432,9 +435,12 @@ local function addEmoteMenu(menu)
                         goto continue
                     end
 
+                    local hasPermission = HasEmotePermission(emoteName, emoteType)
+
                     if data.emoteType == EmoteType.SHARED then
                         local desc = formatSharedEmoteDescription(emoteName, data.secondPlayersAnim)
                         local shareitem = NativeUI.CreateItem(data.label, desc)
+                        shareitem:Enabled(hasPermission)
                         categoryMenu.menu:AddItem(shareitem)
                         categoryMenu.items[#categoryMenu.items+1] = {name = emoteName, emoteType = data.emoteType}
                     elseif data.emoteType == EmoteType.PROP_EMOTES then
@@ -442,6 +448,7 @@ local function addEmoteMenu(menu)
                         local propitem = data.AnimationOptions.PropTextureVariations and
                             NativeUI.CreateListItem(label, data.AnimationOptions.PropTextureVariations, 1, string.format("/e (%s)", emoteName)) or
                             NativeUI.CreateItem(label, string.format("/e (%s)", emoteName))
+                        propitem:Enabled(hasPermission)
                         categoryMenu.menu:AddItem(propitem)
                         categoryMenu.items[#categoryMenu.items+1] = {name = emoteName, emoteType = data.emoteType}
                     else
@@ -512,11 +519,15 @@ if Config.Search then
                 desc = "/e (" .. result.name .. ")"
             end
 
+            local hasPermission = HasEmotePermission(result.name, result.data.emoteType)
+            local item
             if result.data.AnimationOptions and result.data.AnimationOptions.PropTextureVariations then
-                searchMenu:AddItem(NativeUI.CreateListItem(result.data.label, result.data.AnimationOptions.PropTextureVariations, 1, desc))
+                item = NativeUI.CreateListItem(result.data.label, result.data.AnimationOptions.PropTextureVariations, 1, desc)
             else
-                searchMenu:AddItem(NativeUI.CreateItem(result.data.label, desc))
+                item = NativeUI.CreateItem(result.data.label, desc)
             end
+            item:Enabled(hasPermission)
+            searchMenu:AddItem(item)
         end
 
         searchMenu.OnMenuChanged = function()
@@ -618,7 +629,10 @@ local function addResetableDataMenu(input)
         local data = input.dataSource[itemName]
         local label = data.label or itemName
         local description = input.emoteType == EmoteType.WALKS and string.format("/walk (%s)", string.lower(label)) or ""
-        menu.menu:AddItem(NativeUI.CreateItem(label, description))
+        local hasPermission = HasEmotePermission(itemName, input.emoteType)
+        local item = NativeUI.CreateItem(label, description)
+        item:Enabled(hasPermission)
+        menu.menu:AddItem(item)
         menu.items[#menu.items+1] = {name = itemName, emoteType = input.emoteType}
     end
 
@@ -885,7 +899,7 @@ local function convertRP()
     CONVERTED = true
 end
 
-local function initMenu()
+function InitMenu()
     addEmoteMenu(mainMenu)
     addCancelEmote(mainMenu)
     if Config.WalkingStylesEnabled then
@@ -930,7 +944,7 @@ function RebuildEmoteMenu()
     subMenus = {}
 
     -- Rebuild the menu
-    initMenu()
+    InitMenu()
 
     DebugPrint("Menu rebuilt for model compatibility")
 end
@@ -938,9 +952,9 @@ end
 CreateThread(function()
     LoadAddonEmotes()
     convertRP()
-    initMenu()
 
-    -- Request permissions from server after menu is created
+    -- Request permissions from server before creating menu
+    -- The menu will be initialized when permissions are received in Utils.lua
     TriggerServerEvent('rpemotes:server:requestPermissions')
     DebugPrint("[rpemotes] Requested permission manifest from server")
 end)
