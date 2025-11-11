@@ -923,6 +923,9 @@ function RebuildEmoteMenu()
         mainMenu:RemoveItemAt(i)
     end
 
+    -- Reset main menu selection to avoid index out of bounds
+    mainMenu.ActiveItem = 1000
+
     -- Clear the subMenus tracking table
     subMenus = {}
 

@@ -27,12 +27,7 @@ local models = {}
 
 --- which emotes can the compat group use.
 ---@type table<CompatGroup, string[]>
-local emoteCompatibility = {
-    -- [CompatGroup.PED] = {
-    --     'emote1',
-    --     'emote2',
-    -- }
-}
+local emoteCompatibility = {}
 
 --- Build a map of each CompatGroup to all its ancestors (parent groups)
 --- This allows for fast inheritance lookups

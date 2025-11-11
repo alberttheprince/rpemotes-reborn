@@ -306,6 +306,12 @@ function EmoteMenuStart(name, textureVariation, emoteType)
         return
     end
 
+    -- Check model compatibility
+    if not IsModelCompatible(CachedPlayerModel, name) then
+        EmoteChatMessage("This emote is not compatible with your current model")
+        return
+    end
+
     if emote.emoteType == EmoteType.ANIMAL_EMOTES then
         checkAnimalAndOnEmotePlay(name)
     else
@@ -527,6 +533,12 @@ function EmoteCommandStart(args)
     local emote = EmoteData[name]
     if not emote then
         EmoteChatMessage("'" .. name .. "' " .. Translate('notvalidemote') .. "")
+        return
+    end
+
+    -- Check model compatibility
+    if not IsModelCompatible(CachedPlayerModel, name) then
+        EmoteChatMessage("This emote is not compatible with your current model")
         return
     end
 
