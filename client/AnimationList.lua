@@ -4922,7 +4922,105 @@ RP.AnimalEmotes = {
             onFootFlag = AnimFlag.MOVING,
         }
     },
+    ---- ANIMAL EMOTES ----
+    ----     CATS      ----
+
+    ["catsleep"] = {
+        "amb@lo_res_idles@",
+        "creatures_world_cat_ground_sleep_lo_res_base",
+        "Sleep (Cat)",
+        AnimationOptions = {
+            EmoteLoop = true,
+            ExitEmote = "catexit",
+        }
+    },
+    ["catsleep2"] = {
+        "creatures@cat@amb@world_cat_sleeping_ground@base",
+        "base",
+        "Sleep 2 (Cat)",
+        AnimationOptions = {
+            EmoteLoop = true,
+            ExitEmote = "catexit",
+        }
+    },
+    ["catlayobserve"] = {
+        "creatures@cat@amb@world_cat_sleeping_ledge@idle_a",
+        "idle_a",
+        "Lay and Watch (Cat)",
+        AnimationOptions = {
+            EmoteLoop = true,
+        }
+    },
+    ["catlaywatch"] = {
+        "amb@lo_res_idles@",
+        "creatures_world_cat_ledge_sleep_lo_res_base",
+        "Lay and Watch 2 (Cat)",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["catstretch"] = {
+        "creatures@cat@amb@world_cat_sleeping_ledge@exit",
+        "exit_r",
+        "Stretch (Cat)",
+        AnimationOptions = {
+            EmoteDuration = 800,
+            EmoteLoop = false
+        }
+    },
+    ["catpanic"] = {
+        "creatures@cat@amb@world_cat_sleeping_ground@exit",
+        "exit_panic",
+        "Panic (Cat)",
+        AnimationOptions = {
+            EmoteLoop = false
+        }
+    },
+    ["catplaydead"] = {
+        "creatures@cat@move",
+        "dead_left",
+        "Play Dead (Cat)",
+        AnimationOptions = {
+            EmoteLoop = true,
+            ExitEmote = "catexit",
+        }
+    },
+    ["catplaydead2"] = {
+        "creatures@cat@move",
+        "dying",
+        "Play Dead 2 (Cat)",
+        AnimationOptions = {
+            EmoteLoop = true,
+            ExitEmote = "catexit",
+        }
+    },
+    ["catpensive"] = {
+        "creatures@cat@move",
+        "idle_dwn",
+        "Pensive (Cat)",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["catshuffleright"] = {
+        "creatures@cat@step",
+        "step_rgt",
+        "Shuffle Right (Cat)",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
+    ["catshuffleleft"] = {
+        "creatures@cat@step",
+        "step_lft",
+        "Shuffle Left (Cat)",
+        AnimationOptions = {
+            EmoteLoop = true
+        }
+    },
 }
+
+
 
 
 --- EXIT EMOTES ---
@@ -5050,6 +5148,14 @@ RP.Exits = {
         "creatures@rottweiler@amb@sleep_in_kennel@",
         "exit_kennel",
         "Big Dog Get Up V2",
+        AnimationOptions = {
+            EmoteDuration = 5000
+        }
+    },
+    ["catexit"] = { 
+        "creatures@cat@amb@world_cat_sleeping_ground@exit",
+        "exit",
+        "Cat Get Up",
         AnimationOptions = {
             EmoteDuration = 5000
         }
