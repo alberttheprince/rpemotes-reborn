@@ -2,6 +2,7 @@ local groupEmoteReqId = nil
 local groupEmoteAccepted = false
 local groupEmoteOriginCoords = vector3(0)
 local groupEmoteOriginRadius = Config.GroupEmoteDefaultArea
+local groupEmoteEndTime = nil
 
 RegisterCommand('gemote', function(source, args, raw)
     if not LocalPlayer.state.canEmote then return end
@@ -24,8 +25,26 @@ local function setGroupArea(emotename, initialRadius)
     local coords = GetEntityCoords(PlayerPedId())
     Wait(10)
     while waitForInput do
-        -- Disable actions.
-        DisableAllControlActions(2)
+        -- Disable movement actions but allow camera movement
+        DisableControlAction(0, 30, true) -- Move Left/Right
+        DisableControlAction(0, 31, true) -- Move Up/Down
+        DisableControlAction(0, 32, true) -- Move Forward
+        DisableControlAction(0, 33, true) -- Move Backward
+        DisableControlAction(0, 34, true) -- Move Left
+        DisableControlAction(0, 35, true) -- Move Right
+        DisableControlAction(0, 21, true) -- Sprint
+        DisableControlAction(0, 22, true) -- Jump
+        DisableControlAction(0, 36, true) -- Ctrl (duck)
+        DisableControlAction(0, 44, true) -- Cover
+        DisableControlAction(0, 140, true) -- Light Melee Attack
+        DisableControlAction(0, 141, true) -- Heavy Melee Attack
+        DisableControlAction(0, 142, true) -- Alternative Attack
+        DisableControlAction(0, 143, true) -- Dodge
+        DisableControlAction(0, 24, true) -- Attack
+        DisableControlAction(0, 25, true) -- Aim
+        DisableControlAction(0, 257, true) -- Attack 2
+        DisableControlAction(0, 263, true) -- Melee Attack 1
+        DisableControlAction(0, 264, true) -- Melee Attack 2
 
         SimpleHelpText(Translate("groupemoteradiushelp", emotename))
         DrawMarker(1, coords.x, coords.y, coords.z-1, 0.0,0.0,0.0,0.0,0.0,0.0,returnRadius*2,returnRadius*2,0.5, 255,255,255,200, false, false, 2, false, nil,nil,false)
@@ -83,19 +102,32 @@ function OnGroupEmoteRequest(emotename)
     end
 end
 
+-- Start countdown timer thread
+local function startCountdownTimer()
+    Citizen.CreateThread(function()
+        while groupEmoteEndTime and groupEmoteAccepted do
+            Wait(0)
+            if groupEmoteEndTime then
+                local remainingTime = math.max(0, math.ceil((groupEmoteEndTime - GetGameTimer()) / 1000))
+                if remainingTime > 0 then
+                    SimpleHelpText(("Group emote starting in: ~b~%ds"):format(remainingTime))
+                end
+            end
+        end
+    end)
+end
+
 RegisterNetEvent("rpemotes:client:startGroupEmote", function(reqid, zone)
     groupEmoteReqId = reqid
     groupEmoteAccepted = true
     groupEmoteOriginCoords = zone.coords
     groupEmoteOriginRadius = zone.radius
+    groupEmoteEndTime = GetGameTimer() + (Config.GroupEmoteCountdownTime * 1000)
+    startCountdownTimer()
     TriggerEvent("rpemotes:client:autoCancel")
 end)
 
 AddEventHandler("rpemotes:client:autoCancel", function()
-
-    -- We don't want to auto-cancel the group emote request, if the player already has an emote playing.
-    local existingEmote = LocalPlayer.state.currentEmote 
-
     while groupEmoteReqId ~= nil and groupEmoteAccepted == true do
         -- Keep rechecking to make sure the player is still in area.
         local crds = GetEntityCoords(PlayerPedId())
@@ -103,6 +135,7 @@ AddEventHandler("rpemotes:client:autoCancel", function()
             groupEmoteReqId = nil
             groupEmoteAccepted = false
             groupEmoteOriginCoords = vector3(0)
+            groupEmoteEndTime = nil
             SimpleNotify(Translate('canceledgroupemote'))
         end
 
@@ -118,14 +151,16 @@ RegisterNetEvent("rpemotes:client:requestGroupEmote", function(emotename, reqid,
     local emote = EmoteData[emotename]
     PlaySound(-1, "NAV", "HUD_AMMO_SHOP_SOUNDSET", false, 0, true)
     SimpleNotify(Translate('doyouwanna') .. emote.label .. "~w~)")
-    -- The player has now 10 seconds to accept the request
-    local timer = (10 * 1000)/5
+    -- The player has Config.GroupEmoteCountdownTime seconds to accept the request
+    groupEmoteEndTime = GetGameTimer() + (Config.GroupEmoteCountdownTime * 1000)
+    local timer = Config.GroupEmoteCountdownTime * 1000
     local req = reqid
     while isRequestAnim do
         Wait(5)
         timer = timer - 5
         if timer <= 0 then
             isRequestAnim = false
+            TriggerServerEvent("rpemotes:server:refuseGroupEmote", reqid)
             SimpleNotify(Translate('refusedgroupemote'))
         end
 
@@ -139,27 +174,32 @@ RegisterNetEvent("rpemotes:client:requestGroupEmote", function(emotename, reqid,
                     groupEmoteOriginCoords = zone.coords
                     groupEmoteOriginRadius = zone.radius
                     SimpleNotify(Translate("acceptedgroupemote", emote.label))
+                    startCountdownTimer()
                     TriggerServerEvent("rpemotes:server:confirmGroupEmote", reqid)
                     TriggerEvent("rpemotes:client:autoCancel")
                 end
             end
         elseif IsControlJustPressed(1, 182) then
             isRequestAnim = false
+            TriggerServerEvent("rpemotes:server:refuseGroupEmote", reqid)
             SimpleNotify(Translate("refusedgroupemote"))
         end
     end
-    Wait(1000)
-    if groupEmoteReqId ~= nil and groupEmoteReqId == req then
-        groupEmoteReqId = nil
-        groupEmoteAccepted = false
+    -- Only cleanup if the request was not accepted
+    if not groupEmoteAccepted then
+        Wait(1000)
+        if groupEmoteReqId ~= nil and groupEmoteReqId == req then
+            groupEmoteReqId = nil
+            groupEmoteAccepted = false
+        end
+        groupEmoteEndTime = nil
     end
 end)
 
 RegisterNetEvent("rpemotes:client:doGroupEmote", function(emotename)
-    if not groupEmoteReqId then return end
-    if not EmoteData[emotename] then return end
-    local emote = EmoteData[emotename]
+    -- Clear group emote state
     groupEmoteReqId = nil
     groupEmoteAccepted = false
+    groupEmoteEndTime = nil
     OnEmotePlay(emotename, nil)
 end)
