@@ -31,7 +31,7 @@ local models = {
     [`a_c_k9`] = CompatGroup.ROTTWEILER,
     [`k9_male`] = CompatGroup.ROTTWEILER,
     [`k9_female`] = CompatGroup.ROTTWEILER,
-    [`doberman`] = CompatGroup.ROTTWEILER,
+    [`doberman`] = CompatGroup.ROTTWEILER, -- this shares the same name as future shop's doberman, comment this one out and uncomment the one below if using future shop's
     [`chowchow`] = CompatGroup.ROTTWEILER,
     -- Popcorn Roleplay Peds: https://popcornrp-store.tebex.io/
     [`ame`] = CompatGroup.ROTTWEILER,
@@ -58,6 +58,25 @@ local models = {
     [`Weimaranerprp`] = CompatGroup.ROTTWEILER,
     [`goredogfprp`] = CompatGroup.ROTTWEILER,
     [`goredogmprp`] = CompatGroup.ROTTWEILER,
+    -- Future Store: https://future.tebex.io/category/animals-1
+    [`abdog`] = CompatGroup.ROTTWEILER,
+    [`ft-boxer`] = CompatGroup.ROTTWEILER,
+    [`ft-pitbull2`] = CompatGroup.ROTTWEILER,
+    [`ft_malinois`] = CompatGroup.ROTTWEILER,
+    [`ft-gs`] = CompatGroup.ROTTWEILER,
+    [`golden_r`] = CompatGroup.ROTTWEILER,
+    [`k9_husky`] = CompatGroup.ROTTWEILER,
+    [`ft-labrador`] = CompatGroup.ROTTWEILER,
+    [`ft-pterrier`] = CompatGroup.ROTTWEILER,
+    [`ft-aushep`] = CompatGroup.ROTTWEILER,
+    [`bernard`] = CompatGroup.ROTTWEILER,
+    [`ft-bloodhound`] = CompatGroup.ROTTWEILER,
+    [`ft-pitbull`] = CompatGroup.ROTTWEILER,
+    [`ft-dobermanv2`] = CompatGroup.ROTTWEILER,
+    [`ft_dshepherd`] = CompatGroup.ROTTWEILER,
+    [`k9`] = CompatGroup.ROTTWEILER,
+    [`ft_kangal`] = CompatGroup.ROTTWEILER,
+    [`riley`] = CompatGroup.ROTTWEILER,
 
     -- RETRIEVER
     [`a_c_retriever`] = CompatGroup.RETRIEVER,
@@ -85,6 +104,21 @@ local models = {
 
     -- popcornrp-pets: https://github.com/alberttheprince/popcornrp-pets
     [`huskyk9_new`] = CompatGroup.HUSKY,
+    -- Future Store: https://future.tebex.io/category/animals-1
+    [`akita_inu`] = CompatGroup.HUSKY,
+    [`dalmatian`] = CompatGroup.HUSKY,
+    [`dane`] = CompatGroup.HUSKY,
+    [`a_c_airedale`] = CompatGroup.HUSKY,
+    [`ft-akbash`] = CompatGroup.HUSKY,
+    [`ft-amakita`] = CompatGroup.HUSKY,
+    [`ft-btcoon`] = CompatGroup.HUSKY,
+    [`ft-catahoula`] = CompatGroup.HUSKY,
+    [`ft-ecocker`] = CompatGroup.HUSKY,
+    [`ft-groe`] = CompatGroup.HUSKY,
+    [`ft-pandags`] = CompatGroup.HUSKY,
+    [`a_c_pitbull`] = CompatGroup.HUSKY,
+    [`shiba`] = CompatGroup.HUSKY,
+    -- [`doberman`] = CompatGroup.HUSKY, -- this shares the same name as popcornrp-pets doberman, comment that one out and uncomment this if you are using this one
 
     -- SMALL_DOG
     [`a_c_poodle`] = CompatGroup.SMALL_DOG,
@@ -111,6 +145,31 @@ local models = {
     [`rottweilerpupprp`] = CompatGroup.SMALL_DOG,
     [`samoyedpuppyprp`] = CompatGroup.SMALL_DOG,
     [`standardpoodlepupprp`] = CompatGroup.SMALL_DOG,
+    -- Future Store: https://future.tebex.io/category/animals-1
+    [`beagle`] = CompatGroup.SMALL_DOG,
+    [`corgi`] = CompatGroup.SMALL_DOG,
+    [`russel`] = CompatGroup.SMALL_DOG,
+    [`yorkshire`] = CompatGroup.SMALL_DOG,
+    [`ft-ebully`] = CompatGroup.SMALL_DOG,
+    [`ft_bterrier`] = CompatGroup.SMALL_DOG,
+    [`ft-bulldogBIG`] = CompatGroup.SMALL_DOG,
+    [`ft-chihuahua`] = CompatGroup.SMALL_DOG,
+    [`dachshund`] = CompatGroup.SMALL_DOG,
+    [`ft-fbulldog`] = CompatGroup.SMALL_DOG,
+    [`ft-pas`] = CompatGroup.SMALL_DOG,
+    [`ft-pboxer`] = CompatGroup.SMALL_DOG,
+    [`ft-pbulldog`] = CompatGroup.SMALL_DOG,
+    [`ft-pbulldog2`] = CompatGroup.SMALL_DOG,
+    [`ft-dalma`] = CompatGroup.SMALL_DOG,
+    [`ft-pdoberman`] = CompatGroup.SMALL_DOG,
+    [`ft-shepk9`] = CompatGroup.SMALL_DOG,
+    [`ft-phusky`] = CompatGroup.SMALL_DOG,
+    [`ft-pkangal`] = CompatGroup.SMALL_DOG,
+    [`ft-labrak9`] = CompatGroup.SMALL_DOG,
+    [`ft-pretriever`] = CompatGroup.SMALL_DOG,
+    [`ft-pshepherd`] = CompatGroup.SMALL_DOG,
+    [`ft-shiba`] = CompatGroup.SMALL_DOG,
+    [`ft_samoyed`] = CompatGroup.SMALL_DOG,
 
     -- CAT
     [`a_c_cat`] = CompatGroup.CAT,
