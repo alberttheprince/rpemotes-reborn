@@ -76,31 +76,48 @@ RegisterNetEvent("rpemotes:server:startGroupEmote", function(emote, players, rad
         end
     end
 
-    Citizen.Wait(10 * 1000) -- Wait 10 seconds. Auto-Start group emote after that.
+    Wait(Config.GroupEmoteCountdownTime * 1000) -- Wait configured time. Auto-Start group emote after that.
     TriggerEvent("rpemotes:server:resolveGroupEmote", reqid)
+end)
+
+-- Check if all players have responded and start the emote if all have accepted
+local function recordResponse(reqid, source, response)
+    if not groupEmoteRequests[reqid] or groupEmoteRequests[reqid].players[source] == nil then return end
+    groupEmoteRequests[reqid].players[source] = response or nil
+    local group = groupEmoteRequests[reqid]
+    local allAccepted = true
+    local hasPlayers = false
+    for _, acceptedEmote in pairs(group.players) do
+        hasPlayers = true
+        if not acceptedEmote then
+            allAccepted = false
+            break
+        end
+    end
+
+    -- If all remaining players have accepted, start immediately
+    if allAccepted and hasPlayers then
+        TriggerEvent("rpemotes:server:resolveGroupEmote", reqid)
+    end
+end
+
+RegisterNetEvent("rpemotes:server:refuseGroupEmote", function(reqid)
+    local source = source
+    recordResponse(reqid, source, false)
 end)
 
 RegisterNetEvent("rpemotes:server:confirmGroupEmote", function(reqid)
     local source = source
-    if not groupEmoteRequests[reqid] or groupEmoteRequests[reqid].players[source] == nil then return end
-    local group = groupEmoteRequests[reqid]
-    group.players[source] = true
-
-    local startGroupEmote = true
-    for src, acceptedEmote in pairs(group.players) do
-        if not acceptedEmote then
-            startGroupEmote = false
-        end
-    end
-
-    if startGroupEmote then
-        TriggerEvent("rpemotes:server:resolveGroupEmote", reqid)
-    end
+    recordResponse(reqid, source, true)
 end)
 
 AddEventHandler("rpemotes:server:resolveGroupEmote", function(reqid)
     if not groupEmoteRequests[reqid] then return end
     local group = groupEmoteRequests[reqid]
+
+    -- Clear the request immediately to prevent duplicate triggers
+    groupEmoteRequests[reqid] = nil
+
     for src,accepted in pairs(group.players) do
         if accepted == true and GetPlayerPing(src) ~= 0 then
             local crds = GetEntityCoords(GetPlayerPed(src))
@@ -109,6 +126,4 @@ AddEventHandler("rpemotes:server:resolveGroupEmote", function(reqid)
             end
         end
     end
-
-    group = nil -- Group emote is done. Clear memory
 end)

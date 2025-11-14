@@ -120,7 +120,7 @@ local function drawControlHelpText()
         "~INPUT_COVER~/~INPUT_TALK~ " .. Translate('rotate') .. '\n' ..
         "~INPUT_RELOAD~/~INPUT_ARREST~ " .. Translate('height') .. '\n' ..
         "~INPUT_FRONTEND_ACCEPT~ " .. Translate('btn_select') .. '\n' ..
-        "~INPUT_FRONTEND_CANCEL~ " .. Translate('btn_back')
+        "~INPUT_FRONTEND_RRIGHT~ " .. Translate('btn_back')
     )
 end
 

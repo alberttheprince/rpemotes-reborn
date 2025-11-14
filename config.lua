@@ -100,7 +100,8 @@ Config = {
 
     -- Group Emotes: Default and Max group emote area that a player can select.
     GroupEmoteDefaultArea = 5.0,
-    GroupEmoteMaxArea = 10.0
+    GroupEmoteMaxArea = 10.0,
+    GroupEmoteCountdownTime = 10 -- Time in seconds to wait before starting group emote
 }
 
 -- Custom Categories: Define custom categories to organize emotes in the menu
