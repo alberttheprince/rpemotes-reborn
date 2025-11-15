@@ -296,7 +296,6 @@ local emoteCompatibility = {
     [CompatGroup.RETRIEVER] = {
         'bdogbark2', -- Retrievers use different anims/skeletons from Rottweilers, so we need to use them specifically for retriever-based peds to work
         'bdogexcited', -- Retrievers use different anims/skeletons from Rottweilers, so we need to use them specifically for retriever-based peds to work
-
     },
     [CompatGroup.HUSKY] = { },
     [CompatGroup.CAT] = {
