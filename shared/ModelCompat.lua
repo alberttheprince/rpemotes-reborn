@@ -77,6 +77,12 @@ local models = {
     [`k9`] = CompatGroup.ROTTWEILER,
     [`ft_kangal`] = CompatGroup.ROTTWEILER,
     [`riley`] = CompatGroup.ROTTWEILER,
+    -- Bugs Mods: https://bugs-basement.tebex.io/
+    [`bugk9`] = CompatGroup.ROTTWEILER,
+    [`bugxl`] = CompatGroup.ROTTWEILER,
+    [`k9wolf`] = CompatGroup.ROTTWEILER,
+    [`pitbull`] = CompatGroup.ROTTWEILER,
+    [`bugdoberman`] = CompatGroup.ROTTWEILER,
 
     -- RETRIEVER
     [`a_c_retriever`] = CompatGroup.RETRIEVER,
@@ -170,6 +176,16 @@ local models = {
     [`ft-pshepherd`] = CompatGroup.SMALL_DOG,
     [`ft-shiba`] = CompatGroup.SMALL_DOG,
     [`ft_samoyed`] = CompatGroup.SMALL_DOG,
+    -- Bugs Mods: https://bugs-basement.tebex.io/
+    [`a_c_aussiepup`] = CompatGroup.SMALL_DOG,
+    [`k9puppy`] = CompatGroup.SMALL_DOG,
+    [`a_c_pitbullpup`] = CompatGroup.SMALL_DOG,
+    [`yorkie_puppy`] = CompatGroup.SMALL_DOG,
+    [`bostonterrier_puppy`] = CompatGroup.SMALL_DOG,
+    [`a_c_fdpuppy`] = CompatGroup.SMALL_DOG,
+    [`bugdalpuppy`] = CompatGroup.SMALL_DOG,
+    [`k9puppydoberman`] = CompatGroup.SMALL_DOG,
+    [`bugxlpuppy`] = CompatGroup.SMALL_DOG,
 
     -- CAT
     [`a_c_cat`] = CompatGroup.CAT,
@@ -185,6 +201,10 @@ local models = {
     [`prpotter`] = CompatGroup.CAT,
     [`raccoon_new`] = CompatGroup.CAT,
     [`sphynxpoprp`] = CompatGroup.CAT,
+
+    -- Bug Store: https://bugs-store.tebex.io/
+    [`tabbycat`] = CompatGroup.CAT,
+
 }
 
 --- which emotes can the compat group use.
