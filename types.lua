@@ -28,6 +28,19 @@ EmoteType = {
     EXITS = 'Exits',
     EMOTES = 'Emotes',
     PROP_EMOTES = 'PropEmotes',
+    EMOJI = 'Emojis'
+}
+
+EmoteTypeEmoji = {
+    ['Expressions'] = '😒',
+    ['Walks'] = '🚶🏻‍♂️',
+    ['Shared'] = '👫',
+    ['Dances'] = '🕺',
+    ['AnimalEmotes'] = '🐩',
+    ['Exits'] = '🏃‍♂️‍➡️',
+    ['Emotes'] = '🎬',
+    ['PropEmotes'] = '📦',
+    ['Emojis'] = '🤪'
 }
 
 ---@enum PlacementState

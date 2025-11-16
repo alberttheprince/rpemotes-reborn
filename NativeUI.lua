@@ -3605,6 +3605,8 @@ function UIMenu:UpdateScaleform()
         and CurrentMenuSelection.emoteType ~= EmoteType.WALKS
         and CurrentMenuSelection.emoteType ~= EmoteType.SHARED
 
+    local showKeybindButtons = (keybindMenu and keybindMenu.menu:Visible()) or (CurrentMenuSelection and CurrentMenuSelection.name and CurrentMenuSelection.emoteType)
+
     PushScaleformMovieFunction(self.InstructionalScaleform, "CLEAR_ALL")
     PopScaleformMovieFunction()
 
@@ -3651,6 +3653,26 @@ function UIMenu:UpdateScaleform()
         PushScaleformMovieFunctionParameterString(Translate('btn_increment')..(paginationValue and ': '..paginationValue or ": "..paginationValue))
         PopScaleformMovieFunction()
         count = count + 1
+    end
+
+    if showKeybindButtons then
+        if not CurrentMenuSelection.emoteType then
+            PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
+            PushScaleformMovieFunctionParameterInt(count)
+            PushScaleformMovieMethodParameterButtonName(GetControlInstructionalButton(2, 176, 0))
+            PushScaleformMovieMethodParameterButtonName(GetControlInstructionalButton(2, 178, 0))
+            PushScaleformMovieFunctionParameterString(Translate("btn_delkeybind"))
+            PopScaleformMovieFunction()
+            count = count + 1
+        else
+            PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
+            PushScaleformMovieFunctionParameterInt(count)
+            PushScaleformMovieMethodParameterButtonName(GetControlInstructionalButton(2, 176, 0))
+            PushScaleformMovieMethodParameterButtonName(GetControlInstructionalButton(2, 311, 0))
+            PushScaleformMovieFunctionParameterString(Translate("btn_setkeybind"))
+            PopScaleformMovieFunction()
+            count = count + 1
+        end
     end
 
     if showEmoteButtons then

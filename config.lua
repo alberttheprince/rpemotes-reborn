@@ -9,7 +9,7 @@ Config = {
     MenuKeybindEnabled = true,
     MenuKeybind = 'F4',
 
-    Keybinding = false,
+    Keybinding = true,
     keybindKVP = "rpemotes",
     NotificationsAsChatMessage = false,
     Search = true, -- Used to enable or disable the search feature in the menu.
