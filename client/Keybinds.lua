@@ -38,7 +38,6 @@ if Config.Keybinding then
             return
         end
         if emoteType == EmoteType.WALKS then
-            print(emoteName)
             WalkMenuStart(emoteName)
             return
         end
@@ -47,7 +46,6 @@ if Config.Keybinding then
             return
         end
         EmoteCommandStart({ emoteName, 0 })
-        -- regular emotes go here
     end
 
     for i = 1, #Config.KeybindKeys do

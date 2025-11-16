@@ -42,6 +42,7 @@ EmoteTypeEmoji = {
     ['PropEmotes'] = '📦',
     ['Emojis'] = '🤪'
 }
+
 ---@enum PlacementState
 PlacementState = {
     NONE = 'None',

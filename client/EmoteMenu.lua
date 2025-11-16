@@ -1048,12 +1048,12 @@ function RebuildKeybindEmoteMenu()
         _menuPool:CloseAllMenus()
     end
 
-    -- Clear all submenus from the main menu
+    -- Clear all the items from the menu
     for i = #keybindMenu.menu.Items, 1, -1 do
         keybindMenu.menu:RemoveItemAt(i)
     end
 
-    -- Reset main menu selection to avoid index out of bounds
+    -- Reset menu selection to avoid index out of bounds
     keybindMenu.menu.ActiveItem = 1000
 
     -- Rebuild the menu
