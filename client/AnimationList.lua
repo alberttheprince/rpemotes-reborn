@@ -2106,6 +2106,14 @@ RP.Dances = {
             onFootFlag = AnimFlag.LOOP
         }
     },
+    ["danceshy3"] = {
+        "anim@amb@nightclub@mini@drinking@bar@player_bartender@idle_a",
+        "idle_a",
+        "Dance Shy 3",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP
+        }
+    },
     ["danceslow"] = {
         "anim@amb@nightclub@mini@dance@dance_solo@male@var_b@",
         "low_center",
@@ -2552,6 +2560,30 @@ RP.Dances = {
         "anim@amb@nightclub@djs@dixon@",
         "dixn_sync_cntr_j_dix",
         "DJ 9",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["dj10"] = {
+        "mini@strip_club@idles@dj@base",
+        "base",
+        "DJ 10",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["dj11"] = {
+        "mini@strip_club@idles@dj@idle_04",
+        "idle_04",
+        "DJ 11",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["dj12"] = {
+        "mini@strip_club@idles@dj@idle_02",
+        "idle_02",
+        "DJ 12",
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
         }
@@ -3087,6 +3119,14 @@ RP.AnimalEmotes = {
     ["bdogbeg2"] = {
         "creatures@rottweiler@tricks@",
         "paw_right_loop",
+        "Beg 2 (big dog)",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP
+        }
+    },
+    ["bdogeat"] = { -- Money Front Required
+        "anim@scripted@tycoon@bt1@ig6_dog_eat@dog@",
+        "loop_dog",
         "Beg 2 (big dog)",
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP
@@ -6054,6 +6094,30 @@ RP.Emotes = {
             onFootFlag = AnimFlag.MOVING,
         }
     },
+    ["argue7"] = {
+        "mini@prostitutestalk",
+        "street_argue_f_a",
+        "Argue 7",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
+    ["argue8"] = {
+        "rcmnigel1cnmt_1c",
+        "price_tag",
+        "Argue 8",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
+    ["argue9"] = {
+        "mini@hookers_sp",
+        "idle_reject",
+        "Argue 9",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
     ["bartender"] = {
         "anim@amb@clubhouse@bar@drink@idle_a",
         "idle_a_bartender",
@@ -6237,6 +6301,11 @@ RP.Emotes = {
             EmoteDuration = 1000
         }
     },
+    ["devestated"] = {
+        "misscarsteal2car_stolen",
+        "chad_car_stolen_reaction",
+        "Devestated"
+    },
     ["pointdown"] = {
         "gestures@f@standing@casual",
         "gesture_hand_down",
@@ -6312,6 +6381,15 @@ RP.Emotes = {
         "anim@scripted@bty4@ig2_bounty_kneel@male@",
         "on_knee_idle_a",
         "Surrender 7",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+            ExitEmote = "getup",
+        }
+    },
+    ["surrender8"] = {
+        "anim@scripted@npc@bounty_ig_surrender@male@",
+        "surrender_idle_bounty",
+        "Surrender 8",
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             ExitEmote = "getup",
@@ -6659,6 +6737,14 @@ RP.Emotes = {
         "anim@scripted@bty2@ig1_hiding_target@male@",
         "hiding_kneel",
         "Kneel Hide",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP
+        }
+    },
+    ["kneelcry"] = {
+        "random@robbery",
+        "f_cower_01",
+        "Kneel And Cry",
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP
         }
@@ -12305,6 +12391,75 @@ RP.PropEmotes = {
                 0.0
             },
             onFootFlag = AnimFlag.MOVING,
+        }
+    },
+    ["whiskeybartender"] = {
+        "mini@drinking",
+        "idle_a",
+        "Pour Shot - Whiskey",
+        AnimationOptions = {
+            Prop = 'ba_prop_battle_whiskey_bottle_2_s',
+            PropBone = 28422,
+            PropPlacement = {
+                0.05, 
+                0.05,
+                -0.05,
+                20.0,
+                0.0,
+                0.0
+            },
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
+    ["givedrink"] = {
+        "anim@amb@nightclub@mini@drinking@bar@drink@beer",
+        "intro_bartender",
+        "Give Drink - Beer",
+        AnimationOptions = {
+             Prop = 'prop_amb_beer_bottle',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.06,
+                0.0,
+                15.0,
+                0.0
+            },
+        }
+    },
+    ["givedrink2"] = {
+        "anim@amb@nightclub@mini@drinking@bar@drink@beer",
+        "intro_bartender",
+        "Give Drink - Beer In Bag",
+        AnimationOptions = {
+             Prop = 'p_cs_bottle_01',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.06,
+                0.0,
+                15.0,
+                0.0
+            },
+        }
+    },
+    ["givedrink3"] = {
+        "anim@amb@nightclub@mini@drinking@bar@drink@beer",
+        "intro_bartender",
+        "Give Drink - Beer Can",
+        AnimationOptions = {
+             Prop = 'v_res_tt_can01',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.06,
+                0.0,
+                15.0,
+                0.0
+            },
         }
     },
     ["beer"] = {

@@ -216,6 +216,7 @@ local emoteCompatibility = {
         'bdogindicatelow',
         'bdogbeg',
         'bdogbeg2',
+        'bdogeat',
         'bdoglayright',
         'bdoglayleft',
         'bdogsitcar',
