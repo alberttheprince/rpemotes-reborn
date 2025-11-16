@@ -5,14 +5,6 @@ CreateThread(function()
     TriggerEvent('chat:addSuggestion', '/emote', Translate('play_emote'),
         { { name = "emotename",      help = Translate('help_command') },
             { name = "texturevariation", help = Translate('help_variation') } })
-    if Config.Keybinding then
-        TriggerEvent('chat:addSuggestion', '/emotebind', Translate('link_emote_keybind'),
-            { { name = "key",     help = "num4, num5, num6, num7. num8, num9. Numpad 4-9!" },
-                { name = "emotename", help = Translate('help_command') } })
-        TriggerEvent('chat:addSuggestion', '/emotebinds', Translate('show_emote_keybind'))
-        TriggerEvent('chat:addSuggestion', '/emotedelete', Translate('remove_emote_keybind'),
-            { { name = "key", help = "num4, num5, num6, num7. num8, num9. Numpad 4-9!" } })
-    end
     TriggerEvent('chat:addSuggestion', '/emotemenu', Translate('open_menu_emote'))
     TriggerEvent('chat:addSuggestion', '/emotes', Translate('show_list_emote'))
     TriggerEvent('chat:addSuggestion', '/emotecancel', Translate('cancel_emote'))
@@ -35,32 +27,55 @@ end
 
 -- BINDING EMOTES TO KEYS
 if Config.Keybinding then
-    RegisterCommand('emotebind', function(source, args, raw) EmoteBindStart(source, args, raw) end, false)
-    RegisterCommand('emotebinds', function(source, args, raw) ListKeybinds() end, false)
-    RegisterCommand('emotedelete', function(source, args) DeleteEmote(args) end, false)
-
-    for i = 1, #Config.KeybindKeys do
-    local cmd = string.format('emoteSelect%s', i)
-    RegisterCommand(cmd, function()
-        local emote = GetResourceKvpString(string.format('%s_emob%s', Config.keybindKVP, i))
-        if emote and emote ~= "" then
-            EmoteCommandStart({ emote, 0 })
+    -- Helper function to route the binded emote to whatever function it needs to use (regular emote, shared emote, emoji, etc)
+    local function routeKeybindToEmote(emoteName, emoteType)
+        if emoteType == EmoteType.SHARED then
+            SendSharedEmoteRequest(emoteName)
+            return
         end
-    end, false)
-    RegisterKeyMapping(cmd, string.format('Emote bind %s', i), 'keyboard', Config.KeybindKeys[i])
+        if emoteType == EmoteType.EXPRESSIONS then
+            EmoteMenuStart(emoteName, nil, EmoteType.EXPRESSIONS)
+            return
+        end
+        if emoteType == EmoteType.WALKS then
+            print(emoteName)
+            WalkMenuStart(emoteName)
+            return
+        end
+        if emoteType == EmoteType.EMOJI then
+            ShowEmoji(emoteName)
+            return
+        end
+        EmoteCommandStart({ emoteName, 0 })
+        -- regular emotes go here
     end
 
-    function EmoteBindStart(source, args, raw)
+    for i = 1, #Config.KeybindKeys do
+        local cmd = string.format('emoteSelect%s', i)
+        RegisterCommand(cmd, function()
+            local emote = GetResourceKvpString(string.format('%s_bind_%s', Config.keybindKVP, i))
+            if emote and emote ~= "" then
+                emote = json.decode(emote)
+                routeKeybindToEmote(emote.emoteName, emote.emoteType)
+            end
+        end, false)
+        RegisterKeyMapping(cmd, Translate("keybind_slot", i), 'keyboard', Config.KeybindKeys[i])
+    end
+
+    function EmoteBindStart(args)
         if #args > 0 then
             local numkey = tonumber(args[1])
-            local emote = string.lower(args[2])
-            if not (numkey and emote) then
+            local emote = tostring(args[2])
+            local label = tostring(args[3])
+            local emoteType = tostring(args[4])
+            if not (numkey and emote and label and emoteType) then
                 DebugPrint('Invalid arguments to EmoteBindStart')
                 return
             end
             if type(numkey) == "number" then
-                if EmoteData[emote] then
-                    SetResourceKvp(string.format('%s_emob%s', Config.keybindKVP, numkey), emote)
+                if true then
+                    SetResourceKvp(string.format('%s_bind_%s', Config.keybindKVP, numkey), json.encode({label = label, emoteName = emote, emoteType = emoteType}))
+                    SimpleNotify(Translate("registered_keybind", label, GetKeyForCommand("emoteSelect"..numkey)))
                 else
                     EmoteChatMessage("'" .. emote .. "' " .. Translate('notvalidemote') .. "")
                 end
@@ -72,25 +87,110 @@ if Config.Keybinding then
         end
     end
 
-    function ListKeybinds()
-        for i = 1, #Config.KeybindKeys do
-            local emote = GetResourceKvpString(string.format('%s_emob%s', Config.keybindKVP, i))
-            if emote then
-                EmoteChatMessage(string.format('Emote %s : %s',i, emote))
-            end
-        end
-    end
-
-    function DeleteEmote(args)
+    function DeleteEmoteBind(args)
         if #args > 0 then
             local numkey = tonumber(args[1])
             if type(numkey) == "number"  then
-                DeleteResourceKvp(string.format('%s_emob%s', Config.keybindKVP, numkey))
+                DeleteResourceKvp(string.format('%s_bind_%s', Config.keybindKVP, numkey))
+                SimpleNotify(Translate("cleared_keybind", numkey))
             else
                 EmoteChatMessage("'" .. numkey .. "' " .. Translate('notvalidkey'))
             end
         else
             DebugPrint("invalid")
         end
+    end
+end
+
+-- shoutout to MadsL for sharing the button map on the forums.
+local specialkeyCodes = {
+    ['b_100'] = 'LMB', -- Left Mouse Button
+    ['b_101'] = 'RMB', -- Right Mouse Button
+    ['b_102'] = 'MMB', -- Middle Mouse Button
+    ['b_103'] = 'Mouse.ExtraBtn1',
+    ['b_104'] = 'Mouse.ExtraBtn2',
+    ['b_105'] = 'Mouse.ExtraBtn3',
+    ['b_106'] = 'Mouse.ExtraBtn4',
+    ['b_107'] = 'Mouse.ExtraBtn5',
+    ['b_108'] = 'Mouse.ExtraBtn6',
+    ['b_109'] = 'Mouse.ExtraBtn7',
+    ['b_110'] = 'Mouse.ExtraBtn8',
+    ['b_115'] = 'MouseWheel.Up',
+    ['b_116'] = 'MouseWheel.Down',
+    ['b_130'] = 'NumSubstract',
+    ['b_131'] = 'NumAdd',
+    ['b_134'] = 'Num Multiplication',
+    ['b_135'] = 'Num Enter',
+    ['b_137'] = 'Numpad1',
+    ['b_138'] = 'Numpad2',
+    ['b_139'] = 'Numpad3',
+    ['b_140'] = 'Numpad4',
+    ['b_141'] = 'Numpad5',
+    ['b_142'] = 'Numpad6',
+    ['b_143'] = 'Numpad7',
+    ['b_144'] = 'Numpad8',
+    ['b_145'] = 'Numpad9',
+    ['b_170'] = 'F1',
+    ['b_171'] = 'F2',
+    ['b_172'] = 'F3',
+    ['b_173'] = 'F4',
+    ['b_174'] = 'F5',
+    ['b_175'] = 'F6',
+    ['b_176'] = 'F7',
+    ['b_177'] = 'F8',
+    ['b_178'] = 'F9',
+    ['b_179'] = 'F10',
+    ['b_180'] = 'F11',
+    ['b_181'] = 'F12',
+    ['b_182'] = 'F13',
+    ['b_183'] = 'F14',
+    ['b_184'] = 'F15',
+    ['b_185'] = 'F16',
+    ['b_186'] = 'F17',
+    ['b_187'] = 'F18',
+    ['b_188'] = 'F19',
+    ['b_189'] = 'F20',
+    ['b_190'] = 'F21',
+    ['b_191'] = 'F22',
+    ['b_192'] = 'F23',
+    ['b_193'] = 'F24',
+    ['b_194'] = 'Arrow Up',
+    ['b_195'] = 'Arrow Down',
+    ['b_196'] = 'Arrow Left',
+    ['b_197'] = 'Arrow Right',
+    ['b_198'] = 'Delete',
+    ['b_199'] = 'Escape',
+    ['b_200'] = 'Insert',
+    ['b_201'] = 'End',
+    ['b_210'] = 'Delete',
+    ['b_211'] = 'Insert',
+    ['b_212'] = 'End',
+    ['b_1000'] = 'Shift',
+    ['b_1002'] = 'Tab',
+    ['b_1003'] = 'Enter',
+    ['b_1004'] = 'Backspace',
+    ['b_1009'] = 'PageUp',
+    ['b_1008'] = 'Home',
+    ['b_1010'] = 'PageDown',
+    ['b_1012'] = 'CapsLock',
+    ['b_1013'] = 'Control',
+    ['b_1014'] = 'Right Control',
+    ['b_1015'] = 'Alt',
+    ['b_1055'] = 'Home',
+    ['b_1056'] = 'PageUp',
+    ['b_2000'] = 'Space'
+}
+
+function GetKeyForCommand(command)
+    return GetKeyLabel(GetHashKey(command) | 0x80000000):upper()
+end
+
+function GetKeyLabel(commandHash)
+    local key = GetControlInstructionalButton(0, commandHash | 0x80000000, true)
+    if string.find(key, "t_") then
+        local label, _count = string.gsub(key, "t_", "")
+        return label
+    else
+        return specialkeyCodes[key] or "unknown"
     end
 end

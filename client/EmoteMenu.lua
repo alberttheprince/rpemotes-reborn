@@ -12,6 +12,8 @@ WalkData = {}
 
 local isMenuProcessing = false
 local isWaitingForPed = false
+keybindMenu = nil -- Global variable. Scary!
+local dataForKeybind = {}
 
 -- Tracks currently selected menu item for instruction button visibility
 CurrentMenuSelection = {
@@ -204,7 +206,7 @@ local EMOTE_PREFIX = {
     [EmoteType.PROP_EMOTES] = "📦 ",
 }
 
-local function sendSharedEmoteRequest(emoteName)
+function SendSharedEmoteRequest(emoteName)
     local target, distance = GetClosestPlayer()
     if (distance ~= -1 and distance < 3) then
         TriggerServerEvent("rpemotes:server:requestEmote", GetPlayerServerId(target), emoteName)
@@ -225,13 +227,31 @@ local function handleEmoteSelection(emoteName, emoteType, textureVariation)
     end
 
     if emote.emoteType == EmoteType.SHARED then
-        sendSharedEmoteRequest(emoteName)
+        -- Check for keybind request (K key)
+        if IsControlPressed(2, 311) then
+            dataForKeybind = {emoteName = emoteName, emoteType = emote.emoteType, label = emote.label}
+            RebuildKeybindEmoteMenu()
+            keybindMenu.menu:Visible(true)
+            return
+        end
+        dataForKeybind = {}
+
+        SendSharedEmoteRequest(emoteName)
     elseif isEmoteTypePlayable(emote.emoteType) then
         -- Check for group emote request (CTRL key)
         if IsDisabledControlPressed(0, 36) then
             OnGroupEmoteRequest(emoteName)
             return
         end
+
+        -- Check for keybind request (K key)
+        if IsControlPressed(2, 311) then
+            dataForKeybind = {emoteName = emoteName, emoteType = emote.emoteType, label = emote.label}
+            RebuildKeybindEmoteMenu()
+            keybindMenu.menu:Visible(true)
+            return
+        end
+        dataForKeybind = {}
 
         local shiftHeld = IsControlPressed(0, 21)
         local placementState = GetPlacementState()
@@ -394,16 +414,59 @@ local function createSubMenu(parent, category, title, description, emoteType)
     return subMenu
 end
 
+local function addKeybindMenu(parent)
+    if parent then -- Hack-job to allow us to use the same function for both creating and rebuilding the menu.
+        createSubMenu(parent, "keybinds", Translate("keybinds"))
+    end
+    local menu = subMenus["keybinds"]
+
+    for id = 1, #Config.KeybindKeys do
+        local emoteData = GetResourceKvpString(string.format('%s_bind_%s', Config.keybindKVP, id))
+        if emoteData and emoteData ~= "" then
+            emoteData = json.decode(emoteData)
+        end
+        local label = string.format("Slot %i: ~b~%s~s~ %s", id, (emoteData and EmoteTypeEmoji[emoteData.emoteType]) or "", (emoteData and emoteData.label) or "Empty Slot")
+        local description = string.format("This slot is bound to [ ~b~%s~s~ ]. You can change this in the in-game settings.", GetKeyForCommand("emoteSelect"..id))
+        local item = NativeUI.CreateItem(label, description)
+        menu.menu:AddItem(item)
+        menu.items[#menu.items+1] = {name = "slot_"..id}
+    end
+
+    menu.menu.OnItemSelect = function(_, item, index)
+        if dataForKeybind.emoteName then
+            -- Set as bind.
+            local label = string.format("Slot %i: %s", index, dataForKeybind.label or "Empty Slot")
+            EmoteBindStart({index, dataForKeybind.emoteName, dataForKeybind.label, dataForKeybind.emoteType})
+            dataForKeybind = {}
+            _menuPool:RefreshIndex()
+            _menuPool:CloseAllMenus()
+            RebuildEmoteMenu()
+            mainMenu:Visible(true)
+        else
+            -- Delete bind.
+            if IsControlPressed(0,178) then
+                DeleteEmoteBind({index})
+                dataForKeybind = {}
+                _menuPool:RefreshIndex()
+                _menuPool:CloseAllMenus()
+                RebuildEmoteMenu()
+                mainMenu:Visible(true)
+                return
+            end
+
+            -- When pressing enter without an emote context, just do the anim.
+            ExecuteCommand("emoteSelect"..index)
+        end
+    end
+
+    return menu
+end
+
 local function addEmoteMenu(menu)
     local emoteMenu = createSubMenu(menu, EmoteType.EMOTES, Translate('emotes'))
     if Config.Search then
         emoteMenu.menu:AddItem(NativeUI.CreateItem(Translate('searchemotes'), ""))
         emoteMenu.items[#emoteMenu.items+1] = {name = Translate('searchemotes'), emoteType = nil}
-    end
-
-    if Config.Keybinding then
-        emoteMenu.items[#emoteMenu.items+1] = {name = "keybinds", emoteType = nil}
-        emoteMenu.menu:AddItem(NativeUI.CreateItem(Translate('keybinds'), Translate('keybindsinfo') .. " /emotebind [~y~num4-9~w~] [~g~emotename~w~]"))
     end
 
     -- Create submenus for each custom category
@@ -661,7 +724,17 @@ local function addWalkMenu(menu)
             ResetWalk()
             DeleteResourceKvp("walkstyle")
         end,
-        onSelect = WalkMenuStart
+        onSelect = function(itemName)
+            -- Check for keybind request (K key)
+            if IsControlPressed(2, 311) then
+                dataForKeybind = {emoteName = itemName, emoteType = EmoteType.WALKS, label = itemName}
+                RebuildKeybindEmoteMenu()
+                keybindMenu.menu:Visible(true)
+                return
+            end
+            dataForKeybind = {}
+            WalkMenuStart(itemName)
+        end
     })
 end
 
@@ -676,6 +749,15 @@ local function addFaceMenu(menu)
             ClearFacialIdleAnimOverride(PlayerPedId())
         end,
         onSelect = function(expressionName)
+            -- Check for keybind request (K key)
+            if IsControlPressed(2, 311) then
+                dataForKeybind = {emoteName = expressionName, emoteType = EmoteType.EXPRESSIONS, label = expressionName}
+                RebuildKeybindEmoteMenu()
+                keybindMenu.menu:Visible(true)
+                return
+            end
+            dataForKeybind = {}
+
             EmoteMenuStart(expressionName, nil, EmoteType.EXPRESSIONS)
         end
     })
@@ -685,7 +767,6 @@ local function addEmojiMenu(menu)
     if not Config.EmojiMenuEnabled then return end
 
     emojiSubmenu = _menuPool:AddSubMenu(menu, Translate('emojis'), Translate('emojisdescription'), true, true)
-    emojiSubmenu:SetMenuWidthOffset(45)
 
     local sortedEmojis = {}
     for key, emoji in pairs(EmojiData) do
@@ -699,6 +780,15 @@ local function addEmojiMenu(menu)
         emojiSubmenu:AddItem(item)
 
         item.Activated = function(parentMenu, item)
+            -- Check for keybind request (K key)
+            if IsControlPressed(2, 311) then
+                dataForKeybind = {emoteName = emojiData.key, emoteType = EmoteType.EMOJI, label = emojiData.emoji}
+                RebuildKeybindEmoteMenu()
+                keybindMenu.menu:Visible(true)
+                return
+            end
+            dataForKeybind = {}
+
             ShowEmoji(emojiData.key)
         end
     end
@@ -743,6 +833,7 @@ function OpenEmoteMenu()
     if placementState == PlacementState.PREVIEWING or placementState == PlacementState.WALKING then return end
 
     updateEmojiMenuAvailability()
+    RebuildKeybindEmoteMenu()
 
     if _menuPool:IsAnyMenuOpen() then
         _menuPool:CloseAllMenus()
@@ -751,7 +842,6 @@ function OpenEmoteMenu()
         if hasClonedPed() then
             ClosePedMenu()
         end
-
         mainMenu:Visible(true)
         processMenu()
     end
@@ -902,6 +992,9 @@ end
 function InitMenu()
     addEmoteMenu(mainMenu)
     addCancelEmote(mainMenu)
+    if Config.Keybinding then
+        keybindMenu = addKeybindMenu(mainMenu)
+    end
     if Config.WalkingStylesEnabled then
         addWalkMenu(mainMenu)
     end
@@ -947,6 +1040,26 @@ function RebuildEmoteMenu()
     InitMenu()
 
     DebugPrint("Menu rebuilt for model compatibility")
+end
+
+function RebuildKeybindEmoteMenu()
+    -- Close all menus if open
+    if _menuPool:IsAnyMenuOpen() then
+        _menuPool:CloseAllMenus()
+    end
+
+    -- Clear all submenus from the main menu
+    for i = #keybindMenu.menu.Items, 1, -1 do
+        keybindMenu.menu:RemoveItemAt(i)
+    end
+
+    -- Reset main menu selection to avoid index out of bounds
+    keybindMenu.menu.ActiveItem = 1000
+
+    -- Rebuild the menu
+    keybindMenu = addKeybindMenu()
+
+    DebugPrint("Keybind Menu rebuilt at runtime")
 end
 
 CreateThread(function()
