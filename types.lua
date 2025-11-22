@@ -51,7 +51,7 @@ PlacementState = {
     IN_ANIMATION = 'In Animation'
 }
 
--- Mapping of EmoteTypes to the 4 ACE categories
+-- Mapping of EmoteTypes to the 5 ACE categories
 AceCategoryFromEmoteType = {
     [EmoteType.EMOTES] = EmoteType.EMOTES,
     [EmoteType.PROP_EMOTES] = EmoteType.EMOTES,
@@ -61,6 +61,7 @@ AceCategoryFromEmoteType = {
     [EmoteType.SHARED] = EmoteType.SHARED,
     [EmoteType.EXPRESSIONS] = EmoteType.EXPRESSIONS,
     [EmoteType.WALKS] = EmoteType.WALKS,
+    [EmoteType.EMOJI] = EmoteType.EMOJI,
 }
 
 

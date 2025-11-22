@@ -77,19 +77,62 @@ end
 
 loadAndCacheEmotes()
 
+-- Build permission lookup cache for O(1) access
+-- Structure: aceCache[aceCategory][emoteName] = {acePermission1, acePermission2, ...}
+---@type table<EmoteType, table<string, string[]>>
+local aceCache = {}
+
+-- Initialize cache from AceCategoryFromEmoteType
+for _, aceCategory in pairs(AceCategoryFromEmoteType) do
+    if not aceCache[aceCategory] then
+        aceCache[aceCategory] = {}
+    end
+end
+
+local function buildPermissionCache()
+    for acePermission, restrictions in pairs(Config.Ace) do
+        for emoteType, emoteList in pairs(restrictions) do
+            local aceCategory = AceCategoryFromEmoteType[emoteType]
+            if aceCategory then
+                local categoryCache = aceCache[aceCategory]
+                for _, emoteName in ipairs(emoteList) do
+                    local aceList = categoryCache[emoteName]
+                    if not aceList then
+                        aceList = {}
+                        categoryCache[emoteName] = aceList
+                    end
+                    aceList[#aceList + 1] = acePermission
+                end
+            end
+        end
+    end
+end
+
+buildPermissionCache()
+
 local function hasEmotePermission(source, emoteName, emoteType)
-    local ace
-    if emoteType == EmoteType.SHARED then
-        ace = string.format("rpemotes.shared.%s", emoteName)
-    elseif emoteType == EmoteType.EXPRESSIONS then
-        ace = string.format("rpemotes.expressions.%s", emoteName)
-    elseif emoteType == EmoteType.WALKS then
-        ace = string.format("rpemotes.walks.%s", emoteName)
-    else
-        ace = string.format("rpemotes.emotes.%s", emoteName)
+    local aceCategory = AceCategoryFromEmoteType[emoteType]
+    if not aceCategory then
+        return true
     end
 
-    return IsPlayerAceAllowed(source, ace)
+    local categoryCache = aceCache[aceCategory]
+    if not categoryCache then
+        return true
+    end
+
+    local requiredAces = categoryCache[emoteName]
+    if not requiredAces then
+        return true
+    end
+
+    for _, acePermission in ipairs(requiredAces) do
+        if IsPlayerAceAllowed(source, acePermission) then
+            return true
+        end
+    end
+
+    return false
 end
 
 

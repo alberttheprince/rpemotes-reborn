@@ -27,7 +27,6 @@ shared_scripts {
     'locales/*.lua',
     'config.lua',
     'shared/ModelCompat.lua',
-    'animals.lua'
 }
 
 server_scripts {
