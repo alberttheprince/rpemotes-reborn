@@ -51,6 +51,7 @@ client_scripts {
     'client/Expressions.lua',
     'client/Handsup.lua',
     'client/Keybinds.lua',
+    'client/Favorites.lua',
     'client/NewsCam.lua',
     'client/NoIdleCam.lua',
     'client/Pointing.lua',

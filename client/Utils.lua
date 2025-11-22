@@ -381,6 +381,27 @@ function DoesPedVehicleHaveHandleBars(ped)
     return IsThisModelABike(vehicleModel) or IsThisModelAJetski(vehicleModel) or IsThisModelAQuadbike(vehicleModel) or IsThisModelABicycle(vehicleModel)
 end
 
+-- Helper function to route the binded emote to whatever function it needs to use (regular emote, shared emote, emoji, etc)
+function RouteEmoteToFunction(emoteName, emoteType, textureVariation)
+    if emoteType == EmoteType.SHARED then
+        SendSharedEmoteRequest(emoteName)
+        return
+    end
+    if emoteType == EmoteType.EXPRESSIONS then
+        EmoteMenuStart(emoteName, nil, EmoteType.EXPRESSIONS)
+        return
+    end
+    if emoteType == EmoteType.WALKS then
+        WalkMenuStart(emoteName)
+        return
+    end
+    if emoteType == EmoteType.EMOJI then
+        ShowEmoji(emoteName)
+        return
+    end
+    EmoteCommandStart({ emoteName, textureVariation or 1 })
+end
+
 ----------------------------------------------------------------------
 
 ShowPed = false

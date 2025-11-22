@@ -32,6 +32,8 @@ Locales['en'] = {
     ['nocancel'] = "No emote to cancel.",
     ['maleonly'] = "This emote is male only, sorry!",
     ['emotemenucmd'] = "Use command /emotemenu to open animations menu.",
+    ['favorites'] = "🌟 Favorites",
+    ['favoritesinfo'] = "Your saved emotes, walk styles, moods and emoji reactions.",
     ['shareemotes'] = "👫 Shared Emotes",
     ['shareemotesinfo'] = "Invite a nearby person to emote",
     ['notvalidsharedemote'] = "is not a valid shared emote.",
@@ -116,5 +118,10 @@ Locales['en'] = {
     ['refusedgroupemote'] = "You refused the group emote.",
     ['canceledgroupemote'] = "You canceled the group emote.",
     ['cannotstartgroupemote'] = "You cannot start another group emote!",
-    ['groupemoteradiushelp'] = "Select the area of the group emote for ~g~%s~w~.\n~INPUT_WEAPON_WHEEL_NEXT~~INPUT_WEAPON_WHEEL_PREV~ Change Radius\n~INPUT_FRONTEND_ACCEPT~ Select  |  ~INPUT_FRONTEND_RRIGHT~ Cancel"
+    ['groupemoteradiushelp'] = "Select the area of the group emote for ~g~%s~w~.\n~INPUT_WEAPON_WHEEL_NEXT~~INPUT_WEAPON_WHEEL_PREV~ Change Radius\n~INPUT_FRONTEND_ACCEPT~ Select  |  ~INPUT_FRONTEND_RRIGHT~ Cancel",
+    -- Favorites
+    ['btn_set_favorite'] = "Set Favorite",
+    ['btn_remove_favorite'] = "Remove Favorite",
+    ['addedtofavorites'] = "Emote (~g~%s~s~) added to favorites!",
+    ['removedfromfavorites'] = "Emote (~g~%s~s~) removed from favorites!",
 }
