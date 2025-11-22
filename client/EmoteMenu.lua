@@ -1130,16 +1130,23 @@ function RebuildFavoritesEmoteMenu()
     favoriteMenu = addFavoritesMenu()
     if #favoriteMenu.items > 0 then
         if favoriteMenu.items[cacheActiveItem] then
+            -- There is still an item at the cached index, so select it.
             favoriteMenu.menu:CurrentSelection(cacheActiveItem)
         else
+            -- If there are no items at the cached index, select the last item in the menu.
             favoriteMenu.menu:CurrentSelection(#favoriteMenu.items)
         end
+
+        -- We use the internal NativeUI functions to simulate a menu update.
+        -- Otherwise NativeUI wont't be able to update the menu, until the player does any action,
+        -- because :CurrentSelection() function doesn't update it by default.
         if favoriteMenu.menu.ActiveItem > 1 then
             favoriteMenu.menu:GoUp()
         else
             favoriteMenu.menu:GoDown()
         end
     else
+        -- No emotes to select. Clear the cached emote data.
         CurrentMenuSelection = {}
     end
 
