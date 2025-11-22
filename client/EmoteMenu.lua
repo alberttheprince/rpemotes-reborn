@@ -95,7 +95,7 @@ end
 local function addResetMenuItem(menu, items, emoteType)
     local resetItem = NativeUI.CreateItem(Translate('normalreset'), Translate('resetdef'))
     menu:AddItem(resetItem)
-    items[#items+1] = {name = Translate('resetdef'), emoteType = emoteType}
+    items[#items+1] = {name = Translate('resetdef'), emoteType = emoteType, notAnEmote = true}
     return resetItem
 end
 
@@ -310,7 +310,7 @@ local function onMenuItemHover(currentMenu)
         currentIndex = 1 -- Default to first item if no selection
     end
 
-    if not subMenuData.items[currentIndex] then
+    if not subMenuData.items[currentIndex] or subMenuData.items[currentIndex].notAnEmote then
         CurrentMenuSelection = {}
         currentMenu:UpdateScaleform()
         hidePreview()
@@ -1116,6 +1116,7 @@ function RebuildKeybindEmoteMenu()
 end
 
 function RebuildFavoritesEmoteMenu()
+    local cacheActiveItem = favoriteMenu.menu:CurrentSelection()
     -- Clear all the items from the menu
     for i = #favoriteMenu.menu.Items, 1, -1 do
         favoriteMenu.menu:RemoveItemAt(i)
@@ -1127,6 +1128,27 @@ function RebuildFavoritesEmoteMenu()
 
     -- Rebuild the menu
     favoriteMenu = addFavoritesMenu()
+    if #favoriteMenu.items > 0 then
+        if favoriteMenu.items[cacheActiveItem] then
+            -- There is still an item at the cached index, so select it.
+            favoriteMenu.menu:CurrentSelection(cacheActiveItem)
+        else
+            -- If there are no items at the cached index, select the last item in the menu.
+            favoriteMenu.menu:CurrentSelection(#favoriteMenu.items)
+        end
+
+        -- We use the internal NativeUI functions to simulate a menu update.
+        -- Otherwise NativeUI wont't be able to update the menu, until the player does any action,
+        -- because :CurrentSelection() function doesn't update it by default.
+        if favoriteMenu.menu.ActiveItem > 1 then
+            favoriteMenu.menu:GoUp()
+        else
+            favoriteMenu.menu:GoDown()
+        end
+    else
+        -- No emotes to select. Clear the cached emote data.
+        CurrentMenuSelection = {}
+    end
 
     DebugPrint("Favorite Menu rebuilt at runtime")
 end
