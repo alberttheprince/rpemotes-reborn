@@ -123,6 +123,13 @@ if Config.SharedEmotesEnabled then
     }
 end
 
+-- Require ace perms to use certain emotes.
+---@type table<string, table<EmoteType, string[]>>
+Config.Ace = {
+    -- Example: only players with ACE group.admin can use the drunk emote. Anyone can still use the drunk walk however.
+    --['group.admin'] = {[EmoteType.EMOTES] = {'drunk'}} 
+}
+
 Config.KeybindKeys = {
     'NUMPAD4',
     'NUMPAD5',

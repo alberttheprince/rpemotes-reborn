@@ -27,34 +27,13 @@ end
 
 -- BINDING EMOTES TO KEYS
 if Config.Keybinding then
-    -- Helper function to route the binded emote to whatever function it needs to use (regular emote, shared emote, emoji, etc)
-    local function routeKeybindToEmote(emoteName, emoteType)
-        if emoteType == EmoteType.SHARED then
-            SendSharedEmoteRequest(emoteName)
-            return
-        end
-        if emoteType == EmoteType.EXPRESSIONS then
-            EmoteMenuStart(emoteName, nil, EmoteType.EXPRESSIONS)
-            return
-        end
-        if emoteType == EmoteType.WALKS then
-            WalkMenuStart(emoteName)
-            return
-        end
-        if emoteType == EmoteType.EMOJI then
-            ShowEmoji(emoteName)
-            return
-        end
-        EmoteCommandStart({ emoteName, 0 })
-    end
-
     for i = 1, #Config.KeybindKeys do
         local cmd = string.format('emoteSelect%s', i)
         RegisterCommand(cmd, function()
             local emote = GetResourceKvpString(string.format('%s_bind_%s', Config.keybindKVP, i))
             if emote and emote ~= "" then
                 emote = json.decode(emote)
-                routeKeybindToEmote(emote.emoteName, emote.emoteType)
+                RouteEmoteToFunction(emote.emoteName, emote.emoteType)
             end
         end, false)
         RegisterKeyMapping(cmd, Translate("keybind_slot", i), 'keyboard', Config.KeybindKeys[i])

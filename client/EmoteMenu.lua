@@ -13,6 +13,7 @@ WalkData = {}
 local isMenuProcessing = false
 local isWaitingForPed = false
 keybindMenu = nil -- Global variable. Scary!
+favoriteMenu = nil -- Global variable. Scary!
 local dataForKeybind = {}
 
 -- Tracks currently selected menu item for instruction button visibility
@@ -55,7 +56,7 @@ local function addEmoteToMenu(menu, items, emoteName, label, description, emoteT
     local hasPermission = HasEmotePermission(emoteName, emoteType)
     item:Enabled(hasPermission)
     menu:AddItem(item)
-    items[#items+1] = {name = emoteName, emoteType = emoteType}
+    items[#items+1] = {name = emoteName, emoteType = emoteType, label = label}
 end
 
 local function formatSharedEmoteDescription(emoteName, secondPlayersAnim)
@@ -94,7 +95,7 @@ end
 local function addResetMenuItem(menu, items, emoteType)
     local resetItem = NativeUI.CreateItem(Translate('normalreset'), Translate('resetdef'))
     menu:AddItem(resetItem)
-    items[#items+1] = {name = Translate('resetdef'), emoteType = emoteType}
+    items[#items+1] = {name = Translate('resetdef'), emoteType = emoteType, notAnEmote = true}
     return resetItem
 end
 
@@ -309,7 +310,7 @@ local function onMenuItemHover(currentMenu)
         currentIndex = 1 -- Default to first item if no selection
     end
 
-    if not subMenuData.items[currentIndex] then
+    if not subMenuData.items[currentIndex] or subMenuData.items[currentIndex].notAnEmote then
         CurrentMenuSelection = {}
         currentMenu:UpdateScaleform()
         hidePreview()
@@ -318,11 +319,13 @@ local function onMenuItemHover(currentMenu)
 
     local emoteName = subMenuData.items[currentIndex].name
     local emoteType = subMenuData.items[currentIndex].emoteType
+    local emoteLabel = subMenuData.items[currentIndex].label
 
     -- Always update CurrentMenuSelection for instruction buttons
     CurrentMenuSelection = {
         name = emoteName,
         emoteType = emoteType,
+        label = emoteLabel,
     }
 
     -- Force scaleform refresh to update instruction buttons
@@ -462,6 +465,36 @@ local function addKeybindMenu(parent)
     return menu
 end
 
+local function addFavoritesMenu(parent)
+    if parent then -- Hack-job to allow us to use the same function for both creating and rebuilding the menu.
+        createSubMenu(parent, "favorites", Translate("favorites"), Translate("favoritesinfo"))
+    end
+    local menu = subMenus["favorites"]
+    local favoriteEmotes = GetFavoriteEmotes()
+    local favoriteEmotesMap = GetFavoriteEmotesMap()
+    for _, key in pairs(favoriteEmotesMap) do
+        local emoteData = favoriteEmotes[key]
+        local label = string.format("~b~%s~s~ %s", (emoteData and EmoteTypeEmoji[emoteData.emoteType]) or "", (emoteData and emoteData.label) or "Unknown Emote Name")
+        local item = NativeUI.CreateItem(label, "")
+        menu.menu:AddItem(item)
+        menu.items[#menu.items+1] = {name = emoteData.name, label = emoteData.label, emoteType = emoteData.emoteType}
+    end
+
+    menu.menu.OnItemSelect = function(_, __, index)
+        local item = menu.items[index]
+        -- If it's a regular emote, we go through the normal process.
+        local regularEmote = getEmoteData(item.name, item.emoteType)
+        if regularEmote and (item.emoteType ~= EmoteType.EXPRESSIONS and item.emoteType ~= EmoteType.WALKS) then
+            handleEmoteSelection(item.name, item.emoteType, item.textureVariation)
+            return
+        end
+        -- For Emojis got through the router
+        RouteEmoteToFunction(item.name, item.emoteType, item.textureVariation)
+    end
+
+    return menu
+end
+
 local function addEmoteMenu(menu)
     local emoteMenu = createSubMenu(menu, EmoteType.EMOTES, Translate('emotes'))
     if Config.Search then
@@ -505,7 +538,7 @@ local function addEmoteMenu(menu)
                         local shareitem = NativeUI.CreateItem(data.label, desc)
                         shareitem:Enabled(hasPermission)
                         categoryMenu.menu:AddItem(shareitem)
-                        categoryMenu.items[#categoryMenu.items+1] = {name = emoteName, emoteType = data.emoteType}
+                        categoryMenu.items[#categoryMenu.items+1] = {name = emoteName, emoteType = data.emoteType, label = data.label}
                     elseif data.emoteType == EmoteType.PROP_EMOTES then
                         local label = EMOTE_PREFIX[EmoteType.PROP_EMOTES] .. data.label
                         local propitem = data.AnimationOptions.PropTextureVariations and
@@ -513,7 +546,7 @@ local function addEmoteMenu(menu)
                             NativeUI.CreateItem(label, string.format("/e (%s)", emoteName))
                         propitem:Enabled(hasPermission)
                         categoryMenu.menu:AddItem(propitem)
-                        categoryMenu.items[#categoryMenu.items+1] = {name = emoteName, emoteType = data.emoteType}
+                        categoryMenu.items[#categoryMenu.items+1] = {name = emoteName, emoteType = data.emoteType, label = data.label}
                     else
                         -- EMOTES, DANCES, ANIMAL_EMOTES
                         local prefix = EMOTE_PREFIX[data.emoteType] or ""
@@ -763,35 +796,39 @@ local function addFaceMenu(menu)
     })
 end
 
-local function addEmojiMenu(menu)
-    if not Config.EmojiMenuEnabled then return end
-
-    emojiSubmenu = _menuPool:AddSubMenu(menu, Translate('emojis'), Translate('emojisdescription'), true, true)
-
+local function addEmojiMenu(parent)
+    if parent then -- Hack-job to allow us to use the same function for both creating and rebuilding the menu.
+        createSubMenu(parent, "emojis", Translate("emojis"), Translate("favoremojisdescriptionitesinfo"))
+    end
+    local menu = subMenus["emojis"]
     local sortedEmojis = {}
     for key, emoji in pairs(EmojiData) do
         sortedEmojis[#sortedEmojis + 1] = {key = key, emoji = emoji}
     end
     table.sort(sortedEmojis, function(a, b) return a.key < b.key end)
 
-    for _, emojiData in ipairs(sortedEmojis) do
-        local displayName = emojiData.emoji .. " " .. emojiData.key:gsub("_", " ")
-        local item = NativeUI.CreateItem(displayName, "")
-        emojiSubmenu:AddItem(item)
-
-        item.Activated = function(parentMenu, item)
-            -- Check for keybind request (K key)
-            if IsControlPressed(2, 311) then
-                dataForKeybind = {emoteName = emojiData.key, emoteType = EmoteType.EMOJI, label = emojiData.emoji}
-                RebuildKeybindEmoteMenu()
-                keybindMenu.menu:Visible(true)
-                return
-            end
-            dataForKeybind = {}
-
-            ShowEmoji(emojiData.key)
-        end
+    for index, emojiData in pairs(sortedEmojis) do
+        local label = emojiData.emoji .. " " .. emojiData.key:gsub("_", " ")
+        local item = NativeUI.CreateItem(label, "")
+        menu.menu:AddItem(item)
+        menu.items[#menu.items+1] = {name = emojiData.key, label = label, emoteType = EmoteType.EMOJI, key = index}
     end
+
+    menu.menu.OnItemSelect = function(_, __, index)
+        -- Check for keybind request (K key)
+        local item = menu.items[index]
+        if IsControlPressed(2, 311) then
+            dataForKeybind = {emoteName = sortedEmojis[item.key].key, emoteType = EmoteType.EMOJI, label = sortedEmojis[item.key].emoji}
+            RebuildKeybindEmoteMenu()
+            keybindMenu.menu:Visible(true)
+            return
+        end
+        dataForKeybind = {}
+
+        ShowEmoji(sortedEmojis[item.key].key)
+    end
+
+    return menu
 end
 
 local function updateEmojiMenuAvailability()
@@ -812,6 +849,21 @@ local function processMenu()
     while _menuPool:IsAnyMenuOpen() do
         _menuPool:ProcessMenus()
         DisableControlAction(0, 36, true) -- Ducking, to not conflict with group emotes keybind
+        if IsControlJustPressed(2,121) then -- Set as Favorites
+            if CurrentMenuSelection and CurrentMenuSelection.name and CurrentMenuSelection.emoteType then
+                local emoteData = {
+                    id = CurrentMenuSelection.emoteType.."_"..CurrentMenuSelection.name,
+                    name = CurrentMenuSelection.name,
+                    emoteType = CurrentMenuSelection.emoteType,
+                    label = CurrentMenuSelection.label or CurrentMenuSelection.name,
+                    textureVariation = CurrentMenuSelection.textureVariation or 1
+                }
+                ToggleFavoriteEmote(emoteData.id, emoteData)
+                RebuildFavoritesEmoteMenu()
+                local currentMenu = GetCurrentlyVisibleMenu()
+                currentMenu:UpdateScaleform()
+            end
+        end
         Wait(0)
     end
     isMenuProcessing = false
@@ -995,6 +1047,7 @@ function InitMenu()
     if Config.Keybinding then
         keybindMenu = addKeybindMenu(mainMenu)
     end
+    favoriteMenu = addFavoritesMenu(mainMenu)
     if Config.WalkingStylesEnabled then
         addWalkMenu(mainMenu)
     end
@@ -1060,6 +1113,44 @@ function RebuildKeybindEmoteMenu()
     keybindMenu = addKeybindMenu()
 
     DebugPrint("Keybind Menu rebuilt at runtime")
+end
+
+function RebuildFavoritesEmoteMenu()
+    local cacheActiveItem = favoriteMenu.menu:CurrentSelection()
+    -- Clear all the items from the menu
+    for i = #favoriteMenu.menu.Items, 1, -1 do
+        favoriteMenu.menu:RemoveItemAt(i)
+    end
+    favoriteMenu.items = {}
+
+    -- Reset menu selection to avoid index out of bounds
+    favoriteMenu.menu.ActiveItem = 1000
+
+    -- Rebuild the menu
+    favoriteMenu = addFavoritesMenu()
+    if #favoriteMenu.items > 0 then
+        if favoriteMenu.items[cacheActiveItem] then
+            -- There is still an item at the cached index, so select it.
+            favoriteMenu.menu:CurrentSelection(cacheActiveItem)
+        else
+            -- If there are no items at the cached index, select the last item in the menu.
+            favoriteMenu.menu:CurrentSelection(#favoriteMenu.items)
+        end
+
+        -- We use the internal NativeUI functions to simulate a menu update.
+        -- Otherwise NativeUI wont't be able to update the menu, until the player does any action,
+        -- because :CurrentSelection() function doesn't update it by default.
+        if favoriteMenu.menu.ActiveItem > 1 then
+            favoriteMenu.menu:GoUp()
+        else
+            favoriteMenu.menu:GoDown()
+        end
+    else
+        -- No emotes to select. Clear the cached emote data.
+        CurrentMenuSelection = {}
+    end
+
+    DebugPrint("Favorite Menu rebuilt at runtime")
 end
 
 CreateThread(function()

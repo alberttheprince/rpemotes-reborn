@@ -27,7 +27,6 @@ shared_scripts {
     'locales/*.lua',
     'config.lua',
     'shared/ModelCompat.lua',
-    'animals.lua'
 }
 
 server_scripts {
@@ -51,6 +50,7 @@ client_scripts {
     'client/Expressions.lua',
     'client/Handsup.lua',
     'client/Keybinds.lua',
+    'client/Favorites.lua',
     'client/NewsCam.lua',
     'client/NoIdleCam.lua',
     'client/Pointing.lua',

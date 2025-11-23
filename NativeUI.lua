@@ -3600,13 +3600,16 @@ function UIMenu:UpdateScaleform()
         return
     end
 
+    local favoriteEmotes = GetFavoriteEmotes()
     local showEmoteButtons = CurrentMenuSelection and CurrentMenuSelection.name and CurrentMenuSelection.emoteType
         and CurrentMenuSelection.emoteType ~= EmoteType.EXPRESSIONS
         and CurrentMenuSelection.emoteType ~= EmoteType.WALKS
         and CurrentMenuSelection.emoteType ~= EmoteType.SHARED
+        and CurrentMenuSelection.emoteType ~= EmoteType.EMOJI
 
     local showKeybindButtons = (keybindMenu and keybindMenu.menu:Visible()) or (CurrentMenuSelection and CurrentMenuSelection.name and CurrentMenuSelection.emoteType)
-
+    local showFavoriteButton = CurrentMenuSelection and CurrentMenuSelection.name and CurrentMenuSelection.emoteType
+    
     PushScaleformMovieFunction(self.InstructionalScaleform, "CLEAR_ALL")
     PopScaleformMovieFunction()
 
@@ -3651,6 +3654,19 @@ function UIMenu:UpdateScaleform()
         PushScaleformMovieFunctionParameterInt(count)
         PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 199, 0))
         PushScaleformMovieFunctionParameterString(Translate('btn_increment')..(paginationValue and ': '..paginationValue or ": "..paginationValue))
+        PopScaleformMovieFunction()
+        count = count + 1
+    end
+
+    if showFavoriteButton then
+        PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
+        PushScaleformMovieFunctionParameterInt(count)
+        PushScaleformMovieMethodParameterButtonName(GetControlInstructionalButton(2, 121, 0))
+        if favoriteEmotes[CurrentMenuSelection.emoteType.."_"..CurrentMenuSelection.name] then
+            PushScaleformMovieFunctionParameterString(Translate("btn_remove_favorite"))
+        else
+            PushScaleformMovieFunctionParameterString(Translate("btn_set_favorite"))
+        end
         PopScaleformMovieFunction()
         count = count + 1
     end
