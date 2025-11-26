@@ -31,7 +31,7 @@ local function checkCollisionsWhileInAnimation()
     CreateThread(function()
         while placementState == PlacementState.IN_ANIMATION do
             local ped = PlayerPedId()
-            
+
             -- Basic collision checks for vehicles and peds
             local anyCollision, collidingEntity = checkForCollidingEntities(ped)
 
@@ -140,46 +140,52 @@ local function resetDistanceWarning()
     distanceWarningShown = false
 end
 
---- Normalize a vector
----@param v vector3
----@return vector3
-local function norm(v)
-    local len = #v
-    if len == 0 then return vector3(0, 0, 0) end
-    return v / len
-end
-
---- Check if a position is valid for ped placement (not inside geometry)
---- Uses multiple checks: ground detection and line-of-sight from player to target
+--- Check if a position is valid for ped placement (not inside geometry/furniture)
 ---@param position vector3 The position to validate
 ---@param playerPosition vector3 The player's current position
 ---@return boolean isValid True if position is safe for placement
 local function isPositionValidForPlacement(position, playerPosition)
-    -- Check 1: Is there valid ground?
-    local groundZ, isOnGround = GetGroundZFor_3dCoord(position.x, position.y, position.z + 1.0, false)
+    -- Check 1: Valid ground exists
+    local _, isOnGround = GetGroundZFor_3dCoord(position.x, position.y, position.z + 1.0, false)
     if not isOnGround then
         return false
     end
-    
-    -- Check 2: Line of sight from player to target position
-    -- If blocked by world geometry, reject the placement (prevents through-wall placement)
-    local playerEyePos = vector3(playerPosition.x, playerPosition.y, playerPosition.z + 0.7) -- Eye level
-    local targetCheckPos = vector3(position.x, position.y, position.z + 0.5) -- Mid-height of target
-    
+
+    -- Check 2: Line of sight from player to target (walls, doors, glass)
+    local playerEyePos = vector3(playerPosition.x, playerPosition.y, playerPosition.z + 0.7)
+    local targetCheckPos = vector3(position.x, position.y, position.z + 0.5)
+
     local ray = StartExpensiveSynchronousShapeTestLosProbe(
         playerEyePos.x, playerEyePos.y, playerEyePos.z,
         targetCheckPos.x, targetCheckPos.y, targetCheckPos.z,
-        1, -- World geometry only (excludes vehicles, peds, props)
-        PlayerPedId(), 7
+        81, -- World (1) + Objects (16) + Glass (64)
+        PlayerPedId(), 4
     )
-    
+
     local _, hit, _, _, _ = GetShapeTestResult(ray)
-    
     if hit then
-        -- World geometry is blocking line of sight - likely a wall
         return false
     end
-    
+
+    -- Check 3: Downward raycast for furniture
+    local abovePos = vector3(position.x, position.y, position.z + 2.0)
+    local belowPos = vector3(position.x, position.y, position.z - 0.5)
+
+    local downRay = StartExpensiveSynchronousShapeTestLosProbe(
+        abovePos.x, abovePos.y, abovePos.z,
+        belowPos.x, belowPos.y, belowPos.z,
+        16, -- Objects only
+        PlayerPedId(), 4
+    )
+
+    local _, hitDown, hitPosDown, _, _ = GetShapeTestResult(downRay)
+    if hitDown then
+        local hitHeight = hitPosDown.z - position.z
+        if hitHeight > 0.1 and hitHeight < 1.8 then
+            return false
+        end
+    end
+
     return true
 end
 
@@ -207,7 +213,7 @@ local function getPedHeightOffset(ped)
     if IsPedHuman(ped) then
         return 1.0
     end
-    
+
     -- For non-human peds, use a smaller offset
     -- Animals are generally closer to the ground
     return 0.5
@@ -224,8 +230,7 @@ local function positionPreviewPed(emoteName)
     local initHeading = GetEntityHeading(playerPed) + 180
     local previewPedHidden = false
     local isPlacementValid = true
-    local lastValidPosition = playerPedPosition
-    
+
     -- Get the appropriate height offset for this ped type
     local pedHeightOffset = getPedHeightOffset(playerPed)
 
@@ -261,22 +266,21 @@ local function positionPreviewPed(emoteName)
 
                 if distanceFromPedToTarget <= 5 then
                     resetDistanceWarning()
-                    
+
                     -- Validate position - check ground exists and line of sight from player isn't blocked
                     local isValid = isPositionValidForPlacement(targetPosition, playerPedPosition)
-                    
+
                     if isValid then
                         isPlacementValid = true
-                        lastValidPosition = targetPosition
-                        
+
                         if previewPedHidden then
                             previewPedHidden = false
                         end
                         SetEntityAlpha(previewPed, 150, false)
-                        
+
                         placementPosition = vector4(targetPosition.x, targetPosition.y, targetPosition.z, initHeading + rotateAmount)
                         placementRotation = GetEntityRotation(previewPed)
-                        
+
                         SetEntityHeading(previewPed, initHeading + rotateAmount)
                         SetEntityCoords(previewPed, targetPosition.x, targetPosition.y, targetPosition.z - pedHeightOffset, false, false, false, false)
                     else
@@ -431,7 +435,7 @@ end
 AddEventHandler('gameEventTriggered', function (name, args)
     if placementState ~= PlacementState.IN_ANIMATION then return end
     if name ~= 'CEventNetworkEntityDamage' then return end
-    
+
     local playerPedId = PlayerPedId()
     local targetPedId = args[1]
 
