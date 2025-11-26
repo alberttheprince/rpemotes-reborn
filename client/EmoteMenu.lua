@@ -184,8 +184,6 @@ local _menuPool = NativeUI.CreatePool()
 local mainMenu = NativeUI.CreateMenu(Config.MenuTitle or "", "", menuPosition.x, menuPosition.y, menuHeader, menuHeader)
 _menuPool:Add(mainMenu)
 
-local emojiSubmenu -- Store reference to emoji submenu for dynamic visibility based on ped type
-
 ---@class MenuItem
 ---@field name string
 ---@field emoteType EmoteType
@@ -206,6 +204,14 @@ local EMOTE_PREFIX = {
     [EmoteType.ANIMAL_EMOTES] = "🐶 ",
     [EmoteType.PROP_EMOTES] = "📦 ",
 }
+
+local function shouldShowEmojiMenu()
+    if not Config.EmojiMenuEnabled then return false end
+    if not Config.EmojiMenuAnimalsOnly then return true end
+
+    return not IsPedHuman(PlayerPedId())
+end
+
 
 function SendSharedEmoteRequest(emoteName)
     local target, distance = GetClosestPlayer()
@@ -798,7 +804,7 @@ end
 
 local function addEmojiMenu(parent)
     if parent then -- Hack-job to allow us to use the same function for both creating and rebuilding the menu.
-        createSubMenu(parent, "emojis", Translate("emojis"), Translate("favoremojisdescriptionitesinfo"))
+        createSubMenu(parent, "emojis", Translate("emojis"), Translate("emojisdescription"))
     end
     local menu = subMenus["emojis"]
     local sortedEmojis = {}
@@ -829,17 +835,6 @@ local function addEmojiMenu(parent)
     end
 
     return menu
-end
-
-local function updateEmojiMenuAvailability()
-    if not Config.EmojiMenuEnabled then return end
-    if not Config.EmojiMenuAnimalsOnly then return end
-    if not emojiSubmenu then return end
-
-    local playerPed = PlayerPedId()
-    local isHuman = IsPedHuman(playerPed)
-
-    emojiSubmenu:Enabled(not isHuman)
 end
 
 local function processMenu()
@@ -884,7 +879,12 @@ function OpenEmoteMenu()
 
     if placementState == PlacementState.PREVIEWING or placementState == PlacementState.WALKING then return end
 
-    updateEmojiMenuAvailability()
+    local shouldHaveEmojiMenu = shouldShowEmojiMenu()
+    local hasEmojiMenu = subMenus["emojis"] ~= nil
+
+    if hasEmojiMenu ~= shouldHaveEmojiMenu then
+        RebuildEmoteMenu()
+    end
     RebuildKeybindEmoteMenu()
 
     if _menuPool:IsAnyMenuOpen() then
@@ -1054,7 +1054,7 @@ function InitMenu()
     if Config.ExpressionsEnabled then
         addFaceMenu(mainMenu)
     end
-    if Config.EmojiMenuEnabled then
+    if shouldShowEmojiMenu() then
         addEmojiMenu(mainMenu)
     end
 

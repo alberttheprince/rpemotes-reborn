@@ -32,7 +32,7 @@ EmoteType = {
 }
 
 EmoteTypeEmoji = {
-    ['Expressions'] = '😒',
+    ['Expressions'] = '🎭',
     ['Walks'] = '🚶🏻‍♂️',
     ['Shared'] = '👫',
     ['Dances'] = '🕺',
