@@ -490,7 +490,7 @@ function ClearPedTaskPreview()
         if not lastEmoteDate then return end
 
         if lastEmoteDate.scenario then
-            SetPedShouldPlayImmediateScenarioExit(ClonedPed)
+            ClearPedTasksImmediately(ClonedPed)
         else
             StopAnimTask(ClonedPed, lastEmoteDate.dict, lastEmoteDate.anim, -4)
         end
