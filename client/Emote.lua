@@ -421,15 +421,17 @@ function EmotePlayOnNonPlayerPed(ped, name)
         checkGender()
         ClearPedTasks(ped)
         DestroyAllProps(true)
+        local isPreviewPed = ClonedPed and ped == ClonedPed
+        local playEnterAnim = not isPreviewPed
         if emoteData.scenarioType == ScenarioType.MALE then
             if PlayerGender == "male" then
-                TaskStartScenarioInPlace(ped, emoteData.scenario, 0, true)
+                TaskStartScenarioInPlace(ped, emoteData.scenario, 0, playEnterAnim)
             end
         elseif emoteData.scenarioType == ScenarioType.OBJECT then
             local BehindPlayer = GetOffsetFromEntityInWorldCoords(ped, 0.0, -0.5, -0.5)
-            TaskStartScenarioAtPosition(ped, emoteData.scenario, BehindPlayer.x, BehindPlayer.y, BehindPlayer.z, GetEntityHeading(ped), 0, true, false)
+            TaskStartScenarioAtPosition(ped, emoteData.scenario, BehindPlayer.x, BehindPlayer.y, BehindPlayer.z, GetEntityHeading(ped), 0, playEnterAnim, false)
         elseif emoteData.scenarioType == ScenarioType.SCENARIO then
-            TaskStartScenarioInPlace(ped, emoteData.scenario, 0, true)
+            TaskStartScenarioInPlace(ped, emoteData.scenario, 0, playEnterAnim)
         end
         return
     end
