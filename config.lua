@@ -13,7 +13,7 @@ Config = {
     keybindKVP = "rpemotes",
     NotificationsAsChatMessage = false,
     Search = true, -- Used to enable or disable the search feature in the menu.
-    CancelPreviousEmote = false, -- If turned on, playing an emote will cancel the previous one.
+    CancelPreviousEmote = true, -- If turned on, playing an emote will cancel the previous one.
     DisableControlsInMenu = false,
 
     MenuTitle = '',
