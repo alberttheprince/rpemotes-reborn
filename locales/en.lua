@@ -108,6 +108,7 @@ Locales['en'] = {
     ['crawl'] = "Crawl",
     ['pointing'] = "Finger pointing",
     -- Placement helper
+    ['position'] = 'Position',
     ['rotate'] = "Rotate",
     ['height'] = "Height",
     ['toofar'] = "~r~Too far away!~w~~s~",
