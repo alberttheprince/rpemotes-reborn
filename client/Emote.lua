@@ -449,7 +449,7 @@ function EmotePlayOnNonPlayerPed(ped, name)
     RemoveAnimDict(emoteData.dict)
 
     if not animOption or not animOption.Prop then return end
-    addProps(animOption, nil, ped, nil)
+    addProps(animOption, nil, ped)
 end
 
 function EmoteMenuStartClone(name, emoteType)
