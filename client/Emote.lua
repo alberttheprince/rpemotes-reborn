@@ -339,7 +339,11 @@ local function addProp(data)
     if not data.playerId then
         PreviewPedProps[#PreviewPedProps+1] = attachedProp
 
-        SetEntityAlpha(attachedProp, 150, false)
+        local targetAlpha = GetEntityAlpha(target)
+
+        if targetAlpha < 255 then
+            SetEntityAlpha(attachedProp, targetAlpha, false)
+        end
     else
         ServerProps[propPool][#ServerProps[propPool]+1] = attachedProp
     end
