@@ -131,10 +131,18 @@ local function subtitle(text, duration)
     EndTextCommandPrint(duration, true)
 end
 
-local function drawDistanceWarningSubtitle()
-    subtitle(Translate('toofar'), 5)
+local distanceWarningShown = false
+
+local function showDistanceWarning()
+    if not distanceWarningShown then
+        SimpleNotify(Translate('toofar'))
+        distanceWarningShown = true
+    end
 end
 
+local function resetDistanceWarning()
+    distanceWarningShown = false
+end
 local function rotationToDirection(rotation)
     local rotZ = math.rad(rotation.z)
     local rotX = math.rad(rotation.x)
@@ -198,10 +206,11 @@ local function positionPreviewPed(emoteName)
                         previewPedHidden = false
                     end
 
+                    resetDistanceWarning()
                     placementPosition = vector4(possiblePosition.x, possiblePosition.y, possiblePosition.z, GetEntityHeading(previewPed))
                     placementRotation = GetEntityRotation(previewPed)
                 else
-                    drawDistanceWarningSubtitle()
+                    showDistanceWarning()
 
                     if not previewPedHidden then
                         SetEntityAlpha(previewPed, 0, false)
