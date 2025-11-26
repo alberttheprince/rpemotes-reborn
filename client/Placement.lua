@@ -31,6 +31,8 @@ local function checkCollisionsWhileInAnimation()
     CreateThread(function()
         while placementState == PlacementState.IN_ANIMATION do
             local ped = PlayerPedId()
+            
+            -- Basic collision checks for vehicles and peds
             local anyCollision, collidingEntity = checkForCollidingEntities(ped)
 
             if anyCollision then
@@ -125,12 +127,6 @@ local function drawControlHelpText()
     )
 end
 
-local function subtitle(text, duration)
-    BeginTextCommandPrint("CELL_EMAIL_BCON")
-    AddTextComponentSubstringPlayerName(text)
-    EndTextCommandPrint(duration, true)
-end
-
 local distanceWarningShown = false
 
 local function showDistanceWarning()
@@ -143,6 +139,50 @@ end
 local function resetDistanceWarning()
     distanceWarningShown = false
 end
+
+--- Normalize a vector
+---@param v vector3
+---@return vector3
+local function norm(v)
+    local len = #v
+    if len == 0 then return vector3(0, 0, 0) end
+    return v / len
+end
+
+--- Check if a position is valid for ped placement (not inside geometry)
+--- Uses multiple checks: ground detection and line-of-sight from player to target
+---@param position vector3 The position to validate
+---@param playerPosition vector3 The player's current position
+---@return boolean isValid True if position is safe for placement
+local function isPositionValidForPlacement(position, playerPosition)
+    -- Check 1: Is there valid ground?
+    local groundZ, isOnGround = GetGroundZFor_3dCoord(position.x, position.y, position.z + 1.0, false)
+    if not isOnGround then
+        return false
+    end
+    
+    -- Check 2: Line of sight from player to target position
+    -- If blocked by world geometry, reject the placement (prevents through-wall placement)
+    local playerEyePos = vector3(playerPosition.x, playerPosition.y, playerPosition.z + 0.7) -- Eye level
+    local targetCheckPos = vector3(position.x, position.y, position.z + 0.5) -- Mid-height of target
+    
+    local ray = StartExpensiveSynchronousShapeTestLosProbe(
+        playerEyePos.x, playerEyePos.y, playerEyePos.z,
+        targetCheckPos.x, targetCheckPos.y, targetCheckPos.z,
+        1, -- World geometry only (excludes vehicles, peds, props)
+        PlayerPedId(), 7
+    )
+    
+    local _, hit, _, _, _ = GetShapeTestResult(ray)
+    
+    if hit then
+        -- World geometry is blocking line of sight - likely a wall
+        return false
+    end
+    
+    return true
+end
+
 local function rotationToDirection(rotation)
     local rotZ = math.rad(rotation.z)
     local rotX = math.rad(rotation.x)
@@ -159,6 +199,20 @@ local function preparePreviewPed(startPosition, emoteName)
     EmotePlayOnNonPlayerPed(previewPed, emoteName)
 end
 
+--- Get the appropriate height offset for a ped model
+--- Human peds need ~1.0 offset, animals need less based on their size
+---@param ped integer The ped to check
+---@return number heightOffset The Z offset to apply
+local function getPedHeightOffset(ped)
+    if IsPedHuman(ped) then
+        return 1.0
+    end
+    
+    -- For non-human peds, use a smaller offset
+    -- Animals are generally closer to the ground
+    return 0.5
+end
+
 local function positionPreviewPed(emoteName)
     local playerPed = PlayerPedId()
     local playerPedPosition = GetEntityCoords(playerPed)
@@ -169,6 +223,11 @@ local function positionPreviewPed(emoteName)
     local moveLeftRight = 0
     local initHeading = GetEntityHeading(playerPed) + 180
     local previewPedHidden = false
+    local isPlacementValid = true
+    local lastValidPosition = playerPedPosition
+    
+    -- Get the appropriate height offset for this ped type
+    local pedHeightOffset = getPedHeightOffset(playerPed)
 
     preparePreviewPed(vector3(playerPedPosition.x, playerPedPosition.y, playerPedPosition.z - 50), emoteName)
 
@@ -194,32 +253,46 @@ local function positionPreviewPed(emoteName)
             local _, hit, hitPosition, _, _ = GetShapeTestResult(rayHandle)
 
             if hit then
-                -- z height `+1` to account for height of ped
-                local possiblePosition = vector3(hitPosition.x + moveForwardBack, hitPosition.y + moveLeftRight, hitPosition.z + 1 + upDownOffset)
-                local distanceFromPedToPreviewPed = #(possiblePosition - playerPedPosition)
+                -- Use dynamic height offset based on ped type instead of hardcoded +1
+                local targetPosition = vector3(hitPosition.x + moveForwardBack, hitPosition.y + moveLeftRight, hitPosition.z + pedHeightOffset + upDownOffset)
+                local distanceFromPedToTarget = #(targetPosition - playerPedPosition)
 
                 playerPedPosition = GetEntityCoords(playerPed)
 
-                if distanceFromPedToPreviewPed <= 5 then
-                    if previewPedHidden then
-                        SetEntityAlpha(previewPed, 150, false)
-                        previewPedHidden = false
-                    end
-
+                if distanceFromPedToTarget <= 5 then
                     resetDistanceWarning()
-                    placementPosition = vector4(possiblePosition.x, possiblePosition.y, possiblePosition.z, GetEntityHeading(previewPed))
-                    placementRotation = GetEntityRotation(previewPed)
+                    
+                    -- Validate position - check ground exists and line of sight from player isn't blocked
+                    local isValid = isPositionValidForPlacement(targetPosition, playerPedPosition)
+                    
+                    if isValid then
+                        isPlacementValid = true
+                        lastValidPosition = targetPosition
+                        
+                        if previewPedHidden then
+                            previewPedHidden = false
+                        end
+                        SetEntityAlpha(previewPed, 150, false)
+                        
+                        placementPosition = vector4(targetPosition.x, targetPosition.y, targetPosition.z, initHeading + rotateAmount)
+                        placementRotation = GetEntityRotation(previewPed)
+                        
+                        SetEntityHeading(previewPed, initHeading + rotateAmount)
+                        SetEntityCoords(previewPed, targetPosition.x, targetPosition.y, targetPosition.z - pedHeightOffset, false, false, false, false)
+                    else
+                        -- No valid ground - don't update position, show as invalid
+                        isPlacementValid = false
+                        SetEntityAlpha(previewPed, 80, false)
+                    end
                 else
                     showDistanceWarning()
+                    isPlacementValid = false
 
                     if not previewPedHidden then
                         SetEntityAlpha(previewPed, 0, false)
                         previewPedHidden = true
                     end
                 end
-
-                SetEntityHeading(previewPed, initHeading + rotateAmount)
-                SetEntityCoords(previewPed, possiblePosition.x, possiblePosition.y, possiblePosition.z - 1, false, false, false, false)
             end
 
             disableControls()
@@ -253,7 +326,12 @@ local function positionPreviewPed(emoteName)
 
                 if moveLeftRight <= -1 then moveLeftRight = -1 end
             elseif IsDisabledControlPressed(0, 18) then
-                placementState = PlacementState.WALKING
+                if isPlacementValid then
+                    placementState = PlacementState.WALKING
+                else
+                    PlaySoundFrontend(-1, "ERROR", "HUD_FRONTEND_DEFAULT_SOUNDSET", false)
+                    SimpleNotify("~r~Cannot place here - no valid ground")
+                end
             elseif IsDisabledControlJustPressed(0, 194) then -- Backspace/ESC
                 placementState = PlacementState.NONE
                 DeleteEntity(previewPed)
@@ -274,7 +352,18 @@ local function positionPreviewPed(emoteName)
                 return
             end
 
-            drawControlHelpText()
+            -- Show different help text based on validity
+            if isPlacementValid then
+                drawControlHelpText()
+            else
+                SimpleHelpText(
+                    "~r~INVALID POSITION~s~\n" ..
+                    "~INPUT_MOVE_UP_ONLY~/~INPUT_MOVE_DOWN_ONLY~/~INPUT_MOVE_LEFT_ONLY~/~INPUT_MOVE_RIGHT_ONLY~ " .. Translate('position') .. '\n' ..
+                    "~INPUT_COVER~/~INPUT_TALK~ " .. Translate('rotate') .. '\n' ..
+                    "~INPUT_RELOAD~/~INPUT_ARREST~ " .. Translate('height') .. '\n' ..
+                    "~INPUT_FRONTEND_RRIGHT~ " .. Translate('btn_back')
+                )
+            end
 
             Wait(0)
         end
@@ -288,6 +377,12 @@ end
 function GetPlacementState() return placementState end
 
 function StartNewPlacement(emoteName)
+    -- Cancel any current placed emote to prevent chaining through walls
+    if placementState == PlacementState.IN_ANIMATION then
+        EmoteCancel(true)
+        Wait(100) -- Brief delay to ensure cleanup completes
+    end
+
     local playerPed = PlayerPedId()
     local coords = GetEntityCoords(playerPed) - vector3(0.0, 0.0, 10.0)
 
@@ -334,8 +429,9 @@ function CleanUpPlacement(ped)
 end
 
 AddEventHandler('gameEventTriggered', function (name, args)
-    if not IsInAnimation or PlacementState ~= PlacementState.IN_ANIMATION or name ~= 'CEventNetworkEntityDamage' then return end
-
+    if placementState ~= PlacementState.IN_ANIMATION then return end
+    if name ~= 'CEventNetworkEntityDamage' then return end
+    
     local playerPedId = PlayerPedId()
     local targetPedId = args[1]
 
