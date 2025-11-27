@@ -566,10 +566,12 @@ local function addEmoteMenu(menu)
     end
 
 
-    -- Put all the emotes with EmoteType.EMOTES within the emotes category
+    -- Put all the emotes with EmoteType.EMOTES (and ANIMAL_EMOTES if enabled) within the emotes category
     local emotesList = {}
     for emoteName, data in pairs(EmoteData) do
-        if data.emoteType == EmoteType.EMOTES then
+        local isRegularEmote = data.emoteType == EmoteType.EMOTES
+        local isAnimalEmote = Config.AnimalEmotesEnabled and data.emoteType == EmoteType.ANIMAL_EMOTES
+        if isRegularEmote or isAnimalEmote then
             -- Check model compatibility
             if not CachedPlayerModel or IsModelCompatible(CachedPlayerModel, emoteName) then
                 emotesList[#emotesList + 1] = emoteName
