@@ -12,7 +12,8 @@ Config = {
     NotificationsAsChatMessage = false,
     Search = true, -- Used to enable or disable the search feature in the menu.
     CancelPreviousEmote = true, -- If true, playing an emote will cancel the previous one and play the newly selected emote
-    DisableControlsInMenu = false,
+    DisableControlsInMenu = false, -- Disables all controls (including combat, movement, etc) while menu is open
+    DisableCombatInMenu = false, -- Disables combat (attacking, aiming, melee) while menu is open
 
     MenuTitle = '',
     TitleOutline = true,
