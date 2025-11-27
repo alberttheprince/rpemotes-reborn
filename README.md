@@ -1,4 +1,5 @@
-![image](https://github.com/alberttheprince/rpemotes-reborn/assets/85725579/25b38001-1b50-42ff-b9c9-07046d8be0a1)
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/4c939484-1a0a-4772-afff-bb44aed6ea4a" />
+
 
 Rpemotes-reborn is a community-driven FiveM emote menu allowing players to express themselves in roleplay with custom animations, countless facial expressions, walk styles, and props.
 
