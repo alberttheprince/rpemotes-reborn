@@ -844,6 +844,9 @@ local function processMenu()
     while _menuPool:IsAnyMenuOpen() do
         _menuPool:ProcessMenus()
         DisableControlAction(0, 36, true) -- Ducking, to not conflict with group emotes keybind
+        if Config.DisableCombatInMenu then
+            DisablePlayerFiring(PlayerId(), true)
+        end
         if IsControlJustPressed(2,121) then -- Set as Favorites
             if CurrentMenuSelection and CurrentMenuSelection.name and CurrentMenuSelection.emoteType then
                 local emoteData = {
@@ -1246,6 +1249,9 @@ function ProcessEmoteMenu()
     while _menuPool:IsAnyMenuOpen() do
         _menuPool:ProcessMenus()
         DisableControlAction(0, 36, true) -- Ducking, to not conflict with group emotes keybind
+        if Config.DisableCombatInMenu then
+            DisablePlayerFiring(PlayerId(), true)
+        end
         Wait(0)
     end
     isMenuProcessing = false
