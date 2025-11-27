@@ -1,5 +1,3 @@
--- FOR ALL KEYBINDS, GET THE BUTTON STRING HERE: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
-
 Config = {
     MenuLanguage = 'en', -- Change the language of the menu here
 
@@ -130,6 +128,7 @@ Config.Ace = {
     --['group.admin'] = {[EmoteType.EMOTES] = {'drunk'}} 
 }
 
+-- FOR ALL KEYBINDS, GET THE BUTTON STRING HERE: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
 Config.KeybindKeys = {
     'NUMPAD4',
     'NUMPAD5',
