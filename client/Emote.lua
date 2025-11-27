@@ -230,6 +230,7 @@ function EmoteCancel(force)
                 DebugPrint("Exit emote was invalid")
                 IsInAnimation = false
                 ClearPedTasks(ped)
+                EmoteCancelPlaying = false
                 return
             end
 
@@ -255,6 +256,8 @@ function EmoteCancel(force)
         DestroyAllProps()
 
         if GetPlacementState() == PlacementState.IN_ANIMATION then CleanUpPlacement(ped) end
+    else
+        EmoteCancelPlaying = false
     end
     cleanScenarioObjects(PlayerPedId())
     AnimationThreadStatus = false
@@ -402,11 +405,6 @@ function EmotePlayOnNonPlayerPed(ped, name)
         return false
     end
 
-    if Config.CancelPreviousEmote and not ExitAndPlay and not EmoteCancelPlaying then
-        ExitAndPlay = true
-        DebugPrint("Canceling previous emote and playing next emote")
-        return
-    end
 
     local emoteData = EmoteData[name]
     local animOption = emoteData.AnimationOptions
@@ -421,15 +419,17 @@ function EmotePlayOnNonPlayerPed(ped, name)
         checkGender()
         ClearPedTasks(ped)
         DestroyAllProps(true)
+        local isPreviewPed = ClonedPed and ped == ClonedPed
+        local playEnterAnim = not isPreviewPed
         if emoteData.scenarioType == ScenarioType.MALE then
             if PlayerGender == "male" then
-                TaskStartScenarioInPlace(ped, emoteData.scenario, 0, true)
+                TaskStartScenarioInPlace(ped, emoteData.scenario, 0, playEnterAnim)
             end
         elseif emoteData.scenarioType == ScenarioType.OBJECT then
             local BehindPlayer = GetOffsetFromEntityInWorldCoords(ped, 0.0, -0.5, -0.5)
-            TaskStartScenarioAtPosition(ped, emoteData.scenario, BehindPlayer.x, BehindPlayer.y, BehindPlayer.z, GetEntityHeading(ped), 0, true, false)
+            TaskStartScenarioAtPosition(ped, emoteData.scenario, BehindPlayer.x, BehindPlayer.y, BehindPlayer.z, GetEntityHeading(ped), 0, playEnterAnim, false)
         elseif emoteData.scenarioType == ScenarioType.SCENARIO then
-            TaskStartScenarioInPlace(ped, emoteData.scenario, 0, true)
+            TaskStartScenarioInPlace(ped, emoteData.scenario, 0, playEnterAnim)
         end
         return
     end
@@ -570,6 +570,10 @@ local function playExitAndEnterEmote(name, textureVariation, emoteType)
     ExitAndPlay = true
     DebugPrint("Canceling previous emote and playing next emote")
     local ped = PlayerPedId()
+    
+    CheckStatus = false
+    AnimationThreadStatus = false
+    
     exitScenario()
 
     PtfxNotif = false
@@ -581,16 +585,20 @@ local function playExitAndEnterEmote(name, textureVariation, emoteType)
     end
     DetachEntity(ped, true, false)
     CancelSharedEmote()
+    DestroyAllProps()
 
-    if CurrentAnimOptions?.ExitEmote then
-        local options = CurrentAnimOptions or {}
+    if CurrentAnimOptions and CurrentAnimOptions.ExitEmote then
+        local options = CurrentAnimOptions
 
         if not EmoteData[options.ExitEmote] then
             DebugPrint("Exit emote was invalid")
             ClearPedTasks(ped)
             IsInAnimation = false
+            ExitAndPlay = false
+            OnEmotePlay(name, textureVariation, emoteType)
             return
         end
+        
         OnEmotePlay(options.ExitEmote)
         DebugPrint("Playing exit animation")
 
@@ -599,19 +607,24 @@ local function playExitAndEnterEmote(name, textureVariation, emoteType)
             InExitEmote = true
             SetTimeout(animationOptions.EmoteDuration, function()
                 InExitEmote = false
-                DestroyAllProps(true)
                 ClearPedTasks(ped)
                 OnEmotePlay(name, textureVariation, emoteType)
                 ExitAndPlay = false
             end)
+            return
+        else
+            -- Exit emote has no duration, skip it and play new emote directly
+            ClearPedTasks(ped)
+            IsInAnimation = false
+            ExitAndPlay = false
+            OnEmotePlay(name, textureVariation, emoteType)
             return
         end
     else
         ClearPedTasks(ped)
         IsInAnimation = false
         ExitAndPlay = false
-        DestroyAllProps(true)
-        OnEmotePlay(name, CurrentTextureVariation, emoteType)
+        OnEmotePlay(name, textureVariation, emoteType)
     end
 end
 
@@ -653,8 +666,9 @@ function OnEmotePlay(name, textureVariation, emoteType)
         return false
     end
 
-    cleanScenarioObjects(PlayerPedId())
+    CheckStatus = false
 
+    cleanScenarioObjects(PlayerPedId())
     local inVehicle = IsPedInAnyVehicle(PlayerPedId(), true)
     Pointing = false
 
