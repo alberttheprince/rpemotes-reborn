@@ -46,10 +46,18 @@ function HasEmotePermission(emoteName, emoteType)
     end
 end
 
+
+-- Helper function to strip GTA rich text formatting codes like ~y~, ~w~, ~g~, etc.
+local function StripRichText(message)
+    if not Config.StripRichText then return message end
+    return string.gsub(message, "~%a+~", "")
+end
 -- You can edit this function to add support for your favorite notification system
 function SimpleNotify(message)
+    message = StripRichText(tostring(message))
+
     if Config.NotificationsAsChatMessage then
-        TriggerEvent("chat:addMessage", { color = { 255, 255, 255 }, args = { tostring(message) } })
+        TriggerEvent("chat:addMessage", { color = { 255, 255, 255 }, args = { message } })
     else
         BeginTextCommandThefeedPost("STRING")
         AddTextComponentSubstringPlayerName(message)
