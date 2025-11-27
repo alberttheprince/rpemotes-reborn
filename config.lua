@@ -125,7 +125,9 @@ end
 ---@type table<string, table<EmoteType, string[]>>
 Config.Ace = {
     -- Example: only players with ACE group.admin can use the drunk emote. Anyone can still use the drunk walk however.
-    --['group.admin'] = {[EmoteType.EMOTES] = {'drunk'}} 
+    --['group.admin'] = {[EmoteType.EMOTES] = {'drunk', 'dance5', 'dance6'}} 
+    -- Example 2: only players with ACE group.admin can use the drunk walk.
+    --['group.admin'] = {[EmoteType.WALKS] = {'drunk'}}  
 }
 
 -- FOR ALL KEYBINDS, GET THE BUTTON STRING HERE: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
