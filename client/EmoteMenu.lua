@@ -42,6 +42,7 @@ local function isEmoteTypePreviewable(emoteType)
         or emoteType == EmoteType.EMOTES
         or emoteType == EmoteType.EXPRESSIONS
         or emoteType == EmoteType.PROP_EMOTES
+        or emoteType == EmoteType.ANIMAL_EMOTES
 end
 
 local function isEmoteTypePlayable(emoteType)
