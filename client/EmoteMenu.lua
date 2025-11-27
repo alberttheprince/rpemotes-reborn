@@ -845,6 +845,7 @@ local function processMenu()
         _menuPool:ProcessMenus()
         DisableControlAction(0, 36, true) -- Ducking, to not conflict with group emotes keybind
         if Config.DisableCombatInMenu then
+            DisableControlAction(2, 25, true)
             DisablePlayerFiring(PlayerId(), true)
         end
         if IsControlJustPressed(2,121) then -- Set as Favorites
@@ -1250,6 +1251,7 @@ function ProcessEmoteMenu()
         _menuPool:ProcessMenus()
         DisableControlAction(0, 36, true) -- Ducking, to not conflict with group emotes keybind
         if Config.DisableCombatInMenu then
+            DisableControlAction(2, 25, true)
             DisablePlayerFiring(PlayerId(), true)
         end
         Wait(0)
