@@ -461,7 +461,7 @@ function ShowPedMenu(zoom)
                 end
                 averagedTarget = averagedTarget / #positionBuffer
 
-                local zOffset = IsPedHuman(ClonedPed) and 0.0 or 0.5
+                local zOffset = IsPedHuman(ClonedPed) and 0.0 or (zoom and 0.85 or 0.5)
                 SetEntityCoords(ClonedPed, averagedTarget.x, averagedTarget.y, averagedTarget.z + zOffset, false, false, false, false)                local heading_offset = Config.MenuPosition == "left" and 170.0 or 190.0
                 local heading_offset = Config.MenuPosition == "left" and 170.0 or 190.0
                 SetEntityHeading(ClonedPed, camRot.z + heading_offset)
