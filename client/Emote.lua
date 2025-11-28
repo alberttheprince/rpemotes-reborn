@@ -24,6 +24,7 @@ local ExitAndPlay = false
 local EmoteCancelPlaying = false
 local currentEmote = {}
 local attachedProp
+local previewPropVersion = 0
 local scenarioObjects = {
     `p_amb_coffeecup_01`,
     `p_amb_joint_01`,
@@ -360,10 +361,13 @@ end
 ---@param textureVariation? integer
 ---@param ped? integer
 ---@param playerId? integer
-function addProps(animOption, textureVariation, ped, playerId)
+---@param skipWait? boolean Skip the EmoteDuration wait (used for preview peds)
+function addProps(animOption, textureVariation, ped, playerId, skipWait)
     PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6 = table.unpack(animOption.PropPlacement)
 
-    Wait(animOption and animOption.EmoteDuration or 0)
+    if not skipWait then
+        Wait(animOption and animOption.EmoteDuration or 0)
+    end
 
     if not addProp({
         prop1 = animOption.Prop,
@@ -405,6 +409,8 @@ function EmotePlayOnNonPlayerPed(ped, name)
         return false
     end
 
+    -- NOTE: CancelPreviousEmote logic removed for non-player peds
+    -- It was incorrectly setting the global ExitAndPlay flag
 
     local emoteData = EmoteData[name]
     local animOption = emoteData.AnimationOptions
@@ -419,6 +425,8 @@ function EmotePlayOnNonPlayerPed(ped, name)
         checkGender()
         ClearPedTasks(ped)
         DestroyAllProps(true)
+        -- For the preview ped (ClonedPed), skip the enter animation so the ped
+        -- continues to follow the menu position during scenario playback
         local isPreviewPed = ClonedPed and ped == ClonedPed
         local playEnterAnim = not isPreviewPed
         if emoteData.scenarioType == ScenarioType.MALE then
@@ -449,7 +457,16 @@ function EmotePlayOnNonPlayerPed(ped, name)
     RemoveAnimDict(emoteData.dict)
 
     if not animOption or not animOption.Prop then return end
-    addProps(animOption, nil, ped)
+
+    previewPropVersion = previewPropVersion + 1
+    local currentVersion = previewPropVersion
+    CreateThread(function()
+        Wait(animOption.EmoteDuration or 0)
+        -- Only attach props if this is still the current preview and ped exists
+        if currentVersion == previewPropVersion and DoesEntityExist(ped) then
+            addProps(animOption, nil, ped, nil, true)
+        end
+    end)
 end
 
 function EmoteMenuStartClone(name, emoteType)
@@ -489,7 +506,7 @@ function EmoteCommandStart(args)
         TriggerEvent('chat:addMessage', {
             color = { 255, 0, 0 },
             multiline = true,
-            args = { "RPEmotes", Translate('swimming') }
+            args = { "RPEmotes", Translate('emimming') }
         })
         return
     end
@@ -570,10 +587,12 @@ local function playExitAndEnterEmote(name, textureVariation, emoteType)
     ExitAndPlay = true
     DebugPrint("Canceling previous emote and playing next emote")
     local ped = PlayerPedId()
-    
+
+    -- Stop the status checking thread FIRST to prevent it from 
+    -- detecting the animation end and calling EmoteCancel
     CheckStatus = false
     AnimationThreadStatus = false
-    
+
     exitScenario()
 
     PtfxNotif = false
@@ -598,7 +617,7 @@ local function playExitAndEnterEmote(name, textureVariation, emoteType)
             OnEmotePlay(name, textureVariation, emoteType)
             return
         end
-        
+
         OnEmotePlay(options.ExitEmote)
         DebugPrint("Playing exit animation")
 
@@ -696,7 +715,7 @@ function OnEmotePlay(name, textureVariation, emoteType)
 
     if Config.EmoteCooldownMs then
         local timeSinceLastEmote = GetGameTimer() - lastEmoteTime
-        
+
         if timeSinceLastEmote < Config.EmoteCooldownMs then
             EmoteChatMessage(Translate('emotecooldown'))
             return
