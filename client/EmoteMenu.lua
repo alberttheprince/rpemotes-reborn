@@ -14,6 +14,7 @@ local isMenuProcessing = false
 local isWaitingForPed = false
 keybindMenu = nil -- Global variable. Scary!
 favoriteMenu = nil -- Global variable. Scary!
+local currentZoomState = false
 local dataForKeybind = {}
 
 -- Tracks currently selected menu item for instruction button visibility
@@ -275,6 +276,7 @@ end
 
 local function hidePreview()
     LastEmote = {}
+    currentZoomState = false  -- Reset zoom state
 
     if hasClonedPed() then
         ClosePedMenu()
@@ -347,10 +349,19 @@ local function onMenuItemHover(currentMenu)
     local emote = EmoteData[emoteName]
 
     -- Check if the selected item is a previewable emote
+   -- Check if the selected item is a previewable emote
     if emoteType == EmoteType.EXPRESSIONS or (emote and isEmoteTypePreviewable(emote.emoteType)) then
+        -- Determine if we need zoom (for expressions/moods, we want a closer view)
+        local needsZoom = (emoteType == EmoteType.EXPRESSIONS)
+
         -- Check if we're already showing this exact emote - if so, do nothing
         if LastEmote.name == emoteName and hasClonedPed() then
             return
+        end
+
+        -- If zoom state changed, we need to recreate the ped
+        if hasClonedPed() and currentZoomState ~= needsZoom then
+            ClosePedMenu()
         end
 
         -- Clear previous preview (ClearPedTaskPreview uses LastEmote to know what to clear)
@@ -369,8 +380,9 @@ local function onMenuItemHover(currentMenu)
             -- Ped exists, just switch animation
             EmoteMenuStartClone(emoteName, emoteType)
         else
-            -- Ped doesn't exist, create it
-            ShowPedMenu()
+            -- Ped doesn't exist, create it with appropriate zoom
+            currentZoomState = needsZoom
+            ShowPedMenu(needsZoom)
             WaitForClonedPedThenPlayLastAnim()
         end
     else
@@ -847,10 +859,6 @@ local function processMenu()
     while _menuPool:IsAnyMenuOpen() do
         _menuPool:ProcessMenus()
         DisableControlAction(0, 36, true) -- Ducking, to not conflict with group emotes keybind
-        if Config.DisableCombatInMenu then
-            DisableControlAction(2, 25, true)
-            DisablePlayerFiring(PlayerId(), true)
-        end
         if IsControlJustPressed(2,121) then -- Set as Favorites
             if CurrentMenuSelection and CurrentMenuSelection.name and CurrentMenuSelection.emoteType then
                 local emoteData = {
@@ -1253,10 +1261,6 @@ function ProcessEmoteMenu()
     while _menuPool:IsAnyMenuOpen() do
         _menuPool:ProcessMenus()
         DisableControlAction(0, 36, true) -- Ducking, to not conflict with group emotes keybind
-        if Config.DisableCombatInMenu then
-            DisableControlAction(2, 25, true)
-            DisablePlayerFiring(PlayerId(), true)
-        end
         Wait(0)
     end
     isMenuProcessing = false
