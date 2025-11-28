@@ -622,7 +622,7 @@ RP.Walks = {
     ["Wide"] = {
         "move_m@bag"
     },
-    ["ZombieWalk"] = {
+    ["Zombie"] = {
         "clipset@anim@ingame@move_m@zombie@core"
     },
 }
