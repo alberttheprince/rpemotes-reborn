@@ -669,6 +669,7 @@ local function playScenario(emoteData)
         DebugPrint("Playing scenario = (" .. emoteData.scenario .. ")")
     end
     IsInAnimation = true
+    lastEmoteTime = GetGameTimer()  -- Set cooldown timer when emote actually starts
     runAnimationThread()
 end
 
@@ -683,6 +684,18 @@ function OnEmotePlay(name, textureVariation, emoteType)
 
     if not DoesEntityExist(PlayerPedId()) then
         return false
+    end
+
+    -- Cooldown check MUST happen before any state modifications
+    -- to prevent cancelling current emote when cooldown blocks the new one
+    if Config.EmoteCooldownMs then
+        local timeSinceLastEmote = GetGameTimer() - lastEmoteTime
+
+        if timeSinceLastEmote < Config.EmoteCooldownMs then
+            EmoteChatMessage(Translate('emotecooldown'))
+            return
+        end
+        -- Don't set lastEmoteTime here - set it when emote actually plays
     end
 
     CheckStatus = false
@@ -711,17 +724,6 @@ function OnEmotePlay(name, textureVariation, emoteType)
 
     if InExitEmote then
         return false
-    end
-
-    if Config.EmoteCooldownMs then
-        local timeSinceLastEmote = GetGameTimer() - lastEmoteTime
-
-        if timeSinceLastEmote < Config.EmoteCooldownMs then
-            EmoteChatMessage(Translate('emotecooldown'))
-            return
-        else
-            lastEmoteTime = GetGameTimer()
-        end
     end
 
     if Config.CancelPreviousEmote
@@ -834,6 +836,7 @@ function OnEmotePlay(name, textureVariation, emoteType)
     RemoveAnimDict(emoteData.dict)
 
     IsInAnimation = true
+    lastEmoteTime = GetGameTimer()  -- Set cooldown timer when emote actually starts
     runAnimationThread()
 
     if not (animOption and animOption.Prop) then
