@@ -713,7 +713,7 @@ function OnEmotePlay(name, textureVariation, emoteType)
         return false
     end
 
-    if Config.EmoteCooldownMs then
+    if Config.EmoteCooldownMs and not ExitAndPlay then
         local timeSinceLastEmote = GetGameTimer() - lastEmoteTime
 
         if timeSinceLastEmote < Config.EmoteCooldownMs then
