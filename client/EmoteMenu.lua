@@ -1057,6 +1057,10 @@ local function convertRP()
 end
 
 function InitMenu()
+    while not (GetFavoriteEmotes and EmojiData and WalkMenuStart and GetKeyForCommand) do
+        Wait(100)
+    end
+
     addEmoteMenu(mainMenu)
     addCancelEmote(mainMenu)
     if Config.Keybinding then

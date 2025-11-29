@@ -688,16 +688,16 @@ function OnEmotePlay(name, textureVariation, emoteType)
 
     -- Cooldown check MUST happen before any state modifications
     -- to prevent cancelling current emote when cooldown blocks the new one
-    if Config.EmoteCooldownMs then
-        local timeSinceLastEmote = GetGameTimer() - lastEmoteTime
+if Config.EmoteCooldownMs then
+    local timeSinceLastEmote = GetGameTimer() - lastEmoteTime
 
-        if timeSinceLastEmote < Config.EmoteCooldownMs then
-            EmoteChatMessage(Translate('emotecooldown'))
-            return
-        end
-        -- Don't set lastEmoteTime here - set it when emote actually plays
+    -- Skip cooldown check for exit emotes (they should always play when cancelling)
+    if timeSinceLastEmote < Config.EmoteCooldownMs and emoteData.emoteType ~= EmoteType.EXITS then
+        EmoteChatMessage(Translate('emotecooldown'))
+        return
     end
-
+    -- Don't set lastEmoteTime here - set it when emote actually plays
+end
     CheckStatus = false
 
     cleanScenarioObjects(PlayerPedId())
