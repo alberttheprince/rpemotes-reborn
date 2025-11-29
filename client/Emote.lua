@@ -559,7 +559,7 @@ function EmoteCommandStart(args)
                 str = str .. string.format("\n(%s) - %s", k, v.Name)
             end
 
-            EmoteChatMessage(string.format(Translate('invalidvariation'), str), true)
+            EmoteChatMessage(Translate('invalidvariation', str), true)
             OnEmotePlay(name, 0)
             return
         end
