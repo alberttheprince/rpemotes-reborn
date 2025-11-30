@@ -50,7 +50,7 @@ Config = {
     PersistentWalk = true,
     SharedEmotesEnabled = true,
     AdultEmotesDisabled = false,
-    AbusableEmotesDisabled = true, -- if set to true disables any emots that could be abused in pvp/serious environments that emotes marked abusable = true, 
+    AbusableEmotesDisabled = true, -- if set to true disables any emotes that could be abused in pvp/serious environments that emotes marked abusable = true, 
     AnimalEmotesEnabled = true,
 
     -- Hands Up
