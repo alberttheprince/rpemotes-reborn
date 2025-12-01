@@ -126,6 +126,7 @@ AceCategoryFromEmoteType = {
 ---@field BlendInSpeed? number
 ---@field BlendOutSpeed? number
 ---@field PlacementZOffset? number offset to apply when using the placement feature. Needed for certain emotes which would otherwise be floating due to a built-in anim offset
+---@field PlacementOffsetHeading? number offset to apply when using the placement feature. Needed for certain emotes which have a built-in heading for the animation.
 
 ---@class AnimationListConfig
 ---@field Expressions table<string, {[1]: AnimName, [2]: Label?}>
