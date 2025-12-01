@@ -235,6 +235,11 @@ function EmoteCancel(force)
                 return
             end
 
+            -- Clean up placement BEFORE exit emote so it doesn't get floating flags
+            if GetPlacementState() == PlacementState.IN_ANIMATION then
+                CleanUpPlacement(ped)
+            end
+
             OnEmotePlay(options.ExitEmote)
             DebugPrint("Playing exit animation")
 
@@ -616,6 +621,11 @@ local function playExitAndEnterEmote(name, textureVariation, emoteType)
             ExitAndPlay = false
             OnEmotePlay(name, textureVariation, emoteType)
             return
+        end
+
+        -- Clean up placement BEFORE exit emote so it doesn't get floating flags
+        if GetPlacementState() == PlacementState.IN_ANIMATION then
+            CleanUpPlacement(ped)
         end
 
         OnEmotePlay(options.ExitEmote)
