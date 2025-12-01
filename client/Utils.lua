@@ -31,9 +31,7 @@ end)
 ---@return boolean
 function HasEmotePermission(emoteName, emoteType)
     -- If manifest not loaded yet, allow by default (server will validate anyway)
-    if not permissions.loaded then
-        return true
-    end
+    if not permissions.loaded then return true end
 
     local category = AceCategoryFromEmoteType[emoteType]
     local present = permissions.categories[category][emoteName]
@@ -48,26 +46,26 @@ end
 
 
 -- Helper function to strip GTA rich text formatting codes like ~y~, ~w~, ~g~, etc.
-local function StripRichText(message)
-    if not Config.StripRichText then return message end
-    return string.gsub(message, "~%a+~", "")
+local function StripRichText(msg)
+    if not Config.StripRichText then return msg end
+    return string.gsub(msg, "~%a+~", "")
 end
 -- You can edit this function to add support for your favorite notification system
-function SimpleNotify(message)
-    message = StripRichText(tostring(message))
+function SimpleNotify(msg)
+    msg = StripRichText(tostring(msg))
 
     if Config.NotificationsAsChatMessage then
-        TriggerEvent("chat:addMessage", { color = { 255, 255, 255 }, args = { message } })
+        TriggerEvent("chat:addMessage", { color = { 255, 255, 255 }, args = { msg } })
     else
         BeginTextCommandThefeedPost("STRING")
-        AddTextComponentSubstringPlayerName(message)
+        AddTextComponentSubstringPlayerName(msg)
         EndTextCommandThefeedPostTicker(true, true)
     end
 end
 
 -- You can also edit this function to add support for your favorite notification system
-function SimpleHelpText(message)
-    AddTextEntry('RPEMOTES_HELPTEXT', message) -- Using text labels, because STRING has a 99 character limit.
+function SimpleHelpText(msg)
+    AddTextEntry('RPEMOTES_HELPTEXT', msg) -- Using text labels, because STRING has a 99 character limit.
     BeginTextCommandDisplayHelp("RPEMOTES_HELPTEXT")
     EndTextCommandDisplayHelp(0, false, false, -1)
 end
@@ -97,13 +95,13 @@ function IsPlayerAiming(player)
     tonumber(GetSelectedPedWeapon(player)) ~= tonumber(GetHashKey("WEAPON_UNARMED"))
 end
 
-function CanPlayerCrouchCrawl(playerPed)
-    return IsPedOnFoot(playerPed)
-        and not IsPedJumping(playerPed)
-        and not IsPedFalling(playerPed)
-        and not IsPedInjured(playerPed)
-        and not IsPedInMeleeCombat(playerPed)
-        and not IsPedRagdoll(playerPed)
+function CanPlayerCrouchCrawl(ped)
+    return IsPedOnFoot(ped)
+        and not IsPedJumping(ped)
+        and not IsPedFalling(ped)
+        and not IsPedInjured(ped)
+        and not IsPedInMeleeCombat(ped)
+        and not IsPedRagdoll(ped)
 end
 
 -- Calls `TaskPlayAnim`, but bypasses issue with `use_experimental_fxv2_oal` being `true`, that prevents ints being passed for the last three parameters
@@ -111,11 +109,10 @@ function PlayAnim(...)
     return Citizen.InvokeNative(0xEA47FE3719165B94, ...)
 end
 
-function PlayAnimOnce(playerPed, animDict, animName, blendInSpeed, blendOutSpeed, duration, startTime)
-    LoadAnim(animDict)
-    TaskPlayAnim(playerPed, animDict, animName, blendInSpeed or 2.0, blendOutSpeed or 2.0, duration or -1, 0,
-        startTime or 0.0, false, false, false)
-    RemoveAnimDict(animDict)
+function PlayAnimOnce(pPed, dict, anim, bISpeed, bOSpeed, duration, startTime)
+    LoadAnim(dict)
+    TaskPlayAnim(pPed, dict, anim, bISpeed or 2.0, bOSpeed or 2.0, duration or -1, 0, startTime or 0.0, false, false, false)
+    RemoveAnimDict(dict)
 end
 
 function ChangeHeadingSmooth(playerPed, amount, time)
@@ -158,9 +155,7 @@ function PairsByKeys(t, f)
 end
 
 function LoadAnim(dict)
-    if not DoesAnimDictExist(dict) then
-        return false
-    end
+    if not DoesAnimDictExist(dict) then return false end
 
     local timeout = 2000
     while not HasAnimDictLoaded(dict) and timeout > 0 do
@@ -177,22 +172,17 @@ function LoadAnim(dict)
 end
 
 function LoadPropDict(model)
-    if not HasModelLoaded(GetHashKey(model)) then
-        RequestModel(GetHashKey(model))
-        local timeout = 2000
-        while not HasModelLoaded(GetHashKey(model)) and timeout > 0 do
-            Wait(5)
-            timeout = timeout - 5
-        end
-        if timeout == 0 then
-            DebugPrint("Loading model " .. model .. " timed out")
-            return
-        end
+    if HasModelLoaded(GetHashKey(model)) then return end
+    RequestModel(GetHashKey(model))
+    local timeout = 2000
+    while not HasModelLoaded(GetHashKey(model)) and timeout > 0 do
+        Wait(5)
+        timeout = timeout - 5
     end
-end
-
-function TableHasKey(table, key)
-    return table[key] ~= nil
+    if timeout == 0 then
+        DebugPrint("Loading model " .. model .. " timed out")
+        return
+    end
 end
 
 function RequestWalking(set)
@@ -205,11 +195,10 @@ end
 
 function GetPedInFront()
     local player = PlayerId()
-    local plyPed = GetPlayerPed(player)
-    local plyPos = GetEntityCoords(plyPed, false)
-    local plyOffset = GetOffsetFromEntityInWorldCoords(plyPed, 0.0, 1.3, 0.0)
-    local rayHandle = StartShapeTestCapsule(plyPos.x, plyPos.y, plyPos.z, plyOffset.x, plyOffset.y, plyOffset.z, 10.0, 12
-    , plyPed, 7)
+    local pPed = GetPlayerPed(player)
+    local pPos = GetEntityCoords(pPed, false)
+    local pOffset = GetOffsetFromEntityInWorldCoords(pPed, 0.0, 1.3, 0.0)
+    local rayHandle = StartShapeTestCapsule(pPos.x, pPos.y, pPos.z, pOffset.x, pOffset.y, pOffset.z, 10.0, 12, pPed, 7)
     local _, _, _, _, ped2 = GetShapeTestResult(rayHandle)
     return ped2
 end
@@ -234,7 +223,7 @@ function GetClosestPlayer()
 
     for index, value in ipairs(players) do
         local target = GetPlayerPed(value)
-        if (target ~= ped) then
+        if target ~= ped then
             local targetCoords = GetEntityCoords(GetPlayerPed(value), false)
             local distance = GetDistanceBetweenCoords(targetCoords["x"], targetCoords["y"], targetCoords["z"],
                 pedCoords["x"], pedCoords["y"], pedCoords["z"], true)
@@ -350,7 +339,7 @@ function HandleZoomAndCheckRotation(cam, fov)
         SetCamRot(cam, new_x, 0.0, new_z, 2)
     end
 
-    if not (IsPedSittingInAnyVehicle(lPed)) then
+    if not IsPedSittingInAnyVehicle(lPed) then
         if IsControlJustPressed(0, 241) then -- Scrollup
             fov = math.max(fov - zoomspeed, fov_min)
         end
@@ -509,7 +498,7 @@ end
 --------------------------------------------------------------------------------------------------
 -- Handle prop spawning (except the preview screen)
 ServerProps = {
-    -- [serverSource] = {AnimationOptions, TextureVariation}
+    -- [playerPed] = {AnimationOptions, TextureVariation}
 }
 
 
@@ -520,23 +509,23 @@ AddStateBagChangeHandler('rpemotes:props', nil, function(bagName, key, value, re
     local ped = GetPlayerPed(ply)
     local serverSource = GetPlayerServerId(ply)
 
-    if ServerProps[serverSource] and #ServerProps[serverSource] > 0 then
-        for _, v in pairs(ServerProps[serverSource]) do
+    if ServerProps[ped] and #ServerProps[ped] > 0 then
+        for _, v in pairs(ServerProps[ped]) do
+            SetEntityAsMissionEntity(v, false, false)
             DeleteEntity(v)
         end
         DebugPrint("Deleted props for player. rpemotes statebag update")
-        ServerProps[serverSource] = {}
+        ServerProps[ped] = nil
     end
-    if not ServerProps[serverSource] then ServerProps[serverSource] = {} end
-
 
     if type(value) == "table" and value.Emote ~= nil then
+        if not ServerProps[ped] then ServerProps[ped] = {} end
         -- Overly cautious? Maybe.
         local gameTime = GetGameTimer()
         DebugPrint("creating props")
         while not DoesEntityExist(ped) do
             ped = GetPlayerPed(ply)
-            Wait(1)
+            Wait(0)
         end
         DebugPrint("time to finish loading ped (ms)", GetGameTimer() - gameTime)
         local emoteData = value.emoteType == EmoteType.SHARED and SharedEmoteData[value.Emote] or EmoteData[value.Emote]
@@ -544,20 +533,31 @@ AddStateBagChangeHandler('rpemotes:props', nil, function(bagName, key, value, re
     end
 end)
 
-RegisterNetEvent("onPlayerLeavingScope", function(serverSource)
-    if ServerProps[serverSource] and #ServerProps[serverSource] > 0 then
-        for _, v in pairs(ServerProps[serverSource]) do
-            DeleteEntity(v)
+CreateThread(function()
+    while true do
+        for attachedPed, attachData in pairs(ServerProps) do
+            for idx, prop in pairs(attachData) do
+                if not DoesEntityExist(prop) then
+                    attachData[idx] = nil
+                end
+            end
+            if not DoesEntityExist(attachedPed) then
+                for idx, prop in pairs(attachData) do
+                    SetEntityAsMissionEntity(prop, false, false)
+                    DeleteEntity(prop)
+                end
+                ServerProps[attachedPed] = nil
+            end
         end
-        DebugPrint("Deleted props for player. leaving scope")
-        ServerProps[serverSource] = {}
+        Wait(1000)
     end
 end)
 
 RegisterNetEvent("onResourceStop", function(resource)
     if GetCurrentResourceName() ~= resource then return end
-    for i,k in pairs(ServerProps) do
-        for _,v in pairs(k) do
+    for i, k in pairs(ServerProps) do
+        for _, v in pairs(k) do
+            SetEntityAsMissionEntity(v, false, false)
             DeleteEntity(v)
         end
     end
