@@ -8831,7 +8831,8 @@ RP.Emotes = {
         "base",
         "Addict",
         AnimationOptions = {
-            onFootFlag = AnimFlag.LOOP
+            onFootFlag = AnimFlag.LOOP,
+            PlacementOffset = vector4(0.2, 2.0, -1.0, 220.0) -- correct the offset to zero it out
         }
     },
     ["handsup"] = {
