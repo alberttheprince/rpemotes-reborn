@@ -92,7 +92,16 @@ local function walkPedToPlacementPosition(emoteName)
 
     local emoteData = EmoteData[emoteName]
     if emoteData and emoteData.AnimationOptions and emoteData.AnimationOptions.PlacementOffset ~= nil then
-        placementPosition += emoteData.AnimationOptions.PlacementOffset
+        -- Apply offset relative to ped's heading
+        local offset = emoteData.AnimationOptions.PlacementOffset
+        local adjustedPosition = GetOffsetFromCoordAndHeadingInWorldCoords(
+            placementPosition.x, placementPosition.y, placementPosition.z,
+            placementPosition.w,  -- heading
+            offset.x,  -- left/right
+            offset.y,  -- forward/back
+            offset.z   -- up/down
+        )
+        placementPosition = vector4(adjustedPosition.x, adjustedPosition.y, adjustedPosition.z, placementPosition.w + offset.w)
     end
 
 
