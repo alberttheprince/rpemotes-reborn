@@ -91,18 +91,14 @@ local function walkPedToPlacementPosition(emoteName)
     positionPriorToPlacement = latestPedPosition
 
     local emoteData = EmoteData[emoteName]
-    local offset = 0
-    if emoteData and emoteData.AnimationOptions and emoteData.AnimationOptions.PlacementOffsetZ ~= nil then
-        offset = emoteData.AnimationOptions.PlacementOffsetZ
+    if emoteData and emoteData.AnimationOptions and emoteData.AnimationOptions.PlacementOffset ~= nil then
+        placementPosition += emoteData.AnimationOptions.PlacementOffset
     end
 
-    local headingOffset = 0
-    if emoteData and emoteData.AnimationOptions and emoteData.AnimationOptions.PlacementOffsetHeading ~= nil then
-        headingOffset = emoteData.AnimationOptions.PlacementOffsetHeading
-    end
-    SetEntityCoordsNoOffset(playerPed, placementPosition.x, placementPosition.y, placementPosition.z + offset, true, true, true)
+
+    SetEntityCoordsNoOffset(playerPed, placementPosition.x, placementPosition.y, placementPosition.z, true, true, true)
     SetEntityRotation(playerPed, placementRotation.x, placementRotation.y, placementRotation.z, 2, false)
-    SetEntityHeading(playerPed, placementPosition.w + headingOffset)
+    SetEntityHeading(playerPed, placementPosition.w)
 
     placementState = PlacementState.IN_ANIMATION
 
