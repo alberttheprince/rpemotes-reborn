@@ -7617,6 +7617,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             ExitEmote = "offchair",
+            PlacementOffsetZ = -1.0, -- Prevents floating during placement
         }
     },
     ["sittoilet"] = {
