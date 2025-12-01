@@ -105,9 +105,8 @@ if Config.WalkingStylesEnabled and Config.PersistentWalk then
     RegisterNetEvent('esx:playerLoaded', HandleWalkstyle)
 
     AddEventHandler('onResourceStart', function(resource)
-        if resource == GetCurrentResourceName() then
-            HandleWalkstyle()
-        end
+        if resource ~= GetCurrentResourceName() then return end
+        HandleWalkstyle()
     end)
 end
 

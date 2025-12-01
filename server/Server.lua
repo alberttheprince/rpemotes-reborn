@@ -112,24 +112,16 @@ buildPermissionCache()
 
 local function hasEmotePermission(source, emoteName, emoteType)
     local aceCategory = AceCategoryFromEmoteType[emoteType]
-    if not aceCategory then
-        return true
-    end
+    if not aceCategory then return true end
 
     local categoryCache = aceCache[aceCategory]
-    if not categoryCache then
-        return true
-    end
+    if not categoryCache then return true end
 
     local requiredAces = categoryCache[emoteName]
-    if not requiredAces then
-        return true
-    end
+    if not requiredAces then return true end
 
     for _, acePermission in ipairs(requiredAces) do
-        if IsPlayerAceAllowed(source, acePermission) then
-            return true
-        end
+        if IsPlayerAceAllowed(source, acePermission) then return true end
     end
 
     return false
@@ -140,20 +132,14 @@ RegisterNetEvent("rpemotes:server:requestEmote", function(target, emotename)
     local source = source
     if not Player(source).state.canEmote then return end
 
-    if target == -1 then
-        return
-    end
+    if target == -1 then return end
 
     local distance = #(GetEntityCoords(GetPlayerPed(source)) - GetEntityCoords(GetPlayerPed(target)))
 
-    if distance > 3 then
-        return
-    end
+    if distance > 3 then return end
 
     -- Check ACE permission for shared emote (only requestor needs permission)
-    if not hasEmotePermission(source, emotename, EmoteType.SHARED) then
-        return
-    end
+    if not hasEmotePermission(source, emotename, EmoteType.SHARED) then return end
 
     TriggerClientEvent("rpemotes:client:requestEmote", target, emotename, source)
 end)
@@ -161,15 +147,11 @@ end)
 RegisterNetEvent("rpemotes:server:confirmEmote", function(target, requestedemote, otheremote)
     local source = source
 
-    if target == -1 then
-        return
-    end
+    if target == -1 then return end
 
     local distance = #(GetEntityCoords(GetPlayerPed(source)) - GetEntityCoords(GetPlayerPed(target)))
 
-    if distance > 3 then
-        return
-    end
+    if distance > 3 then return end
 
     TriggerClientEvent("rpemotes:client:syncEmote", source, otheremote, target)
     TriggerClientEvent("rpemotes:client:syncEmoteSource", target, requestedemote, source)
@@ -280,10 +262,6 @@ RegisterCommand("emoteextract", function(source, args)
     if source > 0 then return end
     ExtractEmoteProps(args[1])
 end, true)
-
-AddEventHandler("playerLeftScope", function(data)
-    TriggerClientEvent("onPlayerLeavingScope", tonumber(data["for"]), tonumber(data["player"]))
-end)
 
 -- Build adaptive permission manifest (sends smaller list: allow or deny)
 local function buildPermissionManifest(source)

@@ -48,8 +48,7 @@ if Config.ExpressionsEnabled then
     end
 
     AddEventHandler('onResourceStart', function(resource)
-        if resource == GetCurrentResourceName() then
-            LoadPersistentExpression()
-        end
+        if resource ~= GetCurrentResourceName() then return end
+        LoadPersistentExpression()
     end)
 end

@@ -206,9 +206,7 @@ function EmoteCancel(force)
     LocalPlayer.state:set('currentEmote', nil, true)
     EmoteCancelPlaying = true
 
-    if InExitEmote then
-        return
-    end
+    if InExitEmote then return end
 
     exitScenario()
 
@@ -283,9 +281,7 @@ function EmoteMenuStart(name, textureVariation, emoteType)
 
     local emote = emoteType == EmoteType.SHARED and SharedEmoteData[name] or EmoteData[name]
 
-    if not emote then
-        return
-    end
+    if not emote then return end
 
     -- Check model compatibility
     if not IsModelCompatible(CachedPlayerModel, name) then
@@ -319,7 +315,6 @@ local function addProp(data)
     assert(data.noCollision == nil or type(data.noCollision) == "boolean", 'noCollision must be a boolean')
 
     local target = data.ped and data.ped > 0 and data.ped or PlayerPedId()
-    local propPool = data.playerId and GetPlayerServerId(data.playerId) or GetPlayerServerId(PlayerId())
     if data.playerId and DoesEntityExist(GetPlayerPed(data.playerId)) then
         target = GetPlayerPed(data.playerId)
     end
@@ -354,7 +349,7 @@ local function addProp(data)
             SetEntityAlpha(attachedProp, targetAlpha, false)
         end
     else
-        ServerProps[propPool][#ServerProps[propPool]+1] = attachedProp
+        ServerProps[target][#ServerProps[target]+1] = attachedProp
     end
 
     SetModelAsNoLongerNeeded(data.prop1)
@@ -406,13 +401,9 @@ end
 function EmotePlayOnNonPlayerPed(ped, name)
     cleanScenarioObjects(ped)
 
-    if not DoesEntityExist(ped) then
-        return false
-    end
+    if not DoesEntityExist(ped) then return false end
 
-    if InExitEmote then
-        return false
-    end
+    if InExitEmote then return false end
 
     -- NOTE: CancelPreviousEmote logic removed for non-player peds
     -- It was incorrectly setting the global ExitAndPlay flag
@@ -490,9 +481,7 @@ function EmoteMenuStartClone(name, emoteType)
 
     local emote = emoteType == EmoteType.SHARED and SharedEmoteData[name] or EmoteData[name]
 
-    if not emote then
-        return
-    end
+    if not emote then return end
 
     EmotePlayOnNonPlayerPed(ClonedPed, name)
 end
@@ -692,37 +681,31 @@ function OnEmotePlay(name, textureVariation, emoteType)
 
     if not LocalPlayer.state.canEmote then return end
 
-    if not DoesEntityExist(PlayerPedId()) then
-        return false
-    end
+    if not DoesEntityExist(PlayerPedId()) then return false end
 
     -- Cooldown check MUST happen before any state modifications
     -- to prevent cancelling current emote when cooldown blocks the new one
-if Config.EmoteCooldownMs then
-    local timeSinceLastEmote = GetGameTimer() - lastEmoteTime
+    if Config.EmoteCooldownMs then
+        local timeSinceLastEmote = GetGameTimer() - lastEmoteTime
 
-    -- Skip cooldown check for exit emotes (they should always play when cancelling)
-    if timeSinceLastEmote < Config.EmoteCooldownMs and emoteData.emoteType ~= EmoteType.EXITS then
-        EmoteChatMessage(Translate('emotecooldown'))
-        return
+        -- Skip cooldown check for exit emotes (they should always play when cancelling)
+        if timeSinceLastEmote < Config.EmoteCooldownMs and emoteData.emoteType ~= EmoteType.EXITS then
+            EmoteChatMessage(Translate('emotecooldown'))
+            return
+        end
+        -- Don't set lastEmoteTime here - set it when emote actually plays
     end
-    -- Don't set lastEmoteTime here - set it when emote actually plays
-end
     CheckStatus = false
 
     cleanScenarioObjects(PlayerPedId())
     local inVehicle = IsPedInAnyVehicle(PlayerPedId(), true)
     Pointing = false
 
-    if not Config.AllowEmoteInVehicle and inVehicle then
-        return
-    end
+    if not Config.AllowEmoteInVehicle and inVehicle then return end
 
     local vehicleHasHandleBars = inVehicle and DoesPedVehicleHaveHandleBars(PlayerPedId())
 
-    if not Config.AllowOnBikes and vehicleHasHandleBars then
-        return
-    end
+    if not Config.AllowOnBikes and vehicleHasHandleBars then return end
 
     if Config.AdultEmotesDisabled and emoteData.AdultAnimation then
         return EmoteChatMessage(Translate('adultemotedisabled'))
@@ -732,9 +715,7 @@ end
         return EmoteChatMessage(Translate('abusableemotedisabled'))
     end
 
-    if InExitEmote then
-        return false
-    end
+    if InExitEmote then return false end
 
     if Config.CancelPreviousEmote
         and IsInAnimation
@@ -760,13 +741,9 @@ end
         and animOption.ExitEmote
         and CurrentAnimOptions.ExitEmote ~= animOption.ExitEmote
         and EmoteData[CurrentAnimOptions.ExitEmote].anim ~= emoteData.anim
-    then
-        return
-    end
+    then return end
 
-    if IsInActionWithErrorMessage() then
-        return false
-    end
+    if IsInActionWithErrorMessage() then return false end
 
     ChosenScenarioType = emoteData.scenarioType
     CurrentAnimationName = name
@@ -886,17 +863,11 @@ end)
 local openingDoor = false
 AddEventHandler('CEventOpenDoor', function(unk1)
     if unk1[1] ~= PlayerPedId() then return end
-    if ShowPed then
-        return
-    end
+    if ShowPed then return end
 
-    if not IsInAnimation then
-        return
-    end
+    if not IsInAnimation then return end
 
-    if openingDoor then
-        return
-    end
+    if openingDoor then return end
 
     openingDoor = true
 
@@ -918,9 +889,7 @@ local timeout = 500
 
 AddEventHandler("CEventPlayerCollisionWithPed", function(unk1)
     if unk1[1] ~= PlayerPedId() then return end
-    if not IsInAnimation then
-        return
-    end
+    if not IsInAnimation then return end
 
     if isBumpingPed then
         timeout = 500
@@ -935,9 +904,7 @@ AddEventHandler("CEventPlayerCollisionWithPed", function(unk1)
         timeout = timeout - 100
     end
 
-    if not IsInAnimation then
-        return
-    end
+    if not IsInAnimation then return end
 
     isBumpingPed = false
     ClearPedTasks(PlayerPedId())
