@@ -96,9 +96,13 @@ local function walkPedToPlacementPosition(emoteName)
         offset = emoteData.AnimationOptions.PlacementOffsetZ
     end
 
+    local headingOffset = 0
+    if emoteData and emoteData.AnimationOptions and emoteData.AnimationOptions.PlacementOffsetHeading ~= nil then
+        headingOffset = emoteData.AnimationOptions.PlacementOffsetHeading
+    end
     SetEntityCoordsNoOffset(playerPed, placementPosition.x, placementPosition.y, placementPosition.z + offset, true, true, true)
     SetEntityRotation(playerPed, placementRotation.x, placementRotation.y, placementRotation.z, 2, false)
-    SetEntityHeading(playerPed, placementPosition.w)
+    SetEntityHeading(playerPed, placementPosition.w + headingOffset)
 
     placementState = PlacementState.IN_ANIMATION
 
