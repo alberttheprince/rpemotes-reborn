@@ -1,9 +1,7 @@
 IsUsingBinoculars = false
 if not Config.BinocularsEnabled then return end
 
-RegisterCommand("binoculars", function()
-    UseBinocular()
-end, false)
+RegisterCommand("binoculars", UseBinocular, false)
 TriggerEvent('chat:addSuggestion', '/binoculars', 'Use binoculars', {})
 
 local fov = 40.0
@@ -30,33 +28,24 @@ local function CleanupBinoculars()
 end
 
 function UseBinocular()
-    if IsPedSittingInAnyVehicle(PlayerPedId()) then
-        return
-    end
-    if IsInActionWithErrorMessage({ IsUsingBinoculars = true }) then
-        return
-    end
+    if IsPedSittingInAnyVehicle(PlayerPedId()) then return end
+    if IsInActionWithErrorMessage({ IsUsingBinoculars = true }) then return end
     IsUsingBinoculars = not IsUsingBinoculars
 
     if IsUsingBinoculars then
         CreateThread(function()
             DestroyAllProps()
             ClearPedTasks(PlayerPedId())
-            RequestAnimDict("amb@world_human_binoculars@male@idle_a")
-            while not HasAnimDictLoaded("amb@world_human_binoculars@male@idle_a") do
-                Wait(5)
-            end
+            LoadAnim("amb@world_human_binoculars@male@idle_a")
 
             -- attach the prop to the player
             local boneIndex = GetPedBoneIndex(PlayerPedId(), 28422)
             local x, y, z = table.unpack(GetEntityCoords(PlayerPedId(), true))
-            if not HasModelLoaded("prop_binoc_01") then
-                LoadPropDict("prop_binoc_01")
-            end
+            LoadPropDict("prop_binoc_01")
             -- prop_binoc = CreateObject(`prop_binoc_01`, x, y, z + 0.2, true, true, true)
             -- AttachEntityToEntity(prop_binoc, PlayerPedId(), boneIndex, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, true, true,
             --     false, true, 1, true)
-            OnEmotePlay("binoculars", nil)
+            OnEmotePlay("binoculars")
 
             TaskPlayAnim(PlayerPedId(), "amb@world_human_binoculars@male@idle_a", "idle_c", 5.0, 5.0, -1, 51, 0,
                 false, false, false)
@@ -86,18 +75,13 @@ function UseBinocular()
         PushScaleformMovieFunctionParameterInt(0) -- 0 for nothing, 1 for LSPD logo
         PopScaleformMovieFunctionVoid()
 
-        local keyList
+        local keyList = {
+            { key = 177, text = 'exit_binoculars' },
+            { key = 47,  text = 'toggle_instructions' }
+        }
+
         if Config.AllowVisionsToggling then
-            keyList = {
-                { key = 177, text = 'exit_binoculars' },
-                { key = 19,  text = 'toggle_binoculars_vision' },
-                { key = 47,  text = 'toggle_instructions' }
-            }
-        else
-            keyList = {
-                { key = 177, text = 'exit_binoculars' },
-                { key = 47,  text = 'toggle_instructions' }
-            }
+            table.insert(keyList, 2, { key = 19, text = 'toggle_binoculars_vision' })
         end
 
         scaleform_instructions = SetupButtons(keyList)
@@ -147,7 +131,7 @@ function UseBinocular()
             if instructions then
                 DrawScaleformMovieFullscreen(scaleform_instructions, 255, 255, 255, 255)
             end
-            Wait(1)
+            Wait(0)
         end
     end
 
@@ -159,9 +143,8 @@ function UseBinocular()
 end
 
 AddEventHandler('onResourceStop', function(resource)
-    if resource == GetCurrentResourceName() then
-        CleanupBinoculars()
-    end
+    if resource ~= GetCurrentResourceName() then return end
+    CleanupBinoculars()
 end)
 
 CreateExport('toggleBinoculars', function()

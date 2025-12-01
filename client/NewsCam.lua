@@ -1,10 +1,7 @@
 IsUsingNewscam = false
 if not Config.NewscamEnabled then return end
 
-RegisterCommand("newscam", function()
-    UseNewscam()
-end, false)
-
+RegisterCommand("newscam", UseNewscam, false)
 TriggerEvent('chat:addSuggestion', '/newscam', 'Use newscam', {})
 
 local fov = 40.0
@@ -29,37 +26,27 @@ local function CleanupNewscam()
         DeleteEntity(prop_newscam)
     end
     LocalPlayer.state:set("rpemotes:props", {}, true)
-    SetNightvision(false)
-    SetSeethrough(false)
 end
 
 function UseNewscam()
-    if IsPedSittingInAnyVehicle(PlayerPedId()) then
-        return
-    end
-    if IsInActionWithErrorMessage({IsUsingNewscam = true }) then
-        return
-    end
+    if IsPedSittingInAnyVehicle(PlayerPedId()) then return end
+    if IsInActionWithErrorMessage({IsUsingNewscam = true }) then return end
     IsUsingNewscam = not IsUsingNewscam
 
     if IsUsingNewscam then
         CreateThread(function()
             DestroyAllProps()
             ClearPedTasks(PlayerPedId())
-            RequestAnimDict("missfinale_c2mcs_1")
-            while not HasAnimDictLoaded("missfinale_c2mcs_1") do
-                Wait(5)
-            end
+            LoadAnim("missfinale_c2mcs_1")
 
             -- attach the prop to the player
             local boneIndex = GetPedBoneIndex(PlayerPedId(), 28422)
             local x, y, z = table.unpack(GetEntityCoords(PlayerPedId(), true))
-            if not HasModelLoaded("prop_v_cam_01") then
-                LoadPropDict("prop_v_cam_01")
-            end
+            LoadPropDict("prop_v_cam_01")
+
             -- prop_newscam = CreateObject(`prop_v_cam_01`, x, y, z + 0.2, true, true, true)
             -- AttachEntityToEntity(prop_newscam, PlayerPedId(), boneIndex, 0.0, 0.03, 0.01, 0.0, 0.0, 0.0, true, true, false, true, 1, true)
-            OnEmotePlay("newscam", nil)
+            OnEmotePlay("newscam")
 
             TaskPlayAnim(PlayerPedId(), "missfinale_c2mcs_1", "fin_c2_mcs_1_camman", 5.0, 5.0, -1, 51, 0, false, false, false)
             PlayAmbientSpeech1(PlayerPedId(), "GENERIC_CURSE_MED", "SPEECH_PARAMS_FORCE")
@@ -141,7 +128,7 @@ function UseNewscam()
                         while index == 1 do
                             DrawRect(0.0, 0.0, 2.0, 0.2, 0, 0, 0, 255)
                             DrawRect(0.0, 1.0, 2.0, 0.2, 0, 0, 0, 255)
-                            Wait(1)
+                            Wait(0)
                         end
                     end)
                 else
@@ -164,7 +151,7 @@ function UseNewscam()
             if instructions then
                 DrawScaleformMovieFullscreen(scaleform_instructions, 255, 255, 255, 255)
             end
-            Wait(1)
+            Wait(0)
         end
     end
 
@@ -179,31 +166,31 @@ function SetMsgBottomTitle()
     -- keyboard input to set the message and bottom title
     AddTextEntry("top", "Enter the top message of the news")
     DisplayOnscreenKeyboard(1, "top", "", "", "", "", "", 200)
-    while (UpdateOnscreenKeyboard() == 0) do
-        DisableAllControlActions(0);
-        Wait(0);
+    while UpdateOnscreenKeyboard() == 0 do
+        DisableAllControlActions(0)
+        Wait(0)
     end
-    if (GetOnscreenKeyboardResult()) then
+    if GetOnscreenKeyboardResult() then
         title = tostring(GetOnscreenKeyboardResult())
     end
 
     AddTextEntry("bottom", "Enter the bottom title of the news")
     DisplayOnscreenKeyboard(1, "bottom", "", "", "", "", "", 200)
-    while (UpdateOnscreenKeyboard() == 0) do
-        DisableAllControlActions(0);
-        Wait(0);
+    while UpdateOnscreenKeyboard() == 0 do
+        DisableAllControlActions(0)
+        Wait(0)
     end
-    if (GetOnscreenKeyboardResult()) then
+    if GetOnscreenKeyboardResult() then
         bottom = tostring(GetOnscreenKeyboardResult())
     end
 
     AddTextEntry("title", "Enter the title of the news")
     DisplayOnscreenKeyboard(1, "title", "", "", "", "", "", 200)
-    while (UpdateOnscreenKeyboard() == 0) do
-        DisableAllControlActions(0);
-        Wait(0);
+    while UpdateOnscreenKeyboard() == 0 do
+        DisableAllControlActions(0)
+        Wait(0)
     end
-    if (GetOnscreenKeyboardResult()) then
+    if GetOnscreenKeyboardResult() then
         msg = tostring(GetOnscreenKeyboardResult())
     end
 
@@ -236,9 +223,8 @@ function SetMsgBottomTitle()
 end
 
 AddEventHandler('onResourceStop', function(resource)
-    if resource == GetCurrentResourceName() then
-        CleanupNewscam()
-    end
+    if resource ~= GetCurrentResourceName() then return end
+    CleanupNewscam()
 end)
 
 CreateExport('toggleNewscam', function()
