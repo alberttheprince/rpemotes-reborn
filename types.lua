@@ -125,8 +125,7 @@ AceCategoryFromEmoteType = {
 ---@field ExitEmoteType? "Exits" deprecated. unused.
 ---@field BlendInSpeed? number
 ---@field BlendOutSpeed? number
----@field PlacementZOffset? number offset to apply when using the placement feature. Needed for certain emotes which would otherwise be floating due to a built-in anim offset
----@field PlacementOffsetHeading? number offset to apply when using the placement feature. Needed for certain emotes which have a built-in heading for the animation.
+---@field PlacementOffset? vector4 offset to apply when using the placement feature. Needed for certain emotes which have default offsets that need to be zeroed out
 
 ---@class AnimationListConfig
 ---@field Expressions table<string, {[1]: AnimName, [2]: Label?}>
