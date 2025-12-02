@@ -3648,6 +3648,15 @@ RP.AnimalEmotes = {
             ExitEmote = "sdogup",
         }
     },
+    ["sdoglay"] = {
+        "creatures@pug@move",
+        "dead_left",
+        "Lay Down (small dog)",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+            ExitEmote = "sdogup",
+        }
+    },
     ["sdogsit"] = {
         "creatures@pug@amb@world_dog_sitting@idle_a",
         "idle_b",
