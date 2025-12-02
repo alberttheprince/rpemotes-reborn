@@ -126,6 +126,7 @@ AceCategoryFromEmoteType = {
 ---@field BlendInSpeed? number
 ---@field BlendOutSpeed? number
 ---@field PlacementOffset? vector4 offset to apply when using the placement feature. Needed for certain emotes which have default offsets that need to be zeroed out
+---@field PlacementOverridesPhysics? boolean when true, applies flags to make an animation float, and handles collision in a custom way. This is to support animations over ledges where the ped would otherwise fall down.
 
 ---@class AnimationListConfig
 ---@field Expressions table<string, {[1]: AnimName, [2]: Label?}>

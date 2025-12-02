@@ -91,9 +91,11 @@ local function walkPedToPlacementPosition(emoteName)
     positionPriorToPlacement = latestPedPosition
 
     local emoteData = EmoteData[emoteName]
-    if emoteData and emoteData.AnimationOptions and emoteData.AnimationOptions.PlacementOffset ~= nil then
+    local animOptions = emoteData and emoteData.AnimationOptions
+
+    if animOptions and animOptions.PlacementOffset ~= nil then
         -- Apply offset relative to ped's heading
-        local offset = emoteData.AnimationOptions.PlacementOffset
+        local offset = animOptions.PlacementOffset
         local adjustedPosition = GetOffsetFromCoordAndHeadingInWorldCoords(
             placementPosition.x, placementPosition.y, placementPosition.z,
             placementPosition.w,  -- heading
@@ -112,7 +114,11 @@ local function walkPedToPlacementPosition(emoteName)
     placementState = PlacementState.IN_ANIMATION
 
     OnEmotePlay(emoteName)
-    checkCollisionsWhileInAnimation()
+
+    -- Only check collisions if overriding physics
+    if animOptions and animOptions.PlacementOverridesPhysics then
+        checkCollisionsWhileInAnimation()
+    end
 end
 
 local function disableControls()
