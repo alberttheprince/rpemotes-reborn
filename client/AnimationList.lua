@@ -2471,7 +2471,7 @@ RP.Dances = {
     ["dancewave15"] = { -- Custom Emote By BoringNeptune
         "dancing_wave_part_one@anim",
         "uprock_dance_1",
-        "Wave Dance 15 - Uprock Dance",
+        "Wave Dance 15 - Rock Up Dance",
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP
         }
@@ -2479,7 +2479,7 @@ RP.Dances = {
     ["dancethriller"] = { -- Custom Emote By BoringNeptune
         "mj_thriller",
         "mj_thriller_dance",
-        "Dance - MJ Thriller",
+        "Dance - Zombie",
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP
         }
@@ -5766,14 +5766,6 @@ RP.Emotes = {
             onFootFlag = AnimFlag.MOVING,
         }
     },
-	["khands"] = { -- Custom Emote By EnchantedBrwny
-        "ebrwny_heart000",
-        "ebrwny_hrt000",
-        "Korean Hand Hearts 🇰🇷",
-        AnimationOptions = {
-			onFootFlag = AnimFlag.MOVING,
-        }
-    },
 	["uwu2"] = { -- Custom Emote By EnchantedBrwny
         "ebrwny_pack000",
         "ebrwny_shy",
@@ -7554,6 +7546,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             ExitEmote = "offchair",
+            PlacementOverridesPhysics = true,
         }
     },
     ["sitchair2"] = {
@@ -7563,6 +7556,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             ExitEmote = "offchair",
+            PlacementOverridesPhysics = true,
         }
     },
     ["sitchair3"] = {
@@ -7572,6 +7566,8 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             ExitEmote = "offchair",
+            PlacementOffset = vector4(-2.8, -1.0, 0.0, 90.0), -- Prevents floating during placement            
+            PlacementOverridesPhysics = true,
         }
     },
     ["sitchair4"] = {
@@ -7581,6 +7577,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             ExitEmote = "offchair",
+            PlacementOverridesPhysics = true,
         }
     },
     ["sitchair5"] = {
@@ -7590,6 +7587,8 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             ExitEmote = "offchair",
+            PlacementOffset = vector4(1.0, 0.0, 0.0, 30.0), -- Prevents floating during placement                
+            PlacementOverridesPhysics = true,
         }
     },
     ["sitchair6"] = {
@@ -7599,6 +7598,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             ExitEmote = "offchair",
+            PlacementOverridesPhysics = true,
         }
     },
     ["sitchair7"] = {
@@ -7608,6 +7608,8 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             ExitEmote = "offchair",
+            PlacementOffset = vector4(1.0, 0.0, -1.0, 0.0), -- Prevents floating during placement      
+            PlacementOverridesPhysics = true,
         }
     },
     ["sitchair8"] = {
@@ -7628,6 +7630,8 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             ExitEmote = "offchair",
+            PlacementOffset = vector4(0.0, 0.0, -1.0, 0.0), -- Prevents floating during placement            
+            PlacementOverridesPhysics = true,
         }
     },
     ["sittoilet2"] = {
@@ -7637,6 +7641,8 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             ExitEmote = "offchair",
+            PlacementOffset = vector4(-0.6, 0.8, -1.0, 30.0), -- Prevents floating during placement
+            PlacementOverridesPhysics = true,
         }
     },
     ["sitcute"] = { -- Custom Emote By QueenSistersAnimations
@@ -7646,6 +7652,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             ExitEmote = "offchair",
+            PlacementOverridesPhysics = true,
         }
     },
     ["situp"] = {
@@ -8806,7 +8813,8 @@ RP.Emotes = {
         "hunched",
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
-            vehicleRequirement = VehicleRequirement.NOT_ALLOWED
+            vehicleRequirement = VehicleRequirement.NOT_ALLOWED,
+            ExitEmote = "getup2",
         }
     },
     ["boi"] = {

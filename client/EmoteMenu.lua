@@ -601,7 +601,17 @@ end
 if Config.Search then
     function EmoteMenuSearch(lastMenu)
         ClosePedMenu()
-        AddTextEntry("PM_NAME_CHALL", Translate('searchinputtitle'))
+
+        -- Clean up any previous search results from the menu
+        for i = #lastMenu.Items, 1, -1 do
+            local item = lastMenu.Items[i]
+            if item and item.Description and type(item.Description) == "string" and string.find(item.Description, Translate('searchmenudesc')) then
+                lastMenu:RemoveItemAt(i)
+            end
+        end
+        _menuPool:RefreshIndex()
+
+    AddTextEntry("PM_NAME_CHALL", Translate('searchinputtitle'))
         DisplayOnscreenKeyboard(1, "PM_NAME_CHALL", "", "", "", "", "", 30)
         while UpdateOnscreenKeyboard() == 0 do
             DisableAllControlActions(0)
