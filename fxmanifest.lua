@@ -62,7 +62,6 @@ client_scripts {
     'client/emojis.lua',
 }
 
-
 data_file 'DLC_ITYP_REQUEST' 'stream/rpemotesreborn_props.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/brummie_props.ytyp'
