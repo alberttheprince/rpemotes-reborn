@@ -12414,7 +12414,7 @@ RP.PropEmotes = {
     },
     ["whiskeybartender"] = {
         "mini@drinking",
-        "idle_a",
+        "shots_barman_a",
         "Pour Shot - Whiskey",
         AnimationOptions = {
             Prop = 'ba_prop_battle_whiskey_bottle_2_s',
