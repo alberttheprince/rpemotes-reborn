@@ -1,7 +1,7 @@
 fx_version 'cerulean'
 game 'gta5'
 description 'rpemotes-reborn'
-version '1.9.1'
+version '2.0.0'
 
 lua54 'yes'
 use_experimental_fxv2_oal 'yes'
