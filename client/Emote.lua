@@ -810,7 +810,7 @@ function OnEmotePlay(name, textureVariation, emoteType)
 
     local flags = animOption?.Flag or movementType or 0
 
-    if GetPlacementState() == PlacementState.IN_ANIMATION then
+    if GetPlacementState() == PlacementState.IN_ANIMATION and animOption and animOption.PlacementOverridesPhysics then
         -- Override physics (allow floating off the ground) & Ragdoll on Collision
         flags += 1024 + 4194304
     elseif vehicleHasHandleBars then

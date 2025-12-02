@@ -7617,7 +7617,8 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             ExitEmote = "offchair",
-            PlacementOffset = vector4(0, 0, -1.0, 0.0) -- Prevents floating during placement
+            PlacementOffset = vector4(0, 0, -1.0, 0.0), -- Prevents floating during placement
+            PlacementOverridesPhysics = true,
         }
     },
     ["sittoilet"] = {
@@ -8832,7 +8833,6 @@ RP.Emotes = {
         "Addict",
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
-            PlacementOffset = vector4(0.2, 2.0, -1.0, 220.0) -- correct the offset to zero it out
         }
     },
     ["handsup"] = {
