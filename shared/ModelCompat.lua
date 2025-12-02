@@ -245,6 +245,7 @@ local emoteCompatibility = {
     [CompatGroup.SMALL_DOG] = {
         'sdogbark',
         'sdogitch',
+        'sdoglay',
         'sdogsit',
         'sdogld',
         'sdogshake',
