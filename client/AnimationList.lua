@@ -8785,6 +8785,14 @@ RP.Emotes = {
             onFootFlag = AnimFlag.MOVING,
         }
     },
+    ["earpiece"] = {
+        "cellphone@",
+        "cellphone_call_listen_base",
+        "Earpiece",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
     ["pull"] = {
         "random@mugging4",
         "struggle_loop_b_thief",
