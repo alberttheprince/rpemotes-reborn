@@ -423,6 +423,7 @@ function StartNewPlacement(emoteName)
     SetBlockingOfNonTemporaryEvents(previewPed, true)
     SetEntityAlpha(previewPed, 254, false)
     SetEntityCollision(previewPed, false, false)
+    SetPedCanBeTargetted(ClonedPed, false)
 
     ClosePedMenu()
 

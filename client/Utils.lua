@@ -420,6 +420,7 @@ function ShowPedMenu(zoom)
             SetBlockingOfNonTemporaryEvents(ClonedPed, true)
             SetEntityAlpha(ClonedPed, 254, false)
             SetEntityCollision(ClonedPed, false, false)
+            SetPedCanBeTargetted(ClonedPed, false)
 
             ShowPed = true
 
