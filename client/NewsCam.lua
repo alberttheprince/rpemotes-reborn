@@ -1,9 +1,6 @@
 IsUsingNewscam = false
 if not Config.NewscamEnabled then return end
 
-RegisterCommand("newscam", UseNewscam, false)
-TriggerEvent('chat:addSuggestion', '/newscam', 'Use newscam', {})
-
 local fov = 40.0
 local index = 0
 local scaleform_instructions
@@ -221,6 +218,9 @@ function SetMsgBottomTitle()
     PushScaleformMovieMethodParameterInt(0) -- Index of string
     EndScaleformMovieMethod()
 end
+
+RegisterCommand("newscam", UseNewscam, false)
+TriggerEvent('chat:addSuggestion', '/newscam', 'Use newscam', {})
 
 AddEventHandler('onResourceStop', function(resource)
     if resource ~= GetCurrentResourceName() then return end
