@@ -5,6 +5,7 @@ local fov = 40.0
 local index = 0
 local scaleform_instructions
 local scaleform_news
+local breaking_news
 local prop_newscam
 local msg = "YOUR TEXT HERE"
 local bottom = "YOUR TEXT HERE"
@@ -56,7 +57,7 @@ function UseNewscam()
         Wait(200)
         SetTimecycleModifier("default")
         SetTimecycleModifierStrength(0.3)
-        local breaking_news = RequestScaleformMovie("breaking_news")
+        breaking_news = RequestScaleformMovie("breaking_news")
         while not HasScaleformMovieLoaded(breaking_news) do
             Wait(10)
         end
