@@ -1,9 +1,6 @@
 IsUsingBinoculars = false
 if not Config.BinocularsEnabled then return end
 
-RegisterCommand("binoculars", UseBinocular, false)
-TriggerEvent('chat:addSuggestion', '/binoculars', 'Use binoculars', {})
-
 local fov = 40.0
 local index = 0
 local cam
@@ -141,6 +138,9 @@ function UseBinocular()
 
     CleanupBinoculars()
 end
+
+RegisterCommand("binoculars", UseBinocular, false)
+TriggerEvent('chat:addSuggestion', '/binoculars', 'Use binoculars', {})
 
 AddEventHandler('onResourceStop', function(resource)
     if resource ~= GetCurrentResourceName() then return end
