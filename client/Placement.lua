@@ -350,7 +350,7 @@ local function positionPreviewPed(emoteName)
                 moveLeftRight -= SMALL_CHANGE_AMOUNT
 
                 if moveLeftRight <= -1 then moveLeftRight = -1 end
-            elseif IsDisabledControlPressed(0, 18) then
+            elseif IsDisabledControlJustPressed(0, 18) then
                 if isPlacementValid then
                     placementState = PlacementState.WALKING
                 else
