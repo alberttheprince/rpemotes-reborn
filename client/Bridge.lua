@@ -115,3 +115,25 @@ if Framework == 'qb' then
     RegisterNetEvent('hospital:client:Revive', DelayedHandleWalkstyle)
     RegisterNetEvent('qbx_medical:client:playerRevived', DelayedHandleWalkstyle)
 end
+
+local function DelayedHandleWalkstyle()
+    SetTimeout(1500, HandleWalkstyle)
+end
+
+if Framework == 'qb' then
+    RegisterNetEvent('hospital:client:Revive', DelayedHandleWalkstyle)
+    RegisterNetEvent('qbx_medical:client:playerRevived', DelayedHandleWalkstyle)
+
+    -- Player loaded - apply persistent walkstyle
+    AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
+        SetTimeout(3000, HandleWalkstyle)
+    end)
+elseif Framework == 'esx' then
+    -- Player loaded - apply persistent walkstyle  
+    RegisterNetEvent('esx:playerLoaded', function()
+        SetTimeout(3000, HandleWalkstyle)
+    end)
+end
+
+-- Standalone fallback using playerSpawned
+AddEventHandler('playerSpawned', DelayedHandleWalkstyle)

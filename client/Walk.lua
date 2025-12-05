@@ -88,25 +88,49 @@ if Config.WalkingStylesEnabled and Config.PersistentWalk then
     function HandleWalkstyle()
         local kvp = GetResourceKvpString("walkstyle")
         if not kvp then return end
-        if walkstyleExists(kvp) then
-            WalkMenuStart(kvp, true)
-        else
+        if not walkstyleExists(kvp) then
             ResetPedMovementClipset(PlayerPedId(), 0.0)
             DeleteResourceKvp("walkstyle")
+            return
         end
+
+        local emoteData = WalkData[kvp]
+        local walk = emoteData.anim
+
+        -- Wait for ped to be fully valid and on foot
+        local timeout = 10000
+        while timeout > 0 do
+            local ped = PlayerPedId()
+            if DoesEntityExist(ped) and not IsPedDeadOrDying(ped, true) and IsPedOnFoot(ped) then
+                break
+            end
+            Wait(100)
+            timeout = timeout - 100
+        end
+
+        if timeout <= 0 then
+            DebugPrint("HandleWalkstyle timed out waiting for valid ped")
+            return
+        end
+
+        local ped = PlayerPedId()
+
+        -- Reset movement clipset first to clear any existing state
+        ResetPedMovementClipset(ped, 0.0)
+        Wait(100)
+
+        -- Now apply the saved walkstyle
+        RequestWalking(walk)
+        SetPedMovementClipset(ped, walk, 0.5)
+        RemoveAnimSet(walk)
+
+        DebugPrint("Applied persistent walkstyle: " .. kvp)
     end
 
-    AddEventHandler('playerSpawned', function()
-        Wait(3000)
-        HandleWalkstyle()
-    end)
-
-    RegisterNetEvent('QBCore:Client:OnPlayerLoaded', HandleWalkstyle)
-    RegisterNetEvent('esx:playerLoaded', HandleWalkstyle)
-
+    -- Only keep resource start handler here since it's not framework-specific
     AddEventHandler('onResourceStart', function(resource)
         if resource ~= GetCurrentResourceName() then return end
-        HandleWalkstyle()
+        SetTimeout(1000, HandleWalkstyle)
     end)
 
     -- Monitor for ped changes and re-apply walkstyle

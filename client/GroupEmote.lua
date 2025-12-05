@@ -177,6 +177,18 @@ RegisterNetEvent("rpemotes:client:requestGroupEmote", function(emotename, reqid,
                     startCountdownTimer()
                     TriggerServerEvent("rpemotes:server:confirmGroupEmote", reqid)
                     TriggerEvent("rpemotes:client:autoCancel")
+
+                    -- Safety timeout: clear stuck state if emote never plays
+                    local acceptedReqId = reqid
+                    SetTimeout((Config.GroupEmoteCountdownTime + 5) * 1000, function()
+                        if groupEmoteReqId == acceptedReqId and groupEmoteAccepted then
+                            DebugPrint("Group emote timeout - clearing stuck state")
+                            groupEmoteReqId = nil
+                            groupEmoteAccepted = false
+                            groupEmoteOriginCoords = vector3(0)
+                            groupEmoteEndTime = nil
+                        end
+                    end)
                 end
             end
         elseif IsControlJustPressed(1, 182) then
@@ -195,7 +207,6 @@ RegisterNetEvent("rpemotes:client:requestGroupEmote", function(emotename, reqid,
         groupEmoteEndTime = nil
     end
 end)
-
 RegisterNetEvent("rpemotes:client:doGroupEmote", function(emotename)
     -- Clear group emote state
     groupEmoteReqId = nil
