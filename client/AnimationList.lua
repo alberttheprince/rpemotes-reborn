@@ -7855,7 +7855,7 @@ RP.Emotes = {
             ExitEmote = "getup",
         }
     },
-    ["Sunbathe4"] = {
+    ["sunbathe4"] = {
         "amb@world_human_sunbathe@male@back@idle_a",
         "idle_a",
         "Sunbathe 4",
@@ -7866,7 +7866,7 @@ RP.Emotes = {
             ExitEmote = "getup",
         }
     },
-    ["Sunbathe5"] = {
+    ["sunbathe5"] = {
         "amb@world_human_sunbathe@female@back@idle_a",
         "idle_a",
         "Sunbathe 5",
@@ -7877,7 +7877,7 @@ RP.Emotes = {
             ExitEmote = "getup",
         }
     },
-    ["Sunbathe6"] = {
+    ["sunbathe6"] = {
         "amb@world_human_sunbathe@female@front@idle_a",
         "idle_c",
         "Sunbathe 6",
@@ -7888,7 +7888,7 @@ RP.Emotes = {
             ExitEmote = "getup",
         }
     },
-        ["Sunbathe7"] = {
+    ["sunbathe7"] = {
         "amb@world_human_sunbathe@male@front@base",
         "base",
         "Sunbathe 7",
