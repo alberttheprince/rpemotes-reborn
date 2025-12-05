@@ -177,6 +177,17 @@ RegisterNetEvent("rpemotes:client:requestGroupEmote", function(emotename, reqid,
                     startCountdownTimer()
                     TriggerServerEvent("rpemotes:server:confirmGroupEmote", reqid)
                     TriggerEvent("rpemotes:client:autoCancel")
+
+                    -- Safety timeout to clear state in case of race conditions
+                    SetTimeout((Config.GroupEmoteCountdownTime + 5) * 1000, function()
+                        -- If state hasn't been cleared by rpemotes:client:doGroupEmote, clear it now
+                        if groupEmoteReqId == reqid and groupEmoteAccepted then
+                            groupEmoteReqId = nil
+                            groupEmoteAccepted = false
+                            groupEmoteOriginCoords = vector3(0)
+                            groupEmoteEndTime = nil
+                        end
+                    end)
                 end
             end
         elseif IsControlJustPressed(1, 182) then
