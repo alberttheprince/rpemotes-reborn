@@ -630,6 +630,14 @@ if Config.Search then
             end
         end
 
+        if Config.SharedEmotesEnabled then
+            for emoteName, emoteData in pairs(SharedEmoteData) do
+                if matchesSearchTerm(emoteName, emoteData, input) then
+                    results[#results + 1] = { table = EmoteType.SHARED, name = emoteName, data = emoteData }
+                end
+            end
+        end
+
         if #results <= 0 then
             SimpleNotify(string.format(Translate('searchnoresult')..' ~r~%s~w~', input))
             return
