@@ -17,9 +17,9 @@ RegisterCommand('emotecancel', function() EmoteCancel() end, false)
 if Config.MenuKeybindEnabled then
     RegisterCommand('emoteui', function() OpenEmoteMenu() end, false)
     RegisterKeyMapping("emoteui", Translate('register_open_menu'), "keyboard", Config.MenuKeybind)
-else
-    RegisterCommand('emotemenu', function() OpenEmoteMenu() end, false)
 end
+
+RegisterCommand('emotemenu', function() OpenEmoteMenu() end, false)
 
 if Config.EnableCancelKeybind then
     RegisterKeyMapping("emotecancel", Translate('register_cancel_emote'), "keyboard", Config.CancelEmoteKey)
