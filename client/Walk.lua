@@ -108,6 +108,20 @@ if Config.WalkingStylesEnabled and Config.PersistentWalk then
         if resource ~= GetCurrentResourceName() then return end
         HandleWalkstyle()
     end)
+
+    -- Monitor for ped changes and re-apply walkstyle
+    CreateThread(function()
+        local currentPed
+        while true do
+            Wait(1000)
+            local newPed = PlayerPedId()
+            if currentPed ~= newPed then
+                currentPed = newPed
+                Wait(500) -- Small delay to ensure ped is fully loaded
+                HandleWalkstyle()
+            end
+        end
+    end)
 end
 
 if Config.WalkingStylesEnabled then
