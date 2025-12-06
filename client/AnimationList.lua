@@ -2240,7 +2240,7 @@ RP.Dances = {
                 0.0,
                 -80.0,
                 20.0,
-                0.0                
+                0.0
             },
             SecondProp = 'ba_prop_battle_glowstick_01',
             SecondPropBone = 60309,
@@ -5201,7 +5201,7 @@ RP.Exits = {
             EmoteDuration = 5000
         }
     },
-    ["catexit"] = { 
+    ["catexit"] = {
         "creatures@cat@amb@world_cat_sleeping_ground@exit",
         "exit",
         "Cat Get Up",
@@ -12428,7 +12428,7 @@ RP.PropEmotes = {
             Prop = 'ba_prop_battle_whiskey_bottle_2_s',
             PropBone = 28422,
             PropPlacement = {
-                0.05, 
+                0.05,
                 0.05,
                 -0.05,
                 20.0,
@@ -21291,7 +21291,7 @@ RP.PropEmotes = {
                 0.400000,
                 0.030000,
                 0.010000,
-                0.000000, 
+                0.000000,
                 -90.000000,
                 100.000000
             },
@@ -21309,7 +21309,7 @@ RP.PropEmotes = {
                 0.400000,
                 0.030000,
                 0.010000,
-                0.000000, 
+                0.000000,
                 -90.000000,
                 100.000000
             },
@@ -21555,11 +21555,11 @@ RP.PropEmotes = {
             Prop = 'v_ret_ps_bag_02',
             PropBone = 28422, -- Right Wrist
             PropPlacement = {
-                0.52000, 
-                0.030000, 
-                0.00000, 
-                0.000000, 
-                -90.000000, 
+                0.52000,
+                0.030000,
+                0.00000,
+                0.000000,
+                -90.000000,
                 100.000000
             },
             onFootFlag = AnimFlag.MOVING,
