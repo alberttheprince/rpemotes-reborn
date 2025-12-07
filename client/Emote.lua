@@ -151,6 +151,7 @@ local function runAnimationThread()
 
             Wait(sleep)
         end
+        CleanUpPlacement(ped)
     end)
 end
 
@@ -812,7 +813,7 @@ function OnEmotePlay(name, textureVariation, emoteType)
 
     if GetPlacementState() == PlacementState.IN_ANIMATION and animOption and animOption.PlacementOverridesPhysics then
         -- Override physics (allow floating off the ground) & Ragdoll on Collision
-        flags += 1024 + 4194304
+        flags += 2048 + 4194304
     elseif vehicleHasHandleBars then
         -- Overrides flags to sync animations between clients and force only upperbody
         flags = 16 + 262144

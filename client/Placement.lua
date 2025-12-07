@@ -9,6 +9,8 @@ local placementPosition
 local placementRotation
 ---@type vector3
 local positionPriorToPlacement = vector3(0)
+---@type bool
+local placementFrozePlayer = false -- true if the last placement emote caused the player to froze.
 
 local previewPed
 local menuBeforePlacement = nil
@@ -57,6 +59,7 @@ local function resetStoredPlacementValues()
     placementPosition = vector4(0)
     placementRotation = vector3(0)
     positionPriorToPlacement = vector3(0)
+    placementFrozePlayer = false
 end
 
 local function anyMovementControlsPressed()
@@ -91,22 +94,6 @@ local function walkPedToPlacementPosition(emoteName)
     positionPriorToPlacement = latestPedPosition
 
     local emoteData = EmoteData[emoteName]
-    local animOptions = emoteData and emoteData.AnimationOptions
-
-    if animOptions and animOptions.PlacementOffset ~= nil then
-        -- Apply offset relative to ped's heading
-        local offset = animOptions.PlacementOffset
-        local adjustedPosition = GetOffsetFromCoordAndHeadingInWorldCoords(
-            placementPosition.x, placementPosition.y, placementPosition.z,
-            placementPosition.w,  -- heading
-            offset.x,  -- left/right
-            offset.y,  -- forward/back
-            offset.z   -- up/down
-        )
-        placementPosition = vector4(adjustedPosition.x, adjustedPosition.y, adjustedPosition.z, placementPosition.w + offset.w)
-    end
-
-
     SetEntityCoordsNoOffset(playerPed, placementPosition.x, placementPosition.y, placementPosition.z, true, true, true)
     SetEntityRotation(playerPed, placementRotation.x, placementRotation.y, placementRotation.z, 2, false)
     SetEntityHeading(playerPed, placementPosition.w)
@@ -114,11 +101,13 @@ local function walkPedToPlacementPosition(emoteName)
     placementState = PlacementState.IN_ANIMATION
 
     OnEmotePlay(emoteName)
-
-    -- Only check collisions if overriding physics
-    if animOptions and animOptions.PlacementOverridesPhysics then
-        checkCollisionsWhileInAnimation()
+    if not IsEntityPositionFrozen() then
+        -- Only freeze the player if not already frozen by another script.
+        -- This will prevent rpemotes from removing player freezing, when not needed to.
+        FreezeEntityPosition(playerPed, true) -- Freeze player, so they don't fall off building while in anims.
+        placementFrozePlayer = true
     end
+    checkCollisionsWhileInAnimation()
 end
 
 local function disableControls()
@@ -400,6 +389,7 @@ local function positionPreviewPed(emoteName)
 end
 
 function GetPlacementState() return placementState end
+function GetPlacementFrozePlayer() return placementFrozePlayer end
 
 function StartNewPlacement(emoteName)
     -- Cancel any current placed emote to prevent chaining through walls
@@ -449,6 +439,9 @@ function CleanUpPlacement(ped)
         end
     end
 
+    if placementFrozePlayer then
+        FreezeEntityPosition(PlayerPedId(), false)
+    end
     resetStoredPlacementValues()
 
     if DoesEntityExist(previewPed) then DeleteEntity(previewPed) end
