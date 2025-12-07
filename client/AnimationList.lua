@@ -50,6 +50,10 @@ RP.Expressions = { ---- MOODS ----
     ["Happy"] = {
         "mood_happy_1"
     },
+    ["High"] = { 
+        "mood_dancing_high_1", 
+        "High" 
+    },
     ["Injured"] = {
         "mood_injured_1"
     },
@@ -99,6 +103,10 @@ RP.Expressions = { ---- MOODS ----
     ["Smug"] = {
         "mood_smug_1"
     },
+    ["Smug2"] = { 
+        "mood_dancing_medium_4", 
+        "Smug 2" 
+    },
     ["Speculative"] = {
         "mood_aiming_1"
     },
@@ -107,6 +115,14 @@ RP.Expressions = { ---- MOODS ----
     },
     ["Suggestive"] = {
         "console_wasnt_fun_end_loop_floyd_facial"
+    },
+    ["Talking"] = { 
+        "mood_talking_1", 
+        "Talking" 
+    },
+    ["Twitch"] = { 
+        "mood_skydive_1",
+        "Twitch"
     },
     ["Sulking"] = {
         "mood_sulk_1"
