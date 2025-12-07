@@ -166,6 +166,10 @@ RP.Walks = {
         "move_m@brave@a",
         "Brave 2"
     },
+    ["Brave3"] = { 
+        "move_m@brave@b", 
+        "Brave 3" 
+    },
     ["Casey"] = {
         "move_casey"
     },
@@ -333,6 +337,10 @@ RP.Walks = {
     ["Floyd"] = {
         "move_characters@floyd"
     },
+    ["Floyd2"] = { 
+        "move_characters@floyd@core@", 
+        "Floyd 2" 
+    },
     ["Franklin"] = {
         "move_p_m_one"
     },
@@ -452,6 +460,14 @@ RP.Walks = {
         "move_f@hurry@b",
         "Hurry Female 2",
         abusable = true,
+    },
+    ["Hurry4"] = { 
+    "move_m@hurry@b", 
+    "Hurry 4" 
+    },
+    ["Hurry5"] = { 
+    "move_m@hurry@c", 
+    "Hurry 5" 
     },
     ["Injured"] = {
         "move_m@injured",
@@ -586,6 +602,9 @@ RP.Walks = {
         "move_m@swagger@b",
         "Swagger 2"
     },
+    ["Tense"] = { 
+        "move_action@generic@core" 
+    },
     ["Tough"] = {
         "move_m@tough_guy@"
     },
@@ -596,7 +615,6 @@ RP.Walks = {
     ["Toolbelt"] = {
         "move_m@tool_belt@a",
         "Toolbelt Male"
-
     },
     ["Toolbelt2"] = {
         "move_f@tool_belt@a",
