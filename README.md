@@ -459,6 +459,9 @@ All animation creators have **_specifically_** asked that their content remain f
 ### Developers:
 - [The Popcorn RP community](https://discord.gg/popcornroleplay) for putting up with all my emote menu testing and troubleshooting issues with me
 - [Mathu_lmn](https://github.com/Mathu-lmn) for maintaining the menu and adding features
+- [Manason](https://github.com/Manason) for major overhauls, refactors, and improvements of rpemotes-reborn during push to 2.0
+- [CritteRo](CritteRo) for work on shared emotes placement and other refactors and fixes of rpemotes-reborn during push to 2.0
+- [ChristopherM](https://github.com/cm8263) for creation of the emote placement feature and fixes of rpemotes-reborn during push to 2.0
 - [enzo2991](https://github.com/enzo2991) for creating the ped preview functionality, keybind with kvp
 - [DerDevHD](https://forum.cfx.re/t/fixed-remove-prop-after-scenario-animation/5002332/8) for the insight on deleting scenario props.
 - [iSentrie](https://forum.cfx.re/u/isentrie/) for additional code, support, and joining the RPEmotes project
@@ -473,6 +476,7 @@ All animation creators have **_specifically_** asked that their content remain f
 - Crusopaul and Eki for discussing KVP and initializing it to the menu for persistent walk styles
 
 ### Emote & Props Creators:
+- [FalseHopeDesigns](https://falsehopedesigns.tebex.io/) for creation of collisionless props
 - [SMGMissy](https://jenscreations.tebex.io/) for creating the pride flag props
 - [MissSnowie](https://www.gta5-mods.com/users/MissySnowie)
 - [Smokey](https://www.gta5-mods.com/users/struggleville)
