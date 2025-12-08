@@ -245,7 +245,6 @@ No Idle Cam allows players to disable the idle camera animation on foot and in v
 | G           | Show or hide the instructions                 |
 | BACKSPACE   | Exit the binoculars                           |
 
-<img src="https://forum.cfx.re/uploads/default/original/4X/2/6/3/263b6f2afe148191193fca8c8cc0b9bc666da9e8.jpeg" width="600" height="auto">
 
 # News Camera
 
@@ -257,7 +256,6 @@ No Idle Cam allows players to disable the idle camera animation on foot and in v
 | G         | Show or hide the instructions |
 | BACKSPACE | Exit News Camera              |
 
-<img src="https://forum.cfx.re/uploads/default/optimized/4X/5/4/e/54e47db5ae45f5afa4b84c2ae4858bc9ab0a8187_2_690x388.jpeg" width="600" height="auto">
 
 # Exit Emotes
 
