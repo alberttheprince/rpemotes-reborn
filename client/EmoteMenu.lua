@@ -722,12 +722,15 @@ if Config.Search then
         -- Set CurrentMenuSelection for the first search result to show instruction buttons
         if results[1] then
             CurrentMenuSelection = {name = results[1].name, emoteType = results[1].data.emoteType}
-            LastEmote = {name = results[1].name, emoteType = results[1].data.emoteType}
             searchMenu:UpdateScaleform()
-        end
 
-        ShowPedMenu()
-        WaitForClonedPedThenPlayLastAnim()
+            -- Only preview non-SHARED emotes
+            if results[1].data.emoteType ~= EmoteType.SHARED then
+                LastEmote = {name = results[1].name, emoteType = results[1].data.emoteType}
+                ShowPedMenu()
+                WaitForClonedPedThenPlayLastAnim()
+            end
+        end
     end
 end
 
