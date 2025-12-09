@@ -409,7 +409,11 @@ function EmotePlayOnNonPlayerPed(ped, name)
     -- NOTE: CancelPreviousEmote logic removed for non-player peds
     -- It was incorrectly setting the global ExitAndPlay flag
 
-    local emoteData = EmoteData[name]
+    local emoteData = EmoteData[name] or SharedEmoteData[name]
+    if not emoteData then
+        DebugPrint("EmotePlayOnNonPlayerPed: emote '" .. tostring(name) .. "' not found")
+        return false
+    end
     local animOption = emoteData.AnimationOptions
 
     LastEmote = {name = name, emoteType = emoteData.emoteType}
