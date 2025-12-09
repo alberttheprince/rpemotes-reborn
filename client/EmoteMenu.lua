@@ -677,18 +677,16 @@ if Config.Search then
         searchMenu.OnIndexChange = function(_, newindex)
             local result = results[newindex]
 
+            -- Update CurrentMenuSelection for instruction buttons
             CurrentMenuSelection = {name = result.name, emoteType = result.data.emoteType}
             searchMenu:UpdateScaleform()
 
-            if result.data.emoteType == EmoteType.SHARED then
-                hidePreview()
-                return
-            end
-
+            -- Clear previous preview before updating LastEmote
             if hasClonedPed() and LastEmote.name ~= result.name then
                 ClearPedTaskPreview()
             end
 
+            -- Update LastEmote for the new preview
             LastEmote = {name = result.name, emoteType = result.data.emoteType}
 
             EmoteMenuStartClone(result.name, result.data.emoteType)
