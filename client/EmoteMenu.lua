@@ -44,6 +44,7 @@ local function isEmoteTypePreviewable(emoteType)
         or emoteType == EmoteType.EXPRESSIONS
         or emoteType == EmoteType.PROP_EMOTES
         or emoteType == EmoteType.ANIMAL_EMOTES
+        or emoteType == EmoteType.SHARED
 end
 
 local function isEmoteTypePlayable(emoteType)
@@ -340,13 +341,7 @@ local function onMenuItemHover(currentMenu)
     -- Force scaleform refresh to update instruction buttons
     currentMenu:UpdateScaleform()
 
-    --- Don't preview SHARED emotes
-    if emoteType == EmoteType.SHARED then
-        hidePreview()
-        return
-    end
-
-    local emote = EmoteData[emoteName]
+    local emote = EmoteData[emoteName] or SharedEmoteData[emoteName]
 
     -- Check if the selected item is a previewable emote
    -- Check if the selected item is a previewable emote
