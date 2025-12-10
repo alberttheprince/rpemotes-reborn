@@ -450,9 +450,7 @@ function EmotePlayOnNonPlayerPed(ped, name)
 
     local flag = animOption?.Flag or animOption?.onFootFlag or 0
 
-    if IsPedUsingAnyScenario(ped) or IsPedActiveInScenario(ped) then
-        ClearPedTasksImmediately(ped)
-    end
+    ClearPedTasks(ped)
 
     TaskPlayAnim(ped, emoteData.dict, emoteData.anim, 5.0, 5.0, animOption and animOption.EmoteDuration or -1, flag, 0, false, false, false)
     RemoveAnimDict(emoteData.dict)

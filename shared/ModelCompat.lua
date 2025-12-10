@@ -241,6 +241,7 @@ local emoteCompatibility = {
         'bdogpridei',
         'bdogfw',
         'bdogfris',
+        'cbdog2',
     },
     [CompatGroup.SMALL_DOG] = {
         'sdogbark',
@@ -311,6 +312,8 @@ local emoteCompatibility = {
         'sdogshit',
         'sdogfw',
         'sdogfris',
+        'csdog2',
+        'csdog3',
     },
     [CompatGroup.ROTTWEILER] = {
         'bdogbark',
