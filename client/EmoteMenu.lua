@@ -1207,6 +1207,7 @@ CreateThread(function()
                 EmoteCancel()
             end
             _menuPool:CloseAllMenus()
+            ClosePedMenu()  -- Clean up the preview ped
         end
 
         if Config.PreviewPed then
