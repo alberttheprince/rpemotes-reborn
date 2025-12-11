@@ -37,6 +37,11 @@ local function InitializeFramework()
             PlayerData = {}
         end)
 
+        -- This event fires when metadata changes (death, laststand, etc.)
+        RegisterNetEvent('QBCore:Player:SetPlayerData', function(val)
+            PlayerData = val
+        end)
+
         AddEventHandler('onResourceStart', function(resourceName)
             if GetCurrentResourceName() ~= resourceName then return end
             PlayerData = QBCore.Functions.GetPlayerData()
