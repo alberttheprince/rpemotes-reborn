@@ -37,6 +37,11 @@ local function InitializeFramework()
             PlayerData = {}
         end)
 
+        -- This event fires when metadata changes (death, laststand, etc.)
+        RegisterNetEvent('QBCore:Player:SetPlayerData', function(val)
+            PlayerData = val
+        end)
+
         AddEventHandler('onResourceStart', function(resourceName)
             if GetCurrentResourceName() ~= resourceName then return end
             PlayerData = QBCore.Functions.GetPlayerData()
@@ -50,8 +55,7 @@ function CanDoAction()
     if Framework == 'esx' then
         return PlayerLoaded and not PlayerData.dead
     elseif Framework == 'qb' then
-        return LocalPlayer.state.isLoggedIn and not (PlayerData.metadata.inlaststand or PlayerData.metadata.isdead)
-    end
+        return LocalPlayer.state.isLoggedIn and not (PlayerData.metadata.inlaststand or PlayerData.metadata.isdead or PlayerData.metadata.ishandcuffed)    end
     -- here you can implement your own standalone framework check
     return true
 end
