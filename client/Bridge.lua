@@ -55,8 +55,7 @@ function CanDoAction()
     if Framework == 'esx' then
         return PlayerLoaded and not PlayerData.dead
     elseif Framework == 'qb' then
-        return LocalPlayer.state.isLoggedIn and not (PlayerData.metadata.inlaststand or PlayerData.metadata.isdead)
-    end
+        return LocalPlayer.state.isLoggedIn and not (PlayerData.metadata.inlaststand or PlayerData.metadata.isdead or PlayerData.metadata.ishandcuffed)    end
     -- here you can implement your own standalone framework check
     return true
 end
