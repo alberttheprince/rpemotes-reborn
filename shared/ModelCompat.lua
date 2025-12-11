@@ -26,6 +26,7 @@ local models = {
     -- ROTTWEILER
     [`a_c_chop`] = CompatGroup.ROTTWEILER,
     [`a_c_rottweiler`] = CompatGroup.ROTTWEILER,
+    [`a_c_shepherd`] = CompatGroup.ROTTWEILER,
 
     -- popcornrp-pets: https://github.com/alberttheprince/popcornrp-pets
     [`a_c_k9`] = CompatGroup.ROTTWEILER,
@@ -85,7 +86,6 @@ local models = {
 
     -- RETRIEVER
     [`a_c_retriever`] = CompatGroup.RETRIEVER,
-    [`a_c_shepherd`] = CompatGroup.RETRIEVER,
 
     -- popcornrp-pets: https://github.com/alberttheprince/popcornrp-pets
     [`robot_dog`] = CompatGroup.RETRIEVER,
