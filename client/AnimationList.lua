@@ -3195,7 +3195,9 @@ RP.AnimalEmotes = {
         "sit",
         "Sit in car (big dog)",
         AnimationOptions = {
-            onFootFlag = AnimFlag.LOOP
+            vehicleRequirement = VehicleRequirement.REQUIRED,
+            onFootFlag = AnimFlag.LOOP,
+            FullBody = true
         }
     },
     ["bdogfhump"] = {
