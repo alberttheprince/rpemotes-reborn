@@ -394,10 +394,12 @@ local function CrawlKeyPressed()
     end
 
     if InHandsup then
+        inAction = false
         return
     end
 
     if IsInActionWithErrorMessage({IsProne = true}) then
+        inAction = false
         return
     end
 
