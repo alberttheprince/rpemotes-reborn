@@ -11,10 +11,21 @@ Config = {
     keybindKVP = "rpemotes",
     NotificationsAsChatMessage = false,
     Search = true, -- Used to enable or disable the search feature in the menu.
-    CancelPreviousEmote = true, -- If true, playing an emote will cancel the previous one and play the newly selected emote
+    CancelPreviousEmote = true, -- If true, playing an emote will cancel the previous one and play the newly selected emote, if false, some emotes can be combined/played at the same time
     DisableControlsInMenu = false, -- Disables all controls (including combat, movement, etc) while menu is open
     DisableCombatInMenu = false, -- Disables combat (attacking, aiming, melee) while menu is open
+    PreviewPed = true, -- Shows a preview of the emote on the player's ped next to the emote menu. Note that resmon will increase when this when emotes are being previewed.
 
+    -- Group Emotes: Default and Max group emote area that a player can select.
+    GroupEmoteDefaultArea = 5.0,
+    GroupEmoteMaxArea = 10.0,
+    GroupEmoteCountdownTime = 10 -- Time in seconds to wait before starting group emote
+
+    -- Realism/Anti-Exploit
+    EmoteCooldownMs = nil, -- Emote Cooldown in milliseconds. Prevents switching emotes too quickly. If nil, no cooldown is enforced
+    AbusableEmotesDisabled = true, -- if set to true disables any emotes that could be abused in pvp/serious environments that emotes marked abusable = true, 
+    
+    -- Menu Styling
     MenuTitle = '',
     TitleOutline = true,
     TitleColour = { R = 255, G = 0, B = 255, A = 255 },
@@ -22,7 +33,7 @@ Config = {
     CustomMenuEnabled = true, -- Change the header.png to your own image
 
     -- Emoji Menu
-    EmojiMenuEnabled = true,
+    EmojiMenuEnabled = true, -- enables Emoji menu for all users
     EmojiMenuAnimalsOnly = false, -- If true, only non-human peds can use emojis
     MaxEmojisPerPlayer = 3,     -- Max emojis that can stack (client-side)
     EmojiCooldownMs = 2500,     -- Cooldown between sends in ms (server-side)
@@ -39,18 +50,15 @@ Config = {
     -- Ragdoll
     RagdollEnabled = false,
     RagdollKeybind = 'U',
-
     RagdollAsToggle = true,
 
     -- Expressions, Walks, and More
     ExpressionsEnabled = true,
     PersistentExpression = true,
-
     WalkingStylesEnabled = true,
     PersistentWalk = true,
     SharedEmotesEnabled = true,
     AdultEmotesDisabled = false,
-    AbusableEmotesDisabled = true, -- if set to true disables any emotes that could be abused in pvp/serious environments that emotes marked abusable = true, 
     AnimalEmotesEnabled = true,
 
     -- Hands Up
@@ -87,21 +95,13 @@ Config = {
     -- News Camera (/newscam)
     NewscamEnabled = false,
 
+    -- Idle Cam
     DisableIdleCam = true,
 
-    -- Preview Ped : Shows a preview of the emote on the player's ped next to the emote menu. Note that resmon will increase when this when emotes are being previewed.
-    PreviewPed = true,
-
+    -- Developer Tools
     CheckForUpdates = true,
     DebugDisplay = false,
 
-    -- Emote Cooldown in milliseconds. Prevents switching emotes too quickly. If nil, no cooldown is enforced
-    EmoteCooldownMs = nil,
-
-    -- Group Emotes: Default and Max group emote area that a player can select.
-    GroupEmoteDefaultArea = 5.0,
-    GroupEmoteMaxArea = 10.0,
-    GroupEmoteCountdownTime = 10 -- Time in seconds to wait before starting group emote
 }
 
 -- Custom Categories: Define custom categories to organize emotes in the menu
