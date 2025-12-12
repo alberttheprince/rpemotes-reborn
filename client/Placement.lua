@@ -9,7 +9,7 @@ local placementPosition
 local placementRotation
 ---@type vector3
 local positionPriorToPlacement = vector3(0)
----@type bool
+---@type boolean
 local placementFrozePlayer = false -- true if the last placement emote caused the player to froze.
 
 local previewPed
@@ -93,19 +93,25 @@ local function walkPedToPlacementPosition(emoteName)
 
     positionPriorToPlacement = latestPedPosition
 
-    local emoteData = EmoteData[emoteName]
-    SetEntityCoordsNoOffset(playerPed, placementPosition.x, placementPosition.y, placementPosition.z, true, true, true)
+    SetEntityCoordsNoOffset(playerPed, placementPosition.x, placementPosition.y, placementPosition.z, false, false, false)
     SetEntityRotation(playerPed, placementRotation.x, placementRotation.y, placementRotation.z, 2, false)
     SetEntityHeading(playerPed, placementPosition.w)
 
     placementState = PlacementState.IN_ANIMATION
 
+    TriggerServerEvent("rpemotes:server:syncHeading", placementPosition.w)
     OnEmotePlay(emoteName)
     if not IsEntityPositionFrozen() then
         -- Only freeze the player if not already frozen by another script.
         -- This will prevent rpemotes from removing player freezing, when not needed to.
-        FreezeEntityPosition(playerPed, true) -- Freeze player, so they don't fall off building while in anims.
+        FreezeEntityPosition(playerPed, true) -- Freeze player briefly to prevent initial fall
         placementFrozePlayer = true
+
+        -- Unfreeze after one frame to restore collision
+        CreateThread(function()
+            Wait(0)
+            FreezeEntityPosition(playerPed, false)
+        end)
     end
     checkCollisionsWhileInAnimation()
 end
@@ -442,6 +448,8 @@ function CleanUpPlacement(ped)
     if placementFrozePlayer then
         FreezeEntityPosition(PlayerPedId(), false)
     end
+
+    TriggerServerEvent("rpemotes:server:syncHeading", nil)
     resetStoredPlacementValues()
 
     if DoesEntityExist(previewPed) then DeleteEntity(previewPed) end
@@ -457,4 +465,23 @@ AddEventHandler('gameEventTriggered', function (name, args)
     if playerPedId ~= targetPedId then return end
 
     EmoteCancel()
+end)
+
+-- Statebag change handler to sync heading for other clients
+AddStateBagChangeHandler('emoteHeading', nil, function(bagName, key, value)
+    -- Extract player ID from bag name (e.g., "player:1" -> 1)
+    local playerId = GetPlayerFromStateBagName(bagName)
+    if not playerId then return end
+
+    -- Don't apply to local player (we set our own heading)
+    if playerId == PlayerId() then return end
+
+    local ped = GetPlayerPed(playerId)
+    if not DoesEntityExist(ped) then return end
+
+    -- If value is nil, heading was cleared (emote ended)
+    if value == nil then return end
+
+    -- Apply the synced heading to the player's ped
+    SetEntityHeading(ped, value)
 end)
