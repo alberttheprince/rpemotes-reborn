@@ -179,6 +179,11 @@ RegisterNetEvent("rpemotes:ptfx:sync", function(asset, name, offset, rot, bone, 
     state:set("ptfx", nil, true)
 end)
 
+RegisterNetEvent("rpemotes:server:syncHeading", function(heading)
+    local state = Player(source).state
+    state:set("emoteHeading", heading, true)
+end)
+
 local function ExtractEmoteProps(format)
     format = tonumber(format)
     local xt, c, total = '', '', 0
