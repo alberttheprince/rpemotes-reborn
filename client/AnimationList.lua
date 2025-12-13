@@ -8862,7 +8862,7 @@ RP.Emotes = {
     ["hunched"] = {
         "missexile3",
         "ex03_train_roof_idle",
-        "hunched",
+        "Hunched",
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             vehicleRequirement = VehicleRequirement.NOT_ALLOWED,
