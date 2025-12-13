@@ -2252,6 +2252,14 @@ RP.Dances = {
             onFootFlag = AnimFlag.LOOP
         }
     },
+    ["dancesilly11"] = {
+        "anim@amb@nightclub@lazlow@hi_podium@",
+        "danceidle_hi_17_smackthat_laz",
+        "Dance Silly 12",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP
+        }
+    },
     ["danceold"] = {
         "anim@mp_player_intupperuncle_disco",
         "idle_a",
