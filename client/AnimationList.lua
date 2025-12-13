@@ -50,9 +50,9 @@ RP.Expressions = { ---- MOODS ----
     ["Happy"] = {
         "mood_happy_1"
     },
-    ["High"] = { 
-        "mood_dancing_high_1", 
-        "High" 
+    ["High"] = {
+        "mood_dancing_high_1",
+        "High"
     },
     ["Injured"] = {
         "mood_injured_1"
@@ -103,9 +103,9 @@ RP.Expressions = { ---- MOODS ----
     ["Smug"] = {
         "mood_smug_1"
     },
-    ["Smug2"] = { 
-        "mood_dancing_medium_4", 
-        "Smug 2" 
+    ["Smug2"] = {
+        "mood_dancing_medium_4",
+        "Smug 2"
     },
     ["Speculative"] = {
         "mood_aiming_1"
@@ -116,11 +116,11 @@ RP.Expressions = { ---- MOODS ----
     ["Suggestive"] = {
         "console_wasnt_fun_end_loop_floyd_facial"
     },
-    ["Talking"] = { 
-        "mood_talking_1", 
-        "Talking" 
+    ["Talking"] = {
+        "mood_talking_1",
+        "Talking"
     },
-    ["Twitch"] = { 
+    ["Twitch"] = {
         "mood_skydive_1",
         "Twitch"
     },
@@ -182,9 +182,9 @@ RP.Walks = {
         "move_m@brave@a",
         "Brave 2"
     },
-    ["Brave3"] = { 
-        "move_m@brave@b", 
-        "Brave 3" 
+    ["Brave3"] = {
+        "move_m@brave@b",
+        "Brave 3"
     },
     ["Casey"] = {
         "move_casey"
@@ -353,9 +353,9 @@ RP.Walks = {
     ["Floyd"] = {
         "move_characters@floyd"
     },
-    ["Floyd2"] = { 
-        "move_characters@floyd@core@", 
-        "Floyd 2" 
+    ["Floyd2"] = {
+        "move_characters@floyd@core@",
+        "Floyd 2"
     },
     ["Franklin"] = {
         "move_p_m_one"
@@ -477,13 +477,13 @@ RP.Walks = {
         "Hurry Female 2",
         abusable = true,
     },
-    ["Hurry4"] = { 
-    "move_m@hurry@b", 
-    "Hurry 4" 
+    ["Hurry4"] = {
+    "move_m@hurry@b",
+    "Hurry 4"
     },
-    ["Hurry5"] = { 
-    "move_m@hurry@c", 
-    "Hurry 5" 
+    ["Hurry5"] = {
+    "move_m@hurry@c",
+    "Hurry 5"
     },
     ["Injured"] = {
         "move_m@injured",
@@ -618,8 +618,8 @@ RP.Walks = {
         "move_m@swagger@b",
         "Swagger 2"
     },
-    ["Tense"] = { 
-        "move_action@generic@core" 
+    ["Tense"] = {
+        "move_action@generic@core"
     },
     ["Tough"] = {
         "move_m@tough_guy@"
@@ -2518,9 +2518,9 @@ RP.Dances = {
             onFootFlag = AnimFlag.LOOP
         }
     },
-    ["dancethriller"] = { -- Custom Emote By BoringNeptune
-        "mj_thriller",
-        "mj_thriller_dance",
+    ["zompopdance"] = { -- Custom Emote By BoringNeptune
+        "zompop@danceanim",
+        "zompop_clip",
         "Dance - Zombie",
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP
