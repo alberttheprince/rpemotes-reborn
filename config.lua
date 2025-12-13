@@ -19,12 +19,12 @@ Config = {
     -- Group Emotes: Default and Max group emote area that a player can select.
     GroupEmoteDefaultArea = 5.0,
     GroupEmoteMaxArea = 10.0,
-    GroupEmoteCountdownTime = 10 -- Time in seconds to wait before starting group emote
+    GroupEmoteCountdownTime = 10, -- Time in seconds to wait before starting group emote
 
     -- Realism/Anti-Exploit
     EmoteCooldownMs = nil, -- Emote Cooldown in milliseconds. Prevents switching emotes too quickly. If nil, no cooldown is enforced
     AbusableEmotesDisabled = true, -- if set to true disables any emotes that could be abused in pvp/serious environments that emotes marked abusable = true, 
-    
+
     -- Menu Styling
     MenuTitle = '',
     TitleOutline = true,
