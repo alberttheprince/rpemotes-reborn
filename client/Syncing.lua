@@ -36,7 +36,10 @@ RegisterNetEvent("rpemotes:client:syncEmote", function(emote, player)
     local plyServerId = GetPlayerFromServerId(player)
 
     if IsPedInAnyVehicle(GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer()), true) then
-        return EmoteChatMessage(Translate('not_in_a_vehicle'))
+        -- Allow shared emotes in vehicles if configured
+        if not Config.AllowSharedEmotesInVehicle then
+            return EmoteChatMessage(Translate('not_in_a_vehicle'))
+        end
     end
 
     local emoteData = SharedEmoteData[emote]
@@ -85,7 +88,10 @@ RegisterNetEvent("rpemotes:client:syncEmoteSource", function(emote, player)
     local pedInFront = GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer())
 
     if IsPedInAnyVehicle(ped, true) or IsPedInAnyVehicle(pedInFront, true) then
-        return EmoteChatMessage(Translate('not_in_a_vehicle'))
+        -- Allow shared emotes in vehicles if configured
+        if not Config.AllowSharedEmotesInVehicle then
+            return EmoteChatMessage(Translate('not_in_a_vehicle'))
+        end
     end
 
     local emoteData = SharedEmoteData[emote]
@@ -141,6 +147,12 @@ function CancelSharedEmote()
         targetPlayerId = nil
     end
 end
+
+-- Export to get the target player ID for attached shared emotes
+function GetSharedEmoteTargetPlayerId()
+    return targetPlayerId
+end
+CreateExport('GetSharedEmoteTargetPlayerId', GetSharedEmoteTargetPlayerId)
 
 RegisterNetEvent("rpemotes:client:requestEmote", function(emotename, target)
     isRequestAnim = true

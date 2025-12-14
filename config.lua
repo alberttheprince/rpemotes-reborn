@@ -44,6 +44,7 @@ Config = {
     DisarmPlayerOnEmote = false,
     AllowPunchingDuringEmote = false,
     AllowEmoteInVehicle = true,
+    AllowSharedEmotesInVehicle = true, -- Allow shared emotes (like piggyback) to persist when entering vehicles
     AllowInWater = false,
     AllowOnBikes = true, -- Allow emotes when on a vehicle with handlebars
 

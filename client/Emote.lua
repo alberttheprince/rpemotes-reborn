@@ -10,6 +10,10 @@ LastEmote = {
 }
 local lastEmoteTime = 0
 
+-- Track if the current emote is an attached shared emote (for vehicle persistence)
+local IsAttachedSharedEmote = false
+local CurrentEmoteType = nil
+
 ---@type ScenarioType
 local ChosenScenarioType
 local CurrentAnimOptions
@@ -229,6 +233,8 @@ function EmoteCancel(force)
             if not EmoteData[options.ExitEmote] then
                 DebugPrint("Exit emote was invalid")
                 IsInAnimation = false
+                IsAttachedSharedEmote = false
+                CurrentEmoteType = nil
                 ClearPedTasks(ped)
                 EmoteCancelPlaying = false
                 return
@@ -255,6 +261,8 @@ function EmoteCancel(force)
             end
         else
             IsInAnimation = false
+            IsAttachedSharedEmote = false
+            CurrentEmoteType = nil
             ClearPedTasks(ped)
             EmoteCancelPlaying = false
         end
@@ -264,6 +272,9 @@ function EmoteCancel(force)
     else
         EmoteCancelPlaying = false
     end
+
+    IsAttachedSharedEmote = false
+    CurrentEmoteType = nil
     cleanScenarioObjects(PlayerPedId())
     AnimationThreadStatus = false
     CheckStatus = false
@@ -289,7 +300,7 @@ function EmoteMenuStart(name, textureVariation, emoteType)
         EmoteChatMessage("This emote is not compatible with your current model")
         return
     end
-    OnEmotePlay(name, textureVariation)
+    OnEmotePlay(name, textureVariation, emoteType)
 end
 
 local function checkGender()
@@ -610,6 +621,8 @@ local function playExitAndEnterEmote(name, textureVariation, emoteType)
             DebugPrint("Exit emote was invalid")
             ClearPedTasks(ped)
             IsInAnimation = false
+            IsAttachedSharedEmote = false
+            CurrentEmoteType = nil
             ExitAndPlay = false
             OnEmotePlay(name, textureVariation, emoteType)
             return
@@ -637,6 +650,8 @@ local function playExitAndEnterEmote(name, textureVariation, emoteType)
             -- Exit emote has no duration, skip it and play new emote directly
             ClearPedTasks(ped)
             IsInAnimation = false
+            IsAttachedSharedEmote = false
+            CurrentEmoteType = nil
             ExitAndPlay = false
             OnEmotePlay(name, textureVariation, emoteType)
             return
@@ -644,6 +659,8 @@ local function playExitAndEnterEmote(name, textureVariation, emoteType)
     else
         ClearPedTasks(ped)
         IsInAnimation = false
+        IsAttachedSharedEmote = false
+        CurrentEmoteType = nil
         ExitAndPlay = false
         OnEmotePlay(name, textureVariation, emoteType)
     end
@@ -704,7 +721,15 @@ function OnEmotePlay(name, textureVariation, emoteType)
     local inVehicle = IsPedInAnyVehicle(PlayerPedId(), true)
     Pointing = false
 
-    if not Config.AllowEmoteInVehicle and inVehicle then return end
+    -- Check vehicle restrictions
+    local isAttachedShared = (emoteType == EmoteType.SHARED and emoteData.AnimationOptions and emoteData.AnimationOptions.Attachto)
+
+    if not Config.AllowEmoteInVehicle and inVehicle then
+        -- Allow attached shared emotes in vehicles if configured
+        if not (Config.AllowSharedEmotesInVehicle and isAttachedShared) then
+            return
+        end
+    end
 
     local vehicleHasHandleBars = inVehicle and DoesPedVehicleHaveHandleBars(PlayerPedId())
 
@@ -732,7 +757,10 @@ function OnEmotePlay(name, textureVariation, emoteType)
     local animOption = emoteData.AnimationOptions
     if animOption then
         if inVehicle and animOption.vehicleRequirement == VehicleRequirement.NOT_ALLOWED then
-            return EmoteChatMessage(Translate('not_in_a_vehicle'))
+            -- Allow attached shared emotes in vehicles if configured
+            if not (Config.AllowSharedEmotesInVehicle and isAttachedShared) then
+                return EmoteChatMessage(Translate('not_in_a_vehicle'))
+            end
         elseif not inVehicle and animOption.vehicleRequirement == VehicleRequirement.REQUIRED then
             return EmoteChatMessage(Translate('in_a_vehicle'))
         end
@@ -753,6 +781,10 @@ function OnEmotePlay(name, textureVariation, emoteType)
     LocalPlayer.state:set('currentEmote', name, true)
     CurrentTextureVariation = textureVariation
     CurrentAnimOptions = animOption
+    CurrentEmoteType = emoteType
+
+    -- Track if this is an attached shared emote for vehicle persistence
+    IsAttachedSharedEmote = isAttachedShared or false
 
     if Config.DisarmPlayerOnEmote then
         if IsPedArmed(PlayerPedId(), 7) then
@@ -861,6 +893,12 @@ end)
 CreateExport('getCurrentEmote', function()
     return currentEmote
 end)
+CreateExport('IsAttachedSharedEmote', function()
+    return IsAttachedSharedEmote
+end)
+CreateExport('GetCurrentEmoteType', function()
+    return CurrentEmoteType
+end)
 
 -- Door stuff
 local openingDoor = false
@@ -914,6 +952,61 @@ AddEventHandler("CEventPlayerCollisionWithPed", function(unk1)
     Wait(125)
     DestroyAllProps()
     OnEmotePlay(CurrentAnimationName, CurrentTextureVariation)
+end)
+
+-- Handle vehicle entry for attached shared emotes - re-attach after entering vehicle
+AddEventHandler('gameEventTriggered', function(name, args)
+    -- Handle vehicle entry
+    if name == 'CEventNetworkPlayerEnteredVehicle' then
+        if not Config.AllowSharedEmotesInVehicle then return end
+
+        local playerPed = PlayerPedId()
+        if args[1] ~= playerPed then return end
+
+        -- If we're in an attached shared emote, we need to handle the re-attachment
+        if IsAttachedSharedEmote and IsInAnimation then
+            local targetPlayerId = exports.rpemotes:GetSharedEmoteTargetPlayerId and exports.rpemotes:GetSharedEmoteTargetPlayerId() or nil
+
+            if targetPlayerId then
+                -- Wait for vehicle entry to complete
+                SetTimeout(500, function()
+                    if not IsInAnimation or not IsAttachedSharedEmote then return end
+
+                    -- Re-apply the attachment
+                    local emote = SharedEmoteData[CurrentAnimationName]
+                    if emote then
+                        local options = emote.AnimationOptions
+                        if options and options.Attachto then
+                            local plyServerId = GetPlayerFromServerId(targetPlayerId)
+                            local pedInFront = GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer())
+
+                            if DoesEntityExist(pedInFront) then
+                                AttachEntityToEntity(
+                                    playerPed,
+                                    pedInFront,
+                                    GetPedBoneIndex(pedInFront, options.bone or -1),
+                                    options.pos.x,
+                                    options.pos.y,
+                                    options.pos.z,
+                                    options.rot.x,
+                                    options.rot.y,
+                                    options.rot.z,
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    1,
+                                    true
+                                )
+                                DebugPrint("Re-attached player after vehicle entry")
+                            end
+                        end
+                    end
+                end)
+            end
+        end
+        return
+    end
 end)
 
 AddEventHandler('onResourceStop', function(resource)
