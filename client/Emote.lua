@@ -170,13 +170,18 @@ local function checkStatusThread(dict, anim)
             Wait(5)
         end
         while CheckStatus and IsInAnimation do
-            if not IsEntityPlayingAnim(PlayerPedId(), dict, anim, 3) then
+            -- Skip animation monitoring for attached shared emotes
+            -- These should persist even when other scripts play animations (inventory, etc)
+            if IsAttachedSharedEmote then
+                Wait(500)
+            elseif not IsEntityPlayingAnim(PlayerPedId(), dict, anim, 3) then
                 DebugPrint("Animation ended")
                 DestroyAllProps()
                 EmoteCancel()
                 break
+            else
+                Wait(0)
             end
-            Wait(0)
         end
     end)
 end
@@ -272,7 +277,7 @@ function EmoteCancel(force)
     else
         EmoteCancelPlaying = false
     end
-
+    
     IsAttachedSharedEmote = false
     CurrentEmoteType = nil
     cleanScenarioObjects(PlayerPedId())
@@ -723,7 +728,7 @@ function OnEmotePlay(name, textureVariation, emoteType)
 
     -- Check vehicle restrictions
     local isAttachedShared = (emoteType == EmoteType.SHARED and emoteData.AnimationOptions and emoteData.AnimationOptions.Attachto)
-
+    
     if not Config.AllowEmoteInVehicle and inVehicle then
         -- Allow attached shared emotes in vehicles if configured
         if not (Config.AllowSharedEmotesInVehicle and isAttachedShared) then
@@ -782,7 +787,7 @@ function OnEmotePlay(name, textureVariation, emoteType)
     CurrentTextureVariation = textureVariation
     CurrentAnimOptions = animOption
     CurrentEmoteType = emoteType
-
+    
     -- Track if this is an attached shared emote for vehicle persistence
     IsAttachedSharedEmote = isAttachedShared or false
 
@@ -907,6 +912,10 @@ AddEventHandler('CEventOpenDoor', function(unk1)
     if ShowPed then return end
 
     if not IsInAnimation then return end
+    
+    -- Skip door handling for attached shared emotes (like piggyback)
+    -- The carried player should stay attached when carrier opens doors
+    if IsAttachedSharedEmote then return end
 
     if openingDoor then return end
 
@@ -931,6 +940,10 @@ local timeout = 500
 AddEventHandler("CEventPlayerCollisionWithPed", function(unk1)
     if unk1[1] ~= PlayerPedId() then return end
     if not IsInAnimation then return end
+    
+    -- Skip collision handling for attached shared emotes (like piggyback)
+    -- The carried player should stay attached when bumping into peds
+    if IsAttachedSharedEmote then return end
 
     if isBumpingPed then
         timeout = 500
@@ -958,20 +971,28 @@ end)
 AddEventHandler('gameEventTriggered', function(name, args)
     -- Handle vehicle entry
     if name == 'CEventNetworkPlayerEnteredVehicle' then
-        if not Config.AllowSharedEmotesInVehicle then return end
-
+        -- Check config safely
+        if not Config or not Config.AllowSharedEmotesInVehicle then return end
+        
         local playerPed = PlayerPedId()
         if args[1] ~= playerPed then return end
-
+        
         -- If we're in an attached shared emote, we need to handle the re-attachment
         if IsAttachedSharedEmote and IsInAnimation then
-            local targetPlayerId = exports.rpemotes:GetSharedEmoteTargetPlayerId and exports.rpemotes:GetSharedEmoteTargetPlayerId() or nil
-
+            -- Try to get targetPlayerId from export, fallback to nil
+            local targetPlayerId = nil
+            local success, result = pcall(function()
+                return exports.rpemotes:GetSharedEmoteTargetPlayerId()
+            end)
+            if success then
+                targetPlayerId = result
+            end
+            
             if targetPlayerId then
                 -- Wait for vehicle entry to complete
                 SetTimeout(500, function()
                     if not IsInAnimation or not IsAttachedSharedEmote then return end
-
+                    
                     -- Re-apply the attachment
                     local emote = SharedEmoteData[CurrentAnimationName]
                     if emote then
@@ -979,7 +1000,7 @@ AddEventHandler('gameEventTriggered', function(name, args)
                         if options and options.Attachto then
                             local plyServerId = GetPlayerFromServerId(targetPlayerId)
                             local pedInFront = GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer())
-
+                            
                             if DoesEntityExist(pedInFront) then
                                 AttachEntityToEntity(
                                     playerPed,
