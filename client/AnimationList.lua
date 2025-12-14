@@ -353,10 +353,6 @@ RP.Walks = {
     ["Floyd"] = {
         "move_characters@floyd"
     },
-    ["Floyd2"] = {
-        "move_characters@floyd@core@",
-        "Floyd 2"
-    },
     ["Franklin"] = {
         "move_p_m_one"
     },
