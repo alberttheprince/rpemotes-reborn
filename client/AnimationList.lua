@@ -1258,11 +1258,11 @@ RP.Shared = {
         },
         AnimalEmote = true
     },
-	["csdog5"] = {
+	["ccat"] = {
         "anim@scripted@freemode@ig1_pickup_cat@male@",
         "idle_player",
-        "Carry Cat 3",
-        "csdog6",
+        "Carry Cat",
+        "ccat",
         AnimationOptions = {
             EmoteMoving = true,
             EmoteLoop = true,
@@ -1270,11 +1270,11 @@ RP.Shared = {
         },
         AnimalEmote = true
     },
-    ["csdog6"] = {
+    ["ccat2"] = {
         "anim@scripted@freemode@ig1_pickup_cat@cat@",
         "idle_cat",
-        "Cat Carried 3",
-        "csdog5",
+        "Be Carried - Cat",
+        "ccat2",
         AnimationOptions = {
             EmoteMoving = false,
             EmoteLoop = true,
