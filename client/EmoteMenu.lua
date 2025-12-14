@@ -238,7 +238,7 @@ local function handleEmoteSelection(emoteName, emoteType, textureVariation)
 
     if emote.emoteType == EmoteType.SHARED then
         -- Check for keybind request (K key)
-        if IsControlPressed(2, 311) then
+        if Config.Keybinding and IsControlPressed(2, 311) then
             dataForKeybind = {emoteName = emoteName, emoteType = emote.emoteType, label = emote.label}
             RebuildKeybindEmoteMenu()
             keybindMenu.menu:Visible(true)
@@ -255,7 +255,7 @@ local function handleEmoteSelection(emoteName, emoteType, textureVariation)
         end
 
         -- Check for keybind request (K key)
-        if IsControlPressed(2, 311) then
+        if Config.Keybinding and IsControlPressed(2, 311) then
             dataForKeybind = {emoteName = emoteName, emoteType = emote.emoteType, label = emote.label}
             RebuildKeybindEmoteMenu()
             keybindMenu.menu:Visible(true)
@@ -793,7 +793,7 @@ local function addWalkMenu(menu)
         end,
         onSelect = function(itemName)
             -- Check for keybind request (K key)
-            if IsControlPressed(2, 311) then
+            if Config.Keybinding and IsControlPressed(2, 311) then
                 dataForKeybind = {emoteName = itemName, emoteType = EmoteType.WALKS, label = itemName}
                 RebuildKeybindEmoteMenu()
                 keybindMenu.menu:Visible(true)
@@ -817,7 +817,7 @@ local function addFaceMenu(menu)
         end,
         onSelect = function(expressionName)
             -- Check for keybind request (K key)
-            if IsControlPressed(2, 311) then
+            if Config.Keybinding and IsControlPressed(2, 311) then
                 dataForKeybind = {emoteName = expressionName, emoteType = EmoteType.EXPRESSIONS, label = expressionName}
                 RebuildKeybindEmoteMenu()
                 keybindMenu.menu:Visible(true)
@@ -851,7 +851,7 @@ local function addEmojiMenu(parent)
     menu.menu.OnItemSelect = function(_, __, index)
         -- Check for keybind request (K key)
         local item = menu.items[index]
-        if IsControlPressed(2, 311) then
+        if Config.Keybinding and IsControlPressed(2, 311) then
             dataForKeybind = {emoteName = sortedEmojis[item.key].key, emoteType = EmoteType.EMOJI, label = sortedEmojis[item.key].emoji}
             RebuildKeybindEmoteMenu()
             keybindMenu.menu:Visible(true)
@@ -892,7 +892,13 @@ local function processMenu()
     isMenuProcessing = false
 end
 
+local lastMenuOpenAttempt = 0
+
 function OpenEmoteMenu()
+    local now = GetGameTimer()
+    if now - lastMenuOpenAttempt < 200 then return end
+    lastMenuOpenAttempt = now
+
     local canEmote, errorMsg = canPlayerEmote()
     if not canEmote then
         TriggerEvent('chat:addMessage', {
@@ -913,7 +919,9 @@ function OpenEmoteMenu()
     if hasEmojiMenu ~= shouldHaveEmojiMenu then
         RebuildEmoteMenu()
     end
-    RebuildKeybindEmoteMenu()
+    if Config.Keybinding then
+        RebuildKeybindEmoteMenu()
+    end
 
     if _menuPool:IsAnyMenuOpen() then
         _menuPool:CloseAllMenus()
@@ -1128,7 +1136,10 @@ function RebuildEmoteMenu()
 end
 
 function RebuildKeybindEmoteMenu()
-    -- Close all menus if open
+    if not Config.Keybinding or not keybindMenu then
+        return
+    end
+
     if _menuPool:IsAnyMenuOpen() then
         _menuPool:CloseAllMenus()
     end

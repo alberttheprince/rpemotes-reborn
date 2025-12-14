@@ -3607,9 +3607,9 @@ function UIMenu:UpdateScaleform()
         and CurrentMenuSelection.emoteType ~= EmoteType.SHARED
         and CurrentMenuSelection.emoteType ~= EmoteType.EMOJI
 
-    local showKeybindButtons = (keybindMenu and keybindMenu.menu:Visible()) or (CurrentMenuSelection and CurrentMenuSelection.name and CurrentMenuSelection.emoteType)
+    local showKeybindButtons = Config.Keybinding and ((keybindMenu and keybindMenu.menu:Visible()) or (CurrentMenuSelection and CurrentMenuSelection.name and CurrentMenuSelection.emoteType))
     local showFavoriteButton = CurrentMenuSelection and CurrentMenuSelection.name and CurrentMenuSelection.emoteType
-    
+
     PushScaleformMovieFunction(self.InstructionalScaleform, "CLEAR_ALL")
     PopScaleformMovieFunction()
 

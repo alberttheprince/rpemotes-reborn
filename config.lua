@@ -7,7 +7,7 @@ Config = {
     MenuKeybindEnabled = true,
     MenuKeybind = 'F4',
 
-    Keybinding = true,
+    Keybinding = true, -- If set to false, disables the use of Config.KeybindKeys
     keybindKVP = "rpemotes",
     NotificationsAsChatMessage = false,
     Search = true, -- Used to enable or disable the search feature in the menu.
