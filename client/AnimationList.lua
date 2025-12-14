@@ -1258,6 +1258,37 @@ RP.Shared = {
         },
         AnimalEmote = true
     },
+	["csdog5"] = {
+        "anim@scripted@freemode@ig1_pickup_cat@male@",
+        "idle_player",
+        "Carry Cat 3",
+        "csdog6",
+        AnimationOptions = {
+            EmoteMoving = true,
+            EmoteLoop = true,
+
+        },
+        AnimalEmote = true
+    },
+    ["csdog6"] = {
+        "anim@scripted@freemode@ig1_pickup_cat@cat@",
+        "idle_cat",
+        "Cat Carried 3",
+        "csdog5",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            bone = 28422,
+            xPos = -0.09,
+            yPos = -0.08,
+            zPos = -0.08,
+            xRot = -180.0,
+            yRot = 0.0,
+            zRot = 130.0,
+        },
+        AnimalEmote = true
+    },
     ["cbdog"] = {
         "anim@heists@box_carry@",
         "idle",
@@ -11152,6 +11183,25 @@ RP.PropEmotes = {
             onFootFlag = AnimFlag.MOVING,
         }
     },
+	["batontwirl"] = {
+	        "anim@mp_player_intuppermale@baton_twirl",
+	        "idle_a",
+	        "Baton Twirl",
+	        AnimationOptions = {
+	            Prop = "w_me_nightstick",
+	            PropBone = 28422,
+	            PropPlacement = {
+	                0.00,
+	                0.00,
+	                0.00,
+	                0.00,
+	                0.00,
+	                0.00
+	            },
+	            EmoteLoop = true,
+	            EmoteMoving = true
+	     }
+	},
     ["cake"] = { -- Custom Prop & Emote By BzZz
         "anim@heists@box_carry@",
         "idle",
