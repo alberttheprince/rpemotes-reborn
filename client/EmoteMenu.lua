@@ -868,7 +868,7 @@ end
 local function processMenu()
     if isMenuProcessing then return end
     isMenuProcessing = true
-    mainMenu:UpdateScaleform()
+    mainMenu:UpdateScaleform()sdaadd
     while _menuPool:IsAnyMenuOpen() do
         _menuPool:ProcessMenus()
         DisableControlAction(0, 36, true) -- Ducking, to not conflict with group emotes keybind
