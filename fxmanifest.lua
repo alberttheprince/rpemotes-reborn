@@ -15,7 +15,8 @@ dependencies {
 
 files {
     'conditionalanims.meta',
-    'header.png'
+    'header.png',
+    'locales/*.lua'
 }
 
 -- Unlocks idle Animations from GTA:O when using motorcycles, dirt bikes, etc
@@ -24,7 +25,6 @@ data_file 'CONDITIONAL_ANIMS_FILE' 'conditionalanims.meta'
 shared_scripts {
     'types.lua',
     'locale.lua',
-    'locales/*.lua',
     'config.lua',
     'shared/ModelCompat.lua',
 }
