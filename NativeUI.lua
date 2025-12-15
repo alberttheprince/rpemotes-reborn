@@ -2416,6 +2416,9 @@ function UIMenu.New(Title, Subtitle, X, Y, TxtDictionary, TxtName)
             },
             Increment = {
                 Enabled = true,
+            },
+            Preview = {
+                Enabled = true,
             }
         },
         ParentMenu = nil,
@@ -2436,7 +2439,11 @@ function UIMenu.New(Title, Subtitle, X, Y, TxtDictionary, TxtName)
         OnProgressSelect = function(menu, progress, index) end,
         OnItemSelect = function(menu, item, index) end,
         OnMenuChanged = function(menu, newmenu, forward) end,
-        OnMenuClosed = function(menu) end,
+        OnMenuClosed = function(menu)
+            if ShowPed == true then
+                ClosePedMenu()
+            end
+        end,
         Settings = {
             InstructionalButtons = true,
             MultilineFormats = true,
@@ -2900,6 +2907,22 @@ function UIMenu:ProcessControl()
         end
         PlaySoundFrontend(-1, self.Settings.Audio.UpDown, self.Settings.Audio.Library, true)
         self:Visible(true)
+    end
+
+    if (self.Controls.Preview.Enabled and (IsDisabledControlJustReleased(0, 83) or IsDisabledControlJustReleased(1, 83) or IsDisabledControlJustReleased(2, 83))) and not tobool(Controller()) then
+        PlaySoundFrontend(-1, self.Settings.Audio.UpDown, self.Settings.Audio.Library, true)
+
+        Config.PreviewPed = not Config.PreviewPed
+        self:Visible(true)
+
+        if Config.PreviewPed then
+            ShowPedMenu(zoom)
+        else
+            ClosePedMenu()
+            ShowPed = false
+            ClearPedTaskPreview()
+            DeleteEntity(ClonedPed)
+        end
     end
 
     -- If player is using controller, the control index is 199
@@ -3644,6 +3667,15 @@ function UIMenu:UpdateScaleform()
         PushScaleformMovieFunctionParameterInt(count)
         PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 19, 0))
         PushScaleformMovieFunctionParameterString(Translate('btn_increment')..(paginationValue and ': '..paginationValue or ": "..paginationValue))
+        PopScaleformMovieFunction()
+        count = count + 1
+    end
+
+    if self.Controls.Preview.Enabled and not tobool(Controller()) then
+        PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
+        PushScaleformMovieFunctionParameterInt(count)
+        PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 83, false))
+        PushScaleformMovieFunctionParameterString(Translate('btn_preview')..(Config.PreviewPed and ': on' or ': off'))
         PopScaleformMovieFunction()
         count = count + 1
     end

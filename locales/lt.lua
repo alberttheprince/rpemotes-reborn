@@ -68,6 +68,7 @@ return {
     ['btn_back'] = "Atgal",
     ['btn_switch'] = "Judejimas",
     ['btn_increment'] = "Padidejimas",
+    ['btn_preview'] = "Peržiūra",
     ['dead'] = "Negalite naudoti animaciju, kai esate mires!",
     ['swimming'] = "Jus negalite naudoti animaciju plaukdami",
     ['notvalidpet'] = "AU AU! Aptiktas netinkamas ped modelis 🐕!",

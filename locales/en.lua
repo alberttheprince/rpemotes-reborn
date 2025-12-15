@@ -71,6 +71,7 @@ return {
     ['btn_back'] = "Back",
     ['btn_place'] = "Place in world",
     ['btn_increment'] = "Increment",
+    ['btn_preview'] = "Preview",
     ['btn_groupselect'] = "Group emote",
     ['btn_delkeybind'] = "Clear Slot",
     ['btn_setkeybind'] = "Set as Keybind",

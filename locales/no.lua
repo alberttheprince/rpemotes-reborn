@@ -59,6 +59,7 @@ return {
         ['btn_back'] = "Tilbake",
         ['btn_switch'] = "Bevegelse",
         ['btn_increment'] = "Increment",
+        ['btn_preview'] = "Forhåndsvisning",
         ['dead'] = "Du kan ikke starte animasjoner mens du er død!",
         ['swimming'] = "Du kan ikke bruke animasjoner mens du svømmer",
         ['notvalidpet'] = "RUH ROH! Denne animasjonen er ikke laget for denne peden! 🐕",

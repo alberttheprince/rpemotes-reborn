@@ -59,6 +59,7 @@ return {
         ['btn_back'] = "Tilbage",
         ['btn_switch'] = "Bevægelse",
         ['btn_increment'] = "Increment",
+        ['btn_preview'] = "Forhåndsvisning",
         ['dead'] = "You can't use emotes while dead!",
         ['swimming'] = "You can't use emotes while swimming",
         ['notvalidpet'] = "RUH ROH! Incorrect ped model detected 🐕!",

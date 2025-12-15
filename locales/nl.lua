@@ -67,6 +67,7 @@ return {
     ['btn_select'] = "Selecteren",
     ['btn_back'] = "Terug",
     ['btn_increment'] = "Stappen",
+    ['btn_preview'] = "Voorbeeld",
     ['dead'] = "Je kan geen animaties gebruiken terwijl je dood bent",
     ['swimming'] = "Je kan geen animaties gebruiken tijdens het zwemmen",
     ['notvalidpet'] = "Je kan deze animatie niet uitvoeren als deze ped 🐕",

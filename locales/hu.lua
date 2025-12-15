@@ -59,6 +59,7 @@ return {
         ['btn_back'] = "Vissza",
         ['btn_switch'] = "Mozgás",
         ['btn_increment'] = "Increment",
+        ['btn_preview'] = "Előnézet",
         ['swimming'] = "You can't use emotes while swimming",
         ['notvalidpet'] = "RUH ROH! Incorrect ped model detected 🐕!",
         ['animaldisabled'] = "Sorry! Animal emotes are disabled on this server",

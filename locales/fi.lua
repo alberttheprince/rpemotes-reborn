@@ -59,6 +59,7 @@ return {
         ['btn_back'] = "Takaisin",
         ['btn_switch'] = "Liike",
         ['btn_increment'] = "Lisäys",
+        ['btn_preview'] = "Esikatselu",
         ['dead'] = "You can't use emotes while dead!",
         ['swimming'] = "You can't use emotes while swimming",
         ['notvalidpet'] = "RUH ROH! Vääränlainen ped modeli havaittu! 🐕",

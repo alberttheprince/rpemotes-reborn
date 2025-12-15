@@ -59,6 +59,7 @@ return {
         ['btn_back'] = "Trở lại",
         ['btn_switch'] = "Chuyển động",
         ['btn_increment'] = "Tăng",
+        ['btn_preview'] = "Xem trước",
         ['dead'] = "Bạn không thể sử dụng hành động khi bất tỉnh!",
         ['swimming'] = "You can't use emotes while swimming",
         ['notvalidpet'] = "Ruh Roh!Mô hình PED không chính xác được phát hiện 🐕!",

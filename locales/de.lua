@@ -67,6 +67,7 @@ return {
     ['btn_select'] = "Auswählen",
     ['btn_back'] = "Zurück",
     ['btn_increment'] = "Erhöhen",
+    ['btn_preview'] = "Vorschau",
     ['dead'] = "Du kannst keine Emotes verwenden, während du tot bist!",
     ['swimming'] = "Du kannst keine Emotes verwenden, während du schwimmst",
     ['notvalidpet'] = "RUH ROH! Falsches Tiermodell erkannt 🐕!",

@@ -59,6 +59,7 @@ return {
 	['btn_back'] = "Nazaj",
 	['btn_switch'] = "Gibanje",
 	['btn_increment'] = "Povečaj",
+	['btn_preview'] = "Predogled",
 	['dead'] = "Medtem ko ste mrtvi, ne morete uporabljati emotes!",
 	['swimming'] = "Med plavanjem ne morete uporabljati emotes",
 	['notvalidpet'] = "RUH ROH! Zaznan napačen model ped 🐕!",

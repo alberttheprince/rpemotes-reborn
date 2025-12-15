@@ -58,6 +58,7 @@ return {
         ['btn_back'] = "Atrás ",
         ['btn_switch'] = "Movimiento ",
         ['btn_increment'] = "Increment",
+        ['btn_preview'] = "Vista previa",
         ['dead'] = "¡No puedes usar animaciones mientras estás muerto!",
         ['swimming'] = "You can't use emotes while swimming",
         ['notvalidpet'] = "RUH ROH! Incorrect ped model detected 🐕!",

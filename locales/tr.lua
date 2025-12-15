@@ -67,6 +67,7 @@ return {
     ['btn_select'] = "Seç",
     ['btn_back'] = "Geri",
     ['btn_increment'] = "Arttır",
+    ['btn_preview'] = "Önizleme",
     ['dead'] = "Ölüyken animasyona giremezsiniz",
     ['swimming'] = "Yüzerken animasyona giremezsiniz",
     ['notvalidpet'] = "Uygunsuz ped modeli 🐕",

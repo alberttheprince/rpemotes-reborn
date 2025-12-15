@@ -59,6 +59,7 @@ return {
         ['btn_back'] = "Kembali",
         ['btn_switch'] = "Gerakan",
         ['btn_increment'] = "Kenaikan",
+        ['btn_preview'] = "Pratinjau",
         ['dead'] = "Anda tidak dapat menggunakan emote saat mati!",
         ['swimming'] = "Anda tidak dapat menggunakan emote saat berenang",
         ['notvalidpet'] = "RUH ROH! Model pedal yang salah terdeteksi :dog2:!",

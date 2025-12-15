@@ -59,6 +59,7 @@ return {
         ['btn_back'] = "Tillbaka",
         ['btn_switch'] = "Rörelse",
         ['btn_increment'] = "Increment",
+        ['btn_preview'] = "Förhandsvisning",
         ['dead'] = "Du kan inte använda animationer när du är död!",
         ['swimming'] = "You can't use emotes while swimming",
         ['notvalidpet'] = "RUH ROH! Felaktig ped-model hittad! 🐕",

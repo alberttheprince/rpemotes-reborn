@@ -59,6 +59,7 @@ return {
     ['btn_back'] = "Back",
     ['btn_switch'] = "Movement",
     ['btn_increment'] = "Increment",
+    ['btn_preview'] = "پیش‌نمایش",
     ['dead'] = "You can't use emotes while dead!",
     ['swimming'] = "You can't use emotes while swimming",
     ['notvalidpet'] = "RUH ROH! Incorrect ped model detected 🐕!",

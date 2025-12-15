@@ -58,6 +58,7 @@ return {
         ['btn_back'] = "Nazad",
         ['btn_switch'] = "Kretanje",
         ['btn_increment'] = "Inkrement",
+        ['btn_preview'] = "Преглед",
         ['dead'] = "Ne možeš koristiti animacije dok si mrtav!",
         ['swimming'] = "Ne možeš koristiti animacije dok plivaš",
         ['notvalidpet'] = "AV AV! Detektovan je netačan model (Ped) 🐕!",

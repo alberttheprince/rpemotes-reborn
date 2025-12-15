@@ -59,6 +59,7 @@ return {
         ['btn_back'] = "Aapassata",
         ['btn_switch'] = "Movement eka",
         ['btn_increment'] = "Wedi karanna",
+        ['btn_preview'] = "Peržiūra",
         ['dead'] = "You can't use emotes while dead!",
         ['swimming'] = "You can't use emotes while swimming",
         ['notvalidpet'] = "RUH ROH! Incorrect ped model detected 🐕!",

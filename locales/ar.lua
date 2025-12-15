@@ -58,5 +58,6 @@ return {
         ['btn_select'] = "اختيار",
         ['btn_back'] = "العودة",
         ['btn_switch'] = "حركة",
-        ['btn_increment'] = "زيادة"
+        ['btn_increment'] = "زيادة",
+        ['btn_preview'] = "معاينة"
 }

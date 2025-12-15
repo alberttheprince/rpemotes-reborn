@@ -59,6 +59,7 @@ return {
 	['btn_back'] = "Prapa",
 	['btn_switch'] = "Lëvizje",
 	['btn_increment'] = "Rrit",
+	['btn_preview'] = "Parapamje",
 	['dead'] = "Nuk mund të përdorësh emotet kur je i vdekur!",
 	['swimming'] = "Nuk mund të përdorësh emotet gjatë notit",
 	['notvalidpet'] = "RUH ROH! U zbulua një model ped i gabuar 🐕!",

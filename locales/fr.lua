@@ -58,6 +58,7 @@ return {
         ['btn_back'] = "Retour",
         ['btn_switch'] = "Mouvement",
         ['btn_increment'] = "Vitesse déplacement",
+        ['btn_preview'] = "Aperçu",
         ['dead'] = "Vous ne pouvez pas faire d'animation en étant mort !",
         ['swimming'] = "Vous ne pouvez pas faire d'emotes en nageant",
         ['notvalidpet'] = "RUH ROH! Vous n'avez pas un ped adapté 🐕!",

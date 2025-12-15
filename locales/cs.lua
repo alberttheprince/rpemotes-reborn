@@ -59,6 +59,7 @@ return {
         ['btn_back'] = "Zpět",
         ['btn_switch'] = "Pohyb",
         ['btn_increment'] = "Increment",
+        ['btn_preview'] = "Náhled",
         ['dead'] = "Nemůžeš používat emoce, když jsi mrtvý!",
         ['swimming'] = "Nemůžeš používat emoce, když plaveš!",
         ['notvalidpet'] = "OOOh! Zjištěn nesprávný model peda! 🐕",
