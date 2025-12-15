@@ -1,4 +1,4 @@
-Locales['id'] = {
+return {
  -- Indonesian 🇮🇩
         ['emotes'] = " ~h~~p~ Emote 🎬",
         ['danceemotes'] = "~h~~p~ 🕺 Emote Menari",

@@ -1,4 +1,4 @@
-Locales['sr'] = {
+return {
  -- Serbian
         ['emotes'] = 'Animacije 🎬',
         ['danceemotes'] = "🕺 Plesovi",

@@ -1,4 +1,4 @@
-Locales['zhcn'] = {
+return {
 -- Chinese simplified
     ['emotes'] = '动作 🎬',
     ['danceemotes'] = "🕺 舞蹈动作",

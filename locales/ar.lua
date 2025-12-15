@@ -1,4 +1,4 @@
-Locales['ar'] = {
+return {
 -- Arabic
         ['emotes'] = " ~h~~p~حركات 🎬",
         ['danceemotes'] = "~h~~p~ 🕺 حركات الرقص",

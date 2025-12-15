@@ -1,4 +1,4 @@
-Locales['no'] = {
+return {
  -- Norwegian 🇳🇴
         ['emotes'] = " ~h~~p~Animasjoner 🎬",
         ['danceemotes'] = "~h~~p~ 🕺 Danse Animasjoner",

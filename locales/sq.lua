@@ -1,4 +1,4 @@
-Locales['sq'] = {
+return {
  -- Albanian
 	['emotes'] = "~h~~p~ Emotet 🎬",
 	['danceemotes'] = "~h~~p~ 🕺 Emotet e Kërcimit",

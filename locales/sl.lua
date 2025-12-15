@@ -1,4 +1,4 @@
-Locales['sl'] = {
+return {
  -- Slovenia
 	['emotes'] = '~h~~p~ Emote 🎬',
 	['danceemotes'] = "~h~~p~ 🕺 Plesi",

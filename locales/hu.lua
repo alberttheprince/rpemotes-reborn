@@ -1,4 +1,4 @@
-Locales['hu'] = {
+return {
  -- Hungarian 🇭🇺
         ['emotes'] = "~h~~p~ Animációs Menü 🎬",
         ['danceemotes'] = "~h~~p~ 🕺 Tánc Animációk",

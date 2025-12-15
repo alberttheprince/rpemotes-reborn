@@ -1,4 +1,4 @@
-Locales['lk'] = {
+return {
  -- Sinhala 🇱🇰
         ['emotes'] = "~h~~p~ Emotes 🎬",
         ['danceemotes'] = "~h~~p~ 🕺 Natana Emotes",

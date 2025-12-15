@@ -1,4 +1,4 @@
-Locales['es'] = {
+return {
  -- Spanish 🇪🇸
         ['emotes'] = "~h~~p~ Animaciones 🎬",
         ['danceemotes'] = "~h~~p~ 🕺 Bailes",

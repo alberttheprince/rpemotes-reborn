@@ -1,4 +1,4 @@
-Locales['zhtw'] = {
+return {
  -- Chinese Traditional
     ['emotes'] = "~h~~p~ 動作 🎬",
     ['danceemotes'] = "~h~~p~ 🕺 舞蹈動作",

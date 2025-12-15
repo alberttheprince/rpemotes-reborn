@@ -1,4 +1,4 @@
-Locales['sv'] = {
+return {
  -- Swedish 🇸🇪
         ['emotes'] = "~h~~p~ Emotes 🎬",
         ['danceemotes'] = "~h~~p~ 🕺 Dans Emotes",

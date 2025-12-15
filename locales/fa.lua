@@ -1,4 +1,4 @@
-Locales['fa'] = {
+return {
  -- persian 🇮🇷
     ['emotes'] = "~h~~p~ Emotes 🎬",
     ['danceemotes'] = "~h~~p~ 🕺 raghs Emotes",

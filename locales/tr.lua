@@ -1,4 +1,4 @@
-Locales['tr'] = {
+return {
 -- Turkish 🇹🇷
     ['emotes'] = 'Animasyonlar 🎬',
     ['danceemotes'] = "🕺 Dans Animasyonları",

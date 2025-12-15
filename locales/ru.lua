@@ -1,4 +1,4 @@
-Locales['ru'] = {
+return {
  -- Russian 🇷🇺 by denrulezz
         ['emotes'] = "~h~~p~ Эмоции 🎬",
         ['danceemotes'] = "~h~~p~ 🕺 Танцевальные эмоции",

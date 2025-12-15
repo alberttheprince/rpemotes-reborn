@@ -1,4 +1,4 @@
-Locales['el'] = {
+return {
  -- Greek 🇬🇷
         ['emotes'] = '~h~~p~ Κινήσεις 🎬',
         ['danceemotes'] = "~h~~p~ 🕺 Χοροί",

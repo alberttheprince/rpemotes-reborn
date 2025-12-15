@@ -1,4 +1,4 @@
-Locales['nl'] = {
+return {
 -- Dutch 🇳🇱
     ['emotes'] = "Animaties 🎬",
     ['danceemotes'] = "🕺 Dans Animaties",

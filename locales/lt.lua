@@ -1,4 +1,4 @@
-Locales['lt'] = {
+return {
 -- Lithuanian (LT)
     ['emotes'] = '~h~~p~ Animacijos 🎬',
     ['danceemotes'] = "~h~~p~ 🕺 Sokiu animacijos",

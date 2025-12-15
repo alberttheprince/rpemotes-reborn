@@ -1,4 +1,4 @@
-Locales['vi'] = {
+return {
  -- Tiếng việt
         ['emotes'] = "~h~~p~ Hành động 🎬",
         ['danceemotes'] = "~h~~p~ 🕺 Nhảy nhót",

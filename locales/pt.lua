@@ -1,4 +1,4 @@
-Locales['pt'] = {
+return {
  -- Brazilian Portuguese 🇧🇷
         ['emotes'] = "~h~~p~ Emotes 🎬",
         ['danceemotes'] = "~h~~p~ 🕺 Emotes de Danças",

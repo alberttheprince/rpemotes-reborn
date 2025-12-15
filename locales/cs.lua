@@ -1,4 +1,4 @@
-Locales['cs'] = {
+return {
  -- Czech 🇨🇿
         ['emotes'] = "~h~~p~ Animace 🎬",
         ['danceemotes'] = "~h~~p~ 🕺 Taneční Animace",

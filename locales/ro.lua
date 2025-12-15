@@ -1,4 +1,4 @@
-Locales['ro'] = {
+return {
  -- Romanian 🇷🇴
         ['emotes'] = "~h~~p~ Emote-uri 🎬",
         ['danceemotes'] = "~h~~p~ 🕺 Dansuri",

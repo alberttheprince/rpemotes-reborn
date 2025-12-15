@@ -1,4 +1,4 @@
-Locales['fi'] = {
+return {
  -- Finnish 🇫🇮
         ['emotes'] = "~h~~p~ Animaatiot 🎬",
         ['danceemotes'] = "~h~~p~ 🕺 Tanssi Animaatiot",
