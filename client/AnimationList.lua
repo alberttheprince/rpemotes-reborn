@@ -7645,7 +7645,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             ExitEmote = "offchair",
-            PlacementOffset = vector4(-2.8, -1.0, 0.0, 90.0), -- Prevents floating during placement            
+            PlacementOffset = vector4(-2.8, -1.0, 0.0, 90.0), -- Prevents floating during placement
             PlacementOverridesPhysics = true,
         }
     },
@@ -7666,7 +7666,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             ExitEmote = "offchair",
-            PlacementOffset = vector4(1.0, 0.0, 0.0, 30.0), -- Prevents floating during placement                
+            PlacementOffset = vector4(1.0, 0.0, 0.0, 30.0), -- Prevents floating during placement
             PlacementOverridesPhysics = true,
         }
     },
@@ -7687,7 +7687,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             ExitEmote = "offchair",
-            PlacementOffset = vector4(1.0, 0.0, -1.0, 0.0), -- Prevents floating during placement      
+            PlacementOffset = vector4(1.0, 0.0, -1.0, 0.0), -- Prevents floating during placement
             PlacementOverridesPhysics = true,
         }
     },
@@ -7709,7 +7709,7 @@ RP.Emotes = {
         AnimationOptions = {
             onFootFlag = AnimFlag.LOOP,
             ExitEmote = "offchair",
-            PlacementOffset = vector4(0.0, 0.0, -1.0, 0.0), -- Prevents floating during placement            
+            PlacementOffset = vector4(0.0, 0.0, -1.0, 0.0), -- Prevents floating during placement
             PlacementOverridesPhysics = true,
         }
     },
@@ -8403,17 +8403,20 @@ RP.Emotes = {
     ["slide"] = {
         "anim@arena@celeb@flat@solo@no_props@",
         "slide_a_player_a",
-        "Slide"
+        "Slide",
+        abusable = true,
     },
     ["slide2"] = {
         "anim@arena@celeb@flat@solo@no_props@",
         "slide_b_player_a",
-        "Slide 2"
+        "Slide 2",
+        abusable = true,
     },
     ["slide3"] = {
         "anim@arena@celeb@flat@solo@no_props@",
         "slide_c_player_a",
-        "Slide 3"
+        "Slide 3",
+        abusable = true,
     },
     ["slugger"] = {
         "anim@arena@celeb@flat@solo@no_props@",
@@ -11558,7 +11561,7 @@ RP.PropEmotes = {
             onFootFlag = AnimFlag.MOVING,
         }
     },
-        ["stickhummingbird"] = {
+    ["stickhummingbird"] = {
         "anim@heists@humane_labs@finale@keycards",
         "ped_a_enter_loop",
         "Stick Hummingbird",
