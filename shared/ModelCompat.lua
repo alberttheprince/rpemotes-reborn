@@ -337,7 +337,7 @@ local emoteCompatibility = {
         'catpensive',
         'catshuffleright',
         'catshuffleleft',
-        'csdog6',
+        'ccat2',
      },
 }
 
