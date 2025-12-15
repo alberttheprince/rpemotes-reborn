@@ -15,6 +15,7 @@ Config = {
     DisableControlsInMenu = false, -- Disables all controls (including combat, movement, etc) while menu is open
     DisableCombatInMenu = false, -- Disables combat (attacking, aiming, melee) while menu is open
     PreviewPed = true, -- Shows a preview of the emote on the player's ped next to the emote menu. Note that resmon will increase when this when emotes are being previewed.
+    PreviewPedToggle = true, -- Allows players to manually toggle the preview ped on or off (default keybind =)
 
     -- Group Emotes: Default and Max group emote area that a player can select.
     GroupEmoteDefaultArea = 5.0,
@@ -23,7 +24,7 @@ Config = {
 
     -- Realism/Anti-Exploit
     EmoteCooldownMs = nil, -- Emote Cooldown in milliseconds. Prevents switching emotes too quickly. If nil, no cooldown is enforced
-    AbusableEmotesDisabled = true, -- if set to true disables any emotes that could be abused in pvp/serious environments that emotes marked abusable = true, 
+    AbusableEmotesDisabled = true, -- if set to true disables any emotes that could be abused in pvp/serious environments that emotes marked abusable = true
 
     -- Menu Styling
     MenuTitle = '',
@@ -127,9 +128,9 @@ end
 ---@type table<string, table<EmoteType, string[]>>
 Config.Ace = {
     -- Example: only players with ACE group.admin can use the drunk emote. Anyone can still use the drunk walk however.
-    --['group.admin'] = {[EmoteType.EMOTES] = {'drunk', 'dance5', 'dance6'}} 
+    --['group.admin'] = {[EmoteType.EMOTES] = {'drunk', 'dance5', 'dance6'}}
     -- Example 2: only players with ACE group.admin can use the drunk walk.
-    --['group.admin'] = {[EmoteType.WALKS] = {'drunk'}}  
+    --['group.admin'] = {[EmoteType.WALKS] = {'drunk'}}
 }
 
 -- FOR ALL KEYBINDS, GET THE BUTTON STRING HERE: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/

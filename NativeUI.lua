@@ -2418,7 +2418,7 @@ function UIMenu.New(Title, Subtitle, X, Y, TxtDictionary, TxtName)
                 Enabled = true,
             },
             Preview = {
-                Enabled = true,
+                Toggable = Config.PreviewPedToggle
             }
         },
         ParentMenu = nil,
@@ -2909,7 +2909,7 @@ function UIMenu:ProcessControl()
         self:Visible(true)
     end
 
-    if (self.Controls.Preview.Enabled and (IsDisabledControlJustReleased(0, 83) or IsDisabledControlJustReleased(1, 83) or IsDisabledControlJustReleased(2, 83))) and not tobool(Controller()) then
+    if (self.Controls.Preview.Toggable and (IsDisabledControlJustReleased(0, 83) or IsDisabledControlJustReleased(1, 83) or IsDisabledControlJustReleased(2, 83))) and not tobool(Controller()) then
         PlaySoundFrontend(-1, self.Settings.Audio.UpDown, self.Settings.Audio.Library, true)
 
         Config.PreviewPed = not Config.PreviewPed
@@ -3671,7 +3671,7 @@ function UIMenu:UpdateScaleform()
         count = count + 1
     end
 
-    if self.Controls.Preview.Enabled and not tobool(Controller()) then
+    if self.Controls.Preview.Toggable and not tobool(Controller()) then
         PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
         PushScaleformMovieFunctionParameterInt(count)
         PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 83, false))
