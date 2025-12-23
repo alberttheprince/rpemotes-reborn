@@ -10868,6 +10868,183 @@ RP.Emotes = {
             EmoteLoop = true
         }
     },
+    ["islampray1"] = { -- Made by Struggleville
+        "smo@prayer_posepack_01",
+        "prayer_posepack_01_clip",
+        "Islam Pray - Qiyam Sadl",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["islampray2"] = { -- Made by Struggleville
+        "smo@prayer_posepack_02",
+        "prayer_posepack_02_clip",
+        "Islam Pray - Takbir",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["islampray3"] = { -- Made by Struggleville
+        "smo@prayer_posepack_03",
+        "prayer_posepack_03_clip",
+        "Islam Pray - Qiyam Qabd",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["islampray4"] = { -- Made by Struggleville
+        "smo@prayer_posepack_04",
+        "prayer_posepack_04_clip",
+        "Islam Pray - Ruku",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["islampray5"] = { -- Made by Struggleville
+        "smo@prayer_posepack_05",
+        "prayer_posepack_05_clip",
+        "Islam Pray - Sujud 1",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["islampray6"] = { -- Made by Struggleville
+        "smo@prayer_posepack_06",
+        "prayer_posepack_06_clip",
+        "Islam Pray - Julus",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["islampray7"] = { -- Made by Struggleville
+        "smo@prayer_posepack_07",
+        "prayer_posepack_07_clip",
+        "Islam Pray - Tasleem",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["islampray8"] = { -- Made by Struggleville
+        "smo@prayer_posepack_08",
+        "prayer_posepack_08_clip",
+        "Islam Pray - Tasleem 2",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["islampray9"] = { -- Made by Struggleville
+        "smo@prayer_posepack_09",
+        "prayer_posepack_09_clip",
+        "Islam Pray - tashahhud",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["islampray10"] = { -- Made by Struggleville
+        "smo@prayer_posepack_10",
+        "prayer_posepack_10_clip",
+        "Islam Pray - Tasleem 3",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+
+    ["islampray11"] = { -- Made by Struggleville
+        "smo@prayer_posepack_11",
+        "prayer_posepack_11_clip",
+        "Islam Pray - Julus 2",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["islampray12"] = { -- Made by Struggleville
+        "smo@prayer_posepack_12",
+        "prayer_posepack_12_clip",
+        "Islam Pray - Julus 3",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
+    ["islampray13"] = { -- Made by Struggleville
+        "smo@prayer_posepack_13",
+        "prayer_posepack_13_clip",
+        "Islam Pray - Sujud 2",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+
+    },
+    ["jewishpray"] = { -- Made by Struggleville
+        "smo@prayer_posepack_14",
+        "prayer_posepack_14_clip",
+        "Jewish Pray",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+
+    },
+    ["jewishpray2"] = { -- Made by Struggleville
+        "smo@prayer_posepack_15",
+        "prayer_posepack_15_clip",
+        "Jewish Pray 2",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+
+    },
+    ["christianpray"] = { -- Made by Struggleville
+        "smo@prayer_posepack_16",
+        "prayer_posepack_16_clip",
+        "Christian Pray",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+
+    },
+    ["christianpray2"] = { -- Made by Struggleville
+        "smo@prayer_posepack_17",
+        "prayer_posepack_17_clip",
+        "Christian Pray 2",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+
+    },
+    ["christianpray3"] = { -- Made by Struggleville
+        "smo@prayer_posepack_18",
+        "prayer_posepack_18_clip",
+        "Christian Pray 3",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+
+    },
+    ["christianpray4"] = { -- Made by Struggleville
+        "smo@prayer_posepack_19",
+        "prayer_posepack_19_clip",
+        "Christian Pray 4",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+
+    },
+    ["christianpray5"] = { -- Made by Struggleville
+        "smo@prayer_posepack_20",
+        "prayer_posepack_20_clip",
+        "Christian Pray 5",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+
+    },
+    ["christianpray6"] = { -- Made by Struggleville
+        "smo@prayer_posepack_21",
+        "prayer_posepack_21_clip",
+        "Christian Pray 6",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+        }
+    },
 }
 
 --- PROP EMOTES GO HERE. CURRENTLY SUPPORTS UP TO ONE OR TWO PROPS  ---
