@@ -3724,13 +3724,15 @@ function UIMenu:UpdateScaleform()
     end
 
     if showEmoteButtons then
-        PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
-        PushScaleformMovieFunctionParameterInt(count)
-        PushScaleformMovieMethodParameterButtonName(GetControlInstructionalButton(2, 176, 0))
-        PushScaleformMovieMethodParameterButtonName(GetControlInstructionalButton(2, 21, 0))
-        PushScaleformMovieFunctionParameterString(Translate('btn_place'))
-        PopScaleformMovieFunction()
-        count = count + 1
+        if Config.PlacementEnabled then
+            PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
+            PushScaleformMovieFunctionParameterInt(count)
+            PushScaleformMovieMethodParameterButtonName(GetControlInstructionalButton(2, 176, 0))
+            PushScaleformMovieMethodParameterButtonName(GetControlInstructionalButton(2, 21, 0))
+            PushScaleformMovieFunctionParameterString(Translate('btn_place'))
+            PopScaleformMovieFunction()
+            count = count + 1
+        end
 
         PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
         PushScaleformMovieFunctionParameterInt(count)
