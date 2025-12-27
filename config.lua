@@ -104,6 +104,10 @@ Config = {
     CheckForUpdates = true,
     DebugDisplay = false,
 
+    -- Emote Placement
+    PlacementEnabled = true,
+    DisablePlacementKeybindWhileMoving = true, -- When true, you cannot enter placement mode while moving. This only affects the keybind.
+
 }
 
 -- Custom Categories: Define custom categories to organize emotes in the menu
