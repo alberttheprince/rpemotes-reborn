@@ -75,5 +75,22 @@ return {
     ['cancel_emote'] = "Şu anki animasyonu iptal et",
     ['crouch'] = "Eğil",
     ['crawl'] = "Sürün",
-    ['pointing'] = "Parmakla göster"
+    ['pointing'] = "Parmakla göster",
+    ['position'] = 'Pozisyon',
+    ['rotate'] = "Çevir",
+    ['height'] = "Yükseklik",
+    ['toofar'] = "~r~Çok uzaktasın!~w~~s~",
+    -- Group emotes
+    ['notvalidgroupemote'] = "Geçerli bir grup animasyonu değil!",
+    ['requestedgroupemote'] = " (~g~%s~w~) grup animasyonunu ~y~%i~w~ kişi ile talep ettin!",
+    ['acceptedgroupemote'] = "(~g~%s~w~) grup animasyonunu kabul ettin. Birazdan başlayacak.",
+    ['refusedgroupemote'] = "Grup animasyonunu reddettin.",
+    ['canceledgroupemote'] = "Grup animasyonunu iptal ettin.",
+    ['cannotstartgroupemote'] = "Başka bir grup animasyonu başlatamazsın!",
+    ['groupemoteradiushelp'] = "~g~%s~w~ grup animasyonu için bölge seç.\n~INPUT_WEAPON_WHEEL_NEXT~~INPUT_WEAPON_WHEEL_PREV~ Alan boyutunu değiştir\n~INPUT_FRONTEND_ACCEPT~ Seç |  ~INPUT_FRONTEND_RRIGHT~ İptal Et",
+    -- Favorites
+    ['btn_set_favorite'] = "Favori Seç",
+    ['btn_remove_favorite'] = "Favorilikten Çıkar",
+    ['addedtofavorites'] = "(~g~%s~s~) animasyonu favorilere eklendi!",
+    ['removedfromfavorites'] = "(~g~%s~s~) animasyonu favorilerden çıkartıldı!",
    }
