@@ -36,7 +36,7 @@ return {
     ['invalidvariation'] = "Variación de textura no válida. Las opciones válidas son: %s",
     ['firework'] = "Presione ~y~G~w~ para usar los fuegos artificiales",
     ['poop'] = "Presione ~y~G~w~ para hacer caca",
-    ['puke'] = "Presiona ~y~G~w~ para vomitar", ---- Translated via smodin.io
+    ['puke'] = "Presiona ~y~G~w~ para vomitar",
     ['btn_select'] = "Seleccionar",
     ['btn_back'] = "Atrás ",
     ['btn_preview'] = "Vista previa",
