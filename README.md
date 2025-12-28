@@ -68,7 +68,7 @@ Languages can be selected and/or added in the config.lua.
 
 All languages were translated or contributed by the FiveM community, with the odd exception of using Google Translate.
 
-English is the original language and will always be up to date with correct translations. Otherwise german is currently the only verified translation, other translations might be incomplete or bad. English is used as fallback for missing translations. Compare your translation file to the english one to find and add missing translations.
+English is the original language and will always be up to date with correct translations. Otherwise german is currently the only translation which is complete and verified by a native speaker, other translations might be incomplete or partially lacking in quality. English is used as fallback for missing translations. Compare your translation file to the english one to find and add missing translations.
 
 If you find any incorrect translations or would like to add more languages, please make a pull request with the corrections.
 
