@@ -37,7 +37,7 @@ return {
     ['searchnoresult'] = "Nenhum resultado para a pesquisa",
     ['invalidvariation'] = "Variação de textura inválida. As opções válidas são: %s",
     ['firework'] = "Pressione ~y~G~w~ para usar o fogo de artifício",
-    ['poop'] = "Pressione ~y~G~w~ para fazer cocô", -- Translated using smodin.io
+    ['poop'] = "Pressione ~y~G~w~ para fazer cocô",
     ['puke'] = "Pressione ~y~G~w~ para vomitar",
     ['btn_select'] = "Selecionar",
     ['btn_back'] = "Voltar",

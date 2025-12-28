@@ -37,7 +37,7 @@ return {
     ['invalidvariation'] = "Niepoprawny wariant tekstury. Dostępne tekstury to: %s",
     ['firework'] = "Naciśnij ~y~G~w~ aby odpalić fajerwerki",
     ['poop'] = "Naciśnij ~y~G~w~ by zrobić kupę",
-    ['puke'] = "Naciśnij ~y~G~w~, aby zwymiotować", ---- Translated via smodin.io
+    ['puke'] = "Naciśnij ~y~G~w~, aby zwymiotować",
     ['btn_select'] = "Wybierz",
     ['btn_back'] = "Wstecz",
     ['btn_preview'] = "Podgląd",

@@ -37,7 +37,7 @@ return {
     ['searchnoresult'] = "Không có kết quả",
     ['invalidvariation'] = "Biến thể kết cấu không hợp lệ.Các lựa chọn hợp lệ là: %s",
     ['firework'] = "Nhấn ~y~G~w~ Để sử dụng pháo hoa",
-    ['poop'] = "Nhấn ~y~G~w~ để ị", -- Translated using smodin.io
+    ['poop'] = "Nhấn ~y~G~w~ để ị",
     ['puke'] = "Nhấn ~y~G~w~ để nôn",
     ['btn_select'] = "Chọn",
     ['btn_back'] = "Trở lại",

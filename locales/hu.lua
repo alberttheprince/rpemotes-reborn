@@ -38,7 +38,7 @@ return {
     ['invalidvariation'] = "Érvénytelen textúra variáció. Érvényes választások a következők: %s",
     ['firework'] = "Nyomj ~y~G~w~ gombot a tűzijáték használatához",
     ['poop'] = "Nyomj ~y~G~w~ gombot a kakiláshoz",
-    ['puke'] = "Nyomja meg az ~y~G~w~ gombot a hányáshoz", ---- Translated via smodin.io
+    ['puke'] = "Nyomja meg az ~y~G~w~ gombot a hányáshoz",
     ['btn_select'] = "Kiválasztás",
     ['btn_back'] = "Vissza",
     ['btn_preview'] = "Előnézet",

@@ -22,7 +22,7 @@ return {
     ['doyouwanna'] = "~y~Y~w~ per accettare, ~r~L~w~ per rifiutare (~g~",
     ['refuseemote'] = "Animazione rifiutata.",
     ['makenearby'] = "fa eseguire l'animazione al giocatore vicino",
-    ['useleafblower'] = "Premi ~yG~w~ per usare il soffia foglie.", -- GOOGLE TRANSLATED
+    ['useleafblower'] = "Premi ~yG~w~ per usare il soffia foglie.",
     ['camera'] = "Premi ~y~G~w~ per usare il flash della fotocamera.",
     ['makeitrain'] = "Premi ~y~G~w~ per far piovere.",
     ['pee'] = "Tieni premuto ~y~G~w~ per urinare.",
@@ -34,7 +34,7 @@ return {
     ['invalidvariation'] = "Opzioni colore non valide. scelte valide sono: %s",
     ['firework'] = "Premere ~y~G~w~ per utilizzare il fuoco d'artificio",
     ['poop'] = "Premere ~y~G  w~ per fare la cacca",
-    ['puke'] = "Premi ~y~G~w~ per vomitare", ---- Translated via smodin.io
+    ['puke'] = "Premi ~y~G~w~ per vomitare",
     ['btn_select'] = "Seleziona",
     ['btn_back'] = "Indietro",
     ['btn_preview'] = "Anteprima",

@@ -37,7 +37,7 @@ return {
     ['invalidvariation'] = "Ugyldig tekstur variant. Gyldige varianter: %s",
     ['firework'] = "Trykk ~y~G~w~ for å avfyre fyrverkeriet",
     ['poop'] = "Hold ~y~G~w~ for å bæsje",
-    ['puke'] = "Trykk ~y~G~w~ for å spy", ---- Translated via smodin.io
+    ['puke'] = "Trykk ~y~G~w~ for å spy",
     ['btn_select'] = "Velg",
     ['btn_back'] = "Tilbake",
     ['btn_preview'] = "Forhåndsvisning",

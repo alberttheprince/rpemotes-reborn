@@ -35,8 +35,8 @@ return {
     ['searchnoresult'] = "Fara rezultate pentru cautarea",
     ['invalidvariation'] = "Variație nevalidă a texturii. Selectările valide sunt: ​​%s",
     ['firework'] = "Apasa ~y~G~w~ pentru a folosi artificiile",
-    ['poop'] = "Apăsați pe ~y~G~w~ pentru a face caca", --Trannslated using smodin.io
-    ['puke'] = "Apăsați pe ~y~G~w~ pentru a vomita",  ---- Translated via smodin.io
+    ['poop'] = "Apăsați pe ~y~G~w~ pentru a face caca",
+    ['puke'] = "Apăsați pe ~y~G~w~ pentru a vomita",
     ['btn_select'] = "Selectare",
     ['btn_back'] = "Înapoi",
     ['btn_preview'] = "Previzualizare",

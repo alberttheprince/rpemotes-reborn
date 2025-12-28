@@ -36,7 +36,7 @@ return {
     ['searchnoresult'] = "Inga resultat hittades på",
     ['invalidvariation'] = "Ogiltig texturvariation. Giltiga val är: %s",
     ['firework'] = "Tryck ~y~G~w~ för att avfyra dina fyrverkerier",
-    ['poop'] = "Tryck ~y~G~w~ för att bajsa", -- Translated using smodin.io
+    ['poop'] = "Tryck ~y~G~w~ för att bajsa",
     ['puke'] = "Tryck ~y~G~w~ För att Spy",
     ['btn_select'] = "Välj",
     ['btn_back'] = "Tillbaka",

@@ -22,7 +22,7 @@ return {
     ['doyouwanna'] = "~y~Y~w~ pro příjmutí, ~r~L~w~ pro odmítnutí (~g~",
     ['refuseemote'] = "Emote odmítnut.",
     ['makenearby'] = "Požádat nejbližšího hráče",
-    ['useleafblower'] = "Stiskněte ~yG~w~ pro použití foukače listí", -- GOOGLE TRANSLATED
+    ['useleafblower'] = "Stiskněte ~yG~w~ pro použití foukače listí",
     ['camera'] = "Stiskni ~y~G~w~ pro použítí blesku u fotoaparátu.",
     ['makeitrain'] = "Stiskni ~y~G~w~ pro spuštení deště.",
     ['pee'] = "Podrž ~y~G~w~ pro čůrání.",
