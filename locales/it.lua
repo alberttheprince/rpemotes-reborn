@@ -38,5 +38,4 @@ return {
     ['btn_select'] = "Seleziona",
     ['btn_back'] = "Indietro",
     ['btn_preview'] = "Anteprima",
-    ['dead'] = "You can't use emotes while dead!",
 }
