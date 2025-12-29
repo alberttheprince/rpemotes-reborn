@@ -42,5 +42,4 @@ return {
     ['btn_switch'] = "Movement eka",
     ['btn_increment'] = "Wedi karanna",
     ['btn_preview'] = "Peržiūra",
-    ['dead'] = "You can't use emotes while dead!",
 }
