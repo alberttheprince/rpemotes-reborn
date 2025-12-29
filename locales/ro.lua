@@ -40,5 +40,5 @@ return {
     ['btn_select'] = "Selectare",
     ['btn_back'] = "Înapoi",
     ['btn_preview'] = "Previzualizare",
-    ['dead'] = "You can't use emotes while dead!",
+    ['dead'] = "Nu poți folosi emote-uri când ești mort!",
 }
