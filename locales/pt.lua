@@ -43,5 +43,4 @@ return {
     ['btn_back'] = "Voltar",
     ['btn_increment'] = "Incremento",
     ['btn_preview'] = "Visualizar",
-    ['dead'] = "You can't use emotes while dead!",
 }
