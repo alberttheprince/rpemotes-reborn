@@ -41,5 +41,4 @@ return {
     ['btn_select'] = "Wybierz",
     ['btn_back'] = "Wstecz",
     ['btn_preview'] = "Podgląd",
-    ['dead'] = "You can't use emotes while dead!",
 }
