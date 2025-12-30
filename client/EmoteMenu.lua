@@ -268,7 +268,7 @@ local function handleEmoteSelection(emoteName, emoteType, textureVariation)
             local movingForward = Config.DisablePlacementKeybindWhileMoving and (IsControlPressed(0,32) or IsControlPressed(0,31) or IsControlPressed(0,30)) -- INPUT_MOVE_UP_ONLY or INPUT_MOVE_UP or INPUT_MOVE_LR
             local placementState = GetPlacementState()
 
-            if movingForward and shiftHeld and placementState ~= PlacementState.PREVIEWING and placementState ~= PlacementState.WALKING then
+            if not movingForward and shiftHeld and placementState ~= PlacementState.PREVIEWING and placementState ~= PlacementState.WALKING then
                 StartNewPlacement(emoteName)
                 return
             end
