@@ -350,6 +350,7 @@ local function addProp(data)
             SetEntityAlpha(attachedProp, targetAlpha, false)
         end
     else
+        ServerProps[target] = ServerProps[target] or {}
         ServerProps[target][#ServerProps[target]+1] = attachedProp
     end
 
