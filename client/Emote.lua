@@ -316,8 +316,13 @@ local function addProp(data)
     assert(data.noCollision == nil or type(data.noCollision) == "boolean", 'noCollision must be a boolean')
 
     local target = data.ped and data.ped > 0 and data.ped or PlayerPedId()
-    if data.playerId and DoesEntityExist(GetPlayerPed(data.playerId)) then
-        target = GetPlayerPed(data.playerId)
+    if data.playerId then
+        local playerPed = GetPlayerPed(data.playerId)
+        if not DoesEntityExist(playerPed) then
+            DebugPrint("addProp: Target player ped doesn't exist, skipping prop attachment")
+            return false
+        end
+        target = playerPed
     end
     local x, y, z = table.unpack(GetEntityCoords(target))
 
