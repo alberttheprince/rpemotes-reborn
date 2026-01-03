@@ -34,7 +34,7 @@ AddStateBagChangeHandler('ptfx', '', function(bagName, key, value, _unused, repl
         local entityTarget = plyPed
 
         if stateBag.ptfxPropId then
-            if DoesEntityExist(ServerProps[plyPed][stateBag.ptfxPropId]) then
+            if ServerProps[plyPed] and DoesEntityExist(ServerProps[plyPed][stateBag.ptfxPropId]) then
                 entityTarget = ServerProps[plyPed][stateBag.ptfxPropId]
             end
         end
