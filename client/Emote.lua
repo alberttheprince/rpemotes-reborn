@@ -509,7 +509,7 @@ function EmoteCommandStart(args)
         TriggerEvent('chat:addMessage', {
             color = { 255, 0, 0 },
             multiline = true,
-            args = { "RPEmotes", Translate('emimming') }
+            args = { "RPEmotes", Translate('swimming') }
         })
         return
     end
