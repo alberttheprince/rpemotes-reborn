@@ -93,3 +93,5 @@ data_file 'DLC_ITYP_REQUEST' 'stream/scully_props.ytyp'
 data_file 'DLC_ITYP_REQUEST' 'stream/samnick_prop_lighter01.ytyp'
 
 data_file 'DLC_ITYP_REQUEST' 'stream/bzzz_murderpack.ytyp'
+
+data_file 'DLC_ITYP_REQUEST' 'stream/prop_protestsign_fh.ytyp'
