@@ -16840,6 +16840,78 @@ RP.PropEmotes = {
             onFootFlag = AnimFlag.MOVING,
         }
     },
+    ["protest4"] = {
+        "rcmnigel1d",
+        "base_club_shoulder",
+        "Protest 4 - LSPD",
+        AnimationOptions = {
+            Prop = "prop_protestsign_01_fh",
+            PropBone = 57005,
+            PropPlacement = {
+                0.1820,
+                0.2400,
+                0.0600,
+                -69.3774235,
+                5.914205,
+                -13.957235
+            },
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
+    ["protest5"] = {
+        "rcmnigel1d",
+        "base_club_shoulder",
+        "Protest 5 - FIB",
+        AnimationOptions = {
+            Prop = "prop_protestsign_02_fh",
+            PropBone = 57005,
+            PropPlacement = {
+                0.1820,
+                0.2400,
+                0.0600,
+                -69.3774235,
+                5.914205,
+                -13.957235
+            },
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
+    ["protest6"] = {
+        "rcmnigel1d",
+        "base_club_shoulder",
+        "Protest 6 - IAA",
+        AnimationOptions = {
+            Prop = "prop_protestsign_03_fh",
+            PropBone = 57005,
+            PropPlacement = {
+                0.1820,
+                0.2400,
+                0.0600,
+                -69.3774235,
+                5.914205,
+                -13.957235
+            },
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
+    ["protest7"] = {
+        "rcmnigel1d",
+        "base_club_shoulder",
+        "Protest 7 - PIA",
+        AnimationOptions = {
+            Prop = "prop_protestsign_04_fh",
+            PropBone = 57005,
+            PropPlacement = {
+                0.1820,
+                0.2400,
+                0.0600,
+                -69.3774235,
+                5.914205,
+                -13.957235
+            },
+            onFootFlag = AnimFlag.MOVING,
+        }
+    },
     ["binoculars"] = {
         "amb@world_human_binoculars@male@idle_b",
         "idle_f",
