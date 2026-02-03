@@ -83,6 +83,7 @@ local models = {
     [`k9wolf`] = CompatGroup.ROTTWEILER,
     [`pitbull`] = CompatGroup.ROTTWEILER,
     [`bugdoberman`] = CompatGroup.ROTTWEILER,
+    [`bughusky`] = CompatGroup.ROTTWEILER,
     -- DWX https://forum.cfx.re/t/free-rework-edit-animal-ped-fivem-ready-german-shepherd-belgian-malinois
     [`dwxunit`] = CompatGroup.ROTTWEILER,
 
@@ -188,6 +189,7 @@ local models = {
     [`bugdalpuppy`] = CompatGroup.SMALL_DOG,
     [`k9puppydoberman`] = CompatGroup.SMALL_DOG,
     [`bugxlpuppy`] = CompatGroup.SMALL_DOG,
+    [`bughuskypup`] = CompatGroup.SMALL_DOG,
 
     -- CAT
     [`a_c_cat`] = CompatGroup.CAT,
