@@ -546,6 +546,7 @@ CreateThread(function()
                 for idx, prop in pairs(attachData) do
                     SetEntityAsMissionEntity(prop, false, false)
                     DeleteEntity(prop)
+                    print("deleting ", prop)
                 end
                 ServerProps[attachedPed] = nil
             end
@@ -563,3 +564,17 @@ RegisterNetEvent("onResourceStop", function(resource)
         end
     end
 end)
+
+-----------------------------------------------------------------------------------------------------------------------
+-- Client-side prop deletion, in case the normal prop spawning does not work.
+-- Client-side Prop spawning uses `addProps()` as that function never actually lost the functionality.
+
+function ClearEmoteProps()
+    print("Prop emotes cleared")
+    if ServerProps and ServerProps[PlayerPedId()] then
+        for _, prop in pairs(ServerProps[PlayerPedId()]) do
+            SetEntityAsMissionEntity(prop, false, false)
+            DeleteEntity(prop)
+        end
+    end
+end

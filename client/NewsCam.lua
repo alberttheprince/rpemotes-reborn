@@ -23,7 +23,11 @@ local function CleanupNewscam()
     if prop_newscam then
         DeleteEntity(prop_newscam)
     end
-    LocalPlayer.state:set("rpemotes:props", {}, true)
+    if Config.UseOldPropSpawning then
+        ClearEmoteProps()
+    else
+        LocalPlayer.state:set("rpemotes:props", {}, true)
+    end
 end
 
 function UseNewscam()
