@@ -202,7 +202,7 @@ local function exitScenario()
 end
 
 function EmoteCancel(force)
-    if not LocalPlayer.state.canCancel and not force then return end
+    if (not LocalPlayer.state.canCancel and GetConvar("onesync", "off") == "on") and not force then return end
 
     LocalPlayer.state:set('currentEmote', nil, true)
     EmoteCancelPlaying = true
@@ -333,7 +333,7 @@ local function addProp(data)
 
     LoadPropDict(data.prop1)
 
-    attachedProp = CreateObject(GetHashKey(data.prop1), x, y, z + 0.2, false, false, false)
+    attachedProp = CreateObject(GetHashKey(data.prop1), x, y, z + 0.2, data.playerId ~= nil and Config.UseOldPropSpawning, false, false)
 
     if data.textureVariation ~= nil then
         SetObjectTextureVariation(attachedProp, data.textureVariation)
@@ -579,7 +579,11 @@ function DestroyAllProps(isNonPlayer)
         end
         PreviewPedProps = {}
     else
-        LocalPlayer.state:set("rpemotes:props", {}, true)
+        if Config.UseOldPropSpawning then
+            ClearEmoteProps()
+        else
+            LocalPlayer.state:set("rpemotes:props", {}, true)
+        end
         LocalPlayer.state:set("ptfxPropId", nil, true)
     end
     DebugPrint("Destroyed Props for " .. (isNonPlayer and "non-player" or "player"))
@@ -688,7 +692,7 @@ function OnEmotePlay(name, textureVariation, emoteType)
         return
     end
 
-    if not LocalPlayer.state.canEmote then return end
+    if not LocalPlayer.state.canEmote and GetConvar("onesync", "off") == "on" then return end
 
     if not DoesEntityExist(PlayerPedId()) then return false end
 
@@ -842,7 +846,11 @@ function OnEmotePlay(name, textureVariation, emoteType)
     currentEmote = emoteData
 
     if animOption and animOption.Prop then
-        LocalPlayer.state:set("rpemotes:props", {Emote = name, TextureVariation = textureVariation, emoteType = emoteType}, true)
+        if Config.UseOldPropSpawning then
+            addProps(animOption, textureVariation, PlayerPedId(), PlayerId(), false)
+        else
+            LocalPlayer.state:set("rpemotes:props", {Emote = name, TextureVariation = textureVariation, emoteType = emoteType}, true)
+        end
             -- Ptfx is on the prop, then we need to sync it
         if animOption.PtfxAsset and not animOption.PtfxNoProp then
             LocalPlayer.state:set("ptfxPropId", animOption.SecondProp and 2 or 1, true) -- TODO: prop ptfx should be related to a prop.

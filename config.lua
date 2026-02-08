@@ -108,6 +108,8 @@ Config = {
     PlacementEnabled = true,
     DisablePlacementKeybindWhileMoving = true, -- When true, you cannot enter placement mode while moving. This only affects the keybind.
 
+    -- Old Props Spawning
+    UseOldPropSpawning = false, -- Uses networked objects spawned client-side, for props. Only use this when you have issues spawning props.
 }
 
 -- Custom Categories: Define custom categories to organize emotes in the menu

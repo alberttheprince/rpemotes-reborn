@@ -563,3 +563,16 @@ RegisterNetEvent("onResourceStop", function(resource)
         end
     end
 end)
+
+-----------------------------------------------------------------------------------------------------------------------
+-- Client-side prop deletion, in case the normal prop spawning does not work.
+-- Client-side Prop spawning uses `addProps()` as that function never actually lost the functionality.
+
+function ClearEmoteProps()
+    if ServerProps and ServerProps[PlayerPedId()] then
+        for _, prop in pairs(ServerProps[PlayerPedId()]) do
+            SetEntityAsMissionEntity(prop, false, false)
+            DeleteEntity(prop)
+        end
+    end
+end

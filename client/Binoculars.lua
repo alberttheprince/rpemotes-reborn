@@ -19,7 +19,11 @@ local function CleanupBinoculars()
     if prop_binoc then
         DeleteEntity(prop_binoc)
     end
-    LocalPlayer.state:set("rpemotes:props", {}, true)
+    if Config.UseOldPropSpawning then
+        ClearEmoteProps()
+    else
+        LocalPlayer.state:set("rpemotes:props", {}, true)
+    end
     SetNightvision(false)
     SetSeethrough(false)
 end
