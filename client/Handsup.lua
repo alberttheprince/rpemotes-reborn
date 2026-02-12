@@ -89,7 +89,11 @@ if Config.HandsupEnabled then
     TriggerEvent('chat:addSuggestion', '/handsup', Translate('handsup'))
 
     if Config.HandsupKeybindEnabled then
-        RegisterKeyMapping("+handsup", Translate('register_handsup'), "keyboard", Config.HandsupKeybind)
+        if Config.HoldToHandsUp then
+            RegisterKeyMapping("+handsup", Translate('register_handsup'), "keyboard", Config.HandsupKeybind)
+        else
+            RegisterKeyMapping("handsup", Translate('register_handsup'), "keyboard", Config.HandsupKeybind)
+        end
     end
 
     CreateExport('IsPlayerInHandsUp', function()
