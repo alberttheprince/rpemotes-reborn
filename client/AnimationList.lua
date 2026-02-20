@@ -5041,7 +5041,6 @@ RP.AnimalEmotes = {
             onFootFlag = AnimFlag.MOVING,
         }
     },
-    ---- ANIMAL EMOTES ----
     ----     CATS      ----
 
     ["catsleep"] = {
@@ -5137,9 +5136,60 @@ RP.AnimalEmotes = {
             EmoteLoop = true
         }
     },
+    ----     COYOTE    ----
+    ["coyinspect"] = {
+        "creatures@coyote@amb@world_coyote_wander@base",
+        "base",
+        "Coyote Inspect",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP
+        }
+    },
+    ["coyagree"] = {
+        "creatures@coyote@amb@world_coyote_wander@idle_a",
+        "idle_a",
+        "Coyote Agree",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP
+        }
+    },
+    ["coyhowl"] = {
+        "creatures@coyote@amb@world_coyote_howl@idle_a",
+        "idle_a",
+        "Coyote Howl",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+            ExitEmote = "coyhowlexit",
+        }
+    },
+    ["coyplaydead"] = {
+        "creatures@coyote@move",
+        "dead_left",
+        "Coyote Play Dead",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+            ExitEmote = "coyplaydeadexit",
+        }
+    },
+    ["coyrest"] = {
+        "amb@lo_res_idles@",
+        "creatures_world_coyote_rest_lo_res_base",
+        "Coyote Rest",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+            ExitEmote = "coylayexit",
+        }
+    },
+    ["coysit"] = {
+        "creatures@coyote@amb@world_coyote_howl@base",
+        "base",
+        "Coyote Sit",
+        AnimationOptions = {
+            onFootFlag = AnimFlag.LOOP,
+            ExitEmote = "coyhowlexit",
+        }
+    },
 }
-
-
 
 
 --- EXIT EMOTES ---
@@ -5278,7 +5328,31 @@ RP.Exits = {
         AnimationOptions = {
             EmoteDuration = 5000
         }
-    }
+    },
+    ["coyhowlexit"] = {
+        "creatures@coyote@amb@peyote@enter",
+        "enter",
+        "Coyote Sit Exit",
+        AnimationOptions = {
+            EmoteDuration = 4000
+        }
+    },
+    ["coylayexit"] = {
+        "creatures@coyote@amb@world_coyote_rest@exit",
+        "exit",
+        "Coyote Lay Exit",
+        AnimationOptions = {
+            EmoteDuration = 4000
+        }
+    },
+    ["coyplaydeadexit"] = {
+        "creatures@coyote@getup",
+        "getup_l",
+        "Coyote Play Dead Exit",
+        AnimationOptions = {
+            EmoteDuration = 4000
+        }
+    },
 }
 
 
