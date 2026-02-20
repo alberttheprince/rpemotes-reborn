@@ -905,6 +905,7 @@ end)
 
 
 local function recoverLostAnimation()
+    if not Config.RecoverEmotesAfterRagdoll then return end
     local pPed = PlayerPedId()
     if isBumpingPed then
         timeout = 500
@@ -944,7 +945,6 @@ AddEventHandler("CEventPlayerCollisionWithPed", function(unk1)
 end)
 
 AddEventHandler("gameEventTriggered", function(eventName, eventData)
-    if not Config.RecoverEmotesAfterRagdoll then return end
     if eventName ~= "CEventNetworkEntityDamage" then return end
     if eventData[1] ~= PlayerPedId() then return end
     if not IsInAnimation then return end
