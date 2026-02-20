@@ -9,6 +9,8 @@ LastEmote = {
     emoteType = nil,
 }
 local lastEmoteTime = 0
+local isBumpingPed = false
+local pedBumpTimeout = 500
 
 ---@type ScenarioType
 local ChosenScenarioType
@@ -166,7 +168,7 @@ local function checkStatusThread(dict, anim)
             Wait(5)
         end
         while CheckStatus and IsInAnimation do
-            if not IsEntityPlayingAnim(PlayerPedId(), dict, anim, 3) then
+            if not IsEntityPlayingAnim(PlayerPedId(), dict, anim, 3) and not isBumpingPed then
                 DebugPrint("Animation ended")
                 DestroyAllProps()
                 EmoteCancel()
@@ -901,33 +903,53 @@ AddEventHandler('CEventOpenDoor', function(unk1)
     OnEmotePlay(CurrentAnimationName, CurrentTextureVariation)
 end)
 
-local isBumpingPed = false
-local timeout = 500
 
-AddEventHandler("CEventPlayerCollisionWithPed", function(unk1)
-    if unk1[1] ~= PlayerPedId() then return end
-    if not IsInAnimation then return end
-
+local function recoverLostAnimation()
+    local pPed = PlayerPedId()
     if isBumpingPed then
         timeout = 500
         return
     end
     isBumpingPed = true
-    timeout = 500
+    pedBumpTimeout = 500
     -- We wait a bit to avoid collision with the ped resetting the animation again
-
-    while timeout > 0 do
+    DebugPrint("Trying to recover...")
+    while pedBumpTimeout > 0 do
         Wait(100)
-        timeout = timeout - 100
+        pedBumpTimeout = pedBumpTimeout - 100
     end
 
-    if not IsInAnimation then return end
-
+    if not IsInAnimation then
+        DebugPrint("Can't recover! Not in an animation!")
+        return
+    end
     isBumpingPed = false
-    ClearPedTasks(PlayerPedId())
+
+    if GetIsTaskActive(pPed, 131) or GetIsTaskActive(pPed, 134) or GetIsTaskActive(pPed, 135) then
+        DebugPrint("Won't recover! Animation already playing!")
+        return
+    end
+    DebugPrint("Recovering anim!")
+    ClearPedTasks(pPed)
     Wait(125)
     DestroyAllProps()
     OnEmotePlay(CurrentAnimationName, CurrentTextureVariation)
+end
+
+AddEventHandler("CEventPlayerCollisionWithPed", function(unk1)
+    if unk1[1] ~= PlayerPedId() then return end
+    if not IsInAnimation then return end
+
+    recoverLostAnimation()
+end)
+
+AddEventHandler("gameEventTriggered", function(eventName, eventData)
+    if not Config.RecoverEmotesAfterRagdoll then return end
+    if eventName ~= "CEventNetworkEntityDamage" then return end
+    if eventData[1] ~= PlayerPedId() then return end
+    if not IsInAnimation then return end
+
+    recoverLostAnimation()
 end)
 
 AddEventHandler('onResourceStop', function(resource)
