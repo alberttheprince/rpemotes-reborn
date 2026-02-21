@@ -926,7 +926,9 @@ local function recoverLostAnimation()
     end
     isBumpingPed = false
 
-    if GetIsTaskActive(pPed, 131) or GetIsTaskActive(pPed, 134) or GetIsTaskActive(pPed, 135) then
+    -- Check for Scripted Animation tasks.
+    -- See https://docs.fivem.net/natives/?_0xB0760331C7AA4155 for a list of tasks. Check types.lua for the enum.
+    if GetIsTaskActive(pPed, TaskType.MELEE_UPPERBODY_ANIMS) or GetIsTaskActive(pPed, TaskType.SCRIPTED_ANIMATIONS) or GetIsTaskActive(pPed, TaskType.SYNCHRONIZED_SCENE) then
         DebugPrint("Won't recover! Animation already playing!")
         return
     end
