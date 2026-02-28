@@ -499,7 +499,7 @@ end
 
 function EmoteCommandStart(args)
     if #args <= 0 then return end
-    if IsEntityDead(PlayerPedId()) or IsPedRagdoll(PlayerPedId()) or IsPedGettingUp(PlayerPedId()) or IsPedInMeleeCombat(PlayerPedId()) then
+    if IsPedBusy(PlayerPedId()) then
         TriggerEvent('chat:addMessage', {
             color = { 255, 0, 0 },
             multiline = true,
@@ -915,7 +915,7 @@ local function recoverLostAnimation()
     pedBumpTimeout = 500
     -- We wait a bit to avoid collision with the ped resetting the animation again
     DebugPrint("Trying to recover...")
-    while pedBumpTimeout > 0 do
+    while pedBumpTimeout > 0 or IsPedBusy(pPed) do
         Wait(100)
         pedBumpTimeout = pedBumpTimeout - 100
     end

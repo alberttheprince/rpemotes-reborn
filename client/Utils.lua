@@ -95,6 +95,10 @@ function IsPlayerAiming(player)
     tonumber(GetSelectedPedWeapon(player)) ~= tonumber(GetHashKey("WEAPON_UNARMED"))
 end
 
+function IsPedBusy(playerPed)
+    return IsEntityDead(playerPed) or IsPedRagdoll(playerPed) or IsPedGettingUp(playerPed) or IsPedInMeleeCombat(playerPed)
+end
+
 function CanPlayerCrouchCrawl(ped)
     return IsPedOnFoot(ped)
         and not IsPedJumping(ped)
