@@ -51,6 +51,13 @@ PlacementState = {
     IN_ANIMATION = 'In Animation'
 }
 
+---@enum TaskType
+TaskType = {
+    MELEE_UPPERBODY_ANIMS = 131,
+    SCRIPTED_ANIMATIONS = 134,
+    SYNCHRONIZED_SCENE = 135
+}
+
 -- Mapping of EmoteTypes to the 5 ACE categories
 AceCategoryFromEmoteType = {
     [EmoteType.EMOTES] = EmoteType.EMOTES,

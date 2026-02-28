@@ -110,6 +110,9 @@ Config = {
 
     -- Old Props Spawning
     UseOldPropSpawning = false, -- Uses networked objects spawned client-side, for props. Only use this when you have issues spawning props.
+
+    -- Recover Emotes after Ragdoll
+    RecoverEmotesAfterRagdoll = true -- If true, the resource will attempt to recover emotes after being bumped / ragdolled. Doesn't work for all.
 }
 
 -- Custom Categories: Define custom categories to organize emotes in the menu
