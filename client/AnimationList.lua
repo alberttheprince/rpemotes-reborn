@@ -9339,7 +9339,7 @@ RP.Emotes = {
         "peeing_loop",
         "Pee (Male)",
         AnimationOptions = {
-            onFootflag = AnimFlag.STUCK,
+            onFootFlag = AnimFlag.STUCK,
             PtfxAsset = "scr_amb_chop",
             PtfxName = "ent_anim_dog_peeing",
             PtfxNoProp = true,
@@ -11863,7 +11863,6 @@ RP.PropEmotes = {
              -101.1702,
               28.0243
             },
-            onFootflag = AnimFlag.STUCK,
             onFootFlag = AnimFlag.MOVING,
         }
     },
@@ -11882,7 +11881,6 @@ RP.PropEmotes = {
               -30.9638,
                19.3946
             },
-            onFootflag = AnimFlag.STUCK,
             onFootFlag = AnimFlag.MOVING,
         }
     },
@@ -21995,8 +21993,7 @@ RP.PropEmotes = {
               -88.0171,
                63.0612
             },
-            onFootflag = AnimFlag.STUCK,
-            onFootFlag = AnimFlag.MOVING
+            onFootFlag = AnimFlag.MOVING,
         }
     },
     ["idcardb"] = {
@@ -22014,8 +22011,7 @@ RP.PropEmotes = {
              -180.00,
                78.999
             },
-            onFootflag = AnimFlag.STUCK,
-            onFootFlag = AnimFlag.MOVING
+            onFootFlag = AnimFlag.MOVING,
         }
     },
     ["idcardc"] = {
@@ -22033,8 +22029,7 @@ RP.PropEmotes = {
               -88.0171,
                63.0612
             },
-            onFootflag = AnimFlag.STUCK,
-            onFootFlag = AnimFlag.MOVING
+            onFootFlag = AnimFlag.MOVING,
         }
     },
     ["idcardd"] = {
@@ -22052,8 +22047,7 @@ RP.PropEmotes = {
               -88.0171,
                63.0612
             },
-            onFootflag = AnimFlag.STUCK,
-            onFootFlag = AnimFlag.MOVING
+            onFootFlag = AnimFlag.MOVING,
         }
     },
     ["idcarde"] = {
@@ -22071,8 +22065,7 @@ RP.PropEmotes = {
               -88.0171,
                63.0612
             },
-            onFootflag = AnimFlag.STUCK,
-            onFootFlag = AnimFlag.MOVING
+            onFootFlag = AnimFlag.MOVING,
         }
     },
     ["idcardf"] = {
@@ -22090,8 +22083,7 @@ RP.PropEmotes = {
               -88.0171,
                63.0612
             },
-            onFootflag = AnimFlag.STUCK,
-            onFootFlag = AnimFlag.MOVING
+            onFootFlag = AnimFlag.MOVING,
         }
     },
     ["idcardg"] = {
@@ -22109,8 +22101,7 @@ RP.PropEmotes = {
               -88.0171,
                63.0612
             },
-            onFootflag = AnimFlag.STUCK,
-            onFootFlag = AnimFlag.MOVING
+            onFootFlag = AnimFlag.MOVING,
         }
     },
     ["idcardh"] = {
@@ -22128,7 +22119,6 @@ RP.PropEmotes = {
              -176.6694,
                74.9000
             },
-            onFootflag = AnimFlag.STUCK,
             onFootFlag = AnimFlag.MOVING,
         }
     },
@@ -22147,8 +22137,7 @@ RP.PropEmotes = {
               -177.8499,
                 23.6377
             },
-            onFootflag = AnimFlag.STUCK,
-            onFootFlag = AnimFlag.MOVING
+            onFootFlag = AnimFlag.MOVING,
         }
     },
     ["phone"] = {
