@@ -9,6 +9,8 @@ LastEmote = {
     emoteType = nil,
 }
 local lastEmoteTime = 0
+local isBumpingPed = false
+local pedBumpTimeout = 500
 
 ---@type ScenarioType
 local ChosenScenarioType
@@ -166,7 +168,7 @@ local function checkStatusThread(dict, anim)
             Wait(5)
         end
         while CheckStatus and IsInAnimation do
-            if not IsEntityPlayingAnim(PlayerPedId(), dict, anim, 3) then
+            if not IsEntityPlayingAnim(PlayerPedId(), dict, anim, 3) and not isBumpingPed then
                 DebugPrint("Animation ended")
                 DestroyAllProps()
                 EmoteCancel()
@@ -497,7 +499,7 @@ end
 
 function EmoteCommandStart(args)
     if #args <= 0 then return end
-    if IsEntityDead(PlayerPedId()) or IsPedRagdoll(PlayerPedId()) or IsPedGettingUp(PlayerPedId()) or IsPedInMeleeCombat(PlayerPedId()) then
+    if IsPedBusy(PlayerPedId()) then
         TriggerEvent('chat:addMessage', {
             color = { 255, 0, 0 },
             multiline = true,
@@ -901,33 +903,55 @@ AddEventHandler('CEventOpenDoor', function(unk1)
     OnEmotePlay(CurrentAnimationName, CurrentTextureVariation)
 end)
 
-local isBumpingPed = false
-local timeout = 500
 
-AddEventHandler("CEventPlayerCollisionWithPed", function(unk1)
-    if unk1[1] ~= PlayerPedId() then return end
-    if not IsInAnimation then return end
-
+local function recoverLostAnimation()
+    if not Config.RecoverEmotesAfterRagdoll then return end
+    local pPed = PlayerPedId()
     if isBumpingPed then
         timeout = 500
         return
     end
     isBumpingPed = true
-    timeout = 500
+    pedBumpTimeout = 500
     -- We wait a bit to avoid collision with the ped resetting the animation again
-
-    while timeout > 0 do
+    DebugPrint("Trying to recover...")
+    while pedBumpTimeout > 0 or IsPedBusy(pPed) do
         Wait(100)
-        timeout = timeout - 100
+        pedBumpTimeout = pedBumpTimeout - 100
     end
 
-    if not IsInAnimation then return end
-
+    if not IsInAnimation then
+        DebugPrint("Can't recover! Not in an animation!")
+        return
+    end
     isBumpingPed = false
-    ClearPedTasks(PlayerPedId())
+
+    -- Check for Scripted Animation tasks.
+    -- See https://docs.fivem.net/natives/?_0xB0760331C7AA4155 for a list of tasks. Check types.lua for the enum.
+    if GetIsTaskActive(pPed, TaskType.MELEE_UPPERBODY_ANIMS) or GetIsTaskActive(pPed, TaskType.SCRIPTED_ANIMATIONS) or GetIsTaskActive(pPed, TaskType.SYNCHRONIZED_SCENE) then
+        DebugPrint("Won't recover! Animation already playing!")
+        return
+    end
+    DebugPrint("Recovering anim!")
+    ClearPedTasks(pPed)
     Wait(125)
     DestroyAllProps()
     OnEmotePlay(CurrentAnimationName, CurrentTextureVariation)
+end
+
+AddEventHandler("CEventPlayerCollisionWithPed", function(unk1)
+    if unk1[1] ~= PlayerPedId() then return end
+    if not IsInAnimation then return end
+
+    recoverLostAnimation()
+end)
+
+AddEventHandler("gameEventTriggered", function(eventName, eventData)
+    if eventName ~= "CEventNetworkEntityDamage" then return end
+    if eventData[1] ~= PlayerPedId() then return end
+    if not IsInAnimation then return end
+
+    recoverLostAnimation()
 end)
 
 AddEventHandler('onResourceStop', function(resource)

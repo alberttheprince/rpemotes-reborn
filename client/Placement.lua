@@ -20,7 +20,7 @@ local function checkForCollidingEntities(ped)
     local ray = StartExpensiveSynchronousShapeTestLosProbe(
         pedPosition.x, pedPosition.y, pedPosition.z,
         pedPosition.x, pedPosition.y, pedPosition.z - 2,
-        2 + 4 + 8, -- Vehicles, Peds, & Ragdolls
+        2, -- Check for vehicles only.
         ped, 7
     )
 
