@@ -907,6 +907,7 @@ end)
 local function recoverLostAnimation()
     if not Config.RecoverEmotesAfterRagdoll then return end
     local pPed = PlayerPedId()
+    if IsEntityDead(pPed) then return end
     if isBumpingPed then
         timeout = 500
         return
