@@ -1,0 +1,213 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+:root {
+    --color-bg-main: #2e2e2e;
+    --colog-bg-sidebar: #111111;
+    --color-text-main: #efefef;
+    --color-text-secondary: #8a8a8a;
+
+    --color-btn-bg: #3e3e3e;
+    --color-btn-border: #1d1d1d;
+    --color-btn-hover: #4f4f4f;
+    --color-btn-active: rgb(21, 137, 216);
+
+    --font-size-main: 1.6rem;
+}
+
+
+img,
+.noselect {
+	user-select: none;
+}
+
+/* FiveM's CEF doesn't support standard CSS scrollbar styling :D */
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.grid {
+    display: grid;
+    width: 100%;
+}
+
+.singlecolumn {
+    grid-template-columns: 1fr;
+    row-gap: 0.5rem;
+    column-gap: 0.5rem;
+}
+
+.doublecolumn {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 0.5rem;
+    column-gap: 0.5rem;
+}
+
+.triplecolumn {
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 0.5rem;
+    column-gap: 0.5rem;
+}
+
+/* This makes 1rem = 10px (more-or-less). We will also use this to scale lower resolutions. */
+html {
+	font-size: 62.5%; 
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 3rem;
+    height: 100vh;
+
+    font-size: var(--font-size-main);
+}
+
+.main-container {
+    display: flex;
+    width: 42rem;
+    flex-direction: column;
+    background-color: var(--color-bg-main);
+    color: var(--color-text-main);
+    height: 60vh;
+    overflow: auto;
+    border-radius: 1rem;
+}
+
+.header-container {
+    display: flex; /* Removes some weird margin-bottom in block display */
+}
+
+.header-image {
+    width: 100%;
+    height: auto;
+}
+
+.search-container {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+}
+
+.search-input {
+    flex-grow: 1;
+    height: 3.2rem;
+    background-color: var(--color-btn-bg);
+    color: var(--color-text-main);
+    border: none;
+    border-radius: 1rem;
+    padding: 0 1rem;
+}
+
+.btn-clear-search {
+    width: 3.2rem;
+    height: 3.2rem;
+    border: none !important;
+    border-radius: 100% !important;
+}
+
+.menu-container {
+    position: relative;
+    display: flex;
+    overflow-x: hidden;
+    flex-grow: 1;
+    gap: 1rem;
+}
+
+.side-navigation {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: auto;
+    height: 100%;
+    max-width: 5.2rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none;
+    background-color: var(--colog-bg-sidebar);
+    transition: all 200ms;
+    flex-wrap: nowrap;
+}
+
+.side-navigation:hover {
+    max-width: 80%;
+    flex-grow: 1;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--color-btn-bg);
+    color: var(--color-text-main);
+    border: none;
+    border-radius: 25%;
+    transition: all 200ms;
+}
+
+.btn:hover {
+    background-color: var(--color-btn-hover);
+}
+
+.sidebar-button-container {
+    overflow: hidden;
+    width: 100%;
+    text-wrap: nowrap;
+}
+
+.sidebar-button-active button {
+    background-color: var(--color-btn-active);
+}
+.sidebar-button-active span {
+    color: var(--color-btn-active);
+}
+
+.btn-sidebar {
+    width: 4.2rem;
+    height: 4.2rem;
+    margin: 0.5rem 0.5rem;
+}
+
+.btn-sidebar-label {
+    display: none;
+    text-wrap: nowrap;
+    margin-right: 3rem;
+}
+
+.side-navigation:hover .btn-sidebar-label {
+    display: inline;
+    text-wrap: nowrap;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-left: 5.4rem;
+    padding: 1rem;
+    flex-grow: 1;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.footer-container {
+    padding: 0.2rem 1rem;
+    text-align: center;
+    border-top: 1px solid var(--colog-bg-sidebar);
+    color: var(--color-text-secondary);
+}
+
+
+/* ------------------- */
+
+.btn-emote {
+    height: 3.6rem;
+    border-radius: 1rem;
+}
