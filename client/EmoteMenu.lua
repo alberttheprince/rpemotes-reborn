@@ -495,6 +495,7 @@ local function addFavoritesMenu(parent)
         local item = NativeUI.CreateItem(label, "")
         menu.menu:AddItem(item)
         menu.items[#menu.items+1] = {name = emoteData.name, label = emoteData.label, emoteType = emoteData.emoteType}
+        AddEmoteToNUIQueue({id = emoteData.name, emoteType = emoteData.emoteType, label = emoteData.label, isFavorite = true})
     end
 
     menu.menu.OnItemSelect = function(_, __, index)
@@ -570,6 +571,7 @@ local function addEmoteMenu(menu)
                         local label = prefix .. data.label
                         addEmoteToMenu(categoryMenu.menu, categoryMenu.items, emoteName, label, string.format("/e (%s)", emoteName), data.emoteType)
                     end
+                    AddEmoteToNUIQueue({id = emoteName, emoteType = emoteType, label = data.label})
                     ::continue::
                 end
             end
@@ -593,6 +595,7 @@ local function addEmoteMenu(menu)
     for _, emoteName in ipairs(emotesList) do
         local data = EmoteData[emoteName]
         addEmoteToMenu(emoteMenu.menu, emoteMenu.items, emoteName, data.label, string.format("/e (%s)", emoteName), data.emoteType)
+        AddEmoteToNUIQueue({id = emoteName, emoteType = "Emotes", label = data.label})
     end
 end
 
@@ -767,6 +770,7 @@ local function addResetableDataMenu(input)
         item:Enabled(hasPermission)
         menu.menu:AddItem(item)
         menu.items[#menu.items+1] = {name = itemName, emoteType = input.emoteType}
+        AddEmoteToNUIQueue({id = itemName, emoteType = input.emoteType, label = label})
     end
 
     menu.menu.OnItemSelect = function(_, item, index)
@@ -849,6 +853,7 @@ local function addEmojiMenu(parent)
         local item = NativeUI.CreateItem(label, "")
         menu.menu:AddItem(item)
         menu.items[#menu.items+1] = {name = emojiData.key, label = label, emoteType = EmoteType.EMOJI, key = index}
+        AddEmoteToNUIQueue({id = emojiData.key, emoteType = EmoteType.EMOJI, label = label})
     end
 
     menu.menu.OnItemSelect = function(_, __, index)
@@ -930,15 +935,19 @@ function OpenEmoteMenu()
         RebuildKeybindEmoteMenu()
     end
 
-    if _menuPool:IsAnyMenuOpen() then
-        _menuPool:CloseAllMenus()
+    if Config.UseNUIMenu then
+        ToggleNUIMenu()
     else
-        -- Clean up any existing preview before opening
-        if hasClonedPed() then
-            ClosePedMenu()
+        if _menuPool:IsAnyMenuOpen() then
+            _menuPool:CloseAllMenus()
+        else
+            -- Clean up any existing preview before opening
+            if hasClonedPed() then
+                ClosePedMenu()
+            end
+            mainMenu:Visible(true)
+            processMenu()
         end
-        mainMenu:Visible(true)
-        processMenu()
     end
 end
 
@@ -1079,7 +1088,7 @@ local function convertRP()
 
     -- Expand custom categories after EmoteData is populated
     categoryToEmotes = expandCustomCategories()
-
+    TriggerEvent("rpemotes:internal:loadEmoteDataToNUI", EmoteData, categoryToEmotes)
     RP = nil
     CONVERTED = true
 end
@@ -1116,6 +1125,7 @@ function InitMenu()
     mainMenu.OnMenuClosed = function()
         ClosePedMenu()
     end
+    TriggerEvent("rpemotes:internal:sendMenuDataToNUI")
     _menuPool:RefreshIndex()
 end
 
@@ -1138,7 +1148,6 @@ function RebuildEmoteMenu()
 
     -- Rebuild the menu
     InitMenu()
-
     DebugPrint("Menu rebuilt for model compatibility")
 end
 

@@ -6,17 +6,22 @@
 
 
 :root {
-    --color-bg-main: #2e2e2e;
-    --colog-bg-sidebar: #111111;
-    --color-text-main: #efefef;
+    --color-bg-primary: #2e2e2e;
+    --color-bg-sidebar: #111111;
+    --color-text-primary: #efefef;
     --color-text-secondary: #8a8a8a;
 
     --color-btn-bg: #3e3e3e;
     --color-btn-border: #1d1d1d;
     --color-btn-hover: #4f4f4f;
-    --color-btn-active: rgb(21, 137, 216);
+    --color-accent-primary: rgb(21, 137, 216);
+    --color-accent-primary-hover: rgb(59, 173, 248);
+    --color-accent-secondary: rgb(216, 76, 21);
+    --color-accent-secondary-hover: rgb(255, 130, 81);
+    --color-btn-accent-favorite: gold;
+    --color-btn-accent-favorite-hover: rgb(255, 233, 108);
 
-    --font-size-main: 1.6rem;
+    --font-size-primary: 1.6rem;
 }
 
 
@@ -30,9 +35,13 @@ img,
   display: none;
 }
 
-.grid {
-    display: grid;
+.menu {
+    display: none;
     width: 100%;
+}
+
+.grid {
+    display: grid !important;
 }
 
 .singlecolumn {
@@ -55,7 +64,7 @@ img,
 
 /* This makes 1rem = 10px (more-or-less). We will also use this to scale lower resolutions. */
 html {
-	font-size: 62.5%; 
+	font-size: 62.5%;
 }
 
 body {
@@ -66,15 +75,20 @@ body {
     padding: 0 3rem;
     height: 100vh;
 
-    font-size: var(--font-size-main);
+    font-size: var(--font-size-primary);
+}
+
+hr {
+    border-color: var(--color-btn-bg);
+    margin: 0.4rem 0;
 }
 
 .main-container {
     display: flex;
     width: 42rem;
     flex-direction: column;
-    background-color: var(--color-bg-main);
-    color: var(--color-text-main);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
     height: 60vh;
     overflow: auto;
     border-radius: 1rem;
@@ -99,7 +113,7 @@ body {
     flex-grow: 1;
     height: 3.2rem;
     background-color: var(--color-btn-bg);
-    color: var(--color-text-main);
+    color: var(--color-text-primary);
     border: none;
     border-radius: 1rem;
     padding: 0 1rem;
@@ -131,12 +145,12 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     scrollbar-width: none;
-    background-color: var(--colog-bg-sidebar);
+    background-color: var(--color-bg-sidebar);
     transition: all 200ms;
     flex-wrap: nowrap;
 }
 
-.side-navigation:hover {
+.side-navigation:hover, .side-navigation:has(button:focus-visible) {
     max-width: 80%;
     flex-grow: 1;
 }
@@ -144,7 +158,7 @@ body {
 .btn {
     display: inline-block;
     background-color: var(--color-btn-bg);
-    color: var(--color-text-main);
+    color: var(--color-text-primary);
     border: none;
     border-radius: 25%;
     transition: all 200ms;
@@ -154,17 +168,26 @@ body {
     background-color: var(--color-btn-hover);
 }
 
+/* I had to fight with this POS to work correctly in FiveM CEF. */
 .sidebar-button-container {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
     overflow: hidden;
     width: 100%;
+    min-width: 20rem; /* mandatory... */
     text-wrap: nowrap;
+    flex-wrap: nowrap;
 }
 
 .sidebar-button-active button {
-    background-color: var(--color-btn-active);
+    background-color: var(--color-accent-primary);
+}
+.sidebar-button-active button:hover {
+    background-color: var(--color-accent-primary-hover);
 }
 .sidebar-button-active span {
-    color: var(--color-btn-active);
+    color: var(--color-accent-primary);
 }
 
 .btn-sidebar {
@@ -179,7 +202,7 @@ body {
     margin-right: 3rem;
 }
 
-.side-navigation:hover .btn-sidebar-label {
+.side-navigation:hover .btn-sidebar-label, .side-navigation:has(button:focus-visible) .btn-sidebar-label {
     display: inline;
     text-wrap: nowrap;
 }
@@ -200,14 +223,64 @@ body {
 .footer-container {
     padding: 0.2rem 1rem;
     text-align: center;
-    border-top: 1px solid var(--colog-bg-sidebar);
-    color: var(--color-text-secondary);
+    border-top: 1px solid var(--color-bg-sidebar);
+    color: var(--color-text-primary);
 }
 
 
 /* ------------------- */
 
-.btn-emote {
+.btn-emote, .btn-emoji {
     height: 3.6rem;
     border-radius: 1rem;
+}
+
+.btn-emote-favorite {
+    background: linear-gradient(to left, var(--color-btn-accent-favorite) -100%, var(--color-btn-bg));
+}
+
+.btn-emote-favorite:hover {
+    background: linear-gradient(to left, var(--color-btn-accent-favorite-hover) -100%, var(--color-btn-hover));
+}
+
+/* Context Popover */
+
+.popover {
+    position: fixed;
+    background-color: var(--color-btn-bg);
+    border: 1px solid var(--color-btn-border);
+    border-radius: 0.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    padding: 0.5rem 0;
+    z-index: 10000;
+    min-width: 15rem;
+    animation: popoverFadeIn 150ms ease-out;
+}
+
+@keyframes popoverFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.popover-menu-item {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: none;
+    border: none;
+    color: var(--color-text-primary);
+    text-align: left;
+    cursor: pointer;
+    transition: all 200ms;
+}
+
+.popover-menu-item:hover {
+    background-color: var(--color-btn-hover);
+    color: var(--color-text-primary);
 }

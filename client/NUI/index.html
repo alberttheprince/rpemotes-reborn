@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="css/dynamic.css">
     <link rel="stylesheet" href="css/overrides.css">
 
+    <script type="module" src="js/utils.js" defer></script>
     <script type="module" src="js/classes.js" defer></script>
-    <script type="module" src="js/data.js" defer></script>
+    <script type="module" src="js/navigation.js" defer></script>
     <script type="module" src="js/main.js" defer></script>
 </head>
-<body>
+<body style="display: none;">
     <div class="main-container noselect">
         <header class="header-container">
             <img src="/header.png" alt="RP Emotes" class="header-image">
@@ -22,78 +23,86 @@
                 <ul>
                     <li class="sidebar-button-container">
                         <button class="btn btn-sidebar btn-cancel-emote" data-action="cancelEmote">🚷</button>
-                        <span class="btn-sidebar-label">Cancel Emote</span>
+                        <span class="btn-sidebar-label" data-locale="cancelemote">Cancel Emote</span>
                     </li>
                     <hr />
-                    <li class="sidebar-button-container">
+                    <li class="sidebar-button-container sidebar-button-active">
                         <button class="btn btn-sidebar" data-action="openMenu" data-menu="emotes-menu">🎬</button>
-                        <span class="btn-sidebar-label">Emotes</span>
+                        <span class="btn-sidebar-label" data-locale="emotes">Emotes</span>
                     </li>
                     <li class="sidebar-button-container">
                         <button class="btn btn-sidebar" data-action="openMenu" data-menu="sharedemotes-menu">👫</button>
-                        <span class="btn-sidebar-label">Shared Emotes</span>
+                        <span class="btn-sidebar-label" data-locale="shareemotes">Shared Emotes</span>
                     </li>
-                    <li class="sidebar-button-container sidebar-button-active">
-                        <button class="btn btn-sidebar btn-active" data-action="openMenu" data-menu="propemotes-menu">📦</button>
-                        <span class="btn-sidebar-label">Prop Emotes</span>
+                    <li class="sidebar-button-container">
+                        <button class="btn btn-sidebar" data-action="openMenu" data-menu="propemotes-menu">📦</button>
+                        <span class="btn-sidebar-label" data-locale="propemotes">Prop Emotes</span>
                     </li>
                     <li class="sidebar-button-container">
                         <button class="btn btn-sidebar" data-action="openMenu" data-menu="danceemotes-menu">🕺</button>
-                        <span class="btn-sidebar-label">Dance Emotes</span>
+                        <span class="btn-sidebar-label" data-locale="danceemotes">Dance Emotes</span>
                     </li>
                     <li class="sidebar-button-container">
                         <button class="btn btn-sidebar" data-action="openMenu" data-menu="keybinds-menu">🔢</button>
-                        <span class="btn-sidebar-label">Keybinds</span>
+                        <span class="btn-sidebar-label" data-locale="keybinds">Keybinds</span>
                     </li>
                     <li class="sidebar-button-container">
                         <button class="btn btn-sidebar" data-action="openMenu" data-menu="favorites-menu">🌟</button>
-                        <span class="btn-sidebar-label">Favorites</span>
+                        <span class="btn-sidebar-label" data-locale="favorites">Favorites</span>
                     </li>
                     <li class="sidebar-button-container">
                         <button class="btn btn-sidebar" data-action="openMenu" data-menu="walkstyles-menu">🚶🏻‍♂️</button>
-                        <span class="btn-sidebar-label">Walk Styles</span>
+                        <span class="btn-sidebar-label" data-locale="walkstyles">Walk Styles</span>
                     </li>
                     <li class="sidebar-button-container">
                         <button class="btn btn-sidebar" data-action="openMenu" data-menu="moods-menu">🎭</button>
-                        <span class="btn-sidebar-label">Moods</span>
+                        <span class="btn-sidebar-label" data-locale="moods">Moods</span>
                     </li>
                     <li class="sidebar-button-container">
                         <button class="btn btn-sidebar" data-action="openMenu" data-menu="emojis-menu">😀</button>
-                        <span class="btn-sidebar-label">Emojis</span>
+                        <span class="btn-sidebar-label" data-locale="emojis">Emojis</span>
                     </li>
                 </ul>
             </nav>
             <section class="content-container invisible-scrollbar">
                 <form class="search-container">
-                    <input type="text" class="search-input" id="emote_search" autocomplete="rpemotes" placeholder="Search [EMOTE_MENU_NAME]...">
+                    <input type="text" class="search-input" id="emote_search" autocomplete="rpemotes" placeholder="Search..." data-locale="searchemotes">
                     <input type="reset" value="x" class="btn btn-clear-search"></input>
                 </form>
-                <article class="emotes-menu grid singlecolumn">
+                <article class="menu emotes-menu grid doublecolumn">
                     <button class="btn btn-emote" data-emoteid="emote1">Emote 1</button>
-                    <button class="btn btn-emote" data-emoteid="emote1">Emote 2</button>
-                    <button class="btn btn-emote" data-emoteid="emote1">Emote 3</button>
-                    <button class="btn btn-emote" data-emoteid="emote1">Emote 4</button>
                 </article>
-                <article class="emotes-menu grid doublecolumn">
+                <article class="menu animalemotes-menu doublecolumn">
                     <button class="btn btn-emote" data-emoteid="emote1">Emote 1</button>
-                    <button class="btn btn-emote" data-emoteid="emote1">Emote 2</button>
-                    <button class="btn btn-emote" data-emoteid="emote1">Emote 3</button>
-                    <button class="btn btn-emote" data-emoteid="emote1">Emote 4</button>
-                    <button class="btn btn-emote" data-emoteid="emote1">Emote 5</button>
-                    <button class="btn btn-emote" data-emoteid="emote1">Emote 6</button>
                 </article>
-                <article class="emotes-menu grid triplecolumn">
+                <article class="menu sharedemotes-menu doublecolumn">
                     <button class="btn btn-emote" data-emoteid="emote1">Emote 1</button>
-                    <button class="btn btn-emote" data-emoteid="emote1">Emote 2</button>
-                    <button class="btn btn-emote" data-emoteid="emote1">Emote 3</button>
-                    <button class="btn btn-emote" data-emoteid="emote1">Emote 4</button>
-                    <button class="btn btn-emote" data-emoteid="emote1">Emote 5</button>
-                    <button class="btn btn-emote" data-emoteid="emote1">Emote 6</button>
+                </article>
+                <article class="menu propemotes-menu doublecolumn">
+                    <button class="btn btn-emote" data-emoteid="emote1">Emote 1</button>
+                </article>
+                <article class="menu danceemotes-menu doublecolumn">
+                    <button class="btn btn-emote" data-emoteid="emote1">Emote 1</button>
+                </article>
+                <article class="menu keybinds-menu singlecolumn">
+                    Keybinds
+                </article>
+                <article class="menu favorites-menu doublecolumn">
+                    <button class="btn btn-emote btn-emote-favorite" data-emoteid="emote1">Emote 1</button>
+                </article>
+                <article class="menu walkstyles-menu doublecolumn">
+                    <button class="btn btn-emote" data-emoteid="emote1">Emote 1</button>
+                </article>
+                <article class="menu moods-menu doublecolumn">
+                    <button class="btn btn-emote" data-emoteid="emote1">Emote 1</button>
+                </article>
+                <article class="menu emojis-menu triplecolumn">
+                    <button class="btn btn-emoji" data-emoji="emote1">😀</button>
                 </article>
             </section>
         </main>
         <footer class="footer-container">
-            <span><small>Some footer text here.</small></span>
+            <span class="footer-text">&nbsp;</span>
         </footer>
     </div>
 </body>
