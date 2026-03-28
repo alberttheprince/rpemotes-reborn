@@ -144,6 +144,7 @@ local models = {
     [`daschundprp`] = CompatGroup.SMALL_DOG,
     [`yorkie`] = CompatGroup.SMALL_DOG,
     [`chihuahuaprpnew`] = CompatGroup.SMALL_DOG,
+    [`chihuahuaprp2`] = CompatGroup.SMALL_DOG,
     [`chowchowpuppyprp`] = CompatGroup.SMALL_DOG,
     [`dobermanpupprp`] = CompatGroup.SMALL_DOG,
     [`engbullpuppyprp`] = CompatGroup.SMALL_DOG,
