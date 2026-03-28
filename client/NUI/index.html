@@ -18,14 +18,13 @@
         <header class="header-container">
             <img src="/header.png" alt="RP Emotes" class="header-image">
         </header>
-        <main class="menu-container">
+        <main class="menu-container" tabindex="-1">
             <nav class="side-navigation invisible-scrollbar">
                 <ul>
                     <li class="sidebar-button-container">
                         <button class="btn btn-sidebar btn-cancel-emote" data-action="cancelEmote">🚷</button>
                         <span class="btn-sidebar-label" data-locale="cancelemote">Cancel Emote</span>
                     </li>
-                    <hr />
                     <li class="sidebar-button-container sidebar-button-active">
                         <button class="btn btn-sidebar" data-action="openMenu" data-menu="emotes-menu">🎬</button>
                         <span class="btn-sidebar-label" data-locale="emotes">Emotes</span>
@@ -93,7 +92,7 @@
                 <article class="menu walkstyles-menu doublecolumn">
                     <button class="btn btn-emote" data-emoteid="emote1">Emote 1</button>
                 </article>
-                <article class="menu moods-menu doublecolumn">
+                <article class="menu moods-menu singlecolumn">
                     <button class="btn btn-emote" data-emoteid="emote1">Emote 1</button>
                 </article>
                 <article class="menu emojis-menu triplecolumn">

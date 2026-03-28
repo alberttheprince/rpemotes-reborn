@@ -287,6 +287,51 @@ local function hidePreview()
     end
 end
 
+function CreatePreviewPed(emoteName, emoteType)
+    DebugPrint(emoteName, emoteType)
+    local emote = EmoteData[emoteName] or SharedEmoteData[emoteName]
+    if emoteType == EmoteType.EXPRESSIONS or (emote and isEmoteTypePreviewable(emote.emoteType)) then
+        DebugPrint("Emote is previewable")
+        -- Determine if we need zoom (for expressions/moods, we want a closer view)
+        local needsZoom = (emoteType == EmoteType.EXPRESSIONS)
+
+        -- Check if we're already showing this exact emote - if so, do nothing
+        if LastEmote.name == emoteName and hasClonedPed() then
+            return
+        end
+
+        -- If zoom state changed, we need to recreate the ped
+        if hasClonedPed() and currentZoomState ~= needsZoom then
+            ClosePedMenu()
+        end
+
+        -- Clear previous preview (ClearPedTaskPreview uses LastEmote to know what to clear)
+        if hasClonedPed() then
+            ClearPedTaskPreview()
+        end
+
+        -- Update LastEmote to new preview
+        LastEmote = {
+            name = emoteName,
+            emoteType = emoteType,
+        }
+
+        -- Show this emote
+        if hasClonedPed() then
+            -- Ped exists, just switch animation
+            EmoteMenuStartClone(emoteName, emoteType)
+        else
+            -- Ped doesn't exist, create it with appropriate zoom
+            currentZoomState = needsZoom
+            ShowPedMenu(needsZoom)
+            WaitForClonedPedThenPlayLastAnim()
+        end
+    else
+        hidePreview()
+    end
+    return true
+end
+
 --- Unified handler that updates CurrentMenuSelection, instruction buttons, and ped preview
 --- Called whenever menu selection changes (scroll, menu open, menu close)
 ---@param currentMenu table The menu to check for preview
@@ -347,45 +392,7 @@ local function onMenuItemHover(currentMenu)
     local emote = EmoteData[emoteName] or SharedEmoteData[emoteName]
 
     -- Check if the selected item is a previewable emote
-   -- Check if the selected item is a previewable emote
-    if emoteType == EmoteType.EXPRESSIONS or (emote and isEmoteTypePreviewable(emote.emoteType)) then
-        -- Determine if we need zoom (for expressions/moods, we want a closer view)
-        local needsZoom = (emoteType == EmoteType.EXPRESSIONS)
-
-        -- Check if we're already showing this exact emote - if so, do nothing
-        if LastEmote.name == emoteName and hasClonedPed() then
-            return
-        end
-
-        -- If zoom state changed, we need to recreate the ped
-        if hasClonedPed() and currentZoomState ~= needsZoom then
-            ClosePedMenu()
-        end
-
-        -- Clear previous preview (ClearPedTaskPreview uses LastEmote to know what to clear)
-        if hasClonedPed() then
-            ClearPedTaskPreview()
-        end
-
-        -- Update LastEmote to new preview
-        LastEmote = {
-            name = emoteName,
-            emoteType = emoteType,
-        }
-
-        -- Show this emote
-        if hasClonedPed() then
-            -- Ped exists, just switch animation
-            EmoteMenuStartClone(emoteName, emoteType)
-        else
-            -- Ped doesn't exist, create it with appropriate zoom
-            currentZoomState = needsZoom
-            ShowPedMenu(needsZoom)
-            WaitForClonedPedThenPlayLastAnim()
-        end
-    else
-        hidePreview()
-    end
+    CreatePreviewPed(emoteName, emoteType)
 end
 
 ---@param parent SubMenu|table

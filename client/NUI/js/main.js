@@ -1,11 +1,12 @@
 "use strict";
-import { ClearHTMLContainer, HandleSidebarButtonPress, ExecuteNUICallback } from './utils.js';
+import { ClearHTMLContainer, HandleSidebarButtonPress, ExecuteNUICallback, PlaySoundFrontend, HandleEmoteSearch } from './utils.js';
 import { Locale, Popover } from './classes.js'
 
 
 const SIDE_NAVIGATION = document.querySelector(".side-navigation");
 const CONTENT_CONTAINER = document.querySelector(".content-container");
 const SEARCH_CONTAINER = document.querySelector(".search-container");
+const SEARCH_BAR = SEARCH_CONTAINER.querySelector(".search-input");
 const MENUS = CONTENT_CONTAINER.querySelectorAll(".menu");
 const FOOTER_TEXT = document.querySelector(".footer-text");
 
@@ -54,6 +55,8 @@ SIDE_NAVIGATION.addEventListener("click", (e) => {
     }
 })
 
+let sendPreviewRequest = true
+
 MENUS.forEach((element) => {
     element.addEventListener("mouseover", (e) => {
         const TARGET = e.target;
@@ -61,17 +64,19 @@ MENUS.forEach((element) => {
             FOOTER_TEXT.innerHTML = "&nbsp;"
             return;
         }
-            
-        FOOTER_TEXT.textContent = `/${TARGET.closest(".walkstyles-menu") ? "walk" : "e"} ${TARGET.dataset.emoteid}`
     })
 
     element.addEventListener("focusin", (e) => {
         const TARGET = e.target;
+        PlaySoundFrontend("NAV_UP_DOWN")
         if (!TARGET.dataset.emoteid) {
             FOOTER_TEXT.innerHTML = "&nbsp;"
+            ExecuteNUICallback("PREVIEW_EMOTE", {})
             return;
         }
-            
+
+        if (sendPreviewRequest) ExecuteNUICallback("PREVIEW_EMOTE", {emoteName: TARGET.dataset.emoteid, emoteType: TARGET.dataset.emotetype}).finally(() => sendPreviewRequest = true)
+        
         FOOTER_TEXT.textContent = `/${TARGET.closest(".walkstyles-menu") ? "walk" : "e"} ${TARGET.dataset.emoteid}`
     })
 
@@ -79,19 +84,26 @@ MENUS.forEach((element) => {
         e.preventDefault();
         const TARGET = e.target;
         if (!TARGET.dataset.emoteid || !TARGET.dataset.emotetype) return;
-
+        PlaySoundFrontend("SELECT");
         ExecuteNUICallback("ROUTE_EMOTE", {emoteName: TARGET.dataset.emoteid, emoteType: TARGET.dataset.emotetype})
     })
 })
 
 SEARCH_CONTAINER.addEventListener("submit", (e) => {
     e.preventDefault();
+    HandleEmoteSearch();
+})
+
+SEARCH_BAR.addEventListener("input", (e) => {
+    if (SEARCH_BAR.value.length > 2) HandleEmoteSearch();
+    else HandleEmoteSearch("");
 })
 
 
 window.addEventListener('message', (event) => {
     if (event.data.type === 'OPEN_MENU') {
         (event.data.value ? document.body.style.display = "flex" : document.body.style.display = "none")
+        document.querySelector(".btn-sidebar").focus();
     }
 
     if (event.data.type === 'LOAD_EMOTE_DATA') {

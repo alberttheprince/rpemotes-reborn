@@ -43,7 +43,7 @@ end)
 
 RegisterNUICallback('CLOSE_MENU', function(data, cb)
     ToggleNUIMenu()
-    print("Close menu")
+    PlaySoundFrontend(-1, "QUIT", "HUD_FRONTEND_DEFAULT_SOUNDSET", true)
     cb({["ok"] = true})
 end)
 
@@ -64,7 +64,25 @@ RegisterNUICallback('CANCEL_EMOTE', function(data, cb)
 end)
 
 RegisterNUICallback('ROUTE_EMOTE', function(data, cb)
-    RouteEmoteToFunction(data.emoteName, data.emoteType, 0)
+    RouteEmoteToFunction(data.emoteName, data.emoteType, 1)
+
+    cb({["ok"] = true})
+end)
+
+RegisterNUICallback('PREVIEW_EMOTE', function(data, cb)
+    local returnValue = true
+    if data.emoteName and data.emoteType then
+        returnValue = CreatePreviewPed(data.emoteName, data.emoteType)
+    else
+        CreatePreviewPed("", "")
+    end
+
+    cb({["ok"] = true, ["done"] = returnValue})
+end)
+
+
+RegisterNUICallback('PLAY_SOUND_FRONTEND', function(data, cb)
+    PlaySoundFrontend(-1, data.soundName, "HUD_FRONTEND_DEFAULT_SOUNDSET", true)
 
     cb({["ok"] = true})
 end)
@@ -136,7 +154,7 @@ AddEventHandler("rpemotes:internal:handleNUIOpened", function()
             DisableControlAction(0,24,true)
             DisableControlAction(0,25,true)
         else
-            -- SetCursorLocation(0.5,0.5)
+            SetCursorLocation(0.5,0.5)
             -- Even if you don't give the cursor to NUI, the menu still picks it up because it's focused...
             -- Keep this out for now, since it controls the OS cursor too :),
             -- meaning that you can hijack a player's cursor, even if the game is not focused :)
@@ -146,5 +164,6 @@ AddEventHandler("rpemotes:internal:handleNUIOpened", function()
         end
         Citizen.Wait(1) -- LOL
     end
+    CreatePreviewPed("", "")
     SendNUIMessage({type = "OPEN_MENU", value = false})
 end)

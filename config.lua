@@ -102,7 +102,7 @@ Config = {
 
     -- Developer Tools
     CheckForUpdates = true,
-    DebugDisplay = false,
+    DebugDisplay = true,
 
     -- Emote Placement
     PlacementEnabled = true,
