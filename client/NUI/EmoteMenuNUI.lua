@@ -64,8 +64,32 @@ RegisterNUICallback('CANCEL_EMOTE', function(data, cb)
 end)
 
 RegisterNUICallback('ROUTE_EMOTE', function(data, cb)
-    RouteEmoteToFunction(data.emoteName, data.emoteType, 1)
+    if data.type == "emote" then
+        RouteEmoteToFunction(data.emoteName, data.emoteType, 1)
+    elseif data.type == "groupemote" then
+        ToggleNUIMenu()
+        OnGroupEmoteRequest(data.emoteName)
+    elseif data.type == "placement" then
+        if Config.PlacementEnabled then
+            ToggleNUIMenu()
+            StartNewPlacement(data.emoteName)
+        end
+    end
 
+    cb({["ok"] = true})
+end)
+
+RegisterNUICallback("FAVORITE_EMOTE", function(data, cb)
+    if data.emoteName and data.emoteType and data.emoteLabel then
+        local emoteData = {
+            id = data.emoteType.."_"..data.emoteName,
+            name = data.emoteName,
+            emoteType = data.emoteType,
+            label = data.emoteLabel or data.emoteName,
+            textureVariation = 1
+        }
+        ToggleFavoriteEmote(emoteData.id, emoteData)
+    end
     cb({["ok"] = true})
 end)
 
@@ -96,7 +120,7 @@ end)
 AddEventHandler("rpemotes:internal:loadEmoteDataToNUI", function(EmoteData, CategoryToEmotes)
     while not nuiReady do Citizen.Wait(10) end
 
-    SendNUIMessage({type = "LOAD_EMOTE_DATA", emoteData = EmoteData, categoryToEmotes = CategoryToEmotes})
+    SendNUIMessage({type = "LOAD_EMOTE_DATA", emoteData = EmoteData, categoryToEmotes = CategoryToEmotes, emoteTypeIcons = EmoteTypeEmoji})
 end)
 
 function AddEmoteToNUIQueue(data)
@@ -154,7 +178,7 @@ AddEventHandler("rpemotes:internal:handleNUIOpened", function()
             DisableControlAction(0,24,true)
             DisableControlAction(0,25,true)
         else
-            SetCursorLocation(0.5,0.5)
+            -- SetCursorLocation(0.5,0.5)
             -- Even if you don't give the cursor to NUI, the menu still picks it up because it's focused...
             -- Keep this out for now, since it controls the OS cursor too :),
             -- meaning that you can hijack a player's cursor, even if the game is not focused :)

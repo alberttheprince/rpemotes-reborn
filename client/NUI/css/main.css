@@ -4,6 +4,7 @@
 	box-sizing: border-box;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
 
 :root {
     --color-bg-primary: #2e2e2e;
@@ -65,6 +66,13 @@ img,
 /* This makes 1rem = 10px (more-or-less). We will also use this to scale lower resolutions. */
 html {
 	font-size: 62.5%;
+    font-family: 'Noto Color Emoji', 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+}
+
+.noto-color-emoji-regular {
+  font-family: "Noto Color Emoji", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 body {

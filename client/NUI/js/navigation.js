@@ -25,6 +25,7 @@ document.addEventListener("keyup", (e) => {
         case "Backspace":
             if (!FOCUS_ELEMENT) return ExecuteNUICallback("CLOSE_MENU", {});
             if (FOCUS_ELEMENT === document.querySelector(".search-input") && document.querySelector(".search-input")?.value !== "") return;
+            if (FOCUS_ELEMENT.closest(".popover")) return;
 
             PlaySoundFrontend("BACK");
             if (FOCUS_ELEMENT.closest(".grid")) return document.querySelector(".btn-clear-search").focus();
@@ -67,13 +68,29 @@ function isElementVisible(element) {
 function focusOnNextButton(currentButton, jumpAhead = false) {
     if (currentButton && currentButton.closest(".grid")) {
         const gridContainer = currentButton.closest(".grid");
-        const buttons = Array.from(gridContainer.querySelectorAll(".btn-emote"));
+        const buttons = Array.from(gridContainer.querySelectorAll(".btn-emote") || gridContainer.querySelectorAll(".btn-emoji"));
         const currentIndex = buttons.indexOf(currentButton);
         const step = jumpAhead ? 10 : 1;
         let nextIndex = (currentIndex + step) % buttons.length;
         let attempts = 0;
         
         // Skip hidden elements
+        while (!isElementVisible(buttons[nextIndex]) && attempts < buttons.length) {
+            nextIndex = (nextIndex + 1) % buttons.length;
+            attempts++;
+        }
+        
+        if (attempts < buttons.length) {
+            buttons[nextIndex]?.focus();
+        }
+    } else if (currentButton && currentButton.closest(".popover")) {
+        const gridContainer = currentButton.closest(".popover");
+        const buttons = Array.from(gridContainer.querySelectorAll(".popover-menu-item"));
+        const currentIndex = buttons.indexOf(currentButton);
+        const step = 1;
+        let nextIndex = (currentIndex + step) % buttons.length;
+        let attempts = 0;
+        
         while (!isElementVisible(buttons[nextIndex]) && attempts < buttons.length) {
             nextIndex = (nextIndex + 1) % buttons.length;
             attempts++;
@@ -103,10 +120,28 @@ function focusOnNextButton(currentButton, jumpAhead = false) {
 function focusOnPreviousButton(currentButton, jumpAhead = false) {
     if (currentButton && currentButton.closest(".grid")) {
         const gridContainer = currentButton.closest(".grid");
-        const buttons = Array.from(gridContainer.querySelectorAll(".btn-emote"));
+        const buttons = Array.from(gridContainer.querySelectorAll(".btn-emote") || gridContainer.querySelectorAll(".btn-emoji"));
         const currentIndex = buttons.indexOf(currentButton);
         if (currentIndex === 0) return SEARCH_BAR.focus();
         const step = jumpAhead ? 10 : 1;
+        let nextIndex = ((currentIndex - step) % buttons.length + buttons.length) % buttons.length;
+        let attempts = 0;
+        
+        // Skip hidden elements
+        while (!isElementVisible(buttons[nextIndex]) && attempts < buttons.length) {
+            nextIndex = ((nextIndex - 1) % buttons.length + buttons.length) % buttons.length;
+            attempts++;
+        }
+        
+        if (attempts < buttons.length) {
+            buttons[nextIndex]?.focus();
+        }
+    } else if (currentButton && currentButton.closest(".popover")) {
+        const gridContainer = currentButton.closest(".popover");
+        const buttons = Array.from(gridContainer.querySelectorAll(".popover-menu-item"));
+        const currentIndex = buttons.indexOf(currentButton);
+        if (currentIndex === 0) return SEARCH_BAR.focus();
+        const step = 1;
         let nextIndex = ((currentIndex - step) % buttons.length + buttons.length) % buttons.length;
         let attempts = 0;
         

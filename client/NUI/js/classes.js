@@ -3,9 +3,8 @@
 import { HandleLocales } from "./utils.js";
 
 export class Popover {
-    constructor(triggerSelector, popoverHTML) {
+    constructor(triggerSelector) {
         this.triggerSelector = triggerSelector;
-        this.popoverHTML = popoverHTML;
         this.currentPopover = null;
         this.currentButton = null;
         this.init();
@@ -13,29 +12,53 @@ export class Popover {
 
     init() {
         document.addEventListener('contextmenu', (e) => {
-            if (e.target.closest(this.triggerSelector)) {
+            console.log(e);
+            let event = JSON.parse(JSON.stringify(e));
+            event.target = document.activeElement;
+            const rect = event.target.getBoundingClientRect();
+            event.clientX = rect.left + rect.width/2;
+            event.clientY = rect.top + rect.height/2;
+            if (event.target.closest(this.triggerSelector)) {
                 e.preventDefault();
-                this.currentButton = e.target.closest(this.triggerSelector);
-                this.show(e);
+                console.log("run")
+                this.currentButton = event.target.closest(this.triggerSelector);
+                this.show(event);
             }
         });
 
         // Close popover on click outside
-        document.addEventListener('click', () => this.hide());
+        document.addEventListener('click', (e) => {if (!e.shiftKey) this.hide()});
         
-        // Close popover on Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') this.hide();
+        document.addEventListener('keyup', (e) => {
+            if (e.key === 'Escape' || e.key === "Backspace") {
+                if (document.querySelector(".popover")) {
+                    this.currentButton?.focus();
+                    this.hide();
+                }
+            }
         });
     }
 
     show(event) {
         this.hide(); // Close any existing popover
 
+        const data = {
+            emoteId: this.currentButton.dataset.emoteid,
+            emoteType: this.currentButton.dataset.emoteType,
+            isFavorite: this.currentButton.classList.contains("btn-emote-favorite")
+        }
+
         const popover = document.createElement('div');
         popover.className = 'popover';
-        popover.innerHTML = this.popoverHTML;
         document.body.appendChild(popover);
+
+        if (data.emoteId) {
+            popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item" data-action="groupemote">${Locale.translate("btn_groupselect")}</button>`)
+            popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item" data-action="placement">${Locale.translate("btn_place")}</button>`)
+            popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item" data-action="keybind">${Locale.translate("btn_setkeybind")}</button>`)
+            popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item" data-action="favorite">${data.isFavorite ? Locale.translate("btn_remove_favorite") : Locale.translate("btn_set_favorite")}</button>`)
+        }
+        popover.firstElementChild?.focus();
 
         // Position popover
         popover.style.left = (event.clientX) + 'px';
@@ -63,7 +86,7 @@ export class Popover {
                     detail: {
                         action: action,
                         button: this.currentButton,
-                        emoteId: this.currentButton.dataset.emoteid,
+                        data: data,
                         event: e
                     }
                 });
