@@ -1,6 +1,6 @@
 "use strict";
 
-import { HandleLocales } from "./utils.js";
+import { HandleLocales, querySelectorVisible } from "./utils.js";
 
 export class Popover {
     constructor(triggerSelector) {
@@ -12,7 +12,6 @@ export class Popover {
 
     init() {
         document.addEventListener('contextmenu', (e) => {
-            console.log(e);
             let event = JSON.parse(JSON.stringify(e));
             event.target = document.activeElement;
             const rect = event.target.getBoundingClientRect();
@@ -20,7 +19,6 @@ export class Popover {
             event.clientY = rect.top + rect.height/2;
             if (event.target.closest(this.triggerSelector)) {
                 e.preventDefault();
-                console.log("run")
                 this.currentButton = event.target.closest(this.triggerSelector);
                 this.show(event);
             }
@@ -32,7 +30,6 @@ export class Popover {
         document.addEventListener('keyup', (e) => {
             if (e.key === 'Escape' || e.key === "Backspace") {
                 if (document.querySelector(".popover")) {
-                    this.currentButton?.focus();
                     this.hide();
                 }
             }
@@ -44,7 +41,7 @@ export class Popover {
 
         const data = {
             emoteId: this.currentButton.dataset.emoteid,
-            emoteType: this.currentButton.dataset.emoteType,
+            emoteType: this.currentButton.dataset.emotetype,
             isFavorite: this.currentButton.classList.contains("btn-emote-favorite")
         }
 
@@ -53,10 +50,26 @@ export class Popover {
         document.body.appendChild(popover);
 
         if (data.emoteId) {
-            popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item" data-action="groupemote">${Locale.translate("btn_groupselect")}</button>`)
-            popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item" data-action="placement">${Locale.translate("btn_place")}</button>`)
-            popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item" data-action="keybind">${Locale.translate("btn_setkeybind")}</button>`)
-            popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item" data-action="favorite">${data.isFavorite ? Locale.translate("btn_remove_favorite") : Locale.translate("btn_set_favorite")}</button>`)
+            if (!this.currentButton.classList.contains("btn-keybind")) {
+                if (data.emoteType && data.emoteType !== "Emojis" && data.emoteType !== "Expressions" && data.emoteType !== "Walks" && data.emoteType !== "Shared") {
+                    popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item" data-action="groupemote">${Locale.translate("btn_groupselect")}</button>`)
+                    popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item" data-action="placement">${Locale.translate("btn_place")}</button>`)
+                }
+                popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item" data-action="favorite">${data.isFavorite ? Locale.translate("btn_remove_favorite") : Locale.translate("btn_set_favorite")}</button>`)
+
+                //TODO: This needs to be a list.
+                popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item keybind-popover" data-action="set-keybind" data-slotid="1">${Locale.translate("btn_setkeybind")} (1)</button>`)
+                popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item keybind-popover" data-action="set-keybind" data-slotid="2">${Locale.translate("btn_setkeybind")} (2)</button>`)
+                popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item keybind-popover" data-action="set-keybind" data-slotid="3">${Locale.translate("btn_setkeybind")} (3)</button>`)
+                popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item keybind-popover" data-action="set-keybind" data-slotid="4">${Locale.translate("btn_setkeybind")} (4)</button>`)
+                popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item keybind-popover" data-action="set-keybind" data-slotid="5">${Locale.translate("btn_setkeybind")} (5)</button>`)
+                popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item keybind-popover" data-action="set-keybind" data-slotid="6">${Locale.translate("btn_setkeybind")} (6)</button>`)
+            } else {
+                popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item" data-action="clear-keybind">${Locale.translate("btn_delkeybind")}</button>`)
+            }
+        } else {
+            this.hide()
+            return;
         }
         popover.firstElementChild?.focus();
 
@@ -86,6 +99,7 @@ export class Popover {
                     detail: {
                         action: action,
                         button: this.currentButton,
+                        popoverButton: e.target.closest('.popover-menu-item'),
                         data: data,
                         event: e
                     }
@@ -100,6 +114,11 @@ export class Popover {
         if (this.currentPopover) {
             this.currentPopover.remove();
             this.currentPopover = null;
+            if (this.currentButton) {
+                this.currentButton.focus();
+            } else {
+                querySelectorVisible(document.querySelector(".grid"))
+            }
         }
     }
 }

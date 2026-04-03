@@ -12,9 +12,9 @@
     --color-text-primary: #efefef;
     --color-text-secondary: #8a8a8a;
 
-    --color-btn-bg: #3e3e3e;
-    --color-btn-border: #1d1d1d;
-    --color-btn-hover: #4f4f4f;
+    --color-btn-bg: rgb(62, 62, 62);
+    --color-btn-border: rgb(29, 29, 29);
+    --color-btn-hover: rgb(79, 79, 79);
     --color-accent-primary: rgb(21, 137, 216);
     --color-accent-primary-hover: rgb(59, 173, 248);
     --color-accent-secondary: rgb(216, 76, 21);
@@ -43,6 +43,10 @@ img,
 
 .grid {
     display: grid !important;
+}
+
+.hidden {
+    display: none !important;
 }
 
 .singlecolumn {
@@ -172,7 +176,7 @@ hr {
     transition: all 200ms;
 }
 
-.btn:hover {
+.btn:hover, .btn:focus-visible {
     background-color: var(--color-btn-hover);
 }
 
@@ -191,7 +195,7 @@ hr {
 .sidebar-button-active button {
     background-color: var(--color-accent-primary);
 }
-.sidebar-button-active button:hover {
+.sidebar-button-active button:hover, .sidebar-button-active button:focus-visible {
     background-color: var(--color-accent-primary-hover);
 }
 .sidebar-button-active span {
@@ -247,9 +251,48 @@ hr {
     background: linear-gradient(to left, var(--color-btn-accent-favorite) -100%, var(--color-btn-bg));
 }
 
-.btn-emote-favorite:hover {
+.btn-emote-favorite:hover, .btn-emote-favorite:focus-visible {
     background: linear-gradient(to left, var(--color-btn-accent-favorite-hover) -100%, var(--color-btn-hover));
 }
+
+
+/* KEYBINDS */
+
+.keybind-1-bind {}
+
+.keybinds-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.keybinds-list-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    border: 1px solid var(--color-btn-bg);
+    border-radius: 1.5rem;
+}
+
+.keybinds-item-buttons {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.btn-keybind {
+    flex-grow: 1;
+}
+
+.keybind-bind-text {
+    color: var(--color-accent-primary);
+    font-weight: 600;
+}
+
+
 
 /* Context Popover */
 
@@ -288,7 +331,7 @@ hr {
     transition: all 200ms;
 }
 
-.popover-menu-item:hover {
+.popover-menu-item:hover, .popover-menu-item:focus-visible {
     background-color: var(--color-btn-hover);
     color: var(--color-text-primary);
 }

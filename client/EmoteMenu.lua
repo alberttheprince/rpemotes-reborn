@@ -446,18 +446,24 @@ local function addKeybindMenu(parent)
         createSubMenu(parent, "keybinds", Translate("keybinds"))
     end
     local menu = subMenus["keybinds"]
+    local bindsForNUI = {}
 
     for id = 1, #Config.KeybindKeys do
-        local emoteData = GetResourceKvpString(string.format('%s_bind_%s', Config.keybindKVP, id))
+        local bindKVP = string.format('%s_bind_%s', Config.keybindKVP, id)
+        local emoteData = GetResourceKvpString(bindKVP)
         if emoteData and emoteData ~= "" then
             emoteData = json.decode(emoteData)
         end
-        local label = string.format("Slot %i: ~b~%s~s~ %s", id, (emoteData and EmoteTypeEmoji[emoteData.emoteType]) or "", (emoteData and emoteData.label) or "Empty Slot")
-        local description = string.format("This slot is bound to [ ~b~%s~s~ ]. You can change this in the in-game settings.", GetKeyForCommand("emoteSelect"..id))
+        local keyLabel = GetKeyForCommand("emoteSelect"..id)
+        local label = string.format("Slot %i: ~b~%s~s~ %s", id, (emoteData and EmoteTypeEmoji[emoteData.emoteType]) or "", (emoteData and emoteData.label) or Translate("empty_slot"))
+        local description = string.format("This slot is bound to [ ~b~%s~s~ ]. You can change this in the in-game settings.", keyLabel)
         local item = NativeUI.CreateItem(label, description)
+        bindsForNUI[bindKVP] = {id = id, emoteType = (emoteData and emoteData.emoteType) or "", emoteName = (emoteData and emoteData.emoteName) or "", emoteLabel = (emoteData and emoteData.label) or "", keyLabel = keyLabel, bindKVP = bindKVP}
         menu.menu:AddItem(item)
         menu.items[#menu.items+1] = {name = "slot_"..id}
     end
+
+    TriggerEvent("rpemotes:internal:sendKeybindsDataToNUI", bindsForNUI)
 
     menu.menu.OnItemSelect = function(_, item, index)
         if dataForKeybind.emoteName then

@@ -12,7 +12,8 @@ export function ClearHTMLContainer(elementClass) {
 
 export function HandleSidebarButtonPress(el) {
     if (!el || !el.dataset.action) return;
-    const CONTENT_CONTAINER = document.querySelector(".content-container")
+    const CONTENT_CONTAINER = document.querySelector(".content-container");
+    const SEARCH_CONTAINER = document.querySelector(".search-container")
     switch (el.dataset.action) {
         case "openMenu":
             const PREVIOUS_ACTIVE_BUTTON_CONTAINER = document.querySelector(".sidebar-button-active");
@@ -29,6 +30,15 @@ export function HandleSidebarButtonPress(el) {
             if (BUTTON_CONTAINER) BUTTON_CONTAINER.classList.add("sidebar-button-active");
             const OPENED_MENU = CONTENT_CONTAINER.querySelector(`.${el.dataset.menu}`)
             OPENED_MENU?.classList.add("grid");
+            PlaySoundFrontend("SELECT")
+
+            SEARCH_CONTAINER.classList.remove("hidden");
+            SEARCH_CONTAINER.querySelector(".search-input").value = "";
+            HandleEmoteSearch(""); // hack to clear search. Sorry.
+            if (OPENED_MENU?.classList.contains("keybinds-menu")) {
+                SEARCH_CONTAINER.classList.add("hidden");
+            }
+
             querySelectorVisible(OPENED_MENU)?.focus();
             // This is why people use frontend frameworks, I guess. -- CritteR
             break;
@@ -70,7 +80,7 @@ export function querySelectorVisible(parent, query = ".btn") {
 export async function HandleLocales() {
     const req = await ExecuteNUICallback("GET_LOCALES", {})
     if (!req) {
-        console.log(req)
+        console.log("Bad locales callback: ", req)
         return {}
     };
     const LOCALES = await req.json()
@@ -81,7 +91,8 @@ export async function HandleLocales() {
             if (el.hasAttribute("placeholder")) {
                 el.setAttribute("placeholder", LOCALES.data[el.dataset.locale])
             } else {
-                el.textContent = LOCALES.data[el.dataset.locale]
+                el.innerHTML = LOCALES.data[el.dataset.locale]
+                //innerHTML for the sole purpose of allowing locales to contain <br> and stuff. Pretty much only for keybinds_description
             }
         }
     })
@@ -104,6 +115,6 @@ let playSoundAllowed = true;
 export function PlaySoundFrontend(soundName) {
     if (!playSoundAllowed) return;
     playSoundAllowed = false;
-    ExecuteNUICallback("PLAY_SOUND_FRONTEND", {soundName: "SELECT"});
+    ExecuteNUICallback("PLAY_SOUND_FRONTEND", {soundName: soundName});
     setTimeout(() => {playSoundAllowed = true}, 100)
 }

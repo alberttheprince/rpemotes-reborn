@@ -1,6 +1,6 @@
 "use strict";
 
-import { ExecuteNUICallback, PlaySoundFrontend } from "./utils.js";
+import { ExecuteNUICallback, PlaySoundFrontend, querySelectorVisible } from "./utils.js";
 
 const SEARCH_BAR = document.querySelector(".search-input");
 
@@ -28,8 +28,9 @@ document.addEventListener("keyup", (e) => {
             if (FOCUS_ELEMENT.closest(".popover")) return;
 
             PlaySoundFrontend("BACK");
+            if (FOCUS_ELEMENT.closest(".keybinds-menu")) return document.querySelector(".sidebar-button-active").querySelector(".btn")?.focus();
             if (FOCUS_ELEMENT.closest(".grid")) return document.querySelector(".btn-clear-search").focus();
-            if (FOCUS_ELEMENT.closest(".content-container")) return document.querySelector(".btn-sidebar").focus();
+            if (FOCUS_ELEMENT.closest(".content-container")) return document.querySelector(".sidebar-button-active").querySelector(".btn")?.focus();
             return ExecuteNUICallback("CLOSE_MENU", {});
             break;
         case "ArrowDown":
@@ -82,6 +83,7 @@ function focusOnNextButton(currentButton, jumpAhead = false) {
         
         if (attempts < buttons.length) {
             buttons[nextIndex]?.focus();
+            buttons[nextIndex]?.scrollIntoView({block: "center"})
         }
     } else if (currentButton && currentButton.closest(".popover")) {
         const gridContainer = currentButton.closest(".popover");
@@ -112,7 +114,7 @@ function focusOnNextButton(currentButton, jumpAhead = false) {
         const elements = Array.from(gridContainer.querySelectorAll("input"));
         const currentIndex = elements.indexOf(currentButton);
         const nextIndex = currentIndex + 1;
-        elements[nextIndex] ? elements[nextIndex]?.focus() : document.querySelector(".grid")?.querySelector(".btn-emote")?.focus();
+        elements[nextIndex] ? elements[nextIndex]?.focus() : querySelectorVisible(document.querySelector(".grid"))?.focus();
     }
     PlaySoundFrontend("NAV_UP_DOWN");
 }
@@ -135,12 +137,12 @@ function focusOnPreviousButton(currentButton, jumpAhead = false) {
         
         if (attempts < buttons.length) {
             buttons[nextIndex]?.focus();
+            buttons[nextIndex]?.scrollIntoView({block: "center"})
         }
     } else if (currentButton && currentButton.closest(".popover")) {
         const gridContainer = currentButton.closest(".popover");
         const buttons = Array.from(gridContainer.querySelectorAll(".popover-menu-item"));
         const currentIndex = buttons.indexOf(currentButton);
-        if (currentIndex === 0) return SEARCH_BAR.focus();
         const step = 1;
         let nextIndex = ((currentIndex - step) % buttons.length + buttons.length) % buttons.length;
         let attempts = 0;

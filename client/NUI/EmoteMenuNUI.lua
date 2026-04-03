@@ -1,9 +1,11 @@
 local nuiReady = false
 
 
-
+-- The NUI logic is designed to run *on top* of the existing NativeUI logic, since that menu already does all the data handling that we need.
 -- As the NativeUI menu is being built, this data will be built as well. When we send this to NUI, we will clear it from Lua to get some bytes back.
--- NativeUI kinda wants to rebuild the menu a lot, so let's be careful here.
+-- In my opinion, this is a better way to maintain both menu styles, as any new logic that will be added to the emotes data, will reflect in both menus. -CritteR
+
+
 local dataForMenu = {
     type = "BUILD_EMOTE_MENUS",
     ["emotes"] = {},
@@ -13,8 +15,7 @@ local dataForMenu = {
     ["walkstyles"] = {},
     ["moods"] = {},
     ["emojis"] = {},
-    ["favorites"] = {},
-    ["keybinds"] = {}
+    ["favorites"] = {}
 }
 
 local NUIEmoteType = {
@@ -28,13 +29,6 @@ local NUIEmoteType = {
     ["PropEmotes"] = "propemotes",
     ["Emojis"] = "emojis"
 }
-
-
-RegisterCommand("__nui", function()
-    print(not IsNuiFocused())
-    SetNuiFocus(not IsNuiFocused(), not IsNuiFocused())
-    SetNuiFocusKeepInput(true)
-end)
 
 RegisterNUICallback('NUI_READY', function(data, cb)
     nuiReady = true
@@ -67,12 +61,12 @@ RegisterNUICallback('ROUTE_EMOTE', function(data, cb)
     if data.type == "emote" then
         RouteEmoteToFunction(data.emoteName, data.emoteType, 1)
     elseif data.type == "groupemote" then
-        ToggleNUIMenu()
+        ToggleNUIMenu() -- Important to close first. Group emote request blocks the thread until you actually start the request.
         OnGroupEmoteRequest(data.emoteName)
     elseif data.type == "placement" then
         if Config.PlacementEnabled then
-            ToggleNUIMenu()
             StartNewPlacement(data.emoteName)
+            ToggleNUIMenu() -- Important to close *after* the placement request. Closing it before the request will block the preview ped on the screen.
         end
     end
 
@@ -89,9 +83,34 @@ RegisterNUICallback("FAVORITE_EMOTE", function(data, cb)
             textureVariation = 1
         }
         ToggleFavoriteEmote(emoteData.id, emoteData)
+        local favData = GetFavoriteEmotes()
+        local favMap = GetFavoriteEmotesMap()
+        local favorites = {}
+        for index, emoteId in pairs(favMap) do
+            favorites[index] = favData[emoteId]
+        end
+        cb({["favorites"] = favorites})
+        return
     end
     cb({["ok"] = true})
 end)
+
+RegisterNUICallback('KEYBIND_EMOTE', function(data, cb)
+    if data.type == "set" then
+        if data.emoteName and data.emoteType and data.emoteLabel and data.id then
+            EmoteBindStart({data.id, data.emoteName, data.emoteLabel, data.emoteType})
+            RebuildEmoteMenu()
+        end
+    elseif data.type == "clear" then
+        if data.id then
+            DeleteEmoteBind({data.id})
+            RebuildEmoteMenu()
+        end
+    end
+
+    cb({["ok"] = true})
+end)
+
 
 RegisterNUICallback('PREVIEW_EMOTE', function(data, cb)
     local returnValue = true
@@ -112,7 +131,6 @@ RegisterNUICallback('PLAY_SOUND_FRONTEND', function(data, cb)
 end)
 
 RegisterNUICallback('GET_LOCALES', function(data, cb)
-    print(Locales[Config.MenuLanguage])
     cb({["ok"] = true, ["data"] = Locales[Config.MenuLanguage]})
 end)
 
@@ -147,9 +165,17 @@ AddEventHandler("rpemotes:internal:sendMenuDataToNUI", function()
         ["walkStyles"] = {},
         ["moods"] = {},
         ["emojis"] = {},
-        ["favorites"] = {},
-        ["keybinds"] = {}
+        ["favorites"] = {}
     }
+end)
+
+AddEventHandler("rpemotes:internal:sendKeybindsDataToNUI", function(binds)
+    while not nuiReady do Citizen.Wait(10) end
+
+    SendNUIMessage({
+        type = "BUILD_KEYBINDS_MENU",
+        ["keybinds"] = binds
+    })
 end)
 
 function ToggleNUIMenu() 
@@ -178,9 +204,9 @@ AddEventHandler("rpemotes:internal:handleNUIOpened", function()
             DisableControlAction(0,24,true)
             DisableControlAction(0,25,true)
         else
-            -- SetCursorLocation(0.5,0.5)
+            -- SetCursorLocation(0.5,0.5) -- Used to block the cursor while the player is not using it.
             -- Even if you don't give the cursor to NUI, the menu still picks it up because it's focused...
-            -- Keep this out for now, since it controls the OS cursor too :),
+            -- This means that it controls the OS cursor too :),
             -- meaning that you can hijack a player's cursor, even if the game is not focused :)
         end
         if IsControlJustReleased(0,19) then

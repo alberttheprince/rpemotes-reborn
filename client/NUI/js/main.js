@@ -1,5 +1,5 @@
 "use strict";
-import { ClearHTMLContainer, HandleSidebarButtonPress, ExecuteNUICallback, PlaySoundFrontend, HandleEmoteSearch } from './utils.js';
+import { ClearHTMLContainer, HandleSidebarButtonPress, ExecuteNUICallback, PlaySoundFrontend, HandleEmoteSearch, querySelectorVisible } from './utils.js';
 import { Locale, Popover } from './classes.js'
 
 
@@ -14,11 +14,11 @@ let EMOTE_TYPE_ICONS = {}
 
 window.addEventListener("load", async (e) => {
     ExecuteNUICallback("NUI_READY", {}).finally(() => {})
-    const LOCALES = new Locale(); // We just need to init this after the everything is loaded.
+    const LOCALES = new Locale(); // We just need to init this after the everything is loaded. The class statics will handle everything.
 })
 
 document.addEventListener('popoverAction', (e) => {
-    const { action, button, emoteId, event } = e.detail;
+    const { action, button, popoverButton, emoteId, event } = e.detail;
     switch (action) {
         case 'groupemote':
             ExecuteNUICallback("ROUTE_EMOTE", {type: "groupemote", emoteName: button.dataset.emoteid, emoteType: button.dataset.emotetype})
@@ -26,10 +26,30 @@ document.addEventListener('popoverAction', (e) => {
         case 'placement':
             ExecuteNUICallback("ROUTE_EMOTE", {type: "placement", emoteName: button.dataset.emoteid, emoteType: button.dataset.emotetype})
             break;
-        case 'keybind':
+        case 'set-keybind':
+            ExecuteNUICallback("KEYBIND_EMOTE", {type: "set", id: (popoverButton && popoverButton.dataset.slotid) || 1, emoteName: button.dataset.emoteid, emoteType: button.dataset.emotetype, emoteLabel: button.dataset.label})
+            if (!document.activeElement || document.activeElement.nodeName !== "BUTTON") querySelectorVisible(document.querySelector(".grid"))?.focus();
+            break;
+        case 'clear-keybind':
+            ExecuteNUICallback("KEYBIND_EMOTE", {type: "clear", id: button.dataset.slotid, emoteName: button.dataset.emoteid, emoteType: button.dataset.emotetype})
             break;
         case 'favorite':
-            ExecuteNUICallback("FAVORITE_EMOTE", {emoteName: button.dataset.emoteid, emoteType: button.dataset.emotetype, emoteLabel: button.dataset.label})
+            ExecuteNUICallback("FAVORITE_EMOTE", {emoteName: button.dataset.emoteid, emoteType: button.dataset.emotetype, emoteLabel: button.dataset.label}).then( async (res) => {
+                const result = await res.json();
+                if (!result.favorites) return;
+                const ELEMENTS = Array.from(document.querySelectorAll(`.btn-emote-favorite`));
+                const MENU = document.querySelector(".favorites-menu")
+                ClearHTMLContainer(".favorites-menu");
+                ELEMENTS.forEach((el) => el?.classList.remove("btn-emote-favorite"));
+                result.favorites?.forEach((emote) => {
+                    const ELEMENTS = Array.from(document.querySelectorAll(`[data-emoteid="${emote.name}"]`));
+                    ELEMENTS.forEach((el) => el?.classList.add("btn-emote-favorite"));
+                    MENU.insertAdjacentHTML("beforeend", `
+                            <button class="btn btn-emote btn-emote-favorite" data-emoteid="${emote.name}" data-emoteType="${emote.emoteType}" data-label="${emote.label}">${emote.emoteType !== 'Emojis' ? EMOTE_TYPE_ICONS[emote.emoteType]+" " : ""}${emote.label}</button>
+                            `)
+                })
+                if (!document.activeElement || document.activeElement.nodeName !== "BUTTON") querySelectorVisible(document.querySelector(".grid"))?.focus();
+            })
             break;
     }
 });
@@ -70,12 +90,15 @@ MENUS.forEach((element) => {
         PlaySoundFrontend("NAV_UP_DOWN")
         if (!TARGET.dataset.emoteid || TARGET.dataset.emotetype === "Emojis" || TARGET.dataset.emotetype === "Expressions" || TARGET.dataset.emotetype === "Walks") {
             FOOTER_TEXT.innerHTML = "&nbsp;"
-            ExecuteNUICallback("PREVIEW_EMOTE", {})
+            // TODO: better than this.
+            let _previewData = {}
+            if (TARGET.dataset.emotetype === "Expressions") _previewData = {emoteName: TARGET.dataset.emoteid, emoteType: TARGET.dataset.emotetype}
+            ExecuteNUICallback("PREVIEW_EMOTE", _previewData)
             return;
         }
 
         if (sendPreviewRequest) ExecuteNUICallback("PREVIEW_EMOTE", {emoteName: TARGET.dataset.emoteid, emoteType: TARGET.dataset.emotetype}).finally(() => sendPreviewRequest = true)
-        
+
         FOOTER_TEXT.textContent = `/${TARGET.closest(".walkstyles-menu") ? "walk" : "e"} ${TARGET.dataset.emoteid}`
     })
 
@@ -85,7 +108,8 @@ MENUS.forEach((element) => {
         if (!TARGET.dataset.emoteid || !TARGET.dataset.emotetype) return;
         PlaySoundFrontend("SELECT");
         if (e.shiftKey) {
-            console.log("Hi")
+            // Hack to trick the browser into thinking we right-clicked, when in fact we Shift+Entered.
+            // We do this to avoid actually writing good code for the popover. R*, please update CEF.
             document.dispatchEvent(new CustomEvent('contextmenu', { detail: {}}));
             return;
         }
@@ -137,6 +161,32 @@ window.addEventListener('message', (event) => {
             const ELEMENTS = Array.from(document.querySelectorAll(`[data-emoteid="${emote.id}"]`));
             ELEMENTS.forEach((el) => el?.classList.add("btn-emote-favorite"));
         })
+    }
+
+    if (event.data.type === "BUILD_KEYBINDS_MENU") {
+        // This runs every time the player opens the emote menu.
+        // We need it to run like this because we don't know when the player will change their keybinds in the settings.
+        const kbinds = event.data.keybinds
+        const KEYBINDS_LIST_CONTAINER = document.querySelector(".keybinds-list");
+
+        const BIND_ITEMS = Array.from(document.querySelectorAll(".keybinds-list-item"));
+        BIND_ITEMS?.forEach((el) => el.remove());
+
+        Object.keys(kbinds).sort().forEach((key) => {
+            const data = kbinds[key]
+            KEYBINDS_LIST_CONTAINER?.insertAdjacentHTML("beforeend",
+                `
+                <li class="keybinds-list-item">
+                    <span class="keybind-item-text">Slot ${data.id} [ <span class="keybind-bind-text keybind-${data.id}-bind">${data.keyLabel}</span> ]</span>
+                    <button class="btn btn-emote btn-keybind" data-emoteid="${data.emoteName}" data-emoteType="${data.emoteType}" data-slotid="${data.id}">${data.emoteType && data.emoteType !== 'Emojis' ? EMOTE_TYPE_ICONS[data.emoteType]+" " : ""}${data.emoteLabel || data.emoteName || Locale.translate("empty_slot")}</button>
+                </li>
+                `
+
+            )
+        })
+        if (document.querySelector(".keybinds-menu.grid")) {
+            querySelectorVisible(document.querySelector(".keybinds-list"))?.focus(); // This feels bad... It works, but I really don't want to look at it.
+        }
     }
 });
 
