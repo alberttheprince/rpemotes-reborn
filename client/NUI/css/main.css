@@ -9,18 +9,22 @@
 :root {
     --color-bg-primary: #2e2e2e;
     --color-bg-sidebar: #111111;
+
     --color-text-primary: #efefef;
     --color-text-secondary: #8a8a8a;
 
-    --color-btn-bg: rgb(62, 62, 62);
-    --color-btn-border: rgb(29, 29, 29);
-    --color-btn-hover: rgb(79, 79, 79);
-    --color-accent-primary: rgb(21, 137, 216);
-    --color-accent-primary-hover: rgb(59, 173, 248);
-    --color-accent-secondary: rgb(216, 76, 21);
-    --color-accent-secondary-hover: rgb(255, 130, 81);
-    --color-btn-accent-favorite: gold;
-    --color-btn-accent-favorite-hover: rgb(255, 233, 108);
+    --color-border: #8a8a8a;
+    --color-border-accent-primary: #1589d8;
+
+    --color-btn-bg: #3e3e3e;
+    --color-btn-border: #1d1d1d;
+    --color-btn-hover: #4f4f4f;
+    --color-accent-primary: #1589d8;
+    --color-accent-primary-hover: #3badf8;
+    --color-accent-secondary: #d84c15;
+    --color-accent-secondary-hover: #ff8251;
+    --color-accent-favorite: #ffd700;
+    --color-accent-favorite-hover: #ffe96c;
 
     --font-size-primary: 1.6rem;
 }
@@ -75,8 +79,8 @@ html {
 
 .noto-color-emoji-regular {
   font-family: "Noto Color Emoji", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+  font-weight: normal !important;
+  font-style: normal !important;
 }
 
 body {
@@ -91,7 +95,7 @@ body {
 }
 
 hr {
-    border-color: var(--color-btn-bg);
+    border-color: var(--color-border);
     margin: 0.4rem 0;
 }
 
@@ -248,17 +252,15 @@ hr {
 }
 
 .btn-emote-favorite {
-    background: linear-gradient(to left, var(--color-btn-accent-favorite) -100%, var(--color-btn-bg));
+    background: linear-gradient(to left, var(--color-accent-favorite) -100%, var(--color-btn-bg));
 }
 
 .btn-emote-favorite:hover, .btn-emote-favorite:focus-visible {
-    background: linear-gradient(to left, var(--color-btn-accent-favorite-hover) -100%, var(--color-btn-hover));
+    background: linear-gradient(to left, var(--color-accent-favorite-hover) -100%, var(--color-btn-hover));
 }
 
 
 /* KEYBINDS */
-
-.keybind-1-bind {}
 
 .keybinds-list {
     display: flex;
@@ -273,7 +275,7 @@ hr {
     flex-direction: column;
     gap: 1rem;
     padding: 1rem 2rem;
-    border: 1px solid var(--color-btn-bg);
+    border: 1px solid var(--color-border);
     border-radius: 1.5rem;
 }
 
@@ -294,7 +296,7 @@ hr {
 
 
 
-/* Context Popover */
+/* POPOVER */
 
 .popover {
     position: fixed;

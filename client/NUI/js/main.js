@@ -56,15 +56,11 @@ document.addEventListener('popoverAction', (e) => {
 
 document.addEventListener('localesLoaded', (e) => {
     // Handler for Right-click menu.
-    // Can we please have updated CEF in FiveM? I want my Popover API. --CritteR
-    /////////////////////////////////////////////////////////////////////////////////
+    // All logic is done through the class, sadly. Sends a `popoverAction` custom event when a button is used.
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
     const emotePopover = new Popover('.btn-emote');
 })
 
-
-// Sidebar Logic. We just handle everything in the utils anyway, to keep this file tidy.
-// No, I will not stop over-commeting. Why do you ask?
-////////////////////////////////////////////////////////////////////////////////////
 SIDE_NAVIGATION.addEventListener("click", (e) => {
     const TARGET = e.target;
 
@@ -90,7 +86,7 @@ MENUS.forEach((element) => {
         PlaySoundFrontend("NAV_UP_DOWN")
         if (!TARGET.dataset.emoteid || TARGET.dataset.emotetype === "Emojis" || TARGET.dataset.emotetype === "Expressions" || TARGET.dataset.emotetype === "Walks") {
             FOOTER_TEXT.innerHTML = "&nbsp;"
-            // TODO: better than this.
+
             let _previewData = {}
             if (TARGET.dataset.emotetype === "Expressions") _previewData = {emoteName: TARGET.dataset.emoteid, emoteType: TARGET.dataset.emotetype}
             ExecuteNUICallback("PREVIEW_EMOTE", _previewData)
@@ -108,8 +104,7 @@ MENUS.forEach((element) => {
         if (!TARGET.dataset.emoteid || !TARGET.dataset.emotetype) return;
         PlaySoundFrontend("SELECT");
         if (e.shiftKey) {
-            // Hack to trick the browser into thinking we right-clicked, when in fact we Shift+Entered.
-            // We do this to avoid actually writing good code for the popover. R*, please update CEF.
+            // Bodge to trick the browser into thinking we right-clicked, when in fact we Shift+Entered.
             document.dispatchEvent(new CustomEvent('contextmenu', { detail: {}}));
             return;
         }
@@ -157,7 +152,6 @@ window.addEventListener('message', (event) => {
             }
         })
         event.data.favorites?.forEach((emote) => {
-            //bruh momment
             const ELEMENTS = Array.from(document.querySelectorAll(`[data-emoteid="${emote.id}"]`));
             ELEMENTS.forEach((el) => el?.classList.add("btn-emote-favorite"));
         })
@@ -185,8 +179,10 @@ window.addEventListener('message', (event) => {
             )
         })
         if (document.querySelector(".keybinds-menu.grid")) {
-            querySelectorVisible(document.querySelector(".keybinds-list"))?.focus(); // This feels bad... It works, but I really don't want to look at it.
+            querySelectorVisible(document.querySelector(".keybinds-list"))?.focus();
         }
+
+        Popover.setKeybindSlots(Object.keys(kbinds).length)
     }
 });
 

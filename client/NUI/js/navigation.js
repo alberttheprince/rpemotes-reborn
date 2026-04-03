@@ -65,7 +65,9 @@ function isElementVisible(element) {
     return element?.style?.display !== "none";
 }
 
-// TODO: There has to be a better way to write keyboard navigation, than this.
+// TODO:    There has to be a better way to write keyboard navigation, than this.
+//          Code is hardcoded to check the 3 spaces where buttons might be, and also hardcoded to handle it based on how the HTML looks for each.
+//          Ideally, this should automagically find the previous/next focusable item in the DOM, like how the normal [Tab] action does.
 function focusOnNextButton(currentButton, jumpAhead = false) {
     if (currentButton && currentButton.closest(".grid")) {
         const gridContainer = currentButton.closest(".grid");
@@ -75,7 +77,6 @@ function focusOnNextButton(currentButton, jumpAhead = false) {
         let nextIndex = (currentIndex + step) % buttons.length;
         let attempts = 0;
         
-        // Skip hidden elements
         while (!isElementVisible(buttons[nextIndex]) && attempts < buttons.length) {
             nextIndex = (nextIndex + 1) % buttons.length;
             attempts++;
@@ -129,7 +130,6 @@ function focusOnPreviousButton(currentButton, jumpAhead = false) {
         let nextIndex = ((currentIndex - step) % buttons.length + buttons.length) % buttons.length;
         let attempts = 0;
         
-        // Skip hidden elements
         while (!isElementVisible(buttons[nextIndex]) && attempts < buttons.length) {
             nextIndex = ((nextIndex - 1) % buttons.length + buttons.length) % buttons.length;
             attempts++;
@@ -147,7 +147,6 @@ function focusOnPreviousButton(currentButton, jumpAhead = false) {
         let nextIndex = ((currentIndex - step) % buttons.length + buttons.length) % buttons.length;
         let attempts = 0;
         
-        // Skip hidden elements
         while (!isElementVisible(buttons[nextIndex]) && attempts < buttons.length) {
             nextIndex = ((nextIndex - 1) % buttons.length + buttons.length) % buttons.length;
             attempts++;

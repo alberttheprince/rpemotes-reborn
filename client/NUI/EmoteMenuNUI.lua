@@ -142,7 +142,6 @@ AddEventHandler("rpemotes:internal:loadEmoteDataToNUI", function(EmoteData, Cate
 end)
 
 function AddEmoteToNUIQueue(data)
-    -- data = {}
     if data.isFavorite then
         table.insert(dataForMenu["favorites"], data)
         return
@@ -156,7 +155,7 @@ AddEventHandler("rpemotes:internal:sendMenuDataToNUI", function()
     while not nuiReady do Citizen.Wait(10) end
 
     SendNUIMessage(dataForMenu)
-    dataForMenu = { -- Restarting it.
+    dataForMenu = {
         type = "BUILD_EMOTE_MENUS",
         ["emotes"] = {},
         ["sharedEmotes"] = {},
@@ -204,7 +203,7 @@ AddEventHandler("rpemotes:internal:handleNUIOpened", function()
             DisableControlAction(0,24,true)
             DisableControlAction(0,25,true)
         else
-            -- SetCursorLocation(0.5,0.5) -- Used to block the cursor while the player is not using it.
+            SetCursorLocation(0.5,0.5) -- Used to block the cursor while the player is not using it.
             -- Even if you don't give the cursor to NUI, the menu still picks it up because it's focused...
             -- This means that it controls the OS cursor too :),
             -- meaning that you can hijack a player's cursor, even if the game is not focused :)
@@ -212,7 +211,7 @@ AddEventHandler("rpemotes:internal:handleNUIOpened", function()
         if IsControlJustReleased(0,19) then
             SetNuiFocus(true, false)
         end
-        Citizen.Wait(1) -- LOL
+        Citizen.Wait(1)
     end
     CreatePreviewPed("", "")
     SendNUIMessage({type = "OPEN_MENU", value = false})

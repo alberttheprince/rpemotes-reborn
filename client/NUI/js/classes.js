@@ -3,6 +3,8 @@
 import { HandleLocales, querySelectorVisible } from "./utils.js";
 
 export class Popover {
+    _keybindSlots = 0;
+
     constructor(triggerSelector) {
         this.triggerSelector = triggerSelector;
         this.currentPopover = null;
@@ -57,13 +59,10 @@ export class Popover {
                 }
                 popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item" data-action="favorite">${data.isFavorite ? Locale.translate("btn_remove_favorite") : Locale.translate("btn_set_favorite")}</button>`)
 
-                //TODO: This needs to be a list.
-                popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item keybind-popover" data-action="set-keybind" data-slotid="1">${Locale.translate("btn_setkeybind")} (1)</button>`)
-                popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item keybind-popover" data-action="set-keybind" data-slotid="2">${Locale.translate("btn_setkeybind")} (2)</button>`)
-                popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item keybind-popover" data-action="set-keybind" data-slotid="3">${Locale.translate("btn_setkeybind")} (3)</button>`)
-                popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item keybind-popover" data-action="set-keybind" data-slotid="4">${Locale.translate("btn_setkeybind")} (4)</button>`)
-                popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item keybind-popover" data-action="set-keybind" data-slotid="5">${Locale.translate("btn_setkeybind")} (5)</button>`)
-                popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item keybind-popover" data-action="set-keybind" data-slotid="6">${Locale.translate("btn_setkeybind")} (6)</button>`)
+                //TODO: This needs to be a HTML list.
+                for (let i = 1; i <= Popover._keybindSlots; i++) {
+                    popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item keybind-popover" data-action="set-keybind" data-slotid="${i}">${Locale.translate("btn_setkeybind")} (${i})</button>`)
+                }
             } else {
                 popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item" data-action="clear-keybind">${Locale.translate("btn_delkeybind")}</button>`)
             }
@@ -120,6 +119,11 @@ export class Popover {
                 querySelectorVisible(document.querySelector(".grid"))
             }
         }
+    }
+
+    static setKeybindSlots(slots) {
+        Popover._keybindSlots = Number(slots) || 0;
+        console.log(Popover._keybindSlots)
     }
 }
 

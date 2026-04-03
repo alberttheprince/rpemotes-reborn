@@ -5,7 +5,7 @@ export function ClearHTMLContainer(elementClass) {
     let retval = 0;
     if (ELEMENT) {
         retval = ELEMENT.children.length;
-        ELEMENT.innerHTML = "" // Woah.
+        ELEMENT.innerHTML = "";
     }
     return retval;
 }
@@ -34,13 +34,12 @@ export function HandleSidebarButtonPress(el) {
 
             SEARCH_CONTAINER.classList.remove("hidden");
             SEARCH_CONTAINER.querySelector(".search-input").value = "";
-            HandleEmoteSearch(""); // hack to clear search. Sorry.
+            HandleEmoteSearch(""); // Bodge to clear search. Sorry.
             if (OPENED_MENU?.classList.contains("keybinds-menu")) {
                 SEARCH_CONTAINER.classList.add("hidden");
             }
 
             querySelectorVisible(OPENED_MENU)?.focus();
-            // This is why people use frontend frameworks, I guess. -- CritteR
             break;
         case "cancelEmote":
             const req = ExecuteNUICallback("CANCEL_EMOTE", {}).finally((retval) => {}) 
@@ -86,13 +85,12 @@ export async function HandleLocales() {
     const LOCALES = await req.json()
     if (!LOCALES || !LOCALES.data) return {};
     document.querySelectorAll("[data-locale]").forEach((el) => {
-        // I love the JavaScript, hollyyyy.
         if (LOCALES.data[el.dataset.locale]) {
             if (el.hasAttribute("placeholder")) {
                 el.setAttribute("placeholder", LOCALES.data[el.dataset.locale])
             } else {
                 el.innerHTML = LOCALES.data[el.dataset.locale]
-                //innerHTML for the sole purpose of allowing locales to contain <br> and stuff. Pretty much only for keybinds_description
+                //innerHTML for the sole purpose of allowing locales to contain html (like <br>). Pretty much only for the `keybinds_description` locale.
             }
         }
     })
