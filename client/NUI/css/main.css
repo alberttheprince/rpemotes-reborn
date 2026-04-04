@@ -53,6 +53,10 @@ img,
     display: none !important;
 }
 
+.no-cursor {
+    pointer-events: none !important;
+}
+
 .singlecolumn {
     grid-template-columns: 1fr;
     row-gap: 0.5rem;

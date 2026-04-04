@@ -189,11 +189,13 @@ end
 
 AddEventHandler("rpemotes:internal:handleNUIOpened", function()
     SendNUIMessage({type = "OPEN_MENU", value = true})
+    SendNUIMessage({type = "TOGGLE_CURSOR_INPUT", value = false})
     while IsNuiFocused() do
         DisableControlAction(0,37,true)
         DisableControlAction(0,200,true)
         if IsControlJustPressed(0,19) then
             SetNuiFocus(true, true)
+            SendNUIMessage({type = "TOGGLE_CURSOR_INPUT", value = true})
         end
         if IsControlPressed(0,19) then
             DisableControlAction(0,1,true)
@@ -202,14 +204,10 @@ AddEventHandler("rpemotes:internal:handleNUIOpened", function()
             DisableControlAction(0,15,true)
             DisableControlAction(0,24,true)
             DisableControlAction(0,25,true)
-        else
-            SetCursorLocation(0.5,0.5) -- Used to block the cursor while the player is not using it.
-            -- Even if you don't give the cursor to NUI, the menu still picks it up because it's focused...
-            -- This means that it controls the OS cursor too :),
-            -- meaning that you can hijack a player's cursor, even if the game is not focused :)
         end
         if IsControlJustReleased(0,19) then
             SetNuiFocus(true, false)
+            SendNUIMessage({type = "TOGGLE_CURSOR_INPUT", value = false})
         end
         Citizen.Wait(1)
     end

@@ -131,6 +131,10 @@ window.addEventListener('message', (event) => {
         document.querySelector(".btn-sidebar").focus();
     }
 
+    if (event.data.type === 'TOGGLE_CURSOR_INPUT') {
+        (event.data.value ? document.body.classList.remove("no-cursor") : document.body.classList.add("no-cursor"))
+    }
+
     if (event.data.type === 'LOAD_EMOTE_DATA') {
         // event.data.emoteData && event.data.categoryToEmotes && event.data.emoteTypeIcons
         EMOTE_TYPE_ICONS = event.data.emoteTypeIcons || {}

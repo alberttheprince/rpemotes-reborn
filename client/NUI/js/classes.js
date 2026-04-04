@@ -123,7 +123,6 @@ export class Popover {
 
     static setKeybindSlots(slots) {
         Popover._keybindSlots = Number(slots) || 0;
-        console.log(Popover._keybindSlots)
     }
 }
 

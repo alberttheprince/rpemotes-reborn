@@ -52,6 +52,25 @@ document.addEventListener("mouseover", (e) => {
     }
 })
 
+
+let _lastFocusedButton;
+document.addEventListener("focusin", (e) => {
+    const TARGET = e.target
+    if (TARGET === _lastFocusedButton) return;
+    if (TARGET.nodeName === "BUTTON" || TARGET.nodeName === "INPUT") {
+        _lastFocusedButton = TARGET;
+    }
+})
+
+function _refocusOnLastButton(e) {
+    if (e.target.nodeName !== "HTML" && e.target !== document.body) return;
+    if (document.activeElement === document.body) _lastFocusedButton?.focus();
+}
+
+document.addEventListener("click", _refocusOnLastButton)
+document.addEventListener("contextmenu", _refocusOnLastButton)
+
+
 SEARCH_BAR.addEventListener("focus", (e) => {
     ExecuteNUICallback("SEARCH_BAR_FOCUS", {isFocused: true});
 })
