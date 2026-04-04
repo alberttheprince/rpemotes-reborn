@@ -19,15 +19,15 @@ local dataForMenu = {
 }
 
 local NUIEmoteType = {
-    ["Expressions"] = "moods",
-    ["Walks"] = "walkstyles",
-    ["Shared"] = "sharedemotes",
-    ["Dances"] = "danceemotes",
-    ["AnimalEmotes"] = "emotes",
-    ["Exits"] = "emotes",
-    ["Emotes"] = "emotes",
-    ["PropEmotes"] = "propemotes",
-    ["Emojis"] = "emojis"
+    [EmoteType.EXPRESSIONS] = "moods",
+    [EmoteType.WALKS] = "walkstyles",
+    [EmoteType.SHARED] = "sharedemotes",
+    [EmoteType.DANCES] = "danceemotes",
+    [EmoteType.ANIMAL_EMOTES] = "emotes",
+    [EmoteType.EXITS] = "emotes",
+    [EmoteType.EMOTES] = "emotes",
+    [EmoteType.PROP_EMOTES] = "propemotes",
+    [EmoteType.EMOJI] = "emojis"
 }
 
 RegisterNUICallback('NUI_READY', function(data, cb)
