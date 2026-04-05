@@ -7,7 +7,7 @@ const SIDE_NAVIGATION = document.querySelector(".side-navigation");
 const CONTENT_CONTAINER = document.querySelector(".content-container");
 const SEARCH_CONTAINER = document.querySelector(".search-container");
 const SEARCH_BAR = SEARCH_CONTAINER.querySelector(".search-input");
-const MENUS = CONTENT_CONTAINER.querySelectorAll(".menu");
+let MENUS = CONTENT_CONTAINER.querySelectorAll(".menu");
 const FOOTER_TEXT = document.querySelector(".footer-text");
 
 let EMOTE_TYPE_ICONS = {}
@@ -72,45 +72,47 @@ SIDE_NAVIGATION.addEventListener("click", (e) => {
 
 let sendPreviewRequest = true
 
-MENUS.forEach((element) => {
-    element.addEventListener("mouseover", (e) => {
-        const TARGET = e.target;
-        if (!TARGET.dataset.emoteid) {
-            FOOTER_TEXT.innerHTML = "&nbsp;"
-            return;
-        }
+function _setupMenuEventListeners(MENUS) {
+    MENUS.forEach((element) => {
+        element.addEventListener("mouseover", (e) => {
+            const TARGET = e.target;
+            if (!TARGET.dataset.emoteid) {
+                FOOTER_TEXT.innerHTML = "&nbsp;"
+                return;
+            }
+        })
+
+        element.addEventListener("focusin", (e) => {
+            const TARGET = e.target;
+            PlaySoundFrontend("NAV_UP_DOWN")
+            if (!TARGET.dataset.emoteid || TARGET.dataset.emotetype === "Emojis" || TARGET.dataset.emotetype === "Expressions" || TARGET.dataset.emotetype === "Walks") {
+                FOOTER_TEXT.innerHTML = "&nbsp;"
+
+                let _previewData = {}
+                if (TARGET.dataset.emotetype === "Expressions") _previewData = {emoteName: TARGET.dataset.emoteid, emoteType: TARGET.dataset.emotetype}
+                ExecuteNUICallback("PREVIEW_EMOTE", _previewData)
+                return;
+            }
+
+            if (sendPreviewRequest) ExecuteNUICallback("PREVIEW_EMOTE", {emoteName: TARGET.dataset.emoteid, emoteType: TARGET.dataset.emotetype}).finally(() => sendPreviewRequest = true)
+
+            FOOTER_TEXT.textContent = `/${TARGET.closest(".walkstyles-menu") ? "walk" : "e"} ${TARGET.dataset.emoteid}`
+        })
+
+        element.addEventListener("click", (e) => {
+            e.preventDefault();
+            const TARGET = e.target;
+            if (!TARGET.dataset.emoteid || !TARGET.dataset.emotetype) return;
+            PlaySoundFrontend("SELECT");
+            if (e.shiftKey) {
+                // Bodge to trick the browser into thinking we right-clicked, when in fact we Shift+Entered.
+                document.dispatchEvent(new CustomEvent('contextmenu', { detail: {}}));
+                return;
+            }
+            ExecuteNUICallback("ROUTE_EMOTE", {type: "emote", emoteName: TARGET.dataset.emoteid, emoteType: TARGET.dataset.emotetype})
+        })
     })
-
-    element.addEventListener("focusin", (e) => {
-        const TARGET = e.target;
-        PlaySoundFrontend("NAV_UP_DOWN")
-        if (!TARGET.dataset.emoteid || TARGET.dataset.emotetype === "Emojis" || TARGET.dataset.emotetype === "Expressions" || TARGET.dataset.emotetype === "Walks") {
-            FOOTER_TEXT.innerHTML = "&nbsp;"
-
-            let _previewData = {}
-            if (TARGET.dataset.emotetype === "Expressions") _previewData = {emoteName: TARGET.dataset.emoteid, emoteType: TARGET.dataset.emotetype}
-            ExecuteNUICallback("PREVIEW_EMOTE", _previewData)
-            return;
-        }
-
-        if (sendPreviewRequest) ExecuteNUICallback("PREVIEW_EMOTE", {emoteName: TARGET.dataset.emoteid, emoteType: TARGET.dataset.emotetype}).finally(() => sendPreviewRequest = true)
-
-        FOOTER_TEXT.textContent = `/${TARGET.closest(".walkstyles-menu") ? "walk" : "e"} ${TARGET.dataset.emoteid}`
-    })
-
-    element.addEventListener("click", (e) => {
-        e.preventDefault();
-        const TARGET = e.target;
-        if (!TARGET.dataset.emoteid || !TARGET.dataset.emotetype) return;
-        PlaySoundFrontend("SELECT");
-        if (e.shiftKey) {
-            // Bodge to trick the browser into thinking we right-clicked, when in fact we Shift+Entered.
-            document.dispatchEvent(new CustomEvent('contextmenu', { detail: {}}));
-            return;
-        }
-        ExecuteNUICallback("ROUTE_EMOTE", {type: "emote", emoteName: TARGET.dataset.emoteid, emoteType: TARGET.dataset.emotetype})
-    })
-})
+}
 
 SEARCH_CONTAINER.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -136,8 +138,29 @@ window.addEventListener('message', (event) => {
     }
 
     if (event.data.type === 'LOAD_EMOTE_DATA') {
-        // event.data.emoteData && event.data.categoryToEmotes && event.data.emoteTypeIcons
+        // event.data.emoteData && event.data.categoryToEmotes && event.data.emoteCategories && event.data.emoteTypeIcons
         EMOTE_TYPE_ICONS = event.data.emoteTypeIcons || {}
+        const emoteCategories = event.data.emoteCategories
+        Object.keys(emoteCategories).forEach((key) => {
+            const SIDEBAR_ANCHOR = document.querySelector(".sidebar-button-anchor");
+            const MENU_ANCHOR = document.querySelector(".menu-anchor");
+            
+            SIDEBAR_ANCHOR.insertAdjacentHTML("afterend",
+                `
+                    <li class="sidebar-button-container">
+                        <button class="btn btn-sidebar" data-action="openMenu" data-menu="${emoteCategories[key].id}-menu">${emoteCategories[key].icon}</button>
+                        <span class="btn-sidebar-label">${key}</span>
+                    </li>
+                `);
+
+            MENU_ANCHOR.insertAdjacentHTML("afterend",
+                `
+                <article class="menu ${emoteCategories[key].id}-menu doublecolumn">Hiii
+                </article>
+                `)
+        })
+        MENUS = CONTENT_CONTAINER.querySelectorAll(".menu");
+        _setupMenuEventListeners(MENUS);
     }
 
     if (event.data.type === 'BUILD_EMOTE_MENUS') {
@@ -149,14 +172,14 @@ window.addEventListener('message', (event) => {
                 event.data[key].forEach((el) => {
                     if (el) {
                         EMOTES.insertAdjacentHTML("beforeend", `
-                            <button class="btn btn-emote ${el.isFavorite ? "btn-emote-favorite" : ""} ${el.emoteType === "Emojis" ? "noto-color-emoji-regular" : ""}" data-emoteid="${el.id}" data-emoteType="${el.emoteType}" data-label="${el.label}">${el.emoteType !== 'Emojis' ? EMOTE_TYPE_ICONS[el.emoteType]+" " : ""}${el.label}</button>
+                            <button class="btn btn-emote ${el.isFavorite ? "btn-emote-favorite" : ""} ${el.emoteType === "Emojis" ? "noto-color-emoji-regular" : ""}" data-emoteid="${el.emoteName}" data-emoteType="${el.emoteType}" data-label="${el.label}">${el.emoteType !== 'Emojis' ? EMOTE_TYPE_ICONS[el.emoteType]+" " : ""}${el.label}</button>
                             `)
                     }
                 })
             }
         })
         event.data.favorites?.forEach((emote) => {
-            const ELEMENTS = Array.from(document.querySelectorAll(`[data-emoteid="${emote.id}"]`));
+            const ELEMENTS = Array.from(document.querySelectorAll(`[data-emoteid="${emote.emoteName}"]`));
             ELEMENTS.forEach((el) => el?.classList.add("btn-emote-favorite"));
         })
     }

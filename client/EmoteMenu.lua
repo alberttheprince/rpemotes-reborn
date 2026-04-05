@@ -508,7 +508,7 @@ local function addFavoritesMenu(parent)
         local item = NativeUI.CreateItem(label, "")
         menu.menu:AddItem(item)
         menu.items[#menu.items+1] = {name = emoteData.name, label = emoteData.label, emoteType = emoteData.emoteType}
-        AddEmoteToNUIQueue({id = emoteData.name, emoteType = emoteData.emoteType, label = emoteData.label, isFavorite = true})
+        AddEmoteToNUIQueue({emoteName = emoteData.name, emoteType = emoteData.emoteType, label = emoteData.label, isFavorite = true, categoryName = "favorites", hasPermission = true})
     end
 
     menu.menu.OnItemSelect = function(_, __, index)
@@ -584,7 +584,7 @@ local function addEmoteMenu(menu)
                         local label = prefix .. data.label
                         addEmoteToMenu(categoryMenu.menu, categoryMenu.items, emoteName, label, string.format("/e (%s)", emoteName), data.emoteType)
                     end
-                    AddEmoteToNUIQueue({id = emoteName, emoteType = emoteType, label = data.label})
+                    AddEmoteToNUIQueue({emoteName = emoteName, emoteType = emoteType, label = data.label, categoryName = categoryName, hasPermission = hasPermission})
                     ::continue::
                 end
             end
@@ -608,7 +608,7 @@ local function addEmoteMenu(menu)
     for _, emoteName in ipairs(emotesList) do
         local data = EmoteData[emoteName]
         addEmoteToMenu(emoteMenu.menu, emoteMenu.items, emoteName, data.label, string.format("/e (%s)", emoteName), data.emoteType)
-        AddEmoteToNUIQueue({id = emoteName, emoteType = "Emotes", label = data.label})
+        AddEmoteToNUIQueue({emoteName = emoteName, emoteType = EmoteType.EMOTES, label = data.label, categoryName = EmoteType.EMOTES, hasPermission = true})
     end
 end
 
@@ -783,7 +783,7 @@ local function addResetableDataMenu(input)
         item:Enabled(hasPermission)
         menu.menu:AddItem(item)
         menu.items[#menu.items+1] = {name = itemName, emoteType = input.emoteType}
-        AddEmoteToNUIQueue({id = itemName, emoteType = input.emoteType, label = label})
+        AddEmoteToNUIQueue({emoteName = itemName, emoteType = input.emoteType, label = label, categoryName = input.emoteType, hasPermission = true})
     end
 
     menu.menu.OnItemSelect = function(_, item, index)
@@ -866,7 +866,7 @@ local function addEmojiMenu(parent)
         local item = NativeUI.CreateItem(label, "")
         menu.menu:AddItem(item)
         menu.items[#menu.items+1] = {name = emojiData.key, label = label, emoteType = EmoteType.EMOJI, key = index}
-        AddEmoteToNUIQueue({id = emojiData.key, emoteType = EmoteType.EMOJI, label = label})
+        AddEmoteToNUIQueue({emoteName = emojiData.key, emoteType = EmoteType.EMOJI, label = label, categoryName = EmoteType.EMOJI, hasPermission = true})
     end
 
     menu.menu.OnItemSelect = function(_, __, index)

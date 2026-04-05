@@ -9,9 +9,7 @@ local nuiReady = false
 local dataForMenu = {
     type = "BUILD_EMOTE_MENUS",
     ["emotes"] = {},
-    ["sharedemotes"] = {},
-    ["propemotes"] = {},
-    ["danceemotes"] = {},
+    -- ["Custom Category Name"] = {} -- Automagically added by the builder.
     ["walkstyles"] = {},
     ["moods"] = {},
     ["emojis"] = {},
@@ -28,6 +26,35 @@ local NUIEmoteType = {
     [EmoteType.EMOTES] = "emotes",
     [EmoteType.PROP_EMOTES] = "propemotes",
     [EmoteType.EMOJI] = "emojis"
+}
+
+local function getEmojiFromCategoryName(str)
+    -- Wild for-loop to find emojis in the string.
+    for i, char in utf8.codes(str) do
+        if (
+            (char >= 0x1F600 and char <= 0x1F64F)  -- Emoticons
+            or (char >= 0x1F300 and char <= 0x1F5FF)  -- Misc Symbols
+            or (char >= 0x1F680 and char <= 0x1F6FF)  -- Transport/Map
+            or (char >= 0x2600 and char <= 0x26FF)    -- Misc Symbols
+            or (char >= 0x2700 and char <= 0x27BF)    -- Dingbats
+            or (char >= 0x1F900 and char <= 0x1F9FF)  -- Supplemental
+            or (char >= 0x1FA70 and char <= 0x1FAFF)  -- Extended-A
+        ) then
+            return utf8.char(char)
+        end
+    end
+    local NUIEmoteCategoryEmoji = {"🚵", "🥳", "💃", "🤸", "🤹‍♂️", "🤹‍♀️", "🤓", "🏄‍♂️", "⛹️‍♀️", "🏋️"} -- If we cannot find an emoji in the category name, use a random one from here.
+    return NUIEmoteCategoryEmoji[math.random(1, #NUIEmoteCategoryEmoji)]
+end
+
+local function getHtmlClassFromCategoryName(str)
+    local toLower = str:lower()
+    local result = toLower:gsub("[%s%p]", "")
+    return result
+end
+
+local NUIEmoteCategories = {
+    -- ["Custom Category Name"] = {id="new-category-name", icon = "🥳"}
 }
 
 RegisterNUICallback('NUI_READY', function(data, cb)
@@ -136,18 +163,26 @@ end)
 
 
 AddEventHandler("rpemotes:internal:loadEmoteDataToNUI", function(EmoteData, CategoryToEmotes)
-    while not nuiReady do Citizen.Wait(10) end
+    for name, emotes in pairs(CategoryToEmotes) do
+        local htmlClass = getHtmlClassFromCategoryName(name)
+        NUIEmoteCategories[name] = {id=htmlClass, icon = getEmojiFromCategoryName(name)}
+        dataForMenu[htmlClass] = {}
+    end
 
-    SendNUIMessage({type = "LOAD_EMOTE_DATA", emoteData = EmoteData, categoryToEmotes = CategoryToEmotes, emoteTypeIcons = EmoteTypeEmoji})
+
+    while not nuiReady do Citizen.Wait(10) end
+    SendNUIMessage({type = "LOAD_EMOTE_DATA", emoteData = EmoteData, categoryToEmotes = CategoryToEmotes, emoteCategories = NUIEmoteCategories, emoteTypeIcons = EmoteTypeEmoji})
 end)
 
 function AddEmoteToNUIQueue(data)
+    -- data = {emoteName, emoteType, label, categoryName, hasPermission, isFavorite}
     if data.isFavorite then
         table.insert(dataForMenu["favorites"], data)
         return
     end
-    if dataForMenu[NUIEmoteType[data.emoteType]] ~= nil then
-        table.insert(dataForMenu[NUIEmoteType[data.emoteType]], data)  
+    local tbl = dataForMenu[NUIEmoteCategories[data.categoryName] and NUIEmoteCategories[data.categoryName].id] or dataForMenu[NUIEmoteType[data.emoteType]]
+    if tbl ~= nil then
+        table.insert(tbl, data)
     end
 end
 
