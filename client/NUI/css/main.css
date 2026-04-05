@@ -7,16 +7,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
 
 :root {
-    --color-bg-primary: #2e2e2e;
-    --color-bg-sidebar: #111111;
+    --color-bg-primary: rgba(46, 46, 46, 1);
+    --color-bg-sidebar: rgba(17, 17, 17, 1);
 
-    --color-text-primary: #efefef;
-    --color-text-secondary: #8a8a8a;
+    --color-text-primary: rgba(239, 239, 239, 1);
+    --color-text-secondary: rgba(138, 138, 138, 1);
 
-    --color-border: #8a8a8a;
-    --color-border-accent-primary: #1589d8;
+    --color-border: rgba(138, 138, 138, 1);
+    --color-border-accent-primary: rgba(21, 137, 216, 1);
 
-    --color-btn-bg: #3e3e3e;
+    --color-btn-bg: rgba(62, 62, 62, 1);
+    --color-btn-popover-bg: rgba(62, 62, 62, 1);
     --color-btn-border: #1d1d1d;
     --color-btn-hover: #4f4f4f;
     --color-accent-primary: #1589d8;
@@ -329,7 +330,7 @@ hr {
     display: block;
     width: 100%;
     padding: 0.8rem 1rem;
-    background: none;
+    background-color: var(--color-btn-popover-bg);
     border: none;
     color: var(--color-text-primary);
     text-align: left;
