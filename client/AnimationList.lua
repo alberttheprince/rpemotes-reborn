@@ -18685,9 +18685,9 @@ RP.PropEmotes = {
             PropBone = 28422,
             PropPlacement = {
                 0.0,
-                0.0,
+                0.02,
                 -0.500,
-                0.0,
+                -15.0,
                 0.0,
                 0.0
             },
@@ -18703,9 +18703,9 @@ RP.PropEmotes = {
             PropBone = 28422,
             PropPlacement = {
                 0.0,
-                0.0,
+                0.02,
                 -0.500,
-                0.0,
+                -15.0,
                 0.0,
                 0.0
             },
@@ -18713,17 +18713,17 @@ RP.PropEmotes = {
         }
     },
     ["hoe3"] = {
-        "anim@amb@drug_field_workers@rake@male_b@base",
-        "idle_b",
+        "anim@amb@drug_field_workers@rake@male_b@idles",
+        "idle_c",
         "Hoe 3",
         AnimationOptions = {
             Prop = "prop_tool_shovel5",
             PropBone = 28422,
             PropPlacement = {
                 0.0,
-                0.0,
+                0.02,
                 -0.500,
-                0.0,
+                -15.0,
                 0.0,
                 0.0
             },
@@ -18739,9 +18739,9 @@ RP.PropEmotes = {
             PropBone = 28422,
             PropPlacement = {
                 0.0,
-                0.0,
+                0.02,
                 -0.500,
-                0.0,
+                -15.0,
                 0.0,
                 0.0
             },
