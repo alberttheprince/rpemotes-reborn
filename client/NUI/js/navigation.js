@@ -1,6 +1,7 @@
 "use strict";
 
 import { ExecuteNUICallback, PlaySoundFrontend, querySelectorVisible } from "./utils.js";
+import { CONFIG } from "./main.js";
 
 const SEARCH_BAR = document.querySelector(".search-input");
 
@@ -28,7 +29,7 @@ document.addEventListener("keyup", (e) => {
             if (FOCUS_ELEMENT.closest(".popover")) return;
 
             PlaySoundFrontend("BACK");
-            if (FOCUS_ELEMENT.closest(".keybinds-menu")) return document.querySelector(".sidebar-button-active").querySelector(".btn")?.focus();
+            if (FOCUS_ELEMENT.closest(".keybinds-menu") || (FOCUS_ELEMENT.closest(".content-container") && !CONFIG.Search) ) return document.querySelector(".sidebar-button-active").querySelector(".btn")?.focus();
             if (FOCUS_ELEMENT.closest(".grid")) return document.querySelector(".btn-clear-search").focus();
             if (FOCUS_ELEMENT.closest(".content-container")) return document.querySelector(".sidebar-button-active").querySelector(".btn")?.focus();
             return ExecuteNUICallback("CLOSE_MENU", {});

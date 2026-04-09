@@ -1,6 +1,7 @@
 "use strict";
 
 import { HandleLocales, querySelectorVisible } from "./utils.js";
+import { CONFIG } from "./main.js";
 
 export class Popover {
     _keybindSlots = 0;
@@ -55,13 +56,15 @@ export class Popover {
             if (!this.currentButton.classList.contains("btn-keybind")) {
                 if (data.emoteType && data.emoteType !== "Emojis" && data.emoteType !== "Expressions" && data.emoteType !== "Walks" && data.emoteType !== "Shared") {
                     popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item" data-action="groupemote">${Locale.translate("btn_groupselect")}</button>`)
-                    popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item" data-action="placement">${Locale.translate("btn_place")}</button>`)
+                    if (CONFIG.PlacementEnabled) popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item" data-action="placement">${Locale.translate("btn_place")}</button>`)
                 }
                 popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item" data-action="favorite">${data.isFavorite ? Locale.translate("btn_remove_favorite") : Locale.translate("btn_set_favorite")}</button>`)
 
                 //TODO: This needs to be a HTML list.
-                for (let i = 1; i <= Popover._keybindSlots; i++) {
-                    popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item keybind-popover" data-action="set-keybind" data-slotid="${i}">${Locale.translate("btn_setkeybind")} (${i})</button>`)
+                if (CONFIG.Keybinding) {
+                    for (let i = 1; i <= Popover._keybindSlots; i++) {
+                        popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item keybind-popover" data-action="set-keybind" data-slotid="${i}">${Locale.translate("btn_setkeybind")} (${i})</button>`)
+                    }
                 }
             } else {
                 popover.insertAdjacentHTML("beforeend", `<button class="popover-menu-item" data-action="clear-keybind">${Locale.translate("btn_delkeybind")}</button>`)

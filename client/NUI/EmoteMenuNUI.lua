@@ -68,7 +68,16 @@ local NUIEmoteCategories = {
 
 RegisterNUICallback('NUI_READY', function(data, cb)
     nuiReady = true
-    cb({["ok"] = true})
+    local configForNUI = {
+        Keybinding = Config.Keybinding,
+        MenuPosition = Config.MenuPosition,
+        EmojiMenuEnabled = Config.EmojiMenuEnabled,
+        ExpressionsEnabled = Config.ExpressionsEnabled,
+        WalkingStylesEnabled = Config.WalkingStylesEnabled,
+        PlacementEnabled = Config.PlacementEnabled,
+        Search = Config.Search,
+    }
+    cb({["ok"] = true, ["config"] = configForNUI})
 end)
 
 RegisterNUICallback('CLOSE_MENU', function(data, cb)

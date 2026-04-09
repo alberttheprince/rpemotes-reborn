@@ -11,9 +11,22 @@ let MENUS = CONTENT_CONTAINER.querySelectorAll(".menu");
 const FOOTER_TEXT = document.querySelector(".footer-text");
 
 let EMOTE_TYPE_ICONS = {}
+export let CONFIG;
 
 window.addEventListener("load", async (e) => {
-    ExecuteNUICallback("NUI_READY", {}).finally(() => {})
+
+    ExecuteNUICallback("NUI_READY", {}).then( async (res) => {
+        const response = await res.json();
+        if (!response.config) return;
+        CONFIG = response.config;
+
+        if (!CONFIG.Search) SEARCH_CONTAINER.classList.add("hidden");
+        if (!CONFIG.EmojiMenuEnabled) document.querySelector('[data-menu="emojis-menu"]')?.parentElement?.remove();
+        if (!CONFIG.ExpressionsEnabled) document.querySelector('[data-menu="moods-menu"]')?.parentElement?.remove();
+        if (!CONFIG.WalkingStylesEnabled) document.querySelector('[data-menu="walkstyles-menu"]')?.parentElement?.remove();
+        if (!CONFIG.Keybinding) document.querySelector('[data-menu="keybinds-menu"]')?.parentElement?.remove();
+        if (CONFIG.MenuPosition === "left") document.body.classList.add("align-left");
+    })
     const LOCALES = new Locale(); // We just need to init this after the everything is loaded. The class statics will handle everything.
 })
 
