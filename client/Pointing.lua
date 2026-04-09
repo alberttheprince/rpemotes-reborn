@@ -15,6 +15,7 @@ local function CanPlayerPoint()
         and not IsPedInjured(playerPed)
         and not IsPedInMeleeCombat(playerPed)
         and not IsPedRagdoll(playerPed)
+        and CanDoAction()
 end
 
 local function PointingStopped()

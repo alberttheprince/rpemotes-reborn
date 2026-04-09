@@ -33,6 +33,7 @@ end
 function UseNewscam()
     if IsPedSittingInAnyVehicle(PlayerPedId()) then return end
     if IsInActionWithErrorMessage({IsUsingNewscam = true }) then return end
+    if not CanDoAction() then return end
     IsUsingNewscam = not IsUsingNewscam
 
     if IsUsingNewscam then

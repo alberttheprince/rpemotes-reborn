@@ -31,6 +31,7 @@ end
 function UseBinocular()
     if IsPedSittingInAnyVehicle(PlayerPedId()) then return end
     if IsInActionWithErrorMessage({ IsUsingBinoculars = true }) then return end
+    if not CanDoAction() then return end
     IsUsingBinoculars = not IsUsingBinoculars
 
     if IsUsingBinoculars then
