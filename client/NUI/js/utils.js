@@ -1,4 +1,5 @@
 "use strict";
+import { CONFIG } from "./main.js";
 
 export function ClearHTMLContainer(elementClass) {
     const ELEMENT = document.querySelector(elementClass);
@@ -32,11 +33,13 @@ export function HandleSidebarButtonPress(el) {
             OPENED_MENU?.classList.add("grid");
             PlaySoundFrontend("SELECT")
 
-            SEARCH_CONTAINER.classList.remove("hidden");
-            SEARCH_CONTAINER.querySelector(".search-input").value = "";
-            HandleEmoteSearch(""); // Bodge to clear search. Sorry.
-            if (OPENED_MENU?.classList.contains("keybinds-menu")) {
-                SEARCH_CONTAINER.classList.add("hidden");
+            if (CONFIG.Search) {
+                SEARCH_CONTAINER.classList.remove("hidden");
+                SEARCH_CONTAINER.querySelector(".search-input").value = "";
+                HandleEmoteSearch(""); // Bodge to clear search. Sorry.
+                if (OPENED_MENU?.classList.contains("keybinds-menu")) {
+                    SEARCH_CONTAINER.classList.add("hidden");
+                }
             }
 
             querySelectorVisible(OPENED_MENU)?.focus();

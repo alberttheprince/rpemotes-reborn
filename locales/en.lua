@@ -112,4 +112,9 @@ return {
     ['btn_remove_favorite'] = "Remove Favorite",
     ['addedtofavorites'] = "Emote (~g~%s~s~) added to favorites!",
     ['removedfromfavorites'] = "Emote (~g~%s~s~) removed from favorites!",
+    -- NUI-specific keybinds
+    ['btn_move'] = "Move",
+    ['btn_contextmenu'] = "More options",
+    ['btn_cursor'] = "(Hold) Toggle Cursor",
+    ['btn_move_faster'] = "(Hold) Move Faster",
 }
