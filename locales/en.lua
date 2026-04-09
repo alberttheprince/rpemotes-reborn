@@ -87,6 +87,8 @@ return {
     ['keybind_slot'] = "Emote Slot %i",
     ['registered_keybind'] = "Emote (~g~%s~s~) added to keybind ~b~%s~s~",
     ['cleared_keybind'] = "Emote Slot %i has been cleared!",
+    ['empty_slot'] = "Empty Slot",
+    ['keybind_description'] = "This menu is to help you visualize the emotes that you have connected to a keybind, and the control that is used. <br><br>You can modify the key bindings in the GTA settings.",
     -- Commands descriptions
     ['cancel_emote'] = "Cancel current emote",
     ['crouch'] = "Crouch",

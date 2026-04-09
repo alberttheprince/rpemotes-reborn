@@ -112,7 +112,10 @@ Config = {
     UseOldPropSpawning = false, -- Uses networked objects spawned client-side, for props. Only use this when you have issues spawning props.
 
     -- Recover Emotes after Ragdoll
-    RecoverEmotesAfterRagdoll = true -- If true, the resource will attempt to recover emotes after being bumped / ragdolled. Doesn't work for all.
+    RecoverEmotesAfterRagdoll = true, -- If true, the resource will attempt to recover emotes after being bumped / ragdolled. Doesn't work for all.
+
+    -- NUI Menu
+    UseNUIMenu = true, -- If true, it will use the NUI menu, instead of the Scaleform one. NativeUI is still driving the emote data in the background.
 }
 
 -- Custom Categories: Define custom categories to organize emotes in the menu

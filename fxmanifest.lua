@@ -13,10 +13,15 @@ dependencies {
     '/onesync'
 }
 
+ui_page('client/NUI/index.html')
+
 files {
     'conditionalanims.meta',
     'header.png',
-    'locales/*.lua'
+    'locales/*.lua',
+    'client/NUI/js/*.js',
+    'client/NUI/css/*.css',
+    'client/NUI/index.html',
 }
 
 -- Unlocks idle Animations from GTA:O when using motorcycles, dirt bikes, etc
@@ -47,6 +52,7 @@ client_scripts {
     'client/Emote.lua',
     'client/GroupEmote.lua',
     'client/EmoteMenu.lua',
+    'client/NUI/EmoteMenuNUI.lua',
     'client/Expressions.lua',
     'client/Handsup.lua',
     'client/Keybinds.lua',

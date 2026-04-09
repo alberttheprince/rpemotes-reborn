@@ -287,6 +287,51 @@ local function hidePreview()
     end
 end
 
+function CreatePreviewPed(emoteName, emoteType)
+    DebugPrint(emoteName, emoteType)
+    local emote = EmoteData[emoteName] or SharedEmoteData[emoteName]
+    if emoteType == EmoteType.EXPRESSIONS or (emote and isEmoteTypePreviewable(emote.emoteType)) then
+        DebugPrint("Emote is previewable")
+        -- Determine if we need zoom (for expressions/moods, we want a closer view)
+        local needsZoom = (emoteType == EmoteType.EXPRESSIONS)
+
+        -- Check if we're already showing this exact emote - if so, do nothing
+        if LastEmote.name == emoteName and hasClonedPed() then
+            return
+        end
+
+        -- If zoom state changed, we need to recreate the ped
+        if hasClonedPed() and currentZoomState ~= needsZoom then
+            ClosePedMenu()
+        end
+
+        -- Clear previous preview (ClearPedTaskPreview uses LastEmote to know what to clear)
+        if hasClonedPed() then
+            ClearPedTaskPreview()
+        end
+
+        -- Update LastEmote to new preview
+        LastEmote = {
+            name = emoteName,
+            emoteType = emoteType,
+        }
+
+        -- Show this emote
+        if hasClonedPed() then
+            -- Ped exists, just switch animation
+            EmoteMenuStartClone(emoteName, emoteType)
+        else
+            -- Ped doesn't exist, create it with appropriate zoom
+            currentZoomState = needsZoom
+            ShowPedMenu(needsZoom)
+            WaitForClonedPedThenPlayLastAnim()
+        end
+    else
+        hidePreview()
+    end
+    return true
+end
+
 --- Unified handler that updates CurrentMenuSelection, instruction buttons, and ped preview
 --- Called whenever menu selection changes (scroll, menu open, menu close)
 ---@param currentMenu table The menu to check for preview
@@ -347,45 +392,7 @@ local function onMenuItemHover(currentMenu)
     local emote = EmoteData[emoteName] or SharedEmoteData[emoteName]
 
     -- Check if the selected item is a previewable emote
-   -- Check if the selected item is a previewable emote
-    if emoteType == EmoteType.EXPRESSIONS or (emote and isEmoteTypePreviewable(emote.emoteType)) then
-        -- Determine if we need zoom (for expressions/moods, we want a closer view)
-        local needsZoom = (emoteType == EmoteType.EXPRESSIONS)
-
-        -- Check if we're already showing this exact emote - if so, do nothing
-        if LastEmote.name == emoteName and hasClonedPed() then
-            return
-        end
-
-        -- If zoom state changed, we need to recreate the ped
-        if hasClonedPed() and currentZoomState ~= needsZoom then
-            ClosePedMenu()
-        end
-
-        -- Clear previous preview (ClearPedTaskPreview uses LastEmote to know what to clear)
-        if hasClonedPed() then
-            ClearPedTaskPreview()
-        end
-
-        -- Update LastEmote to new preview
-        LastEmote = {
-            name = emoteName,
-            emoteType = emoteType,
-        }
-
-        -- Show this emote
-        if hasClonedPed() then
-            -- Ped exists, just switch animation
-            EmoteMenuStartClone(emoteName, emoteType)
-        else
-            -- Ped doesn't exist, create it with appropriate zoom
-            currentZoomState = needsZoom
-            ShowPedMenu(needsZoom)
-            WaitForClonedPedThenPlayLastAnim()
-        end
-    else
-        hidePreview()
-    end
+    CreatePreviewPed(emoteName, emoteType)
 end
 
 ---@param parent SubMenu|table
@@ -439,18 +446,24 @@ local function addKeybindMenu(parent)
         createSubMenu(parent, "keybinds", Translate("keybinds"))
     end
     local menu = subMenus["keybinds"]
+    local bindsForNUI = {}
 
     for id = 1, #Config.KeybindKeys do
-        local emoteData = GetResourceKvpString(string.format('%s_bind_%s', Config.keybindKVP, id))
+        local bindKVP = string.format('%s_bind_%s', Config.keybindKVP, id)
+        local emoteData = GetResourceKvpString(bindKVP)
         if emoteData and emoteData ~= "" then
             emoteData = json.decode(emoteData)
         end
-        local label = string.format("Slot %i: ~b~%s~s~ %s", id, (emoteData and EmoteTypeEmoji[emoteData.emoteType]) or "", (emoteData and emoteData.label) or "Empty Slot")
-        local description = string.format("This slot is bound to [ ~b~%s~s~ ]. You can change this in the in-game settings.", GetKeyForCommand("emoteSelect"..id))
+        local keyLabel = GetKeyForCommand("emoteSelect"..id)
+        local label = string.format("Slot %i: ~b~%s~s~ %s", id, (emoteData and EmoteTypeEmoji[emoteData.emoteType]) or "", (emoteData and emoteData.label) or Translate("empty_slot"))
+        local description = string.format("This slot is bound to [ ~b~%s~s~ ]. You can change this in the in-game settings.", keyLabel)
         local item = NativeUI.CreateItem(label, description)
+        bindsForNUI[bindKVP] = {id = id, emoteType = (emoteData and emoteData.emoteType) or "", emoteName = (emoteData and emoteData.emoteName) or "", emoteLabel = (emoteData and emoteData.label) or "", keyLabel = keyLabel, bindKVP = bindKVP}
         menu.menu:AddItem(item)
         menu.items[#menu.items+1] = {name = "slot_"..id}
     end
+
+    TriggerEvent("rpemotes:internal:sendKeybindsDataToNUI", bindsForNUI)
 
     menu.menu.OnItemSelect = function(_, item, index)
         if dataForKeybind.emoteName then
@@ -495,6 +508,7 @@ local function addFavoritesMenu(parent)
         local item = NativeUI.CreateItem(label, "")
         menu.menu:AddItem(item)
         menu.items[#menu.items+1] = {name = emoteData.name, label = emoteData.label, emoteType = emoteData.emoteType}
+        AddEmoteToNUIQueue({emoteName = emoteData.name, emoteType = emoteData.emoteType, label = emoteData.label, isFavorite = true, categoryName = "favorites", hasPermission = true})
     end
 
     menu.menu.OnItemSelect = function(_, __, index)
@@ -570,6 +584,7 @@ local function addEmoteMenu(menu)
                         local label = prefix .. data.label
                         addEmoteToMenu(categoryMenu.menu, categoryMenu.items, emoteName, label, string.format("/e (%s)", emoteName), data.emoteType)
                     end
+                    AddEmoteToNUIQueue({emoteName = emoteName, emoteType = emoteType, label = data.label, categoryName = categoryName, hasPermission = hasPermission})
                     ::continue::
                 end
             end
@@ -593,6 +608,7 @@ local function addEmoteMenu(menu)
     for _, emoteName in ipairs(emotesList) do
         local data = EmoteData[emoteName]
         addEmoteToMenu(emoteMenu.menu, emoteMenu.items, emoteName, data.label, string.format("/e (%s)", emoteName), data.emoteType)
+        AddEmoteToNUIQueue({emoteName = emoteName, emoteType = EmoteType.EMOTES, label = data.label, categoryName = EmoteType.EMOTES, hasPermission = true})
     end
 end
 
@@ -767,6 +783,7 @@ local function addResetableDataMenu(input)
         item:Enabled(hasPermission)
         menu.menu:AddItem(item)
         menu.items[#menu.items+1] = {name = itemName, emoteType = input.emoteType}
+        AddEmoteToNUIQueue({emoteName = itemName, emoteType = input.emoteType, label = label, categoryName = input.emoteType, hasPermission = true})
     end
 
     menu.menu.OnItemSelect = function(_, item, index)
@@ -849,6 +866,7 @@ local function addEmojiMenu(parent)
         local item = NativeUI.CreateItem(label, "")
         menu.menu:AddItem(item)
         menu.items[#menu.items+1] = {name = emojiData.key, label = label, emoteType = EmoteType.EMOJI, key = index}
+        AddEmoteToNUIQueue({emoteName = emojiData.key, emoteType = EmoteType.EMOJI, label = label, categoryName = EmoteType.EMOJI, hasPermission = true})
     end
 
     menu.menu.OnItemSelect = function(_, __, index)
@@ -930,15 +948,19 @@ function OpenEmoteMenu()
         RebuildKeybindEmoteMenu()
     end
 
-    if _menuPool:IsAnyMenuOpen() then
-        _menuPool:CloseAllMenus()
+    if Config.UseNUIMenu then
+        ToggleNUIMenu()
     else
-        -- Clean up any existing preview before opening
-        if hasClonedPed() then
-            ClosePedMenu()
+        if _menuPool:IsAnyMenuOpen() then
+            _menuPool:CloseAllMenus()
+        else
+            -- Clean up any existing preview before opening
+            if hasClonedPed() then
+                ClosePedMenu()
+            end
+            mainMenu:Visible(true)
+            processMenu()
         end
-        mainMenu:Visible(true)
-        processMenu()
     end
 end
 
@@ -1079,7 +1101,7 @@ local function convertRP()
 
     -- Expand custom categories after EmoteData is populated
     categoryToEmotes = expandCustomCategories()
-
+    TriggerEvent("rpemotes:internal:loadEmoteDataToNUI", EmoteData, categoryToEmotes)
     RP = nil
     CONVERTED = true
 end
@@ -1116,6 +1138,7 @@ function InitMenu()
     mainMenu.OnMenuClosed = function()
         ClosePedMenu()
     end
+    TriggerEvent("rpemotes:internal:sendMenuDataToNUI")
     _menuPool:RefreshIndex()
 end
 
@@ -1138,7 +1161,6 @@ function RebuildEmoteMenu()
 
     -- Rebuild the menu
     InitMenu()
-
     DebugPrint("Menu rebuilt for model compatibility")
 end
 
