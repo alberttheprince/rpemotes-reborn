@@ -90,11 +90,17 @@ function _setupMenuEventListeners(MENUS) {
 
                 let _previewData = {}
                 if (TARGET.dataset.emotetype === "Expressions") _previewData = {emoteName: TARGET.dataset.emoteid, emoteType: TARGET.dataset.emotetype}
-                ExecuteNUICallback("PREVIEW_EMOTE", _previewData)
+                if (sendPreviewRequest) {
+                    sendPreviewRequest = false
+                    ExecuteNUICallback("PREVIEW_EMOTE", {emoteName: TARGET.dataset.emoteid, emoteType: TARGET.dataset.emotetype}).finally(() => sendPreviewRequest = true)
+                }
                 return;
             }
 
-            if (sendPreviewRequest) ExecuteNUICallback("PREVIEW_EMOTE", {emoteName: TARGET.dataset.emoteid, emoteType: TARGET.dataset.emotetype}).finally(() => sendPreviewRequest = true)
+            if (sendPreviewRequest) {
+                sendPreviewRequest = false
+                ExecuteNUICallback("PREVIEW_EMOTE", {emoteName: TARGET.dataset.emoteid, emoteType: TARGET.dataset.emotetype}).finally(() => sendPreviewRequest = true)
+            }
 
             FOOTER_TEXT.textContent = `/${TARGET.closest(".walkstyles-menu") ? "walk" : "e"} ${TARGET.dataset.emoteid}`
         })
