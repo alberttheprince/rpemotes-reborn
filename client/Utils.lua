@@ -310,10 +310,13 @@ function SetupButtons(button)
     for i, btn in pairs(button) do
         PushScaleformMovieFunction(scaleform, "SET_DATA_SLOT")
         PushScaleformMovieFunctionParameterInt(i - 1)
-        ScaleformMovieMethodAddParamPlayerNameString(GetControlInstructionalButton(0, btn.key, true))
-        BeginTextCommandScaleformString("STRING")
-        AddTextComponentScaleform(Translate(btn.text))
-        EndTextCommandScaleformString()
+        if btn.key then
+            PushScaleformMovieMethodParameterButtonName(GetControlInstructionalButton(btn.controlGroup or 0, btn.key, true))
+        elseif btn.keys then
+            PushScaleformMovieMethodParameterButtonName(GetControlInstructionalButton(btn.controlGroup or 0, btn.keys[1], true))
+            PushScaleformMovieMethodParameterButtonName(GetControlInstructionalButton(btn.controlGroup or 0, btn.keys[2], true))
+        end
+        PushScaleformMovieFunctionParameterString(Translate(btn.text))
         PopScaleformMovieFunctionVoid()
     end
 

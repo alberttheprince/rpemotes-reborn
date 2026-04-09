@@ -28,6 +28,15 @@ local NUIEmoteType = {
     [EmoteType.EMOJI] = "emojis"
 }
 
+local keyList = {
+    { controlGroup = 2, key = 176, text = 'btn_select' },
+    { controlGroup = 2, keys = {176, 209}, text = 'btn_contextmenu'},
+    { controlGroup = 2, key = 177,  text = 'btn_back' },
+    { controlGroup = 2, keys = {172, 173}, text = 'btn_move'},
+    { controlGroup = 2, key = 209,  text = 'btn_move_faster' },
+    { key = 19,  text = 'btn_cursor' }
+}
+
 local function getEmojiFromCategoryName(str)
     -- Wild for-loop to find emojis in the string.
     for i, char in utf8.codes(str) do
@@ -225,7 +234,11 @@ end
 AddEventHandler("rpemotes:internal:handleNUIOpened", function()
     SendNUIMessage({type = "OPEN_MENU", value = true})
     SendNUIMessage({type = "TOGGLE_CURSOR_INPUT", value = false})
+
+    local scaleform_instructions = SetupButtons(keyList)
+
     while IsNuiFocused() do
+        DrawScaleformMovieFullscreen(scaleform_instructions, 255, 255, 255, 255)
         DisableControlAction(0,37,true)
         DisableControlAction(0,200,true)
         if IsControlJustPressed(0,19) then
@@ -247,5 +260,6 @@ AddEventHandler("rpemotes:internal:handleNUIOpened", function()
         Citizen.Wait(1)
     end
     CreatePreviewPed("", "")
+    SetScaleformMovieAsNoLongerNeeded(scaleform_instructions)
     SendNUIMessage({type = "OPEN_MENU", value = false})
 end)
