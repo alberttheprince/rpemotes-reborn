@@ -196,10 +196,16 @@ window.addEventListener('message', (event) => {
                 const EMOTES = CONTENT_CONTAINER.querySelector(`.${key}-menu`);
                 if (!EMOTES) return;
                 ClearHTMLContainer(`.${key}-menu`);
+                if (key==="moods" || key==="walkstyles") {
+                    // Add the (Clear Mood) button here. Nightmares for future maintainers.
+                    EMOTES.insertAdjacentHTML("beforeend", `
+                        <button class="btn btn-emote btn-style-reset" data-emoteid="_reset" data-emotetype="${event.data[key][0].emoteType}" data-locale="normalreset"></button>
+                        `)
+                }
                 event.data[key].forEach((el) => {
                     if (el) {
                         EMOTES.insertAdjacentHTML("beforeend", `
-                            <button class="btn btn-emote ${el.isFavorite ? "btn-emote-favorite" : ""} ${el.emoteType === "Emojis" ? "noto-color-emoji-regular" : ""}" data-emoteid="${el.emoteName}" data-emoteType="${el.emoteType}" data-label="${el.label}">${el.emoteType !== 'Emojis' ? EMOTE_TYPE_ICONS[el.emoteType]+" " : ""}${el.label}</button>
+                            <button class="btn btn-emote ${el.isFavorite ? "btn-emote-favorite" : ""} ${el.emoteType === "Emojis" ? "noto-color-emoji-regular" : ""}" data-emoteid="${el.emoteName}" data-emotetype="${el.emoteType}" data-label="${el.label}">${el.emoteType !== 'Emojis' ? EMOTE_TYPE_ICONS[el.emoteType]+" " : ""}${el.label}</button>
                             `)
                     }
                 })

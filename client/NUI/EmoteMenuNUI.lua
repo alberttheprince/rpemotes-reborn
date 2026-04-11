@@ -112,7 +112,17 @@ end)
 
 RegisterNUICallback('ROUTE_EMOTE', function(data, cb)
     if data.type == "emote" then
-        RouteEmoteToFunction(data.emoteName, data.emoteType, 1)
+        if data.emoteName == "_reset" then
+            if data.emoteType == EmoteType.WALKS then
+                ResetWalk()
+                DeleteResourceKvp("walkstyle")
+            elseif data.emoteType == EmoteType.EXPRESSIONS then
+                DeleteResourceKvp(EmoteType.EXPRESSIONS)
+                ClearFacialIdleAnimOverride(PlayerPedId())
+            end
+        else
+            RouteEmoteToFunction(data.emoteName, data.emoteType, 1)
+        end
     elseif data.type == "groupemote" then
         ToggleNUIMenu() -- Important to close first. Group emote request blocks the thread until you actually start the request.
         OnGroupEmoteRequest(data.emoteName)

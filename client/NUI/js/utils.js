@@ -91,6 +91,7 @@ export async function HandleLocales() {
     if (!LOCALES || !LOCALES.data) return {};
     document.querySelectorAll("[data-locale]").forEach((el) => {
         if (LOCALES.data[el.dataset.locale]) {
+            LOCALES.data[el.dataset.locale] = LOCALES.data[el.dataset.locale].replace(/~.*?~/g, "").trim();
             if (el.hasAttribute("placeholder")) {
                 el.setAttribute("placeholder", LOCALES.data[el.dataset.locale])
             } else {

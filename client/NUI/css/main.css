@@ -26,8 +26,8 @@
 
     --color-accent-primary: #1589d8;
     --color-accent-primary-hover: #3badf8;
-    --color-accent-secondary: #d84c15;
-    --color-accent-secondary-hover: #ff8251;
+    --color-accent-secondary: rgba(62, 62, 62, 1);
+    --color-accent-secondary-hover: #d84c15;
     --color-accent-favorite: #ffd700;
     --color-accent-favorite-hover: #ffe96c;
 
@@ -175,6 +175,15 @@ hr {
     height: 3.2rem;
     border: none !important;
     border-radius: 100% !important;
+}
+
+.btn-style-reset {
+    background-color: var(--color-accent-secondary) !important;
+    margin-bottom: 1rem;
+    grid-column: 1 / -1;
+}
+.btn-style-reset:hover, .btn-style-reset:focus-visible {
+    background-color: var(--color-accent-secondary-hover) !important;
 }
 
 .menu-container {

@@ -23,6 +23,10 @@ export class Popover {
             if (event.target.closest(this.triggerSelector)) {
                 e.preventDefault();
                 this.currentButton = event.target.closest(this.triggerSelector);
+                if (this.currentButton.classList.contains("btn-style-reset")) {
+                    this.currentButton = null;
+                    return;
+                }
                 this.show(event);
             }
         });
