@@ -20,12 +20,23 @@
     --color-btn-popover-bg: rgba(62, 62, 62, 1);
     --color-btn-border: #1d1d1d;
     --color-btn-hover: #4f4f4f;
+
+    --color-scrollbar: #1589d8;
+    --color-scrollbar-hover: #3badf8;
+
     --color-accent-primary: #1589d8;
     --color-accent-primary-hover: #3badf8;
     --color-accent-secondary: #d84c15;
     --color-accent-secondary-hover: #ff8251;
     --color-accent-favorite: #ffd700;
     --color-accent-favorite-hover: #ffe96c;
+
+    --border-radius-menu: 1rem;
+    --border-radius-search-bar: 1rem;
+    --border-radius-btn-sidebar: 1rem;
+    --border-radius-btn-sidebar-hover: 0px;
+    --border-radius-btn-emote: 0px;
+    --border-radius-btn-emote-hover: 0px;
 
     --font-size-primary: 1.6rem;
 }
@@ -39,6 +50,21 @@ img,
 /* FiveM's CEF doesn't support standard CSS scrollbar styling :D */
 .invisible-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar:horizontal {
+	width: 0.5rem;
+	height: 0.5rem;
+}
+::-webkit-scrollbar-track {
+	background: #f1f1f100;
+}
+::-webkit-scrollbar-thumb {
+	background: var(--color-scrollbar);
+}
+::-webkit-scrollbar-thumb:hover {
+	background: var(--color-scrollbar-hover);
 }
 
 .menu {
@@ -116,7 +142,7 @@ hr {
     color: var(--color-text-primary);
     height: 60vh;
     overflow: auto;
-    border-radius: 1rem;
+    border-radius: var(--border-radius-menu);
 }
 
 .header-container {
@@ -140,7 +166,7 @@ hr {
     background-color: var(--color-btn-bg);
     color: var(--color-text-primary);
     border: none;
-    border-radius: 1rem;
+    border-radius: var(--border-radius-search-bar);
     padding: 0 1rem;
 }
 
@@ -210,6 +236,7 @@ hr {
 }
 .sidebar-button-active button:hover, .sidebar-button-active button:focus-visible {
     background-color: var(--color-accent-primary-hover);
+    border-radius: var(--border-radius-btn-sidebar-hover);
 }
 .sidebar-button-active span {
     color: var(--color-accent-primary);
@@ -219,6 +246,12 @@ hr {
     width: 4.2rem;
     height: 4.2rem;
     margin: 0.5rem 0.5rem;
+    border-radius: var(--border-radius-btn-sidebar);
+    transition: all 200ms;
+}
+
+.btn-sidebar:hover, .btn-sidebar:focus-visible {
+    border-radius: var(--border-radius-btn-sidebar-hover);
 }
 
 .btn-sidebar-label {
@@ -257,7 +290,12 @@ hr {
 
 .btn-emote, .btn-emoji {
     height: 3.6rem;
-    border-radius: 1rem;
+    border-radius: var(--border-radius-btn-emote);
+    transition: all 200ms;
+}
+
+.btn-emote:hover, .btn-emoji:hover, .btn-emote:focus-visible, .btn-emoji:focus-visible {
+    border-radius: var(--border-radius-btn-emote-hover);
 }
 
 .btn-emote-favorite {

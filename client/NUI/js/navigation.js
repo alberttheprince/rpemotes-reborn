@@ -143,7 +143,7 @@ function focusOnNextButton(currentButton, jumpAhead = false, jumps = 1) {
         const ulElement = li.parentElement;
         const liElements = Array.from(ulElement.querySelectorAll("li"));
         const currentIndex = liElements.indexOf(li);
-        const nextIndex = (currentIndex + (jumpAhead ? 2 : jumps)) % liElements.length;
+        const nextIndex = (currentIndex + (jumpAhead ? 2 : 1)) % liElements.length;
         const button = liElements[nextIndex]?.querySelector(".btn-sidebar");
         button ? button?.focus() : ulElement.firstElementChild.querySelector(".btn-sidebar")?.focus();
     } else if (currentButton && currentButton.closest(".search-container")) {
@@ -196,7 +196,7 @@ function focusOnPreviousButton(currentButton, jumpAhead = false, jumps = 1) {
         const ulElement = li.parentElement;
         const liElements = Array.from(ulElement.querySelectorAll("li"));
         const currentIndex = liElements.indexOf(li);
-        const nextIndex = (currentIndex - (jumpAhead ? 2 : jumps)) % liElements.length;
+        const nextIndex = (currentIndex - (jumpAhead ? 2 : 1)) % liElements.length;
         const button = liElements[nextIndex]?.querySelector(".btn");
         button ? button?.focus() : ulElement.lastElementChild.querySelector(".btn-sidebar")?.focus();
     } else if (currentButton && currentButton.closest(".search-container")) {
