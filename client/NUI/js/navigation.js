@@ -2,6 +2,7 @@
 
 import { ExecuteNUICallback, PlaySoundFrontend, querySelectorVisible } from "./utils.js";
 import { CONFIG } from "./main.js";
+import { UsingMouse } from "./main.js";
 
 const SEARCH_BAR = document.querySelector(".search-input");
 
@@ -34,19 +35,35 @@ document.addEventListener("keyup", (e) => {
             if (FOCUS_ELEMENT.closest(".content-container")) return document.querySelector(".sidebar-button-active").querySelector(".btn")?.focus();
             return ExecuteNUICallback("CLOSE_MENU", {});
             break;
+        case "PageDown":
         case "ArrowDown":
             focusOnNextButton(FOCUS_ELEMENT, e.shiftKey);
             break;
+        case "PageUp":
         case "ArrowUp":
             focusOnPreviousButton(FOCUS_ELEMENT, e.shiftKey);
             break;
     }
 })
 
+document.addEventListener("wheel", (e) => {
+    if (!UsingMouse) {
+        const JUMPS = e.deltaY / 100; // 1 = down, -1 = up. 2,3,4... means that the scroll is too fast, so we jump ahead.
+        const FOCUS_ELEMENT = document.activeElement;
+        // console.log(UsingMouse, JUMPS)
+        if (JUMPS > 0) {
+            focusOnNextButton(FOCUS_ELEMENT, e.shiftKey, Math.abs(JUMPS));
+        } else {
+            focusOnPreviousButton(FOCUS_ELEMENT, e.shiftKey, Math.abs(JUMPS));
+        }
+    };
+});
+
 document.addEventListener("scroll", (e) => e.preventDefault());
 
 document.addEventListener("mouseover", (e) => {
     const TARGET = e.target
+    if (TARGET === SEARCH_BAR) return; 
     if (TARGET.nodeName === "BUTTON" || TARGET.nodeName === "INPUT") {
         PlaySoundFrontend("NAV_UP_DOWN")
         TARGET.focus();
@@ -88,12 +105,12 @@ function isElementVisible(element) {
 // TODO:    There has to be a better way to write keyboard navigation, than this.
 //          Code is hardcoded to check the 3 spaces where buttons might be, and also hardcoded to handle it based on how the HTML looks for each.
 //          Ideally, this should automagically find the previous/next focusable item in the DOM, like how the normal [Tab] action does.
-function focusOnNextButton(currentButton, jumpAhead = false) {
+function focusOnNextButton(currentButton, jumpAhead = false, jumps = 1) {
     if (currentButton && currentButton.closest(".grid")) {
         const gridContainer = currentButton.closest(".grid");
         const buttons = Array.from(gridContainer.querySelectorAll(".btn-emote") || gridContainer.querySelectorAll(".btn-emoji"));
         const currentIndex = buttons.indexOf(currentButton);
-        const step = jumpAhead ? 10 : 1;
+        const step = jumpAhead ? 10 : jumps;
         let nextIndex = (currentIndex + step) % buttons.length;
         let attempts = 0;
         
@@ -110,7 +127,7 @@ function focusOnNextButton(currentButton, jumpAhead = false) {
         const gridContainer = currentButton.closest(".popover");
         const buttons = Array.from(gridContainer.querySelectorAll(".popover-menu-item"));
         const currentIndex = buttons.indexOf(currentButton);
-        const step = 1;
+        const step = jumps;
         let nextIndex = (currentIndex + step) % buttons.length;
         let attempts = 0;
         
@@ -127,7 +144,7 @@ function focusOnNextButton(currentButton, jumpAhead = false) {
         const ulElement = li.parentElement;
         const liElements = Array.from(ulElement.querySelectorAll("li"));
         const currentIndex = liElements.indexOf(li);
-        const nextIndex = (currentIndex + (jumpAhead ? 2 : 1)) % liElements.length;
+        const nextIndex = (currentIndex + (jumpAhead ? 2 : jumps)) % liElements.length;
         const button = liElements[nextIndex]?.querySelector(".btn-sidebar");
         button ? button?.focus() : ulElement.firstElementChild.querySelector(".btn-sidebar")?.focus();
     } else if (currentButton && currentButton.closest(".search-container")) {
@@ -140,13 +157,13 @@ function focusOnNextButton(currentButton, jumpAhead = false) {
     PlaySoundFrontend("NAV_UP_DOWN");
 }
 
-function focusOnPreviousButton(currentButton, jumpAhead = false) {
+function focusOnPreviousButton(currentButton, jumpAhead = false, jumps = 1) {
     if (currentButton && currentButton.closest(".grid")) {
         const gridContainer = currentButton.closest(".grid");
         const buttons = Array.from(gridContainer.querySelectorAll(".btn-emote") || gridContainer.querySelectorAll(".btn-emoji"));
         const currentIndex = buttons.indexOf(currentButton);
         if (currentIndex === 0) return SEARCH_BAR.focus();
-        const step = jumpAhead ? 10 : 1;
+        const step = jumpAhead ? 10 : jumps;
         let nextIndex = ((currentIndex - step) % buttons.length + buttons.length) % buttons.length;
         let attempts = 0;
         
@@ -163,7 +180,7 @@ function focusOnPreviousButton(currentButton, jumpAhead = false) {
         const gridContainer = currentButton.closest(".popover");
         const buttons = Array.from(gridContainer.querySelectorAll(".popover-menu-item"));
         const currentIndex = buttons.indexOf(currentButton);
-        const step = 1;
+        const step = jumps;
         let nextIndex = ((currentIndex - step) % buttons.length + buttons.length) % buttons.length;
         let attempts = 0;
         
@@ -180,7 +197,7 @@ function focusOnPreviousButton(currentButton, jumpAhead = false) {
         const ulElement = li.parentElement;
         const liElements = Array.from(ulElement.querySelectorAll("li"));
         const currentIndex = liElements.indexOf(li);
-        const nextIndex = (currentIndex - (jumpAhead ? 2 : 1)) % liElements.length;
+        const nextIndex = (currentIndex - (jumpAhead ? 2 : jumps)) % liElements.length;
         const button = liElements[nextIndex]?.querySelector(".btn");
         button ? button?.focus() : ulElement.lastElementChild.querySelector(".btn-sidebar")?.focus();
     } else if (currentButton && currentButton.closest(".search-container")) {

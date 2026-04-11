@@ -12,6 +12,7 @@ const FOOTER_TEXT = document.querySelector(".footer-text");
 
 let EMOTE_TYPE_ICONS = {}
 export let CONFIG;
+export let UsingMouse = false;
 
 window.addEventListener("load", async (e) => {
 
@@ -154,6 +155,7 @@ window.addEventListener('message', (event) => {
 
     if (event.data.type === 'TOGGLE_CURSOR_INPUT') {
         (event.data.value ? document.body.classList.remove("no-cursor") : document.body.classList.add("no-cursor"))
+        UsingMouse = !document.body.classList.contains("no-cursor");
     }
 
     if (event.data.type === 'LOAD_EMOTE_DATA') {
