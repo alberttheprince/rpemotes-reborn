@@ -1,4 +1,5 @@
 local nuiReady = false
+local initialDataLoaded = false
 
 
 -- The NUI logic is designed to run *on top* of the existing NativeUI logic, since that menu already does all the data handling that we need.
@@ -68,6 +69,7 @@ local NUIEmoteCategories = {
 
 RegisterNUICallback('NUI_READY', function(data, cb)
     nuiReady = true
+    DebugPrint("[ NUI READY ]")
     local configForNUI = {
         Keybinding = Config.Keybinding,
         MenuPosition = Config.MenuPosition,
@@ -78,6 +80,12 @@ RegisterNUICallback('NUI_READY', function(data, cb)
         Search = Config.Search,
     }
     cb({["ok"] = true, ["config"] = configForNUI})
+end)
+
+RegisterNUICallback('INITIAL_DATA_LOADED', function(data, cb)
+    initialDataLoaded = true
+    DebugPrint("[ NUI CATEGORIES LOADED ]")
+    cb({["ok"] = true})
 end)
 
 RegisterNUICallback('CLOSE_MENU', function(data, cb)
@@ -205,8 +213,7 @@ function AddEmoteToNUIQueue(data)
 end
 
 AddEventHandler("rpemotes:internal:sendMenuDataToNUI", function()
-    while not nuiReady do Citizen.Wait(10) end
-
+    while not nuiReady and not initialDataLoaded do Citizen.Wait(10) end
     SendNUIMessage(dataForMenu)
     dataForMenu = {
         type = "BUILD_EMOTE_MENUS",

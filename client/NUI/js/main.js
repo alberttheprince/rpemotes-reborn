@@ -187,6 +187,7 @@ window.addEventListener('message', (event) => {
         })
         MENUS = CONTENT_CONTAINER.querySelectorAll(".menu");
         _setupMenuEventListeners(MENUS);
+        ExecuteNUICallback("INITIAL_DATA_LOADED", {})
     }
 
     if (event.data.type === 'BUILD_EMOTE_MENUS') {
