@@ -35,8 +35,10 @@ export function HandleSidebarButtonPress(el) {
 
             if (CONFIG.Search) {
                 SEARCH_CONTAINER.classList.remove("hidden");
-                SEARCH_CONTAINER.querySelector(".search-input").value = "";
-                HandleEmoteSearch(""); // Bodge to clear search. Sorry.
+                if (BUTTON_CONTAINER !== PREVIOUS_ACTIVE_BUTTON_CONTAINER) {
+                    SEARCH_CONTAINER.querySelector(".search-input").value = "";
+                    HandleEmoteSearch(""); // Bodge to clear search. Sorry.
+                }
                 if (OPENED_MENU?.classList.contains("keybinds-menu")) {
                     SEARCH_CONTAINER.classList.add("hidden");
                 }
@@ -61,7 +63,7 @@ export function HandleEmoteSearch(search, menu = ".grid") {
     gridElements.forEach((grid) => {
         const buttons = grid.querySelectorAll("[data-emoteid]");
         buttons.forEach((button) => {
-            const emoteId = button.dataset.emoteid.toLowerCase();
+            const emoteId = button.dataset.emoteid.toLowerCase()+button.textContent.toLowerCase();
             button.style.display = emoteId.includes(searchValue) ? "" : "none";
         })
     })

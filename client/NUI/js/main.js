@@ -137,6 +137,11 @@ function _setupMenuEventListeners(MENUS) {
 SEARCH_CONTAINER.addEventListener("submit", (e) => {
     e.preventDefault();
     HandleEmoteSearch();
+    querySelectorVisible(document.querySelector(".grid"))?.focus();
+})
+
+SEARCH_CONTAINER.addEventListener("reset", (e) => {
+    HandleEmoteSearch("");
 })
 
 

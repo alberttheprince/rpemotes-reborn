@@ -13,9 +13,8 @@ document.addEventListener("keydown", (e) => {
         case "ArrowLeft":
         case "ArrowRight":
         case " ":
-            e.preventDefault();
+            if (document.activeElement !== SEARCH_BAR) e.preventDefault();
             break;
-        
     }
 })
 
@@ -23,15 +22,15 @@ document.addEventListener("keydown", (e) => {
 document.addEventListener("keyup", (e) => { 
     const FOCUS_ELEMENT = document.activeElement;
     switch (e.key) {
-        case "Escape":
         case "Backspace":
+            if (FOCUS_ELEMENT === document.querySelector(".search-input")) break;
+        case "Escape":
             if (!FOCUS_ELEMENT) return ExecuteNUICallback("CLOSE_MENU", {});
-            if (FOCUS_ELEMENT === document.querySelector(".search-input") && document.querySelector(".search-input")?.value !== "") return;
             if (FOCUS_ELEMENT.closest(".popover")) return;
 
             PlaySoundFrontend("BACK");
             if (FOCUS_ELEMENT.closest(".keybinds-menu") || (FOCUS_ELEMENT.closest(".content-container") && !CONFIG.Search) ) return document.querySelector(".sidebar-button-active").querySelector(".btn")?.focus();
-            if (FOCUS_ELEMENT.closest(".grid")) return document.querySelector(".btn-clear-search").focus();
+            if (FOCUS_ELEMENT.closest(".grid") && SEARCH_BAR.value !== "") return document.querySelector(".btn-clear-search").focus();
             if (FOCUS_ELEMENT.closest(".content-container")) return document.querySelector(".sidebar-button-active").querySelector(".btn")?.focus();
             return ExecuteNUICallback("CLOSE_MENU", {});
             break;
