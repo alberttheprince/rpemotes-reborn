@@ -29,12 +29,18 @@ local NUIEmoteType = {
     [EmoteType.EMOJI] = "emojis"
 }
 
-local keyList = {
+local keyListKeyboard = {
     { controlGroup = 2, key = 176, text = 'btn_select' },
     { controlGroup = 2, keys = {176, 209}, text = 'btn_contextmenu'},
     { controlGroup = 2, key = 177,  text = 'btn_back' },
     { controlGroup = 2, keys = {172, 173}, text = 'btn_move'},
     { controlGroup = 2, key = 209,  text = 'btn_move_faster' },
+    { key = 19,  text = 'btn_cursor' }
+}
+
+local keyListMouse = {
+    { controlGroup = 2, key = 223, text = 'btn_select' },
+    { controlGroup = 2, key = 225, text = 'btn_contextmenu'},
     { key = 19,  text = 'btn_cursor' }
 }
 
@@ -261,7 +267,7 @@ AddEventHandler("rpemotes:internal:handleNUIOpened", function()
     SendNUIMessage({type = "OPEN_MENU", value = true})
     SendNUIMessage({type = "TOGGLE_CURSOR_INPUT", value = false})
 
-    local scaleform_instructions = SetupButtons(keyList)
+    local scaleform_instructions = SetupButtons(keyListKeyboard)
 
     while IsNuiFocused() do
         DrawScaleformMovieFullscreen(scaleform_instructions, 255, 255, 255, 255)
@@ -270,6 +276,8 @@ AddEventHandler("rpemotes:internal:handleNUIOpened", function()
         if IsControlJustPressed(0,19) then
             SetNuiFocus(true, true)
             SendNUIMessage({type = "TOGGLE_CURSOR_INPUT", value = true})
+            SetScaleformMovieAsNoLongerNeeded(scaleform_instructions)
+            scaleform_instructions = SetupButtons(keyListMouse)
         end
         if IsControlPressed(0,19) then
             DisableControlAction(0,1,true)
@@ -282,6 +290,8 @@ AddEventHandler("rpemotes:internal:handleNUIOpened", function()
         if IsControlJustReleased(0,19) then
             SetNuiFocus(true, false)
             SendNUIMessage({type = "TOGGLE_CURSOR_INPUT", value = false})
+            SetScaleformMovieAsNoLongerNeeded(scaleform_instructions)
+            scaleform_instructions = SetupButtons(keyListKeyboard)
         end
         Citizen.Wait(1)
     end
