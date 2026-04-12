@@ -146,8 +146,6 @@ function focusOnNextButton(currentButton, jumpAhead = false, jumps = 1) {
         let nextIndex = (currentIndex + (jumpAhead ? 2 : 1)) % liElements.length;
         let attempts = 0;
 
-        console.log(isElementVisible(liElements[nextIndex]), liElements[nextIndex])
-
         while (!isElementVisible(liElements[nextIndex]) && attempts < liElements.length) {
             nextIndex = (nextIndex + 1) % liElements.length;
             attempts++;
