@@ -98,7 +98,7 @@ SEARCH_BAR.addEventListener("blur", (e) => {
 
 
 function isElementVisible(element) {
-    return element?.style?.display !== "none";
+    return !element?.classList.contains("hidden")
 }
 
 // TODO:    There has to be a better way to write keyboard navigation, than this.
@@ -143,7 +143,16 @@ function focusOnNextButton(currentButton, jumpAhead = false, jumps = 1) {
         const ulElement = li.parentElement;
         const liElements = Array.from(ulElement.querySelectorAll("li"));
         const currentIndex = liElements.indexOf(li);
-        const nextIndex = (currentIndex + (jumpAhead ? 2 : 1)) % liElements.length;
+        let nextIndex = (currentIndex + (jumpAhead ? 2 : 1)) % liElements.length;
+        let attempts = 0;
+
+        console.log(isElementVisible(liElements[nextIndex]), liElements[nextIndex])
+
+        while (!isElementVisible(liElements[nextIndex]) && attempts < liElements.length) {
+            nextIndex = (nextIndex + 1) % liElements.length;
+            attempts++;
+        }
+
         const button = liElements[nextIndex]?.querySelector(".btn-sidebar");
         button ? button?.focus() : ulElement.firstElementChild.querySelector(".btn-sidebar")?.focus();
     } else if (currentButton && currentButton.closest(".search-container")) {
@@ -196,7 +205,13 @@ function focusOnPreviousButton(currentButton, jumpAhead = false, jumps = 1) {
         const ulElement = li.parentElement;
         const liElements = Array.from(ulElement.querySelectorAll("li"));
         const currentIndex = liElements.indexOf(li);
-        const nextIndex = (currentIndex - (jumpAhead ? 2 : 1)) % liElements.length;
+        let nextIndex = (currentIndex - (jumpAhead ? 2 : 1)) % liElements.length;
+        let attempts = 0;
+
+        while (!isElementVisible(liElements[nextIndex]) && attempts < liElements.length) {
+            nextIndex = (nextIndex - 1) % liElements.length;
+            attempts++;
+        }
         const button = liElements[nextIndex]?.querySelector(".btn");
         button ? button?.focus() : ulElement.lastElementChild.querySelector(".btn-sidebar")?.focus();
     } else if (currentButton && currentButton.closest(".search-container")) {

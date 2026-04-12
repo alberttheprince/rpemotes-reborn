@@ -64,7 +64,7 @@ export function HandleEmoteSearch(search, menu = ".grid") {
         const buttons = grid.querySelectorAll("[data-emoteid]");
         buttons.forEach((button) => {
             const emoteId = button.dataset.emoteid.toLowerCase()+button.textContent.toLowerCase();
-            button.style.display = emoteId.includes(searchValue) ? "" : "none";
+            emoteId.includes(searchValue) ? button.classList.remove("hidden") : button.classList.add("hidden");
         })
     })
 }
@@ -73,7 +73,7 @@ export function querySelectorVisible(parent, query = ".btn") {
     const elements = parent?.querySelectorAll(query);
     let retval;
     for (const el of elements) {
-        if (el?.style?.display !== "none") {
+        if (!el.classList.contains("hidden")) {
             retval = el;
             break;
         }

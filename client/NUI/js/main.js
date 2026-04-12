@@ -156,6 +156,7 @@ window.addEventListener('message', (event) => {
     if (event.data.type === 'OPEN_MENU') {
         (event.data.value ? document.body.style.display = "flex" : document.body.style.display = "none")
         document.querySelector(".btn-sidebar").focus();
+        event.data.shouldShowEmojiMenu ? document.querySelector(".emoji-sidebar")?.classList.remove("hidden") : document.querySelector(".emoji-sidebar")?.classList.add("hidden")
     }
 
     if (event.data.type === 'TOGGLE_CURSOR_INPUT') {

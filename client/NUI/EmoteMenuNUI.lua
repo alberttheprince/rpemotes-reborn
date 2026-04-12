@@ -231,17 +231,9 @@ end
 AddEventHandler("rpemotes:internal:sendMenuDataToNUI", function()
     while not nuiReady and not initialDataLoaded do Citizen.Wait(10) end
     SendNUIMessage(dataForMenu)
-    dataForMenu = {
-        type = "BUILD_EMOTE_MENUS",
-        ["emotes"] = {},
-        ["sharedEmotes"] = {},
-        ["propEmotes"] = {},
-        ["danceEmotes"] = {},
-        ["walkStyles"] = {},
-        ["moods"] = {},
-        ["emojis"] = {},
-        ["favorites"] = {}
-    }
+    for key, val in pairs(dataForMenu) do
+        dataForMenu[key] = {}
+    end
 end)
 
 AddEventHandler("rpemotes:internal:sendKeybindsDataToNUI", function(binds)
@@ -264,7 +256,8 @@ function ToggleNUIMenu()
 end
 
 AddEventHandler("rpemotes:internal:handleNUIOpened", function()
-    SendNUIMessage({type = "OPEN_MENU", value = true})
+    local _showEmoji = ShouldShowEmojiMenu()
+    SendNUIMessage({type = "OPEN_MENU", value = true, shouldShowEmojiMenu = _showEmoji})
     SendNUIMessage({type = "TOGGLE_CURSOR_INPUT", value = false})
 
     local scaleform_instructions = SetupButtons(keyListKeyboard)
@@ -293,9 +286,9 @@ AddEventHandler("rpemotes:internal:handleNUIOpened", function()
             SetScaleformMovieAsNoLongerNeeded(scaleform_instructions)
             scaleform_instructions = SetupButtons(keyListKeyboard)
         end
-        Citizen.Wait(1)
+        Wait(1)
     end
     CreatePreviewPed("", "")
     SetScaleformMovieAsNoLongerNeeded(scaleform_instructions)
-    SendNUIMessage({type = "OPEN_MENU", value = false})
+    SendNUIMessage({type = "OPEN_MENU", value = false, shouldShowEmojiMenu = _showEmoji})
 end)

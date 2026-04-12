@@ -208,7 +208,7 @@ local EMOTE_PREFIX = {
     [EmoteType.PROP_EMOTES] = "📦 ",
 }
 
-local function shouldShowEmojiMenu()
+function ShouldShowEmojiMenu()
     if not Config.EmojiMenuEnabled then return false end
     if not Config.EmojiMenuAnimalsOnly then return true end
 
@@ -938,7 +938,7 @@ function OpenEmoteMenu()
 
     if placementState == PlacementState.PREVIEWING or placementState == PlacementState.WALKING then return end
 
-    local shouldHaveEmojiMenu = shouldShowEmojiMenu()
+    local shouldHaveEmojiMenu = ShouldShowEmojiMenu()
     local hasEmojiMenu = subMenus["emojis"] ~= nil
 
     if hasEmojiMenu ~= shouldHaveEmojiMenu then
@@ -1123,7 +1123,7 @@ function InitMenu()
     if Config.ExpressionsEnabled then
         addFaceMenu(mainMenu)
     end
-    if shouldShowEmojiMenu() then
+    if ShouldShowEmojiMenu() then
         addEmojiMenu(mainMenu)
     end
 
