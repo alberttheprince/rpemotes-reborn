@@ -35,8 +35,10 @@ export function HandleSidebarButtonPress(el) {
 
             if (CONFIG.Search) {
                 SEARCH_CONTAINER.classList.remove("hidden");
-                SEARCH_CONTAINER.querySelector(".search-input").value = "";
-                HandleEmoteSearch(""); // Bodge to clear search. Sorry.
+                if (BUTTON_CONTAINER !== PREVIOUS_ACTIVE_BUTTON_CONTAINER) {
+                    SEARCH_CONTAINER.querySelector(".search-input").value = "";
+                    HandleEmoteSearch(""); // Bodge to clear search. Sorry.
+                }
                 if (OPENED_MENU?.classList.contains("keybinds-menu")) {
                     SEARCH_CONTAINER.classList.add("hidden");
                 }
@@ -61,8 +63,8 @@ export function HandleEmoteSearch(search, menu = ".grid") {
     gridElements.forEach((grid) => {
         const buttons = grid.querySelectorAll("[data-emoteid]");
         buttons.forEach((button) => {
-            const emoteId = button.dataset.emoteid.toLowerCase();
-            button.style.display = emoteId.includes(searchValue) ? "" : "none";
+            const emoteId = button.dataset.emoteid.toLowerCase()+button.textContent.toLowerCase();
+            emoteId.includes(searchValue) ? button.classList.remove("hidden") : button.classList.add("hidden");
         })
     })
 }
@@ -71,7 +73,7 @@ export function querySelectorVisible(parent, query = ".btn") {
     const elements = parent?.querySelectorAll(query);
     let retval;
     for (const el of elements) {
-        if (el?.style?.display !== "none") {
+        if (!el.classList.contains("hidden")) {
             retval = el;
             break;
         }
@@ -89,6 +91,7 @@ export async function HandleLocales() {
     if (!LOCALES || !LOCALES.data) return {};
     document.querySelectorAll("[data-locale]").forEach((el) => {
         if (LOCALES.data[el.dataset.locale]) {
+            LOCALES.data[el.dataset.locale] = LOCALES.data[el.dataset.locale].replace(/~.*?~/g, "").trim();
             if (el.hasAttribute("placeholder")) {
                 el.setAttribute("placeholder", LOCALES.data[el.dataset.locale])
             } else {

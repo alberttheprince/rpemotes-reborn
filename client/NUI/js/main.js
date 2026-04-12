@@ -12,6 +12,7 @@ const FOOTER_TEXT = document.querySelector(".footer-text");
 
 let EMOTE_TYPE_ICONS = {}
 export let CONFIG;
+export let UsingMouse = false;
 
 window.addEventListener("load", async (e) => {
 
@@ -136,6 +137,11 @@ function _setupMenuEventListeners(MENUS) {
 SEARCH_CONTAINER.addEventListener("submit", (e) => {
     e.preventDefault();
     HandleEmoteSearch();
+    querySelectorVisible(document.querySelector(".grid"))?.focus();
+})
+
+SEARCH_CONTAINER.addEventListener("reset", (e) => {
+    HandleEmoteSearch("");
 })
 
 
@@ -150,10 +156,12 @@ window.addEventListener('message', (event) => {
     if (event.data.type === 'OPEN_MENU') {
         (event.data.value ? document.body.style.display = "flex" : document.body.style.display = "none")
         document.querySelector(".btn-sidebar").focus();
+        event.data.shouldShowEmojiMenu ? document.querySelector(".emoji-sidebar")?.classList.remove("hidden") : document.querySelector(".emoji-sidebar")?.classList.add("hidden")
     }
 
     if (event.data.type === 'TOGGLE_CURSOR_INPUT') {
         (event.data.value ? document.body.classList.remove("no-cursor") : document.body.classList.add("no-cursor"))
+        UsingMouse = !document.body.classList.contains("no-cursor");
     }
 
     if (event.data.type === 'LOAD_EMOTE_DATA') {
@@ -180,6 +188,7 @@ window.addEventListener('message', (event) => {
         })
         MENUS = CONTENT_CONTAINER.querySelectorAll(".menu");
         _setupMenuEventListeners(MENUS);
+        ExecuteNUICallback("INITIAL_DATA_LOADED", {})
     }
 
     if (event.data.type === 'BUILD_EMOTE_MENUS') {
@@ -188,10 +197,16 @@ window.addEventListener('message', (event) => {
                 const EMOTES = CONTENT_CONTAINER.querySelector(`.${key}-menu`);
                 if (!EMOTES) return;
                 ClearHTMLContainer(`.${key}-menu`);
+                if (key==="moods" || key==="walkstyles") {
+                    // Add the (Clear Mood) button here. Nightmares for future maintainers.
+                    EMOTES.insertAdjacentHTML("beforeend", `
+                        <button class="btn btn-emote btn-style-reset" data-emoteid="_reset" data-emotetype="${event.data[key][0].emoteType}" data-locale="normalreset"></button>
+                        `)
+                }
                 event.data[key].forEach((el) => {
                     if (el) {
                         EMOTES.insertAdjacentHTML("beforeend", `
-                            <button class="btn btn-emote ${el.isFavorite ? "btn-emote-favorite" : ""} ${el.emoteType === "Emojis" ? "noto-color-emoji-regular" : ""}" data-emoteid="${el.emoteName}" data-emoteType="${el.emoteType}" data-label="${el.label}">${el.emoteType !== 'Emojis' ? EMOTE_TYPE_ICONS[el.emoteType]+" " : ""}${el.label}</button>
+                            <button class="btn btn-emote ${el.isFavorite ? "btn-emote-favorite" : ""} ${el.emoteType === "Emojis" ? "noto-color-emoji-regular" : ""}" data-emoteid="${el.emoteName}" data-emotetype="${el.emoteType}" data-label="${el.label}">${el.emoteType !== 'Emojis' ? EMOTE_TYPE_ICONS[el.emoteType]+" " : ""}${el.label}</button>
                             `)
                     }
                 })
