@@ -13,7 +13,7 @@
     <script type="module" src="js/navigation.js" defer></script>
     <script type="module" src="js/main.js" defer></script>
 </head>
-<body style="display: none;">
+<body style="display: flex;">
     <div class="main-container noselect">
         <header class="header-container">
             <img src="/header.png" alt="RP Emotes" class="header-image">
@@ -22,33 +22,33 @@
             <nav class="side-navigation invisible-scrollbar">
                 <ul>
                     <li class="sidebar-button-container">
-                        <button class="btn btn-sidebar btn-cancel-emote" data-action="cancelEmote">🚷</button>
-                        <span class="btn-sidebar-label" data-locale="cancelemote">Cancel Emote</span>
+                        <button id="cancel-emote-btn" class="btn btn-sidebar btn-cancel-emote" data-action="cancelEmote">🚷</button>
+                        <label for="cancel-emote-btn" class="btn-sidebar-label" data-locale="cancelemote">Cancel Emote</label>
                     </li>
                     <li class="sidebar-button-container sidebar-button-active sidebar-button-anchor">
-                        <button class="btn btn-sidebar" data-action="openMenu" data-menu="emotes-menu">🎬</button>
-                        <span class="btn-sidebar-label" data-locale="emotes">Emotes</span>
+                        <button id="emotes-menu-btn" class="btn btn-sidebar" data-action="openMenu" data-menu="emotes-menu">🎬</button>
+                        <label for="emotes-menu-btn" class="btn-sidebar-label" data-locale="emotes">Emotes</label>
                     </li>
                     <!-- Custom Emote Groups added here -->
                     <li class="sidebar-button-container">
-                        <button class="btn btn-sidebar" data-action="openMenu" data-menu="keybinds-menu">🔢</button>
-                        <span class="btn-sidebar-label" data-locale="keybinds">Keybinds</span>
+                        <button id="keybinds-menu-btn" class="btn btn-sidebar" data-action="openMenu" data-menu="keybinds-menu">🔢</button>
+                        <label for="keybinds-menu-btn" class="btn-sidebar-label" data-locale="keybinds">Keybinds</label>
                     </li>
                     <li class="sidebar-button-container">
-                        <button class="btn btn-sidebar" data-action="openMenu" data-menu="favorites-menu">🌟</button>
-                        <span class="btn-sidebar-label" data-locale="favorites">Favorites</span>
+                        <button id="favorites-menu-btn" class="btn btn-sidebar" data-action="openMenu" data-menu="favorites-menu">🌟</button>
+                        <label for="favorites-menu-btn" class="btn-sidebar-label" data-locale="favorites">Favorites</label>
                     </li>
                     <li class="sidebar-button-container">
-                        <button class="btn btn-sidebar" data-action="openMenu" data-menu="walkstyles-menu">🚶🏻‍♂️</button>
-                        <span class="btn-sidebar-label" data-locale="walkstyles">Walk Styles</span>
+                        <button id="walkstyles-menu-btn" class="btn btn-sidebar" data-action="openMenu" data-menu="walkstyles-menu">🚶🏻‍♂️</button>
+                        <label for="walkstyles-menu-btn" class="btn-sidebar-label" data-locale="walkstyles">Walk Styles</label>
                     </li>
                     <li class="sidebar-button-container">
-                        <button class="btn btn-sidebar" data-action="openMenu" data-menu="moods-menu">🎭</button>
-                        <span class="btn-sidebar-label" data-locale="moods">Moods</span>
+                        <button id="moods-menu-btn" class="btn btn-sidebar" data-action="openMenu" data-menu="moods-menu">🎭</button>
+                        <label for="moods-menu-btn" class="btn-sidebar-label" data-locale="moods">Moods</label>
                     </li>
                     <li class="sidebar-button-container emoji-sidebar">
-                        <button class="btn btn-sidebar" data-action="openMenu" data-menu="emojis-menu">😀</button>
-                        <span class="btn-sidebar-label" data-locale="emojis">Emojis</span>
+                        <button id="emojis-menu-btn" class="btn btn-sidebar" data-action="openMenu" data-menu="emojis-menu">😀</button>
+                        <label for="emojis-menu-btn" class="btn-sidebar-label" data-locale="emojis">Emojis</label>
                     </li>
                 </ul>
             </nav>

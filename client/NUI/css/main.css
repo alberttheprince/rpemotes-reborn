@@ -303,6 +303,11 @@ hr {
     transition: all 200ms;
 }
 
+.doublecolumn .btn-emote {
+    padding-left: 1rem;
+    text-align: left;
+}
+
 .btn-emote:hover, .btn-emoji:hover, .btn-emote:focus-visible, .btn-emoji:focus-visible {
     border-radius: var(--border-radius-btn-emote-hover);
 }

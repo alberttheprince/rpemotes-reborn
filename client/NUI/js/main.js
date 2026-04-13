@@ -175,8 +175,8 @@ window.addEventListener('message', (event) => {
             SIDEBAR_ANCHOR.insertAdjacentHTML("afterend",
                 `
                     <li class="sidebar-button-container">
-                        <button class="btn btn-sidebar" data-action="openMenu" data-menu="${emoteCategories[key].id}-menu">${emoteCategories[key].icon}</button>
-                        <span class="btn-sidebar-label">${key}</span>
+                        <button id="${emoteCategories[key].id}-menu-btn" class="btn btn-sidebar" data-action="openMenu" data-menu="${emoteCategories[key].id}-menu">${emoteCategories[key].icon}</button>
+                        <label for="${emoteCategories[key].id}-menu-btn" class="btn-sidebar-label">${key}</label>
                     </li>
                 `);
 
