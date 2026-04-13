@@ -49,7 +49,8 @@ img,
 
 /* FiveM's CEF doesn't support standard CSS scrollbar styling :D */
 .invisible-scrollbar::-webkit-scrollbar {
-  display: none;
+    scrollbar-width: thin;
+    display: none;
 }
 
 ::-webkit-scrollbar,
@@ -70,6 +71,7 @@ img,
 .menu {
     display: none;
     width: 100%;
+    overflow-y: auto;
 }
 
 .grid {
