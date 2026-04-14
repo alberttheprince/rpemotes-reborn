@@ -89,15 +89,10 @@ export async function HandleLocales() {
     };
     const LOCALES = await req.json()
     if (!LOCALES || !LOCALES.data) return {};
+    
     document.querySelectorAll("[data-locale]").forEach((el) => {
         if (LOCALES.data[el.dataset.locale]) {
             LOCALES.data[el.dataset.locale] = LOCALES.data[el.dataset.locale].replace(/~.*?~/g, "").trim();
-            if (el.hasAttribute("placeholder")) {
-                el.setAttribute("placeholder", LOCALES.data[el.dataset.locale])
-            } else {
-                el.innerHTML = LOCALES.data[el.dataset.locale]
-                //innerHTML for the sole purpose of allowing locales to contain html (like <br>). Pretty much only for the `keybinds_description` locale.
-            }
         }
     })
     return LOCALES.data;

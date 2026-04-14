@@ -1,5 +1,6 @@
 local nuiReady = false
 local initialDataLoaded = false
+local localesLoaded = false
 
 
 -- The NUI logic is designed to run *on top* of the existing NativeUI logic, since that menu already does all the data handling that we need.
@@ -91,6 +92,12 @@ end)
 RegisterNUICallback('INITIAL_DATA_LOADED', function(data, cb)
     initialDataLoaded = true
     DebugPrint("[ NUI CATEGORIES LOADED ]")
+    cb({["ok"] = true})
+end)
+
+RegisterNUICallback('LOCALES_LOADED', function(data, cb)
+    localesLoaded = true
+    DebugPrint("[ NUI LOCALES LOADED ]")
     cb({["ok"] = true})
 end)
 
@@ -211,8 +218,7 @@ AddEventHandler("rpemotes:internal:loadEmoteDataToNUI", function(EmoteData, Cate
         dataForMenu[htmlClass] = {}
     end
 
-
-    while not nuiReady do Citizen.Wait(10) end
+    while not nuiReady or not localesLoaded do Citizen.Wait(10) end
     SendNUIMessage({type = "LOAD_EMOTE_DATA", emoteData = EmoteData, categoryToEmotes = CategoryToEmotes, emoteCategories = NUIEmoteCategories, emoteTypeIcons = EmoteTypeEmoji})
 end)
 
@@ -229,7 +235,7 @@ function AddEmoteToNUIQueue(data)
 end
 
 AddEventHandler("rpemotes:internal:sendMenuDataToNUI", function()
-    while not nuiReady and not initialDataLoaded do Citizen.Wait(10) end
+    while not nuiReady or not initialDataLoaded do Citizen.Wait(10) end
     SendNUIMessage(dataForMenu)
     for key, val in pairs(dataForMenu) do
         dataForMenu[key] = {}
@@ -237,7 +243,7 @@ AddEventHandler("rpemotes:internal:sendMenuDataToNUI", function()
 end)
 
 AddEventHandler("rpemotes:internal:sendKeybindsDataToNUI", function(binds)
-    while not nuiReady do Citizen.Wait(10) end
+    while not nuiReady or not initialDataLoaded do Citizen.Wait(10) end
 
     SendNUIMessage({
         type = "BUILD_KEYBINDS_MENU",

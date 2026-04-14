@@ -73,6 +73,7 @@ document.addEventListener('localesLoaded', (e) => {
     // All logic is done through the class, sadly. Sends a `popoverAction` custom event when a button is used.
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     const emotePopover = new Popover('.btn-emote');
+    ExecuteNUICallback("LOCALES_LOADED", {})
 })
 
 SIDE_NAVIGATION.addEventListener("click", (e) => {
@@ -216,6 +217,7 @@ window.addEventListener('message', (event) => {
             const ELEMENTS = Array.from(document.querySelectorAll(`[data-emoteid="${emote.emoteName}"]`));
             ELEMENTS.forEach((el) => el?.classList.add("btn-emote-favorite"));
         })
+        Locale.setLocaleStrings();
     }
 
     if (event.data.type === "BUILD_KEYBINDS_MENU") {

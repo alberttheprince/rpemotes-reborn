@@ -149,4 +149,17 @@ export class Locale {
         if (Locale.LOCALES[key]) return Locale.LOCALES[key];
         return String(key);
     }
+
+    static setLocaleStrings() {
+        document.querySelectorAll("[data-locale]").forEach((el) => {
+            if (Locale.LOCALES[el.dataset.locale]) {
+                if (el.hasAttribute("placeholder")) {
+                    el.setAttribute("placeholder", Locale.LOCALES[el.dataset.locale])
+                } else {
+                    el.textContent = Locale.LOCALES[el.dataset.locale]
+                    el.textContent = el.textContent.replace("\n", "\u000D\u000A")
+                }
+            }
+        })
+    }
 }
