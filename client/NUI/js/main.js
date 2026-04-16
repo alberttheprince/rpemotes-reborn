@@ -177,7 +177,7 @@ window.addEventListener('message', (event) => {
                 `
                     <li class="sidebar-button-container">
                         <button id="${emoteCategories[key].id}-menu-btn" class="btn btn-sidebar" data-action="openMenu" data-menu="${emoteCategories[key].id}-menu">${emoteCategories[key].icon}</button>
-                        <label for="${emoteCategories[key].id}-menu-btn" class="btn-sidebar-label">${key}</label>
+                        <label for="${emoteCategories[key].id}-menu-btn" class="btn-sidebar-label" data-locale="${key}">${key}</label>
                     </li>
                 `);
 

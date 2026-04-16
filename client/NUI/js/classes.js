@@ -160,6 +160,10 @@ export class Locale {
                     el.textContent = el.textContent.replace("\n", "\u000D\u000A")
                 }
             }
+            if (el.nodeName === "LABEL") {
+                const btn = document.getElementById(el.htmlFor)
+                if (btn) el.textContent = el.textContent.replace(btn.textContent, "");
+            }
         })
     }
 }
