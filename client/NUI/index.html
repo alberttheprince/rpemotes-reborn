@@ -20,7 +20,7 @@
         </header>
         <main class="menu-container" tabindex="-1">
             <nav class="side-navigation invisible-scrollbar">
-                <ul>
+                <ul class="btn-list">
                     <li class="sidebar-button-container">
                         <button id="cancel-emote-btn" class="btn btn-sidebar btn-cancel-emote" data-action="cancelEmote">🚷</button>
                         <label for="cancel-emote-btn" class="btn-sidebar-label" data-locale="cancelemote">Cancel Emote</label>
@@ -53,32 +53,32 @@
                 </ul>
             </nav>
             <section class="content-container">
-                <form class="search-container">
+                <form class="search-container btn-list">
                     <input type="text" class="search-input" id="emote_search" autocomplete="rpemotes" placeholder="Search..." data-locale="searchemotes">
                     <input type="reset" value="x" class="btn btn-clear-search"></input>
                 </form>
-                <article class="menu menu-anchor emotes-menu grid doublecolumn">
+                <article class="menu menu-anchor emotes-menu grid doublecolumn btn-list">
                     <button class="btn btn-emote" data-emoteid="emote1">Emote 1</button>
                 </article>
                 <!-- Custom Emote Groups added here -->
                 <article class="menu keybinds-menu singlecolumn">
-                    <ul class="keybinds-list">
+                    <ul class="keybinds-list btn-list">
                         <li>
                             <p class="keybind-description" data-locale="keybind_description"></p>
                         </li>
                     </ul>
                 </article>
-                <article class="menu favorites-menu doublecolumn">
+                <article class="menu favorites-menu doublecolumn btn-list">
                     <button class="btn btn-emote btn-emote-favorite" data-emoteid="emote1">Emote 1</button>
                 </article>
-                <article class="menu walkstyles-menu doublecolumn">
+                <article class="menu walkstyles-menu doublecolumn btn-list">
                     <button class="btn btn-emote" data-emoteid="emote1">Emote 1</button>
                 </article>
-                <article class="menu moods-menu singlecolumn">
+                <article class="menu moods-menu singlecolumn btn-list">
                     <button class="btn btn-emote btn-style-reset" data-emoteid="_reset" data-emotetype="_null" data-locale="normalreset"></button>
                     <button class="btn btn-emote" data-emoteid="emote1">Emote 1</button>
                 </article>
-                <article class="menu emojis-menu triplecolumn">
+                <article class="menu emojis-menu triplecolumn btn-list">
                     <button class="btn btn-emoji" data-emoji="emote1">😀</button>
                 </article>
             </section>

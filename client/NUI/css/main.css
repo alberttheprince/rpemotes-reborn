@@ -178,7 +178,9 @@ hr {
     width: 3.2rem;
     height: 3.2rem;
     border: none !important;
-    border-radius: 100% !important;
+    border-radius: var(--border-radius-search-bar) !important;
+    text-align: center;
+    text-justify: center;
 }
 
 .btn-style-reset {

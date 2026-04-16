@@ -183,7 +183,7 @@ window.addEventListener('message', (event) => {
 
             MENU_ANCHOR.insertAdjacentHTML("afterend",
                 `
-                <article class="menu ${emoteCategories[key].id}-menu doublecolumn">Hiii
+                <article class="menu ${emoteCategories[key].id}-menu doublecolumn btn-list">Hiii
                 </article>
                 `)
         })

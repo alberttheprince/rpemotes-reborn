@@ -36,11 +36,18 @@ document.addEventListener("keyup", (e) => {
             break;
         case "PageDown":
         case "ArrowDown":
-            focusOnNextButton(FOCUS_ELEMENT, e.shiftKey);
+            navigateDown(FOCUS_ELEMENT, e.shiftKey, 1, true);
             break;
         case "PageUp":
         case "ArrowUp":
-            focusOnPreviousButton(FOCUS_ELEMENT, e.shiftKey);
+            navigateUp(FOCUS_ELEMENT, e.shiftKey, 1, true);
+            break;
+        
+        case "ArrowLeft":
+            navigateUp(FOCUS_ELEMENT, e.shiftKey);
+            break;
+        case "ArrowRight":
+            navigateDown(FOCUS_ELEMENT, e.shiftKey);
             break;
     }
 })
@@ -49,11 +56,10 @@ document.addEventListener("wheel", (e) => {
     if (!UsingMouse) {
         const JUMPS = e.deltaY / 100; // 1 = down, -1 = up. 2,3,4... means that the scroll is too fast, so we jump ahead.
         const FOCUS_ELEMENT = document.activeElement;
-        // console.log(UsingMouse, JUMPS)
         if (JUMPS > 0) {
-            focusOnNextButton(FOCUS_ELEMENT, e.shiftKey, Math.abs(JUMPS));
+            navigateDown(FOCUS_ELEMENT, e.shiftKey, Math.abs(JUMPS));
         } else {
-            focusOnPreviousButton(FOCUS_ELEMENT, e.shiftKey, Math.abs(JUMPS));
+            navigateUp(FOCUS_ELEMENT, e.shiftKey, Math.abs(JUMPS));
         }
     };
 });
@@ -61,14 +67,14 @@ document.addEventListener("wheel", (e) => {
 document.addEventListener("scroll", (e) => e.preventDefault());
 
 document.addEventListener("mouseover", (e) => {
-    const TARGET = e.target
+    let TARGET = e.target
     if (TARGET === SEARCH_BAR) return; 
-    if (TARGET.nodeName === "BUTTON" || TARGET.nodeName === "INPUT") {
+    if (TARGET.nodeName === "BUTTON" || TARGET.nodeName === "INPUT" || TARGET.nodeName === "LABEL") {
+        if (TARGET.nodeName === "LABEL") TARGET = document.getElementById(TARGET.htmlFor);
         PlaySoundFrontend("NAV_UP_DOWN")
         TARGET.focus();
     }
 })
-
 
 let _lastFocusedButton;
 document.addEventListener("focusin", (e) => {
@@ -98,126 +104,65 @@ SEARCH_BAR.addEventListener("blur", (e) => {
 
 
 function isElementVisible(element) {
-    return !element?.classList.contains("hidden")
+    const display = element && window.getComputedStyle(element).getPropertyValue("display") === "none";
+    return !display;
 }
 
-// TODO:    There has to be a better way to write keyboard navigation, than this.
-//          Code is hardcoded to check the 3 spaces where buttons might be, and also hardcoded to handle it based on how the HTML looks for each.
-//          Ideally, this should automagically find the previous/next focusable item in the DOM, like how the normal [Tab] action does.
-function focusOnNextButton(currentButton, jumpAhead = false, jumps = 1) {
-    if (currentButton && currentButton.closest(".grid")) {
-        const gridContainer = currentButton.closest(".grid");
-        const buttons = Array.from(gridContainer.querySelectorAll(".btn-emote") || gridContainer.querySelectorAll(".btn-emoji"));
-        const currentIndex = buttons.indexOf(currentButton);
-        const step = jumpAhead ? 10 : jumps;
-        let nextIndex = (currentIndex + step) % buttons.length;
-        let attempts = 0;
-        
-        while (!isElementVisible(buttons[nextIndex]) && attempts < buttons.length) {
-            nextIndex = (nextIndex + 1) % buttons.length;
-            attempts++;
-        }
-        
-        if (attempts < buttons.length) {
-            buttons[nextIndex]?.focus();
-            buttons[nextIndex]?.scrollIntoView({block: "center"})
-        }
-    } else if (currentButton && currentButton.closest(".popover")) {
-        const gridContainer = currentButton.closest(".popover");
-        const buttons = Array.from(gridContainer.querySelectorAll(".popover-menu-item"));
-        const currentIndex = buttons.indexOf(currentButton);
-        const step = jumps;
-        let nextIndex = (currentIndex + step) % buttons.length;
-        let attempts = 0;
-        
-        while (!isElementVisible(buttons[nextIndex]) && attempts < buttons.length) {
-            nextIndex = (nextIndex + 1) % buttons.length;
-            attempts++;
-        }
-        
-        if (attempts < buttons.length) {
-            buttons[nextIndex]?.focus();
-        }
-    } else if (currentButton && currentButton.closest(".side-navigation")) {
-        const li = currentButton.closest("li");
-        const ulElement = li.parentElement;
-        const liElements = Array.from(ulElement.querySelectorAll("li"));
-        const currentIndex = liElements.indexOf(li);
-        let nextIndex = (currentIndex + (jumpAhead ? 2 : 1)) % liElements.length;
-        let attempts = 0;
-
-        while (!isElementVisible(liElements[nextIndex]) && attempts < liElements.length) {
-            nextIndex = (nextIndex + 1) % liElements.length;
-            attempts++;
-        }
-
-        const button = liElements[nextIndex]?.querySelector(".btn-sidebar");
-        button ? button?.focus() : ulElement.firstElementChild.querySelector(".btn-sidebar")?.focus();
-    } else if (currentButton && currentButton.closest(".search-container")) {
-        const gridContainer = currentButton.closest(".search-container");
-        const elements = Array.from(gridContainer.querySelectorAll("input"));
-        const currentIndex = elements.indexOf(currentButton);
-        const nextIndex = currentIndex + 1;
-        elements[nextIndex] ? elements[nextIndex]?.focus() : querySelectorVisible(document.querySelector(".grid"))?.focus();
-    }
-    PlaySoundFrontend("NAV_UP_DOWN");
+function getGridColumns(element) {
+    let retval = 1;
+    if (element?.classList.contains("menu")) retval = window.getComputedStyle(element).getPropertyValue("grid-template-columns").split(" ").length;
+    return retval;
 }
 
-function focusOnPreviousButton(currentButton, jumpAhead = false, jumps = 1) {
-    if (currentButton && currentButton.closest(".grid")) {
-        const gridContainer = currentButton.closest(".grid");
-        const buttons = Array.from(gridContainer.querySelectorAll(".btn-emote") || gridContainer.querySelectorAll(".btn-emoji"));
-        const currentIndex = buttons.indexOf(currentButton);
-        if (currentIndex === 0) return SEARCH_BAR.focus();
-        const step = jumpAhead ? 10 : jumps;
-        let nextIndex = ((currentIndex - step) % buttons.length + buttons.length) % buttons.length;
-        let attempts = 0;
+function navigateUp(currentButton, jumpAhead = false, jumps = 1, checkColumns = false) {
+    if (!currentButton) return;
+    const container = currentButton.closest(".btn-list");
+    if (!container) return;
+    const buttons = Array.from(container.querySelectorAll("button:not(.hidden), input:not(.hidden)")); // CSS is Turing-Complete
+    const currentIndex = buttons.indexOf(currentButton);
+    const step = 1 * (checkColumns ? getGridColumns(container) : 1) * (jumpAhead ? 5 : jumps);
+    let nextIndex = (currentIndex - step) % buttons.length;
+    let attempts = 0;
+    if (nextIndex < 0) { 
+        if (!jumpAhead && checkColumns) {
+            if (container.classList.contains("menu") && isElementVisible(SEARCH_BAR)) return SEARCH_BAR.focus();
+            if (currentButton.classList.contains("search-input")) return document.querySelector(".sidebar-button-active")?.querySelector("button").focus();
+        }
+        nextIndex = buttons.length-1;
         
-        while (!isElementVisible(buttons[nextIndex]) && attempts < buttons.length) {
-            nextIndex = ((nextIndex - 1) % buttons.length + buttons.length) % buttons.length;
-            attempts++;
-        }
-        
-        if (attempts < buttons.length) {
-            buttons[nextIndex]?.focus();
-            buttons[nextIndex]?.scrollIntoView({block: "center"})
-        }
-    } else if (currentButton && currentButton.closest(".popover")) {
-        const gridContainer = currentButton.closest(".popover");
-        const buttons = Array.from(gridContainer.querySelectorAll(".popover-menu-item"));
-        const currentIndex = buttons.indexOf(currentButton);
-        const step = jumps;
-        let nextIndex = ((currentIndex - step) % buttons.length + buttons.length) % buttons.length;
-        let attempts = 0;
-        
-        while (!isElementVisible(buttons[nextIndex]) && attempts < buttons.length) {
-            nextIndex = ((nextIndex - 1) % buttons.length + buttons.length) % buttons.length;
-            attempts++;
-        }
-        
-        if (attempts < buttons.length) {
-            buttons[nextIndex]?.focus();
-        }
-    } else if (currentButton && currentButton.closest(".side-navigation")) {
-        const li = currentButton.closest("li");
-        const ulElement = li.parentElement;
-        const liElements = Array.from(ulElement.querySelectorAll("li"));
-        const currentIndex = liElements.indexOf(li);
-        let nextIndex = (currentIndex - (jumpAhead ? 2 : 1)) % liElements.length;
-        let attempts = 0;
-
-        while (!isElementVisible(liElements[nextIndex]) && attempts < liElements.length) {
-            nextIndex = (nextIndex - 1) % liElements.length;
-            attempts++;
-        }
-        const button = liElements[nextIndex]?.querySelector(".btn");
-        button ? button?.focus() : ulElement.lastElementChild.querySelector(".btn-sidebar")?.focus();
-    } else if (currentButton && currentButton.closest(".search-container")) {
-        const gridContainer = currentButton.closest(".search-container");
-        const elements = Array.from(gridContainer.querySelectorAll("input"));
-        const currentIndex = elements.indexOf(currentButton);
-        const nextIndex = currentIndex - 1;
-        elements[nextIndex] ? elements[nextIndex]?.focus() : document.querySelector(".sidebar-button-active")?.querySelector(".btn-sidebar")?.focus();
     }
-    PlaySoundFrontend("NAV_UP_DOWN");
+    while (!isElementVisible(buttons[nextIndex]) && attempts < buttons.length) {
+        if (nextIndex < 0) nextIndex = buttons.length-1;
+        nextIndex = (nextIndex - 1) % buttons.length;
+        attempts++;
+    }
+    if (attempts < buttons.length) {
+        buttons[nextIndex]?.focus();
+        buttons[nextIndex]?.scrollIntoView({block: "center"})
+        PlaySoundFrontend("NAV_UP_DOWN");
+    }
+}
+
+function navigateDown(currentButton, jumpAhead = false, jumps = 1, checkColumns = false) {
+    if (!currentButton) return;
+    const container = currentButton.closest(".btn-list");
+    if (!container) return;
+    const buttons = Array.from(container.querySelectorAll("button:not(.hidden), input:not(.hidden)"));
+    const currentIndex = buttons.indexOf(currentButton);
+    const step = 1 * (checkColumns ? getGridColumns(container) : 1) * (jumpAhead ? 5 : jumps);
+    let nextIndex = (currentIndex + step) % buttons.length;
+    let attempts = 0;
+
+    if (currentButton.classList.contains("btn-clear-search") && checkColumns) return querySelectorVisible(document.querySelector(".grid"))?.focus();
+    
+    while (!isElementVisible(buttons[nextIndex]) && attempts < buttons.length) {
+        nextIndex = (nextIndex + 1) % buttons.length;
+        attempts++;
+    }
+    
+    if (attempts < buttons.length) {
+        buttons[nextIndex]?.focus();
+        buttons[nextIndex]?.scrollIntoView({block: "center"})
+        PlaySoundFrontend("NAV_UP_DOWN");
+    }
 }
