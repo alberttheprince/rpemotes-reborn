@@ -210,15 +210,24 @@ hr {
     max-width: 5.2rem;
     overflow-x: hidden;
     overflow-y: auto;
-    scrollbar-width: none;
     background-color: var(--color-bg-sidebar);
     transition: all 200ms;
     flex-wrap: nowrap;
 }
 
+.side-navigation::-webkit-scrollbar {
+    scrollbar-width: thin;
+    display: none;
+}
+
 .side-navigation:hover, .side-navigation:has(button:focus-visible) {
     max-width: 80%;
     flex-grow: 1;
+}
+
+.side-navigation:hover::-webkit-scrollbar, .side-navigation:has(button:focus-visible)::-webkit-scrollbar {
+    scrollbar-width: thin;
+    display: inherit;
 }
 
 .btn {

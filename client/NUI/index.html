@@ -19,11 +19,15 @@
             <img src="/header.png" alt="RP Emotes" class="header-image">
         </header>
         <main class="menu-container" tabindex="-1">
-            <nav class="side-navigation invisible-scrollbar">
+            <nav class="side-navigation">
                 <ul class="btn-list">
                     <li class="sidebar-button-container">
                         <button id="cancel-emote-btn" class="btn btn-sidebar btn-cancel-emote" data-action="cancelEmote">🚷</button>
                         <label for="cancel-emote-btn" class="btn-sidebar-label" data-locale="cancelemote">Cancel Emote</label>
+                    </li>
+                    <li class="sidebar-button-container">
+                        <button id="keybinds-menu-btn" class="btn btn-sidebar" data-action="openMenu" data-menu="search-menu">🔍</button>
+                        <label for="keybinds-menu-btn" class="btn-sidebar-label" data-locale="searchemotes">Search</label>
                     </li>
                     <li class="sidebar-button-container sidebar-button-active sidebar-button-anchor">
                         <button id="emotes-menu-btn" class="btn btn-sidebar" data-action="openMenu" data-menu="emotes-menu">🎬</button>
@@ -57,6 +61,9 @@
                     <input type="text" class="search-input" id="emote_search" autocomplete="rpemotes" placeholder="Search..." data-locale="searchemotes">
                     <input type="reset" value="x" class="btn btn-clear-search"></input>
                 </form>
+                <article class="menu search-menu doublecolumn btn-list">
+                    <p class="keybind-description" data-locale="searchemotes"></p>
+                </article>
                 <article class="menu menu-anchor emotes-menu grid doublecolumn btn-list">
                     <button class="btn btn-emote" data-emoteid="emote1">Emote 1</button>
                 </article>

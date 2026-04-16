@@ -1,5 +1,5 @@
 "use strict";
-import { CONFIG } from "./main.js";
+import { CONFIG, EMOTE_TYPE_ICONS } from "./main.js";
 
 export function ClearHTMLContainer(elementClass) {
     const ELEMENT = document.querySelector(elementClass);
@@ -37,13 +37,13 @@ export function HandleSidebarButtonPress(el) {
                 SEARCH_CONTAINER.classList.remove("hidden");
                 if (BUTTON_CONTAINER !== PREVIOUS_ACTIVE_BUTTON_CONTAINER) {
                     SEARCH_CONTAINER.querySelector(".search-input").value = "";
-                    HandleEmoteSearch(""); // Bodge to clear search. Sorry.
+                    HandleEmoteFilter(""); // Bodge to clear search. Sorry.
                 }
                 if (OPENED_MENU?.classList.contains("keybinds-menu")) {
                     SEARCH_CONTAINER.classList.add("hidden");
                 }
             }
-
+            if (el.dataset.menu === "search-menu") return SEARCH_CONTAINER.querySelector(".search-input").focus();
             querySelectorVisible(OPENED_MENU)?.focus();
             break;
         case "cancelEmote":
@@ -55,9 +55,9 @@ export function HandleSidebarButtonPress(el) {
     }
 }
 
-export function HandleEmoteSearch(search, menu = ".grid") {
+export function HandleEmoteFilter(_search, menu = ".grid") {
     const CONTENT_CONTAINER = document.querySelector(".content-container");
-    const searchValue = typeof search !== "undefined" ? search?.toLowerCase() : document.querySelector(".search-input").value.toLowerCase();
+    const searchValue = typeof _search !== "undefined" ? _search?.toLowerCase() : document.querySelector(".search-input").value.toLowerCase();
     const gridElements = CONTENT_CONTAINER.querySelectorAll(menu);
     
     gridElements.forEach((grid) => {
@@ -67,6 +67,24 @@ export function HandleEmoteSearch(search, menu = ".grid") {
             emoteId.includes(searchValue) ? button.classList.remove("hidden") : button.classList.add("hidden");
         })
     })
+}
+
+export async function HandleEmoteSearch(_search) {
+    const container = document.querySelector(".search-menu");
+    const searchValue = typeof _search !== "undefined" ? _search?.toLowerCase() : document.querySelector(".search-input").value.toLowerCase();
+
+    const req = await ExecuteNUICallback("SEARCH_EMOTES", {searchTerm: searchValue});
+    let res = []
+    if (req) res = await req.json();
+    let emotes = JSON.parse(res.emotes);
+    
+    ClearHTMLContainer(".search-menu");
+    emotes.forEach((emote) => {
+        container.insertAdjacentHTML("beforeend", `
+            <button class="btn btn-emote" data-emoteid="${emote.name}" data-emotetype="${emote.data.emoteType}" data-label="${emote.data.label}">${emote.data.emoteType !== 'Emojis' ? EMOTE_TYPE_ICONS[emote.data.emoteType]+" " : ""}${emote.data.label}</button>
+            `)
+    })
+
 }
 
 export function querySelectorVisible(parent, query = ".btn") {

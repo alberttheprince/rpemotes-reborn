@@ -199,6 +199,19 @@ RegisterNUICallback('PREVIEW_EMOTE', function(data, cb)
     cb({["ok"] = true, ["done"] = returnValue})
 end)
 
+RegisterNUICallback('SEARCH_EMOTES', function(data, cb)
+    local retval = {}
+    if data.searchTerm ~= nil then
+        retval = SearchEmotes(data.searchTerm)
+    end
+    --
+    -- Sending results data from `SearchEmotes()` without encoding causes FiveM to crash.
+    -- Not sure why, but I assume it's related to JSON encoding / decoding.
+    -- Doing it manually seems to work fine.
+    --
+    cb({["ok"] = true, ["emotes"] = json.encode(retval)})
+end)
+
 
 RegisterNUICallback('PLAY_SOUND_FRONTEND', function(data, cb)
     PlaySoundFrontend(-1, data.soundName, "HUD_FRONTEND_DEFAULT_SOUNDSET", true)

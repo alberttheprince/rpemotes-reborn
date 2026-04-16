@@ -612,6 +612,29 @@ local function addEmoteMenu(menu)
     end
 end
 
+function SearchEmotes(input)
+    local results = {}
+    for emoteName, emoteData in pairs(EmoteData) do
+        if matchesSearchTerm(emoteName, emoteData, input) then
+            -- Check model compatibility
+            if not CachedPlayerModel or IsModelCompatible(CachedPlayerModel, emoteName) then
+                results[#results + 1] = { table = emoteData.emoteType, name = emoteName, data = emoteData }
+            end
+        end
+    end
+
+    if Config.SharedEmotesEnabled then
+        for emoteName, emoteData in pairs(SharedEmoteData) do
+            if matchesSearchTerm(emoteName, emoteData, input) then
+                results[#results + 1] = { table = EmoteType.SHARED, name = emoteName, data = emoteData }
+            end
+        end
+    end
+    table.sort(results, function(a, b) return a.name < b.name end)
+
+    return results
+end
+
 if Config.Search then
     function EmoteMenuSearch(lastMenu)
         ClosePedMenu()
@@ -625,7 +648,7 @@ if Config.Search then
         end
         _menuPool:RefreshIndex()
 
-    AddTextEntry("PM_NAME_CHALL", Translate('searchinputtitle'))
+        AddTextEntry("PM_NAME_CHALL", Translate('searchinputtitle'))
         DisplayOnscreenKeyboard(1, "PM_NAME_CHALL", "", "", "", "", "", 30)
         while UpdateOnscreenKeyboard() == 0 do
             DisableAllControlActions(0)
@@ -634,32 +657,13 @@ if Config.Search then
         local input = GetOnscreenKeyboardResult()
         if not input then return end
 
-        local results = {}
-        for emoteName, emoteData in pairs(EmoteData) do
-            if matchesSearchTerm(emoteName, emoteData, input) then
-                -- Check model compatibility
-                if not CachedPlayerModel or IsModelCompatible(CachedPlayerModel, emoteName) then
-                    results[#results + 1] = { table = emoteData.emoteType, name = emoteName, data = emoteData }
-                end
-            end
-        end
-
-        if Config.SharedEmotesEnabled then
-            for emoteName, emoteData in pairs(SharedEmoteData) do
-                if matchesSearchTerm(emoteName, emoteData, input) then
-                    results[#results + 1] = { table = EmoteType.SHARED, name = emoteName, data = emoteData }
-                end
-            end
-        end
-
+        local results = SearchEmotes(input)
         if #results <= 0 then
             SimpleNotify(string.format(Translate('searchnoresult')..' ~r~%s~w~', input))
-            return
         end
 
         local searchMenu = _menuPool:AddSubMenu(lastMenu, string.format('%s '..Translate('searchmenudesc')..' ~r~%s~w~', #results, input), "", true, true)
 
-        table.sort(results, function(a, b) return a.name < b.name end)
         for index, result in pairs(results) do
             local desc
             if result.table == EmoteType.SHARED then

@@ -1,5 +1,5 @@
 "use strict";
-import { ClearHTMLContainer, HandleSidebarButtonPress, ExecuteNUICallback, PlaySoundFrontend, HandleEmoteSearch, querySelectorVisible } from './utils.js';
+import { ClearHTMLContainer, HandleSidebarButtonPress, ExecuteNUICallback, PlaySoundFrontend, HandleEmoteFilter, HandleEmoteSearch, querySelectorVisible } from './utils.js';
 import { Locale, Popover } from './classes.js'
 
 
@@ -10,7 +10,7 @@ const SEARCH_BAR = SEARCH_CONTAINER.querySelector(".search-input");
 let MENUS = CONTENT_CONTAINER.querySelectorAll(".menu");
 const FOOTER_TEXT = document.querySelector(".footer-text");
 
-let EMOTE_TYPE_ICONS = {}
+export let EMOTE_TYPE_ICONS = {}
 export let CONFIG;
 export let UsingMouse = false;
 
@@ -21,7 +21,10 @@ window.addEventListener("load", async (e) => {
         if (!response.config) return;
         CONFIG = response.config;
 
-        if (!CONFIG.Search) SEARCH_CONTAINER.classList.add("hidden");
+        if (!CONFIG.Search) {
+            SEARCH_CONTAINER.classList.add("hidden");
+            document.querySelector('[data-menu="search-menu"]')?.parentElement?.remove();
+        }
         if (!CONFIG.EmojiMenuEnabled) document.querySelector('[data-menu="emojis-menu"]')?.parentElement?.remove();
         if (!CONFIG.ExpressionsEnabled) document.querySelector('[data-menu="moods-menu"]')?.parentElement?.remove();
         if (!CONFIG.WalkingStylesEnabled) document.querySelector('[data-menu="walkstyles-menu"]')?.parentElement?.remove();
@@ -135,20 +138,25 @@ function _setupMenuEventListeners(MENUS) {
     })
 }
 
-SEARCH_CONTAINER.addEventListener("submit", (e) => {
+SEARCH_CONTAINER.addEventListener("submit", async (e) => {
     e.preventDefault();
-    HandleEmoteSearch();
+    if (document.querySelector(".search-menu.grid")) {
+        await HandleEmoteSearch();
+    } else {
+        await HandleEmoteFilter();
+    }
     querySelectorVisible(document.querySelector(".grid"))?.focus();
 })
 
 SEARCH_CONTAINER.addEventListener("reset", (e) => {
-    HandleEmoteSearch("");
+    HandleEmoteFilter("");
 })
 
 
 let lastSearchInputValue = ""
 SEARCH_BAR.addEventListener("input", (e) => {
-    if (SEARCH_BAR.value !== lastSearchInputValue) HandleEmoteSearch();
+    if (document.querySelector(".search-menu.grid")) return;
+    if (SEARCH_BAR.value !== lastSearchInputValue) HandleEmoteFilter();
     lastSearchInputValue = SEARCH_BAR.value
 })
 
