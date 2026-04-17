@@ -8,7 +8,7 @@
 
 :root {
     --color-bg-primary: rgba(46, 46, 46, 1);
-    --color-bg-sidebar: rgba(17, 17, 17, 1);
+    --color-bg-sidebar: rgba(46, 46, 46, 1);
 
     --color-text-primary: rgba(239, 239, 239, 1);
     --color-text-secondary: rgba(138, 138, 138, 1);
@@ -31,9 +31,9 @@
     --color-accent-favorite: #ffd700;
     --color-accent-favorite-hover: #ffe96c;
 
-    --border-radius-menu: 1rem;
-    --border-radius-search-bar: 1rem;
-    --border-radius-btn-sidebar: 1rem;
+    --border-radius-menu: 5px;
+    --border-radius-search-bar: 0px;
+    --border-radius-btn-sidebar: 0px;
     --border-radius-btn-sidebar-hover: 0px;
     --border-radius-btn-emote: 0px;
     --border-radius-btn-emote-hover: 0px;
