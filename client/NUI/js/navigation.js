@@ -7,11 +7,27 @@ import { UsingMouse } from "./main.js";
 const SEARCH_BAR = document.querySelector(".search-input");
 
 document.addEventListener("keydown", (e) => {
+    const FOCUS_ELEMENT = document.activeElement;
     switch (e.key) {
-        case "ArrowUp":
+        case "PageDown":
         case "ArrowDown":
+            e.preventDefault();
+            navigateDown(FOCUS_ELEMENT, e.shiftKey, 1, true);
+            break;
+        case "PageUp":
+        case "ArrowUp":
+            e.preventDefault();
+            navigateUp(FOCUS_ELEMENT, e.shiftKey, 1, true);
+            break;
+        
         case "ArrowLeft":
+            e.preventDefault();
+            navigateUp(FOCUS_ELEMENT, e.shiftKey);
+            break;
         case "ArrowRight":
+            e.preventDefault();
+            navigateDown(FOCUS_ELEMENT, e.shiftKey);
+            break;
         case " ":
             if (document.activeElement !== SEARCH_BAR) e.preventDefault();
             break;
@@ -33,21 +49,6 @@ document.addEventListener("keyup", (e) => {
             if (FOCUS_ELEMENT.closest(".grid") && SEARCH_BAR.value !== "") return document.querySelector(".btn-clear-search").focus();
             if (FOCUS_ELEMENT.closest(".content-container")) return document.querySelector(".sidebar-button-active").querySelector(".btn")?.focus();
             return ExecuteNUICallback("CLOSE_MENU", {});
-            break;
-        case "PageDown":
-        case "ArrowDown":
-            navigateDown(FOCUS_ELEMENT, e.shiftKey, 1, true);
-            break;
-        case "PageUp":
-        case "ArrowUp":
-            navigateUp(FOCUS_ELEMENT, e.shiftKey, 1, true);
-            break;
-        
-        case "ArrowLeft":
-            navigateUp(FOCUS_ELEMENT, e.shiftKey);
-            break;
-        case "ArrowRight":
-            navigateDown(FOCUS_ELEMENT, e.shiftKey);
             break;
     }
 })
