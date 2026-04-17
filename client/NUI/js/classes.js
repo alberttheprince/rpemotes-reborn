@@ -53,7 +53,7 @@ export class Popover {
         }
 
         const popover = document.createElement('div');
-        popover.className = 'popover';
+        popover.className = 'popover btn-list';
         document.body.appendChild(popover);
 
         if (data.emoteId) {
