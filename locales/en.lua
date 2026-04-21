@@ -43,7 +43,7 @@ return {
     ['handsup'] = "Hands up",
     ['notvalidkey'] = "is not a valid key.",
     ['keybinds'] = "Keybinds 🔢",
-    ['searchemotes'] = "🔍 Search for Emotes",
+    ['searchemotes'] = "🔍 Search All Emotes",
     ['searchinputtitle'] = "Search:",
     ['searchmenudesc'] = "result(s) for",
     ['searchnoresult'] = "No results for search",
@@ -117,4 +117,5 @@ return {
     ['btn_contextmenu'] = "More options",
     ['btn_cursor'] = "(Hold) Toggle Cursor",
     ['btn_move_faster'] = "(Hold) Move Faster",
+    ['filteremotes'] = "Filter %s 🔍",
 }

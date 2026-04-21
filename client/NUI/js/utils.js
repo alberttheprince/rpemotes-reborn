@@ -1,4 +1,5 @@
 "use strict";
+import { Locale } from "./classes.js";
 import { CONFIG, EMOTE_TYPE_ICONS } from "./main.js";
 
 export function ClearHTMLContainer(elementClass) {
@@ -14,7 +15,8 @@ export function ClearHTMLContainer(elementClass) {
 export function HandleSidebarButtonPress(el) {
     if (!el || !el.dataset.action) return;
     const CONTENT_CONTAINER = document.querySelector(".content-container");
-    const SEARCH_CONTAINER = document.querySelector(".search-container")
+    const SEARCH_CONTAINER = document.querySelector(".search-container");
+    const SEARCH_BAR = SEARCH_CONTAINER.querySelector(".search-input");
     switch (el.dataset.action) {
         case "openMenu":
             const PREVIOUS_ACTIVE_BUTTON_CONTAINER = document.querySelector(".sidebar-button-active");
@@ -36,12 +38,13 @@ export function HandleSidebarButtonPress(el) {
             if (CONFIG.Search) {
                 SEARCH_CONTAINER.classList.remove("hidden");
                 if (BUTTON_CONTAINER !== PREVIOUS_ACTIVE_BUTTON_CONTAINER) {
-                    SEARCH_CONTAINER.querySelector(".search-input").value = "";
+                    SEARCH_BAR.value = "";
                     HandleEmoteFilter(""); // Bodge to clear search. Sorry.
                 }
                 if (OPENED_MENU?.classList.contains("keybinds-menu")) {
                     SEARCH_CONTAINER.classList.add("hidden");
                 }
+                OPENED_MENU?.classList.contains("search-menu") ? SEARCH_BAR.placeholder = Locale.translate("searchemotes") : SEARCH_BAR.placeholder = Locale.translate("filteremotes").replace("%s", BUTTON_CONTAINER.querySelector("label").textContent);
             }
             if (el.dataset.menu === "search-menu") return SEARCH_CONTAINER.querySelector(".search-input").focus();
             querySelectorVisible(OPENED_MENU)?.focus();
