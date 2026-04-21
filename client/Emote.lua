@@ -554,7 +554,7 @@ function EmoteCommandStart(args)
     if emote.emoteType == EmoteType.PROP_EMOTES
         and emote.AnimationOptions.PropTextureVariations
     then
-        local textureVariation = tonumber(args[2])
+        local textureVariation = tonumber(args[2]) or 1
         if emote.AnimationOptions.PropTextureVariations[textureVariation] then
             OnEmotePlay(name, textureVariation - 1)
             return
