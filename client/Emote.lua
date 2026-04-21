@@ -694,6 +694,15 @@ function OnEmotePlay(name, textureVariation, emoteType)
         return
     end
 
+    if IsPedBusy(PlayerPedId()) then
+        TriggerEvent('chat:addMessage', {
+            color = { 255, 0, 0 },
+            multiline = true,
+            args = { "RPEmotes", Translate('dead') }
+        })
+        return
+    end
+
     if not LocalPlayer.state.canEmote and GetConvar("onesync", "off") == "on" then return end
 
     if not DoesEntityExist(PlayerPedId()) then return false end

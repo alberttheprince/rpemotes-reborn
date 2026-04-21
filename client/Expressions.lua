@@ -1,6 +1,8 @@
 function SetPlayerPedExpression(expression, saveToKvp)
     local emote = ExpressionData[expression]
     if emote then
+        if IsPedBusy(PlayerPedId()) then return end
+
         SetFacialIdleAnimOverride(PlayerPedId(), emote.anim, 0)
         if Config.PersistentExpression and saveToKvp then SetResourceKvp("expression", emote.anim) end
     else

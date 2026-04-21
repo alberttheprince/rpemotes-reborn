@@ -216,6 +216,7 @@ function ShowEmoji(emojiKey)
         SimpleNotify("Emoji not found!")
         return
     end
+    if not CanDoAction() then return end
 
     TriggerServerEvent('rpemotes:server:shareEmoji', emoji)
 end

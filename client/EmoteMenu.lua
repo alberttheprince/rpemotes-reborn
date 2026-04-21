@@ -25,7 +25,7 @@ CurrentMenuSelection = {
 
 local function canPlayerEmote()
     local ped = PlayerPedId()
-    if IsEntityDead(ped) then
+    if IsEntityDead(ped) or not CanDoAction() then
         return false, Translate('dead')
     end
     if (IsPedSwimming(ped) or IsPedSwimmingUnderWater(ped)) and not Config.AllowInWater then
