@@ -9,6 +9,7 @@
 :root {
     --color-bg-primary: rgba(46, 46, 46, 1);
     --color-bg-sidebar: rgba(46, 46, 46, 1);
+    --box-shadow-sidebar: 1rem 0px 3.5rem rgba(0,0,0,0.5);
 
     --color-text-primary: rgba(239, 239, 239, 1);
     --color-text-secondary: rgba(138, 138, 138, 1);
@@ -213,6 +214,7 @@ hr {
     background-color: var(--color-bg-sidebar);
     transition: all 200ms;
     flex-wrap: nowrap;
+    box-shadow: none;
 }
 
 .side-navigation::-webkit-scrollbar {
@@ -223,6 +225,7 @@ hr {
 .side-navigation:hover, .side-navigation:has(button:focus-visible) {
     max-width: 80%;
     flex-grow: 1;
+    box-shadow: var(--box-shadow-sidebar);
 }
 
 .side-navigation:hover::-webkit-scrollbar, .side-navigation:has(button:focus-visible)::-webkit-scrollbar {
