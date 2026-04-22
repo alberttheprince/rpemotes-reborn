@@ -249,15 +249,17 @@ end
 
 AddEventHandler("rpemotes:internal:sendMenuDataToNUI", function()
     while not nuiReady or not initialDataLoaded do Citizen.Wait(10) end
+    DebugPrint("[ NUI EMOTES BUILT ]")
     SendNUIMessage(dataForMenu)
     for key, val in pairs(dataForMenu) do
         dataForMenu[key] = {}
     end
+    dataForMenu.type = "BUILD_EMOTE_MENUS"
 end)
 
 AddEventHandler("rpemotes:internal:sendKeybindsDataToNUI", function(binds)
     while not nuiReady or not initialDataLoaded do Citizen.Wait(10) end
-
+    DebugPrint("[ NUI KEYBINDS BUILT ]")
     SendNUIMessage({
         type = "BUILD_KEYBINDS_MENU",
         ["keybinds"] = binds

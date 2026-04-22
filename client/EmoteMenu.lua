@@ -626,7 +626,10 @@ function SearchEmotes(input)
     if Config.SharedEmotesEnabled then
         for emoteName, emoteData in pairs(SharedEmoteData) do
             if matchesSearchTerm(emoteName, emoteData, input) then
-                results[#results + 1] = { table = EmoteType.SHARED, name = emoteName, data = emoteData }
+                -- Also check model compat here.
+                if not CachedPlayerModel or IsModelCompatible(CachedPlayerModel, emoteName) then
+                    results[#results + 1] = { table = EmoteType.SHARED, name = emoteName, data = emoteData }
+                end
             end
         end
     end
