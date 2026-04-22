@@ -10,6 +10,7 @@
     --color-bg-primary: rgba(46, 46, 46, 1);
     --color-bg-sidebar: rgba(46, 46, 46, 1);
     --box-shadow-sidebar: 1rem 0px 3.5rem rgba(0,0,0,0.5);
+    --box-shadow-menu: 0px 0px 2rem rgba(0,0,0,0.4);
 
     --color-text-primary: rgba(239, 239, 239, 1);
     --color-text-secondary: rgba(138, 138, 138, 1);
@@ -147,6 +148,7 @@ hr {
     height: 60vh;
     overflow: auto;
     border-radius: var(--border-radius-menu);
+    box-shadow: var(--box-shadow-menu);
 }
 
 .header-container {
