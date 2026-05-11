@@ -14,6 +14,7 @@ local placementFrozePlayer = false -- true if the last placement emote caused th
 
 local previewPed
 local menuBeforePlacement = nil
+local placementOptions = nil
 
 local function checkForCollidingEntities(ped)
     local pedPosition = GetEntityCoords(ped)
@@ -60,6 +61,7 @@ local function resetStoredPlacementValues()
     placementRotation = vector3(0)
     positionPriorToPlacement = vector3(0)
     placementFrozePlayer = false
+    placementOptions = nil
 end
 
 local function anyMovementControlsPressed()
@@ -134,6 +136,7 @@ local function disableControls()
 end
 
 local function drawControlHelpText()
+    if placementOptions and placementOptions.suppressHelpText then return end
     SimpleHelpText(
         "~INPUT_MOVE_UP_ONLY~/~INPUT_MOVE_DOWN_ONLY~/~INPUT_MOVE_LEFT_ONLY~/~INPUT_MOVE_RIGHT_ONLY~ " .. Translate('position') .. '\n' ..
         "~INPUT_COVER~/~INPUT_TALK~ " .. Translate('rotate') .. '\n' ..
@@ -375,7 +378,7 @@ local function positionPreviewPed(emoteName)
             -- Show different help text based on validity
             if isPlacementValid then
                 drawControlHelpText()
-            else
+            elseif not (placementOptions and placementOptions.suppressHelpText) then
                 SimpleHelpText(
                     "~r~INVALID POSITION~s~\n" ..
                     "~INPUT_MOVE_UP_ONLY~/~INPUT_MOVE_DOWN_ONLY~/~INPUT_MOVE_LEFT_ONLY~/~INPUT_MOVE_RIGHT_ONLY~ " .. Translate('position') .. '\n' ..
@@ -397,7 +400,9 @@ end
 function GetPlacementState() return placementState end
 function GetPlacementFrozePlayer() return placementFrozePlayer end
 
-function StartNewPlacement(emoteName)
+function StartNewPlacement(emoteName, options)
+    placementOptions = options or {}
+
     -- Cancel any current placed emote to prevent chaining through walls
     if placementState == PlacementState.IN_ANIMATION then
         EmoteCancel(true)
@@ -485,3 +490,6 @@ AddStateBagChangeHandler('emoteHeading', nil, function(bagName, key, value)
     -- Apply the synced heading to the player's ped
     SetEntityHeading(ped, value)
 end)
+
+CreateExport('StartNewPlacement', StartNewPlacement)
+CreateExport('GetPlacementState', GetPlacementState)
