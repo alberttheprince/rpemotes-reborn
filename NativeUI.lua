@@ -2916,7 +2916,7 @@ function UIMenu:ProcessControl()
         self:Visible(true)
 
         if Config.PreviewPed then
-            ShowPedMenu(zoom)
+            ShowPedMenu(currentZoomState)
         else
             ClosePedMenu()
             ShowPed = false

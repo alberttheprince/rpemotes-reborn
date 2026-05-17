@@ -14,7 +14,7 @@ local isMenuProcessing = false
 local isWaitingForPed = false
 keybindMenu = nil -- Global variable. Scary!
 favoriteMenu = nil -- Global variable. Scary!
-local currentZoomState = false
+currentZoomState = false -- Global variable needed, so it can be used by `ShowPedMenu()` in NativeUI.
 local dataForKeybind = {}
 
 -- Tracks currently selected menu item for instruction button visibility

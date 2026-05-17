@@ -153,7 +153,7 @@ local function runAnimationThread()
 
             Wait(sleep)
         end
-        CleanUpPlacement(ped)
+        CleanUpPlacement(pPed)
     end)
 end
 
@@ -198,7 +198,7 @@ local function exitScenario()
         and IsInAnimation
     then
         local playerPed = PlayerPedId()
-        if IsPedInAnyVehicle(playerPed) then
+        if IsPedInAnyVehicle(playerPed, false) then
             ClearPedSecondaryTask(playerPed)
             ClearPedTasks(playerPed)
         else
@@ -489,7 +489,7 @@ function EmoteMenuStartClone(name, emoteType)
     if emoteType == EmoteType.EXPRESSIONS then
         local emote = ExpressionData[name]
         if emote then
-            SetFacialIdleAnimOverride(ClonedPed, emote.anim, true)
+            SetFacialIdleAnimOverride(ClonedPed, emote.anim, 0)
         else
             ClearFacialIdleAnimOverride(ClonedPed)
         end
@@ -836,7 +836,7 @@ function OnEmotePlay(name, textureVariation, emoteType)
 
     if IsPedUsingAnyScenario(PlayerPedId()) or IsPedActiveInScenario(PlayerPedId()) then
         local playerPed = PlayerPedId()
-        if IsPedInAnyVehicle(playerPed) then
+        if IsPedInAnyVehicle(playerPed, false) then
             ClearPedSecondaryTask(playerPed)
             ClearPedTasks(playerPed)
         else

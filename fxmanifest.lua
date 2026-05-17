@@ -3,7 +3,6 @@ game 'gta5'
 description 'rpemotes-reborn'
 version '2.1.0'
 
-lua54 'yes'
 use_experimental_fxv2_oal 'yes'
 
 provide "rpemotes"
@@ -13,7 +12,7 @@ dependencies {
     '/onesync'
 }
 
-ui_page('client/NUI/index.html')
+ui_page 'client/NUI/index.html'
 
 files {
     'conditionalanims.meta',
