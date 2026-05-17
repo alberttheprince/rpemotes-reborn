@@ -74,19 +74,13 @@ end)
 if Config.Keybinding then
     RegisterNetEvent('animations:client:BindEmote', function(args)
         if CanDoAction() then
-            EmoteBindStart(nil, args)
-        end
-    end)
-
-    RegisterNetEvent('animations:client:EmoteBinds', function()
-        if CanDoAction() then
-            ListKeybinds()
+            EmoteBindStart(args)
         end
     end)
 
     RegisterNetEvent('animations:client:EmoteDelete', function(args)
         if CanDoAction() then
-            DeleteEmote(args)
+            DeleteEmoteBind(args)
         end
     end)
 end
