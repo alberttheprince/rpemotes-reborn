@@ -358,6 +358,7 @@ function HandleZoomAndCheckRotation(cam, fov)
             fov = current_fov
         end
         SetCamFov(cam, current_fov + (fov - current_fov) * 0.05)
+        SetEntityHeading(lPed, rotation.z) -- Otherwise, the player would be able to look behind them without their ped turning.
     else
         if IsControlJustPressed(0, 17) then -- Scrollup
             fov = math.max(fov - zoomspeed, fov_min)
