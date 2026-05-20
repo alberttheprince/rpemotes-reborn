@@ -70,7 +70,7 @@ function UseBinocular()
         cam = CreateCam("DEFAULT_SCRIPTED_FLY_CAMERA", true)
 
         AttachCamToEntity(cam, PlayerPedId(), 0.0, 0.0, 1.2, true)
-        SetCamRot(cam, 0.0, 0.0, GetEntityHeading(PlayerPedId()))
+        SetCamRot(cam, 0.0, 0.0, GetEntityHeading(PlayerPedId()), 2)
         SetCamFov(cam, fov)
         RenderScriptCams(true, false, 0, true, false)
         PushScaleformMovieFunction(scaleform_bin, "SET_CAM_LOGO")
