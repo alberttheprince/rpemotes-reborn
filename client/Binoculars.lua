@@ -35,7 +35,7 @@ function UseBinocular()
 
     if not IsUsingBinoculars then
         EmoteCommandStart({ "binoculars", 1 })
-        PlayAmbientSpeech1(PlayerPedId(), "GENERIC_CURSE_MED", "SPEECH_PARAMS_FORCE")
+        PlayPedAmbientSpeechNative(PlayerPedId(), "GENERIC_CURSE_MED", "SPEECH_PARAMS_FORCE")
         SetCurrentPedWeapon(PlayerPedId(), `WEAPON_UNARMED`, true)
     end
 

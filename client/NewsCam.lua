@@ -37,6 +37,8 @@ function UseNewscam()
 
     if not IsUsingNewscam then
         EmoteCommandStart({ "newscam", 1 })
+        PlayPedAmbientSpeechNative(PlayerPedId(), "GENERIC_CURSE_MED", "SPEECH_PARAMS_FORCE")
+        SetCurrentPedWeapon(PlayerPedId(), `WEAPON_UNARMED`, true)
     end
 
     IsUsingNewscam = not IsUsingNewscam
