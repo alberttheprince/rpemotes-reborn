@@ -34,31 +34,14 @@ function UseNewscam()
     if IsPedSittingInAnyVehicle(PlayerPedId()) then return end
     if IsInActionWithErrorMessage({IsUsingNewscam = true }) then return end
     if not CanDoAction() then return end
+
+    if not IsUsingNewscam then
+        EmoteCommandStart({ "newscam", 1 })
+    end
+
     IsUsingNewscam = not IsUsingNewscam
 
     if IsUsingNewscam then
-        CreateThread(function()
-            DestroyAllProps()
-            ClearPedTasks(PlayerPedId())
-            LoadAnim("missfinale_c2mcs_1")
-
-            -- attach the prop to the player
-            local boneIndex = GetPedBoneIndex(PlayerPedId(), 28422)
-            local x, y, z = table.unpack(GetEntityCoords(PlayerPedId(), true))
-            LoadPropDict("prop_v_cam_01")
-
-            -- prop_newscam = CreateObject(`prop_v_cam_01`, x, y, z + 0.2, true, true, true)
-            -- AttachEntityToEntity(prop_newscam, PlayerPedId(), boneIndex, 0.0, 0.03, 0.01, 0.0, 0.0, 0.0, true, true, false, true, 1, true)
-            OnEmotePlay("newscam")
-
-            TaskPlayAnim(PlayerPedId(), "missfinale_c2mcs_1", "fin_c2_mcs_1_camman", 5.0, 5.0, -1, 51, 0, false, false, false)
-            PlayAmbientSpeech1(PlayerPedId(), "GENERIC_CURSE_MED", "SPEECH_PARAMS_FORCE")
-            SetCurrentPedWeapon(PlayerPedId(), `WEAPON_UNARMED`, true)
-
-            RemoveAnimDict("missfinale_c2mcs_1")
-            SetModelAsNoLongerNeeded("prop_v_cam_01")
-        end)
-
         Wait(200)
         SetTimecycleModifier("default")
         SetTimecycleModifierStrength(0.3)
