@@ -223,6 +223,9 @@ function EmoteCancel(force)
     PtfxPrompt = false
     Pointing = false
 
+    if IsUsingNewscam then IsUsingNewscam = false end
+    if IsUsingBinoculars then IsUsingBinoculars = false end
+
     if IsInAnimation then
         local ped = PlayerPedId()
         if LocalPlayer.state.ptfx then

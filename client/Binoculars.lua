@@ -32,32 +32,16 @@ function UseBinocular()
     if IsPedSittingInAnyVehicle(PlayerPedId()) then return end
     if IsInActionWithErrorMessage({ IsUsingBinoculars = true }) then return end
     if not CanDoAction() then return end
+
+    if not IsUsingBinoculars then
+        EmoteCommandStart({ "binoculars", 1 })
+        PlayPedAmbientSpeechNative(PlayerPedId(), "GENERIC_CURSE_MED", "SPEECH_PARAMS_FORCE")
+        SetCurrentPedWeapon(PlayerPedId(), `WEAPON_UNARMED`, true)
+    end
+
     IsUsingBinoculars = not IsUsingBinoculars
 
     if IsUsingBinoculars then
-        CreateThread(function()
-            DestroyAllProps()
-            ClearPedTasks(PlayerPedId())
-            LoadAnim("amb@world_human_binoculars@male@idle_a")
-
-            -- attach the prop to the player
-            local boneIndex = GetPedBoneIndex(PlayerPedId(), 28422)
-            local x, y, z = table.unpack(GetEntityCoords(PlayerPedId(), true))
-            LoadPropDict("prop_binoc_01")
-            -- prop_binoc = CreateObject(`prop_binoc_01`, x, y, z + 0.2, true, true, true)
-            -- AttachEntityToEntity(prop_binoc, PlayerPedId(), boneIndex, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, true, true,
-            --     false, true, 1, true)
-            OnEmotePlay("binoculars")
-
-            TaskPlayAnim(PlayerPedId(), "amb@world_human_binoculars@male@idle_a", "idle_c", 5.0, 5.0, -1, 51, 0,
-                false, false, false)
-            PlayAmbientSpeech1(PlayerPedId(), "GENERIC_CURSE_MED", "SPEECH_PARAMS_FORCE")
-            SetCurrentPedWeapon(PlayerPedId(), `WEAPON_UNARMED`, true)
-
-            RemoveAnimDict("amb@world_human_binoculars@male@idle_a")
-            SetModelAsNoLongerNeeded("prop_binoc_01")
-        end)
-
         Wait(200)
 
         SetTimecycleModifier("default")
