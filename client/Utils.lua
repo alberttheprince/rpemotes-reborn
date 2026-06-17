@@ -407,6 +407,21 @@ function RouteEmoteToFunction(emoteName, emoteType, textureVariation)
     EmoteCommandStart({ emoteName, textureVariation or 1 })
 end
 
+---Plays any public emote type through rpemotes' native handlers. Preferred
+---entry point for external resources.
+---@param emoteName string
+---@param emoteType EmoteType
+---@param textureVariation? integer
+---@return boolean
+CreateExport('Execute', function(emoteName, emoteType, textureVariation)
+    if not CONVERTED or type(emoteName) ~= 'string' or type(emoteType) ~= 'string' then
+        return false
+    end
+
+    RouteEmoteToFunction(emoteName, emoteType, textureVariation)
+    return true
+end)
+
 ----------------------------------------------------------------------
 
 ShowPed = false

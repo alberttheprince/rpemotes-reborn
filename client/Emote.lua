@@ -888,6 +888,9 @@ RegisterNetEvent('animations:client:EmoteCommandStart', function(args)
     EmoteCommandStart(args)
 end)
 
+---@deprecated Prefer exports['rpemotes-reborn']:Execute(emoteName, emoteType, textureVariation),
+---which routes every emote type (shared, expressions, walks, emojis, props) through the
+---right handler. EmoteCommandStart only covers plain emotes.
 CreateExport("EmoteCommandStart", function(emoteName, textureVariation)
     EmoteCommandStart({ emoteName, textureVariation })
 end)

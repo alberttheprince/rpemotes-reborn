@@ -201,6 +201,10 @@ local subMenus = {}
 ---@type table<string, {name: string, emoteType: EmoteType}[]>
 local categoryToEmotes = {}
 
+-- Cached payload for the GetEmoteCatalog export. Built lazily on first call and
+-- invalidated whenever the animation list is (re)converted.
+local catalogCache = nil
+
 -- Emoji prefixes for different emote types
 local EMOTE_PREFIX = {
     [EmoteType.DANCES] = "🤼 ",
@@ -1110,8 +1114,48 @@ local function convertRP()
     categoryToEmotes = expandCustomCategories()
     TriggerEvent("rpemotes:internal:loadEmoteDataToNUI", EmoteData, categoryToEmotes)
     RP = nil
+    catalogCache = nil
     CONVERTED = true
 end
+
+---Returns a flat, cached list of every emote (emotes, shared, expressions,
+---walks, emojis) for external menus. Entries keep rpemotes' own field names
+---(dict, anim, label, scenario, AnimationOptions, emoteType, ...); the consumer
+---adapts them to its own view model.Returns nil, 'catalog_not_ready' until 
+---the list has been converted.
+---@return table|nil entries
+---@return string|nil errorCode
+CreateExport('GetEmoteCatalog', function()
+    -- Wait for both the converted emote list AND the emoji table, otherwise an
+    -- early call would cache a snapshot with no emojis.
+    if not CONVERTED or not EmojiData then
+        return nil, 'catalog_not_ready'
+    end
+
+    if catalogCache then
+        return catalogCache
+    end
+
+    local entries = {}
+    local function push(name, data, emoteType)
+        local entry = { name = name, emoteType = data.emoteType or emoteType }
+        for k, v in pairs(data) do
+            if type(k) ~= 'number' then entry[k] = v end
+        end
+        entries[#entries + 1] = entry
+    end
+
+    for name, data in pairs(EmoteData)       do push(name, data) end
+    for name, data in pairs(SharedEmoteData) do push(name, data, EmoteType.SHARED) end
+    for name, data in pairs(ExpressionData)  do push(name, data, EmoteType.EXPRESSIONS) end
+    for name, data in pairs(WalkData)        do push(name, data, EmoteType.WALKS) end
+    for name, glyph in pairs(EmojiData or {}) do
+        entries[#entries + 1] = { name = name, emoteType = EmoteType.EMOJI, emoji = glyph }
+    end
+
+    catalogCache = entries
+    return catalogCache
+end)
 
 function InitMenu()
     while not (GetFavoriteEmotes and EmojiData and WalkMenuStart and GetKeyForCommand) do

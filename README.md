@@ -79,7 +79,8 @@ Find our documentation [here](https://rpemotes-reborn.gitbook.io/guide)
 The rpemotes-reborn resource has the following exports:
 
 ```lua
-exports["rpemotes-reborn"]:EmoteCommandStart(emoteName, textureVariation)
+exports["rpemotes-reborn"]:EmoteCommandStart(emoteName, textureVariation) -- deprecated, prefer Execute() below
+exports["rpemotes-reborn"]:Execute(emoteName, emoteType, textureVariation) -- plays any emote type through its native handler
 exports["rpemotes-reborn"]:EmoteCancel(forceCancel) – forceCancel is optional
 exports["rpemotes-reborn"]:IsPlayerCrouched()
 exports["rpemotes-reborn"]:IsPlayerProne()
@@ -94,7 +95,18 @@ exports["rpemotes-reborn"]:toggleNewscam()
 exports["rpemotes-reborn"]:getWalkstyle() -- Gets walk style of player, used to detect certain walk. useful for applying effects while doing certain walks like tripping or other "funny" effects.
 exports["rpemotes-reborn"]:setWalkstyle(name, force) -- name = "move_m@alien" or any other, force = optional bool. Lets you set or force a walk style, useful for scripts like retrieving a style before drinking and restoring it after sobering up.
 exports["rpemotes-reborn"]:toggleWalkstyle(bool, message) -- bool to allow the user to change their walkstyle in the menu or not / message to show the user (optional, default is :"You are unable to change your walking style right now.")"
+exports["rpemotes-reborn"]:GetEmoteCatalog() -- Returns the merged emote list (emotes, shared, expressions, walks, emojis)
 ```
+
+`GetEmoteCatalog()` is a client export intended for external menu resources. It
+returns `nil, "catalog_not_ready"` until the animation list has been converted,
+then a cached list (rebuilt only when the list is reconverted), so it is safe to
+call repeatedly. The result is a flat array of every emote, shared emote,
+expression, walk and emoji. Each entry carries `name` and `emoteType` plus the
+internal fields the conversion pass produced (`dict`, `anim`, `label`,
+`scenario`, `AnimationOptions`, ...); emoji entries carry `name`, `emoteType` and
+`emoji` (the glyph). The shape mirrors rpemotes' internal data, so consumers adapt
+it to their own view model.
 
 Having issues with players using emotes when/where they're not supposed to? Use the following where needed. This would be somewhere like if you want to disable emotes in jail or when someone is handcuffed/escorted. We've also added one for blocking emote cancels!
 
