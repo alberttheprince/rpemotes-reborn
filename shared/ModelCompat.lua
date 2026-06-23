@@ -332,7 +332,7 @@ local emoteCompatibility = {
         'sdogfw',
         'sdogfris',
         'csdog2',
-        'csdog3',
+        'csdog4',
     },
     [CompatGroup.ROTTWEILER] = {
         'bdogbark',
