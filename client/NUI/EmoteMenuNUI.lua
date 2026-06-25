@@ -66,7 +66,9 @@ end
 
 local function getHtmlClassFromCategoryName(str)
     local toLower = str:lower()
-    local result = toLower:gsub("[%s%p]", "")
+    local result = "custom-" .. toLower:gsub("[%s%p%c%z]", "");
+    local emoji = getEmojiFromCategoryName(result);
+    result = result:gsub(emoji, "");
     return result
 end
 
