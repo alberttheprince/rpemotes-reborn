@@ -401,6 +401,16 @@ function GetPlacementState() return placementState end
 function GetPlacementFrozePlayer() return placementFrozePlayer end
 
 function StartNewPlacement(emoteName, options)
+    if IsPedBusy(PlayerPedId()) or not LocalPlayer.state.canEmote then
+        print(IsPedBusy(PlayerPedId()), not LocalPlayer.state.canEmote)
+        TriggerEvent('chat:addMessage', {
+            color = { 255, 0, 0 },
+            multiline = true,
+            args = { "RPEmotes", Translate('dead') }
+        })
+        return
+    end
+
     placementOptions = options or {}
 
     -- Cancel any current placed emote to prevent chaining through walls
