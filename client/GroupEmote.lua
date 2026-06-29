@@ -71,7 +71,7 @@ local function setGroupArea(emotename, initialRadius)
 end
 
 function OnGroupEmoteRequest(emotename)
-    if groupEmoteReqId then
+    if groupEmoteReqId or IsPedBusy(PlayerPedId()) or not LocalPlayer.state.canEmote then
         SimpleNotify(Translate("cannotstartgroupemote"))
         return
     end
