@@ -1,3 +1,5 @@
+SetConvarReplicated('rpemotes:onesync', GetConvar("onesync", "off") ~= "off" and "true" or "false")
+
 ---@type table<EmoteType, table<string, boolean>>
 local emoteCache = {
     [EmoteType.EMOTES] = {},

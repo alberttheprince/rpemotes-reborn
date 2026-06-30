@@ -1,4 +1,6 @@
 -- You probably shouldn't touch these.
+local oneSyncEnabled = GetConvar("rpemotes:onesync", "false") == "true"
+
 IsInAnimation = false
 CurrentAnimationName = nil
 CurrentTextureVariation = nil
@@ -210,7 +212,7 @@ local function exitScenario()
 end
 
 function EmoteCancel(force)
-    if (not LocalPlayer.state.canCancel and GetConvar("onesync", "off") == "on") and not force then return end
+    if (not LocalPlayer.state.canCancel and oneSyncEnabled) and not force then return end
 
     LocalPlayer.state:set('currentEmote', nil, true)
     EmoteCancelPlaying = true
@@ -712,7 +714,7 @@ function OnEmotePlay(name, textureVariation, emoteType)
         return
     end
 
-    if not LocalPlayer.state.canEmote and GetConvar("onesync", "off") == "on" then return end
+    if not LocalPlayer.state.canEmote and oneSyncEnabled then return end
 
     if not DoesEntityExist(PlayerPedId()) then return false end
 
