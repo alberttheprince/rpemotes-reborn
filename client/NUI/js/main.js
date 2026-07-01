@@ -180,7 +180,7 @@ window.addEventListener('message', (event) => {
         Object.keys(emoteCategories).forEach((key) => {
             const SIDEBAR_ANCHOR = document.querySelector(".sidebar-button-anchor");
             const MENU_ANCHOR = document.querySelector(".menu-anchor");
-            
+
             SIDEBAR_ANCHOR.insertAdjacentHTML("afterend",
                 `
                     <li class="sidebar-button-container">
@@ -206,7 +206,7 @@ window.addEventListener('message', (event) => {
                 const EMOTES = CONTENT_CONTAINER.querySelector(`.${key}-menu`);
                 if (!EMOTES) return;
                 ClearHTMLContainer(`.${key}-menu`);
-                if (key==="moods" || key==="walkstyles") {
+                if ((key==="moods" || key==="walkstyles") && event.data[key]?.length) {
                     // Add the (Clear Mood) button here. Nightmares for future maintainers.
                     EMOTES.insertAdjacentHTML("beforeend", `
                         <button class="btn btn-emote btn-style-reset" data-emoteid="_reset" data-emotetype="${event.data[key][0].emoteType}" data-locale="normalreset"></button>
