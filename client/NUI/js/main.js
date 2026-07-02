@@ -180,7 +180,7 @@ window.addEventListener('message', (event) => {
         Object.keys(emoteCategories).forEach((key) => {
             const SIDEBAR_ANCHOR = document.querySelector(".sidebar-button-anchor");
             const MENU_ANCHOR = document.querySelector(".menu-anchor");
-            
+
             SIDEBAR_ANCHOR.insertAdjacentHTML("afterend",
                 `
                     <li class="sidebar-button-container">
@@ -201,12 +201,13 @@ window.addEventListener('message', (event) => {
     }
 
     if (event.data.type === 'BUILD_EMOTE_MENUS') {
-        Object.keys(event.data).forEach((key) => {
+        const KEYS = Object.keys(event.data);
+        for (const key of KEYS) {
             if (key !== "type" && key !== "keybinds") {
                 const EMOTES = CONTENT_CONTAINER.querySelector(`.${key}-menu`);
-                if (!EMOTES) return;
+                if (!EMOTES) continue;
                 ClearHTMLContainer(`.${key}-menu`);
-                if (key==="moods" || key==="walkstyles") {
+                if ((key==="moods" || key==="walkstyles") && event.data[key]?.length) {
                     // Add the (Clear Mood) button here. Nightmares for future maintainers.
                     EMOTES.insertAdjacentHTML("beforeend", `
                         <button class="btn btn-emote btn-style-reset" data-emoteid="_reset" data-emotetype="${event.data[key][0].emoteType}" data-locale="normalreset"></button>
@@ -220,7 +221,7 @@ window.addEventListener('message', (event) => {
                     }
                 })
             }
-        })
+        }
         event.data.favorites?.forEach((emote) => {
             const ELEMENTS = Array.from(document.querySelectorAll(`[data-emoteid="${emote.emoteName}"]`));
             ELEMENTS.forEach((el) => el?.classList.add("btn-emote-favorite"));
