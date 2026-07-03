@@ -240,7 +240,12 @@ Just want to remove them? Delete the following walk styles from Animationlist.lu
 
 Bigfoot, Hurry, Hurry2, Hurry3, Flee, Flee2, Flee3, Flee4, and Flee5
 
-# No Idle Cam 📷
+# No Idle Animations or Idle Cam  📷
+
+By default, we ship empty idle animation overrides in rpemotes-reborn that stop default male and female peds from playing GTA's random
+idle "fidget" animations like scratching, nose-picking, and weight-shifting while standing still.
+
+To re-enable them, delete the following folder: `stream/[Custom Emotes]/noidleanimations/` 
 
 No Idle Cam allows players to disable the idle camera animation on foot and in vehicle, making RP scenarios, streaming on Twitch, or just general gameplay just a little more enjoyable.
 
