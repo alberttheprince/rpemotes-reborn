@@ -237,6 +237,14 @@ AddEventHandler("rpemotes:internal:loadEmoteDataToNUI", function(EmoteData, Cate
     SendNUIMessage({type = "LOAD_EMOTE_DATA", emoteData = EmoteData, categoryToEmotes = CategoryToEmotes, emoteCategories = NUIEmoteCategories, emoteTypeIcons = EmoteTypeEmoji})
 end)
 
+function ResetNUIQueue()
+    for key, val in pairs(dataForMenu) do
+        if type(val) == "table" then
+            dataForMenu[key] = {}
+        end
+    end
+end
+
 function AddEmoteToNUIQueue(data)
     -- data = {emoteName, emoteType, label, categoryName, hasPermission, isFavorite}
     if data.isFavorite then
@@ -251,9 +259,24 @@ end
 
 AddEventHandler("rpemotes:internal:sendMenuDataToNUI", function()
     while not nuiReady or not initialDataLoaded do Citizen.Wait(10) end
+
+    -- Multiple builds can queue sends while waiting above (e.g. InitMenu plus a
+    -- RebuildEmoteMenu during startup). The first send empties the queue, so a
+    -- stale send would push an all-empty payload and blank out the NUI menu.
+    local total = 0
+    for _, val in pairs(dataForMenu) do
+        if type(val) == "table" then
+            total = total + #val
+        end
+    end
+    if total == 0 then
+        DebugPrint("[ NUI EMOTES SKIPPED - EMPTY QUEUE ]")
+        return
+    end
+
     DebugPrint("[ NUI EMOTES BUILT ]")
     SendNUIMessage(dataForMenu)
-    for key, val in pairs(dataForMenu) do
+    for key in pairs(dataForMenu) do
         dataForMenu[key] = {}
     end
     dataForMenu.type = "BUILD_EMOTE_MENUS"

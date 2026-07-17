@@ -1162,6 +1162,7 @@ function InitMenu()
         Wait(100)
     end
 
+    ResetNUIQueue()
     addEmoteMenu(mainMenu)
     addCancelEmote(mainMenu)
     if Config.Keybinding then
