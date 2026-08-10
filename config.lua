@@ -116,6 +116,7 @@ Config = {
 
     -- NUI Menu
     UseNUIMenu = true, -- If true, it will use the NUI menu, instead of the Scaleform one. NativeUI is still driving the emote data in the background.
+    CursorAsToggle = false, -- If true, tapping LEFT ALT toggles the mouse cursor in the NUI menu on/off, instead of only showing it while the key is held down.
 }
 
 -- Custom Categories: Define custom categories to organize emotes in the menu

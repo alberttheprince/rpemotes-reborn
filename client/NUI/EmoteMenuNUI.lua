@@ -30,19 +30,21 @@ local NUIEmoteType = {
     [EmoteType.EMOJI] = "emojis"
 }
 
+local cursorButtonText = Config.CursorAsToggle and 'btn_cursor_toggle' or 'btn_cursor'
+
 local keyListKeyboard = {
     { controlGroup = 2, key = 176, text = 'btn_select' },
     { controlGroup = 2, keys = {176, 209}, text = 'btn_contextmenu'},
     { controlGroup = 2, key = 177,  text = 'btn_back' },
     { controlGroup = 2, keys = {172, 173}, text = 'btn_move'},
     { controlGroup = 2, key = 209,  text = 'btn_move_faster' },
-    { key = 19,  text = 'btn_cursor' }
+    { key = 19,  text = cursorButtonText }
 }
 
 local keyListMouse = {
     { controlGroup = 2, key = 223, text = 'btn_select' },
     { controlGroup = 2, key = 225, text = 'btn_contextmenu'},
-    { key = 19,  text = 'btn_cursor' }
+    { key = 19,  text = cursorButtonText }
 }
 
 local function getEmojiFromCategoryName(str)
@@ -307,30 +309,38 @@ AddEventHandler("rpemotes:internal:handleNUIOpened", function()
     SendNUIMessage({type = "TOGGLE_CURSOR_INPUT", value = false})
 
     local scaleform_instructions = SetupButtons(keyListKeyboard)
+    local cursorActive = false
+
+    local function setCursorActive(state)
+        if cursorActive == state then return end
+        cursorActive = state
+        SetNuiFocus(true, state)
+        SendNUIMessage({type = "TOGGLE_CURSOR_INPUT", value = state})
+        SetScaleformMovieAsNoLongerNeeded(scaleform_instructions)
+        scaleform_instructions = SetupButtons(state and keyListMouse or keyListKeyboard)
+    end
 
     while IsNuiFocused() do
         DrawScaleformMovieFullscreen(scaleform_instructions, 255, 255, 255, 255)
         DisableControlAction(0,37,true)
         DisableControlAction(0,200,true)
         if IsControlJustPressed(0,19) then
-            SetNuiFocus(true, true)
-            SendNUIMessage({type = "TOGGLE_CURSOR_INPUT", value = true})
-            SetScaleformMovieAsNoLongerNeeded(scaleform_instructions)
-            scaleform_instructions = SetupButtons(keyListMouse)
+            -- As a toggle, every tap flips the cursor. Otherwise, it is only shown for as long as the key is held down.
+            if Config.CursorAsToggle then
+                setCursorActive(not cursorActive)
+            else
+                setCursorActive(true)
+            end
+        elseif not Config.CursorAsToggle and IsControlJustReleased(0,19) then
+            setCursorActive(false)
         end
-        if IsControlPressed(0,19) then
+        if cursorActive then
             DisableControlAction(0,1,true)
             DisableControlAction(0,2,true)
             DisableControlAction(0,14,true)
             DisableControlAction(0,15,true)
             DisableControlAction(0,24,true)
             DisableControlAction(0,25,true)
-        end
-        if IsControlJustReleased(0,19) then
-            SetNuiFocus(true, false)
-            SendNUIMessage({type = "TOGGLE_CURSOR_INPUT", value = false})
-            SetScaleformMovieAsNoLongerNeeded(scaleform_instructions)
-            scaleform_instructions = SetupButtons(keyListKeyboard)
         end
         Wait(1)
     end

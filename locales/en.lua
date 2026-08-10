@@ -116,6 +116,7 @@ return {
     ['btn_move'] = "Move",
     ['btn_contextmenu'] = "More options",
     ['btn_cursor'] = "(Hold) Toggle Cursor",
+    ['btn_cursor_toggle'] = "Toggle Cursor",
     ['btn_move_faster'] = "(Hold) Move Faster",
     ['filteremotes'] = "Filter %s 🔍",
 }
