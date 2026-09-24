@@ -22,7 +22,7 @@ local function CleanupBinoculars()
     if Config.UseOldPropSpawning then
         ClearEmoteProps()
     else
-        LocalPlayer.state:set("rpemotes:props", {}, true)
+        TriggerServerEvent('rpemotes:server:setState', 'rpemotes:props', {})
     end
     SetNightvision(false)
     SetSeethrough(false)

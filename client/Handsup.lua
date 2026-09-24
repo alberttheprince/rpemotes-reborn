@@ -53,7 +53,7 @@ if Config.HandsupEnabled then
 
         InHandsup = not InHandsup
         if InHandsup then
-            LocalPlayer.state:set('currentEmote', 'handsup', true)
+            SetCurrentEmoteState('handsup')
             DestroyAllProps()
             RequestAnimDict(HANDSUP_DICT)
             while not HasAnimDictLoaded(HANDSUP_DICT) do
@@ -71,7 +71,7 @@ if Config.HandsupEnabled then
 
             HandsUpLoop()
         else
-            LocalPlayer.state:set('currentEmote', nil, true)
+            SetCurrentEmoteState(nil)
             ClearPedTasks(PlayerPedId())
             if Config.ReplayEmoteAfterHandsup and IsInAnimation then
                 local emote = EmoteData[CurrentAnimationName]

@@ -108,14 +108,14 @@ internal fields the conversion pass produced (`dict`, `anim`, `label`,
 `emoji` (the glyph). The shape mirrors rpemotes' internal data, so consumers adapt
 it to their own view model.
 
-Having issues with players using emotes when/where they're not supposed to? Use the following where needed. This would be somewhere like if you want to disable emotes in jail or when someone is handcuffed/escorted. We've also added one for blocking emote cancels!
+Having issues with players using emotes when/where they're not supposed to? Use the following on the server where needed. This would be somewhere like if you want to disable emotes in jail or when someone is handcuffed/escorted. We've also added one for blocking emote cancels! State bags are set server-side so this works with `sv_stateBagStrictMode` enabled.
 
 ```lua
-LocalPlayer.state:set('canEmote', false, true) -- Blocks players from emoting
-LocalPlayer.state:set('canEmote', true, true) -- Allows players to emote
+Player(source).state:set('canEmote', false, true) -- Blocks players from emoting
+Player(source).state:set('canEmote', true, true) -- Allows players to emote
 
-LocalPlayer.state:set('canCancel', false, true) -- Blocks players from using emote cancel
-LocalPlayer.state:set('canCancel', true, true) -- Allows players to use emote cancel
+Player(source).state:set('canCancel', false, true) -- Blocks players from using emote cancel
+Player(source).state:set('canCancel', true, true) -- Allows players to use emote cancel
 ```
 
 # Menu Keybind 🎛️

@@ -186,6 +186,58 @@ RegisterNetEvent("rpemotes:server:syncHeading", function(heading)
     state:set("emoteHeading", heading, true)
 end)
 
+local function initPlayerState(playerId)
+    local state = Player(playerId).state
+    state:set("canEmote", true, true)
+    state:set("canCancel", true, true)
+end
+
+for _, playerId in ipairs(GetPlayers()) do
+    initPlayerState(playerId)
+end
+
+AddEventHandler("playerJoining", function()
+    initPlayerState(source)
+end)
+
+local clientStateValidators = {
+    currentEmote = function(value)
+        return value == nil or type(value) == "string"
+    end,
+    ptfx = function(value)
+        return value == nil or value == true
+    end,
+    ptfxPropId = function(value)
+        return value == nil or value == 1 or value == 2
+    end,
+    ["rpemotes:props"] = function(value)
+        return type(value) == "table"
+            and (value.Emote == nil or type(value.Emote) == "string")
+            and (value.TextureVariation == nil or type(value.TextureVariation) == "number")
+            and (value.emoteType == nil or type(value.emoteType) == "string")
+    end,
+}
+
+RegisterNetEvent("rpemotes:server:setState", function(key, value)
+    local validator = clientStateValidators[key]
+    if not validator or not validator(value) then return end
+
+    if key == "rpemotes:props" then
+        value = { Emote = value.Emote, TextureVariation = value.TextureVariation, emoteType = value.emoteType }
+    end
+
+    Player(source).state:set(key, value, true)
+end)
+
+AddEventHandler("onResourceStop", function(resource)
+    if resource ~= GetCurrentResourceName() then return end
+    for _, playerId in ipairs(GetPlayers()) do
+        local state = Player(playerId).state
+        state:set("rpemotes:props", {}, true)
+        state:set("ptfxPropId", nil, true)
+    end
+end)
+
 local function ExtractEmoteProps(format)
     format = tonumber(format)
     local xt, c, total = '', '', 0
