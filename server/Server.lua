@@ -102,6 +102,48 @@ end
 
 loadAndCacheEmotes()
 
+---@type table<string, {category: EmoteType, name: string}[]>
+local addedByResource = {}
+
+---Registers emote names added at runtime by another resource (see the client
+---export AddEmotes), so ACE restrictions and the permission manifest include
+---them. Names are removed when the calling resource stops.
+---@param emotes table<EmoteType, table<string, any>>
+---@return integer added
+exports('AddEmotes', function(emotes)
+    if type(emotes) ~= 'table' then return 0 end
+
+    local resource = GetInvokingResource() or GetCurrentResourceName()
+    local list = addedByResource[resource] or {}
+    local count = 0
+
+    for emoteType, emoteList in pairs(emotes) do
+        local aceCategory = AceCategoryFromEmoteType[emoteType]
+        if aceCategory and emoteCache[aceCategory] and type(emoteList) == "table" then
+            for emoteName in pairs(emoteList) do
+                if not emoteCache[aceCategory][emoteName] then
+                    emoteCache[aceCategory][emoteName] = true
+                    list[#list + 1] = {category = aceCategory, name = emoteName}
+                    count += 1
+                end
+            end
+        end
+    end
+
+    addedByResource[resource] = list
+    return count
+end)
+
+AddEventHandler('onResourceStop', function(resource)
+    local list = addedByResource[resource]
+    if not list or resource == GetCurrentResourceName() then return end
+
+    for _, item in ipairs(list) do
+        emoteCache[item.category][item.name] = nil
+    end
+    addedByResource[resource] = nil
+end)
+
 -- Build permission lookup cache for O(1) access
 -- Structure: aceCache[aceCategory][emoteName] = {acePermission1, acePermission2, ...}
 ---@type table<EmoteType, table<string, string[]>>

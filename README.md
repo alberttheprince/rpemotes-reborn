@@ -108,6 +108,30 @@ internal fields the conversion pass produced (`dict`, `anim`, `label`,
 `emoji` (the glyph). The shape mirrors rpemotes' internal data, so consumers adapt
 it to their own view model.
 
+Other resources can add emotes at runtime, without editing
+`AnimationListCustom.lua`. `AddEmotes(emotes)` exists on the client (plays them)
+and on the server (ACE permissions and the permission manifest); call both with
+the same table. The table uses the same shape as `AnimationListCustom.lua`. An
+entry with `AliasOf` registers another name for an existing emote of the same
+type, which is handy for translated commands. `Replace = true` replaces an
+existing emote of the same name without the duplicate warning. Emotes added this
+way are removed, and replaced ones restored, when the resource that added them
+stops. Custom `.ycd` files still have to be streamed by the calling resource.
+
+```lua
+local emotes = {
+    Emotes = {
+        ["mylean"] = { "anim@amb@clubhouse@bar@drink@idle_a", "idle_a_bartender", "My Lean", AnimationOptions = { EmoteLoop = true } },
+        ["fixcar"] = { AliasOf = "mechanic", Label = "Fix Car" },
+    },
+    Walks = {
+        ["Snob"] = { AliasOf = "Arrogant" },
+    },
+}
+
+exports["rpemotes-reborn"]:AddEmotes(emotes) -- same call on the client and on the server
+```
+
 Having issues with players using emotes when/where they're not supposed to? Use the following on the server where needed. This would be somewhere like if you want to disable emotes in jail or when someone is handcuffed/escorted. We've also added one for blocking emote cancels! State bags are set server-side so this works with `sv_stateBagStrictMode` enabled.
 
 ```lua
