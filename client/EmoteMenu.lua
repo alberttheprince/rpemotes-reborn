@@ -136,6 +136,23 @@ local function sortEmotesByLabel(emotes)
     end)
 end
 
+---@param emoteType EmoteType
+---@return table<string, table>
+local function dataTableFor(emoteType)
+    if emoteType == EmoteType.EXPRESSIONS then return ExpressionData end
+    if emoteType == EmoteType.WALKS then return WalkData end
+    if emoteType == EmoteType.SHARED then return SharedEmoteData end
+    return EmoteData
+end
+
+---@param emoteType EmoteType
+---@param emoteName string
+---@return boolean
+local function emoteExists(emoteType, emoteName)
+    local data = dataTableFor(emoteType)[emoteName]
+    return data ~= nil and (data.emoteType == nil or data.emoteType == emoteType)
+end
+
 --- Expands EmoteTypes in CustomCategories to actual emote names
 ---@return table<string, {name: string, emoteType: EmoteType}> -- Returns category name to array of emote names
 local function expandCustomCategories()
@@ -147,9 +164,9 @@ local function expandCustomCategories()
         for emoteType, emoteNames in pairs(emoteTypeMap) do
             -- Check if the array is empty (include all emotes of this type)
             if #emoteNames == 0 then
-                -- Include all emotes of this type from RP
-                if RP and RP[emoteType] then
-                    for emoteName in pairs(RP[emoteType]) do
+                -- Include all converted emotes of this type
+                for emoteName in pairs(dataTableFor(emoteType)) do
+                    if emoteExists(emoteType, emoteName) then
                         expanded[categoryName][#expanded[categoryName]+1] = {
                             name = emoteName,
                             emoteType = emoteType
@@ -160,7 +177,7 @@ local function expandCustomCategories()
                 -- Include only the specified emotes
                 for _, emoteName in ipairs(emoteNames) do
                     -- Verify it exists in the appropriate data structure
-                    if RP and RP[emoteType] and RP[emoteType][emoteName] then
+                    if emoteExists(emoteType, emoteName) then
                         expanded[categoryName][#expanded[categoryName]+1] = {
                             name = emoteName,
                             emoteType = emoteType
@@ -1044,10 +1061,12 @@ local function convertToEmoteData(emoteName, emote)
     end
 end
 
-local function convertRP()
-    local newRP = {}
-    assert(RP ~= nil)
-    for emoteType, content in pairs(RP) do
+---Converts an animation list (EmoteType -> name -> data, same shape as RP) into
+---EmoteData, SharedEmoteData, ExpressionData and WalkData.
+---@param source table<EmoteType, table<string, table>>
+local function convertEmotes(source)
+    local newRP = EmoteData
+    for emoteType, content in pairs(source) do
         for emoteName, emoteData in pairs(content) do
             if Config.AdultEmotesDisabled and emoteData.AdultAnimation then
                 goto continue
@@ -1108,13 +1127,20 @@ local function convertRP()
             ::continue::
         end
     end
-    EmoteData = newRP
+end
 
+local function refreshEmoteData()
     -- Expand custom categories after EmoteData is populated
     categoryToEmotes = expandCustomCategories()
     TriggerEvent("rpemotes:internal:loadEmoteDataToNUI", EmoteData, categoryToEmotes)
-    RP = nil
     catalogCache = nil
+end
+
+local function convertRP()
+    assert(RP ~= nil)
+    convertEmotes(RP)
+    refreshEmoteData()
+    RP = nil
     CONVERTED = true
 end
 
