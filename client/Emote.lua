@@ -386,38 +386,32 @@ end
 ---@param playerId? integer
 ---@param skipWait? boolean Skip the EmoteDuration wait (used for preview peds)
 function addProps(animOption, textureVariation, ped, playerId, skipWait)
-    PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6 = table.unpack(animOption.PropPlacement)
-
     if not skipWait then
         Wait(animOption and animOption.EmoteDuration or 0)
     end
 
-    if not addProp({
-        prop1 = animOption.Prop,
-        bone = animOption.PropBone,
-        off1 = PropPl1, off2 = PropPl2, off3 = PropPl3,
-        rot1 = PropPl4, rot2 = PropPl5, rot3 = PropPl6,
-        textureVariation = textureVariation,
-        ped = ped,
-        noCollision = animOption.PropNoCollision,
-        playerId = playerId
-    }) then return end
-
-    if animOption.SecondProp then
-        SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6 = table.unpack(animOption.SecondPropPlacement)
-        if not addProp({
-            prop1 = animOption.SecondProp,
-            bone = animOption.SecondPropBone,
-            off1 = SecondPropPl1, off2 = SecondPropPl2, off3 = SecondPropPl3,
-            rot1 = SecondPropPl4, rot2 = SecondPropPl5, rot3 = SecondPropPl6,
+    local function attach(prop, bone, placement, noCollision)
+        local off1, off2, off3, rot1, rot2, rot3 = table.unpack(placement)
+        return addProp({
+            prop1 = prop,
+            bone = bone,
+            off1 = off1, off2 = off2, off3 = off3,
+            rot1 = rot1, rot2 = rot2, rot3 = rot3,
             textureVariation = textureVariation,
             ped = ped,
-            noCollision = animOption.SecondPropNoCollision,
+            noCollision = noCollision,
             playerId = playerId
-        }) then
-            DestroyAllProps()
-            return
-        end
+        })
+    end
+
+    if not attach(animOption.Prop, animOption.PropBone, animOption.PropPlacement, animOption.PropNoCollision) then
+        return
+    end
+
+    if animOption.SecondProp
+        and not attach(animOption.SecondProp, animOption.SecondPropBone, animOption.SecondPropPlacement, animOption.SecondPropNoCollision)
+    then
+        DestroyAllProps()
     end
 end
 
@@ -818,12 +812,12 @@ function OnEmotePlay(name, textureVariation, emoteType)
 
     if animOption then
         if animOption.PtfxAsset then
-            Ptfx1, Ptfx2, Ptfx3, Ptfx4, Ptfx5, Ptfx6, PtfxScale = table.unpack(animOption.PtfxPlacement)
+            local offX, offY, offZ, rotX, rotY, rotZ, scale = table.unpack(animOption.PtfxPlacement)
             PtfxNotif = false
             PtfxPrompt = true
             runAnimationThread()
-            TriggerServerEvent("rpemotes:ptfx:sync", animOption.PtfxAsset, animOption.PtfxName, vector3(Ptfx1, Ptfx2, Ptfx3),
-                vector3(Ptfx4, Ptfx5, Ptfx6), animOption.PtfxBone, PtfxScale, animOption.PtfxColor)
+            TriggerServerEvent("rpemotes:ptfx:sync", animOption.PtfxAsset, animOption.PtfxName, vector3(offX, offY, offZ),
+                vector3(rotX, rotY, rotZ), animOption.PtfxBone, scale, animOption.PtfxColor)
         else
             PtfxPrompt = false
         end
