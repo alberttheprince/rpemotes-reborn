@@ -613,50 +613,47 @@ local function playExitAndEnterEmote(name, textureVariation, emoteType)
     CancelSharedEmote()
     DestroyAllProps()
 
-    if CurrentAnimOptions and CurrentAnimOptions.ExitEmote then
-        local options = CurrentAnimOptions
-
-        if not EmoteData[options.ExitEmote] then
-            DebugPrint("Exit emote was invalid")
-            ClearPedTasks(ped)
-            IsInAnimation = false
-            ExitAndPlay = false
-            OnEmotePlay(name, textureVariation, emoteType)
-            return
-        end
-
-        -- Clean up placement BEFORE exit emote so it doesn't get floating flags
-        if GetPlacementState() == PlacementState.IN_ANIMATION then
-            CleanUpPlacement(ped)
-        end
-
-        OnEmotePlay(options.ExitEmote)
-        DebugPrint("Playing exit animation")
-
-        local animationOptions = EmoteData[options.ExitEmote].AnimationOptions
-        if animationOptions and animationOptions.EmoteDuration then
-            InExitEmote = true
-            SetTimeout(animationOptions.EmoteDuration, function()
-                InExitEmote = false
-                ClearPedTasks(ped)
-                OnEmotePlay(name, textureVariation, emoteType)
-                ExitAndPlay = false
-            end)
-            return
-        else
-            -- Exit emote has no duration, skip it and play new emote directly
-            ClearPedTasks(ped)
-            IsInAnimation = false
-            ExitAndPlay = false
-            OnEmotePlay(name, textureVariation, emoteType)
-            return
-        end
-    else
+    local function playNextEmote()
         ClearPedTasks(ped)
         IsInAnimation = false
         ExitAndPlay = false
         OnEmotePlay(name, textureVariation, emoteType)
     end
+
+    local exitEmote = CurrentAnimOptions and CurrentAnimOptions.ExitEmote
+    if not exitEmote then
+        playNextEmote()
+        return
+    end
+
+    if not EmoteData[exitEmote] then
+        DebugPrint("Exit emote was invalid")
+        playNextEmote()
+        return
+    end
+
+    -- Clean up placement BEFORE exit emote so it doesn't get floating flags
+    if GetPlacementState() == PlacementState.IN_ANIMATION then
+        CleanUpPlacement(ped)
+    end
+
+    OnEmotePlay(exitEmote)
+    DebugPrint("Playing exit animation")
+
+    local animationOptions = EmoteData[exitEmote].AnimationOptions
+    if not (animationOptions and animationOptions.EmoteDuration) then
+        -- Exit emote has no duration, skip it and play new emote directly
+        playNextEmote()
+        return
+    end
+
+    InExitEmote = true
+    SetTimeout(animationOptions.EmoteDuration, function()
+        InExitEmote = false
+        ClearPedTasks(ped)
+        OnEmotePlay(name, textureVariation, emoteType)
+        ExitAndPlay = false
+    end)
 end
 
 local function playScenario(emoteData)
