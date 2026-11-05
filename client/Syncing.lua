@@ -35,7 +35,7 @@ RegisterNetEvent("rpemotes:client:syncEmote", function(emote, player)
     targetPlayerId = player
     local plyServerId = GetPlayerFromServerId(player)
 
-    if IsPedInAnyVehicle(GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer()), true) then
+    if IsPedInAnyVehicle(GetPlayerPed(plyServerId ~= -1 and plyServerId or GetClosestPlayer()), true) then
         return EmoteChatMessage(Translate('not_in_a_vehicle'))
     end
 
@@ -54,7 +54,7 @@ RegisterNetEvent("rpemotes:client:syncEmote", function(emote, player)
             or not SharedEmoteData[targetEmote].AnimationOptions.Attachto
         then
             local ped = PlayerPedId()
-            local pedInFront = GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer())
+            local pedInFront = GetPlayerPed(plyServerId ~= -1 and plyServerId or GetClosestPlayer())
 
             AttachEntityToEntity(
                 ped,
@@ -82,7 +82,7 @@ end)
 RegisterNetEvent("rpemotes:client:syncEmoteSource", function(emote, player)
     local ped = PlayerPedId()
     local plyServerId = GetPlayerFromServerId(player)
-    local pedInFront = GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer())
+    local pedInFront = GetPlayerPed(plyServerId ~= -1 and plyServerId or GetClosestPlayer())
 
     if IsPedInAnyVehicle(ped, true) or IsPedInAnyVehicle(pedInFront, true) then
         return EmoteChatMessage(Translate('not_in_a_vehicle'))
