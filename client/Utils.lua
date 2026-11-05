@@ -91,8 +91,8 @@ function FirstToUpper(str)
 end
 
 function IsPlayerAiming(player)
-    return (IsPlayerFreeAiming(player) or IsAimCamActive() or IsAimCamThirdPersonActive()) and
-    tonumber(GetSelectedPedWeapon(player)) ~= tonumber(GetHashKey("WEAPON_UNARMED"))
+    return (IsPlayerFreeAiming(player) or IsAimCamActive() or IsAimCamThirdPersonActive())
+        and GetSelectedPedWeapon(GetPlayerPed(player)) ~= `WEAPON_UNARMED`
 end
 
 function IsPedBusy(playerPed)

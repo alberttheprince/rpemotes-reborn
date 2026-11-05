@@ -113,7 +113,7 @@ local function runAnimationThread()
 
             if IsInAnimation then
                 sleep = 0
-                if IsPlayerAiming(pPed) then
+                if IsPlayerAiming(PlayerId()) then
                     EmoteCancel()
                 end
                 if not Config.AllowPunchingDuringEmote then
