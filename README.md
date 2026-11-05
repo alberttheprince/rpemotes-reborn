@@ -110,13 +110,17 @@ it to their own view model.
 
 Other resources can add emotes at runtime, without editing
 `AnimationListCustom.lua`. `AddEmotes(emotes)` exists on the client (plays them)
-and on the server (ACE permissions and the permission manifest); call both with
-the same table. The table uses the same shape as `AnimationListCustom.lua`. An
-entry with `AliasOf` registers another name for an existing emote of the same
-type, which is handy for translated commands. `Replace = true` replaces an
-existing emote of the same name without the duplicate warning. Emotes added this
-way are removed, and replaced ones restored, when the resource that added them
-stops. Custom `.ycd` files still have to be streamed by the calling resource.
+and on the server (permissions and the data the server validates); call both with
+the same table, in any order. The table uses the same shape as
+`AnimationListCustom.lua`, and invalid entries are skipped with a warning. An entry
+with `AliasOf` registers another name for an emote of the same type that already
+exists when the call is made, which is handy for translated commands; it copies the
+target, so it stays until its own resource stops. `Replace = true` replaces an
+existing emote of the same name without the duplicate warning. When several resources
+add the same name, the last one wins. When a resource stops, its emotes are removed
+and the name goes back to the most recent owner still running, or to the original
+emote, in any stop order. Custom `.ycd` files still have to be streamed by the
+calling resource.
 
 ```lua
 local emotes = {

@@ -31,6 +31,7 @@ shared_scripts {
     'locale.lua',
     'config.lua',
     'shared/ModelCompat.lua',
+    'shared/RuntimeEmotes.lua',
 }
 
 server_scripts {

@@ -1,6 +1,6 @@
 SetConvarReplicated('rpemotes:onesync', GetConvar("onesync", "off") ~= "off" and "true" or "false")
 
----@type table<EmoteType, table<string, boolean>>
+---@type table<EmoteType, table<string, table>>
 local emoteCache = {
     [EmoteType.EMOTES] = {},
     [EmoteType.SHARED] = {},
@@ -17,8 +17,43 @@ local propEmoteCache = {
 ---@type table<string, string>
 local sharedPartnerEmote = {}
 
----@type table<string, table<string, boolean>>
+---How many cached emotes use each PtfxAsset/PtfxName pair.
+---@type table<string, table<string, integer>>
 local ptfxCache = {}
+
+---@param data table
+---@param delta integer
+local function countPtfx(data, delta)
+    local options = data.AnimationOptions
+    if type(options) ~= "table" then return end
+    local asset, name = options.PtfxAsset, options.PtfxName
+    if type(asset) ~= "string" or type(name) ~= "string" then return end
+
+    local names = ptfxCache[asset] or {}
+    local users = (names[name] or 0) + delta
+    names[name] = users > 0 and users or nil
+    ptfxCache[asset] = next(names) and names or nil
+end
+
+---The only write to the emote caches: built-in emotes, runtime emotes, and restores when a resource stops.
+---@param category EmoteType
+---@param name string
+---@param data? table nil removes the emote
+local function setCachedEmote(category, name, data)
+    local previous = emoteCache[category][name]
+    if previous then countPtfx(previous, -1) end
+    if data then countPtfx(data, 1) end
+
+    emoteCache[category][name] = data
+
+    local options = data and data.AnimationOptions
+    if propEmoteCache[category] then
+        propEmoteCache[category][name] = type(options) == "table" and options.Prop and true or nil
+    end
+    if category == EmoteType.SHARED then
+        sharedPartnerEmote[name] = data and (data[4] or name)
+    end
+end
 
 ---Runs a client animation list file and returns the table it builds.
 ---@param fileName string
@@ -64,24 +99,10 @@ local function loadAndCacheEmotes()
             local aceCategory = AceCategoryFromEmoteType[emoteType]
             if aceCategory and type(emoteList) == "table" then
                 for emoteName, emoteData in pairs(emoteList) do
-                    emoteCache[aceCategory][emoteName] = true
-                    counts[aceCategory] += 1
-
                     if type(emoteData) == "table" then
-                        if aceCategory == EmoteType.SHARED then
-                            sharedPartnerEmote[emoteName] = emoteData[4] or emoteName
-                        end
-
-                        local options = emoteData.AnimationOptions
-                        if type(options) == "table" then
-                            if options.Prop and propEmoteCache[aceCategory] then
-                                propEmoteCache[aceCategory][emoteName] = true
-                            end
-                            if type(options.PtfxAsset) == "string" and type(options.PtfxName) == "string" then
-                                ptfxCache[options.PtfxAsset] = ptfxCache[options.PtfxAsset] or {}
-                                ptfxCache[options.PtfxAsset][options.PtfxName] = true
-                            end
-                        end
+                        emoteData.emoteType = emoteType
+                        setCachedEmote(aceCategory, emoteName, emoteData)
+                        counts[aceCategory] += 1
                     end
                 end
             end
@@ -101,48 +122,6 @@ local function loadAndCacheEmotes()
 end
 
 loadAndCacheEmotes()
-
----@type table<string, {category: EmoteType, name: string}[]>
-local addedByResource = {}
-
----Registers emote names added at runtime by another resource (see the client
----export AddEmotes), so ACE restrictions and the permission manifest include
----them. Names are removed when the calling resource stops.
----@param emotes table<EmoteType, table<string, any>>
----@return integer added
-exports('AddEmotes', function(emotes)
-    if type(emotes) ~= 'table' then return 0 end
-
-    local resource = GetInvokingResource() or GetCurrentResourceName()
-    local list = addedByResource[resource] or {}
-    local count = 0
-
-    for emoteType, emoteList in pairs(emotes) do
-        local aceCategory = AceCategoryFromEmoteType[emoteType]
-        if aceCategory and emoteCache[aceCategory] and type(emoteList) == "table" then
-            for emoteName in pairs(emoteList) do
-                if not emoteCache[aceCategory][emoteName] then
-                    emoteCache[aceCategory][emoteName] = true
-                    list[#list + 1] = {category = aceCategory, name = emoteName}
-                    count += 1
-                end
-            end
-        end
-    end
-
-    addedByResource[resource] = list
-    return count
-end)
-
-AddEventHandler('onResourceStop', function(resource)
-    local list = addedByResource[resource]
-    if not list or resource == GetCurrentResourceName() then return end
-
-    for _, item in ipairs(list) do
-        emoteCache[item.category][item.name] = nil
-    end
-    addedByResource[resource] = nil
-end)
 
 -- Build permission lookup cache for O(1) access
 -- Structure: aceCache[aceCategory][emoteName] = {acePermission1, acePermission2, ...}
@@ -199,7 +178,7 @@ ServerHasEmotePermission = hasEmotePermission
 function ServerEmoteExists(emoteName, emoteType)
     local aceCategory = AceCategoryFromEmoteType[emoteType]
     return type(emoteName) == "string" and aceCategory ~= nil and emoteCache[aceCategory] ~= nil
-        and emoteCache[aceCategory][emoteName] == true
+        and emoteCache[aceCategory][emoteName] ~= nil
 end
 
 local SHARED_REQUEST_TIMEOUT_MS = 12000
@@ -350,7 +329,7 @@ local clientStateValidators = {
         local state = Player(source).state
         local asset, name = state.ptfxAsset, state.ptfxName
         return type(asset) == "string" and type(name) == "string"
-            and ptfxCache[asset] ~= nil and ptfxCache[asset][name] == true
+            and ptfxCache[asset] ~= nil and ptfxCache[asset][name] ~= nil
             and state.ptfxOffset ~= nil and state.ptfxRot ~= nil
     end,
     ptfxPropId = function(value)
@@ -510,4 +489,68 @@ RegisterNetEvent('rpemotes:server:requestPermissions', function()
     local source = source
     local permissions = buildPermissionManifest(source)
     TriggerClientEvent('rpemotes:client:receivePermissions', source, permissions)
+end)
+
+local permissionPushQueued = false
+
+-- Next tick, so several AddEmotes calls in a row send one manifest.
+local function queuePermissionPush()
+    if permissionPushQueued then return end
+    permissionPushQueued = true
+
+    SetTimeout(0, function()
+        permissionPushQueued = false
+        for _, playerId in ipairs(GetPlayers()) do
+            TriggerClientEvent('rpemotes:client:receivePermissions', playerId, buildPermissionManifest(playerId))
+        end
+    end)
+end
+
+---Registers emotes added at runtime by another resource (see the client export
+---AddEmotes), keeping their data like the built-in ones. An AliasOf entry takes
+---the data of its target. Everything is undone when the calling resource stops.
+---@param emotes table<EmoteType, table<string, table>>
+---@return integer count emotes registered
+exports('AddEmotes', function(emotes)
+    local resource = GetInvokingResource() or GetCurrentResourceName()
+    local clean, count = RuntimeEmotes.sanitize(emotes)
+
+    local function store(emoteType, name, data)
+        local category = AceCategoryFromEmoteType[emoteType]
+        RuntimeEmotes.push(category, name, resource, emoteCache[category][name], data)
+        setCachedEmote(category, name, data)
+    end
+
+    local aliases = {}
+    for emoteType, content in pairs(clean) do
+        for name, data in pairs(content) do
+            if data.AliasOf then
+                aliases[#aliases + 1] = {emoteType = emoteType, name = name, target = data.AliasOf}
+            else
+                data.emoteType = emoteType
+                store(emoteType, name, data)
+            end
+        end
+    end
+
+    for _, alias in ipairs(aliases) do
+        local target = emoteCache[AceCategoryFromEmoteType[alias.emoteType]][alias.target]
+        if target and target.emoteType == alias.emoteType then
+            store(alias.emoteType, alias.name, target)
+        else
+            count -= 1
+            print(string.format("WARNING - Alias %s points to unknown %s emote: %s",
+                alias.name, alias.emoteType, alias.target))
+        end
+    end
+
+    if count > 0 then queuePermissionPush() end
+    return count
+end)
+
+AddEventHandler('onResourceStop', function(resource)
+    if resource == GetCurrentResourceName() then return end
+    if RuntimeEmotes.removeResource(resource, setCachedEmote) then
+        queuePermissionPush()
+    end
 end)

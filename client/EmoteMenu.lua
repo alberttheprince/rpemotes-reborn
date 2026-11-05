@@ -1064,10 +1064,12 @@ end
 ---Converts an animation list (EmoteType -> name -> data, same shape as RP) into
 ---EmoteData, SharedEmoteData, ExpressionData and WalkData.
 ---@param source table<EmoteType, table<string, table>>
----@param added? {emoteType: EmoteType, name: string, previous?: table}[] receives every emote stored, with the one it replaced
-local function convertEmotes(source, added)
+---@param resource? string the resource that owns these emotes, when added at runtime
+---@return integer count emotes stored
+local function convertEmotes(source, resource)
     local newRP = EmoteData
     local aliases = {}
+    local count = 0
     for emoteType, content in pairs(source) do
         for emoteName, emoteData in pairs(content) do
             if Config.AdultEmotesDisabled and emoteData.AdultAnimation then
@@ -1083,9 +1085,7 @@ local function convertEmotes(source, added)
                 goto continue
             end
 
-            if added then
-                added[#added + 1] = {emoteType = emoteType, name = emoteName, previous = dataTableFor(emoteType)[emoteName]}
-            end
+            local previous = dataTableFor(emoteType)[emoteName]
 
             if emoteType == EmoteType.EXPRESSIONS then
                 if ExpressionData[emoteName] and not emoteData.Replace then
@@ -1135,6 +1135,11 @@ local function convertEmotes(source, added)
                 newRP[emoteName].emoteType = emoteType
                 convertToEmoteData(emoteName, newRP[emoteName])
             end
+
+            if resource then
+                RuntimeEmotes.push(AceCategoryFromEmoteType[emoteType], emoteName, resource, previous, dataTableFor(emoteType)[emoteName])
+            end
+            count += 1
             ::continue::
         end
     end
@@ -1142,8 +1147,9 @@ local function convertEmotes(source, added)
     for _, alias in ipairs(aliases) do
         local target = dataTableFor(alias.emoteType)
         if emoteExists(alias.emoteType, alias.data.AliasOf) then
-            if added then
-                added[#added + 1] = {emoteType = alias.emoteType, name = alias.name, previous = target[alias.name]}
+            local previous = target[alias.name]
+            if previous and not alias.data.Replace then
+                print(string.format("WARNING - Duplicate alias name found: %s", alias.name))
             end
             local copy = {}
             for k, v in pairs(target[alias.data.AliasOf]) do
@@ -1151,11 +1157,17 @@ local function convertEmotes(source, added)
             end
             copy.label = alias.data.Label or copy.label
             target[alias.name] = copy
+            if resource then
+                RuntimeEmotes.push(AceCategoryFromEmoteType[alias.emoteType], alias.name, resource, previous, copy)
+            end
+            count += 1
         else
             print(string.format("WARNING - Alias %s points to unknown %s emote: %s",
                 alias.name, alias.emoteType, tostring(alias.data.AliasOf)))
         end
     end
+
+    return count
 end
 
 local function refreshEmoteData()
@@ -1165,33 +1177,14 @@ local function refreshEmoteData()
     catalogCache = nil
 end
 
----@type table<string, {emoteType: EmoteType, name: string, previous?: table}[]>
-local addedByResource = {}
-
 ---@type {resource: string, emotes: table}[]?
 local pendingEmotes = {}
-
----@param resource string
----@param emotes table<EmoteType, table<string, table>>
----@return integer
-local function addFromResource(resource, emotes)
-    local added = {}
-    convertEmotes(emotes, added)
-
-    local list = addedByResource[resource] or {}
-    for _, item in ipairs(added) do
-        list[#list + 1] = item
-    end
-    addedByResource[resource] = list
-
-    return #added
-end
 
 local function convertRP()
     assert(RP ~= nil)
     convertEmotes(RP)
     for _, pending in ipairs(pendingEmotes) do
-        addFromResource(pending.resource, pending.emotes)
+        convertEmotes(pending.emotes, pending.resource)
     end
     pendingEmotes = nil
     refreshEmoteData()
@@ -1205,40 +1198,31 @@ end
 ---emote of the same type, and `Replace = true` replaces an existing emote
 ---without the duplicate warning. Emotes are removed (and replaced ones restored)
 ---when the calling resource stops. Call the server export with the same table
----so ACE permissions know them.
+---so the server knows them too.
 ---@param emotes table<EmoteType, table<string, table>>
 ---@return integer count emotes added, or queued until the list is converted
 CreateExport('AddEmotes', function(emotes)
-    if type(emotes) ~= 'table' then return 0 end
-
     local resource = GetInvokingResource() or GetCurrentResourceName()
+    local clean, queued = RuntimeEmotes.sanitize(emotes)
 
     if not CONVERTED then
-        pendingEmotes[#pendingEmotes + 1] = {resource = resource, emotes = emotes}
-        local count = 0
-        for _, content in pairs(emotes) do
-            if type(content) == 'table' then
-                for _ in pairs(content) do count += 1 end
-            end
-        end
-        return count
+        pendingEmotes[#pendingEmotes + 1] = {resource = resource, emotes = clean}
+        return queued
     end
 
-    local count = addFromResource(resource, emotes)
+    local count = convertEmotes(clean, resource)
     refreshEmoteData()
     TriggerServerEvent('rpemotes:server:requestPermissions')
     return count
 end)
 
 AddEventHandler('onClientResourceStop', function(resource)
-    local list = addedByResource[resource]
-    if not list or resource == GetCurrentResourceName() then return end
+    if resource == GetCurrentResourceName() then return end
 
-    for i = #list, 1, -1 do
-        local item = list[i]
-        dataTableFor(item.emoteType)[item.name] = item.previous
-    end
-    addedByResource[resource] = nil
+    local changed = RuntimeEmotes.removeResource(resource, function(category, name, value)
+        dataTableFor(category)[name] = value
+    end)
+    if not changed then return end
 
     refreshEmoteData()
     TriggerServerEvent('rpemotes:server:requestPermissions')
