@@ -4,6 +4,13 @@ local groupEmoteOriginCoords = vector3(0)
 local groupEmoteOriginRadius = Config.GroupEmoteDefaultArea
 local groupEmoteEndTime = nil
 
+local function resetGroupEmoteState()
+    groupEmoteReqId = nil
+    groupEmoteAccepted = false
+    groupEmoteOriginCoords = vector3(0)
+    groupEmoteEndTime = nil
+end
+
 RegisterCommand('gemote', function(source, args, raw)
     if not LocalPlayer.state.canEmote then return end
     if IsPedInAnyVehicle(PlayerPedId(), true) then
@@ -137,10 +144,7 @@ AddEventHandler("rpemotes:client:autoCancel", function()
         -- Keep rechecking to make sure the player is still in area.
         local crds = GetEntityCoords(PlayerPedId())
         if #(crds - (groupEmoteOriginCoords or vector3(0))) > groupEmoteOriginRadius then
-            groupEmoteReqId = nil
-            groupEmoteAccepted = false
-            groupEmoteOriginCoords = vector3(0)
-            groupEmoteEndTime = nil
+            resetGroupEmoteState()
             SimpleNotify(Translate('canceledgroupemote'))
         end
 
@@ -188,10 +192,7 @@ RegisterNetEvent("rpemotes:client:requestGroupEmote", function(emotename, reqid,
                     SetTimeout((Config.GroupEmoteCountdownTime + 5) * 1000, function()
                         -- If state hasn't been cleared by rpemotes:client:doGroupEmote, clear it now
                         if groupEmoteReqId == reqid and groupEmoteAccepted then
-                            groupEmoteReqId = nil
-                            groupEmoteAccepted = false
-                            groupEmoteOriginCoords = vector3(0)
-                            groupEmoteEndTime = nil
+                            resetGroupEmoteState()
                         end
                     end)
                 end
@@ -214,9 +215,6 @@ RegisterNetEvent("rpemotes:client:requestGroupEmote", function(emotename, reqid,
 end)
 
 RegisterNetEvent("rpemotes:client:doGroupEmote", function(emotename)
-    -- Clear group emote state
-    groupEmoteReqId = nil
-    groupEmoteAccepted = false
-    groupEmoteEndTime = nil
+    resetGroupEmoteState()
     OnEmotePlay(emotename, nil)
 end)
