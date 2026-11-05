@@ -38,8 +38,11 @@ RegisterNetEvent("rpemotes:server:startGroupEmote", function(emote, players, rad
     if not ServerEmoteExists(emote, EmoteType.EMOTES) then return end
     if not ServerHasEmotePermission(source, emote, EmoteType.EMOTES) then return end
 
-    local radius = radius
-    if not tonumber(radius) or radius > Config.GroupEmoteMaxArea or radius < 1 then
+    local sourcePed = GetPlayerPed(source)
+    if not DoesEntityExist(sourcePed) then return end
+
+    radius = tonumber(radius)
+    if not radius or radius > Config.GroupEmoteMaxArea or radius < 1 then
         radius = Config.GroupEmoteDefaultArea
     end
     
@@ -54,16 +57,15 @@ RegisterNetEvent("rpemotes:server:startGroupEmote", function(emote, players, rad
     }
 
     -- Add Players to the group request
-    local sourceCoords = GetEntityCoords(GetPlayerPed(source))
+    local sourceCoords = GetEntityCoords(sourcePed)
     for i=1, 128, 1 do -- Max number of players that can be in one scope.
         if not players[i] or type(players[i]) ~= "number" then
             break
         end
-        if GetPlayerPing(players[i]) ~= 0 then
-            local src = players[i]
-            local ped = GetPlayerPed(src)
-            local crds = DoesEntityExist(ped) and GetEntityCoords(ped)
-            if #(sourceCoords - crds) <= groupEmoteRequests[reqid].zoneRadius then
+        local src = players[i]
+        local ped = GetPlayerPing(src) ~= 0 and GetPlayerPed(src)
+        if ped and DoesEntityExist(ped) then
+            if #(sourceCoords - GetEntityCoords(ped)) <= groupEmoteRequests[reqid].zoneRadius then
                 groupEmoteRequests[reqid].players[src] = false
             end
         end
@@ -121,9 +123,9 @@ AddEventHandler("rpemotes:server:resolveGroupEmote", function(reqid)
     groupEmoteRequests[reqid] = nil
 
     for src,accepted in pairs(group.players) do
-        if accepted == true and GetPlayerPing(src) ~= 0 then
-            local crds = GetEntityCoords(GetPlayerPed(src))
-            if #(group.zoneOrigin - crds) <= group.zoneRadius then
+        local ped = accepted == true and GetPlayerPing(src) ~= 0 and GetPlayerPed(src)
+        if ped and DoesEntityExist(ped) then
+            if #(group.zoneOrigin - GetEntityCoords(ped)) <= group.zoneRadius then
                 TriggerClientEvent("rpemotes:client:doGroupEmote", src, group.emote)
             end
         end
