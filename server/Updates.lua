@@ -20,8 +20,9 @@ if Config.CheckForUpdates then
             PerformHttpRequest('https://api.github.com/repos/alberttheprince/rpemotes-reborn/releases/latest', function(statusCode, responseBody)
                 if statusCode ~= 200 then return end
 
-                local releaseInfo = json.decode(responseBody)
-                if releaseInfo.prerelease then return end
+                local ok, releaseInfo = pcall(json.decode, responseBody)
+                if not ok or type(releaseInfo) ~= 'table' or releaseInfo.prerelease then return end
+                if type(releaseInfo.tag_name) ~= 'string' then return end
 
                 local latestVersion = releaseInfo.tag_name:match('%d+%.%d+%.%d+')
                 if not latestVersion or latestVersion == currentVersion then return end
