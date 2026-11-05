@@ -35,6 +35,8 @@ RegisterNetEvent("rpemotes:server:startGroupEmote", function(emote, players, rad
 
     if not Player(source).state.canEmote then return end
     if type(players) ~= "table" or #players == 0 then return end
+    if not ServerEmoteExists(emote, EmoteType.EMOTES) then return end
+    if not ServerHasEmotePermission(source, emote, EmoteType.EMOTES) then return end
 
     local radius = radius
     if not tonumber(radius) or radius > Config.GroupEmoteMaxArea or radius < 1 then

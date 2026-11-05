@@ -76,30 +76,35 @@ function OnGroupEmoteRequest(emotename)
         return
     end
 
+    local emote = EmoteData[emotename]
+    if emote == nil or emote.emoteType == EmoteType.SHARED then
+        SimpleNotify(Translate("notvalidgroupemote"))
+        return
+    end
+
+    if not HasEmotePermission(emotename, emote.emoteType) then
+        EmoteChatMessage("You don't have permission to use this emote")
+        return
+    end
+
     local emoteRadius = setGroupArea(emotename, Config.GroupEmoteDefaultArea)
     if emoteRadius < 0 then return end
 
-    local emote = EmoteData[emotename]
-    if emote ~= nil and emote.type ~= EmoteType.SHARED then
-        local players = {}
-        local originCoords = GetEntityCoords(PlayerPedId())
-        for _,src in pairs(GetActivePlayers()) do
-            local crds = GetEntityCoords(GetPlayerPed(src))
-            if #(originCoords - crds) <= emoteRadius then
-                players[#players+1] = GetPlayerServerId(tonumber(src))
-            end
+    local players = {}
+    local originCoords = GetEntityCoords(PlayerPedId())
+    for _,src in pairs(GetActivePlayers()) do
+        local crds = GetEntityCoords(GetPlayerPed(src))
+        if #(originCoords - crds) <= emoteRadius then
+            players[#players+1] = GetPlayerServerId(tonumber(src))
         end
-        if #players > 0 then
-        else
-            SimpleNotify(Translate('nobodyclose'))
-            return
-        end
-
-        TriggerServerEvent("rpemotes:server:startGroupEmote", emotename, players, emoteRadius)
-        SimpleNotify(Translate("requestedgroupemote", emote.label, #players))
-    else
-        SimpleNotify(Translate("notvalidgroupemote"))
     end
+    if #players == 0 then
+        SimpleNotify(Translate('nobodyclose'))
+        return
+    end
+
+    TriggerServerEvent("rpemotes:server:startGroupEmote", emotename, players, emoteRadius)
+    SimpleNotify(Translate("requestedgroupemote", emote.label, #players))
 end
 
 -- Start countdown timer thread

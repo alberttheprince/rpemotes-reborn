@@ -138,6 +138,8 @@ local function hasEmotePermission(source, emoteName, emoteType)
     return false
 end
 
+ServerHasEmotePermission = hasEmotePermission
+
 function ServerEmoteExists(emoteName, emoteType)
     local aceCategory = AceCategoryFromEmoteType[emoteType]
     return type(emoteName) == "string" and aceCategory ~= nil and emoteCache[aceCategory] ~= nil
