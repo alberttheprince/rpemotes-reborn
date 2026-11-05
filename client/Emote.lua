@@ -959,12 +959,12 @@ local function recoverLostAnimation()
         Wait(100)
         pedBumpTimeout = pedBumpTimeout - 100
     end
+    isBumpingPed = false
 
     if not IsInAnimation then
         DebugPrint("Can't recover! Not in an animation!")
         return
     end
-    isBumpingPed = false
 
     -- Check for Scripted Animation tasks.
     -- See https://docs.fivem.net/natives/?_0xB0760331C7AA4155 for a list of tasks. Check types.lua for the enum.
