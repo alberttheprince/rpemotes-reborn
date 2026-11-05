@@ -20,41 +20,35 @@ local sharedPartnerEmote = {}
 ---@type table<string, table<string, boolean>>
 local ptfxCache = {}
 
+---Runs a client animation list file and returns the table it builds.
+---@param fileName string
+---@param varName string the global (or local) table the file fills
+---@return table?, string?
+local function loadAnimationList(fileName, varName)
+    local content = LoadResourceFile(GetCurrentResourceName(), fileName)
+    if not content then return nil, "file not found" end
+
+    local chunk, err = load(content .. " return " .. varName)
+    if not chunk then return nil, err end
+
+    local ok, result = pcall(chunk)
+    if not ok then return nil, result end
+    return result
+end
+
 -- Load and cache animation lists on startup
 local function loadAndCacheEmotes()
     print("^3[rpemotes] Loading and caching emote data...^0")
 
-    -- Load AnimationList.lua
-    local animationFile = LoadResourceFile(GetCurrentResourceName(), "client/AnimationList.lua")
-    if not animationFile then
-        print("^1[rpemotes] Failed to load AnimationList.lua^0")
+    local RP, err = loadAnimationList("client/AnimationList.lua", "RP")
+    if not RP then
+        print("^1[rpemotes] Failed to load AnimationList.lua: " .. tostring(err) .. "^0")
         return false
     end
 
-    local f, err = load(animationFile .. " return RP")
-    if err then
-        print("^1[rpemotes] Error loading AnimationList.lua: " .. tostring(err) .. "^0")
-        return false
-    end
-
-    local success, RP = pcall(f)
-    if not success then
-        print("^1[rpemotes] Error parsing AnimationList.lua: " .. tostring(RP) .. "^0")
-        return false
-    end
-
-    -- Load AnimationListCustom.lua
-    local CustomDP
-    local customFile = LoadResourceFile(GetCurrentResourceName(), "client/AnimationListCustom.lua")
-    if customFile then
-        local customFunc, customErr = load(customFile .. " return CustomDP")
-        if not customErr then
-            local customSuccess, result = pcall(customFunc)
-            if customSuccess and result then
-                CustomDP = result
-                print("^2[rpemotes] Loaded custom emotes^0")
-            end
-        end
+    local CustomDP = loadAnimationList("client/AnimationListCustom.lua", "CustomDP")
+    if CustomDP then
+        print("^2[rpemotes] Loaded custom emotes^0")
     end
 
     -- Cache emote names by ACE category
@@ -365,14 +359,8 @@ local function ExtractEmoteProps(format)
         return
     end
 
-    local animationFile = LoadResourceFile(GetCurrentResourceName(), "client/AnimationList.lua")
-    if not animationFile then return nil end
-
-    local f, err = load(animationFile .. " return RP")
-    if err then return nil end
-
-    local success, res = pcall(f)
-    if not success then return nil end
+    local res = loadAnimationList("client/AnimationList.lua", "RP")
+    if not res then return nil end
 
     if format == 4 then
         local emoteTypes = { EmoteType.SHARED, EmoteType.DANCES, EmoteType.ANIMAL_EMOTES, EmoteType.EMOTES, EmoteType.PROP_EMOTES, EmoteType.EXPRESSIONS, EmoteType.WALKS }
