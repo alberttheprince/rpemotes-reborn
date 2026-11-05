@@ -1,4 +1,13 @@
 local PlayerParticles = {}
+local PlayerParticleAssets = {}
+
+local function releasePtfxAsset(asset)
+    if not asset then return end
+    for _, usedAsset in pairs(PlayerParticleAssets) do
+        if usedAsset == asset then return end
+    end
+    RemoveNamedPtfxAsset(asset)
+end
 
 function PtfxThis(asset)
     while not HasNamedPtfxAssetLoaded(asset) do
@@ -43,14 +52,15 @@ AddStateBagChangeHandler('ptfx', '', function(bagName, key, value, _unused, repl
         PtfxThis(stateBag.ptfxAsset)
 
         if not assetLoaded and not stateBag.ptfx then
-            RemoveNamedPtfxAsset(stateBag.ptfxAsset)
             PlayerParticles[plyId] = nil
+            releasePtfxAsset(stateBag.ptfxAsset)
             return
         end
 
         local offset = stateBag.ptfxOffset
         local rot = stateBag.ptfxRot
         PlayerParticles[plyId] = StartNetworkedParticleFxLoopedOnEntityBone(stateBag.ptfxName, entityTarget, offset.x, offset.y, offset.z, rot.x, rot.y, rot.z, boneIndex, (stateBag.ptfxScale or 1) + 0.0, false, false, false)
+        PlayerParticleAssets[plyId] = stateBag.ptfxAsset
 
         local color = stateBag.ptfxColor
         if color then
@@ -65,7 +75,9 @@ AddStateBagChangeHandler('ptfx', '', function(bagName, key, value, _unused, repl
     else
         DebugPrint("Stopped PTFX: " .. PlayerParticles[plyId])
         StopParticleFxLooped(PlayerParticles[plyId], false)
-        RemoveNamedPtfxAsset(stateBag.ptfxAsset)
+        local asset = PlayerParticleAssets[plyId] or stateBag.ptfxAsset
         PlayerParticles[plyId] = nil
+        PlayerParticleAssets[plyId] = nil
+        releasePtfxAsset(asset)
     end
 end)

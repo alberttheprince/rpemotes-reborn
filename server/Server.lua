@@ -17,6 +17,9 @@ local propEmoteCache = {
 ---@type table<string, string>
 local sharedPartnerEmote = {}
 
+---@type table<string, table<string, boolean>>
+local ptfxCache = {}
+
 -- Load and cache animation lists on startup
 local function loadAndCacheEmotes()
     print("^3[rpemotes] Loading and caching emote data...^0")
@@ -79,6 +82,10 @@ local function loadAndCacheEmotes()
                         if type(options) == "table" then
                             if options.Prop and propEmoteCache[aceCategory] then
                                 propEmoteCache[aceCategory][emoteName] = true
+                            end
+                            if type(options.PtfxAsset) == "string" and type(options.PtfxName) == "string" then
+                                ptfxCache[options.PtfxAsset] = ptfxCache[options.PtfxAsset] or {}
+                                ptfxCache[options.PtfxAsset][options.PtfxName] = true
                             end
                         end
                     end
@@ -239,11 +246,31 @@ RegisterNetEvent("rpemotes:server:cancelEmote", function(target)
     TriggerClientEvent("rpemotes:client:cancelEmote", target, source)
 end)
 
+local function isValidPtfxColor(color)
+    return type(color) == "table"
+        and type(color.R) == "number" and type(color.G) == "number"
+        and type(color.B) == "number" and type(color.A) == "number"
+end
+
+local function isValidPtfxColorList(color)
+    if color == nil then return true end
+    if isValidPtfxColor(color) then return true end
+    if type(color) ~= "table" or #color == 0 then return false end
+    for _, entry in ipairs(color) do
+        if not isValidPtfxColor(entry) then return false end
+    end
+    return true
+end
+
+local PTFX_MAX_SCALE = 5.0
+
 RegisterNetEvent("rpemotes:ptfx:sync", function(asset, name, offset, rot, bone, scale, color)
-    assert(type(asset) == "string", "[rpemotes] ptfx:sync: invalid asset for source: " .. tostring(source))
-    assert(type(name) == "string", "[rpemotes] ptfx:sync: invalid name for source: " .. tostring(source))
-    assert(type(offset) == "vector3", "[rpemotes] ptfx:sync: invalid offset for source: " .. tostring(source))
-    assert(type(rot) == "vector3", "[rpemotes] ptfx:sync: invalid rot for source: " .. tostring(source))
+    if type(asset) ~= "string" or type(name) ~= "string" then return end
+    if not ptfxCache[asset] or not ptfxCache[asset][name] then return end
+    if type(offset) ~= "vector3" or type(rot) ~= "vector3" then return end
+    if bone ~= nil and type(bone) ~= "number" then return end
+    if scale ~= nil and (type(scale) ~= "number" or scale <= 0 or scale > PTFX_MAX_SCALE) then return end
+    if not isValidPtfxColorList(color) then return end
 
     local state = Player(source).state
 
