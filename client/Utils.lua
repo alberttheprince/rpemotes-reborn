@@ -227,20 +227,17 @@ function NearbysOnCommand(source, args, raw)
 end
 
 function GetClosestPlayer()
-    local players = GetPlayers()
     local closestDistance = -1
     local closestPlayer
     local ped = PlayerPedId()
-    local pedCoords = GetEntityCoords(ped, false)
+    local pedCoords = GetEntityCoords(ped)
 
-    for index, value in ipairs(players) do
-        local target = GetPlayerPed(value)
+    for _, player in ipairs(GetPlayers()) do
+        local target = GetPlayerPed(player)
         if target ~= ped then
-            local targetCoords = GetEntityCoords(GetPlayerPed(value), false)
-            local distance = GetDistanceBetweenCoords(targetCoords["x"], targetCoords["y"], targetCoords["z"],
-                pedCoords["x"], pedCoords["y"], pedCoords["z"], true)
-            if (closestDistance == -1 or closestDistance > distance) then
-                closestPlayer = value
+            local distance = #(GetEntityCoords(target) - pedCoords)
+            if closestDistance == -1 or distance < closestDistance then
+                closestPlayer = player
                 closestDistance = distance
             end
         end
