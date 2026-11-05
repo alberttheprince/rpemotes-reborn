@@ -29,13 +29,25 @@ if Config.SharedEmotesEnabled then
     end, false)
 end
 
+local function getPartnerPed(serverId)
+    local player = GetPlayerFromServerId(serverId)
+    return GetPlayerPed(player ~= -1 and player or GetClosestPlayer())
+end
+
+local function attachToPartner(ped, partnerPed, options)
+    AttachEntityToEntity(ped, partnerPed, GetPedBoneIndex(partnerPed, options.bone or -1),
+        options.pos.x, options.pos.y, options.pos.z,
+        options.rot.x, options.rot.y, options.rot.z,
+        false, false, false, true, 1, true)
+end
+
 RegisterNetEvent("rpemotes:client:syncEmote", function(emote, player)
     EmoteCancel()
     Wait(300)
     targetPlayerId = player
-    local plyServerId = GetPlayerFromServerId(player)
+    local partnerPed = getPartnerPed(player)
 
-    if IsPedInAnyVehicle(GetPlayerPed(plyServerId ~= -1 and plyServerId or GetClosestPlayer()), true) then
+    if IsPedInAnyVehicle(partnerPed, true) then
         return EmoteChatMessage(Translate('not_in_a_vehicle'))
     end
 
@@ -53,26 +65,7 @@ RegisterNetEvent("rpemotes:client:syncEmote", function(emote, player)
             or not SharedEmoteData[targetEmote].AnimationOptions
             or not SharedEmoteData[targetEmote].AnimationOptions.Attachto
         then
-            local ped = PlayerPedId()
-            local pedInFront = GetPlayerPed(plyServerId ~= -1 and plyServerId or GetClosestPlayer())
-
-            AttachEntityToEntity(
-                ped,
-                pedInFront,
-                GetPedBoneIndex(pedInFront, options.bone or -1),
-                options.pos.x,
-                options.pos.y,
-                options.pos.z,
-                options.rot.x,
-                options.rot.y,
-                options.rot.z,
-                false,
-                false,
-                false,
-                true,
-                1,
-                true
-            )
+            attachToPartner(PlayerPedId(), partnerPed, options)
         end
     end
 
@@ -81,8 +74,7 @@ end)
 
 RegisterNetEvent("rpemotes:client:syncEmoteSource", function(emote, player)
     local ped = PlayerPedId()
-    local plyServerId = GetPlayerFromServerId(player)
-    local pedInFront = GetPlayerPed(plyServerId ~= -1 and plyServerId or GetClosestPlayer())
+    local pedInFront = getPartnerPed(player)
 
     if IsPedInAnyVehicle(ped, true) or IsPedInAnyVehicle(pedInFront, true) then
         return EmoteChatMessage(Translate('not_in_a_vehicle'))
@@ -94,26 +86,8 @@ RegisterNetEvent("rpemotes:client:syncEmoteSource", function(emote, player)
     Wait(300)
 
     local options = emoteData and emoteData.AnimationOptions
-    if options then
-        if (options.Attachto) then
-            AttachEntityToEntity(
-                ped,
-                pedInFront,
-                GetPedBoneIndex(pedInFront, options.bone or -1),
-                options.pos.x,
-                options.pos.y,
-                options.pos.z,
-                options.rot.x,
-                options.rot.y,
-                options.rot.z,
-                false,
-                false,
-                false,
-                true,
-                1,
-                true
-            )
-        end
+    if options and options.Attachto then
+        attachToPartner(ped, pedInFront, options)
     end
 
     local offset = options and options.syncOffset or vector4(0.0, 1.0, 0.0, 180.0)
@@ -123,9 +97,8 @@ RegisterNetEvent("rpemotes:client:syncEmoteSource", function(emote, player)
     SetEntityCoordsNoOffset(ped, coords.x, coords.y, coords.z)
 
     targetPlayerId = player
-    if emoteData ~= nil then
+    if emoteData then
         OnEmotePlay(emote, nil, EmoteType.SHARED)
-        return
     end
 end)
 
