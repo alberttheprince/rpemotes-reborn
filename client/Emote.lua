@@ -4,6 +4,7 @@ local oneSyncEnabled = GetConvar("rpemotes:onesync", "false") == "true"
 IsInAnimation = false
 CurrentAnimationName = nil
 CurrentTextureVariation = nil
+CurrentEmoteType = nil
 InHandsup = false
 CONVERTED = false
 LastEmote = {
@@ -784,6 +785,7 @@ function OnEmotePlay(name, textureVariation, emoteType)
     CurrentAnimationName = name
     SetCurrentEmoteState(name)
     CurrentTextureVariation = textureVariation
+    CurrentEmoteType = emoteType
     CurrentAnimOptions = animOption
 
     if Config.DisarmPlayerOnEmote then
@@ -939,7 +941,7 @@ AddEventHandler('CEventOpenDoor', function(unk1)
 
     ClearPedTasks(PlayerPedId())
     DestroyAllProps()
-    OnEmotePlay(CurrentAnimationName, CurrentTextureVariation)
+    OnEmotePlay(CurrentAnimationName, CurrentTextureVariation, CurrentEmoteType)
 end)
 
 
@@ -976,7 +978,7 @@ local function recoverLostAnimation()
     ClearPedTasks(pPed)
     Wait(125)
     DestroyAllProps()
-    OnEmotePlay(CurrentAnimationName, CurrentTextureVariation)
+    OnEmotePlay(CurrentAnimationName, CurrentTextureVariation, CurrentEmoteType)
 end
 
 AddEventHandler("CEventPlayerCollisionWithPed", function(unk1)
