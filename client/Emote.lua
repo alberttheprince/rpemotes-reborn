@@ -514,19 +514,11 @@ end
 function EmoteCommandStart(args)
     if #args <= 0 then return end
     if IsPedBusy(PlayerPedId()) then
-        TriggerEvent('chat:addMessage', {
-            color = { 255, 0, 0 },
-            multiline = true,
-            args = { "RPEmotes", Translate('dead') }
-        })
+        EmoteErrorMessage(Translate('dead'))
         return
     end
     if (IsPedSwimming(PlayerPedId()) or IsPedSwimmingUnderWater(PlayerPedId())) and not Config.AllowInWater then
-        TriggerEvent('chat:addMessage', {
-            color = { 255, 0, 0 },
-            multiline = true,
-            args = { "RPEmotes", Translate('swimming') }
-        })
+        EmoteErrorMessage(Translate('swimming'))
         return
     end
     local name = string.lower(args[1])
@@ -707,11 +699,7 @@ function OnEmotePlay(name, textureVariation, emoteType)
     end
 
     if IsPedBusy(PlayerPedId()) then
-        TriggerEvent('chat:addMessage', {
-            color = { 255, 0, 0 },
-            multiline = true,
-            args = { "RPEmotes", Translate('dead') }
-        })
+        EmoteErrorMessage(Translate('dead'))
         return
     end
 

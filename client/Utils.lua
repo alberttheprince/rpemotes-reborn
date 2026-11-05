@@ -130,6 +130,14 @@ function ChangeHeadingSmooth(playerPed, amount, time)
     end
 end
 
+function EmoteErrorMessage(msg)
+    TriggerEvent('chat:addMessage', {
+        color = { 255, 0, 0 },
+        multiline = true,
+        args = { "RPEmotes", msg }
+    })
+end
+
 function EmoteChatMessage(msg, multiline)
     if msg then
         TriggerEvent("chat:addMessage", {
