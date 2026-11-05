@@ -90,6 +90,9 @@ RegisterNetEvent("rpemotes:client:syncEmoteSource", function(emote, player)
 
     local emoteData = SharedEmoteData[emote]
 
+    EmoteCancel()
+    Wait(300)
+
     local options = emoteData and emoteData.AnimationOptions
     if options then
         if (options.Attachto) then
@@ -118,8 +121,6 @@ RegisterNetEvent("rpemotes:client:syncEmoteSource", function(emote, player)
     local heading = GetEntityHeading(pedInFront)
     SetEntityHeading(ped, heading - offset.w + 0.0)
     SetEntityCoordsNoOffset(ped, coords.x, coords.y, coords.z)
-    EmoteCancel()
-    Wait(300)
 
     targetPlayerId = player
     if emoteData ~= nil then
