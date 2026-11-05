@@ -155,16 +155,16 @@ RegisterNetEvent("rpemotes:client:requestEmote", function(emotename, target)
         timer = timer - 5
         if timer <= 0 then
             isRequestAnim = false
+            TriggerServerEvent("rpemotes:server:refuseEmote")
             SimpleNotify(Translate('refuseemote'))
         end
 
         if IsControlJustPressed(1, 246) then
             isRequestAnim = false
-
-            local otheremote = emote and emote.secondPlayersAnim or emotename
-            TriggerServerEvent("rpemotes:server:confirmEmote", target, emotename, otheremote)
+            TriggerServerEvent("rpemotes:server:confirmEmote", target, emotename)
         elseif IsControlJustPressed(1, 182) then
             isRequestAnim = false
+            TriggerServerEvent("rpemotes:server:refuseEmote")
             SimpleNotify(Translate('refuseemote'))
         end
     end

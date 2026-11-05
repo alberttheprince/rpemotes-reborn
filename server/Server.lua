@@ -8,6 +8,9 @@ local emoteCache = {
     [EmoteType.WALKS] = {},
 }
 
+---@type table<string, string>
+local sharedPartnerEmote = {}
+
 -- Load and cache animation lists on startup
 local function loadAndCacheEmotes()
     print("^3[rpemotes] Loading and caching emote data...^0")
@@ -57,9 +60,15 @@ local function loadAndCacheEmotes()
         for emoteType, emoteList in pairs(emoteTable) do
             local aceCategory = AceCategoryFromEmoteType[emoteType]
             if aceCategory and type(emoteList) == "table" then
-                for emoteName in pairs(emoteList) do
+                for emoteName, emoteData in pairs(emoteList) do
                     emoteCache[aceCategory][emoteName] = true
                     counts[aceCategory] += 1
+
+                    if type(emoteData) == "table" then
+                        if aceCategory == EmoteType.SHARED then
+                            sharedPartnerEmote[emoteName] = emoteData[4] or emoteName
+                        end
+                    end
                 end
             end
         end
@@ -129,34 +138,86 @@ local function hasEmotePermission(source, emoteName, emoteType)
     return false
 end
 
+function ServerEmoteExists(emoteName, emoteType)
+    local aceCategory = AceCategoryFromEmoteType[emoteType]
+    return type(emoteName) == "string" and aceCategory ~= nil and emoteCache[aceCategory] ~= nil
+        and emoteCache[aceCategory][emoteName] == true
+end
+
+local SHARED_REQUEST_TIMEOUT_MS = 12000
+local SHARED_EMOTE_MAX_DISTANCE = 3.0
+
+-- pendingSharedRequests[targetSrc] = { requester = src, emote = name, expires = ms }
+local pendingSharedRequests = {}
+
+local function getPlayerPedIfValid(playerId)
+    if type(playerId) ~= "number" or GetPlayerPing(playerId) == 0 then return nil end
+    local ped = GetPlayerPed(playerId)
+    if ped == 0 or not DoesEntityExist(ped) then return nil end
+    return ped
+end
+
+local function arePlayersClose(a, b)
+    local pedA, pedB = getPlayerPedIfValid(a), getPlayerPedIfValid(b)
+    if not pedA or not pedB then return false end
+    return #(GetEntityCoords(pedA) - GetEntityCoords(pedB)) <= SHARED_EMOTE_MAX_DISTANCE
+end
 
 RegisterNetEvent("rpemotes:server:requestEmote", function(target, emotename)
     local source = source
     if not Player(source).state.canEmote then return end
-
-    if target == -1 then return end
-
-    local distance = #(GetEntityCoords(GetPlayerPed(source)) - GetEntityCoords(GetPlayerPed(target)))
-
-    if distance > 3 then return end
+    if target == source then return end
+    if not ServerEmoteExists(emotename, EmoteType.SHARED) then return end
+    if not arePlayersClose(source, target) then return end
 
     -- Check ACE permission for shared emote (only requestor needs permission)
     if not hasEmotePermission(source, emotename, EmoteType.SHARED) then return end
 
+    local pending = pendingSharedRequests[target]
+    if pending and pending.expires > GetGameTimer() then return end
+
+    pendingSharedRequests[target] = {
+        requester = source,
+        emote = emotename,
+        expires = GetGameTimer() + SHARED_REQUEST_TIMEOUT_MS,
+    }
+
     TriggerClientEvent("rpemotes:client:requestEmote", target, emotename, source)
 end)
 
-RegisterNetEvent("rpemotes:server:confirmEmote", function(target, requestedemote, otheremote)
+RegisterNetEvent("rpemotes:server:refuseEmote", function()
+    pendingSharedRequests[source] = nil
+end)
+
+RegisterNetEvent("rpemotes:server:confirmEmote", function(target, requestedemote)
     local source = source
 
-    if target == -1 then return end
+    local pending = pendingSharedRequests[source]
+    pendingSharedRequests[source] = nil
 
-    local distance = #(GetEntityCoords(GetPlayerPed(source)) - GetEntityCoords(GetPlayerPed(target)))
+    if not pending
+        or pending.requester ~= target
+        or pending.emote ~= requestedemote
+        or pending.expires < GetGameTimer()
+    then return end
 
-    if distance > 3 then return end
+    if not Player(source).state.canEmote or not Player(target).state.canEmote then return end
+    if not arePlayersClose(source, target) then return end
+
+    local otheremote = sharedPartnerEmote[requestedemote] or requestedemote
 
     TriggerClientEvent("rpemotes:client:syncEmote", source, otheremote, target)
     TriggerClientEvent("rpemotes:client:syncEmoteSource", target, requestedemote, source)
+end)
+
+AddEventHandler("playerDropped", function()
+    local source = source
+    pendingSharedRequests[source] = nil
+    for target, pending in pairs(pendingSharedRequests) do
+        if pending.requester == source then
+            pendingSharedRequests[target] = nil
+        end
+    end
 end)
 
 RegisterNetEvent("rpemotes:server:cancelEmote", function(target)
