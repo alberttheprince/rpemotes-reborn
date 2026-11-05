@@ -151,9 +151,10 @@ end)
 RegisterNetEvent("rpemotes:client:requestGroupEmote", function(emotename, reqid, requestor, zone)
     if groupEmoteReqId then return end
 
-    local isRequestAnim = true
-
     local emote = EmoteData[emotename]
+    if not emote then return end
+
+    local isRequestAnim = true
     PlaySound(-1, "NAV", "HUD_AMMO_SHOP_SOUNDSET", false, 0, true)
     SimpleNotify(Translate('doyouwanna') .. emote.label .. "~w~)")
     -- The player has Config.GroupEmoteCountdownTime seconds to accept the request

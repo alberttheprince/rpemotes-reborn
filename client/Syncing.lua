@@ -144,9 +144,15 @@ function CancelSharedEmote()
 end
 
 RegisterNetEvent("rpemotes:client:requestEmote", function(emotename, target)
-    isRequestAnim = true
+    if isRequestAnim then return end
 
     local emote = SharedEmoteData[emotename]
+    if not emote then
+        TriggerServerEvent("rpemotes:server:refuseEmote")
+        return
+    end
+
+    isRequestAnim = true
     PlaySound(-1, "NAV", "HUD_AMMO_SHOP_SOUNDSET", false, 0, true)
     SimpleNotify(Translate('doyouwanna') .. emote.label .. "~w~)")
     -- The player has now 10 seconds to accept the request
