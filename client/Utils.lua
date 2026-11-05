@@ -543,6 +543,12 @@ AddStateBagChangeHandler('rpemotes:props', nil, function(bagName, key, value, re
     end
 
     if type(value) == "table" and value.Emote ~= nil then
+        local emoteData = value.emoteType == EmoteType.SHARED and SharedEmoteData[value.Emote] or EmoteData[value.Emote]
+        if not emoteData or not emoteData.AnimationOptions or not emoteData.AnimationOptions.Prop then
+            DebugPrint("rpemotes:props statebag: no prop emote named", value.Emote)
+            return
+        end
+
         if not ServerProps[ped] then ServerProps[ped] = {} end
         -- Overly cautious? Maybe.
         local gameTime = GetGameTimer()
@@ -552,7 +558,6 @@ AddStateBagChangeHandler('rpemotes:props', nil, function(bagName, key, value, re
             Wait(0)
         end
         DebugPrint("time to finish loading ped (ms)", GetGameTimer() - gameTime)
-        local emoteData = value.emoteType == EmoteType.SHARED and SharedEmoteData[value.Emote] or EmoteData[value.Emote]
         addProps(emoteData.AnimationOptions, value.TextureVariation or nil, -1, ply)
     end
 end)

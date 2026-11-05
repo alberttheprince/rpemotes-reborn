@@ -8,6 +8,12 @@ local emoteCache = {
     [EmoteType.WALKS] = {},
 }
 
+---@type table<EmoteType, table<string, boolean>>
+local propEmoteCache = {
+    [EmoteType.EMOTES] = {},
+    [EmoteType.SHARED] = {},
+}
+
 ---@type table<string, string>
 local sharedPartnerEmote = {}
 
@@ -67,6 +73,13 @@ local function loadAndCacheEmotes()
                     if type(emoteData) == "table" then
                         if aceCategory == EmoteType.SHARED then
                             sharedPartnerEmote[emoteName] = emoteData[4] or emoteName
+                        end
+
+                        local options = emoteData.AnimationOptions
+                        if type(options) == "table" then
+                            if options.Prop and propEmoteCache[aceCategory] then
+                                propEmoteCache[aceCategory][emoteName] = true
+                            end
                         end
                     end
                 end
@@ -273,17 +286,22 @@ local clientStateValidators = {
     ptfxPropId = function(value)
         return value == nil or value == 1 or value == 2
     end,
-    ["rpemotes:props"] = function(value)
-        return type(value) == "table"
-            and (value.Emote == nil or type(value.Emote) == "string")
-            and (value.TextureVariation == nil or type(value.TextureVariation) == "number")
-            and (value.emoteType == nil or type(value.emoteType) == "string")
+    ["rpemotes:props"] = function(value, source)
+        if type(value) ~= "table" then return false end
+        if value.TextureVariation ~= nil and type(value.TextureVariation) ~= "number" then return false end
+        if value.emoteType ~= nil and type(value.emoteType) ~= "string" then return false end
+        if value.Emote == nil then return true end
+        if type(value.Emote) ~= "string" then return false end
+
+        local category = value.emoteType == EmoteType.SHARED and EmoteType.SHARED or EmoteType.EMOTES
+        return propEmoteCache[category][value.Emote] == true
+            and hasEmotePermission(source, value.Emote, category)
     end,
 }
 
 RegisterNetEvent("rpemotes:server:setState", function(key, value)
     local validator = clientStateValidators[key]
-    if not validator or not validator(value) then return end
+    if not validator or not validator(value, source) then return end
 
     if key == "rpemotes:props" then
         value = { Emote = value.Emote, TextureVariation = value.TextureVariation, emoteType = value.emoteType }
