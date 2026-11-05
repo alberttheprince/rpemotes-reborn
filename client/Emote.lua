@@ -898,6 +898,12 @@ CreateExport('IsAnimalEmoteCompatible', function(model, emoteName)
     return IsModelCompatible(model, emoteName)
 end)
 
+function ReplayCurrentEmote()
+    if not CurrentAnimationName then return end
+    DestroyAllProps()
+    OnEmotePlay(CurrentAnimationName, CurrentTextureVariation, CurrentEmoteType)
+end
+
 -- Door stuff
 local openingDoor = false
 AddEventHandler('CEventOpenDoor', function(unk1)
@@ -919,8 +925,7 @@ AddEventHandler('CEventOpenDoor', function(unk1)
     Wait(200)
 
     ClearPedTasks(PlayerPedId())
-    DestroyAllProps()
-    OnEmotePlay(CurrentAnimationName, CurrentTextureVariation, CurrentEmoteType)
+    ReplayCurrentEmote()
 end)
 
 
@@ -956,8 +961,7 @@ local function recoverLostAnimation()
     DebugPrint("Recovering anim!")
     ClearPedTasks(pPed)
     Wait(125)
-    DestroyAllProps()
-    OnEmotePlay(CurrentAnimationName, CurrentTextureVariation, CurrentEmoteType)
+    ReplayCurrentEmote()
 end
 
 AddEventHandler("CEventPlayerCollisionWithPed", function(unk1)
