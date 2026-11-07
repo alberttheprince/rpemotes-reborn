@@ -301,8 +301,15 @@ local clientStateValidators = {
     currentEmote = function(value)
         return value == nil or type(value) == "string"
     end,
-    ptfx = function(value)
-        return value == nil or value == true
+    ptfx = function(value, source)
+        if value == nil then return true end
+        if value ~= true then return false end
+
+        local state = Player(source).state
+        local asset, name = state.ptfxAsset, state.ptfxName
+        return type(asset) == "string" and type(name) == "string"
+            and ptfxCache[asset] ~= nil and ptfxCache[asset][name] == true
+            and state.ptfxOffset ~= nil and state.ptfxRot ~= nil
     end,
     ptfxPropId = function(value)
         return value == nil or value == 1 or value == 2
