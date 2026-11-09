@@ -1,26 +1,18 @@
 if not Config.DisableIdleCam then return end
 
-RegisterCommand('idlecamoff', function() -- help2 31, 167, 9
+local function setIdleCam(enabled)
     TriggerEvent('chat:addMessage', {
-        color = {227,8,0},
+        color = enabled and {31,167,9} or {227,8,0},
         multiline = true,
-        args = {'[RPEmotes]', 'Idle Cam Is Now Off'}
+        args = {'[RPEmotes]', enabled and 'Idle Cam Is Now On' or 'Idle Cam Is Now Off'}
     })
-    DisableIdleCamera(true)
-    SetPedCanPlayAmbientAnims(PlayerPedId(), false)
-    SetResourceKvpInt("idleCamToggle", 1)
-end, false)
+    DisableIdleCamera(not enabled)
+    SetPedCanPlayAmbientAnims(PlayerPedId(), enabled)
+    SetResourceKvpInt("idleCamToggle", enabled and 2 or 1)
+end
 
-RegisterCommand('idlecamon', function() -- help2 31, 167, 9
-    TriggerEvent('chat:addMessage', {
-        color = {31,167,9},
-        multiline = true,
-        args = {'[RPEmotes]', 'Idle Cam Is Now On'}
-    })
-    DisableIdleCamera(false)
-    SetPedCanPlayAmbientAnims(PlayerPedId(), true)
-    SetResourceKvpInt("idleCamToggle", 2)
-end, false)
+RegisterCommand('idlecamoff', function() setIdleCam(false) end, false)
+RegisterCommand('idlecamon', function() setIdleCam(true) end, false)
 
 CreateThread(function()
     TriggerEvent("chat:addSuggestion", "/idlecamon", "Re-enables the idle cam")

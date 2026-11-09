@@ -4,7 +4,7 @@ function SetPlayerPedExpression(expression, saveToKvp)
         if IsPedBusy(PlayerPedId()) then return end
 
         SetFacialIdleAnimOverride(PlayerPedId(), emote.anim, 0)
-        if Config.PersistentExpression and saveToKvp then SetResourceKvp("expression", emote.anim) end
+        if Config.PersistentExpression and saveToKvp then SetResourceKvp("expression", expression) end
     else
         ClearFacialIdleAnimOverride(PlayerPedId())
         DeleteResourceKvp("expression")
@@ -13,18 +13,16 @@ end
 
 if Config.ExpressionsEnabled then
     RegisterCommand('mood', function(_source, args, _raw)
+        if not args[1] then return end
         local expression = FirstToUpper(string.lower(args[1]))
-        local emote = ExpressionData[expression]
-        if emote then
-            -- Check ACE permission
+        if ExpressionData[expression] then
             if not HasEmotePermission(expression, EmoteType.EXPRESSIONS) then
                 EmoteChatMessage("You don't have permission to use this expression")
                 return
             end
-            SetPlayerPedExpression(emote.anim, true)
+            SetPlayerPedExpression(expression, true)
         elseif expression == "Reset" then
-            ClearFacialIdleAnimOverride(PlayerPedId())
-            DeleteResourceKvp("expression")
+            SetPlayerPedExpression(nil)
         else
             EmoteChatMessage("'" .. expression .. "' is not a valid mood")
         end
@@ -37,10 +35,19 @@ if Config.ExpressionsEnabled then
 
     local function LoadPersistentExpression()
         local expression = GetResourceKvpString("expression")
-        if expression then
-            Wait(2500)
-            SetPlayerPedExpression(expression, false)
+        if not expression then return end
+        Wait(2500)
+
+        -- Older versions saved the animation name instead of the expression name
+        if not ExpressionData[expression] then
+            for name, data in pairs(ExpressionData) do
+                if data.anim == expression then
+                    expression = name
+                    break
+                end
+            end
         end
+        SetPlayerPedExpression(expression, false)
     end
 
     if Config.PersistentExpression then

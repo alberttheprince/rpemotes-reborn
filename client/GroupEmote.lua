@@ -4,6 +4,13 @@ local groupEmoteOriginCoords = vector3(0)
 local groupEmoteOriginRadius = Config.GroupEmoteDefaultArea
 local groupEmoteEndTime = nil
 
+local function resetGroupEmoteState()
+    groupEmoteReqId = nil
+    groupEmoteAccepted = false
+    groupEmoteOriginCoords = vector3(0)
+    groupEmoteEndTime = nil
+end
+
 RegisterCommand('gemote', function(source, args, raw)
     if not LocalPlayer.state.canEmote then return end
     if IsPedInAnyVehicle(PlayerPedId(), true) then
@@ -76,30 +83,35 @@ function OnGroupEmoteRequest(emotename)
         return
     end
 
+    local emote = EmoteData[emotename]
+    if emote == nil or emote.emoteType == EmoteType.SHARED then
+        SimpleNotify(Translate("notvalidgroupemote"))
+        return
+    end
+
+    if not HasEmotePermission(emotename, emote.emoteType) then
+        EmoteChatMessage("You don't have permission to use this emote")
+        return
+    end
+
     local emoteRadius = setGroupArea(emotename, Config.GroupEmoteDefaultArea)
     if emoteRadius < 0 then return end
 
-    local emote = EmoteData[emotename]
-    if emote ~= nil and emote.type ~= EmoteType.SHARED then
-        local players = {}
-        local originCoords = GetEntityCoords(PlayerPedId())
-        for _,src in pairs(GetActivePlayers()) do
-            local crds = GetEntityCoords(GetPlayerPed(src))
-            if #(originCoords - crds) <= emoteRadius then
-                players[#players+1] = GetPlayerServerId(tonumber(src))
-            end
+    local players = {}
+    local originCoords = GetEntityCoords(PlayerPedId())
+    for _,src in pairs(GetActivePlayers()) do
+        local crds = GetEntityCoords(GetPlayerPed(src))
+        if #(originCoords - crds) <= emoteRadius then
+            players[#players+1] = GetPlayerServerId(tonumber(src))
         end
-        if #players > 0 then
-        else
-            SimpleNotify(Translate('nobodyclose'))
-            return
-        end
-
-        TriggerServerEvent("rpemotes:server:startGroupEmote", emotename, players, emoteRadius)
-        SimpleNotify(Translate("requestedgroupemote", emote.label, #players))
-    else
-        SimpleNotify(Translate("notvalidgroupemote"))
     end
+    if #players == 0 then
+        SimpleNotify(Translate('nobodyclose'))
+        return
+    end
+
+    TriggerServerEvent("rpemotes:server:startGroupEmote", emotename, players, emoteRadius)
+    SimpleNotify(Translate("requestedgroupemote", emote.label, #players))
 end
 
 -- Start countdown timer thread
@@ -132,10 +144,7 @@ AddEventHandler("rpemotes:client:autoCancel", function()
         -- Keep rechecking to make sure the player is still in area.
         local crds = GetEntityCoords(PlayerPedId())
         if #(crds - (groupEmoteOriginCoords or vector3(0))) > groupEmoteOriginRadius then
-            groupEmoteReqId = nil
-            groupEmoteAccepted = false
-            groupEmoteOriginCoords = vector3(0)
-            groupEmoteEndTime = nil
+            resetGroupEmoteState()
             SimpleNotify(Translate('canceledgroupemote'))
         end
 
@@ -146,9 +155,10 @@ end)
 RegisterNetEvent("rpemotes:client:requestGroupEmote", function(emotename, reqid, requestor, zone)
     if groupEmoteReqId then return end
 
-    local isRequestAnim = true
-
     local emote = EmoteData[emotename]
+    if not emote then return end
+
+    local isRequestAnim = true
     PlaySound(-1, "NAV", "HUD_AMMO_SHOP_SOUNDSET", false, 0, true)
     SimpleNotify(Translate('doyouwanna') .. emote.label .. "~w~)")
     -- The player has Config.GroupEmoteCountdownTime seconds to accept the request
@@ -182,10 +192,7 @@ RegisterNetEvent("rpemotes:client:requestGroupEmote", function(emotename, reqid,
                     SetTimeout((Config.GroupEmoteCountdownTime + 5) * 1000, function()
                         -- If state hasn't been cleared by rpemotes:client:doGroupEmote, clear it now
                         if groupEmoteReqId == reqid and groupEmoteAccepted then
-                            groupEmoteReqId = nil
-                            groupEmoteAccepted = false
-                            groupEmoteOriginCoords = vector3(0)
-                            groupEmoteEndTime = nil
+                            resetGroupEmoteState()
                         end
                     end)
                 end
@@ -208,9 +215,6 @@ RegisterNetEvent("rpemotes:client:requestGroupEmote", function(emotename, reqid,
 end)
 
 RegisterNetEvent("rpemotes:client:doGroupEmote", function(emotename)
-    -- Clear group emote state
-    groupEmoteReqId = nil
-    groupEmoteAccepted = false
-    groupEmoteEndTime = nil
+    resetGroupEmoteState()
     OnEmotePlay(emotename, nil)
 end)

@@ -28,14 +28,8 @@ local function PointingStopped()
     end
     RemoveAnimDict("anim@mp_point")
     if Config.ReplayEmoteAfterPointing and IsInAnimation then
-        local emote = EmoteData[CurrentAnimationName]
-        if not emote then
-            return
-        end
-
         Wait(400)
-        DestroyAllProps()
-        OnEmotePlay(CurrentAnimationName, CurrentTextureVariation)
+        ReplayCurrentEmote()
     end
 end
 

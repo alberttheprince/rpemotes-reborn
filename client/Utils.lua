@@ -91,8 +91,8 @@ function FirstToUpper(str)
 end
 
 function IsPlayerAiming(player)
-    return (IsPlayerFreeAiming(player) or IsAimCamActive() or IsAimCamThirdPersonActive()) and
-    tonumber(GetSelectedPedWeapon(player)) ~= tonumber(GetHashKey("WEAPON_UNARMED"))
+    return (IsPlayerFreeAiming(player) or IsAimCamActive() or IsAimCamThirdPersonActive())
+        and GetSelectedPedWeapon(GetPlayerPed(player)) ~= `WEAPON_UNARMED`
 end
 
 function IsPedBusy(playerPed)
@@ -128,6 +128,14 @@ function ChangeHeadingSmooth(playerPed, amount, time)
         Wait(wait)
         SetEntityHeading(playerPed, GetEntityHeading(playerPed) + test)
     end
+end
+
+function EmoteErrorMessage(msg)
+    TriggerEvent('chat:addMessage', {
+        color = { 255, 0, 0 },
+        multiline = true,
+        args = { "RPEmotes", msg }
+    })
 end
 
 function EmoteChatMessage(msg, multiline)
@@ -219,20 +227,17 @@ function NearbysOnCommand(source, args, raw)
 end
 
 function GetClosestPlayer()
-    local players = GetPlayers()
     local closestDistance = -1
     local closestPlayer
     local ped = PlayerPedId()
-    local pedCoords = GetEntityCoords(ped, false)
+    local pedCoords = GetEntityCoords(ped)
 
-    for index, value in ipairs(players) do
-        local target = GetPlayerPed(value)
+    for _, player in ipairs(GetPlayers()) do
+        local target = GetPlayerPed(player)
         if target ~= ped then
-            local targetCoords = GetEntityCoords(GetPlayerPed(value), false)
-            local distance = GetDistanceBetweenCoords(targetCoords["x"], targetCoords["y"], targetCoords["z"],
-                pedCoords["x"], pedCoords["y"], pedCoords["z"], true)
-            if (closestDistance == -1 or closestDistance > distance) then
-                closestPlayer = value
+            local distance = #(GetEntityCoords(target) - pedCoords)
+            if closestDistance == -1 or distance < closestDistance then
+                closestPlayer = player
                 closestDistance = distance
             end
         end
@@ -543,6 +548,12 @@ AddStateBagChangeHandler('rpemotes:props', nil, function(bagName, key, value, re
     end
 
     if type(value) == "table" and value.Emote ~= nil then
+        local emoteData = value.emoteType == EmoteType.SHARED and SharedEmoteData[value.Emote] or EmoteData[value.Emote]
+        if not emoteData or not emoteData.AnimationOptions or not emoteData.AnimationOptions.Prop then
+            DebugPrint("rpemotes:props statebag: no prop emote named", value.Emote)
+            return
+        end
+
         if not ServerProps[ped] then ServerProps[ped] = {} end
         -- Overly cautious? Maybe.
         local gameTime = GetGameTimer()
@@ -552,7 +563,6 @@ AddStateBagChangeHandler('rpemotes:props', nil, function(bagName, key, value, re
             Wait(0)
         end
         DebugPrint("time to finish loading ped (ms)", GetGameTimer() - gameTime)
-        local emoteData = value.emoteType == EmoteType.SHARED and SharedEmoteData[value.Emote] or EmoteData[value.Emote]
         addProps(emoteData.AnimationOptions, value.TextureVariation or nil, -1, ply)
     end
 end)

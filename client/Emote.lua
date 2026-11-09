@@ -4,6 +4,7 @@ local oneSyncEnabled = GetConvar("rpemotes:onesync", "false") == "true"
 IsInAnimation = false
 CurrentAnimationName = nil
 CurrentTextureVariation = nil
+CurrentEmoteType = nil
 InHandsup = false
 CONVERTED = false
 LastEmote = {
@@ -112,7 +113,7 @@ local function runAnimationThread()
 
             if IsInAnimation then
                 sleep = 0
-                if IsPlayerAiming(pPed) then
+                if IsPlayerAiming(PlayerId()) then
                     EmoteCancel()
                 end
                 if not Config.AllowPunchingDuringEmote then
@@ -385,38 +386,32 @@ end
 ---@param playerId? integer
 ---@param skipWait? boolean Skip the EmoteDuration wait (used for preview peds)
 function addProps(animOption, textureVariation, ped, playerId, skipWait)
-    PropPl1, PropPl2, PropPl3, PropPl4, PropPl5, PropPl6 = table.unpack(animOption.PropPlacement)
-
     if not skipWait then
         Wait(animOption and animOption.EmoteDuration or 0)
     end
 
-    if not addProp({
-        prop1 = animOption.Prop,
-        bone = animOption.PropBone,
-        off1 = PropPl1, off2 = PropPl2, off3 = PropPl3,
-        rot1 = PropPl4, rot2 = PropPl5, rot3 = PropPl6,
-        textureVariation = textureVariation,
-        ped = ped,
-        noCollision = animOption.PropNoCollision,
-        playerId = playerId
-    }) then return end
-
-    if animOption.SecondProp then
-        SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6 = table.unpack(animOption.SecondPropPlacement)
-        if not addProp({
-            prop1 = animOption.SecondProp,
-            bone = animOption.SecondPropBone,
-            off1 = SecondPropPl1, off2 = SecondPropPl2, off3 = SecondPropPl3,
-            rot1 = SecondPropPl4, rot2 = SecondPropPl5, rot3 = SecondPropPl6,
+    local function attach(prop, bone, placement, noCollision)
+        local off1, off2, off3, rot1, rot2, rot3 = table.unpack(placement)
+        return addProp({
+            prop1 = prop,
+            bone = bone,
+            off1 = off1, off2 = off2, off3 = off3,
+            rot1 = rot1, rot2 = rot2, rot3 = rot3,
             textureVariation = textureVariation,
             ped = ped,
-            noCollision = animOption.SecondPropNoCollision,
+            noCollision = noCollision,
             playerId = playerId
-        }) then
-            DestroyAllProps()
-            return
-        end
+        })
+    end
+
+    if not attach(animOption.Prop, animOption.PropBone, animOption.PropPlacement, animOption.PropNoCollision) then
+        return
+    end
+
+    if animOption.SecondProp
+        and not attach(animOption.SecondProp, animOption.SecondPropBone, animOption.SecondPropPlacement, animOption.SecondPropNoCollision)
+    then
+        DestroyAllProps()
     end
 end
 
@@ -513,19 +508,11 @@ end
 function EmoteCommandStart(args)
     if #args <= 0 then return end
     if IsPedBusy(PlayerPedId()) then
-        TriggerEvent('chat:addMessage', {
-            color = { 255, 0, 0 },
-            multiline = true,
-            args = { "RPEmotes", Translate('dead') }
-        })
+        EmoteErrorMessage(Translate('dead'))
         return
     end
     if (IsPedSwimming(PlayerPedId()) or IsPedSwimmingUnderWater(PlayerPedId())) and not Config.AllowInWater then
-        TriggerEvent('chat:addMessage', {
-            color = { 255, 0, 0 },
-            multiline = true,
-            args = { "RPEmotes", Translate('swimming') }
-        })
+        EmoteErrorMessage(Translate('swimming'))
         return
     end
     local name = string.lower(args[1])
@@ -626,50 +613,47 @@ local function playExitAndEnterEmote(name, textureVariation, emoteType)
     CancelSharedEmote()
     DestroyAllProps()
 
-    if CurrentAnimOptions and CurrentAnimOptions.ExitEmote then
-        local options = CurrentAnimOptions
-
-        if not EmoteData[options.ExitEmote] then
-            DebugPrint("Exit emote was invalid")
-            ClearPedTasks(ped)
-            IsInAnimation = false
-            ExitAndPlay = false
-            OnEmotePlay(name, textureVariation, emoteType)
-            return
-        end
-
-        -- Clean up placement BEFORE exit emote so it doesn't get floating flags
-        if GetPlacementState() == PlacementState.IN_ANIMATION then
-            CleanUpPlacement(ped)
-        end
-
-        OnEmotePlay(options.ExitEmote)
-        DebugPrint("Playing exit animation")
-
-        local animationOptions = EmoteData[options.ExitEmote].AnimationOptions
-        if animationOptions and animationOptions.EmoteDuration then
-            InExitEmote = true
-            SetTimeout(animationOptions.EmoteDuration, function()
-                InExitEmote = false
-                ClearPedTasks(ped)
-                OnEmotePlay(name, textureVariation, emoteType)
-                ExitAndPlay = false
-            end)
-            return
-        else
-            -- Exit emote has no duration, skip it and play new emote directly
-            ClearPedTasks(ped)
-            IsInAnimation = false
-            ExitAndPlay = false
-            OnEmotePlay(name, textureVariation, emoteType)
-            return
-        end
-    else
+    local function playNextEmote()
         ClearPedTasks(ped)
         IsInAnimation = false
         ExitAndPlay = false
         OnEmotePlay(name, textureVariation, emoteType)
     end
+
+    local exitEmote = CurrentAnimOptions and CurrentAnimOptions.ExitEmote
+    if not exitEmote then
+        playNextEmote()
+        return
+    end
+
+    if not EmoteData[exitEmote] then
+        DebugPrint("Exit emote was invalid")
+        playNextEmote()
+        return
+    end
+
+    -- Clean up placement BEFORE exit emote so it doesn't get floating flags
+    if GetPlacementState() == PlacementState.IN_ANIMATION then
+        CleanUpPlacement(ped)
+    end
+
+    OnEmotePlay(exitEmote)
+    DebugPrint("Playing exit animation")
+
+    local animationOptions = EmoteData[exitEmote].AnimationOptions
+    if not (animationOptions and animationOptions.EmoteDuration) then
+        -- Exit emote has no duration, skip it and play new emote directly
+        playNextEmote()
+        return
+    end
+
+    InExitEmote = true
+    SetTimeout(animationOptions.EmoteDuration, function()
+        InExitEmote = false
+        ClearPedTasks(ped)
+        OnEmotePlay(name, textureVariation, emoteType)
+        ExitAndPlay = false
+    end)
 end
 
 local function playScenario(emoteData)
@@ -706,11 +690,7 @@ function OnEmotePlay(name, textureVariation, emoteType)
     end
 
     if IsPedBusy(PlayerPedId()) then
-        TriggerEvent('chat:addMessage', {
-            color = { 255, 0, 0 },
-            multiline = true,
-            args = { "RPEmotes", Translate('dead') }
-        })
+        EmoteErrorMessage(Translate('dead'))
         return
     end
 
@@ -784,6 +764,7 @@ function OnEmotePlay(name, textureVariation, emoteType)
     CurrentAnimationName = name
     SetCurrentEmoteState(name)
     CurrentTextureVariation = textureVariation
+    CurrentEmoteType = emoteType
     CurrentAnimOptions = animOption
 
     if Config.DisarmPlayerOnEmote then
@@ -828,12 +809,12 @@ function OnEmotePlay(name, textureVariation, emoteType)
 
     if animOption then
         if animOption.PtfxAsset then
-            Ptfx1, Ptfx2, Ptfx3, Ptfx4, Ptfx5, Ptfx6, PtfxScale = table.unpack(animOption.PtfxPlacement)
+            local offX, offY, offZ, rotX, rotY, rotZ, scale = table.unpack(animOption.PtfxPlacement)
             PtfxNotif = false
             PtfxPrompt = true
             runAnimationThread()
-            TriggerServerEvent("rpemotes:ptfx:sync", animOption.PtfxAsset, animOption.PtfxName, vector3(Ptfx1, Ptfx2, Ptfx3),
-                vector3(Ptfx4, Ptfx5, Ptfx6), animOption.PtfxBone, PtfxScale, animOption.PtfxColor)
+            TriggerServerEvent("rpemotes:ptfx:sync", animOption.PtfxAsset, animOption.PtfxName, vector3(offX, offY, offZ),
+                vector3(rotX, rotY, rotZ), animOption.PtfxBone, scale, animOption.PtfxColor)
         else
             PtfxPrompt = false
         end
@@ -917,6 +898,12 @@ CreateExport('IsAnimalEmoteCompatible', function(model, emoteName)
     return IsModelCompatible(model, emoteName)
 end)
 
+function ReplayCurrentEmote()
+    if not CurrentAnimationName then return end
+    DestroyAllProps()
+    OnEmotePlay(CurrentAnimationName, CurrentTextureVariation, CurrentEmoteType)
+end
+
 -- Door stuff
 local openingDoor = false
 AddEventHandler('CEventOpenDoor', function(unk1)
@@ -938,8 +925,7 @@ AddEventHandler('CEventOpenDoor', function(unk1)
     Wait(200)
 
     ClearPedTasks(PlayerPedId())
-    DestroyAllProps()
-    OnEmotePlay(CurrentAnimationName, CurrentTextureVariation)
+    ReplayCurrentEmote()
 end)
 
 
@@ -959,12 +945,12 @@ local function recoverLostAnimation()
         Wait(100)
         pedBumpTimeout = pedBumpTimeout - 100
     end
+    isBumpingPed = false
 
     if not IsInAnimation then
         DebugPrint("Can't recover! Not in an animation!")
         return
     end
-    isBumpingPed = false
 
     -- Check for Scripted Animation tasks.
     -- See https://docs.fivem.net/natives/?_0xB0760331C7AA4155 for a list of tasks. Check types.lua for the enum.
@@ -975,8 +961,7 @@ local function recoverLostAnimation()
     DebugPrint("Recovering anim!")
     ClearPedTasks(pPed)
     Wait(125)
-    DestroyAllProps()
-    OnEmotePlay(CurrentAnimationName, CurrentTextureVariation)
+    ReplayCurrentEmote()
 end
 
 AddEventHandler("CEventPlayerCollisionWithPed", function(unk1)

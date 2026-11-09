@@ -8,41 +8,47 @@ local emoteCache = {
     [EmoteType.WALKS] = {},
 }
 
+---@type table<EmoteType, table<string, boolean>>
+local propEmoteCache = {
+    [EmoteType.EMOTES] = {},
+    [EmoteType.SHARED] = {},
+}
+
+---@type table<string, string>
+local sharedPartnerEmote = {}
+
+---@type table<string, table<string, boolean>>
+local ptfxCache = {}
+
+---Runs a client animation list file and returns the table it builds.
+---@param fileName string
+---@param varName string the global (or local) table the file fills
+---@return table?, string?
+local function loadAnimationList(fileName, varName)
+    local content = LoadResourceFile(GetCurrentResourceName(), fileName)
+    if not content then return nil, "file not found" end
+
+    local chunk, err = load(content .. " return " .. varName)
+    if not chunk then return nil, err end
+
+    local ok, result = pcall(chunk)
+    if not ok then return nil, result end
+    return result
+end
+
 -- Load and cache animation lists on startup
 local function loadAndCacheEmotes()
     print("^3[rpemotes] Loading and caching emote data...^0")
 
-    -- Load AnimationList.lua
-    local animationFile = LoadResourceFile(GetCurrentResourceName(), "client/AnimationList.lua")
-    if not animationFile then
-        print("^1[rpemotes] Failed to load AnimationList.lua^0")
+    local RP, err = loadAnimationList("client/AnimationList.lua", "RP")
+    if not RP then
+        print("^1[rpemotes] Failed to load AnimationList.lua: " .. tostring(err) .. "^0")
         return false
     end
 
-    local f, err = load(animationFile .. " return RP")
-    if err then
-        print("^1[rpemotes] Error loading AnimationList.lua: " .. tostring(err) .. "^0")
-        return false
-    end
-
-    local success, RP = pcall(f)
-    if not success then
-        print("^1[rpemotes] Error parsing AnimationList.lua: " .. tostring(RP) .. "^0")
-        return false
-    end
-
-    -- Load AnimationListCustom.lua
-    local CustomDP
-    local customFile = LoadResourceFile(GetCurrentResourceName(), "client/AnimationListCustom.lua")
-    if customFile then
-        local customFunc, customErr = load(customFile .. " return CustomDP")
-        if not customErr then
-            local customSuccess, result = pcall(customFunc)
-            if customSuccess and result then
-                CustomDP = result
-                print("^2[rpemotes] Loaded custom emotes^0")
-            end
-        end
+    local CustomDP = loadAnimationList("client/AnimationListCustom.lua", "CustomDP")
+    if CustomDP then
+        print("^2[rpemotes] Loaded custom emotes^0")
     end
 
     -- Cache emote names by ACE category
@@ -57,9 +63,26 @@ local function loadAndCacheEmotes()
         for emoteType, emoteList in pairs(emoteTable) do
             local aceCategory = AceCategoryFromEmoteType[emoteType]
             if aceCategory and type(emoteList) == "table" then
-                for emoteName in pairs(emoteList) do
+                for emoteName, emoteData in pairs(emoteList) do
                     emoteCache[aceCategory][emoteName] = true
                     counts[aceCategory] += 1
+
+                    if type(emoteData) == "table" then
+                        if aceCategory == EmoteType.SHARED then
+                            sharedPartnerEmote[emoteName] = emoteData[4] or emoteName
+                        end
+
+                        local options = emoteData.AnimationOptions
+                        if type(options) == "table" then
+                            if options.Prop and propEmoteCache[aceCategory] then
+                                propEmoteCache[aceCategory][emoteName] = true
+                            end
+                            if type(options.PtfxAsset) == "string" and type(options.PtfxName) == "string" then
+                                ptfxCache[options.PtfxAsset] = ptfxCache[options.PtfxAsset] or {}
+                                ptfxCache[options.PtfxAsset][options.PtfxName] = true
+                            end
+                        end
+                    end
                 end
             end
         end
@@ -129,45 +152,119 @@ local function hasEmotePermission(source, emoteName, emoteType)
     return false
 end
 
+ServerHasEmotePermission = hasEmotePermission
+
+function ServerEmoteExists(emoteName, emoteType)
+    local aceCategory = AceCategoryFromEmoteType[emoteType]
+    return type(emoteName) == "string" and aceCategory ~= nil and emoteCache[aceCategory] ~= nil
+        and emoteCache[aceCategory][emoteName] == true
+end
+
+local SHARED_REQUEST_TIMEOUT_MS = 12000
+local SHARED_EMOTE_MAX_DISTANCE = 3.0
+
+-- pendingSharedRequests[targetSrc] = { requester = src, emote = name, expires = ms }
+local pendingSharedRequests = {}
+
+local function getPlayerPedIfValid(playerId)
+    if type(playerId) ~= "number" or GetPlayerPing(playerId) == 0 then return nil end
+    local ped = GetPlayerPed(playerId)
+    if ped == 0 or not DoesEntityExist(ped) then return nil end
+    return ped
+end
+
+local function arePlayersClose(a, b)
+    local pedA, pedB = getPlayerPedIfValid(a), getPlayerPedIfValid(b)
+    if not pedA or not pedB then return false end
+    return #(GetEntityCoords(pedA) - GetEntityCoords(pedB)) <= SHARED_EMOTE_MAX_DISTANCE
+end
 
 RegisterNetEvent("rpemotes:server:requestEmote", function(target, emotename)
     local source = source
     if not Player(source).state.canEmote then return end
-
-    if target == -1 then return end
-
-    local distance = #(GetEntityCoords(GetPlayerPed(source)) - GetEntityCoords(GetPlayerPed(target)))
-
-    if distance > 3 then return end
+    if target == source then return end
+    if not ServerEmoteExists(emotename, EmoteType.SHARED) then return end
+    if not arePlayersClose(source, target) then return end
 
     -- Check ACE permission for shared emote (only requestor needs permission)
     if not hasEmotePermission(source, emotename, EmoteType.SHARED) then return end
 
+    local pending = pendingSharedRequests[target]
+    if pending and pending.expires > GetGameTimer() then return end
+
+    pendingSharedRequests[target] = {
+        requester = source,
+        emote = emotename,
+        expires = GetGameTimer() + SHARED_REQUEST_TIMEOUT_MS,
+    }
+
     TriggerClientEvent("rpemotes:client:requestEmote", target, emotename, source)
 end)
 
-RegisterNetEvent("rpemotes:server:confirmEmote", function(target, requestedemote, otheremote)
+RegisterNetEvent("rpemotes:server:refuseEmote", function()
+    pendingSharedRequests[source] = nil
+end)
+
+RegisterNetEvent("rpemotes:server:confirmEmote", function(target, requestedemote)
     local source = source
 
-    if target == -1 then return end
+    local pending = pendingSharedRequests[source]
+    pendingSharedRequests[source] = nil
 
-    local distance = #(GetEntityCoords(GetPlayerPed(source)) - GetEntityCoords(GetPlayerPed(target)))
+    if not pending
+        or pending.requester ~= target
+        or pending.emote ~= requestedemote
+        or pending.expires < GetGameTimer()
+    then return end
 
-    if distance > 3 then return end
+    if not Player(source).state.canEmote or not Player(target).state.canEmote then return end
+    if not arePlayersClose(source, target) then return end
+
+    local otheremote = sharedPartnerEmote[requestedemote] or requestedemote
 
     TriggerClientEvent("rpemotes:client:syncEmote", source, otheremote, target)
     TriggerClientEvent("rpemotes:client:syncEmoteSource", target, requestedemote, source)
+end)
+
+AddEventHandler("playerDropped", function()
+    local source = source
+    pendingSharedRequests[source] = nil
+    for target, pending in pairs(pendingSharedRequests) do
+        if pending.requester == source then
+            pendingSharedRequests[target] = nil
+        end
+    end
 end)
 
 RegisterNetEvent("rpemotes:server:cancelEmote", function(target)
     TriggerClientEvent("rpemotes:client:cancelEmote", target, source)
 end)
 
+local function isValidPtfxColor(color)
+    return type(color) == "table"
+        and type(color.R) == "number" and type(color.G) == "number"
+        and type(color.B) == "number" and type(color.A) == "number"
+end
+
+local function isValidPtfxColorList(color)
+    if color == nil then return true end
+    if isValidPtfxColor(color) then return true end
+    if type(color) ~= "table" or #color == 0 then return false end
+    for _, entry in ipairs(color) do
+        if not isValidPtfxColor(entry) then return false end
+    end
+    return true
+end
+
+local PTFX_MAX_SCALE = 5.0
+
 RegisterNetEvent("rpemotes:ptfx:sync", function(asset, name, offset, rot, bone, scale, color)
-    assert(type(asset) == "string", "[rpemotes] ptfx:sync: invalid asset for source: " .. tostring(source))
-    assert(type(name) == "string", "[rpemotes] ptfx:sync: invalid name for source: " .. tostring(source))
-    assert(type(offset) == "vector3", "[rpemotes] ptfx:sync: invalid offset for source: " .. tostring(source))
-    assert(type(rot) == "vector3", "[rpemotes] ptfx:sync: invalid rot for source: " .. tostring(source))
+    if type(asset) ~= "string" or type(name) ~= "string" then return end
+    if not ptfxCache[asset] or not ptfxCache[asset][name] then return end
+    if type(offset) ~= "vector3" or type(rot) ~= "vector3" then return end
+    if bone ~= nil and type(bone) ~= "number" then return end
+    if scale ~= nil and (type(scale) ~= "number" or scale <= 0 or scale > PTFX_MAX_SCALE) then return end
+    if not isValidPtfxColorList(color) then return end
 
     local state = Player(source).state
 
@@ -204,23 +301,35 @@ local clientStateValidators = {
     currentEmote = function(value)
         return value == nil or type(value) == "string"
     end,
-    ptfx = function(value)
-        return value == nil or value == true
+    ptfx = function(value, source)
+        if value == nil then return true end
+        if value ~= true then return false end
+
+        local state = Player(source).state
+        local asset, name = state.ptfxAsset, state.ptfxName
+        return type(asset) == "string" and type(name) == "string"
+            and ptfxCache[asset] ~= nil and ptfxCache[asset][name] == true
+            and state.ptfxOffset ~= nil and state.ptfxRot ~= nil
     end,
     ptfxPropId = function(value)
         return value == nil or value == 1 or value == 2
     end,
-    ["rpemotes:props"] = function(value)
-        return type(value) == "table"
-            and (value.Emote == nil or type(value.Emote) == "string")
-            and (value.TextureVariation == nil or type(value.TextureVariation) == "number")
-            and (value.emoteType == nil or type(value.emoteType) == "string")
+    ["rpemotes:props"] = function(value, source)
+        if type(value) ~= "table" then return false end
+        if value.TextureVariation ~= nil and type(value.TextureVariation) ~= "number" then return false end
+        if value.emoteType ~= nil and type(value.emoteType) ~= "string" then return false end
+        if value.Emote == nil then return true end
+        if type(value.Emote) ~= "string" then return false end
+
+        local category = value.emoteType == EmoteType.SHARED and EmoteType.SHARED or EmoteType.EMOTES
+        return propEmoteCache[category][value.Emote] == true
+            and hasEmotePermission(source, value.Emote, category)
     end,
 }
 
 RegisterNetEvent("rpemotes:server:setState", function(key, value)
     local validator = clientStateValidators[key]
-    if not validator or not validator(value) then return end
+    if not validator or not validator(value, source) then return end
 
     if key == "rpemotes:props" then
         value = { Emote = value.Emote, TextureVariation = value.TextureVariation, emoteType = value.emoteType }
@@ -257,14 +366,8 @@ local function ExtractEmoteProps(format)
         return
     end
 
-    local animationFile = LoadResourceFile(GetCurrentResourceName(), "client/AnimationList.lua")
-    if not animationFile then return nil end
-
-    local f, err = load(animationFile .. " return RP")
-    if err then return nil end
-
-    local success, res = pcall(f)
-    if not success then return nil end
+    local res = loadAnimationList("client/AnimationList.lua", "RP")
+    if not res then return nil end
 
     if format == 4 then
         local emoteTypes = { EmoteType.SHARED, EmoteType.DANCES, EmoteType.ANIMAL_EMOTES, EmoteType.EMOTES, EmoteType.PROP_EMOTES, EmoteType.EXPRESSIONS, EmoteType.WALKS }

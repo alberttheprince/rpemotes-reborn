@@ -74,14 +74,8 @@ if Config.HandsupEnabled then
             SetCurrentEmoteState(nil)
             ClearPedTasks(PlayerPedId())
             if Config.ReplayEmoteAfterHandsup and IsInAnimation then
-                local emote = EmoteData[CurrentAnimationName]
-                if not emote then
-                    return
-                end
-
                 Wait(400)
-                DestroyAllProps()
-                OnEmotePlay(CurrentAnimationName, CurrentTextureVariation)
+                ReplayCurrentEmote()
             end
         end
     end

@@ -25,15 +25,9 @@ RegisterNetEvent('rpemotes:server:shareEmoji', function(emoji)
 
     emojiCooldowns[source] = GetGameTimer() + Config.EmojiCooldownMs
 
-    if not playerEmojiCounts[source] then
-        playerEmojiCounts[source] = 0
-    end
-
-    if playerEmojiCounts[source] >= Config.MaxEmojisPerPlayer then
-        return
-    end
-
-    playerEmojiCounts[source] = playerEmojiCounts[source] + 1
+    local count = playerEmojiCounts[source] or 0
+    if count >= Config.MaxEmojisPerPlayer then return end
+    playerEmojiCounts[source] = count + 1
 
     local ped = GetPlayerPed(source)
     local coords = GetEntityCoords(ped)
@@ -52,11 +46,6 @@ RegisterNetEvent('rpemotes:server:shareEmoji', function(emoji)
 end)
 
 AddEventHandler('playerDropped', function()
-    local source = source
-    if emojiCooldowns[source] then
-        emojiCooldowns[source] = nil
-    end
-    if playerEmojiCounts[source] then
-        playerEmojiCounts[source] = nil
-    end
+    emojiCooldowns[source] = nil
+    playerEmojiCounts[source] = nil
 end)
